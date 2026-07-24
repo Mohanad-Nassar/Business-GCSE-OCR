@@ -368,6 +368,18 @@ async function loadQueue() {
   renderQuestion();
 }
 
+// Seeded per-question option shuffle (mirrors script.js's _shuffledIndices).
+// Stable per question; data-oi / the radio value keep the ORIGINAL index, so
+// server grading and the data-oi-keyed reveal are unchanged.
+function _drHash(s) { let h = 2166136261 >>> 0; s = String(s); for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); } return h >>> 0; }
+function drPerm(n, seedStr) {
+  const idx = Array.from({ length: n }, (_, i) => i);
+  let seed = _drHash(seedStr) || 1;
+  const rnd = () => { seed = (seed + 0x6D2B79F5) | 0; let t = Math.imul(seed ^ seed >>> 15, 1 | seed); t = (t + Math.imul(t ^ t >>> 7, 61 | t)) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; };
+  for (let i = n - 1; i > 0; i--) { const j = Math.floor(rnd() * (i + 1)); const t = idx[i]; idx[i] = idx[j]; idx[j] = t; }
+  return idx;
+}
+
 function renderQuestion() {
   const q = queue[qIdx];
   const snap = q.snapshot;
@@ -377,9 +389,14 @@ function renderQuestion() {
 
   let inputHtml = '';
   if (q.qtype === 'mcq') {
-    inputHtml = `<div id="drOpts">${(snap.options || []).map((o, oi) => `
+    // Display options in a seeded shuffled order so the correct answer is not
+    // always in its authored slot. data-oi and the radio value keep the
+    // ORIGINAL index, so the submitted answer and the reveal (which keys on
+    // data-oi) are unchanged — only the display order differs.
+    const _drOrder = drPerm((snap.options || []).length, String(snap.question || '') + '|' + String(snap.options || []));
+    inputHtml = `<div id="drOpts">${_drOrder.map((oi) => `
       <label class="opt" data-oi="${oi}">
-        <input type="radio" name="drOpt" value="${oi}"/> ${esc(o)}
+        <input type="radio" name="drOpt" value="${oi}"/> ${esc(snap.options[oi])}
       </label>`).join('')}</div>`;
   } else if (q.qtype === 'tf') {
     inputHtml = `<div id="drOpts">
@@ -543,8 +560,10 @@ function applyFeedback(q, result) {
   if (barEl) barEl.outerHTML = drBarHtml(q.mastery_count);
 
   if (q.qtype === 'mcq') {
-    document.querySelectorAll('.opt').forEach((el, oi) => {
+    document.querySelectorAll('.opt').forEach((el) => {
       el.classList.add('disabled');
+      // Key on data-oi (ORIGINAL index), not DOM position — options are shuffled.
+      const oi = +el.dataset.oi;
       if (oi === answerKey.answer) el.classList.add('correct');
       else if (el.classList.contains('selected') && !correct) el.classList.add('wrong');
     });

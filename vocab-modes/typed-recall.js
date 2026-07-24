@@ -18,7 +18,7 @@
     const s = document.createElement('style');
     s.id = 'vlTrStyles';
     s.textContent = `
-      .vl-tr-dirrow { display:flex; justify-content:center; gap:8px; margin-bottom:16px; }
+      .vl-tr-dirrow { display:flex; flex-wrap:wrap; justify-content:center; gap:8px; margin-bottom:16px; }
       .vl-tr-prompt { text-align:center; padding:24px; }
       .vl-tr-word { font-family:'Playfair Display',serif; font-weight:700; font-size:26px; color:var(--ink); margin-bottom:4px; }
       .vl-tr-say { border:1px solid var(--border); background:var(--card-bg); border-radius:999px; padding:2px 10px; font-size:13px; cursor:pointer; }
@@ -94,6 +94,7 @@
       if (dir === 'es-en') area.querySelector('#vlTrSay').addEventListener('click', () => ctx.ui.speak(w.say));
       const input = area.querySelector('#vlTrInput');
       const feedback = area.querySelector('#vlTrFeedback');
+      if (dir === 'en-es') ctx.ui.attachAccentBar(input); // only when the student types Spanish
       input.focus();
       // Both a tappable Submit button AND the Enter key work — a phone's
       // on-screen keyboard has no physical Enter key, and not every mobile

@@ -73,6 +73,20 @@
     return n;
   }
 
+  // Deterministic per-question option shuffle (mirrors script.js's
+  // _shuffledIndices): returns a permutation of [0..n-1] seeded by the
+  // question, so the correct MCQ option is not always in its authored slot.
+  // Stable per question (no re-jumble on re-render); the button's data-oi
+  // keeps the ORIGINAL option index, so grading/persistence are unchanged.
+  function _mxHash(s) { let h = 2166136261 >>> 0; s = String(s); for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); } return h >>> 0; }
+  function mxPerm(n, seedStr) {
+    const idx = Array.from({ length: n }, (_, i) => i);
+    let seed = _mxHash(seedStr) || 1;
+    const rnd = () => { seed = (seed + 0x6D2B79F5) | 0; let t = Math.imul(seed ^ seed >>> 15, 1 | seed); t = (t + Math.imul(t ^ t >>> 7, 61 | t)) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; };
+    for (let i = n - 1; i > 0; i--) { const j = Math.floor(rnd() * (i + 1)); const tmp = idx[i]; idx[i] = idx[j]; idx[j] = tmp; }
+    return idx;
+  }
+
   function getPapers() { return window.MOCK_PAPERS || {}; }
 
   function safeParse(json, fallback) {
@@ -397,12 +411,15 @@ ${q.modelAnswer ? '<div class="marks-section"><h5>✓ Model Answer</h5><div clas
     const { gi, q } = entry;
     answerSlot.className = 'ep-mcq-opts';
     answerSlot.id = 'mxMcq-' + gi;
-    (q.options || []).forEach((opt, oi) => {
+    // Append options in a seeded shuffled order; the letter (A/B/C…) follows
+    // the DISPLAY position, but data-oi keeps the ORIGINAL index so grading,
+    // persistence and colouring (all keyed on data-oi / q.answer) are unchanged.
+    mxPerm((q.options || []).length, String(q.num || gi) + '|' + String(q.question || '').slice(0, 80)).forEach((oi, displayPos) => {
       const b = document.createElement('button');
       b.type = 'button';
       b.className = 'ep-opt';
       b.dataset.oi = String(oi);
-      b.innerHTML = '<strong>' + String.fromCharCode(65 + oi) + '.</strong> ' + opt;
+      b.innerHTML = '<strong>' + String.fromCharCode(65 + displayPos) + '.</strong> ' + q.options[oi];
       answerSlot.appendChild(b);
     });
 
@@ -438,8 +455,13 @@ ${q.modelAnswer ? '<div class="marks-section"><h5>✓ Model Answer</h5><div clas
   function colorMcqOptions(answerSlot, chosen, correctIdx) {
     const opts = answerSlot.querySelectorAll('.ep-opt');
     opts.forEach(o => { o.disabled = true; o.classList.remove('mx-opt-selected'); });
-    if (chosen != null && opts[chosen]) opts[chosen].classList.add(chosen === correctIdx ? 'ep-correct' : 'ep-wrong');
-    if (chosen !== correctIdx && opts[correctIdx]) opts[correctIdx].classList.add('ep-correct');
+    // Look options up by data-oi (ORIGINAL index), not DOM position — the
+    // display order is shuffled, so opts[i] is no longer option i.
+    const byOi = (oi) => answerSlot.querySelector('.ep-opt[data-oi="' + oi + '"]');
+    const chosenBtn = chosen != null ? byOi(chosen) : null;
+    const correctBtn = byOi(correctIdx);
+    if (chosenBtn) chosenBtn.classList.add(chosen === correctIdx ? 'ep-correct' : 'ep-wrong');
+    if (chosen !== correctIdx && correctBtn) correctBtn.classList.add('ep-correct');
   }
 
   function gradeMcq(gi, entry) {

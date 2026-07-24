@@ -63,36 +63,31 @@
           "id": "1-2-4-data-storage-numbers",
           "name": "1.2.4 Data Storage: Numbers",
           "sub": "Memory and Storage",
-          "file": "1.2.4-data-storage-numbers.html",
-          "noQuestions": true
+          "file": "1.2.4-data-storage-numbers.html"
         },
         {
           "id": "1-2-5-data-storage-characters",
           "name": "1.2.5 Data Storage: Characters",
           "sub": "Memory and Storage",
-          "file": "1.2.5-data-storage-characters.html",
-          "noQuestions": true
+          "file": "1.2.5-data-storage-characters.html"
         },
         {
           "id": "1-2-6-data-storage-images",
           "name": "1.2.6 Data Storage: Images",
           "sub": "Memory and Storage",
-          "file": "1.2.6-data-storage-images.html",
-          "noQuestions": true
+          "file": "1.2.6-data-storage-images.html"
         },
         {
           "id": "1-2-7-data-storage-sound",
           "name": "1.2.7 Data Storage: Sound",
           "sub": "Memory and Storage",
-          "file": "1.2.7-data-storage-sound.html",
-          "noQuestions": true
+          "file": "1.2.7-data-storage-sound.html"
         },
         {
           "id": "1-2-8-compression",
           "name": "1.2.8 Compression",
           "sub": "Memory and Storage",
-          "file": "1.2.8-compression.html",
-          "noQuestions": true
+          "file": "1.2.8-compression.html"
         }
       ]
     },
@@ -106,15 +101,13 @@
           "id": "1-3-1-networks-and-topologies",
           "name": "1.3.1 Networks and Topologies",
           "sub": "Computer Networks, Connections and Protocols",
-          "file": "1.3.1-networks-and-topologies.html",
-          "noQuestions": true
+          "file": "1.3.1-networks-and-topologies.html"
         },
         {
           "id": "1-3-2-wired-and-wireless-networks-protocols-and-layers",
           "name": "1.3.2 Wired and Wireless Networks, Protocols and Layers",
           "sub": "Computer Networks, Connections and Protocols",
-          "file": "1.3.2-wired-and-wireless-networks-protocols-and-layers.html",
-          "noQuestions": true
+          "file": "1.3.2-wired-and-wireless-networks-protocols-and-layers.html"
         }
       ]
     },
@@ -128,15 +121,13 @@
           "id": "1-4-1-threats-to-computer-systems-and-networks",
           "name": "1.4.1 Threats to Computer Systems and Networks",
           "sub": "Network Security",
-          "file": "1.4.1-threats-to-computer-systems-and-networks.html",
-          "noQuestions": true
+          "file": "1.4.1-threats-to-computer-systems-and-networks.html"
         },
         {
           "id": "1-4-2-identifying-and-preventing-vulnerabilities",
           "name": "1.4.2 Identifying and Preventing Vulnerabilities",
           "sub": "Network Security",
-          "file": "1.4.2-identifying-and-preventing-vulnerabilities.html",
-          "noQuestions": true
+          "file": "1.4.2-identifying-and-preventing-vulnerabilities.html"
         }
       ]
     },
@@ -150,15 +141,13 @@
           "id": "1-5-1-operating-systems",
           "name": "1.5.1 Operating Systems",
           "sub": "Systems Software",
-          "file": "1.5.1-operating-systems.html",
-          "noQuestions": true
+          "file": "1.5.1-operating-systems.html"
         },
         {
           "id": "1-5-2-utility-software",
           "name": "1.5.2 Utility Software",
           "sub": "Systems Software",
-          "file": "1.5.2-utility-software.html",
-          "noQuestions": true
+          "file": "1.5.2-utility-software.html"
         }
       ]
     },
@@ -169,11 +158,22 @@
       "colour": "#1a6b6b",
       "pages": [
         {
-          "id": "1-6-1-ethical-legal-cultural-and-environmental-impact",
-          "name": "1.6.1 Ethical, Legal, Cultural and Environmental Impact",
+          "id": "1-6-1a-impacts-of-digital-technology",
+          "name": "1.6.1a Ethical, Cultural & Environmental Impacts",
           "sub": "Impacts of Digital Technology",
-          "file": "1.6.1-ethical-legal-cultural-and-environmental-impact.html",
-          "noQuestions": true
+          "file": "1.6.1a-impacts-of-digital-technology.html"
+        },
+        {
+          "id": "1-6-1b-legislation",
+          "name": "1.6.1b Legislation",
+          "sub": "Impacts of Digital Technology",
+          "file": "1.6.1b-legislation.html"
+        },
+        {
+          "id": "1-6-1c-software-licensing",
+          "name": "1.6.1c Software Licensing",
+          "sub": "Impacts of Digital Technology",
+          "file": "1.6.1c-software-licensing.html"
         }
       ]
     },
@@ -187,22 +187,19 @@
           "id": "2-1-1-computational-thinking",
           "name": "2.1.1 Computational Thinking",
           "sub": "Algorithms",
-          "file": "2.1.1-computational-thinking.html",
-          "noQuestions": true
+          "file": "2.1.1-computational-thinking.html"
         },
         {
           "id": "2-1-2-designing-creating-and-refining-algorithms",
           "name": "2.1.2 Designing, Creating and Refining Algorithms",
           "sub": "Algorithms",
-          "file": "2.1.2-designing-creating-and-refining-algorithms.html",
-          "noQuestions": true
+          "file": "2.1.2-designing-creating-and-refining-algorithms.html"
         },
         {
           "id": "2-1-3-searching-and-sorting-algorithms",
           "name": "2.1.3 Searching and Sorting Algorithms",
           "sub": "Algorithms",
-          "file": "2.1.3-searching-and-sorting-algorithms.html",
-          "noQuestions": true
+          "file": "2.1.3-searching-and-sorting-algorithms.html"
         }
       ]
     },
@@ -216,22 +213,43 @@
           "id": "2-2-1-programming-fundamentals",
           "name": "2.2.1 Programming Fundamentals",
           "sub": "Programming Fundamentals",
-          "file": "2.2.1-programming-fundamentals.html",
-          "noQuestions": true
+          "file": "2.2.1-programming-fundamentals.html"
         },
         {
           "id": "2-2-2-data-types",
           "name": "2.2.2 Data Types",
           "sub": "Programming Fundamentals",
-          "file": "2.2.2-data-types.html",
-          "noQuestions": true
+          "file": "2.2.2-data-types.html"
         },
         {
-          "id": "2-2-3-additional-programming-techniques",
-          "name": "2.2.3 Additional Programming Techniques",
+          "id": "2-2-3a-string-manipulation",
+          "name": "2.2.3a String Manipulation",
           "sub": "Programming Fundamentals",
-          "file": "2.2.3-additional-programming-techniques.html",
-          "noQuestions": true
+          "file": "2.2.3a-string-manipulation.html"
+        },
+        {
+          "id": "2-2-3b-arrays",
+          "name": "2.2.3b Arrays",
+          "sub": "Programming Fundamentals",
+          "file": "2.2.3b-arrays.html"
+        },
+        {
+          "id": "2-2-3c-file-handling-and-records",
+          "name": "2.2.3c File Handling and Records",
+          "sub": "Programming Fundamentals",
+          "file": "2.2.3c-file-handling-and-records.html"
+        },
+        {
+          "id": "2-2-3d-sql",
+          "name": "2.2.3d SQL",
+          "sub": "Programming Fundamentals",
+          "file": "2.2.3d-sql.html"
+        },
+        {
+          "id": "2-2-3e-subprograms-and-random-numbers",
+          "name": "2.2.3e Sub Programs and Random Numbers",
+          "sub": "Programming Fundamentals",
+          "file": "2.2.3e-subprograms-and-random-numbers.html"
         }
       ]
     },
@@ -245,15 +263,13 @@
           "id": "2-3-1-defensive-design",
           "name": "2.3.1 Defensive Design",
           "sub": "Producing Robust Programs",
-          "file": "2.3.1-defensive-design.html",
-          "noQuestions": true
+          "file": "2.3.1-defensive-design.html"
         },
         {
           "id": "2-3-2-testing",
           "name": "2.3.2 Testing",
           "sub": "Producing Robust Programs",
-          "file": "2.3.2-testing.html",
-          "noQuestions": true
+          "file": "2.3.2-testing.html"
         }
       ]
     },
@@ -267,8 +283,7 @@
           "id": "2-4-1-boolean-logic",
           "name": "2.4.1 Boolean Logic",
           "sub": "Boolean Logic",
-          "file": "2.4.1-boolean-logic.html",
-          "noQuestions": true
+          "file": "2.4.1-boolean-logic.html"
         }
       ]
     },
@@ -282,15 +297,13 @@
           "id": "2-5-1-languages",
           "name": "2.5.1 Languages",
           "sub": "Programming Languages and IDEs",
-          "file": "2.5.1-languages.html",
-          "noQuestions": true
+          "file": "2.5.1-languages.html"
         },
         {
           "id": "2-5-2-the-integrated-development-environment-ide",
           "name": "2.5.2 The Integrated Development Environment (IDE)",
           "sub": "Programming Languages and IDEs",
-          "file": "2.5.2-the-integrated-development-environment-ide.html",
-          "noQuestions": true
+          "file": "2.5.2-the-integrated-development-environment-ide.html"
         }
       ]
     }

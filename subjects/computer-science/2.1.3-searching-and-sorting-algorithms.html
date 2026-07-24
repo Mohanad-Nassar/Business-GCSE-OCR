@@ -16,7 +16,7 @@
         <div>
             <div class="badge">OCR GCSE Computer Science — Paper 2 · 2.1 Algorithms</div>
             <h1>2.1.3 Searching and Sorting Algorithms</h1>
-            <p>Interactive revision guide · Content coming soon</p>
+            <p>Interactive revision guide</p>
         </div>
         <a href="/index.html" class="home-link">← 🏡 Home</a>
     </header>
@@ -256,7 +256,11 @@
 
 <script>
     // ══════════════════════════════════════
-    //  DATA: 2.1.3 Searching and Sorting Algorithms — placeholder, content not yet written
+    //  DATA: 2.1.3 Searching and Sorting Algorithms
+    //  Clean-room content, written from scratch against the §2.1.3 spec scope
+    //  (linear search, binary search, bubble sort, merge sort, insertion sort).
+    //  No exam paper was supplied for this topic — nothing here is transcribed
+    //  from any OCR paper.
     // ══════════════════════════════════════
     const pageMeta = {
             id: '2-1-3-searching-and-sorting-algorithms',
@@ -268,21 +272,1004 @@
 
     const topics = [
         {
-            title: "This topic is being written",
-            tag: "Coming soon",
-            content: `<p>🚧 <strong>Content for this topic is on its way.</strong> Key Learning notes, practice questions and exam-style questions for <strong>2.1.3 Searching and Sorting Algorithms</strong> will appear here soon.</p>`
+            title: "Searching and sorting: the big picture",
+            tag: "Key concept",
+            content: `<h4>Two jobs a computer very often needs to do with a list</h4>
+<ul>
+<li>A <strong>search algorithm</strong> looks through a list of data to find out whether a particular value is present — and if it is, where it is.</li>
+<li>A <strong>sort algorithm</strong> rearranges a list into order (usually smallest to largest — <strong>ascending order</strong>).</li>
+<li>For this topic you need to know <strong>two</strong> search algorithms — <strong>linear search</strong> and <strong>binary search</strong> — and <strong>three</strong> sort algorithms — <strong>bubble sort</strong>, <strong>merge sort</strong> and <strong>insertion sort</strong>.</li>
+<li>For each one you need to be able to: describe its <strong>main steps</strong>, <strong>apply it by hand</strong> to a small list (showing the list after each step or pass), and <strong>identify it</strong> from a description of how it behaves. You do <strong>not</strong> need to memorise the exact pseudocode or program code for any of them.</li>
+</ul>`,
+            readCheck: {
+                q: "Which TWO kinds of algorithm does this topic cover?",
+                opts: ["Compression algorithms, which make files smaller, and encryption algorithms, which make data secret", "Search algorithms and sort algorithms", "Validation algorithms, which check data as it is entered, and verification algorithms, which check it again later", "Translator algorithms, which convert code, and scheduling algorithms, which share out processor time"],
+                ans: 1,
+                explain: "This topic covers search algorithms (find a value in a list) and sort algorithms (put a list into order)."
+            }
+        },
+        {
+            title: "Linear search — how it works",
+            tag: "Search algorithm",
+            content: `<h4>Check every item, one at a time, from the start</h4>
+<ul>
+<li>A <strong>linear search</strong> starts at the <strong>first</strong> item in the list and checks it against the target value.</li>
+<li>If it matches, the search <strong>stops</strong> — the item has been found.</li>
+<li>If it does not match, the search moves on to the <strong>next</strong> item, and repeats.</li>
+<li>If the <strong>end of the list</strong> is reached with no match, the target is <strong>not in the list</strong>.</li>
+</ul>
+<div class="code-block">Main steps
+1. Start at the first item in the list.
+2. Compare the current item to the target.
+3. If it matches, stop — report where it was found.
+4. If not, move to the next item.
+5. If there are no more items, report "not found".
+   Otherwise, go back to step 2.</div>
+<ul>
+<li>Because it checks items in whatever order they appear, a linear search will work on a list that is <strong>sorted OR unsorted</strong> — that's its big advantage over binary search.</li>
+</ul>`,
+            readCheck: {
+                q: "Does a linear search require the list to be sorted first?",
+                opts: ["Yes, otherwise it will keep skipping over items and might completely miss the target value it is looking for", "No — it checks items in the order they appear, so it works on a sorted or unsorted list", "Yes, but only when the list contains more than about ten items in total", "No, but only when every item in the list is a whole number rather than a decimal"],
+                ans: 1,
+                explain: "A linear search simply checks each item in turn, so the order of the list makes no difference — it works on any list."
+            }
+        },
+        {
+            title: "Linear search — worked example",
+            tag: "Worked example",
+            content: `<h4>Searching the list  12, 7, 19, 3, 25, 8  for the value 25</h4>
+<div class="code-block">Index:   0    1    2    3    4    5
+Value:  12    7   19    3   25    8
+
+Check index 0 → 12 ≠ 25 → keep going
+Check index 1 →  7 ≠ 25 → keep going
+Check index 2 → 19 ≠ 25 → keep going
+Check index 3 →  3 ≠ 25 → keep going
+Check index 4 → 25 = 25 → FOUND at index 4</div>
+<ul>
+<li>It took <strong>5</strong> comparisons to find 25, because it happens to be near the end of the list.</li>
+<li><strong>If the target is not in the list at all</strong> (e.g. searching for 6), a linear search still has to check <strong>every</strong> item — all 6 of them — before it can report "not found". This worst case is what makes a linear search slow on a long list.</li>
+</ul>`,
+            readCheck: {
+                q: "In the worked example, how many comparisons does the linear search make before it finds 25?",
+                opts: ["4, since 25 is stored at index 4 and index numbers always match the comparison count exactly", "5", "6, which is the total number of items that are stored in the list being searched", "1, because a linear search always finds a matching item on its very first comparison"],
+                ans: 1,
+                explain: "The search checks index 0, 1, 2, 3 and then 4 (where 25 is found) — that's 5 comparisons in total."
+            }
+        },
+        {
+            title: "Binary search — how it works",
+            tag: "Search algorithm",
+            content: `<h4>Repeatedly check the middle of a SORTED list</h4>
+<ul>
+<li>A <strong>binary search</strong> only works on a list that is already <strong>sorted</strong>. This is essential — the whole method relies on being able to rule out half the list at a time.</li>
+<li>Each pass, it checks the item exactly in the <strong>middle</strong> of the section still being searched.</li>
+<li>If the middle item <strong>matches</strong> the target, the search is over.</li>
+<li>If the target is <strong>smaller</strong> than the middle item, the whole <strong>right-hand half</strong> can be discarded (it must be further left).</li>
+<li>If the target is <strong>larger</strong> than the middle item, the whole <strong>left-hand half</strong> can be discarded.</li>
+<li>This repeats on the remaining half, and the remaining half, until the target is found or there is nothing left to check.</li>
+</ul>
+<div class="code-block">Main steps
+1. The list MUST be sorted first.
+2. Look at the middle item of the current section.
+3. If it matches the target, stop — found.
+4. If the target is smaller, discard the right half and repeat on the left half.
+5. If the target is larger, discard the left half and repeat on the right half.
+6. If the section becomes empty, report "not found".</div>`,
+            readCheck: {
+                q: "What must be true about a list before a binary search can be used on it?",
+                opts: ["The list must contain an even number of items, or the middle item cannot be worked out", "The list must already be sorted", "The list must contain fewer than one hundred items in total", "The list must not contain any repeated values anywhere within it"],
+                ans: 1,
+                explain: "Binary search discards half the list at a time based on order, so it only gives correct results on a list that is already sorted."
+            }
+        },
+        {
+            title: "Binary search — worked example",
+            tag: "Worked example",
+            content: `<h4>Searching the sorted list  3, 7, 8, 12, 19, 25, 31, 40  for the value 19</h4>
+<div class="code-block">Index:    0   1   2   3   4   5   6   7
+Value:    3   7   8  12  19  25  31  40
+
+Pass 1: low=0, high=7 → mid = (0+7) DIV 2 = 3 → value 12
+        12 &lt; 19, so discard the LEFT half → search index 4 to 7
+
+Pass 2: low=4, high=7 → mid = (4+7) DIV 2 = 5 → value 25
+        25 &gt; 19, so discard the RIGHT half → search index 4 to 4
+
+Pass 3: low=4, high=4 → mid = (4+4) DIV 2 = 4 → value 19
+        19 = 19 → FOUND at index 4</div>
+<ul>
+<li>It took only <strong>3</strong> comparisons to find 19 in an 8-item list — a linear search could have needed up to 8. That gap grows much bigger as the list gets longer.</li>
+</ul>`,
+            readCheck: {
+                q: "In the worked example, what happens after the first comparison (mid = 12) because 12 is LESS than the target 19?",
+                opts: ["The whole list is searched again from the very beginning, starting again at index 0", "The right half of the list (from index 4 to 7) is searched next", "The left half of the list (from index 0 to 2) is searched next", "The search stops immediately and reports that 19 is not in the list"],
+                ans: 1,
+                explain: "Because 19 is bigger than the middle value 12, the target must be further right, so the left half is discarded and index 4–7 is searched next."
+            }
+        },
+        {
+            title: "Comparing linear and binary search",
+            tag: "Compare",
+            content: `<h4>Same job, very different performance</h4>
+<ul>
+<li><strong>Order of the list:</strong> a linear search works on a list in <strong>any</strong> order. A binary search <strong>needs the list sorted first</strong> — and sorting a list also takes time.</li>
+<li><strong>Speed on a large list:</strong> a linear search may need to check <strong>every</strong> item (in the worst case). A binary search discards <strong>half</strong> the remaining items at every step, so it needs far fewer comparisons — the bigger the list, the bigger this advantage becomes.</li>
+<li><strong>When linear search still makes sense:</strong> for a <strong>short</strong> list, or a list that is <strong>not already sorted</strong> and will only be searched once, sorting it first just to use a binary search may cost more time than it saves.</li>
+</ul>`,
+            readCheck: {
+                q: "Why might a programmer choose a linear search instead of a binary search, even though binary search needs fewer comparisons?",
+                opts: ["Because a linear search always gives a far more accurate and reliable result than a binary search is ever able to give", "Because the list is not already sorted, and sorting it first would take extra time that may not be worth it", "Because a linear search can be used on lists but a binary search can only be used on single values", "Because a binary search is not able to report whether a value is missing from the list at all"],
+                ans: 1,
+                explain: "Binary search needs the list sorted first. If the list isn't already sorted (and won't be searched many times), a linear search can be the more practical choice."
+            }
+        },
+        {
+            title: "Bubble sort — how it works",
+            tag: "Sort algorithm",
+            content: `<h4>Repeatedly compare and swap neighbours</h4>
+<ul>
+<li>A <strong>bubble sort</strong> compares each pair of <strong>adjacent</strong> (next-door) items, from the start of the list to the end.</li>
+<li>If a pair is in the <strong>wrong order</strong>, the two items are <strong>swapped</strong>.</li>
+<li>One full run through the list like this is called a <strong>pass</strong>. Each pass "bubbles" the largest unsorted item along the list until it reaches its correct place at the end.</li>
+<li>The algorithm keeps making passes until a pass is completed with <strong>no swaps</strong> — that means the list is fully sorted, so it stops.</li>
+</ul>
+<div class="code-block">Main steps
+1. Go through the list comparing each pair of adjacent items.
+2. If a pair is in the wrong order, swap them.
+3. Continue to the end of the list — that is one pass.
+4. If any swap was made during the pass, do another pass.
+5. If a whole pass makes no swaps, the list is sorted — stop.</div>`,
+            readCheck: {
+                q: "How does a bubble sort know that the list is now fully sorted and it can stop?",
+                opts: ["It stops as soon as it has completed exactly one single pass through the list, no matter what", "A pass is completed in which no swaps were made", "It stops once the first item happens to be smaller than the last item in the list", "It always makes exactly the same fixed number of passes, worked out before it starts"],
+                ans: 1,
+                explain: "Bubble sort keeps making passes until one pass makes no swaps at all — that is the signal that the list is in order."
+            }
+        },
+        {
+            title: "Bubble sort — worked example",
+            tag: "Worked example",
+            content: `<h4>Sorting  5, 1, 4, 2, 8  into ascending order</h4>
+<div class="code-block">Start:            5, 1, 4, 2, 8
+
+Pass 1
+compare 5,1 → swap →  1, 5, 4, 2, 8
+compare 5,4 → swap →  1, 4, 5, 2, 8
+compare 5,2 → swap →  1, 4, 2, 5, 8
+compare 5,8 → no swap
+After Pass 1:     1, 4, 2, 5, 8   (swaps made → do another pass)
+
+Pass 2
+compare 1,4 → no swap
+compare 4,2 → swap →  1, 2, 4, 5, 8
+compare 4,5 → no swap
+compare 5,8 → no swap
+After Pass 2:     1, 2, 4, 5, 8   (a swap was made → do another pass)
+
+Pass 3
+compare 1,2 → no swap
+compare 2,4 → no swap
+compare 4,5 → no swap
+compare 5,8 → no swap
+After Pass 3:     1, 2, 4, 5, 8   (NO swaps made → sorted, stop)</div>
+<ul>
+<li>Notice how the largest value, 8, never has to move — and how 5 "bubbles" one place to the right on each of the first two passes until it reaches its final position.</li>
+</ul>`,
+            readCheck: {
+                q: "In the worked example, what does the list look like immediately after Pass 1?",
+                opts: ["5, 1, 4, 2, 8, because nothing at all changes on the very first pass of a bubble sort", "1, 4, 2, 5, 8", "1, 2, 4, 5, 8, because the list always finishes fully sorted after only one pass", "8, 5, 4, 2, 1, because the largest item always moves to the very front of the list first"],
+                ans: 1,
+                explain: "Working through the comparisons for Pass 1 (5,1 → 5,4 → 5,2 → 5,8) leaves the list as 1, 4, 2, 5, 8."
+            }
+        },
+        {
+            title: "Merge sort — how it works",
+            tag: "Sort algorithm",
+            content: `<h4>Divide and conquer: split, then merge back in order</h4>
+<ul>
+<li>A <strong>merge sort</strong> is a <strong>divide and conquer</strong> algorithm — it solves a big problem by breaking it into smaller versions of the same problem.</li>
+<li><strong>Divide:</strong> split the list exactly in half, then split each half in half again, and so on, until every part contains just <strong>one</strong> item. A list of one item is always "sorted".</li>
+<li><strong>Conquer (merge):</strong> merge pairs of sorted parts back together, always placing the <strong>smaller</strong> of the two items being compared next into the result. Keep merging larger and larger sorted parts until the whole list is back together, fully sorted.</li>
+</ul>
+<div class="code-block">Main steps
+1. If the list has more than one item, split it into two halves.
+2. Repeat step 1 on each half, until every part has only one item.
+3. Merge pairs of parts back together: compare the front item of each
+   part, and move the smaller one into the result.
+4. Keep merging until the whole list has been rebuilt, in order.</div>
+<ul>
+<li>Because it never compares every possible pair of items (unlike a bubble sort), a merge sort needs far fewer comparisons on a large list — but it is more complex to write, and needs extra memory to hold the split parts while they are merged.</li>
+</ul>`,
+            readCheck: {
+                q: "What does 'divide and conquer' mean in the context of a merge sort?",
+                opts: ["Comparing every single pair of items in the whole list against one another, one pair at a time until finished", "Splitting the list into smaller parts, sorting/merging those parts, then combining the results", "Always removing the smallest item from the list first before doing anything else to it", "Repeatedly checking the middle item of the list and discarding a half that cannot contain it"],
+                ans: 1,
+                explain: "Divide and conquer means breaking the list into smaller parts (down to single items), then combining (merging) the results back together in order."
+            }
+        },
+        {
+            title: "Merge sort — worked example",
+            tag: "Worked example",
+            content: `<h4>Sorting  8, 3, 7, 4  with merge sort</h4>
+<div class="code-block">Divide
+[8, 3, 7, 4]
+   ↓ split
+[8, 3]        [7, 4]
+   ↓ split       ↓ split
+[8] [3]       [7] [4]     ← every part now has one item (already "sorted")
+
+Merge
+Merge [8] and [3]  → compare 8, 3 → 3 is smaller → [3, 8]
+Merge [7] and [4]  → compare 7, 4 → 4 is smaller → [4, 7]
+
+Merge [3, 8] and [4, 7]:
+  compare 3, 4 → 3 is smaller → result so far: 3
+  compare 8, 4 → 4 is smaller → result so far: 3, 4
+  compare 8, 7 → 7 is smaller → result so far: 3, 4, 7
+  only 8 remains in the left part → copy it in → result: 3, 4, 7, 8
+
+Final sorted list: 3, 4, 7, 8</div>
+<ul>
+<li>The FINAL merge step is the one most worth practising: keep comparing the <strong>front</strong> item of each part and taking the smaller, and once one part runs out, copy across whatever is left of the other part.</li>
+</ul>`,
+            readCheck: {
+                q: "When merging the sorted parts 3, 8 and 4, 7 back together, which value is placed into the result FIRST?",
+                opts: ["8, because a merge always starts by comparing the two largest items from each part first", "3, because 3 is the smaller of the two front items (3 and 4) being compared", "4, because a merge always takes its first item from the second part of the pair given", "7, because that is the largest value out of all four values in the two parts put together"],
+                ans: 1,
+                explain: "The front items of each part are compared first: 3 (from the left part) and 4 (from the right part). 3 is smaller, so it is placed into the result first."
+            }
+        },
+        {
+            title: "Insertion sort — how it works",
+            tag: "Sort algorithm",
+            content: `<h4>Build up a sorted section, one item at a time</h4>
+<ul>
+<li>An <strong>insertion sort</strong> treats the list as having two parts: a <strong>sorted section</strong> at the start, and an <strong>unsorted section</strong> after it.</li>
+<li>At the beginning, the sorted section is just the <strong>first item</strong> (a list of one item is always "sorted").</li>
+<li>Each step, the next item from the unsorted section is picked up and <strong>compared to the sorted items</strong>, working from the right-hand (largest) end of the sorted section.</li>
+<li>Items in the sorted section that are <strong>bigger</strong> than the new item are <strong>shifted one place to the right</strong> to make room. This stops once a smaller item is found (or there are no more items to compare with).</li>
+<li>The new item is then <strong>inserted</strong> into the gap — which grows the sorted section by one item.</li>
+</ul>
+<div class="code-block">Main steps
+1. Treat the first item as a sorted section of one item.
+2. Take the next item from the unsorted section.
+3. Compare it to items in the sorted section, from the right-hand end.
+4. Shift any sorted item that is bigger one place to the right.
+5. Insert the new item into the gap this leaves.
+6. Repeat from step 2 until every item has been inserted.</div>`,
+            readCheck: {
+                q: "In an insertion sort, which direction does a new item get compared against the sorted section?",
+                opts: ["From the left-hand (smallest) end of the sorted section, moving rightwards through it", "From the right-hand (largest) end of the sorted section, moving leftwards through it", "Against the exact middle item of the sorted section only, in a single comparison", "Against every single item in the WHOLE list, including the unsorted section as well"],
+                ans: 1,
+                explain: "A new item is compared against the sorted section starting from its right-hand (largest) end, shifting larger items rightward as it goes."
+            }
+        },
+        {
+            title: "Insertion sort — worked example",
+            tag: "Worked example",
+            content: `<h4>Sorting  6, 2, 9, 4  with insertion sort</h4>
+<div class="code-block">Start:               6, 2, 9, 4
+Sorted section:      [6]            unsorted: 2, 9, 4
+
+Step 1 — insert 2
+2 &lt; 6, so shift 6 right, insert 2 before it
+List:                2, 6, 9, 4
+Sorted section:      [2, 6]         unsorted: 9, 4
+
+Step 2 — insert 9
+9 &gt; 6 (the rightmost sorted item), so no shifting needed — insert 9 here
+List:                2, 6, 9, 4
+Sorted section:      [2, 6, 9]      unsorted: 4
+
+Step 3 — insert 4
+4 &lt; 9, shift 9 right
+4 &lt; 6, shift 6 right
+4 &gt; 2, stop shifting — insert 4 here
+List:                2, 4, 6, 9
+Sorted section:      [2, 4, 6, 9]   unsorted: (none) — SORTED</div>`,
+            readCheck: {
+                q: "In the worked example, what does the list look like immediately after Step 2 (inserting 9)?",
+                opts: ["2, 9, 6, 4, because inserting 9 always moves it to the middle of the sorted section", "2, 6, 9, 4", "9, 2, 6, 4, because 9 is the largest value seen so far and moves to the very front", "2, 4, 6, 9, because the list is already fully sorted by the end of Step 2"],
+                ans: 1,
+                explain: "9 is bigger than 6 (the rightmost sorted item), so it needs no shifting and simply stays where it is: 2, 6, 9, 4."
+            }
+        },
+        {
+            title: "Comparing the three sorting algorithms",
+            tag: "Compare",
+            content: `<h4>Simplicity vs. efficiency</h4>
+<ul>
+<li><strong>Bubble sort</strong> is the <strong>simplest</strong> to understand and write, but it is usually the <strong>slowest</strong> on a large list — it may need many passes, each one comparing lots of adjacent pairs.</li>
+<li><strong>Merge sort</strong> (divide and conquer) is much more <strong>efficient</strong> on a large list, needing far fewer comparisons overall — but it is <strong>more complex</strong> to write, and needs extra memory to hold the parts while they are being merged.</li>
+<li><strong>Insertion sort</strong> is simple, and is particularly efficient when a list is <strong>already nearly sorted</strong> (few items need to shift very far) or when the list is <strong>small</strong> — but like bubble sort, it can be slow on a large, very unsorted list.</li>
+<li><strong>Exam skill:</strong> a question may describe a sort's behaviour and ask you to name it, or ask you to compare two of them — always link your comparison to something concrete, such as how many comparisons are needed, or how the list is broken down.</li>
+</ul>`,
+            readCheck: {
+                q: "Which statement best compares bubble sort and merge sort?",
+                opts: ["Bubble sort and merge sort always need exactly the same number of comparisons for any given list", "Bubble sort is simpler to write, but merge sort is usually far more efficient on a large list", "Merge sort is simpler to write, but bubble sort is usually far more efficient on a large list", "Neither algorithm can be used on a list that contains any repeated values within it"],
+                ans: 1,
+                explain: "Bubble sort is simple but usually slow on large lists; merge sort is more complex to write but needs far fewer comparisons on a large list."
+            }
         }
     ];
 
-    const mcqData = [];
-    const matchData = [];
-    const fibData = [];
-    const fibWords = [];
-    const tfData = [];
-    const miscData = [];
-    const examTips = [];
-    const flashcards = [];
-    const examQuestions = [];
+    const mcqData = [
+        {
+            q: "Which search algorithm checks every item in a list, one at a time, starting from the beginning?",
+            opts: ["Binary search, because it also starts by checking the very first item in the list before anything else", "Linear search", "Merge sort, since sorting always begins by looking at the very first item in the list", "Insertion sort, because building a sorted section always starts with the first item in the list"],
+            ans: 1,
+            explain: "Linear search checks each item in turn from the start until it finds the target or reaches the end. Binary search jumps to the middle instead."
+        },
+        {
+            q: "Which search algorithm requires the list to be sorted before it can be used?",
+            opts: ["Linear search, because checking each item in turn only works if the list is already arranged in order", "Binary search", "Bubble sort, as it is a sorting algorithm rather than a search algorithm and does not apply here", "Insertion sort, as it is also a sorting algorithm rather than a search algorithm and does not apply here"],
+            ans: 1,
+            explain: "Binary search relies on discarding half the list based on order, so the list must already be sorted before it is used."
+        },
+        {
+            q: "A sorted list is  2, 5, 9, 14, 20, 27, 33  (indices 0–6). Using binary search for 14, which value is checked FIRST?",
+            opts: ["27, because a binary search always begins by checking the very last item in the list", "14", "2, because a binary search always begins by checking the very first item in the list", "9, because that item sits one position before the exact middle of the list"],
+            ans: 1,
+            explain: "With 7 items (indices 0–6), the middle index is (0+6) DIV 2 = 3, which holds 14 — found on the very first check."
+        },
+        {
+            q: "What does a bubble sort do on each pass through the list?",
+            opts: ["It compares only the first item to the last item, swapping them if they are in the wrong order", "It compares each pair of adjacent items, swapping them if they are in the wrong order", "It cuts the list exactly in half and works on each half separately from that point on", "It picks the smallest remaining item and moves it straight to the front in one single step"],
+            ans: 1,
+            explain: "A bubble sort compares each pair of adjacent items in turn along the list, swapping any pair that is in the wrong order."
+        },
+        {
+            q: "How does a bubble sort know when it has finished sorting the list?",
+            opts: ["It stops as soon as it has completed exactly one single pass through the whole list", "A pass is completed in which no swaps were made", "It stops once the first item is smaller than the last item currently in the list", "It always stops after a fixed number of passes equal to half the number of items"],
+            ans: 1,
+            explain: "Bubble sort keeps repeating passes until an entire pass makes no swaps — that is the signal the list is fully sorted."
+        },
+        {
+            q: "What is the main idea behind a merge sort?",
+            opts: ["It repeatedly compares the very first item in the whole list against every single other item in turn until the entire list ends up in order", "It divides the list in half repeatedly until each part has one item, then merges the parts back in order", "It repeatedly swaps any two adjacent items that happen to be in the wrong order", "It builds up a sorted section of the list one item at a time, starting from the first item"],
+            ans: 1,
+            explain: "Merge sort is a divide-and-conquer algorithm: split the list down to single items, then merge the sorted parts back together in order."
+        },
+        {
+            q: "What is the main idea behind an insertion sort?",
+            opts: ["It divides the whole list into two separate halves, sorts each of those halves on its own, then merges the two sorted halves back together", "It builds a sorted section one item at a time, inserting each new item into its correct place", "It compares the middle item of the list to the target and discards half the list each time", "It compares every adjacent pair of items and swaps any pair found to be in the wrong order"],
+            ans: 1,
+            explain: "Insertion sort grows a sorted section from the left, inserting each new item from the unsorted section into its correct place."
+        },
+        {
+            q: "Compared with linear search, why is binary search usually much faster on a large sorted list?",
+            opts: ["It compares every single item in the whole list to the target all at exactly the same moment in time", "Each comparison discards half of the remaining items, so far fewer comparisons are needed overall", "It only ever needs to look at the very first item in the list before finding the target", "It sorts the list again before every single comparison it makes, which speeds it up"],
+            ans: 1,
+            explain: "Because each check rules out half of what is left, the number of comparisons needed grows very slowly as the list gets bigger — much slower than linear search."
+        },
+        {
+            q: "A list of 6 items is searched with a linear search for a value that is NOT in the list. How many comparisons are made?",
+            opts: ["3, because a linear search only ever needs to check half of the items before giving up", "6", "1, because a linear search always gives up after checking only the first item", "0, because a linear search cannot run at all when the target is missing from the list"],
+            ans: 1,
+            explain: "If the value is not present, every item must be checked before the search can conclude it is missing — all 6 of them."
+        },
+        {
+            q: "Which of these best describes a 'pass' in a bubble sort?",
+            opts: ["The single moment at which two items are compared and, if needed, swapped with each other", "One complete run through the list, comparing and swapping adjacent pairs along the way", "The final step of the algorithm, carried out only once the whole list is already sorted", "The process of splitting the list into two halves before any comparisons are made"],
+            ans: 1,
+            explain: "A pass is one complete run through the list, during which adjacent pairs are compared (and swapped where needed)."
+        },
+        {
+            q: "An algorithm builds up a sorted section of a list, one item at a time, inserting each new item into its correct place among the items already sorted. Which algorithm is this?",
+            opts: ["Bubble sort, because it also works through the list one item at a time from the beginning", "Insertion sort", "Merge sort, because it also results in the list ending up fully sorted from smallest to largest", "Binary search, because it also works with a section of the list already in sorted order"],
+            ans: 1,
+            explain: "Building a sorted section one item at a time, inserting each item into its correct place, is exactly how an insertion sort works."
+        },
+        {
+            q: "Why can a linear search be used on a list that has NOT been sorted, unlike a binary search?",
+            opts: ["Because a linear search secretly sorts the list first, before it starts checking any items", "It checks every item in turn, so it does not rely on the list being in any particular order", "Because a linear search only ever works on lists with fewer than ten items in total", "Because a linear search does not actually check the values, only the positions of the items"],
+            ans: 1,
+            explain: "A linear search simply steps through the items in whatever order they are stored, so it works correctly whether or not the list is sorted."
+        }
+    ];
+
+    const matchData = [
+        { term: "Linear search", def: "Checks each item in turn from the start until the target is found or the list ends" },
+        { term: "Binary search", def: "Repeatedly checks the middle item of a sorted list and discards the half that cannot contain the target" },
+        { term: "Bubble sort", def: "Repeatedly compares adjacent items and swaps them if they are in the wrong order" },
+        { term: "Merge sort", def: "Divides the list in half repeatedly, then merges the parts back together in order" },
+        { term: "Insertion sort", def: "Builds a sorted section one item at a time, inserting each new item into its correct place" },
+        { term: "Pass", def: "One complete run through the list during a sort" },
+        { term: "Swap", def: "Exchanging the positions of two adjacent items that are in the wrong order" },
+        { term: "Divide and conquer", def: "Breaking a problem into smaller sub-problems, solving each, then combining the results" },
+        { term: "Sorted section", def: "The part of the list that insertion sort has already put into the correct order" },
+        { term: "Middle item", def: "The item a binary search checks first on each pass" },
+        { term: "Discard", def: "Removing the half of the list that cannot contain the target during a binary search" },
+        { term: "Ascending order", def: "Arranging a list from smallest to largest" }
+    ];
+
+    const fibData = [
+        {
+            display: "A _____ search checks every item in a list, one at a time, from the start.",
+            blanks: { B1: "linear" }
+        },
+        {
+            display: "A _____ search repeatedly checks the middle item of a sorted list.",
+            blanks: { B1: "binary" }
+        },
+        {
+            display: "Before a binary search can be used, the list must already be _____.",
+            blanks: { B1: "sorted" }
+        },
+        {
+            display: "A _____ sort repeatedly compares adjacent items and swaps them if they are in the wrong order.",
+            blanks: { B1: "bubble" }
+        },
+        {
+            display: "A bubble sort is finished once a _____ is completed with no swaps.",
+            blanks: { B1: "pass" }
+        },
+        {
+            display: "A _____ sort divides the list in half repeatedly, then merges the parts back together in order.",
+            blanks: { B1: "merge" }
+        },
+        {
+            display: "An _____ sort builds a sorted section of the list one item at a time.",
+            blanks: { B1: "insertion" }
+        },
+        {
+            display: "Splitting a problem into smaller parts, solving each, then combining the results is called divide and _____.",
+            blanks: { B1: "conquer" }
+        }
+    ];
+    const fibWords = ["linear", "binary", "sorted", "bubble", "pass", "merge", "insertion", "conquer"];
+
+    const tfData = [
+        {
+            statement: "A linear search can be used on a list that is not sorted.",
+            answer: true,
+            explanation: "Correct — a linear search checks items in whatever order they appear, so it works on a sorted or unsorted list."
+        },
+        {
+            statement: "A binary search can be used on a list that is not sorted.",
+            answer: false,
+            explanation: "A binary search relies on the list already being sorted — otherwise discarding a 'half' does not reliably rule out the target."
+        },
+        {
+            statement: "A bubble sort is finished as soon as one pass makes no swaps.",
+            answer: true,
+            explanation: "Correct — a pass with no swaps means every adjacent pair is already in the right order, so the list is sorted."
+        },
+        {
+            statement: "A merge sort repeatedly compares every item in the list against every other item, like a bubble sort does.",
+            answer: false,
+            explanation: "A merge sort divides the list first, then only compares items while merging two sorted parts together — it does not compare every possible pair."
+        },
+        {
+            statement: "An insertion sort builds up a sorted section of the list, one item at a time.",
+            answer: true,
+            explanation: "Correct — insertion sort grows a sorted section from the left, inserting each new item into its correct place."
+        },
+        {
+            statement: "A binary search is generally much faster than a linear search on a large, sorted list.",
+            answer: true,
+            explanation: "Correct — a binary search discards half the remaining items at every step, so it needs far fewer comparisons on a large list."
+        },
+        {
+            statement: "A single pass of a bubble sort always fully sorts the whole list, however long the list is.",
+            answer: false,
+            explanation: "One pass only guarantees the largest unsorted item reaches its correct place; longer lists usually need several passes."
+        },
+        {
+            statement: "A merge sort splits a list into halves until each part contains only one item.",
+            answer: true,
+            explanation: "Correct — that is the 'divide' stage of a merge sort, before the sorted parts are merged back together."
+        }
+    ];
+
+    const miscData = [
+        {
+            wrong: "Thinking a binary search can be used straight away, on any list, without checking it first.",
+            correct: "A binary search only gives correct results on a list that is <strong>already sorted</strong>. If the list isn't sorted, the algorithm still discards half of it each time, but that half might actually contain the target — so it can wrongly report 'not found'. If the list isn't sorted, it must be sorted first (which itself takes time).",
+            readCheck: {
+                q: "What must happen before a binary search can be correctly used on an unsorted list?",
+                opts: ["Nothing — a binary search works correctly on a list in any order, sorted or not", "The list must be sorted first", "Every value in the list must be converted into a whole number first", "The list must be searched with a linear search first, to check the value is present"],
+                ans: 1,
+                explain: "A binary search depends on the list being in order, so an unsorted list must be sorted before it can be searched this way."
+            }
+        },
+        {
+            wrong: "Thinking a linear search needs a sorted list, the same as a binary search does.",
+            correct: "A linear search checks items <strong>one at a time, in whatever order they are in</strong> — it does not rely on the list being sorted at all. This is actually one of its advantages over a binary search: it works on a sorted or unsorted list.",
+            readCheck: {
+                q: "Does a linear search require the list to be sorted, in the same way a binary search does?",
+                opts: ["Yes — both algorithms only work correctly on a list that has already been sorted", "No — a linear search works on a sorted or unsorted list, unlike a binary search", "Yes, but only for lists that contain more than about twenty items", "No, but only if every item in the list is unique with no repeated values"],
+                ans: 1,
+                explain: "Unlike binary search, a linear search checks items in whatever order they appear, so it works whether or not the list is sorted."
+            }
+        },
+        {
+            wrong: "Thinking one pass of a bubble sort always finishes sorting the whole list.",
+            correct: "One pass only guarantees that the <strong>largest</strong> unsorted item reaches its final place at the end of the section checked. Sorting the whole list usually needs <strong>several</strong> passes — the algorithm keeps going until a pass makes no swaps at all.",
+            readCheck: {
+                q: "Why might a bubble sort need more than one pass to fully sort a list?",
+                opts: ["It never actually needs more than a single pass to work, no matter how long or how unsorted the list happens to be", "Because one pass only moves the largest unsorted item into its final place, not every item", "Because each pass only compares the very first two items in the whole list", "Because a bubble sort restarts from scratch and forgets any progress after each pass"],
+                ans: 1,
+                explain: "Each pass 'bubbles' the current largest unsorted item to the end — later passes are needed to place the remaining items correctly too."
+            }
+        },
+        {
+            wrong: "Thinking a merge sort compares every item in the list against every other item, like a less efficient sort might.",
+            correct: "A merge sort <strong>divides</strong> the list first, and only compares items while <strong>merging two already-sorted parts</strong> together. It never compares every possible pair of items — which is exactly why it usually needs far fewer comparisons than a bubble sort on a large list.",
+            readCheck: {
+                q: "Does a merge sort compare every item in the list against every other item, the way a less efficient sort might?",
+                opts: ["Yes — that is exactly how the final, fully-merged list ends up in the correct order", "No — it only compares items while merging two already-sorted parts together", "Yes, but only for the very first pass through the whole list", "No — a merge sort never compares any two items to each other at all"],
+                ans: 1,
+                explain: "Merge sort divides the list into parts first, then only compares front items while merging sorted parts — it avoids comparing every possible pair."
+            }
+        },
+        {
+            wrong: "Thinking an insertion sort always inserts each new item at the very START of the sorted section.",
+            correct: "An insertion sort compares the new item against the sorted items starting from the <strong>right-hand (largest)</strong> end, shifting any bigger items along, and inserts the new item wherever that keeps the section in order — which is <strong>not always</strong> the start.",
+            readCheck: {
+                q: "Where does an insertion sort insert a new item within the sorted section?",
+                opts: ["Always right at the very start (the left-hand end) of the sorted section, no matter what its value happens to be", "Wherever keeps the sorted section in order, found by comparing from its right-hand end", "Always at the very end (right-hand end) of the sorted section, whatever its value", "At a completely random position, since the position does not affect the final result"],
+                ans: 1,
+                explain: "The new item is compared from the right-hand end of the sorted section, and inserted into whichever gap keeps the section correctly ordered."
+            }
+        },
+        {
+            wrong: "Thinking the 'best' sort algorithm is always the one with the shortest, simplest code.",
+            correct: "Choosing an algorithm is about <strong>performance</strong> — for example, how many comparisons it needs on a large list — not how short or simple the code looks. A bubble sort is short and simple to write, but usually needs far more comparisons than a merge sort on a large list.",
+            readCheck: {
+                q: "Why might a programmer choose a merge sort over a bubble sort for a very large list, even though bubble sort is simpler to write?",
+                opts: ["A merge sort is always shorter and quicker to write out in full than a bubble sort is, in absolutely every case", "A merge sort usually needs far fewer comparisons, so it performs much better on a large list", "A bubble sort cannot be used at all once a list contains more than a few items", "A merge sort is the only one of the two that can sort numbers rather than text"],
+                ans: 1,
+                explain: "Merge sort's divide-and-conquer approach usually needs far fewer comparisons than bubble sort on a large list, even though its code is more complex."
+            }
+        }
+    ];
+
+    const examTips = [
+        {
+            type: "tip",
+            title: "Identifying an algorithm from a description",
+            pills: ["AO1", "Key skill", "Identify"],
+            content: `<p>A common question style describes how an algorithm behaves and asks you to <strong>name</strong> it. Learn the "signal phrases" for each one:</p>
+<ul>
+<li>"Checks each item in turn, from the start" → <strong>linear search</strong>.</li>
+<li>"List must already be sorted" + "checks the middle" → <strong>binary search</strong>.</li>
+<li>"Compares adjacent items" + "swaps" → <strong>bubble sort</strong>.</li>
+<li>"Splits the list in half" + "merges back together" → <strong>merge sort</strong>.</li>
+<li>"Builds up a sorted section" + "inserts each new item" → <strong>insertion sort</strong>.</li>
+</ul>
+<p>Quote the phrase from the question in your answer where you can — it shows the examiner exactly why you chose that algorithm.</p>`,
+            readCheck: {
+                q: "A question describes an algorithm that 'splits a list in half repeatedly, then merges the parts back together in order.' Which algorithm is this?",
+                opts: ["Bubble sort, because it also results in a fully sorted list once it has finished running", "Merge sort", "Linear search, because it also works through the whole of the list from start to end", "Insertion sort, because it also builds the final sorted list up gradually, bit by bit"],
+                ans: 1,
+                explain: "Splitting the list into halves and merging the parts back together in order is the defining behaviour of a merge sort."
+            }
+        },
+        {
+            type: "explain",
+            title: "Tracing a sort step by step",
+            pills: ["AO2", "Trace tables", "Common question"],
+            content: `<p>You will often be asked to show a list's state after each pass or step. Do it mechanically:</p>
+<ul>
+<li>Write out the <strong>full list</strong> after every pass or step — don't skip one, even if nothing seemed to change.</li>
+<li>For a <strong>bubble sort</strong>, work through each adjacent comparison in order, writing the list again only once the whole pass is finished.</li>
+<li>For a <strong>binary search</strong>, keep track of the current <strong>low</strong>, <strong>high</strong> and <strong>mid</strong> index at every step.</li>
+</ul>
+<p><strong>Example:</strong> sorting 5, 1, 4, 2, 8 with a bubble sort, Pass 1 gives 1, 4, 2, 5, 8 and Pass 2 gives 1, 2, 4, 5, 8 — writing out both full passes, not just the final answer, is what earns the marks.</p>`,
+            readCheck: {
+                q: "When a question asks you to trace a sort, what is the safest approach?",
+                opts: ["Work out the final sorted list in your head and write down only that final answer", "Write out the full list after every pass or step, working through it mechanically", "Only write down the passes where a swap happened, skipping any pass that made no changes", "Guess the order the sort will finish in, based on how the list looks at the start"],
+                ans: 1,
+                explain: "Trace questions are marked on showing each step correctly, so writing the full list after every pass — not just the final answer — is the reliable method."
+            }
+        },
+        {
+            type: "tip",
+            title: "Comparing two algorithms in a longer answer",
+            pills: ["AO1", "Compare", "Extended answer"],
+            content: `<p>"Compare linear search and binary search" (or similar) questions are usually worth several marks. Structure your answer around real differences:</p>
+<ul>
+<li><strong>State a difference</strong> — e.g. one needs the list sorted, the other doesn't.</li>
+<li><strong>Explain why it matters</strong> — e.g. fewer comparisons are needed on a large list.</li>
+<li><strong>Give a judgement</strong> — e.g. when one would actually be preferred over the other in practice.</li>
+</ul>
+<p>Avoid a vague "one is better than the other" — always link back to something concrete, such as the number of comparisons needed or whether the data needs to be sorted first.</p>`,
+            readCheck: {
+                q: "What is the best way to structure an answer comparing two search or sort algorithms?",
+                opts: ["Simply state which algorithm you personally think is better, without giving any further detail or reason for it", "State a concrete difference, explain why it matters, then give a judgement about when each is preferable", "List every single step of both algorithms in full, without comparing them to each other at all", "Describe only the algorithm you find easier to explain, and ignore the other one completely"],
+                ans: 1,
+                explain: "A strong comparison states a real difference, explains its effect (e.g. on speed or data requirements), and judges when each is preferable."
+            }
+        }
+    ];
+
+    const flashcards = [
+        { term: "Linear search", def: "Checks each item in turn from the start until the target is found or the list ends" },
+        { term: "Binary search", def: "Repeatedly checks the middle item of a SORTED list and discards the half that cannot contain the target" },
+        { term: "Bubble sort", def: "Repeatedly compares adjacent items and swaps them if they are in the wrong order" },
+        { term: "Merge sort", def: "Divides the list in half repeatedly, then merges the sorted parts back together in order" },
+        { term: "Insertion sort", def: "Builds a sorted section one item at a time, inserting each new item into its correct place" },
+        { term: "Pass", def: "One complete run through the list during a sort" },
+        { term: "Swap", def: "Exchanging two adjacent items that are in the wrong order" },
+        { term: "Divide and conquer", def: "Breaking a problem into smaller parts, solving each, then combining the results" },
+        { term: "Ascending order", def: "Arranged from smallest to largest" },
+        { term: "Sorted data required?", def: "Binary search — YES; linear search, bubble sort, merge sort, insertion sort — NO" },
+        { term: "Comparisons", def: "The number of times an algorithm checks one value against another — fewer usually means faster" },
+        { term: "Middle item (binary search)", def: "The item checked first each pass; the half that cannot contain the target is discarded" },
+        { term: "Sorted section (insertion sort)", def: "The part of the list, from the left, that has already been put into order" },
+        { term: "Bubble sort stopping rule", def: "Stops once a whole pass is completed with no swaps made" }
+    ];
+
+    // ── Original clean-room exam questions (2026-07-24) ──
+    // Written from scratch against the §2.1.3 spec scope (linear search, binary
+    // search, bubble sort, merge sort, insertion sort) — NOT transcribed from
+    // any OCR paper. No exam PDF was supplied for this topic, so the tariff
+    // spread and format mix below are authored from the standard J277 Paper 2
+    // assessment style for algorithms (identify, apply/trace by hand, compare)
+    // — NOT profiled from a real paper — treat the ceiling as a best estimate.
+    // Spread: 2x1, 2x2, 3x3, 4x5, 1x6 = 12 questions / 41 marks (mcq/written/
+    // tickGrid/matchLine/bankCloze/traceTable).
+    const EXAM_CASE_STUDIES = {};
+
+    const examQuestions = [
+        {
+            num: "Q1",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: `<p>Tick <strong>one</strong> box to identify the search algorithm that requires the list to already be sorted.</p>`,
+            options: ["Linear search", "Binary search", "Bubble sort", "Insertion sort"],
+            answer: 1,
+            hint: "Which one discards half the list at a time based on order?",
+            starter: "",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<ul><li><strong>Binary search</strong></li></ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul><li>Only the correct option scores; 2 or more ticks scores 0.</li></ul>
+</div>`,
+            modelAnswer: "Binary search."
+        },
+        {
+            num: "Q2",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: `<p>A linear search checks the list  4, 9, 1, 7, 3  for the value 7 (indices 0–4). Tick <strong>one</strong> box to give the number of comparisons made before 7 is found.</p>`,
+            options: ["3", "4", "5", "7"],
+            answer: 1,
+            hint: "7 is stored at index 3. How many items are checked to reach it, counting from index 0?",
+            starter: "",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<ul><li><strong>4</strong> (indices 0, 1, 2 and 3 are each checked before 7 is found)</li></ul>
+</div>`,
+            modelAnswer: "4"
+        },
+        {
+            num: "Q3",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            stubs: ["Linear search", "Binary search"],
+            question: `<p>State <strong>one</strong> difference between a linear search and a binary search, in terms of what the list must look like before the search is carried out.</p>`,
+            hint: "Think about which one needs the list sorted first, and which one does not.",
+            starter: "A linear search…, whereas a binary search…",
+            markPoints: {
+                note: "Up to 2 marks: both sides of the difference (the linear search side AND the binary search side).",
+                groups: [
+                    {
+                        label: "The difference (both sides)", max: 2, points: [
+                            { text: "Says a linear search can be used on a list in any order (sorted or unsorted)", marks: 1 },
+                            { text: "Contrasts this with a binary search, which requires the list to already be sorted", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks</h5>
+<ul>
+<li>Award 1 mark for: a linear search works on a list in any order.</li>
+<li>Award 1 mark for: a binary search requires the list to already be sorted.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul><li>Both sides of the contrast are needed for full marks.</li></ul>
+</div>`,
+            modelAnswer: "A linear search can be used on a list in any order, sorted or not, whereas a binary search requires the list to already be sorted before it is used."
+        },
+        {
+            num: "Q4",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: `<p>A binary search is performed on a sorted list of 15 items, with indices 0 to 14. Calculate the index of the middle item that is checked in the FIRST comparison.</p>`,
+            hint: "Add the lowest index (0) and the highest index (14), then divide by 2, ignoring any remainder.",
+            starter: "mid = (low + high) DIV 2 = …",
+            markPoints: {
+                note: "1 mark for the correct method, 1 mark for the correct value.",
+                groups: [
+                    { label: "Method", max: 1, points: [{ text: "Adds the lowest index (0) and highest index (14) and divides by 2, ignoring any remainder (i.e. uses DIV)", marks: 1 }] },
+                    { label: "Answer", max: 1, points: [{ text: "7", marks: 1 }] }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks</h5>
+<ul>
+<li>1 mark: (0 + 14) DIV 2</li>
+<li>1 mark: <strong>7</strong></li>
+</ul>
+</div>`,
+            modelAnswer: "mid = (0 + 14) DIV 2 = 7"
+        },
+        {
+            num: "Q5",
+            marks: 5,
+            type: "written",
+            format: "tickGrid",
+            caseStudy: "",
+            question: `<p>Tick <strong>one</strong> box in each row to show whether the algorithm is a search algorithm or a sort algorithm.</p>`,
+            grid: {
+                cols: ["Search", "Sort"],
+                rows: [
+                    { label: "Linear search", correct: [0] },
+                    { label: "Binary search", correct: [0] },
+                    { label: "Bubble sort", correct: [1] },
+                    { label: "Merge sort", correct: [1] },
+                    { label: "Insertion sort", correct: [1] }
+                ]
+            },
+            hint: "A search finds whether (and where) a value is in a list. A sort rearranges a list into order.",
+            starter: "Linear search: … | Binary search: … | Bubble sort: … | Merge sort: … | Insertion sort: …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 5 marks (1 mark for each row)</h5>
+<ul>
+<li>Linear search → <strong>Search</strong></li>
+<li>Binary search → <strong>Search</strong></li>
+<li>Bubble sort → <strong>Sort</strong></li>
+<li>Merge sort → <strong>Sort</strong></li>
+<li>Insertion sort → <strong>Sort</strong></li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul><li>Each row is marked independently; 2 ticks in a row scores 0 for that row.</li></ul>
+</div>`,
+            modelAnswer: "Linear search: Search. Binary search: Search. Bubble sort: Sort. Merge sort: Sort. Insertion sort: Sort."
+        },
+        {
+            num: "Q6",
+            marks: 5,
+            type: "written",
+            format: "matchLine",
+            caseStudy: "",
+            question: `<p>Draw <strong>one</strong> line from each algorithm to the description of how it behaves.</p><p>(There are more descriptions than algorithms — one description is not used.)</p>`,
+            match: {
+                left: ["Linear search", "Binary search", "Bubble sort", "Merge sort", "Insertion sort"],
+                right: [
+                    "Checks every item in turn from the start of the list until the target is found or the end is reached",
+                    "Repeatedly checks the middle item of a sorted list and discards the half that cannot contain the target",
+                    "Repeatedly compares adjacent pairs of items and swaps them if they are in the wrong order",
+                    "Splits the list in half repeatedly until each part has one item, then merges the parts back together in order",
+                    "Builds a sorted section one item at a time, inserting each new item into its correct place",
+                    "Always checks only the very first and very last items in the list, and no others"
+                ],
+                answer: { "0": 0, "1": 1, "2": 2, "3": 3, "4": 4 },
+                decoys: [5]
+            },
+            hint: "Watch the decoy: 'always checks only the first and last items' does not describe any of these five algorithms.",
+            starter: "Linear search → …, Binary search → …, Bubble sort → …, Merge sort → …, Insertion sort → …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 5 marks (1 mark per correct line)</h5>
+<ul>
+<li>Linear search → <strong>A</strong> (checks every item in turn from the start)</li>
+<li>Binary search → <strong>B</strong> (checks the middle of a sorted list, discards a half)</li>
+<li>Bubble sort → <strong>C</strong> (compares adjacent pairs, swaps if wrong order)</li>
+<li>Merge sort → <strong>D</strong> (splits in half repeatedly, merges parts back in order)</li>
+<li>Insertion sort → <strong>E</strong> (builds a sorted section, inserting each new item)</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul><li>1 mark per correct line. Description F is a decoy and is not used.</li></ul>
+</div>`,
+            modelAnswer: "Linear search → checks every item from the start. Binary search → checks the middle of a sorted list. Bubble sort → compares and swaps adjacent pairs. Merge sort → splits in half, then merges back in order. Insertion sort → builds a sorted section, inserting each item."
+        },
+        {
+            num: "Q7",
+            marks: 3,
+            type: "written",
+            format: "bankCloze",
+            caseStudy: "",
+            question: `<p>Complete the paragraph about linear and binary search by selecting terms from the list. <strong>Not all terms are used.</strong></p>`,
+            cloze: `<p>A ___1___ search checks every item in turn, and will work on a list in any order. A ___2___ search is much faster on a large list, but the list must already be ___3___.</p>`,
+            bank: ["linear", "binary", "sorted", "random", "fastest", "short"],
+            answers: {
+                "1": ["linear"],
+                "2": ["binary"],
+                "3": ["sorted"]
+            },
+            hint: "Works on any order → one search type; needs the list in order first → the other search type.",
+            starter: "(1) … (2) … (3) …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 3 marks (1 mark for each completed term)</h5>
+<p>A <strong>linear</strong> search checks every item in turn, and will work on a list in any order. A <strong>binary</strong> search is much faster on a large list, but the list must already be <strong>sorted</strong>.</p>
+</div>`,
+            modelAnswer: "(1) linear (2) binary (3) sorted"
+        },
+        {
+            num: "Q8",
+            marks: 5,
+            type: "written",
+            format: "traceTable",
+            caseStudy: "",
+            question: `<p>A linear search is used on the list  12, 7, 19, 3, 25, 8  (indices 0–5) to find the value <strong>25</strong>.</p><p>Complete the trace table to show the index checked, the value found there, and whether it matches, for each comparison made.</p>`,
+            trace: {
+                columns: ["Index checked", "Value", "Match?"],
+                rows: [
+                    ["0", "12", "No"],
+                    ["1", "7", "No"],
+                    ["2", "19", "No"],
+                    ["3", "3", "No"],
+                    ["4", "25", "Yes - found"]
+                ]
+            },
+            hint: "Start at index 0 and check each value in turn against the target, 25, until you reach a match.",
+            starter: "Index 0: 12, No … ",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 5 marks (1 mark per correct row of the trace)</h5>
+<ul>
+<li>Index 0 → value 12, No</li>
+<li>Index 1 → value 7, No</li>
+<li>Index 2 → value 19, No</li>
+<li>Index 3 → value 3, No</li>
+<li>Index 4 → value 25, Yes - found</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul><li>1 mark for each fully-correct row (all columns right). The search finds 25 at index 4, after 5 comparisons.</li></ul>
+</div>`,
+            modelAnswer: "Index 0: 12, No. Index 1: 7, No. Index 2: 19, No. Index 3: 3, No. Index 4: 25, Yes - found."
+        },
+        {
+            num: "Q9",
+            marks: 3,
+            type: "written",
+            format: "traceTable",
+            caseStudy: "",
+            question: `<p>A binary search is used on the sorted list  3, 7, 8, 12, 19, 25, 31, 40  (indices 0–7) to find the value <strong>19</strong>.</p><p>Complete the trace table to show the low index, high index, mid index, the value at mid, and the result, for each comparison made.</p>`,
+            trace: {
+                columns: ["Low", "High", "Mid index", "Mid value", "Result"],
+                rows: [
+                    ["0", "7", "3", "12", "Too low - search right half"],
+                    ["4", "7", "5", "25", "Too high - search left half"],
+                    ["4", "4", "4", "19", "Found"]
+                ]
+            },
+            hint: "mid = (low + high) DIV 2 each time. Compare the value at mid to 19, then decide which half to search next.",
+            starter: "Low 0, High 7, Mid 3 …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 3 marks (1 mark per correct row of the trace)</h5>
+<ul>
+<li>Low 0, High 7, Mid 3, value 12 → too low, search right half</li>
+<li>Low 4, High 7, Mid 5, value 25 → too high, search left half</li>
+<li>Low 4, High 4, Mid 4, value 19 → found</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul><li>1 mark for each fully-correct row. 19 is found on the third comparison, at index 4.</li></ul>
+</div>`,
+            modelAnswer: "Low 0, High 7, Mid 3, value 12: too low, search right half. Low 4, High 7, Mid 5, value 25: too high, search left half. Low 4, High 4, Mid 4, value 19: found."
+        },
+        {
+            num: "Q10",
+            marks: 5,
+            type: "written",
+            caseStudy: "",
+            question: `<p>Describe how a bubble sort would sort the list  5, 1, 4, 2, 8  into ascending order.</p><p>Show the list after each pass, and state how the algorithm knows when it has finished.</p>`,
+            hint: "Work through the adjacent comparisons one pass at a time, and keep going until a pass makes no swaps.",
+            starter: "After Pass 1 the list is…",
+            markPoints: {
+                note: "Up to 5 marks: the list after each pass, plus how the algorithm knows it is finished.",
+                groups: [
+                    { label: "List after Pass 1", max: 1, points: [{ text: "States the list after Pass 1 is 1, 4, 2, 5, 8", marks: 1 }] },
+                    { label: "List after Pass 2", max: 1, points: [{ text: "States the list after Pass 2 is 1, 2, 4, 5, 8", marks: 1 }] },
+                    { label: "Pass 3 makes no swaps", max: 1, points: [{ text: "States that Pass 3 compares every adjacent pair and finds no swaps are needed", marks: 1 }] },
+                    { label: "Stopping rule", max: 1, points: [{ text: "States the algorithm knows it has finished once a whole pass is completed with no swaps", marks: 1 }] },
+                    { label: "Final sorted list", max: 1, points: [{ text: "States the final sorted list is 1, 2, 4, 5, 8", marks: 1 }] }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 5 marks</h5>
+<ul>
+<li>1 mark: after Pass 1 the list is 1, 4, 2, 5, 8</li>
+<li>1 mark: after Pass 2 the list is 1, 2, 4, 5, 8</li>
+<li>1 mark: Pass 3 compares every adjacent pair and makes no swaps</li>
+<li>1 mark: the algorithm stops because a pass has been completed with no swaps</li>
+<li>1 mark: the final sorted list is 1, 2, 4, 5, 8</li>
+</ul>
+</div>`,
+            modelAnswer: "Pass 1: compare and swap adjacent pairs to get 1, 4, 2, 5, 8. Pass 2: further swaps give 1, 2, 4, 5, 8. Pass 3: every adjacent pair is already in order, so no swaps are made. Because a whole pass made no swaps, the algorithm knows the list is sorted and stops. The final sorted list is 1, 2, 4, 5, 8."
+        },
+        {
+            num: "Q11",
+            marks: 6,
+            type: "written",
+            caseStudy: "",
+            question: `<p>Compare a linear search with a binary search.</p><p>In your answer you should refer to: the order the list needs to be in, and the number of comparisons needed on a large list.</p>`,
+            hint: "Cover both search types, then link the difference to how many comparisons each one needs on a large list.",
+            starter: "A linear search…, whereas a binary search…",
+            markPoints: {
+                note: "Up to 6 marks: cover both algorithms and link the comparison to performance on a large list.",
+                groups: [
+                    {
+                        label: "Comparison points", max: 6, points: [
+                            { text: "States a linear search works on a list in any order (sorted or not)", marks: 1 },
+                            { text: "States a binary search requires the list to be sorted before it is used", marks: 1 },
+                            { text: "States a linear search checks items one by one from the start, potentially checking every item", marks: 1 },
+                            { text: "States a binary search discards half of the remaining items at each step", marks: 1 },
+                            { text: "States that, for a large list, a binary search generally needs far fewer comparisons and so is faster", marks: 1 },
+                            { text: "States a linear search may still be preferable for a small or unsorted list, where sorting first is not worth the extra time", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks</h5>
+<ul>
+<li>1 mark: a linear search works on a list in any order</li>
+<li>1 mark: a binary search requires the list to be sorted first</li>
+<li>1 mark: a linear search checks items one by one from the start, and may need to check every item</li>
+<li>1 mark: a binary search discards half of the remaining items at each step</li>
+<li>1 mark: on a large list, a binary search generally needs far fewer comparisons and is faster</li>
+<li>1 mark: a linear search may still be preferable for a small or unsorted list, since sorting first also takes time</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul><li>Marks are for valid comparison points; other correct, relevant points may also be credited.</li></ul>
+</div>`,
+            modelAnswer: "A linear search checks items one by one from the start and works on a list in any order, so in the worst case it may check every item. A binary search must be used on a sorted list, and repeatedly checks the middle item, discarding half of the remaining items each time. On a large list, this means a binary search usually needs far fewer comparisons and is much faster. However, a linear search can still be the better choice for a small list, or a list that is not already sorted and will only be searched once, since sorting it first also takes time."
+        },
+        {
+            num: "Q12",
+            marks: 3,
+            type: "written",
+            caseStudy: "",
+            question: `<p>An algorithm splits a list into two halves repeatedly, until each part contains only one item, then merges the parts back together in the correct order.</p><p>Name this algorithm, and describe <strong>one</strong> advantage it has over a bubble sort.</p>`,
+            hint: "Name the algorithm first, then think about how many comparisons each one needs on a large list.",
+            starter: "This is a…, and its advantage is…",
+            markPoints: {
+                note: "1 mark for the correct name, up to 2 marks for a valid, explained advantage.",
+                groups: [
+                    { label: "Name", max: 1, points: [{ text: "Merge sort", marks: 1 }] },
+                    {
+                        label: "Advantage, explained", max: 2, points: [
+                            { text: "States it is usually more efficient / needs fewer comparisons on a large list", marks: 1 },
+                            { text: "Links this to dividing the list first, so it does not compare every possible pair of items the way a bubble sort does", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 3 marks</h5>
+<ul>
+<li>1 mark: <strong>merge sort</strong></li>
+<li>1 mark: it usually needs far fewer comparisons on a large list (is more efficient)</li>
+<li>1 mark: because dividing the list first means it does not compare every possible pair of adjacent items the way a bubble sort does</li>
+</ul>
+</div>`,
+            modelAnswer: "This is a merge sort. Its advantage is that, because it divides the list first and only compares items while merging already-sorted parts, it usually needs far fewer comparisons than a bubble sort on a large list, making it more efficient."
+        }
+    ];
 </script>
     <script src="/script.js"></script>
 <script src="section-totals.js"></script>

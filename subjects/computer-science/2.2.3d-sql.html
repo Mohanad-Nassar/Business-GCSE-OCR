@@ -1,0 +1,1214 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2.2.3d SQL – Interactive Study Guide</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+    <header>
+        <div>
+            <div class="badge">OCR GCSE Computer Science — Paper 2 · 2.2 Programming Fundamentals</div>
+            <h1>2.2.3d SQL</h1>
+            <p>Interactive revision guide</p>
+        </div>
+        <a href="/index.html" class="home-link">← 🏡 Home</a>
+    </header>
+
+    <nav class="tab-bar" id="tabBar">
+        <button class="tab-btn active" onclick="switchTab('learn', this)">
+            📚 Key Learning
+        </button>
+        <button class="tab-btn" onclick="switchTab('mcq', this)">
+            ❓ MCQ Quiz
+        </button>
+        <button class="tab-btn" onclick="switchTab('matching', this)">
+            🔗 Matching
+        </button>
+        <button class="tab-btn" onclick="switchTab('fib', this)">
+            ✏️ Fill the Blanks
+        </button>
+        <button class="tab-btn" onclick="switchTab('misconceptions', this)">
+            ⚠️ Misconceptions
+        </button>
+        <button class="tab-btn" onclick="switchTab('examtips', this)">
+            🎯 Exam Tips
+        </button>
+        <button class="tab-btn" onclick="switchTab('flashcards', this)">
+            🃏 Flashcards
+        </button>
+        <button class="tab-btn" onclick="switchTab('truefalse', this)">
+            ✅ True / False
+        </button>
+        <button class="tab-btn" onclick="switchTab('exampractice', this)">
+            📝 Exam Practice
+        </button>
+    </nav>
+
+    <main>
+        <div class="tab-panel active" id="tab-learn">
+            <h2 class="section-title">Key Learning Topics</h2>
+            <p class="section-sub">Click any card to expand detailed notes.</p>
+            <div class="topic-grid" id="topicGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-mcq">
+            <h2 class="section-title">Multiple Choice Questions</h2>
+            <p class="section-sub">Select an answer to reveal instant feedback.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="mcqScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">
+                        correct answers
+                    </div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    out of <strong id="mcqTotal">0</strong> attempted
+                </div>
+                <button class="reset-btn" onclick="resetMCQ()">RESET</button>
+            </div>
+            <div class="quiz-wrap" id="mcqWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-matching">
+            <h2 class="section-title">Matching Activity</h2>
+            <p class="section-sub">
+                Click a term on the left, then click the matching definition on the
+                right.
+            </p>
+            <div style="margin-bottom: 16px">
+                <div class="score-bar">
+                    <div>
+                        <div class="score-num" id="matchScore">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">matched</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="matchTotal">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetMatch()">RESET</button>
+                </div>
+            </div>
+            <div class="match-grid">
+                <div>
+                    <div class="match-label">TERMS</div>
+                    <div class="match-col" id="matchLeft"></div>
+                </div>
+                <div>
+                    <div class="match-label">DEFINITIONS</div>
+                    <div class="match-col" id="matchRight"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-fib">
+            <h2 class="section-title">Fill in the Blanks</h2>
+            <p class="section-sub">
+                Click each dropdown and choose the correct word. Wrong answers reset —
+                try again!
+            </p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="fibScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="fibTotal">0</strong> blanks
+                </div>
+                <button class="reset-btn" onclick="resetFIB()">RESET</button>
+            </div>
+            <div class="fib-wrap" id="fibWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-misconceptions">
+            <h2 class="section-title">Common Misconceptions</h2>
+            <p class="section-sub">
+                What students often think — and what examiners actually want.
+            </p>
+            <div class="misc-list" id="miscList"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-examtips">
+            <h2 class="section-title">Exam Questions &amp; Tips</h2>
+            <p class="section-sub">
+                Most repeated question types and mark-scheme structures from real OCR
+                papers.
+            </p>
+            <div class="tips-grid" id="tipsGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-flashcards">
+            <h2 class="section-title">Flashcards</h2>
+            <p class="section-sub">
+                Test yourself! Flip the card and rate your knowledge. Review your weak
+                areas at the end.
+            </p>
+
+            <div class="fc-container">
+                <div class="score-bar" id="fcScoreBar" style="display: none; margin-bottom: 20px">
+                    <div>
+                        <div class="score-num" id="fcKnown" style="color: #2d7a4f">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">known</div>
+                    </div>
+                    <div>
+                        <div class="score-num" id="fcUnknown" style="color: #c84b31">
+                            0
+                        </div>
+                        <div style="font-size: 12px; color: var(--mid)">learning</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="fcTotalTrack">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
+                </div>
+
+                <div id="fcActiveArea">
+                    <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
+                    <div class="flashcard" id="flashcard" onclick="flipCard()">
+                        <div class="fc-inner">
+                            <div class="fc-front">
+                                <div class="fc-label">KEY TERM</div>
+                                <div class="fc-term" id="fcTerm"></div>
+                            </div>
+                            <div class="fc-back">
+                                <div class="fc-def" id="fcDef"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="fc-hint">👆 Click card to flip</p>
+
+                    <div class="fc-nav" id="fcNavDefault">
+                        <button class="fc-btn outline" onclick="prevCard()">
+                            ← Prev
+                        </button>
+                        <button class="fc-btn outline" onclick="flipCard()">Flip</button>
+                        <button class="fc-btn" onclick="nextCard()">Next →</button>
+                    </div>
+
+                    <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px">
+                        <button class="fc-btn outline" style="border-color: #c84b31; color: #c84b31; flex: 1"
+                            onclick="markCard(false)">
+                            ❌ Still Learning
+                        </button>
+                        <button class="fc-btn" style="background: #2d7a4f; border-color: #2d7a4f; flex: 1"
+                            onclick="markCard(true)">
+                            ✅ Got It
+                        </button>
+                    </div>
+                </div>
+
+                <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px">
+                    <h3>Session Complete! 🎉</h3>
+                    <p style="margin: 15px 0">
+                        You knew <strong id="fcSummaryKnown">0</strong> out of
+                        <strong id="fcSummaryTotal">0</strong> cards.
+                    </p>
+                    <div style="
+                margin-top: 25px;
+                display: flex;
+                gap: 15px;
+                justify-content: center;
+                flex-wrap: wrap;
+              ">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
+                            style="background: #c84b31; border-color: #c84b31">
+                            Review Incorrect
+                        </button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">
+                            Practice All Again
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-truefalse">
+            <h2 class="section-title">True or False?</h2>
+            <p class="section-sub">Test your knowledge with these statements.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="tfScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="tfTotal">0</strong> answered
+                </div>
+                <button class="reset-btn" onclick="resetTF()">RESET</button>
+            </div>
+            <div class="tf-wrap" id="tfWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-exampractice">
+            <h2 class="section-title">Exam Practice Questions</h2>
+            <p class="section-sub">
+                Full exam questions with case studies. Use <strong>Hint</strong>,
+                <strong>Sentence Starter</strong> and
+                <strong>Submit &amp; See Mark Scheme</strong> for each question.
+            </p>
+            <div class="ep-list" id="epList"></div>
+        </div>
+    </main>
+
+<script>
+    // ══════════════════════════════════════
+    //  DATA: 2.2.3d SQL
+    //  Split out of 2.2.3 Additional Programming Techniques into its own
+    //  standalone page. OCR J277 SQL scope is SELECT / FROM / WHERE only —
+    //  no INSERT/UPDATE/DELETE/JOIN/ORDER BY.
+    // ══════════════════════════════════════
+    const pageMeta = {
+            id: '2-2-3d-sql',
+            badge: 'OCR GCSE Computer Science — Paper 2 · 2.2 Programming Fundamentals',
+            title: '2.2.3d SQL',
+            subtitle: 'Interactive revision guide',
+            subject: 'computer-science',
+        };
+
+    const topics = [
+        {
+            title: "What is SQL, and what is a database table?",
+            tag: "Key concept",
+            content: `<h4>Querying data stored in a table</h4>
+<ul>
+<li><strong>SQL</strong> (Structured Query Language) is used to ask a database questions about the data it stores — this is called <strong>querying</strong> the database.</li>
+<li>A database <strong>table</strong> stores data in rows and columns. Each column is a <strong>field</strong> (e.g. Name, Age). Each row is a <strong>record</strong> — one complete set of field values.</li>
+<li>For OCR J277 you only need three keywords: <code>SELECT</code>, <code>FROM</code> and <code>WHERE</code>.</li>
+</ul>
+<p>Table <strong>Squad</strong> (a school football club):</p>
+<div class="code-block">PlayerID | Name   | Position   | Age | Goals
+1        | Alex   | Striker    | 17  | 12
+2        | Priya  | Midfielder | 15  | 5
+3        | Sam    | Defender   | 16  | 1
+4        | Jordan | Striker    | 14  | 8
+5        | Kim    | Midfielder | 17  | 3
+6        | Reo    | Defender   | 15  | 0</div>
+<ul><li>This table has <strong>5 fields</strong> (PlayerID, Name, Position, Age, Goals) and <strong>6 records</strong> (one row per player).</li></ul>`,
+            readCheck: {
+                q: "In the Squad table, what is a single row — for example the whole row for Alex — called?",
+                opts: ["A record", "A field", "A query", "A keyword, since every row must always begin with a valid SQL keyword before any data can be stored in it"],
+                ans: 0,
+                explain: "A row of a table (one complete set of field values, such as Alex's whole entry) is called a record. A column, such as Name or Age, is a field."
+            }
+        },
+        {
+            title: "SELECT and FROM — choosing fields and a table",
+            tag: "SQL",
+            content: `<h4>Naming which columns you want, and which table to read</h4>
+<ul>
+<li><code>SELECT</code> — lists which field(s) (columns) the query should return.</li>
+<li><code>FROM</code> — names the table the query reads its data from.</li>
+<li>Field names are separated with commas if more than one is needed.</li>
+</ul>
+<p>Query: <code>SELECT Name, Position FROM Squad</code></p>
+<div class="code-block">Name   | Position
+Alex   | Striker
+Priya  | Midfielder
+Sam    | Defender
+Jordan | Striker
+Kim    | Midfielder
+Reo    | Defender</div>
+<ul><li>With no WHERE clause, <strong>every</strong> record (row) in the table is returned — just with only the chosen fields shown.</li></ul>`,
+            readCheck: {
+                q: "What does  SELECT Name, Position FROM Squad  return, using the Squad table above?",
+                opts: ["The Name and Position fields, for all six players", "Only the Name field, for all six players", "The Name and Position fields, but only for the very first player in the table", "Every field in the Squad table, for all six players, because FROM always means 'return every field'"],
+                ans: 0,
+                explain: "SELECT Name, Position chooses just those two fields. With no WHERE clause, every row (all six players) is returned."
+            }
+        },
+        {
+            title: "SELECT * — all fields",
+            tag: "SQL",
+            content: `<h4>The wildcard that means 'every field'</h4>
+<ul>
+<li><code>SELECT *</code> returns <strong>every field</strong> in the table, instead of naming them one by one.</li>
+<li>The <code>*</code> is a shortcut here — it does <strong>not</strong> mean multiply, even though it's the same symbol used for multiplication elsewhere.</li>
+</ul>
+<p>Query: <code>SELECT * FROM Squad WHERE Position = "Defender"</code></p>
+<div class="code-block">PlayerID | Name | Position | Age | Goals
+3        | Sam  | Defender | 16  | 1
+6        | Reo  | Defender | 15  | 0</div>
+<ul><li>All 5 fields are shown, but only for the 2 rows that match the WHERE condition.</li></ul>`,
+            readCheck: {
+                q: "What does the  *  symbol mean inside  SELECT * FROM Squad ?",
+                opts: ["Return every field in the table", "Multiply every numeric field together before returning it", "Return only the first field in the table", "Return every table stored in the whole database at once, not just Squad"],
+                ans: 0,
+                explain: "In a SELECT statement, * means 'every field' — it is not the multiplication operator here."
+            }
+        },
+        {
+            title: "WHERE — filtering with a single condition",
+            tag: "SQL",
+            content: `<h4>Choosing which rows come back</h4>
+<ul>
+<li><code>WHERE</code> adds a <strong>condition</strong> — only rows for which the condition is true are returned.</li>
+<li>Comparison operators used in a WHERE condition: <code>=</code> (equal to), <code>&lt;</code> (less than), <code>&gt;</code> (greater than), <code>&lt;=</code> (less than or equal to), <code>&gt;=</code> (greater than or equal to), <code>&lt;&gt;</code> (not equal to).</li>
+</ul>
+<p>Query: <code>SELECT Name FROM Squad WHERE Position = "Striker"</code></p>
+<div class="code-block">Name
+Alex
+Jordan</div>
+<ul><li>Only Alex and Jordan play Striker, so only their names are returned — Priya, Sam, Kim and Reo are filtered out.</li></ul>`,
+            readCheck: {
+                q: "Using the Squad table, what does  SELECT Name FROM Squad WHERE Age &gt; 16  return?",
+                opts: ["Alex and Kim (both aged 17)", "Sam only (aged 16)", "Alex, Sam and Kim", "Every player in the table, since WHERE only affects which fields are shown, never which rows"],
+                ans: 0,
+                explain: "Age &gt; 16 is strict — it excludes 16 itself. Only Alex (17) and Kim (17) have an Age greater than 16; Sam (16) is excluded."
+            }
+        },
+        {
+            title: "Comparing text and comparing numbers",
+            tag: "SQL",
+            content: `<h4>Quotation marks matter for text, not for numbers</h4>
+<ul>
+<li>A <strong>text</strong> value in a WHERE condition must be written inside <strong>quotation marks</strong>, e.g. <code>WHERE Position = "Striker"</code>.</li>
+<li>A <strong>numeric</strong> value is written with <strong>no</strong> quotation marks, e.g. <code>WHERE Age &gt;= 16</code>.</li>
+<li>SQL uses a <strong>single</strong> <code>=</code> to test whether two values are equal — unlike OCR's Exam Reference Language, which uses <code>==</code> for a comparison.</li>
+</ul>
+<p><code>WHERE Position = Striker</code> (no quotation marks) is <strong>not valid SQL</strong> — Striker would be read as a field name, not a piece of text.</p>`,
+            readCheck: {
+                q: "Which of these is written correctly as an SQL condition?",
+                opts: ["WHERE Sport = \"Netball\"", "WHERE Sport = Netball", "WHERE \"Sport\" = Netball", "WHERE Sport == \"Netball\", since SQL always compares two values using a double equals sign, exactly like most other programming languages"],
+                ans: 0,
+                explain: "Text values need quotation marks: WHERE Sport = \"Netball\". SQL also uses a single = for comparison, not ==."
+            }
+        },
+        {
+            title: "Combining conditions with AND",
+            tag: "SQL",
+            content: `<h4>Both conditions must be true</h4>
+<ul>
+<li><code>AND</code> combines two (or more) conditions. A row is only returned if <strong>every</strong> condition is true for that row.</li>
+<li>Adding more conditions with AND can only keep the same number of rows or <strong>reduce</strong> them — it never returns more rows than a single condition alone.</li>
+</ul>
+<p>Query: <code>SELECT Name FROM Squad WHERE Position = "Striker" AND Age &gt;= 15</code></p>
+<div class="code-block">Name
+Alex</div>
+<ul><li>Alex (Striker, 17) meets both conditions. Jordan is a Striker too, but he is only 14, so he fails the Age condition and is left out.</li></ul>`,
+            readCheck: {
+                q: "Why does Jordan NOT appear in the result of  SELECT Name FROM Squad WHERE Position = \"Striker\" AND Age &gt;= 15 ?",
+                opts: ["He meets the Position condition but fails the Age condition, and AND needs both to be true", "He fails both conditions completely, since he does not play Striker", "AND only ever checks the first condition listed, so his Age is never actually tested", "He is not stored in the Squad table at all, so he cannot appear in any query result whatsoever"],
+                ans: 0,
+                explain: "Jordan is a Striker (passes condition 1) but is 14, not >= 15 (fails condition 2). AND requires BOTH conditions to be true, so he is excluded."
+            }
+        },
+        {
+            title: "Combining conditions with OR",
+            tag: "SQL",
+            content: `<h4>At least one condition must be true</h4>
+<ul>
+<li><code>OR</code> combines two (or more) conditions. A row is returned if <strong>at least one</strong> of the conditions is true for that row.</li>
+<li>Adding conditions with OR can only keep the same number of rows or <strong>increase</strong> them, since more rows now have a way to qualify.</li>
+</ul>
+<p>Query: <code>SELECT Name FROM Squad WHERE Position = "Striker" OR Goals &gt;= 5</code></p>
+<div class="code-block">Name
+Alex
+Priya
+Jordan</div>
+<ul><li>Alex and Jordan qualify because they play Striker. Priya qualifies too — not because of her position, but because she has scored 5 goals.</li></ul>`,
+            readCheck: {
+                q: "In  SELECT Name FROM Squad WHERE Position = \"Striker\" OR Goals &gt;= 5 , why is Priya included even though she plays Midfielder?",
+                opts: ["She meets the second condition (Goals >= 5), and OR only needs one condition to be true", "OR requires every listed condition to be true, and Priya happens to meet both of them", "She is included by mistake, because Midfielder players can never appear in any query result", "Her PlayerID happens to be an odd number, which is unrelated to either condition in the query"],
+                ans: 0,
+                explain: "OR needs only ONE condition to be true. Priya fails the Position condition but has 5 goals, which satisfies Goals >= 5."
+            }
+        },
+        {
+            title: "Reading a query's result from a table",
+            tag: "Exam skill",
+            content: `<h4>Work out the columns, then the rows</h4>
+<ul>
+<li>To answer "what does this query return?", work through it in order:</li>
+<li><strong>1. SELECT</strong> — which columns will appear in the answer?</li>
+<li><strong>2. FROM</strong> — which table are you reading?</li>
+<li><strong>3. WHERE</strong> — go through the table row by row, checking the condition against that row's values.</li>
+</ul>
+<p>Table <strong>Album</strong>:</p>
+<div class="code-block">AlbumID | Title      | Genre | Year | Price
+1       | Skyline    | Pop   | 2019 | 8
+2       | Wavelength | Rock  | 2021 | 10
+3       | Horizon    | Pop   | 2022 | 12
+4       | Ember      | Rock  | 2018 | 6
+5       | Tidal      | Jazz  | 2020 | 9</div>
+<p>Query: <code>SELECT Title, Price FROM Album WHERE Genre = "Pop" AND Price &gt; 9</code></p>
+<div class="code-block">Title   | Price
+Horizon | 12</div>
+<ul><li>Skyline is Pop, but its Price (8) is not greater than 9, so it is filtered out. Horizon is Pop and its Price (12) is greater than 9, so it is the only row returned.</li></ul>`,
+            readCheck: {
+                q: "Using the Album table above, why does Ember NOT appear in the result of  SELECT Title FROM Album WHERE Genre = \"Rock\" AND Price &gt; 9 ?",
+                opts: ["It is Rock, but its Price (6) is not greater than 9, so it fails the Price condition", "It is Pop, not Rock, so it fails the Genre condition", "Its Price (6) is greater than 9, but its Genre is not Rock", "AND blocks every single row in the Album table from ever being returned, regardless of any condition"],
+                ans: 0,
+                explain: "Ember's Genre is Rock (passes condition 1), but its Price is 6, which is not greater than 9 (fails condition 2). AND needs both, so Ember is excluded."
+            }
+        },
+        {
+            title: "Writing a query from a description",
+            tag: "Exam skill",
+            content: `<h4>Turning English into SQL</h4>
+<ul>
+<li>Exam questions describe what's needed in words. Break the description into three parts, in this order:</li>
+<li><strong>Which fields?</strong> → after SELECT.</li>
+<li><strong>Which table?</strong> → after FROM.</li>
+<li><strong>Which rows?</strong> (any condition) → after WHERE.</li>
+</ul>
+<p>"Show the title and year of every Rock album costing less than 10":</p>
+<div class="code-block">SELECT Title, Year FROM Album WHERE Genre = "Rock" AND Price &lt; 10</div>
+<p>Checking against the Album table: Wavelength is Rock but costs 10 (not less than 10), so it's excluded. Ember is Rock and costs 6, so it is the only row returned — Title = Ember, Year = 2018.</p>`,
+            readCheck: {
+                q: "A question asks for a query that shows every field for members who scored more than 5 goals. Which part of the query names the table?",
+                opts: ["The part after FROM", "The part after SELECT", "The part after WHERE", "The condition itself, since a condition always states which table it is meant to apply to"],
+                ans: 0,
+                explain: "FROM names the table. SELECT chooses fields, and WHERE holds the condition — here, Goals > 5."
+            }
+        },
+        {
+            title: "What SQL in J277 can and can't do",
+            tag: "Key concept",
+            content: `<h4>J277 SQL is for reading data, not changing it</h4>
+<ul>
+<li>For OCR J277 you only need to <strong>read</strong> data using SELECT, FROM and WHERE — this is sometimes called <strong>querying</strong>.</li>
+<li>You do <strong>not</strong> need commands that add, change or delete data (such as INSERT, UPDATE or DELETE) — they are outside the J277 specification.</li>
+<li>Running a SELECT query never changes anything stored in the table — it only returns a <strong>view</strong> of the data that matches the query.</li>
+</ul>`,
+            readCheck: {
+                q: "Does running  SELECT Name FROM Squad WHERE Age &gt; 16  change any data stored in the Squad table?",
+                opts: ["No — SELECT only reads and returns data; it does not change the table", "Yes — it permanently deletes every row that fails the WHERE condition", "Yes — it changes the Age of every player to exactly 16", "No, but only because this particular query does not include the keyword UPDATE"],
+                ans: 0,
+                explain: "A SELECT query only reads and returns matching data — the Squad table itself is left completely unchanged."
+            }
+        },
+        {
+            title: "The comparison operators, recapped",
+            tag: "Recap",
+            content: `<h4>The six comparison operators</h4>
+<div class="code-block">Equals (=)                        — true when the two values are exactly the same
+Not equal to (&lt;&gt;)           — true when the two values are different
+Greater than (&gt;)               — true when the left value is bigger
+Less than (&lt;)                  — true when the left value is smaller
+Greater than or equal to (&gt;=)  — also true on an exact match
+Less than or equal to (&lt;=)     — also true on an exact match</div>
+<ul>
+<li>These work on both numeric fields (e.g. <code>Age &gt;= 16</code>) and text fields (e.g. <code>Position &lt;&gt; "Striker"</code>, meaning "not a Striker").</li>
+<li>Remember: <code>&gt;</code> and <code>&lt;</code> are <strong>strict</strong> — they exclude the boundary value itself. <code>&gt;=</code> and <code>&lt;=</code> <strong>include</strong> the boundary value.</li>
+</ul>`,
+            readCheck: {
+                q: "Which operator would you use to find every player who is NOT a Defender?",
+                opts: ["Not equal to", "Equal to", "Greater than or equal to", "Less than or equal to, since this is the operator most often confused with the one that means 'not equal to' in SQL"],
+                ans: 0,
+                explain: "Not equal to (written <>) is what's needed. WHERE Position <> \"Defender\" returns every row that is NOT a Defender."
+            }
+        }
+    ];
+
+    const mcqData = [
+        {
+            q: "What does the SELECT keyword control in an SQL query?",
+            opts: ["Which fields (columns) are returned", "Which rows are returned, based on a condition", "Which table the data is read from", "Whether the query also changes the stored data, not just reads it"],
+            ans: 0,
+            explain: "SELECT chooses which fields (columns) come back. WHERE controls rows, and FROM names the table."
+        },
+        {
+            q: "What does the WHERE keyword control?",
+            opts: ["Which rows are returned, based on a condition", "Which fields (columns) are returned", "Which table the data is read from", "Whether the values inside the table are permanently sorted into a fixed order"],
+            ans: 0,
+            explain: "WHERE filters ROWS by a condition. SELECT is for fields, and FROM names the table."
+        },
+        {
+            q: "What does  SELECT * FROM Squad  return?",
+            opts: ["Every field, for every row in the Squad table", "Only the first field, for every row in the Squad table", "Every field, but only for the very first row in the Squad table", "Nothing at all, because * is not a valid symbol inside a SELECT statement"],
+            ans: 0,
+            explain: "* means 'all fields'. With no WHERE clause, every row is also returned — so this returns the whole table."
+        },
+        {
+            q: "A table Album stores AlbumID, Title, Genre, Year and Price. Which query correctly returns the Title of every album priced at exactly 10?",
+            opts: ["SELECT Title FROM Album WHERE Price = 10", "SELECT Title FROM Album WHERE Price == 10", "SELECT Price FROM Album WHERE Title = 10", "SELECT Title FROM Album WHERE Price = \"10\""],
+            ans: 0,
+            explain: "SQL uses a single = for comparison, and Price is numeric so it needs no quotation marks: WHERE Price = 10."
+        },
+        {
+            q: "Which of these correctly compares two values for 'not equal to' in SQL?",
+            opts: ["A less-than sign directly followed by a greater-than sign", "A double equals sign", "An equals sign directly followed by an exclamation mark, since this is the ordering most students expect 'not equal to' to use", "An exclamation mark directly followed by an equals sign"],
+            ans: 0,
+            explain: "SQL (as used in J277) writes 'not equal to' with a less-than sign followed immediately by a greater-than sign."
+        },
+        {
+            q: "A WHERE condition uses the operator meaning 'less than or equal to'. Which is it?",
+            opts: ["A less-than sign directly followed by an equals sign", "A less-than sign on its own, never followed by an equals sign", "A greater-than sign directly followed by an equals sign", "A less-than sign directly followed by a greater-than sign"],
+            ans: 0,
+            explain: "'Less than or equal to' is written as a less-than sign followed by an equals sign — it includes an exact match as well as smaller values."
+        },
+        {
+            q: "Which of these text comparisons is written correctly in SQL?",
+            opts: ["WHERE Sport = \"Netball\"", "WHERE Sport = Netball", "WHERE \"Sport\" = Netball", "WHERE Sport == \"Netball\", since two consecutive equals signs are always required whenever text is compared"],
+            ans: 0,
+            explain: "Text values must be inside quotation marks: WHERE Sport = \"Netball\". SQL also compares with a single =, not ==."
+        },
+        {
+            q: "Two conditions are combined with AND. What must be true for a row to be returned?",
+            opts: ["Both conditions must be true for that row", "At least one of the two conditions must be true", "Neither condition needs to be true", "Exactly one of the two conditions must be true, but not both at the same time"],
+            ans: 0,
+            explain: "AND requires every listed condition to be true for a row to be included."
+        },
+        {
+            q: "Two conditions are combined with OR. What must be true for a row to be returned?",
+            opts: ["At least one of the two conditions must be true", "Both conditions must be true at exactly the same time for the row to qualify", "Neither condition needs to be true for the row to be returned", "The row must fail both conditions before it can possibly be returned"],
+            ans: 0,
+            explain: "OR needs only ONE of the conditions to be true — unlike AND, which needs every condition to be true."
+        },
+        {
+            q: "In OCR's J277 specification, which of these SQL keywords is actually required?",
+            opts: ["WHERE", "INSERT", "UPDATE", "DELETE"],
+            ans: 0,
+            explain: "J277 only requires SELECT, FROM and WHERE — commands that add, change or delete data are outside the specification."
+        },
+        {
+            q: "A table stores a Name field and an Age field. Which keyword names the table itself inside a query?",
+            opts: ["FROM", "SELECT", "WHERE", "TABLE"],
+            ans: 0,
+            explain: "FROM names the table a query reads from. SELECT chooses fields, and WHERE holds the condition."
+        },
+        {
+            q: "A query uses the condition 'Age is strictly greater than 15'. Would a player whose Age is exactly 15 be included?",
+            opts: ["No — a strict 'greater than' excludes the boundary value itself", "Yes — 'greater than' always includes the exact boundary value too", "Only if the value 15 is also written in quotation marks", "Yes, but only when the field being compared is text rather than a number"],
+            ans: 0,
+            explain: "A strict greater-than excludes the boundary. A player aged exactly 15 would need 'greater than or equal to 15' to be included."
+        }
+    ];
+
+    const matchData = [
+        { term: "SELECT", def: "Chooses which field(s) — columns — a query returns" },
+        { term: "FROM", def: "Names the table a query reads its data from" },
+        { term: "WHERE", def: "Filters which rows (records) are returned, based on a condition" },
+        { term: "SELECT *", def: "Returns every field, not just some of them" },
+        { term: "=", def: "Checks whether a field's value exactly matches a given value" },
+        { term: "Not equal to", def: "Checks whether a field's value does NOT equal a given value" },
+        { term: "Greater than / less than", def: "Check whether a value is bigger / smaller than another, excluding an exact match" },
+        { term: "Greater/less than or equal to", def: "Check whether a value is bigger-or-equal / smaller-or-equal, including an exact match" },
+        { term: "AND", def: "Combines two conditions — a row must meet BOTH to be returned" },
+        { term: "OR", def: "Combines two conditions — a row must meet AT LEAST ONE to be returned" },
+        { term: "Text value in a condition", def: "Must be written inside quotation marks, e.g. = \"Striker\"" },
+        { term: "Field vs record", def: "A field is one column of data; a record is one row — one complete set of field values" }
+    ];
+
+    const fibData = [
+        {
+            display: "A _____ is one complete row of data in a table, made up of several fields.",
+            blanks: { B1: "record" }
+        },
+        {
+            display: "A _____ is one named column of data, stored for every row in a table.",
+            blanks: { B1: "field" }
+        },
+        {
+            display: "The _____ keyword chooses which fields a query returns.",
+            blanks: { B1: "SELECT" }
+        },
+        {
+            display: "The _____ keyword names the table a query reads its data from.",
+            blanks: { B1: "FROM" }
+        },
+        {
+            display: "The _____ keyword filters which rows are returned, based on a condition.",
+            blanks: { B1: "WHERE" }
+        },
+        {
+            display: "Combining two conditions with _____ means a row must meet BOTH of them to be returned.",
+            blanks: { B1: "AND" }
+        },
+        {
+            display: "Combining two conditions with _____ means a row only needs to meet AT LEAST ONE of them.",
+            blanks: { B1: "OR" }
+        },
+        {
+            display: "Text values used in a WHERE condition, such as \"Striker\", must be written inside _____.",
+            blanks: { B1: "quotes" }
+        }
+    ];
+    const fibWords = ["record", "field", "SELECT", "FROM", "WHERE", "AND", "OR", "quotes"];
+
+    const tfData = [
+        {
+            statement: "SELECT chooses which rows are returned by a query.",
+            answer: false,
+            explanation: "SELECT chooses which FIELDS (columns) are returned, not which rows — that is WHERE's job."
+        },
+        {
+            statement: "WHERE filters which rows are returned, based on a condition.",
+            answer: true,
+            explanation: "Correct — WHERE holds the condition that decides which rows (records) are included in the result."
+        },
+        {
+            statement: "SELECT * FROM Squad returns only the Name field for every row.",
+            answer: false,
+            explanation: "* means 'every field', not just Name — SELECT * FROM Squad returns all 5 fields for every row."
+        },
+        {
+            statement: "Text values in a WHERE condition must be written inside quotation marks.",
+            answer: true,
+            explanation: "Correct — e.g. WHERE Position = \"Striker\". Numeric values do not need quotation marks."
+        },
+        {
+            statement: "In SQL, a single equals sign is used to compare whether two values are equal.",
+            answer: true,
+            explanation: "Correct — SQL uses one equals sign for a comparison, unlike ERL's double equals sign for comparing two values."
+        },
+        {
+            statement: "Combining two conditions with AND means a row only needs to meet one of them to be returned.",
+            answer: false,
+            explanation: "That describes OR. AND requires a row to meet BOTH conditions before it is returned."
+        },
+        {
+            statement: "OCR's J277 SQL only requires SELECT, FROM and WHERE — not INSERT, UPDATE or DELETE.",
+            answer: true,
+            explanation: "Correct — J277 SQL is read-only querying. Commands that edit data are outside the specification."
+        },
+        {
+            statement: "A strict 'greater than' condition on Age would include a row where Age matches the boundary value exactly.",
+            answer: false,
+            explanation: "A strict 'greater than' excludes the boundary value. A row matching it exactly would need 'greater than or equal to' (or 'equal to') to be included."
+        }
+    ];
+
+    const miscData = [
+        {
+            wrong: "Thinking the * in SELECT * means 'multiply', like it does in ordinary arithmetic.",
+            correct: "Inside a <code>SELECT</code> statement, <code>*</code> means <strong>'every field'</strong> — it has nothing to do with multiplication here.",
+            readCheck: {
+                q: "What does  SELECT * FROM Album  mean?",
+                opts: ["Return every field, for every row in the Album table", "Multiply together every numeric field in the Album table", "Return only the AlbumID field, for every row", "Return every field, but only for the row with the smallest AlbumID"],
+                ans: 0,
+                explain: "* is a shortcut meaning 'every field' inside SELECT — not the multiplication operator."
+            }
+        },
+        {
+            wrong: "Forgetting the quotation marks around a text value in a WHERE condition.",
+            correct: "A <strong>text</strong> value (like a name or a genre) must be inside quotation marks, e.g. <code>WHERE Genre = \"Jazz\"</code>. A <strong>numeric</strong> value, like a Price or an Age, does not need them.",
+            readCheck: {
+                q: "Which condition is written correctly?",
+                opts: ["WHERE Genre = \"Jazz\"", "WHERE Genre = Jazz", "WHERE \"Genre\" = Jazz", "WHERE Genre equals \"Jazz\" equals true, since a condition must always restate whether or not it is true"],
+                ans: 0,
+                explain: "Text values need quotation marks around them: WHERE Genre = \"Jazz\"."
+            }
+        },
+        {
+            wrong: "Thinking that SQL, as covered in J277, can be used to add, edit or delete data in a table.",
+            correct: "For OCR J277 you only need to <strong>read</strong> data with SELECT, FROM and WHERE. Commands that change data (like INSERT, UPDATE or DELETE) are outside the specification — a SELECT query never edits the table it reads from.",
+            readCheck: {
+                q: "What happens to the Squad table after a SELECT query with a WHERE condition on Age runs against it?",
+                opts: ["Nothing — the table is completely unchanged; the query only returns matching data", "Every row failing the condition is permanently and irreversibly removed from the table itself", "Every player's Age is updated to a new value", "A brand new table is automatically created to store the query's result"],
+                ans: 0,
+                explain: "SELECT only reads data and returns a result — it never changes what is stored in the table."
+            }
+        },
+        {
+            wrong: "Mixing up SELECT (which picks fields/columns) with WHERE (which picks rows).",
+            correct: "<strong>SELECT</strong> controls which <strong>fields (columns)</strong> come back. <strong>WHERE</strong> controls which <strong>rows (records)</strong> come back, based on a condition. They filter two completely different things.",
+            readCheck: {
+                q: "Which keyword would you change to return fewer COLUMNS, without changing which rows are returned?",
+                opts: ["SELECT", "WHERE", "FROM", "AND, since that is the only keyword able to control how many columns a query returns"],
+                ans: 0,
+                explain: "SELECT controls which fields (columns) are returned. Changing WHERE would affect rows, not columns."
+            }
+        },
+        {
+            wrong: "Thinking AND and OR behave the same way, or mixing up which one requires both conditions.",
+            correct: "<strong>AND</strong> needs <strong>every</strong> condition to be true for a row to be returned — adding more conditions with AND can only reduce the rows returned. <strong>OR</strong> needs only <strong>one</strong> condition to be true — adding more conditions with OR can only increase the rows returned.",
+            readCheck: {
+                q: "Compared to a single Position condition on its own, would adding a second condition joined with AND ever return MORE rows?",
+                opts: ["No — AND can only keep the same rows or return fewer of them, never more", "Yes — AND always returns more rows than a single condition on its own", "Yes, but only if the second condition uses a text value rather than a number", "It depends entirely on which table the query happens to be written against"],
+                ans: 0,
+                explain: "AND narrows a query down — every extra condition can only keep the same rows or remove some, never add rows that failed the first condition."
+            }
+        },
+        {
+            wrong: "Assuming a strict 'greater than' or 'less than' condition includes the exact boundary value itself.",
+            correct: "A strict <strong>greater than</strong> or <strong>less than</strong> excludes the boundary value. Only <strong>greater/less than or equal to</strong> includes it. A strict 'Age greater than 16' excludes a player who is exactly 16; 'Age greater than or equal to 16' includes them.",
+            readCheck: {
+                q: "A condition uses a strict 'Goals greater than 5'. Would a player with exactly 5 goals be included?",
+                opts: ["No — a strict 'greater than' excludes the value 5 itself", "Yes — 'greater than' always includes the exact boundary value too", "Only if the value 5 is written inside quotation marks", "Yes, but only for a player whose Position happens to be Striker"],
+                ans: 0,
+                explain: "A strict 'greater than' excludes the boundary. A player with exactly 5 goals would need 'greater than or equal to 5' (or 'equal to 5') to be included."
+            }
+        }
+    ];
+
+    const examTips = [
+        {
+            type: "tip",
+            title: "Reading a query's result systematically",
+            pills: ["AO2", "SQL", "Key skill"],
+            content: `<p>"What does this query return?" is one of the most common SQL question types. Work through it in a fixed order, every time:</p>
+<ul>
+<li><strong>1. SELECT</strong> — which columns will the answer have?</li>
+<li><strong>2. FROM</strong> — which table are you reading?</li>
+<li><strong>3. WHERE</strong> — go through the table <strong>row by row</strong>, testing the condition against that row's actual values.</li>
+</ul>
+<p><strong>Example:</strong> for <code>SELECT Title FROM Album WHERE Price &lt;= 8</code>, check every row in turn: Skyline (Price 8) — passes. Wavelength (10) — fails. Horizon (12) — fails. Ember (6) — passes. Tidal (9) — fails. Result: Skyline, Ember.</p>`,
+            readCheck: {
+                q: "What is the safest way to work out which rows a WHERE condition returns?",
+                opts: ["Check the condition against every row in the table, one row at a time", "Only check the very first and last rows, since the rows in between are assumed to follow the same pattern", "Count how many fields are listed after SELECT, since that always equals the number of matching rows", "Guess based on how the table happens to be sorted, without checking the condition itself"],
+                ans: 0,
+                explain: "Going row by row and testing the condition against each one is reliable. Skipping rows or guessing from the SELECT list is not."
+            }
+        },
+        {
+            type: "explain",
+            title: "Writing a query from a description (the three-part method)",
+            pills: ["AO2", "SQL", "Common question"],
+            content: `<p>You'll be given a table and an English description of what's needed, and asked to write the matching query. Break the description into three parts, in order:</p>
+<ul>
+<li><strong>Which fields?</strong> → after SELECT (or * for every field).</li>
+<li><strong>Which table?</strong> → after FROM.</li>
+<li><strong>Which rows?</strong> → any condition described → after WHERE.</li>
+</ul>
+<p><strong>Worked example:</strong> "Show the name of every Squad player who plays Midfielder" → fields = Name, table = Squad, condition = Position is Midfielder.</p>
+<p>Query: <code>SELECT Name FROM Squad WHERE Position = "Midfielder"</code></p>`,
+            readCheck: {
+                q: "Using the three-part method, what should come after WHERE for 'show every field for albums released before 2020'?",
+                opts: ["A condition on the Year field", "SELECT *", "FROM Album", "The word Year on its own, since stating a field name is always enough to filter rows by that field"],
+                ans: 0,
+                explain: "WHERE holds the condition on the rows (Year < 2020). SELECT * and FROM Album belong in different parts of the query."
+            }
+        },
+        {
+            type: "tip",
+            title: "Common exam traps: AND vs OR, and strict vs inclusive operators",
+            pills: ["AO1", "Common trap", "SQL"],
+            content: `<p>Two mistakes come up again and again in SQL exam questions:</p>
+<ul>
+<li><strong>AND vs OR</strong> — AND needs every condition to be true (narrows the result down); OR needs only one to be true (can widen it). Read the English description carefully — "and" in a sentence doesn't always mean the SQL keyword AND.</li>
+<li><strong>Strict vs inclusive operators</strong> — <code>&gt;</code> and <code>&lt;</code> exclude the exact boundary value; <code>&gt;=</code> and <code>&lt;=</code> include it. If a question says "at least" or "or more", that's <code>&gt;=</code>; "more than" alone is <code>&gt;</code>.</li>
+</ul>
+<p>Before writing a final answer, re-read the English description once more and check your query against it, condition by condition.</p>`,
+            readCheck: {
+                q: "A question asks for players who scored 'at least 5 goals'. Which comparison should be used?",
+                opts: ["Greater than or equal to 5, so that a player with exactly 5 goals is still included", "Greater than 5 on its own, so that a player with exactly 5 goals is excluded from the final result", "Less than or equal to 5", "Not equal to 5"],
+                ans: 0,
+                explain: "'At least 5' includes the value 5 itself, so it needs greater than or equal to — not the strict greater than."
+            }
+        }
+    ];
+
+    const flashcards = [
+        { term: "SELECT", def: "Chooses which fields (columns) a query returns" },
+        { term: "FROM", def: "Names the table a query reads data from" },
+        { term: "WHERE", def: "Filters which rows (records) are returned, using a condition" },
+        { term: "SELECT * FROM table", def: "Returns every field, for every matching row" },
+        { term: "=", def: "Checks whether a field's value exactly matches a given value" },
+        { term: "Not equal to", def: "Checks whether a field's value does NOT equal a given value" },
+        { term: "Greater than / less than", def: "Exclude the exact boundary value" },
+        { term: "Greater/less than or equal to", def: "Include the exact boundary value" },
+        { term: "AND", def: "Combines two conditions — a row needs BOTH to be true" },
+        { term: "OR", def: "Combines two conditions — a row needs AT LEAST ONE to be true" },
+        { term: "Text value in a condition", def: "Must be written in quotation marks, e.g. = \"Rugby\"" },
+        { term: "Field", def: "One named column of data, stored for every row" },
+        { term: "Record", def: "One complete row of data, made up of several fields" },
+        { term: "Table", def: "A named grid of records (rows) and fields (columns)" },
+        { term: "J277 SQL scope", def: "Only SELECT, FROM and WHERE are required — not INSERT, UPDATE or DELETE" },
+        { term: "Writing a query", def: "Work out which fields, which table, then which rows (the condition)" }
+    ];
+
+    // ── Original clean-room exam questions (2026-07-24) ──
+    // Written from scratch against the OCR J277 §2.2.3 SQL scope (SELECT/
+    // FROM/WHERE only — no INSERT/UPDATE/DELETE/JOIN/ORDER BY). NOT
+    // transcribed from any OCR paper. No exam PDF was supplied for this
+    // sub-page, so the tariff spread and format mix are authored from the
+    // standard J277 Paper 2 assessment style for SQL (reading a query's
+    // result, writing a query from a description, comparison operators,
+    // combining conditions) — NOT profiled from a real paper; treat the
+    // ceiling as a best estimate.
+    // Two original sample tables used throughout: Squad (a school football
+    // club: PlayerID, Name, Position, Age, Goals) and Album (a music
+    // collection: AlbumID, Title, Genre, Year, Price). Every stated query
+    // result below has been independently re-checked row-by-row against
+    // these tables.
+    // Spread: 3x1, 3x2, 5x3, 2x4 = 13 questions / 32 marks (mcq/written/
+    // tableFill/codeGaps/matchLine/bankCloze/tickGrid).
+    const EXAM_CASE_STUDIES = {};
+
+    const examQuestions = [
+        {
+            num: "Q1",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: `<p>The table below shows a school football club, <strong>Squad</strong>.</p><pre>PlayerID | Name   | Position   | Age | Goals
+1        | Alex   | Striker    | 17  | 12
+2        | Priya  | Midfielder | 15  | 5
+3        | Sam    | Defender   | 16  | 1
+4        | Jordan | Striker    | 14  | 8
+5        | Kim    | Midfielder | 17  | 3
+6        | Reo    | Defender   | 15  | 0</pre><p>Tick <strong>one</strong> box to identify what  SELECT * FROM Squad  returns.</p>`,
+            options: ["All 5 fields, for all 6 players", "Only the Name field, for all 6 players", "All 5 fields, but only for Alex, the first player in the table", "Nothing, because a SELECT statement must always include a WHERE clause to run at all"],
+            answer: 0,
+            hint: "* means 'every field'. With no WHERE clause, every row is also returned.",
+            starter: "",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<ul><li><strong>All 5 fields, for all 6 players</strong></li></ul>
+</div>`,
+            modelAnswer: "All 5 fields, for all 6 players."
+        },
+        {
+            num: "Q2",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: `<p>Tick <strong>one</strong> box to identify which SQL keyword filters which ROWS a query returns.</p>`,
+            options: ["WHERE", "SELECT", "FROM", "AND, since this is the only keyword that is ever able to filter which rows come back from a query"],
+            answer: 0,
+            hint: "SELECT picks fields (columns). FROM names the table. Which keyword is left to filter rows?",
+            starter: "",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<ul><li><strong>WHERE</strong></li></ul>
+</div>`,
+            modelAnswer: "WHERE."
+        },
+        {
+            num: "Q3",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: `<p>Using the Squad table from Q1, state what  SELECT Name FROM Squad WHERE Position = "Defender"  returns.</p>`,
+            hint: "Find every row where Position is exactly \"Defender\", then give just the Name field for those rows.",
+            starter: "The names returned are …",
+            markPoints: {
+                note: "1 mark for each correct name (both needed for 2 marks).",
+                groups: [
+                    { label: "Sam", max: 1, points: [{ text: "Sam", marks: 1 }] },
+                    { label: "Reo", max: 1, points: [{ text: "Reo", marks: 1 }] }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks</h5>
+<ul>
+<li><strong>Sam</strong> (Defender)</li>
+<li><strong>Reo</strong> (Defender)</li>
+</ul>
+</div>`,
+            modelAnswer: "Sam and Reo — they are the two players whose Position is Defender."
+        },
+        {
+            num: "Q4",
+            marks: 3,
+            type: "written",
+            format: "tableFill",
+            caseStudy: "",
+            question: `<p>Table <strong>Squad</strong> is shown below.</p><pre>PlayerID | Name   | Position   | Age | Goals
+1        | Alex   | Striker    | 17  | 12
+2        | Priya  | Midfielder | 15  | 5
+3        | Sam    | Defender   | 16  | 1
+4        | Jordan | Striker    | 14  | 8
+5        | Kim    | Midfielder | 17  | 3
+6        | Reo    | Defender   | 15  | 0</pre><p>Complete the table to show the names returned by each query.</p>`,
+            table: {
+                headers: ["Query", "Names returned"],
+                rows: [
+                    ["SELECT Name FROM Squad WHERE Position = \"Midfielder\"", "Priya, Kim"],
+                    ["SELECT Name FROM Squad WHERE Age > 16", null],
+                    ["SELECT Name FROM Squad WHERE Goals = 0", null],
+                    ["SELECT Name FROM Squad WHERE Position = \"Defender\" AND Age >= 16", null]
+                ]
+            },
+            answers: {
+                "1,1": ["Alex, Kim"],
+                "2,1": ["Reo"],
+                "3,1": ["Sam"]
+            },
+            hint: "The first row has been done for you. Check each remaining query against every one of the 6 rows in Squad.",
+            starter: "Row 2: … , Row 3: … , Row 4: …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 3 marks (1 mark for each correct row)</h5>
+<ul>
+<li>Age > 16 → <strong>Alex, Kim</strong> (both aged 17; Sam is 16, not > 16)</li>
+<li>Goals = 0 → <strong>Reo</strong> (the only player with 0 goals)</li>
+<li>Position = "Defender" AND Age >= 16 → <strong>Sam</strong> (Sam is 16; Reo is 15, so fails the Age condition)</li>
+</ul>
+</div>`,
+            modelAnswer: "Age > 16 → Alex, Kim. Goals = 0 → Reo. Position = \"Defender\" AND Age >= 16 → Sam."
+        },
+        {
+            num: "Q5",
+            marks: 3,
+            type: "written",
+            format: "codeGaps",
+            caseStudy: "",
+            question: `<p>Table <strong>Album</strong> is shown below.</p><pre>AlbumID | Title      | Genre | Year | Price
+1       | Skyline    | Pop   | 2019 | 8
+2       | Wavelength | Rock  | 2021 | 10
+3       | Horizon    | Pop   | 2022 | 12
+4       | Ember      | Rock  | 2018 | 6
+5       | Tidal      | Jazz  | 2020 | 9</pre><p>Complete the query so that it returns the Title and Price of every Jazz album.</p>`,
+            gaps: {
+                lines: [
+                    "SELECT {1}, Price",
+                    "FROM {2}",
+                    "WHERE Genre {3} \"Jazz\""
+                ],
+                answers: {
+                    "1": ["Title"],
+                    "2": ["Album"],
+                    "3": ["="]
+                }
+            },
+            hint: "Which fields are needed? Which table? Which comparison operator tests for an exact match?",
+            starter: "Gap 1: … Gap 2: … Gap 3: …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 3 marks (1 mark per gap)</h5>
+<ul>
+<li>Gap 1: <strong>Title</strong></li>
+<li>Gap 2: <strong>Album</strong></li>
+<li>Gap 3: <strong>=</strong></li>
+</ul>
+</div>`,
+            modelAnswer: "SELECT Title, Price FROM Album WHERE Genre = \"Jazz\""
+        },
+        {
+            num: "Q6",
+            marks: 4,
+            type: "written",
+            format: "matchLine",
+            caseStudy: "",
+            question: `<p>Draw <strong>one</strong> line from each SQL keyword to its correct purpose.</p><p>(There are more purposes than keywords — one purpose is not used.)</p>`,
+            match: {
+                left: ["SELECT", "FROM", "WHERE", "AND"],
+                right: [
+                    "Chooses which fields (columns) a query returns",
+                    "Names the table a query reads its data from",
+                    "Filters which rows are returned, based on a condition",
+                    "Combines two conditions so a row must meet BOTH to be returned",
+                    "Combines two conditions so a row only needs to meet at least one of them"
+                ],
+                answer: { "0": 0, "1": 1, "2": 2, "3": 3 },
+                decoys: [4]
+            },
+            hint: "Watch the decoy — 'a row only needs to meet at least one' describes OR, not AND.",
+            starter: "SELECT → …, FROM → …, WHERE → …, AND → …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (1 mark per correct line)</h5>
+<ul>
+<li>SELECT → <strong>A</strong> (chooses which fields are returned)</li>
+<li>FROM → <strong>B</strong> (names the table)</li>
+<li>WHERE → <strong>C</strong> (filters which rows are returned)</li>
+<li>AND → <strong>D</strong> (a row must meet BOTH conditions)</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul><li>1 mark per correct line. The fifth purpose describes OR and is a decoy — it is not used.</li></ul>
+</div>`,
+            modelAnswer: "SELECT → chooses which fields are returned. FROM → names the table. WHERE → filters which rows are returned. AND → a row must meet BOTH conditions."
+        },
+        {
+            num: "Q7",
+            marks: 3,
+            type: "written",
+            format: "bankCloze",
+            caseStudy: "",
+            question: `<p>Complete the paragraph about SQL comparisons by selecting terms from the list. <strong>Not all terms are used.</strong></p>`,
+            cloze: `<p>In an SQL WHERE condition, a ___1___ value such as a name or a sport must be written inside quotation marks, but a ___2___ value such as an age or a price does not need them. SQL uses a single ___3___ symbol to check whether two values are equal.</p>`,
+            bank: ["text", "numeric", "=", "==", "!=", "string"],
+            answers: {
+                "1": ["text"],
+                "2": ["numeric"],
+                "3": ["="]
+            },
+            hint: "One term describes values like names or sports. Another describes values like ages or prices. The third is the SQL equals symbol.",
+            starter: "(1) … (2) … (3) …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 3 marks (1 mark for each completed term)</h5>
+<p>A <strong>text</strong> value must be written inside quotation marks; a <strong>numeric</strong> value does not need them; SQL uses a single <strong>=</strong> to test for equality.</p>
+</div>`,
+            modelAnswer: "(1) text (2) numeric (3) ="
+        },
+        {
+            num: "Q8",
+            marks: 4,
+            type: "written",
+            format: "tickGrid",
+            caseStudy: "",
+            question: `<p>A query is written as:</p><pre>SELECT Name FROM Squad
+WHERE Position = "Striker" AND Goals &gt;= 10</pre><p>Using the Squad table from Q1, tick <strong>one</strong> box in each row to show whether that player would be <strong>included</strong> in the result.</p>`,
+            grid: {
+                cols: ["Included", "Not included"],
+                rows: [
+                    { label: "Alex — Striker, 12 goals", correct: [0] },
+                    { label: "Priya — Midfielder, 5 goals", correct: [1] },
+                    { label: "Jordan — Striker, 8 goals", correct: [1] },
+                    { label: "Sam — Defender, 1 goal", correct: [1] }
+                ]
+            },
+            hint: "Both conditions must be true: Position must be exactly \"Striker\", AND Goals must be 10 or more.",
+            starter: "Alex: … Priya: … Jordan: … Sam: …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (1 mark per row)</h5>
+<ul>
+<li>Alex → <strong>Included</strong> (Striker, 12 >= 10)</li>
+<li>Priya → <strong>Not included</strong> (not a Striker)</li>
+<li>Jordan → <strong>Not included</strong> (Striker, but 8 is not >= 10)</li>
+<li>Sam → <strong>Not included</strong> (not a Striker)</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul><li>Each row is marked independently; 2+ ticks in a row scores 0 for that row.</li></ul>
+</div>`,
+            modelAnswer: "Alex: Included. Priya: Not included. Jordan: Not included. Sam: Not included."
+        },
+        {
+            num: "Q9",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: `<p>Using the Album table from Q5, state what  SELECT Title FROM Album WHERE Price &lt;= 8  returns.</p>`,
+            hint: "Check the Price field of every row in Album against the condition Price <= 8.",
+            starter: "The titles returned are …",
+            markPoints: {
+                note: "1 mark for each correct title (both needed for 2 marks).",
+                groups: [
+                    { label: "Skyline", max: 1, points: [{ text: "Skyline", marks: 1 }] },
+                    { label: "Ember", max: 1, points: [{ text: "Ember", marks: 1 }] }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks</h5>
+<ul>
+<li><strong>Skyline</strong> (Price 8, which is <= 8)</li>
+<li><strong>Ember</strong> (Price 6, which is <= 8)</li>
+</ul>
+</div>`,
+            modelAnswer: "Skyline and Ember — both have a Price of 8 or less."
+        },
+        {
+            num: "Q10",
+            marks: 3,
+            type: "written",
+            caseStudy: "",
+            question: `<p>Using the Album table from Q5, write an SQL query that selects the <strong>Title</strong> and <strong>Price</strong> of every <strong>Pop</strong> album priced under <strong>10</strong>.</p>`,
+            hint: "SELECT the fields you need, FROM the table, WHERE both the genre and the price conditions hold together.",
+            starter: "SELECT …",
+            markPoints: {
+                note: "1 mark for each correct part of the query.",
+                groups: [
+                    {
+                        label: "The query", max: 3, points: [
+                            { text: "SELECT Title, Price", marks: 1 },
+                            { text: "FROM Album", marks: 1 },
+                            { text: "WHERE Genre = \"Pop\" AND Price < 10", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 3 marks</h5>
+<ul>
+<li>1 mark: SELECT Title, Price</li>
+<li>1 mark: FROM Album</li>
+<li>1 mark: WHERE Genre = "Pop" AND Price &lt; 10</li>
+</ul>
+<p>Full query: SELECT Title, Price FROM Album WHERE Genre = "Pop" AND Price &lt; 10</p>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul><li>Fields may be given in either order. Accept minor wording variation that keeps the same meaning.</li></ul>
+</div>`,
+            modelAnswer: "SELECT Title, Price FROM Album WHERE Genre = \"Pop\" AND Price < 10"
+        },
+        {
+            num: "Q11",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: `<p>A student writes the following query to find defenders aged 15:</p><pre>SELECT Name FROM Squad WHERE Position = Defender AND Age = 15</pre><p>Identify the mistake in this query, and write the corrected version.</p>`,
+            hint: "Defender is a text value. What does every text value need in a WHERE condition?",
+            starter: "The mistake is …, the corrected query is …",
+            markPoints: {
+                note: "1 mark for identifying the mistake, 1 mark for the corrected query.",
+                groups: [
+                    { label: "Mistake identified", max: 1, points: [{ text: "Defender is a text value and is missing its quotation marks", marks: 1 }] },
+                    { label: "Corrected query", max: 1, points: [{ text: "WHERE Position = \"Defender\" AND Age = 15", marks: 1 }] }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks</h5>
+<ul>
+<li>1 mark: Defender is a text value, and text values must be written inside quotation marks (it is currently missing them)</li>
+<li>1 mark: SELECT Name FROM Squad WHERE Position = "Defender" AND Age = 15</li>
+</ul>
+</div>`,
+            modelAnswer: "The mistake is that Defender is a text value but is missing its quotation marks. Corrected: SELECT Name FROM Squad WHERE Position = \"Defender\" AND Age = 15"
+        },
+        {
+            num: "Q12",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: `<p>Tick <strong>one</strong> box to identify the operator that means "greater than or equal to".</p>`,
+            options: ["A greater-than sign directly followed by an equals sign", "An equals sign directly followed by a greater-than sign", "A less-than sign directly followed by an equals sign", "A double equals sign, since this is the symbol most students expect to mean 'greater than or equal to' when they first meet SQL"],
+            answer: 0,
+            hint: "The 'greater than' symbol comes first, followed immediately by the equals symbol.",
+            starter: "",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<ul><li><strong>&gt;=</strong></li></ul>
+</div>`,
+            modelAnswer: ">="
+        },
+        {
+            num: "Q13",
+            marks: 3,
+            type: "written",
+            caseStudy: "",
+            question: `<p>Using the Album table from Q5, write an SQL query that returns the <strong>Title</strong> of every album that is <strong>either</strong> in the Jazz genre, <strong>or</strong> costs more than 10.</p>`,
+            hint: "The description uses 'either … or', so the two conditions need to be combined with OR, not AND.",
+            starter: "SELECT …",
+            markPoints: {
+                note: "1 mark for each correct part of the query.",
+                groups: [
+                    {
+                        label: "The query", max: 3, points: [
+                            { text: "SELECT Title", marks: 1 },
+                            { text: "FROM Album", marks: 1 },
+                            { text: "WHERE Genre = \"Jazz\" OR Price > 10", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 3 marks</h5>
+<ul>
+<li>1 mark: SELECT Title</li>
+<li>1 mark: FROM Album</li>
+<li>1 mark: WHERE Genre = "Jazz" OR Price &gt; 10</li>
+</ul>
+<p>Full query: SELECT Title FROM Album WHERE Genre = "Jazz" OR Price &gt; 10 (this would return Tidal and Horizon).</p>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul><li>OR must be used, not AND — using AND here would incorrectly exclude Tidal and Horizon.</li></ul>
+</div>`,
+            modelAnswer: "SELECT Title FROM Album WHERE Genre = \"Jazz\" OR Price > 10"
+        }
+    ];
+</script>
+    <script src="/script.js"></script>
+<script src="section-totals.js"></script>
+<script src="page-groups.js"></script>
+<script src="/progress-shared.js"></script>
+<script src="/gamification.js"></script>
+<script src="/topic-guard.js"></script>
+<script src="/notifications-shared.js"></script>
+<script src="/onboarding-tour.js"></script>
+<script src="/footer-legal.js"></script>
+<script src="/cs-lab/exam-widgets.js"></script>
+<script src="/cs-lab/exam-widgets-grids.js"></script>
+<script src="/cs-lab/exam-widgets-code.js"></script>
+<script src="/cs-lab/cs-lab.js" defer></script>
+</body>
+
+</html>

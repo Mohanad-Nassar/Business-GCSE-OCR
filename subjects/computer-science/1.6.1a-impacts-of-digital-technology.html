@@ -1,0 +1,1019 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1.6.1a Ethical, Cultural &amp; Environmental Impacts – Interactive Study Guide</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+    <header>
+        <div>
+            <div class="badge">OCR GCSE Computer Science — Paper 1 · 1.6 Impacts of Digital Technology</div>
+            <h1>1.6.1a Ethical, Cultural &amp; Environmental Impacts</h1>
+            <p>Interactive revision guide</p>
+        </div>
+        <a href="/index.html" class="home-link">← 🏡 Home</a>
+    </header>
+
+    <nav class="tab-bar" id="tabBar">
+        <button class="tab-btn active" onclick="switchTab('learn', this)">
+            📚 Key Learning
+        </button>
+        <button class="tab-btn" onclick="switchTab('mcq', this)">
+            ❓ MCQ Quiz
+        </button>
+        <button class="tab-btn" onclick="switchTab('matching', this)">
+            🔗 Matching
+        </button>
+        <button class="tab-btn" onclick="switchTab('fib', this)">
+            ✏️ Fill the Blanks
+        </button>
+        <button class="tab-btn" onclick="switchTab('misconceptions', this)">
+            ⚠️ Misconceptions
+        </button>
+        <button class="tab-btn" onclick="switchTab('examtips', this)">
+            🎯 Exam Tips
+        </button>
+        <button class="tab-btn" onclick="switchTab('flashcards', this)">
+            🃏 Flashcards
+        </button>
+        <button class="tab-btn" onclick="switchTab('truefalse', this)">
+            ✅ True / False
+        </button>
+        <button class="tab-btn" onclick="switchTab('exampractice', this)">
+            📝 Exam Practice
+        </button>
+    </nav>
+
+    <main>
+        <div class="tab-panel active" id="tab-learn">
+            <h2 class="section-title">Key Learning Topics</h2>
+            <p class="section-sub">Click any card to expand detailed notes.</p>
+            <div class="topic-grid" id="topicGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-mcq">
+            <h2 class="section-title">Multiple Choice Questions</h2>
+            <p class="section-sub">Select an answer to reveal instant feedback.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="mcqScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">
+                        correct answers
+                    </div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    out of <strong id="mcqTotal">0</strong> attempted
+                </div>
+                <button class="reset-btn" onclick="resetMCQ()">RESET</button>
+            </div>
+            <div class="quiz-wrap" id="mcqWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-matching">
+            <h2 class="section-title">Matching Activity</h2>
+            <p class="section-sub">
+                Click a term on the left, then click the matching definition on the
+                right.
+            </p>
+            <div style="margin-bottom: 16px">
+                <div class="score-bar">
+                    <div>
+                        <div class="score-num" id="matchScore">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">matched</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="matchTotal">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetMatch()">RESET</button>
+                </div>
+            </div>
+            <div class="match-grid">
+                <div>
+                    <div class="match-label">TERMS</div>
+                    <div class="match-col" id="matchLeft"></div>
+                </div>
+                <div>
+                    <div class="match-label">DEFINITIONS</div>
+                    <div class="match-col" id="matchRight"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-fib">
+            <h2 class="section-title">Fill in the Blanks</h2>
+            <p class="section-sub">
+                Click each dropdown and choose the correct word. Wrong answers reset —
+                try again!
+            </p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="fibScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="fibTotal">0</strong> blanks
+                </div>
+                <button class="reset-btn" onclick="resetFIB()">RESET</button>
+            </div>
+            <div class="fib-wrap" id="fibWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-misconceptions">
+            <h2 class="section-title">Common Misconceptions</h2>
+            <p class="section-sub">
+                What students often think — and what examiners actually want.
+            </p>
+            <div class="misc-list" id="miscList"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-examtips">
+            <h2 class="section-title">Exam Questions &amp; Tips</h2>
+            <p class="section-sub">
+                Most repeated question types and mark-scheme structures from real OCR
+                papers.
+            </p>
+            <div class="tips-grid" id="tipsGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-flashcards">
+            <h2 class="section-title">Flashcards</h2>
+            <p class="section-sub">
+                Test yourself! Flip the card and rate your knowledge. Review your weak
+                areas at the end.
+            </p>
+
+            <div class="fc-container">
+                <div class="score-bar" id="fcScoreBar" style="display: none; margin-bottom: 20px">
+                    <div>
+                        <div class="score-num" id="fcKnown" style="color: #2d7a4f">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">known</div>
+                    </div>
+                    <div>
+                        <div class="score-num" id="fcUnknown" style="color: #c84b31">
+                            0
+                        </div>
+                        <div style="font-size: 12px; color: var(--mid)">learning</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="fcTotalTrack">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
+                </div>
+
+                <div id="fcActiveArea">
+                    <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
+                    <div class="flashcard" id="flashcard" onclick="flipCard()">
+                        <div class="fc-inner">
+                            <div class="fc-front">
+                                <div class="fc-label">KEY TERM</div>
+                                <div class="fc-term" id="fcTerm"></div>
+                            </div>
+                            <div class="fc-back">
+                                <div class="fc-def" id="fcDef"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="fc-hint">👆 Click card to flip</p>
+
+                    <div class="fc-nav" id="fcNavDefault">
+                        <button class="fc-btn outline" onclick="prevCard()">
+                            ← Prev
+                        </button>
+                        <button class="fc-btn outline" onclick="flipCard()">Flip</button>
+                        <button class="fc-btn" onclick="nextCard()">Next →</button>
+                    </div>
+
+                    <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px">
+                        <button class="fc-btn outline" style="border-color: #c84b31; color: #c84b31; flex: 1"
+                            onclick="markCard(false)">
+                            ❌ Still Learning
+                        </button>
+                        <button class="fc-btn" style="background: #2d7a4f; border-color: #2d7a4f; flex: 1"
+                            onclick="markCard(true)">
+                            ✅ Got It
+                        </button>
+                    </div>
+                </div>
+
+                <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px">
+                    <h3>Session Complete! 🎉</h3>
+                    <p style="margin: 15px 0">
+                        You knew <strong id="fcSummaryKnown">0</strong> out of
+                        <strong id="fcSummaryTotal">0</strong> cards.
+                    </p>
+                    <div style="
+                margin-top: 25px;
+                display: flex;
+                gap: 15px;
+                justify-content: center;
+                flex-wrap: wrap;
+              ">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
+                            style="background: #c84b31; border-color: #c84b31">
+                            Review Incorrect
+                        </button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">
+                            Practice All Again
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-truefalse">
+            <h2 class="section-title">True or False?</h2>
+            <p class="section-sub">Test your knowledge with these statements.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="tfScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="tfTotal">0</strong> answered
+                </div>
+                <button class="reset-btn" onclick="resetTF()">RESET</button>
+            </div>
+            <div class="tf-wrap" id="tfWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-exampractice">
+            <h2 class="section-title">Exam Practice Questions</h2>
+            <p class="section-sub">
+                Full exam questions with case studies. Use <strong>Hint</strong>,
+                <strong>Sentence Starter</strong> and
+                <strong>Submit &amp; See Mark Scheme</strong> for each question.
+            </p>
+            <div class="ep-list" id="epList"></div>
+        </div>
+    </main>
+
+<script>
+    // ══════════════════════════════════════
+    //  DATA: 1.6.1a Ethical, Cultural & Environmental Impacts
+    //  (Part 1 of 3 for OCR spec point 1.6.1 — see also 1.6.1b Legislation
+    //   and 1.6.1c Software Licensing)
+    // ══════════════════════════════════════
+    const pageMeta = {
+            id: '1-6-1a-impacts-of-digital-technology',
+            badge: 'OCR GCSE Computer Science — Paper 1 · 1.6 Impacts of Digital Technology',
+            title: '1.6.1a Ethical, Cultural & Environmental Impacts',
+            subtitle: 'Interactive revision guide',
+            subject: 'computer-science',
+        };
+
+    const topics = [
+        {
+            title: "What we mean by the 'impacts' of digital technology",
+            tag: "Key concept",
+            content: `<h4>Every technology brings good and bad</h4>
+<ul>
+<li>Digital technology changes the way we live, work and communicate. Almost every change brings <strong>benefits (positive impacts)</strong> AND <strong>problems (negative impacts)</strong> — often at the same time.</li>
+<li>The specification groups these impacts into five areas: <strong>ethical</strong>, <strong>legal</strong>, <strong>cultural</strong>, <strong>environmental</strong> and <strong>privacy</strong>. This page covers the ethical, cultural, environmental and privacy impacts; the <strong>laws</strong> (legal side) are covered in <strong>1.6.1b Legislation</strong>.</li>
+<li>The exam skill is to <strong>weigh up</strong> these impacts — to <strong>discuss</strong> both sides and reach a balanced, justified view, rather than just listing good points or bad points.</li>
+</ul>`,
+            readCheck: {
+                q: "What does it mean to consider the 'impacts' of a piece of digital technology?",
+                opts: ["Working out only the good things about it so that a business can advertise the product to as many people as possible", "Weighing up both its positive and negative effects on different people, society and the environment", "Measuring exactly how fast the technology runs compared with the older technology that it is replacing", "Deciding whether the technology is legal to sell in the country where it was originally manufactured"],
+                ans: 1,
+                explain: "Considering impacts means weighing the positive AND negative effects on people, society and the environment — not just the benefits."
+            }
+        },
+        {
+            title: "Stakeholders — who is affected?",
+            tag: "Exam skill",
+            content: `<h4>Different groups feel different impacts</h4>
+<ul>
+<li>A <strong>stakeholder</strong> is any person or group <strong>affected by</strong> a technology or a decision about it.</li>
+<li>Typical stakeholders include: <strong>individuals</strong> (users, customers, employees), <strong>businesses/organisations</strong>, wider <strong>society</strong>, and the <strong>environment</strong>.</li>
+<li>The same change can be <strong>good for one stakeholder and bad for another</strong>. For example, a company releasing a new phone every year <strong>increases its profits</strong> (good for the business) but <strong>adds to e-waste</strong> (bad for the environment) and <strong>costs customers more</strong>.</li>
+<li>Strong exam answers deliberately consider <strong>more than one stakeholder</strong>.</li>
+</ul>`,
+            readCheck: {
+                q: "Why is it useful to think about different stakeholders when discussing a technology's impact?",
+                opts: ["Because only the company that makes the technology is ever really affected by the decisions that are made about it", "Because the same change can be positive for one group and negative for another, giving a balanced view", "Because stakeholders are the engineers who physically build the technology inside the factory each day", "Because it lets you ignore the environmental effects and focus only on how much money is being made"],
+                ans: 1,
+                explain: "Different stakeholders experience different impacts — a change good for a business can be bad for customers or the environment, which gives a balanced discussion."
+            }
+        },
+        {
+            title: "Ethical impacts",
+            tag: "Impact area",
+            content: `<h4>Is it the right thing to do?</h4>
+<ul>
+<li><strong>Ethical</strong> impacts are about what is <strong>right or wrong, fair or unfair</strong> — the moral side of a decision. Something can be <strong>legal but still unethical</strong>.</li>
+<li>Examples of ethical questions raised by digital technology: Is it fair for <strong>AI to replace people's jobs</strong>? Is it right for companies to <strong>track users</strong> to sell them things? Is it fair that <strong>only some people can afford</strong> the latest technology? Should devices be designed to <strong>stop working</strong> so people buy new ones?</li>
+<li>There is often <strong>no single correct answer</strong> — the exam wants you to see both sides of the ethical argument.</li>
+</ul>`,
+            readCheck: {
+                q: "What makes an issue an 'ethical' issue rather than simply a legal one?",
+                opts: ["An ethical issue is only ever about whether a company can make a large enough profit from selling the technology", "An ethical issue is about whether something is right, fair or moral — even if it happens to be perfectly legal", "An ethical issue is always automatically illegal, which is exactly what makes it an ethical problem in the first place", "An ethical issue only affects the environment, whereas a legal issue only ever affects individual people"],
+                ans: 1,
+                explain: "Ethics is about right/wrong and fairness. Something can be legal yet still raise an ethical concern — the two are not the same."
+            }
+        },
+        {
+            title: "Cultural impacts",
+            tag: "Impact area",
+            content: `<h4>How technology changes the way groups of people live</h4>
+<ul>
+<li><strong>Cultural</strong> impacts are the effects on <strong>how groups of people live, work and interact</strong> — on society as a whole.</li>
+<li>Positive examples: people can <strong>stay connected</strong> across the world, work <strong>from home</strong>, access <strong>information and education</strong> online, and form <strong>online communities</strong>.</li>
+<li>Negative examples: <strong>jobs lost</strong> to automation, less <strong>face-to-face</strong> contact, the spread of <strong>misinformation</strong>, pressure from <strong>social media</strong>, and the <strong>digital divide</strong> (covered next).</li>
+</ul>`,
+            readCheck: {
+                q: "Which of these is a cultural impact of digital technology?",
+                opts: ["The exact amount of electrical energy that a large data centre uses to keep all of its servers running each year", "The way social media has changed how people communicate, work and form communities across society", "The specific programming language that a software developer chooses to write a brand new application in", "The number of transistors that engineers are able to fit onto a single modern processor chip nowadays"],
+                ans: 1,
+                explain: "Cultural impacts are about how technology changes the way groups of people live and interact — such as social media changing communication. Energy use is environmental."
+            }
+        },
+        {
+            title: "The digital divide",
+            tag: "Cultural impact",
+            content: `<h4>Not everyone has the same access</h4>
+<ul>
+<li>The <strong>digital divide</strong> is the <strong>gap between people who have good access</strong> to digital technology and the internet, and those who <strong>do not</strong>.</li>
+<li>Causes include <strong>cost</strong> (not everyone can afford devices or broadband), <strong>location</strong> (some areas have poor or no internet), and <strong>skills/age</strong> (some people lack the confidence or training to use it).</li>
+<li>It matters because so many services — <strong>banking, job applications, school work, government services</strong> — are now online. People on the wrong side of the divide can be <strong>left behind</strong>, which is both a cultural and an ethical concern.</li>
+</ul>`,
+            readCheck: {
+                q: "What is the digital divide?",
+                opts: ["The physical distance between two computers that are trying to communicate with each other over a large network", "The gap between people who have good access to digital technology and the internet and those who do not", "The difference in processing speed between an expensive new computer and a much cheaper older one", "The point at which a hard disk becomes so fragmented that files can no longer be opened by the computer"],
+                ans: 1,
+                explain: "The digital divide is the gap in access to digital technology and the internet, caused by factors such as cost, location and skills."
+            }
+        },
+        {
+            title: "Environmental impacts — the problems",
+            tag: "Impact area",
+            content: `<h4>Making, powering and throwing away devices</h4>
+<ul>
+<li><strong>Manufacturing</strong> devices uses <strong>raw materials</strong> (including scarce metals) and lots of <strong>energy</strong>, and can cause <strong>pollution</strong>.</li>
+<li><strong>Running</strong> devices, and especially large <strong>data centres</strong>, uses a great deal of <strong>electricity</strong>, much of which still comes from fossil fuels — adding to the <strong>carbon footprint</strong>.</li>
+<li><strong>Disposal</strong> creates <strong>e-waste</strong>: discarded electronics that often contain <strong>toxic materials</strong> and end up in landfill if not recycled.</li>
+</ul>`,
+            readCheck: {
+                q: "Which of these is a negative environmental impact of digital technology?",
+                opts: ["People are able to work from home and hold video meetings instead of driving to a distant office each day", "Discarded electronic devices create e-waste that can contain toxic materials and end up in landfill", "Online shops let customers compare the prices of many different products before deciding what to buy", "Cloud storage means a user can open their files from almost any device with an internet connection"],
+                ans: 1,
+                explain: "E-waste from discarded devices is a negative environmental impact. Working from home is actually a positive environmental impact (less travel)."
+            }
+        },
+        {
+            title: "Environmental impacts — e-waste and 'throwaway' culture",
+            tag: "Environmental",
+            content: `<h4>Frequent upgrades make the problem worse</h4>
+<ul>
+<li>When companies release <strong>new devices very often</strong> (for example a new phone every year), people replace working devices more frequently, so <strong>more are thrown away</strong> — increasing e-waste.</li>
+<li>This is worsened if devices are hard to repair or are designed to have a <strong>short life</strong> (sometimes called planned obsolescence) — an <strong>ethical</strong> concern as well as an environmental one.</li>
+<li><strong>Ways to reduce the harm:</strong> <strong>recycle</strong> old devices for their components/materials, <strong>donate or redistribute</strong> working devices to people who need them, design products to be <strong>repairable</strong>, and choose <strong>digital downloads</strong> over physical discs (fewer materials, smaller carbon footprint from distribution).</li>
+</ul>`,
+            readCheck: {
+                q: "How does releasing a new version of a device every year tend to affect the environment?",
+                opts: ["It has no environmental effect at all, because the old devices simply disappear on their own over time", "It increases e-waste, because people replace working devices more often, so more are thrown away", "It reduces e-waste, because manufacturers always collect and fully recycle every single old device by law", "It only affects the environment if the new device is physically larger than the one it is replacing"],
+                ans: 1,
+                explain: "Frequent new releases lead people to replace working devices more often, so more are discarded — increasing e-waste."
+            }
+        },
+        {
+            title: "Environmental impacts — the positives",
+            tag: "Environmental",
+            content: `<h4>Technology can also help the planet</h4>
+<ul>
+<li>Not all environmental impacts are negative. Digital technology also <strong>reduces</strong> some environmental harm:</li>
+<li><strong>Less travel:</strong> video calls and remote working mean fewer journeys, lowering emissions.</li>
+<li><strong>Less paper:</strong> digital documents, email and online forms reduce paper use and printing.</li>
+<li><strong>Digital distribution:</strong> downloading software, music and films means <strong>fewer discs manufactured</strong>, less packaging, and a <strong>smaller carbon footprint</strong> than shipping physical copies.</li>
+<li>A good discussion mentions <strong>both</strong> the harm and these benefits.</li>
+</ul>`,
+            readCheck: {
+                q: "Which of these is a positive environmental impact of digital technology?",
+                opts: ["The very large amount of electricity that data centres need in order to keep their many servers running all day long", "Distributing software as downloads instead of on discs, which means fewer discs and less packaging are made", "The toxic materials that can leak out of discarded electronic devices when they are left in landfill sites", "The scarce metals and raw materials that have to be mined in order to manufacture brand new devices"],
+                ans: 1,
+                explain: "Digital downloads mean fewer discs and less packaging are manufactured, a positive environmental impact. The other options are all negative impacts."
+            }
+        },
+        {
+            title: "Privacy impacts",
+            tag: "Impact area",
+            content: `<h4>Technology knows a lot about us</h4>
+<ul>
+<li>Digital technology <strong>collects and stores personal data</strong> — what we search, buy, watch and where we go (location).</li>
+<li>This brings <strong>convenience</strong> (personalised recommendations, targeted services), but raises <strong>privacy</strong> concerns: who can see this data, how securely is it stored, and could it be used to <strong>track or profile</strong> us without our knowledge?</li>
+<li>Concerns include <strong>surveillance</strong>, data being <strong>shared or sold</strong>, and large <strong>data breaches</strong>. This is why the law (the <strong>Data Protection Act</strong>, covered in 1.6.1b) exists to control how personal data is handled.</li>
+</ul>`,
+            readCheck: {
+                q: "Why does collecting large amounts of personal data raise privacy concerns?",
+                opts: ["Because personal data always makes a computer run much more slowly than it otherwise would have done", "Because the data could be used to track or profile people, or be shared, sold or exposed in a breach", "Because collecting personal data is the only way that a website is ever able to load its pages correctly", "Because personal data takes up so much storage space that there is no room left for anything else at all"],
+                ans: 1,
+                explain: "Stored personal data can be used to track or profile people, and could be shared, sold or exposed in a breach — the core privacy concern."
+            }
+        },
+        {
+            title: "The 'Discuss' 8-mark question",
+            tag: "Exam skill",
+            content: `<h4>The most important skill on this topic</h4>
+<ul>
+<li>This topic is the home of the <strong>8-mark "Discuss"</strong> question. It always gives a scenario and usually a bullet list of things to <strong>include</strong>.</li>
+<li>It is <strong>levelled (banded)</strong>, so marks reward a <strong>balanced, developed argument</strong>, not a list. To reach the top band you should:</li>
+<li><strong>1.</strong> Cover <strong>positive AND negative</strong> impacts.</li>
+<li><strong>2.</strong> Consider <strong>more than one stakeholder</strong> (e.g. the company AND its customers AND the environment).</li>
+<li><strong>3.</strong> <strong>Apply</strong> each point to the specific scenario, following it through to a consequence.</li>
+<li><strong>4.</strong> Reach a <strong>justified conclusion</strong> — an overall view with a reason.</li>
+</ul>`,
+            readCheck: {
+                q: "What most separates a top-band answer on an 8-mark 'Discuss the impact' question from a weaker one?",
+                opts: ["Writing down as many separate points as you possibly can, all on the positive side, without spending any time on the drawbacks", "Giving a balanced argument with positives and negatives, more than one stakeholder, and a justified conclusion", "Using the longest and most complicated technical words that the student can possibly think of throughout", "Writing the entire answer as a single long bullet-point list with no full sentences used anywhere in it"],
+                ans: 1,
+                explain: "Top-band 'Discuss' answers are balanced (both sides), consider more than one stakeholder, apply to the scenario, and reach a justified conclusion."
+            }
+        }
+    ];
+
+    const mcqData = [
+        {
+            q: "A company designs its phones so that the battery cannot be replaced and stops holding charge after two years. What kind of impact does this MOST raise?",
+            opts: ["Only a purely technical impact, because it is simply a normal design choice about the battery inside the phone", "An ethical and environmental impact, because it pushes people to replace working phones, adding to e-waste", "No real impact at all, since customers can always just buy a completely different phone from another company", "Only a cultural impact, because it changes the specific way that people talk to each other using their phones"],
+            ans: 1,
+            explain: "Designing devices to fail sooner is an ethical concern (is it fair?) and an environmental one (more e-waste) — it pushes people to replace working phones."
+        },
+        {
+            q: "Which of the following is the best example of a privacy impact of digital technology?",
+            opts: ["A shopping website builds a detailed profile of a user by tracking everything they view, buy and search for", "A shopping website is temporarily unavailable because too many customers are trying to use it at once", "A shopping website loads its product pages more slowly on an older phone than it does on a brand new one", "A shopping website offers its products in several different languages so more customers around the world can use it"],
+            ans: 0,
+            explain: "Building a profile by tracking a user's activity is a privacy impact. The others are about availability, performance and accessibility."
+        },
+        {
+            q: "Which is a positive cultural impact of digital technology?",
+            opts: ["Electronic devices that are thrown away add to the growing global problem of dangerous electronic waste", "People can work together and stay in contact with others all over the world without having to travel", "Manufacturing new devices uses up scarce raw materials that have to be mined out of the ground first", "Companies can track exactly what their customers are doing online in order to sell them more products"],
+            ans: 1,
+            explain: "Being able to connect and collaborate worldwide is a positive cultural impact. The others are environmental or privacy concerns."
+        },
+        {
+            q: "A rural village finally gets a fast internet connection for the first time. Which stakeholder benefit is most directly a cultural one?",
+            opts: ["The internet company that installed the connection is now able to make a larger profit from the village", "Villagers can now access online education, jobs and services that they were previously shut out from", "The copper and fibre cables that were laid down will slowly wear out and need replacing in the future", "The new equipment installed in the village will use some electrical energy while it is switched on and running"],
+            ans: 1,
+            explain: "Gaining access to online education, jobs and services changes how the community lives — a cultural impact (and it reduces the digital divide)."
+        },
+        {
+            q: "Which of these actions would most help REDUCE the environmental impact of digital technology?",
+            opts: ["Releasing a brand new model of a device every few months so that customers always have the very latest one", "Recycling old devices for their materials and donating working ones to people who need them", "Designing devices so that they cannot be repaired and have to be completely replaced when anything breaks", "Encouraging every customer to buy several backup devices in case their main device ever stops working one day"],
+            ans: 1,
+            explain: "Recycling and donating devices reduces e-waste and the need to manufacture new ones — reducing environmental impact."
+        },
+        {
+            q: "What does 'e-waste' refer to?",
+            opts: ["Emails and other electronic messages that a person receives but then chooses to delete without ever reading them", "Discarded electronic devices, which can contain toxic materials and often end up in landfill", "Electrical energy that is wasted when a computer is accidentally left switched on overnight by its owner", "Errors in a program's code that stop it from running correctly until they are found and fixed by a developer"],
+            ans: 1,
+            explain: "E-waste is discarded electronic equipment, which can contain harmful materials and cause environmental damage if not recycled."
+        },
+        {
+            q: "Why can something be legal but still raise an ethical concern?",
+            opts: ["Because ethics is about what is right or fair, which is not always the same as what the law happens to allow", "Because anything that is legal is automatically also ethical, so the two ideas can never disagree with each other", "Because ethical concerns only ever apply to technology that has not yet been invented or released to the public", "Because the law changes so often that nothing can really be considered either legal or ethical for very long"],
+            ans: 0,
+            explain: "Legality and ethics are different: a practice can follow the law yet still be seen as unfair or morally questionable."
+        },
+        {
+            q: "A social media company uses AI to decide which posts each user sees. Which pair of impacts does this MOST clearly involve?",
+            opts: ["Only the physical size of the data centre and the total length of the network cables running into it", "Ethical impacts (fairness, influence over users) and privacy impacts (how much user data is collected)", "Only the exact programming language and the specific operating system used to build the AI system itself", "Only the clock speed of the processors and the amount of RAM installed in each of the company's servers"],
+            ans: 1,
+            explain: "AI choosing what users see raises ethical questions (fairness, influence) and privacy questions (the data used to make those choices)."
+        },
+        {
+            q: "Which statement about the impacts of a new technology is the most balanced?",
+            opts: ["Streaming films online is completely good because it is convenient and no discs ever need to be produced", "Streaming films online saves discs and packaging, but the data centres that power it still use a lot of energy", "Streaming films online is completely bad, simply because the data centres that make it all possible use up electrical energy", "Streaming films online has absolutely no positive or negative impact of any kind on anybody, anywhere, at all"],
+            ans: 1,
+            explain: "A balanced view recognises both a benefit (fewer discs/packaging) and a drawback (energy use) — the skill the Discuss question rewards."
+        },
+        {
+            q: "Which of these best describes a stakeholder?",
+            opts: ["The single member of staff who physically assembles a device on the production line inside the factory", "Any person or group who is affected by a technology or by a decision that is made about it", "Only the customer who finally buys the finished technology from a shop or from an online store", "The piece of software that is used to control and monitor the machines in an automated factory"],
+            ans: 1,
+            explain: "A stakeholder is anyone affected by the technology or decision — individuals, businesses, society or the environment."
+        },
+        {
+            q: "A company moves from selling software on physical discs to selling it only as downloads. Which is a genuine ENVIRONMENTAL benefit of this?",
+            opts: ["The company can now charge each of its customers a much higher price for exactly the same piece of software", "Fewer discs and less packaging need to be manufactured and shipped, lowering the carbon footprint", "Customers are now completely unable to ever share a copy of the software with any of their friends at all", "The download will always install far more quickly than the software would have done from a physical disc"],
+            ans: 1,
+            explain: "Digital distribution means fewer discs and less packaging are made and shipped, reducing the carbon footprint — an environmental benefit."
+        },
+        {
+            q: "In an 8-mark 'Discuss' question about a company releasing frequent new devices, which point best considers a DIFFERENT stakeholder from the company itself?",
+            opts: ["The company can increase its sales and profits each time it brings out an exciting new model of the device", "Customers face higher costs, and the environment suffers from the extra e-waste that the old devices create", "The company can advertise the new features of the device to build up excitement before it is finally released", "The company might see its reputation improve because it is always seen to have the very newest technology"],
+            ans: 1,
+            explain: "Customers and the environment are stakeholders separate from the company — considering them gives the balance a top-band answer needs."
+        }
+    ];
+
+    const matchData = [
+        { term: "Impact (of technology)", def: "A positive or negative effect a technology has on people, society or the environment" },
+        { term: "Stakeholder", def: "Any person or group affected by a technology or a decision about it" },
+        { term: "Ethical impact", def: "Concerns about what is right, fair or moral — even if it is legal" },
+        { term: "Cultural impact", def: "Effects on how groups of people live, work and interact" },
+        { term: "Environmental impact", def: "Effects on the planet, such as energy use, raw materials and e-waste" },
+        { term: "Privacy impact", def: "Concerns about personal data being collected, tracked, shared or exposed" },
+        { term: "Digital divide", def: "The gap between those with good access to digital technology and those without" },
+        { term: "E-waste", def: "Discarded electronic devices, which can contain toxic materials" },
+        { term: "Planned obsolescence", def: "Designing a product to have a short life so it is replaced sooner" },
+        { term: "Carbon footprint", def: "The amount of greenhouse gas produced by an activity, such as powering devices" },
+        { term: "Digital distribution", def: "Delivering software or media as downloads instead of on physical discs" },
+        { term: "Discuss question", def: "An extended answer weighing positives and negatives to reach a justified view" }
+    ];
+
+    const fibData = [
+        {
+            display: "A _____ is any person or group affected by a technology or a decision made about it.",
+            blanks: { B1: "stakeholder" }
+        },
+        {
+            display: "_____ impacts are about what is right, fair or moral, even when something is perfectly legal.",
+            blanks: { B1: "ethical" }
+        },
+        {
+            display: "_____ impacts are the effects of technology on how groups of people live, work and interact.",
+            blanks: { B1: "cultural" }
+        },
+        {
+            display: "The digital _____ is the gap between people who have good access to digital technology and those who do not.",
+            blanks: { B1: "divide" }
+        },
+        {
+            display: "Discarded electronic devices that can contain toxic materials are known as _____.",
+            blanks: { B1: "e-waste" }
+        },
+        {
+            display: "Using video calls instead of travelling to meetings is a _____ environmental impact of digital technology.",
+            blanks: { B1: "positive" }
+        },
+        {
+            display: "Collecting and tracking users' personal data raises _____ concerns about who can see and use that data.",
+            blanks: { B1: "privacy" }
+        },
+        {
+            display: "An 8-mark _____ question asks you to weigh up positive and negative impacts and reach a justified conclusion.",
+            blanks: { B1: "discuss" }
+        }
+    ];
+    const fibWords = ["stakeholder", "ethical", "cultural", "divide", "e-waste", "positive", "privacy", "discuss"];
+
+    const tfData = [
+        {
+            statement: "Something can be legal but still be considered unethical.",
+            answer: true,
+            explanation: "Correct — ethics is about what is right or fair, which is not always the same as what the law allows."
+        },
+        {
+            statement: "The digital divide describes the physical distance between two networked computers.",
+            answer: false,
+            explanation: "The digital divide is the gap between people who have good access to digital technology and those who do not — not a physical distance."
+        },
+        {
+            statement: "E-waste is a negative environmental impact of digital technology.",
+            answer: true,
+            explanation: "Correct — discarded electronics can contain toxic materials and add to landfill, a clear negative environmental impact."
+        },
+        {
+            statement: "Digital technology only ever has negative impacts on the environment.",
+            answer: false,
+            explanation: "It has positives too, such as less travel from video calls and fewer discs/packaging from digital downloads."
+        },
+        {
+            statement: "A good 'Discuss' answer only lists the positive impacts of a technology.",
+            answer: false,
+            explanation: "A top-band 'Discuss' answer is balanced — it weighs positives AND negatives and reaches a justified conclusion."
+        },
+        {
+            statement: "Releasing new devices very frequently tends to increase e-waste.",
+            answer: true,
+            explanation: "Correct — people replace working devices more often, so more are thrown away, increasing e-waste."
+        },
+        {
+            statement: "Considering more than one stakeholder helps make a discussion of impacts more balanced.",
+            answer: true,
+            explanation: "Correct — a change can be good for one group and bad for another, so covering several stakeholders gives balance."
+        },
+        {
+            statement: "Tracking a user's browsing to build a profile of them is a privacy impact.",
+            answer: true,
+            explanation: "Correct — collecting and profiling personal data is a privacy concern about who can see and use that data."
+        }
+    ];
+
+    const miscData = [
+        {
+            wrong: "Thinking a 'Discuss' answer should just list as many good points (or as many bad points) as possible.",
+            correct: "A <strong>Discuss</strong> question is <strong>levelled</strong> and rewards a <strong>balanced argument</strong>: cover <strong>positive AND negative</strong> impacts, consider <strong>more than one stakeholder</strong>, apply each point to the <strong>scenario</strong>, and finish with a <strong>justified conclusion</strong>. A one-sided list stays in the lower bands.",
+            readCheck: {
+                q: "What should a top-band answer to a 'Discuss the impacts' question always include?",
+                opts: ["A long one-sided list of only the advantages, because that is what shows the examiner the most knowledge", "Both positive and negative impacts, more than one stakeholder, and a justified overall conclusion", "The full technical specification of every device that is mentioned anywhere in the question scenario", "A promise that the technology will definitely never cause any problems for anybody at any time in the future"],
+                ans: 1,
+                explain: "Balance is the key: both sides, more than one stakeholder, applied to the scenario, with a justified conclusion."
+            }
+        },
+        {
+            wrong: "Believing that if something is legal, there is nothing left to discuss ethically.",
+            correct: "Legal and ethical are <strong>different</strong>. A company can act <strong>within the law</strong> and still do something many people think is <strong>unfair or wrong</strong> — for example designing devices to fail sooner, or tracking users to sell their data. Ethics asks 'is it <strong>right</strong>?', not just 'is it <strong>allowed</strong>?'.",
+            readCheck: {
+                q: "A company tracks its users within the law but many people feel it is unfair. What does this show?",
+                opts: ["That there can be no problem at all, because the company has not actually broken any law by doing this", "That something can be legal yet still raise an ethical concern about whether it is fair or right", "That the company must have broken the law, because tracking users is always completely illegal everywhere", "That ethics and the law are exactly the same thing, so if it is legal it must automatically also be ethical"],
+                ans: 1,
+                explain: "Acting within the law does not settle the ethics — a legal practice can still be seen as unfair, which is an ethical concern."
+            }
+        },
+        {
+            wrong: "Assuming digital technology is only ever bad for the environment.",
+            correct: "There are real <strong>negatives</strong> (manufacturing, energy use, e-waste) but also real <strong>positives</strong>: <strong>less travel</strong> (video calls), <strong>less paper</strong>, and <strong>digital distribution</strong> meaning fewer discs and less packaging. A balanced answer gives <strong>both</strong> sides.",
+            readCheck: {
+                q: "Which is a genuine positive environmental impact of digital technology?",
+                opts: ["The rare metals and all of the other raw materials that must be mined out from deep underground in order to build brand new devices", "Working and holding meetings from home over video calls, which reduces the need to travel and cuts emissions", "The dangerous toxic substances that can escape from electronic devices left to rot in a landfill site", "The large amount of electricity that busy data centres consume in order to stay running around the clock"],
+                ans: 1,
+                explain: "Remote working via video calls reduces travel and emissions — a genuine positive. The others are all negative environmental impacts."
+            }
+        },
+        {
+            wrong: "Confusing cultural impacts with environmental impacts.",
+            correct: "<strong>Cultural</strong> impacts are about <strong>people and society</strong> — how we live, work, communicate and who has access (the digital divide). <strong>Environmental</strong> impacts are about the <strong>planet</strong> — energy, raw materials and e-waste. Ask: is this point about <strong>people</strong> or about the <strong>environment</strong>?",
+            readCheck: {
+                q: "Which of these is a cultural impact rather than an environmental one?",
+                opts: ["The amount of electricity used by the millions of servers running inside the world's largest data centres", "The way that social media has changed how people communicate and form communities across society", "The e-waste created when people throw away their old and unwanted electronic devices such as phones", "The scarce raw materials that must be mined out of the ground in order to manufacture new devices"],
+                ans: 1,
+                explain: "Social media changing how people communicate is a cultural (people/society) impact; the others are all environmental (planet) impacts."
+            }
+        },
+        {
+            wrong: "Thinking the digital divide is only about who owns the newest, most expensive gadgets.",
+            correct: "The digital divide is about <strong>access</strong> to digital technology and the internet, driven by <strong>cost, location and skills</strong>. It matters because essential services — <strong>banking, jobs, education, government</strong> — are online, so people without access are genuinely <strong>left behind</strong>, not just missing out on gadgets.",
+            readCheck: {
+                q: "Why does the digital divide matter so much today?",
+                opts: ["Because people without the latest gadgets are unable to play the newest and most demanding video games", "Because so many essential services are now online, so people without access can be left behind", "Because the newest devices are always noticeably faster than the older ones that some people still use", "Because it decides which country will manufacture the largest number of new devices in the coming year"],
+                ans: 1,
+                explain: "Essential services (banking, jobs, education, government) are online, so lacking access has serious real-world consequences — not just missing new gadgets."
+            }
+        }
+    ];
+
+    const examTips = [
+        {
+            type: "evaluate",
+            title: "How to structure the 8-mark 'Discuss' answer",
+            pills: ["AO2/AO3", "8 marks", "Discuss", "Banded"],
+            content: `<p>Almost every 8-marker on this topic is a <strong>Discuss</strong> question with a scenario and a bullet list of things to <strong>include</strong>. Use the bullets as your plan and follow this structure:</p>
+<ul>
+<li><strong>Both sides:</strong> give <strong>positive</strong> impacts and <strong>negative</strong> impacts — never one-sided.</li>
+<li><strong>More than one stakeholder:</strong> e.g. the company, its customers, wider society, the environment. This is the fastest way to add balance.</li>
+<li><strong>Apply + develop:</strong> take each point back to the specific scenario and follow it through to a consequence (point → because → so…).</li>
+<li><strong>Justified conclusion:</strong> end with an overall view and a reason ("On balance… because…").</li>
+</ul>
+<p><strong>Band 3 (6–8):</strong> balanced, developed, applied to the scenario, justified conclusion. <strong>Band 2 (3–5):</strong> some points but one-sided or generic. <strong>Band 1 (1–2):</strong> a few simple, unexplained statements.</p>`,
+            readCheck: {
+                q: "A student's 8-mark 'Discuss' answer only gives negative impacts, all about the company. What two things would most improve it?",
+                opts: ["Making the sentences much longer, and repeating each of the negative points a second time in different words", "Adding some positive impacts as well, and considering other stakeholders such as customers or the environment", "Removing the conclusion entirely, and listing the negative points as single words rather than in full sentences", "Adding the full technical specification of the company's product and the date it was first released to the public"],
+                ans: 1,
+                explain: "Balance is what lifts the band: add positives as well as negatives, and bring in other stakeholders beyond the company."
+            }
+        },
+        {
+            type: "tip",
+            title: "Sort every point: ethical, cultural, environmental or privacy?",
+            pills: ["AO1", "Classification", "Impact areas"],
+            content: `<p>Questions sometimes ask specifically for, say, the <strong>environmental</strong> impacts. Don't drift into the wrong area. A quick test for each point:</p>
+<ul>
+<li><strong>Ethical</strong> — is it about right/wrong or fairness? ("Is it fair to…")</li>
+<li><strong>Cultural</strong> — is it about how people live, work or communicate? (jobs, the digital divide, social media)</li>
+<li><strong>Environmental</strong> — is it about the planet? (energy, raw materials, e-waste)</li>
+<li><strong>Privacy</strong> — is it about personal data being collected, tracked or shared?</li>
+</ul>
+<p>If a question says "environmental", write about energy, materials and e-waste — not about jobs or fairness, which are cultural and ethical.</p>`,
+            readCheck: {
+                q: "A question asks only for the ENVIRONMENTAL impacts of a decision. Which point should you include?",
+                opts: ["The fact that some workers might lose their jobs if the company decides to automate part of its factory", "The increase in e-waste and the energy used to manufacture and run the new devices being produced", "The worry that the company could unfairly track its customers in order to sell them even more products", "The way that the new technology might change how people in a community communicate with one another"],
+                ans: 1,
+                explain: "Environmental impacts are about the planet — e-waste and energy use. Jobs are cultural, tracking is privacy, fairness is ethical."
+            }
+        },
+        {
+            type: "tip",
+            title: "Learn the stakeholder trick for instant balance",
+            pills: ["AO2", "Key skill", "Stakeholders"],
+            content: `<p>The quickest way to make a discussion balanced is to run through the <strong>stakeholders</strong> and ask how the decision affects each one:</p>
+<ul>
+<li><strong>The company/organisation</strong> — profit, sales, reputation, costs.</li>
+<li><strong>Customers/individuals</strong> — cost, convenience, choice, privacy.</li>
+<li><strong>Society</strong> — jobs, the digital divide, how people live.</li>
+<li><strong>The environment</strong> — energy, materials, e-waste.</li>
+</ul>
+<p>Even naming <strong>two or three</strong> of these and giving one impact for each turns a one-sided answer into a balanced one — exactly what the top band needs.</p>`,
+            readCheck: {
+                q: "How does thinking about stakeholders quickly make a discussion more balanced?",
+                opts: ["It lets you focus entirely on the company, which is the only stakeholder that the examiner is interested in", "A decision often helps one stakeholder while harming another, so covering several naturally gives both sides", "It means you never have to mention any negative impacts, because stakeholders only ever gain from technology", "It replaces the need for a conclusion, since simply naming the stakeholders is enough to reach the top band"],
+                ans: 1,
+                explain: "Different stakeholders gain or lose differently, so running through them naturally surfaces both positive and negative impacts."
+            }
+        }
+    ];
+
+    const flashcards = [
+        { term: "Impact of technology", def: "A positive or negative effect on people, society or the environment" },
+        { term: "Stakeholder", def: "Any person or group affected by a technology or a decision about it" },
+        { term: "Ethical impact", def: "About what is right, fair or moral — even if it is legal" },
+        { term: "Legal impact", def: "About whether something is lawful (see 1.6.1b for the specific laws)" },
+        { term: "Cultural impact", def: "Effects on how groups of people live, work and interact" },
+        { term: "Environmental impact", def: "Effects on the planet: energy, raw materials, e-waste" },
+        { term: "Privacy impact", def: "Concerns about personal data being collected, tracked, shared or exposed" },
+        { term: "Digital divide", def: "The gap between those with good access to technology and those without" },
+        { term: "E-waste", def: "Discarded electronic devices, which can contain toxic materials" },
+        { term: "Planned obsolescence", def: "Designing a product to have a short life so it is replaced sooner" },
+        { term: "Carbon footprint", def: "The greenhouse gas produced by an activity, e.g. powering devices" },
+        { term: "Digital distribution", def: "Delivering software/media as downloads rather than on physical discs" },
+        { term: "Surveillance", def: "Monitoring people's activity or location, often through their data" },
+        { term: "Automation", def: "Using technology to do work previously done by people (can cost jobs)" },
+        { term: "Discuss (command word)", def: "Weigh positives and negatives from several viewpoints and give a justified view" },
+        { term: "Justified conclusion", def: "An overall view supported by a clear reason, needed for the top band" }
+    ];
+
+    // ── Original clean-room exam questions (2026-07-23) ──
+    // Written from scratch against the §1.6.1 spec scope (impacts strand)
+    // (CS-CONTENT-PLAN.md §6.2 clean-room rule) — NOT transcribed from any OCR
+    // ExamBuilder PDF or past paper. This sub-topic is the home of the 8-mark
+    // levelled "Discuss" question; scenarios are original. Legislation and
+    // licensing questions live on 1.6.1b / 1.6.1c. Spread: 1x2, 1x3, 2x4,
+    // 1x5, 2x8(banded) = 7 questions / 34 marks.
+    const EXAM_CASE_STUDIES = {
+        "novaphone": `<p>NovaPhone is a smartphone company. It releases a brand new model of its most popular phone every year, each with small improvements. It advertises heavily to encourage customers to upgrade, and most of its phones have batteries that are difficult to replace.</p>`,
+        "riverford": `<p>Riverford Academy is thinking about asking every student to bring their own laptop or tablet to school to use in lessons, instead of using the school's shared computers. Not all families can easily afford a suitable device.</p>`,
+        "medlink": `<p>MedLink is a health company introducing an app that uses AI to check patients' symptoms and store their medical history, so they can get advice at home instead of always visiting a doctor.</p>`
+    };
+
+    const examQuestions = [
+        {
+            num: "Q1",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            stubs: ["Impact 1", "Impact 2"],
+            question: `<p>State <strong>two</strong> different types of impact that digital technology can have on people or the world around them.</p>`,
+            hint: "Think of the impact areas: ethical, cultural, environmental, privacy (or legal).",
+            starter: "",
+            markPoints: {
+                note: "1 mark for each valid type of impact, to a maximum of 2.",
+                groups: [
+                    { label: "Impact 1", max: 1, points: [{ text: "A valid impact type, e.g. ethical / cultural", marks: 1 }] },
+                    { label: "Impact 2", max: 1, points: [{ text: "A second, different valid impact type, e.g. environmental / privacy / legal", marks: 1 }] }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (1 mark each, max 2)</h5>
+<ul>
+<li>Ethical</li><li>Legal</li><li>Cultural</li><li>Environmental</li><li>Privacy</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Award any two different valid impact types.</li>
+</ul>
+</div>`,
+            modelAnswer: "1: Environmental impact. 2: Privacy impact."
+        },
+        {
+            num: "Q2",
+            marks: 3,
+            type: "written",
+            caseId: "novaphone",
+            question: `<p>Describe the <strong>environmental</strong> impacts of NovaPhone bringing out a new phone every year.</p>`,
+            hint: "Focus only on the environment (energy, materials, e-waste). Give more than one distinct point.",
+            starter: "Bringing out a new phone every year…",
+            markPoints: {
+                note: "Up to 3 marks for distinct environmental impacts.",
+                groups: [
+                    {
+                        label: "Environmental impacts", max: 3, points: [
+                            { text: "More e-waste, as customers throw away working phones to upgrade", marks: 1 },
+                            { text: "More raw materials/resources and energy used to manufacture the extra phones", marks: 1 },
+                            { text: "A valid mitigation or further point, e.g. old phones could be recycled for components or donated to reduce waste", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 3 marks</h5>
+<ul>
+<li>Increase in e-waste as working phones are thrown away to upgrade</li>
+<li>More raw materials and energy used to manufacture the extra devices</li>
+<li>Old devices could be recycled for components or donated to reduce waste (mitigation)</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Reward distinct environmental points. Do not credit non-environmental points (e.g. cost to customers) here.</li>
+</ul>
+</div>`,
+            modelAnswer: "Bringing out a new phone every year means customers replace working phones more often, increasing e-waste as the old phones are thrown away. Manufacturing the extra phones also uses more raw materials and energy, adding to pollution. Some of this could be reduced if the old phones were recycled for their components or donated to people who need them."
+        },
+        {
+            num: "Q3",
+            marks: 4,
+            type: "written",
+            caseStudy: "",
+            stubs: ["Positive impact", "Negative impact"],
+            question: `<p>A town installs free public Wi-Fi in all its parks and libraries.</p><p>Describe <strong>one positive</strong> and <strong>one negative</strong> impact of this decision.</p>`,
+            hint: "Pick one clear benefit and one clear drawback, and explain each briefly (not just name it).",
+            starter: "One positive impact is…",
+            markPoints: {
+                note: "Up to 2 marks for a developed positive impact, up to 2 for a developed negative impact.",
+                groups: [
+                    {
+                        label: "Positive impact", max: 2, points: [
+                            { text: "Identifies a valid positive, e.g. more people get internet access (reduces the digital divide)", marks: 1 },
+                            { text: "Develops it, e.g. so they can access online services, education or job applications for free", marks: 1 }
+                        ]
+                    },
+                    {
+                        label: "Negative impact", max: 2, points: [
+                            { text: "Identifies a valid negative, e.g. public Wi-Fi may be unsecured / a privacy or security risk, or costs the town money/energy", marks: 1 },
+                            { text: "Develops it, e.g. data could be intercepted, or the running cost falls on taxpayers", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (2 positive + 2 negative)</h5>
+<ul>
+<li>Positive: more people gain internet access, reducing the digital divide (+ development: free access to services/education/jobs)</li>
+<li>Negative: security/privacy risk of public Wi-Fi, or the cost/energy of running it (+ development)</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Each side scores 1 for a valid impact and 1 for developing it.</li>
+</ul>
+</div>`,
+            modelAnswer: "One positive impact is that more people gain internet access, which reduces the digital divide — they can use online services, education and job applications for free, even if they cannot afford broadband at home. One negative impact is that public Wi-Fi is often unsecured, so users' data could be intercepted by an attacker; there is also an ongoing cost and energy use in running it, which falls on the town."
+        },
+        {
+            num: "Q4",
+            marks: 4,
+            type: "written",
+            format: "tickGrid",
+            caseStudy: "",
+            question: `<p>Tick <strong>one</strong> box in each row to identify the main type of impact each example shows.</p>`,
+            grid: {
+                cols: ["Environmental", "Cultural", "Privacy", "Ethical"],
+                rows: [
+                    { label: "Old phones being thrown away add to e-waste in landfill", correct: [0] },
+                    { label: "Social media changing how a community keeps in touch", correct: [1] },
+                    { label: "An app secretly tracking a user's location and selling it", correct: [2] },
+                    { label: "Designing a device to fail early so people buy a new one", correct: [3] }
+                ]
+            },
+            hint: "Environmental = the planet; Cultural = how people live/interact; Privacy = personal data; Ethical = fairness/right vs wrong.",
+            starter: "Row 1: … | Row 2: … | Row 3: … | Row 4: …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (1 mark for each row)</h5>
+<ul>
+<li>E-waste in landfill → <strong>Environmental</strong></li>
+<li>Social media changing how a community keeps in touch → <strong>Cultural</strong></li>
+<li>An app secretly tracking and selling location → <strong>Privacy</strong></li>
+<li>Designing a device to fail early → <strong>Ethical</strong></li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Each row is marked independently; 2+ ticks in a row scores 0 for that row.</li>
+</ul>
+</div>`,
+            modelAnswer: "Row 1: Environmental. Row 2: Cultural. Row 3: Privacy. Row 4: Ethical."
+        },
+        {
+            num: "Q5",
+            marks: 5,
+            type: "written",
+            caseId: "riverford",
+            question: `<p>Discuss the issues surrounding Riverford Academy asking every student to bring their own device to school.</p><p>In your answer, consider the impact on <strong>students and families</strong> as well as on the <strong>school</strong>.</p>`,
+            hint: "Give positives and negatives, and cover more than one stakeholder (families AND the school). Link points to the fact that not all families can afford a device.",
+            starter: "One benefit for the school is…",
+            markPoints: {
+                note: "Up to 5 marks. Reward balanced points across stakeholders (positives and negatives for the school and for students/families). Max 5.",
+                groups: [
+                    {
+                        label: "Impacts on the school", max: 3, points: [
+                            { text: "A positive for the school, e.g. saves the cost of buying/maintaining shared computers", marks: 1 },
+                            { text: "A negative for the school, e.g. must support many different devices / manage security and network access", marks: 1 },
+                            { text: "A further developed point applied to the school", marks: 1 }
+                        ]
+                    },
+                    {
+                        label: "Impacts on students and families", max: 2, points: [
+                            { text: "A negative for families, e.g. not all can afford a device — widening the digital divide / unfair", marks: 1 },
+                            { text: "A positive for students (e.g. familiar device, can continue work at home), or a further developed point such as risk of theft/damage or students without a device being disadvantaged", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 5 marks (balanced across stakeholders, max 5)</h5>
+<ul>
+<li>School positive: saves the cost of buying and maintaining shared computers</li>
+<li>School negative: must support many different devices and manage security/network access</li>
+<li>Families negative: not all can afford a device, widening the digital divide (unfair/ethical)</li>
+<li>Students positive: familiar device; can continue the same work at home</li>
+<li>Further developed points, e.g. risk of theft/damage; students without a device left disadvantaged</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Reward positives AND negatives across BOTH stakeholders, applied to the scenario. Max 5.</li>
+</ul>
+</div>`,
+            modelAnswer: "One benefit for the school is that it saves the cost of buying and maintaining shared computers, as students supply their own. However, the school would then have to support many different types of device and manage security and network access for all of them, which is harder. For families, a major drawback is that not all can afford a suitable device, which is unfair and widens the digital divide — students without one would be disadvantaged in lessons. On the other hand, students who do have a device can use one they are familiar with and continue their work at home. On balance, the school would need to provide devices for those who cannot afford them, or the policy would treat some students unfairly."
+        },
+        {
+            num: "Q6",
+            marks: 8,
+            type: "written",
+            format: "banded",
+            caseId: "novaphone",
+            question: `<p>NovaPhone releases a new smartphone every year and encourages customers to upgrade.</p><p><strong>Discuss</strong> the positive and negative impacts of NovaPhone's strategy of releasing a new phone every year.</p><p>In your answer you might consider:</p><ul><li>the impact on NovaPhone as a company</li><li>the impact on its customers</li><li>the environmental impact</li><li>an overall conclusion with a justification</li></ul>`,
+            hint: "Use the bullets as your plan. Give positives and negatives for each stakeholder, apply them to NovaPhone, and finish with a justified conclusion.",
+            starter: "For NovaPhone as a company, releasing a new phone every year…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 8 marks (levelled) — indicative content</h5>
+<p>The following is indicative of points candidates may raise; it is not exhaustive or prescriptive:</p>
+<ul>
+<li><strong>NovaPhone (company):</strong> more frequent sales and increased profit; keeps the brand looking modern and competitive. But high development/advertising costs each year, and a risk to reputation if seen as wasteful or as pressuring customers.</li>
+<li><strong>Customers:</strong> access to the newest features; but higher cost, pressure to upgrade, and frustration if batteries can't be replaced so working phones must be discarded.</li>
+<li><strong>Environmental:</strong> more e-waste from discarded phones; more raw materials and energy used in manufacturing. Could be reduced by recycling components or donating/redistributing old phones.</li>
+<li><strong>Conclusion:</strong> a justified overall view, e.g. the strategy benefits NovaPhone's profits in the short term but the environmental harm and cost to customers make it hard to defend unless paired with recycling/repair schemes.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given — levels of response</h5>
+<ul>
+<li><strong>Band 3 (6–8):</strong> thorough, balanced discussion of positives and negatives across more than one stakeholder, applied directly to NovaPhone, with a clear justified conclusion.</li>
+<li><strong>Band 2 (3–5):</strong> reasonable points but one-sided, generic, or covering only one stakeholder; conclusion weak or missing.</li>
+<li><strong>Band 1 (1–2):</strong> a few simple, unexplained statements with little application.</li>
+<li><strong>0 marks:</strong> nothing worthy of credit.</li>
+</ul>
+</div>`,
+            modelAnswer: "For NovaPhone as a company, releasing a new phone every year increases sales and profit and keeps the brand looking modern, though it means high development and advertising costs each year and risks the company being seen as wasteful. For customers, the strategy gives access to the newest features, but it raises costs and pressures people to upgrade; because the batteries are hard to replace, working phones often have to be thrown away rather than kept longer. Environmentally, this adds significantly to e-waste and uses more raw materials and energy to manufacture the extra phones, although NovaPhone could reduce this by recycling old devices for components or donating working ones. On balance, the yearly release benefits NovaPhone's profits in the short term, but the cost to customers and the environmental harm are hard to justify unless the company also runs proper recycling and repair schemes."
+        },
+        {
+            num: "Q7",
+            marks: 8,
+            type: "written",
+            format: "banded",
+            caseId: "medlink",
+            question: `<p>MedLink's new app uses AI to check patients' symptoms and stores their medical history so they can get advice at home.</p><p><strong>Discuss</strong> the positive and negative impacts of MedLink's app.</p><p>In your answer you might consider:</p><ul><li>the benefits to patients and the health service</li><li>privacy and ethical concerns about the data and the AI</li><li>who might be left out</li><li>an overall conclusion with a justification</li></ul>`,
+            hint: "Balance the benefits (convenience, faster advice, less strain on doctors) against privacy/ethical risks (sensitive data, AI mistakes) and the digital divide (who can't use it). End with a justified conclusion.",
+            starter: "One benefit of MedLink's app is…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 8 marks (levelled) — indicative content</h5>
+<p>Indicative points (not exhaustive):</p>
+<ul>
+<li><strong>Benefits:</strong> patients get quick advice at home without travelling or waiting; reduces pressure on doctors/surgeries; medical history stored in one place for convenience and continuity of care.</li>
+<li><strong>Privacy:</strong> medical data is highly sensitive — concerns about how securely it is stored, who can access it, and whether it could be shared, sold or exposed in a breach (links to the Data Protection Act, 1.6.1b).</li>
+<li><strong>Ethical / AI:</strong> is it right to rely on AI for health decisions? The AI could make mistakes or miss something a doctor would catch; who is responsible if it gives wrong advice?</li>
+<li><strong>Who is left out:</strong> people without a suitable device or internet access, or who lack the skills, cannot use it — the digital divide, which is especially serious for healthcare.</li>
+<li><strong>Conclusion:</strong> a justified view, e.g. the app is valuable for convenience and easing pressure on services, but only if data is kept secure, the AI supports rather than replaces doctors, and alternatives remain for those who cannot use it.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given — levels of response</h5>
+<ul>
+<li><strong>Band 3 (6–8):</strong> thorough, balanced, applied to MedLink, covering benefits and privacy/ethical concerns across stakeholders, with a justified conclusion.</li>
+<li><strong>Band 2 (3–5):</strong> reasonable but one-sided or generic; limited application; weak conclusion.</li>
+<li><strong>Band 1 (1–2):</strong> a few simple, unexplained statements.</li>
+<li><strong>0 marks:</strong> nothing worthy of credit.</li>
+</ul>
+</div>`,
+            modelAnswer: "One benefit of MedLink's app is that patients can get advice quickly from home without travelling or waiting for an appointment, which is convenient and reduces pressure on doctors and surgeries; storing their medical history in one place also helps continuity of care. However, medical data is extremely sensitive, so there are serious privacy concerns about how securely it is stored, who can access it, and whether it could be shared or exposed in a breach. There are also ethical concerns about relying on AI for health: it could make mistakes or miss something a doctor would spot, and it is unclear who is responsible if the advice is wrong. In addition, people without a suitable device, internet access or the skills to use the app would be left out — a digital divide that is especially serious for healthcare. On balance, MedLink's app could be very valuable for convenience and for easing pressure on the health service, but only if patient data is kept strictly secure, the AI supports rather than replaces doctors, and traditional appointments remain available for those who cannot use it."
+        }
+    ];
+</script>
+    <script src="/script.js"></script>
+<script src="section-totals.js"></script>
+<script src="page-groups.js"></script>
+<script src="/progress-shared.js"></script>
+<script src="/gamification.js"></script>
+<script src="/topic-guard.js"></script>
+<script src="/notifications-shared.js"></script>
+<script src="/onboarding-tour.js"></script>
+<script src="/footer-legal.js"></script>
+<script src="/cs-lab/exam-widgets.js"></script>
+<script src="/cs-lab/exam-widgets-grids.js"></script>
+<script src="/cs-lab/exam-widgets-code.js"></script>
+<script src="/cs-lab/cs-lab.js" defer></script>
+</body>
+
+</html>

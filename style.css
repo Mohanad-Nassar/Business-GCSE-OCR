@@ -550,6 +550,7 @@
      margin-top: 12px;
      border-top: 1px solid var(--border);
      padding-top: 12px;
+     container-type: inline-size; /* lets .vocab-tbl react to its OWN rendered width, not the viewport — needed since e.g. the Review Calendar modal is a fixed 600px box on any screen size */
  }
 
  .topic-card.open .topic-content {

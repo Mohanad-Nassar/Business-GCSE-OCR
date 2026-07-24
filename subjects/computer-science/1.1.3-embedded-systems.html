@@ -762,101 +762,116 @@
         { term: "Never repeat the question", def: "If the stem says 'built into the car', that point earns no mark" },
         { term: "3-mark explain", def: "Three separate characteristics, each applied to the scenario" }
     ];
+    const EXAM_CASE_STUDIES = {
+        "maya-car": `<p><strong>Scenario</strong> — Maya's car has a 'SmartPark' system fitted by the manufacturer. When Maya presses a single button, SmartPark takes control of the steering and reverses the car into a parking space by itself, using sensors built into the bumpers. It cannot be used for anything other than parking the car, and there is no way for Maya to install new software onto it.</p>`,
+        "tariq-watch": `<p><strong>Scenario</strong> — Tariq owns a fitness tracker called PulseBand, which he wears on his wrist to record his heart rate, step count and sleep. He also owns a laptop, which he uses for schoolwork, gaming and browsing the internet.</p>`
+    };
+
     const examQuestions = [
         {
             num: "Q1",
             marks: 3,
             type: "written",
-            caseStudy: "",
-            question: `<p>A car has a 'Follow Me' system that uses a cruise control feature to allow the car to follow the car in front of it. It will keep the same speed and distance without the driver's intervention. The cruise control system is an example of an embedded system.</p><p>Explain the reasons why the 'Follow Me' system is an example of an embedded system.</p>`,
-            hint: "Three marks means three DIFFERENT characteristics, each applied to the Follow Me system. Most candidates get 'single purpose' and stop — work down your list for the third.",
-            starter: "The Follow Me system is an embedded system because…",
-            markScheme: `<div class="marks-section">
-<h5>Mark Scheme — 3 marks (1 mark each to max 3)</h5>
-<ul>
-<li>Has a specific purpose // it only performs one/limited task // dedicated to the Follow Me system</li>
-<li>Built within a larger device/car</li>
-<li>Dedicated/specific/its own hardware / sensors</li>
-<li>Has a microprocessor</li>
-<li>Built-in operating system/software // software is all in firmware/ROM … it's instructions/operation does not/is hard to change/update</li>
-<li>It is a control system // it is automated</li>
-</ul>
-</div>
-<div class="marks-section">
-<h5>How the marks are given</h5>
-<ul>
-<li>MP2 BOD reference to it being 'built into' 'something' reasonable.</li>
-</ul>
-</div>
-<div class="marks-section">
-<h5>Examiner's Comments</h5>
-<p>This question required candidates to apply their understanding of embedded systems to a different system. Candidates were often able to identify the key features of embedded systems that were relevant to this scenario. The most common points being that the system has a single purpose. Some candidates also identified that the system is built within a larger system, being the car. Fewer candidates were able to provide a third point. Those that did most commonly identified the dedicated hardware or gave an example such as the sensors are only providing data for this system.</p>
-</div>`,
-            modelAnswer: "It has one specific purpose — it only keeps the car at a set speed and distance from the car in front, and does nothing else.\n\nIt is built into a larger device: the car itself.\n\nIt has its own dedicated hardware and sensors, which only provide data for this system, and its instructions are held in firmware so they cannot easily be changed."
-        },
-        {
-            num: "Q2",
-            marks: 3,
-            type: "written",
-            caseStudy: "",
-            stubs: ["Example embedded system", "Explanation"],
-            question: `<p>A car comes with many embedded systems, for example parking sensors.</p><p>Identify <strong>one other</strong> embedded system that could be found in a car and explain why this is an embedded system.</p>`,
-            hint: "The example must be in a CAR (a washing machine scores nothing here). And don't say 'it's built into the car' — the question already told you that.",
-            starter: "Example: … | Explanation: …",
+            caseId: "maya-car",
+            question: `<p>Explain the reasons why SmartPark is an example of an embedded system.</p>`,
+            hint: "Three marks means three DIFFERENT characteristics, each applied to SmartPark specifically — don't just repeat 'it parks the car' three times in different words.",
+            starter: "SmartPark is an embedded system because…",
             markPoints: {
-                note: "Marked in two parts: 1 mark for the example itself, then up to 2 for the explanation. Careful — 'built into the car' earns NOTHING because the question already says it, and a purely generic explanation caps you at 1.",
+                note: "Up to 3 marks, one for each distinct characteristic you apply to SmartPark.",
                 groups: [
                     {
-                        label: "Your example", max: 1, points: [
-                            { text: "Named an embedded system that could reasonably be in a car (e.g. automatic lights, automatic wipers, sat nav/GPS, climate control, lane assist, engine management, auto-park, cruise control, auto-brake, dashcam)", marks: 1 }
-                        ]
-                    },
-                    {
-                        label: "Your explanation", max: 2, points: [
-                            { text: "Said it has limited functions — ideally with an example for YOUR system (e.g. it only checks the light level and turns the lights on/off)", marks: 1 },
-                            { text: "Gave a second characteristic applied to your system — a dedicated microprocessor doing only this job, OR that its function is hard to change (e.g. the user cannot make the light system do any other role)", marks: 1 }
+                        label: "Your explanation", max: 3, points: [
+                            { text: "Says it has a specific or limited purpose — applied to SmartPark, e.g. it can only park the car and nothing else", marks: 1 },
+                            { text: "Says it is built into a larger device: the car", marks: 1 },
+                            { text: "Says it has dedicated hardware or sensors used only for this system, e.g. the bumper sensors only feed SmartPark", marks: 1 },
+                            { text: "Says its instructions are stored as firmware, so its function is hard to change or update", marks: 1 },
+                            { text: "Says it is an automated control system that acts without the driver having to do anything", marks: 1 }
                         ]
                     }
                 ]
             },
             markScheme: `<div class="marks-section">
-<h5>Mark Scheme — 3 marks (1 mark for example; 1 mark each to max 2 for explanation)</h5>
-<p><strong>1 mark for example, e.g.</strong></p>
+<h5>Mark Scheme — 3 marks (1 mark each, up to 3, for any of the following applied to SmartPark)</h5>
 <ul>
-<li>Auto lights</li>
-<li>Auto window wipers</li>
-<li>Sat nav // GPS</li>
-<li>Airconditioning // climate control</li>
-<li>Radio/entertainment/infotainment system/media system</li>
-<li>Lane assist</li>
-<li>Engine management system</li>
-<li>Auto-park</li>
-<li>Cruise control</li>
-<li>Auto-brake</li>
-<li>Follow-me</li>
-<li>Dashcam</li>
-</ul>
-<p><strong>1 mark each to max 2 for explanation:</strong></p>
-<ul>
-<li>Limited functions // by example e.g. the system only checks the light and turns lights on/off</li>
-<li>Dedicated microprocessor // by example e.g. there is a microprocessor that is only checking the lights</li>
-<li>Hard to change function // by example e.g. the user cannot make the light system do any other role</li>
+<li>Has a specific or limited purpose — SmartPark can only park the car and cannot do anything else</li>
+<li>Is built into a larger device: the car</li>
+<li>Has dedicated hardware or sensors that are used only for this system, such as the bumper sensors</li>
+<li>Its instructions are stored as firmware, so its function is hard to change or update</li>
+<li>It is an automated control system that acts by itself, without the driver operating it</li>
 </ul>
 </div>
 <div class="marks-section">
 <h5>How the marks are given</h5>
 <ul>
-<li>Allow anything that could be reasonably within a car.</li>
-<li>If example is not clear if it's an embedded system, read explanation for justification e.g. hazard lights – could be embedded if they are activated automatically when the car crashes. Award the example in the explanation if this occurs.</li>
-<li>If justification is generic features of an embedded system max 1 for explanation.</li>
-<li>Do not award 'built into the car/larger machine' because this is in the question.</li>
+<li>Award one mark for each distinct characteristic, up to a maximum of three.</li>
+<li>A characteristic must be linked to SmartPark to be credited — a definition with no reference to SmartPark at all should not be awarded more than one mark overall.</li>
 </ul>
 </div>
 <div class="marks-section">
-<h5>Examiner's Comments</h5>
-<p>This question required candidates to consider embedded systems within a car. There were a range of possible systems, the most common being GPS or satellite navigation systems. Other common responses included automated lights, automated wipers, and parking sensors. The most common explanation was that the system has a single (or limited) purpose, but few candidates expanded beyond this. Some candidates repeated that it was built into the car but this was provided in the question. Some candidates provided examples of embedded systems such as a washing machine, a microwave and a fridge/freezer. This was not appropriate to the context of the question.</p>
+<h5>Common mistakes</h5>
+<p>Students often score the first two marks quickly — a single purpose, and being built into the car — then run out of a third, different idea. Keep a short mental list of embedded-system features ready (specific purpose, built into a larger device, dedicated hardware, firmware that's hard to change, automatic control) so you always have a fresh one to reach for, and make sure every point is tied to SmartPark rather than left as a general textbook definition.</p>
 </div>`,
-            modelAnswer: "Example embedded system: The automatic headlights.\n\nExplanation: The system has only one limited function — it checks the light level outside and switches the headlights on or off. It has its own dedicated microprocessor that does nothing but monitor that sensor, and the driver cannot make the light system perform any other role."
+            modelAnswer: "SmartPark has a specific, limited purpose — it can only park the car, and does nothing else.\n\nIt is built into a larger device: the car itself.\n\nIt uses dedicated sensors in the bumpers that only feed data to SmartPark, and its instructions are stored as firmware, so the system cannot easily be reprogrammed to do a different job."
+        },
+        {
+            num: "Q2",
+            marks: 3,
+            type: "written",
+            caseId: "maya-car",
+            stubs: ["Example", "Explanation"],
+            question: `<p>Identify <strong>one other</strong> embedded system that could be found in Maya's car, other than SmartPark, and explain why it is an embedded system.</p>`,
+            hint: "Pick an example that's genuinely found IN A CAR — and for the explanation, reach for a characteristic other than 'it's built into the car', since that's already true of SmartPark in the scenario.",
+            starter: "Example: … | Explanation: …",
+            markPoints: {
+                note: "Marked in two parts: 1 mark for a valid example, then up to 2 for the explanation — the second explanation mark needs a genuinely different point from the first, not the same idea reworded.",
+                groups: [
+                    {
+                        label: "Your example", max: 1, points: [
+                            { text: "Named a plausible embedded system found in a car (e.g. automatic headlights, automatic wipers, sat nav/GPS, climate control, lane-keeping assist, engine management, cruise control, dashcam, tyre-pressure monitor)", marks: 1 }
+                        ]
+                    },
+                    {
+                        label: "Your explanation", max: 2, points: [
+                            { text: "Said it has a limited or specific function, ideally with an example of what that one function is", marks: 1 },
+                            { text: "Gave a second, different characteristic applied to your example, such as a dedicated microprocessor that only does that job, or that its function is hard to change", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 3 marks (1 mark for a valid example; 1 mark each, up to 2, for the explanation)</h5>
+<p><strong>1 mark for a valid example, e.g.:</strong></p>
+<ul>
+<li>Automatic headlights</li>
+<li>Automatic windscreen wipers</li>
+<li>Sat nav or GPS</li>
+<li>Climate control</li>
+<li>Lane-keeping assist</li>
+<li>Engine management system</li>
+<li>Cruise control</li>
+<li>Dashcam</li>
+<li>Tyre-pressure monitor</li>
+</ul>
+<p><strong>1 mark each, up to 2, for the explanation:</strong></p>
+<ul>
+<li>Limited or specific function — ideally with an example, e.g. it only checks the light level and switches the headlights on or off</li>
+<li>Dedicated microprocessor or hardware, e.g. there is a microprocessor that does nothing except monitor the light sensor</li>
+<li>Hard to change function, e.g. the driver cannot make the headlight system do any other job</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Accept anything that could reasonably be found in a car.</li>
+<li>If the explanation is a fully generic definition with no link at all to the named example, cap the explanation at 1 mark.</li>
+<li>Do not award 'it is built into the car' on its own — that idea already applies to SmartPark in the scenario, so it shows no new knowledge here.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Common mistakes</h5>
+<p>The most common slip is naming something that isn't actually in a car — a washing machine or a microwave is a genuine embedded system, but it scores nothing here because the question is about Maya's car specifically. The second common slip is writing 'it's built into the car' as if it were new information: the scenario already tells you that, so it earns nothing on its own. Aim for a second explanation point that's genuinely different from the first, not the same idea in different words.</p>
+</div>`,
+            modelAnswer: "Example: The automatic headlights.\n\nExplanation: The system has a limited, specific function — it only checks how dark it is outside and switches the headlights on or off. It has its own dedicated microprocessor that does nothing but monitor that light sensor, and the driver cannot make the system perform any other role."
         },
         {
             num: "Q3",
@@ -864,45 +879,37 @@
             type: "written",
             caseStudy: "",
             stubs: ["Choice", "Justification"],
-            stubLines: [1, 3], // "Ali is incorrect" is one line; the justification carries all 3 marks
-            question: `<p>Ali's tablet computer has an operating system.</p><p>Ali thinks his tablet is an embedded system.</p><p>State whether Ali is correct or incorrect, justifying your choice.</p>`,
-            hint: "Whichever choice you make, you MUST apply each point to the tablet — a justification with no reference to the tablet caps you at 2 marks.",
-            starter: "Choice: Ali is … | Justification: …",
+            stubLines: [1, 3], // "Freya is incorrect" is one line; the justification carries all 3 marks
+            question: `<p>Freya's tablet computer runs a full operating system, and she can install any app she likes from an app store.</p><p>Freya thinks her tablet is an embedded system.</p><p>State whether Freya is correct or incorrect, justifying your choice.</p>`,
+            hint: "Decide first, then justify with characteristics of an embedded system applied to the tablet — every point must mention the tablet itself, or it won't be credited.",
+            starter: "Choice: Freya is … | Justification: …",
             markPoints: {
-                note: "Up to 3 marks, all for the justification. Every point must be applied to THE TABLET — the mark scheme caps you at 2 if there is no application to the tablet.",
+                note: "Up to 3 marks, all for the justification. Each point must be applied to the tablet — a justification with no reference to the tablet at all is capped at 2 marks.",
                 groups: [
                     {
                         label: "Your justification", max: 3, points: [
-                            { text: "Stated a characteristic of embedded systems that decides the case (e.g. an embedded system has one/few functions; is a single chip; is part of a larger system; its software cannot be updated)", marks: 1 },
-                            { text: "Applied that characteristic to the tablet (e.g. …but a tablet has multiple functions / is general purpose / has multiple chips combined / is a self-contained system / you can update its software)", marks: 1 },
-                            { text: "Gave a SECOND developed point, also applied to the tablet", marks: 1 }
+                            { text: "Stated a deciding characteristic of an embedded system (e.g. it has one or a few dedicated functions; it is part of a larger device; its software is fixed firmware that is hard to change)", marks: 1 },
+                            { text: "Applied that characteristic to the tablet (e.g. …but the tablet has many functions and is general purpose; is a self-contained device, not part of anything larger; runs an operating system Freya can update and install apps onto)", marks: 1 },
+                            { text: "Gave a second, different point, also applied to the tablet", marks: 1 }
                         ]
                     }
                 ]
             },
             markScheme: `<div class="marks-section">
-<h5>Mark Scheme — 3 marks (1 mark per bullet to max 3) e.g.</h5>
-<p><strong>Incorrect:</strong></p>
+<h5>Mark Scheme — 3 marks (1 mark per point, up to 3) — e.g.</h5>
 <ul>
-<li>Embedded system has one/few functions …tablet has multiple functions // tablet is general purpose</li>
-<li>Embedded system is single chip …tablet has multiple chips combined</li>
-<li>Embedded system is part of a larger system … tablet is a self-contained system</li>
-<li>You can update the software</li>
-</ul>
-<p><strong>Correct:</strong></p>
-<ul>
-<li>Embedded system has one/few functions ….the tablet may only be able to perform a small number of tasks …tablet has a specific purpose …tablet's hardware is fixed …does not need/require/allow expansion</li>
-<li>Embedded systems has firmware ..you cannot update the OS in a tablet (usually)</li>
-<li>Embedded system is part of a larger system …tablet may have one microprocessor built into it</li>
+<li>An embedded system has one or a few dedicated functions, but the tablet has many functions and is general purpose.</li>
+<li>An embedded system is built into a larger device, but the tablet is a self-contained device in its own right.</li>
+<li>An embedded system's software is fixed firmware that is hard to change, but Freya can install and update apps on her tablet whenever she likes.</li>
 </ul>
 </div>
 <div class="marks-section">
 <h5>How the marks are given</h5>
 <ul>
-<li>Max 2 if there is no application to the tablet.</li>
+<li>Cap the mark at 2 if none of the points are applied to the tablet.</li>
 </ul>
 </div>`,
-            modelAnswer: "Choice: Ali is incorrect.\n\nJustification: An embedded system has only one or a few dedicated functions, but a tablet is general purpose and has multiple functions — you can use it for almost any task.\n\nAn embedded system is built into a larger device, whereas the tablet is a self-contained system in its own right.\n\nThe software on an embedded system is firmware and cannot normally be changed, but Ali can install and update software on his tablet whenever he likes."
+            modelAnswer: "Choice: Freya is incorrect.\n\nJustification: An embedded system has only one or a few dedicated functions, but the tablet is general purpose and can do almost any task Freya wants.\n\nAn embedded system is built into a larger device, whereas the tablet is a self-contained device on its own.\n\nAn embedded system's software is fixed firmware that is hard to change, but Freya can install and update apps on her tablet freely."
         },
         {
             num: "Q4",
@@ -911,76 +918,89 @@
             format: "bankCloze",
             caseStudy: "",
             question: `<p>The following paragraph describes embedded systems.</p><p>Complete the paragraph by selecting terms from the list and writing them in the correct places. <strong>Not all terms are used.</strong></p>`,
-            cloze: `<p>Embedded systems have limited ___1___ They are often built into a ___2___ machine. Two examples of embedded systems are a ___3___ and automated ___4___ in a car.</p>`,
-            bank: ["actuator", "applications", "change", "functions", "laptop", "larger", "lights", "microprocessor", "processor", "range", "smaller", "washing machine"],
+            cloze: `<p>Embedded systems have a ___1___ purpose. They are usually built into a ___2___ device. Their program is normally stored as ___3___, which the user cannot easily ___4___.</p>`,
+            bank: ["specific", "general", "larger", "smaller", "firmware", "software", "change", "install", "limited", "update"],
             answers: {
-                "1": ["functions"],
+                "1": ["specific"],
                 "2": ["larger"],
-                "3": ["washing machine"],
-                "4": ["lights"]
+                "3": ["firmware"],
+                "4": ["change"]
             },
-            hint: "Read each whole sentence before choosing. Several terms are deliberate decoys — if you use every word, something has gone wrong.",
+            hint: "Read the whole sentence before choosing — 'limited' and 'general' are decoys for the first gap, and 'smaller' is a decoy for the second. Several terms are not used at all.",
             starter: "(1) … (2) … (3) … (4) …",
             markScheme: `<div class="marks-section">
-<h5>Mark Scheme — 4 marks (1 mark for each completed term)</h5>
-<p>Embedded systems have limited <strong>functions</strong>. They are often built into a <strong>larger</strong> machine. Two examples of embedded systems are a <strong>washing machine</strong> and automated <strong>lights</strong> in a car.</p>
+<h5>Mark Scheme — 4 marks (1 mark for each correct term)</h5>
+<p>Embedded systems have a <strong>specific</strong> purpose. They are usually built into a <strong>larger</strong> device. Their program is normally stored as <strong>firmware</strong>, which the user cannot easily <strong>change</strong>.</p>
 </div>`,
-            modelAnswer: "(1) functions\n(2) larger\n(3) washing machine\n(4) lights"
+            modelAnswer: "(1) specific\n(2) larger\n(3) firmware\n(4) change"
         },
         {
             num: "Q5(i)",
             marks: 1,
             type: "mcq",
-            caseStudy: "",
-            question: `<p>Xander's tablet computer comes with system software, including an operating system and utility system software.</p><p>Xander also has a smart watch.</p><p>Tick (✓) <strong>one</strong> box to show whether the smart watch or the laptop is an example of an embedded system.</p>`,
-            options: ["Smart watch", "Laptop"],
+            caseId: "tariq-watch",
+            question: `<p>Tick (✓) <strong>one</strong> box to show which of Tariq's two devices is an example of an embedded system.</p>`,
+            options: ["Tariq's fitness tracker, PulseBand", "Tariq's general-purpose laptop computer"],
             answer: 0,
-            hint: "Which of the two can only ever do its own small set of jobs?",
+            hint: "Which of the two can only ever do its own small set of jobs, and can't be reprogrammed to do something completely different?",
             starter: "",
             markScheme: `<div class="marks-section">
-<h5>Mark Scheme — 1 mark (AO2 1a)</h5>
+<h5>Mark Scheme — 1 mark</h5>
 <ul>
-<li><strong>Smart watch</strong> — CAO (correct answer only)</li>
-</ul>
-</div>
-<div class="marks-section">
-<h5>Examiner's Comments</h5>
-<p>This question was answered correctly by the majority of candidates who were able to identify that a smart watch is an example of an embedded system.</p>
-</div>`,
-            modelAnswer: "Smart watch"
-        },
-        {
-            num: "Q5(ii)",
-            marks: 2,
-            type: "written",
-            caseStudy: "",
-            question: `<p>Justify your choice to part (i).</p>`,
-            hint: "Apply it to the smart watch (or say why the laptop is not one) — a generic definition of an embedded system scores nothing here.",
-            starter: "A smart watch is…",
-            markScheme: `<div class="marks-section">
-<h5>Mark Scheme — 2 marks (AO2 1b) — 1 mark per bullet for justification to max 2</h5>
-<ul>
-<li>A smart watch is not a general-purpose computer … which means the smart watch has one/limited/specific/dedicated function(s)</li>
-<li>Smart watch has a microprocessor … on a single circuit board</li>
-<li>It is a computer system that is built within the watch</li>
-<li>Runs firmware</li>
-<li>Smart watch has built-in OS // difficult to change/manipulate the OS/function</li>
-<li>Smart watch has few components all essential to its purpose</li>
-<li>Smart watch has specific hardware required to function i.e. speaker/headphones</li>
+<li><strong>PulseBand (the fitness tracker)</strong> is the correct answer.</li>
 </ul>
 </div>
 <div class="marks-section">
 <h5>How the marks are given</h5>
 <ul>
-<li>Answers must be applied to scenario. Do not award generic definitions.</li>
-<li>Allow opposite reasons for why a laptop is not an embedded system but do not allow repeated points.</li>
+<li>Only the correct option scores; ticking both boxes scores 0.</li>
 </ul>
 </div>
 <div class="marks-section">
-<h5>Examiner's Comments</h5>
-<p>Candidates were able to gain marks for explaining why a smart watch is an embedded system or why a laptop is not or a combination of the two. The most common answers referred to the limited features of a smart watch, while a laptop is a general-purpose computer that can perform any number of tasks. Some candidates gave a generic definition of an embedded system which was insufficient because the question required candidates to apply their knowledge to the scenario.</p>
+<h5>Common mistakes</h5>
+<p>Most students get this one right once they focus on function rather than size or price — a laptop can feel more "ordinary" than a fitness tracker, but ordinary isn't the test. The real test is whether the device can be reprogrammed to do a completely different job: the laptop can, PulseBand can't.</p>
 </div>`,
-            modelAnswer: "A smart watch is not a general-purpose computer, which means it has only limited, dedicated functions such as telling the time and tracking your steps.\n\nIts operating system is built in and is difficult to change, whereas a laptop can run any software the user chooses to install."
+            modelAnswer: "PulseBand (the fitness tracker)."
+        },
+        {
+            num: "Q5(ii)",
+            marks: 2,
+            type: "written",
+            caseId: "tariq-watch",
+            question: `<p>Justify your answer to part (i).</p>`,
+            hint: "Apply your reasoning specifically to PulseBand (or explain why the laptop doesn't fit) — a generic definition of an embedded system with no reference to either device won't be credited.",
+            starter: "PulseBand is…",
+            markPoints: {
+                note: "Up to 2 marks, both for the justification, each applied to PulseBand or the laptop.",
+                groups: [
+                    {
+                        label: "Your justification", max: 2, points: [
+                            { text: "Says PulseBand is not general purpose / has limited, dedicated functions — ideally naming them, e.g. it only tracks heart rate, steps and sleep", marks: 1 },
+                            { text: "Gives a second characteristic applied to PulseBand, e.g. it has a built-in, dedicated microprocessor, or its software is fixed firmware that Tariq cannot reprogram", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (1 mark per point, up to 2)</h5>
+<ul>
+<li>PulseBand is not a general-purpose computer — it has limited, dedicated functions, e.g. it only tracks heart rate, steps and sleep.</li>
+<li>PulseBand has a dedicated microprocessor built in, doing only this one job.</li>
+<li>PulseBand's software is fixed firmware, so its function is hard for Tariq to change, unlike his laptop.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Answers must be applied to the scenario — a generic definition of an embedded system with no reference to PulseBand or the laptop is not credited.</li>
+<li>Allow the opposite argument (explaining why the laptop is not embedded) but do not credit the same point made twice.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Common mistakes</h5>
+<p>The most common way to lose both marks here is writing out the textbook definition of an embedded system without ever mentioning PulseBand or the laptop by name. A definition on its own shows you've learned the theory, but this question tests whether you can apply it — name the actual limited functions PulseBand has, or point out that Tariq can reprogram the laptop but not PulseBand.</p>
+</div>`,
+            modelAnswer: "PulseBand is not a general-purpose computer — it has limited, dedicated functions, tracking only heart rate, steps and sleep.\n\nIt has a built-in microprocessor doing only this one job, and its software is fixed firmware, so Tariq cannot reprogram it to do anything else — unlike his laptop."
         },
         {
             num: "Q6(a)",
@@ -988,13 +1008,13 @@
             type: "written",
             caseStudy: "",
             lines: 2,
-            question: `<p>Gareth's Sat Nav contains an embedded system. Define what is meant by an 'embedded system'.</p>`,
-            hint: "One sentence. The examiner wants the 'built into another device' idea.",
+            question: `<p>Jodie's robot vacuum cleaner contains an embedded system. Define what is meant by an 'embedded system'.</p>`,
+            hint: "One sentence. The examiner wants the 'built into another device, doing one job' idea.",
             starter: "An embedded system is…",
             markScheme: `<div class="marks-section">
 <h5>Mark Scheme — 1 mark</h5>
 <ul>
-<li>A computer system that is built into another device</li>
+<li>A computer system that is built into another (larger) device to carry out one specific task, or a small number of dedicated tasks.</li>
 </ul>
 </div>`,
             modelAnswer: "An embedded system is a computer system that is built into another device to carry out one specific task."
@@ -1005,27 +1025,31 @@
             type: "written",
             caseStudy: "",
             stubs: ["1", "2", "3"],
-            question: `<p>Identify <strong>three</strong> devices, other than a Sat Nav, that contain embedded systems.</p>`,
-            hint: "Three quick answers — no explanation needed, and no marks for detail. Just don't repeat the Sat Nav.",
+            question: `<p>Identify <strong>three</strong> devices, other than a robot vacuum cleaner, that contain embedded systems.</p>`,
+            hint: "Three quick answers — no explanation needed, and no marks for detail. Just don't repeat the robot vacuum.",
             starter: "1: … | 2: … | 3: …",
             markScheme: `<div class="marks-section">
-<h5>Mark Scheme — 3 marks — three devices from:</h5>
+<h5>Mark Scheme — 3 marks — any three from:</h5>
 <ul>
-<li>Dishwasher</li>
-<li>MP3 player</li>
 <li>Washing machine</li>
-<li>Mobile phone</li>
-<li>Manufacturing equipment</li>
+<li>Dishwasher</li>
+<li>Microwave</li>
+<li>Digital camera</li>
+<li>Fitness tracker or smart watch</li>
+<li>Traffic lights</li>
+<li>Vending machine</li>
+<li>Central heating thermostat</li>
+<li>Manufacturing/robotic equipment</li>
 </ul>
 </div>
 <div class="marks-section">
 <h5>How the marks are given</h5>
 <ul>
-<li>1 mark to be awarded for each correct example identified to a maximum of 3 marks.</li>
-<li>There are many other examples of devices with embedded systems which may be acceptable.</li>
+<li>1 mark for each correct, distinct device, up to a maximum of 3.</li>
+<li>Many other genuine examples of devices containing embedded systems are acceptable.</li>
 </ul>
 </div>`,
-            modelAnswer: "1: Washing machine\n\n2: Microwave oven\n\n3: Traffic lights"
+            modelAnswer: "1: Washing machine\n\n2: Digital camera\n\n3: Traffic lights"
         }
     ];
 </script>

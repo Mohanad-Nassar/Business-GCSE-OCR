@@ -799,26 +799,13 @@
         { term: "RAM vs ROM", def: "RAM is volatile and holds running programs; ROM is non-volatile and holds boot-up instructions" },
         { term: "SSD upgrade", def: "Faster read/write than an HDD, so programs and files load quicker" }
     ];
-    // ── WHY THIS PAGE HAS 35 OF THE PDF'S 54 MARKS (do not "fix" this) ──
-    // CS resources/ExamquestionsNew/1.1.2-cpu-performance.pdf is compiled by
-    // TOPIC, and ExamBuilder puts the same question under every topic it
-    // touches — so three of its questions are duplicates, not omissions:
-    //   • Q3 (i/ii/iii, 9 marks — Kerry: "CPU stands for…", dual core, cache)
-    //     is WORD-FOR-WORD 1.1.1's Q8(i/ii/iii), already live there.
-    //   • Q8 (a/b, 5 marks — Dipesh: CPU+RAM together, purpose of cache)
-    //     is WORD-FOR-WORD 1.1.1's Q11(a/b), already live there.
-    //   • Q7 (a/b/c, 5 marks — Ann/Fig.1) repeats Q2 (a/b/c) of THIS PDF
-    //     almost verbatim; only Q2 is kept.
-    // Each question therefore lives on exactly ONE page: showing a student the
-    // identical question on two topics reads as a bug, and it would duplicate
-    // rows in the bank (Daily Revise, tasks, worksheets all draw from it).
-    // Q3(ii)/(iii) and Q8(b) arguably belong on THIS page rather than 1.1.1 —
-    // but 1.1.1 is live and owner-approved, so they were left where they are.
-    // RULE FOR EVERY FUTURE TOPIC: diff your PDF's questions against the
-    // already-live pages BEFORE transcribing (CS-CONTENT-PLAN.md §6.2).
+    // ── EXAM PRACTICE: original, clean-room questions (not transcribed from
+    // any OCR paper). Written from the 1.1.2 spec scope only. Assessment
+    // shape (11 questions / 35 marks, format mix, case-study count) mirrors
+    // the page's previous structure — see CS-CONTENT-PLAN.md §6.2.
     const EXAM_CASE_STUDIES = {
-        "fig1-cpus": `<p><strong>Fig. 1</strong> — the specification of two CPUs:</p><table><tr><th>Computer 1</th><th>Computer 2</th></tr><tr><td>Clock Speed: 1 GHz</td><td>Clock Speed: 1.4 GHz</td></tr><tr><td>Cache size: 2 MB</td><td>Cache size: 2 MB</td></tr><tr><td>Number of Cores: 4</td><td>Number of Cores: 2</td></tr></table>`,
-        "quinn-fig4": `<p><strong>Fig. 4</strong> — Quinn's current computer specification:</p><ul><li>1.5 GHz Dual Core Processor</li><li>1GB RAM</li><li>100GB Hard Drive</li><li>64KB Cache</li><li>Touchscreen</li><li>Integrated camera and speakers</li><li>2 × USB 3.0 ports</li><li>2 × USB 2.0 ports</li><li>Blu-ray drive</li><li>2GB Graphics Card</li></ul>`
+        "laptop-specs": `<p><strong>Fig. 1</strong> — the specifications of two laptops being considered for a school's video editing club:</p><table><tr><th>Laptop A</th><th>Laptop B</th></tr><tr><td>Clock Speed: 2.2 GHz</td><td>Clock Speed: 3.0 GHz</td></tr><tr><td>Cache size: 4 MB</td><td>Cache size: 4 MB</td></tr><tr><td>Number of Cores: 6</td><td>Number of Cores: 2</td></tr></table>`,
+        "amara-laptop": `<p><strong>Fig. 2</strong> — Amara's current laptop specification:</p><ul><li>1.6 GHz Dual Core Processor</li><li>4GB RAM</li><li>250GB Hard Disk Drive</li><li>128KB Cache</li><li>Built-in webcam and microphone</li><li>2 × USB-A ports</li><li>1 × USB-C port</li><li>DVD drive</li><li>2GB Integrated Graphics</li></ul>`
     };
 
     const examQuestions = [
@@ -828,11 +815,11 @@
             type: "written",
             caseStudy: "",
             stubs: ["1", "2", "3"],
-            question: `<p>A computer has a Central Processing Unit (CPU).</p><p>Give <strong>three</strong> characteristics of a CPU that can affect its performance.</p>`,
-            hint: "Write each one in full — the measurable part matters. One-word answers like 'clock' or 'cores' are too ambiguous to credit.",
+            question: `<p>A school is buying new computers for its computing suite.</p><p>State <strong>three</strong> characteristics of a CPU that determine how well it performs.</p>`,
+            hint: "Each answer must name the part AND what varies about it — one-word answers such as 'clock' or 'cores' will not be credited.",
             starter: "1: … | 2: … | 3: …",
             markScheme: `<div class="marks-section">
-<h5>Mark Scheme — 3 marks (1 mark each to max 3)</h5>
+<h5>Mark Scheme — 3 marks (1 mark for each correct characteristic, up to 3)</h5>
 <ul>
 <li>Clock speed</li>
 <li>Cache size</li>
@@ -842,61 +829,57 @@
 <div class="marks-section">
 <h5>How the marks are given</h5>
 <ul>
-<li>'clock' 'cache' 'speed' 'cores' on its own is NE (not enough).</li>
+<li>Accept the three characteristics in any order.</li>
+<li>Do not award a characteristic named without its qualifying word, such as "clock" alone instead of "clock speed", or "cores" alone instead of "number of cores".</li>
 </ul>
 </div>
-<div class="marks-section">
-<h5>Examiner's Comments</h5>
-<p>Candidates were often able to identify at least one characteristic of a CPU, most commonly the clock speed and number of cores. Some responses were not precise enough as to the characteristics, for example stating 'clock' or 'core' without reference to the speed of the clock, or the number of cores, which were too ambiguous.</p>
-</div>`,
+<div class="marks-section"><h5>Common mistakes</h5><p>Many students shorten these terms to single words such as "clock", "cache" or "cores". That loses the mark, because every CPU has a clock, some cache and at least one core — it is the speed of the clock, the size of the cache and the number of cores that actually differ between processors and affect how fast one is compared with another.</p></div>`,
             modelAnswer: "1: Clock speed\n\n2: Cache size\n\n3: Number of cores"
         },
         {
             num: "Q2(a)",
             marks: 1,
             type: "written",
-            caseId: "fig1-cpus",
+            caseId: "laptop-specs",
             lines: 2,
-            question: `<p>The specification of two CPUs is shown in Fig. 1.</p><p>When running a 3D flight simulator, Computer 1 is likely to run faster than Computer 2.</p><p>Using the information in Fig. 1, identify <strong>one</strong> reason for this.</p>`,
-            hint: "Compare the two spec boxes and find the ONLY thing Computer 1 is ahead on.",
-            starter: "Computer 1 has…",
+            question: `<p>The specifications of two laptops are shown in Fig. 1.</p><p>Video editing software can split the work of rendering a finished clip across several parts of the CPU at once.</p><p>Using Fig. 1, identify <strong>one</strong> reason why Laptop A is likely to render video faster than Laptop B.</p>`,
+            hint: "Compare the two spec boxes and find the only characteristic where Laptop A is ahead.",
+            starter: "Laptop A has…",
             markScheme: `<div class="marks-section">
-<h5>Mark Scheme — 1 mark (AO2 1a)</h5>
+<h5>Mark Scheme — 1 mark</h5>
 <ul>
-<li>It has more cores.</li>
+<li>Laptop A has more cores (6 rather than 2).</li>
 </ul>
 </div>
 <div class="marks-section">
 <h5>How the marks are given</h5>
 <ul>
-<li>Although Computer 1 has a lower clock speed than the CPU in Computer 2 it has more cores, which means that it can be faster than Computer 2.</li>
-<li>Any answer relating to splitting a program into processes that be carried out consecutively will be accepted.</li>
+<li>Accept any answer that correctly identifies the higher core count as the reason, including reference to more parts of the rendering task being processed at once.</li>
 </ul>
 </div>`,
-            modelAnswer: "Computer 1 has more cores (4 rather than 2), so more of the flight simulator's work can be processed at the same time."
+            modelAnswer: "Laptop A has more cores (6 compared with 2), so more of the video rendering work can be processed at the same time."
         },
         {
             num: "Q2(b)",
             marks: 2,
             type: "written",
-            caseId: "fig1-cpus",
+            caseId: "laptop-specs",
             stubs: ["1", "2"],
-            question: `<p>Identify <strong>two</strong> other parts of a computer that are not in Fig. 1, which could improve the performance of the computers.</p>`,
-            hint: "Fig. 1 only lists CPU characteristics — so name components elsewhere in the machine that still affect speed.",
+            question: `<p>Identify <strong>two</strong> components of a laptop, not shown in Fig. 1, that could also affect how quickly it renders video.</p>`,
+            hint: "Fig. 1 only lists CPU characteristics — think about other hardware inside (or attached to) the laptop.",
             starter: "1: … | 2: …",
             markScheme: `<div class="marks-section">
-<h5>Mark Scheme — 2 marks (AO2 1a)</h5>
+<h5>Mark Scheme — 2 marks (1 mark for each valid component, up to 2)</h5>
 <ul>
 <li>RAM</li>
-<li>SSD</li>
-<li>HDD</li>
 <li>Graphics card (GPU)</li>
+<li>Storage type, e.g. SSD instead of HDD</li>
 </ul>
 </div>
 <div class="marks-section">
 <h5>How the marks are given</h5>
 <ul>
-<li>Marks can be awarded for other appropriate responses, e.g. Motherboard, Sound card.</li>
+<li>Award marks for other reasonable hardware that affects processing speed, such as the motherboard.</li>
 </ul>
 </div>`,
             modelAnswer: "1: RAM\n\n2: Graphics card (GPU)"
@@ -905,32 +888,33 @@
             num: "Q2(c)",
             marks: 2,
             type: "written",
-            caseId: "fig1-cpus",
-            question: `<p>Explain <strong>one</strong> reason why the cache size affects the performance of the CPU.</p>`,
-            hint: "Point + development. Identify what cache does for the CPU, then say 'which means…' and finish the chain with the effect on performance.",
-            starter: "Data can be transferred faster from cache than from RAM, which means…",
+            caseId: "laptop-specs",
+            question: `<p>Explain <strong>one</strong> reason why increasing the size of a CPU's cache can improve its performance.</p>`,
+            hint: "Point + development. Say what a bigger cache lets the CPU do, then use 'which means…' to link it to performance.",
+            starter: "A bigger cache can hold more frequently used instructions and data, which means…",
             markPoints: {
-                note: "This is marked as a point plus its development: 1 mark for a correct identification, 1 mark for the explanation you link to it.",
+                note: "Marked as a point plus its development: 1 mark for a correct identification, 1 mark for the explanation linked to it.",
                 groups: [
                     {
                         label: "Your reason", max: 2, points: [
-                            { text: "Identified a correct point — e.g. data is transferred faster from cache // it is faster to transfer to and from cache than to and from RAM", marks: 1 },
-                            { text: "Explained the consequence for the CPU — e.g. …which makes the CPU more efficient / it waits less (NOT just “cache is faster than RAM”)", marks: 1 }
+                            { text: "Identifies a correct point, e.g. a bigger cache can store more of the instructions and data the CPU uses frequently, or cache can be accessed more quickly than RAM", marks: 1 },
+                            { text: "Explains the consequence for performance, e.g. the CPU needs to fetch from the slower RAM less often, so it spends less time waiting and works more efficiently (not just 'cache is faster than RAM')", marks: 1 }
                         ]
                     }
                 ]
             },
             markScheme: `<div class="marks-section">
-<h5>Mark Scheme — 2 marks (AO2 1a)</h5>
+<h5>Mark Scheme — 2 marks</h5>
 <ul>
-<li>data is transferred faster (1)… …which makes a CPU more efficient (1)</li>
-<li>It is faster to transfer to and from cache (1)… …than transferring to and from RAM (1).</li>
+<li>Award 1 mark for a correct identification, such as: a bigger cache holds more of the instructions and data the CPU uses frequently.</li>
+<li>Award a further 1 mark for the linked explanation, such as: this means the CPU fetches from the slower RAM less often, so it spends less time waiting.</li>
 </ul>
 </div>
 <div class="marks-section">
 <h5>How the marks are given</h5>
 <ul>
-<li>1 mark to be awarded for each correct identification and 1 mark to be awarded for the associated explanation to a maximum of 2 marks.</li>
+<li>Award 1 mark for the identification and 1 mark for its explanation, to a maximum of 2 marks.</li>
+<li>"Cache is faster than RAM" alone, with no link to what this means for performance, does not score the second mark.</li>
 </ul>
 </div>`,
             modelAnswer: "Instructions and data can be transferred to the CPU faster from cache than from RAM, which means the CPU spends less time waiting and works more efficiently."
@@ -940,194 +924,177 @@
             marks: 2,
             type: "written",
             caseStudy: "",
-            question: `<p>The CPU has a clock speed of 3.8 GHz.</p><p>Describe what is meant by a clock speed of 3.8 GHz.</p>`,
-            hint: "Two halves for two marks: what clock speed measures, and what the number 3.8 GHz actually translates to. Don't forget 'per second'.",
+            question: `<p>A new laptop is advertised with a processor clock speed of 2.6 GHz.</p><p>Describe what is meant by a clock speed of 2.6 GHz.</p>`,
+            hint: "Two halves for two marks: what clock speed actually measures, and what the number 2.6 GHz translates to. Don't forget 'per second'.",
             starter: "Clock speed is the number of…",
             markScheme: `<div class="marks-section">
-<h5>Mark Scheme — 2 marks (AO1 1b, AO2 1a) — 1 mark per bullet to max 2</h5>
+<h5>Mark Scheme — 2 marks (1 mark per bullet, up to 2)</h5>
 <ul>
-<li>The number of FDE cycles run per given time/second // the frequency that the clock 'ticks'</li>
-<li>3.8 billion cycles/instructions …</li>
-<li>…per second</li>
+<li>The number of fetch–execute cycles the CPU carries out per second, or the rate at which the CPU's clock "ticks".</li>
+<li>2.6 billion cycles (or instructions) every second.</li>
 </ul>
 </div>
 <div class="marks-section">
 <h5>How the marks are given</h5>
 <ul>
-<li>Do not award: how fast the computer is // speed of CPU</li>
-<li>3.8 = 3,800,000,000</li>
+<li>Do not award vague statements such as "how fast the computer is" with no reference to cycles per second.</li>
+<li>2.6 GHz = 2,600,000,000 cycles per second.</li>
 </ul>
 </div>
-<div class="marks-section">
-<h5>Examiner's Comments</h5>
-<p>This question was answered well with many candidates able to demonstrate an understanding of the clock speed of a computer. Fewer candidates correctly translated the 3.8 GHz into the correct number of instructions/FDE cycles performed. Less able candidates did not identify an appropriate time frame, for example 'the number of instructions it can process' has a different meaning to 'the number of instructions it can process per second'. Another common misconception was it is the number of instructions it can perform at a time, a processor can only perform one instruction at a time.</p>
-</div>`,
-            modelAnswer: "Clock speed is the number of fetch–execute cycles the CPU carries out per second.\n\n3.8 GHz means it carries out about 3.8 billion (3,800,000,000) of those cycles every second."
+<div class="marks-section"><h5>Common mistakes</h5><p>A lot of students correctly say the CPU is "fast" or simply repeat the number 2.6 GHz without explaining what it measures — neither earns credit, because the question is asking what the figure means, not restating it. The other frequent slip is describing 2.6 billion instructions with no time frame attached, or describing it as instructions done "at once" rather than "each second" — a single core still only carries out one instruction at a time, however quickly it ticks through them.</p></div>`,
+            modelAnswer: "Clock speed is the number of fetch–execute cycles the CPU carries out per second.\n\n2.6 GHz means it carries out about 2.6 billion (2,600,000,000) of those cycles every second."
         },
         {
             num: "Q4(b)",
             marks: 3,
             type: "written",
             caseStudy: "",
-            question: `<p>Alicia says:</p><p>"My computer has a quad-core processor, so it will run twice as fast as a computer with a dual-core processor".</p><p>Explain why this statement is not always true.</p>`,
-            hint: "Three marks = three distinct reasons. Think about the tasks, the software, and the OTHER characteristics that differ between two machines.",
-            starter: "The statement is not always true because…",
+            question: `<p>Ben currently owns a laptop with a dual-core processor. He is thinking of replacing it with a laptop that has a quad-core processor, and believes this will make every task run exactly twice as fast.</p><p>Explain why Ben's belief is not always correct.</p>`,
+            hint: "Three marks need three separate reasons. Think about the type of task, the software, and the other CPU/component characteristics that could differ between the two laptops.",
+            starter: "Ben's belief is not always correct because…",
             markScheme: `<div class="marks-section">
-<h5>Mark Scheme — 3 marks (AO1 1b, AO2 2b) — 1 mark per bullet to max 3, e.g.</h5>
+<h5>Mark Scheme — 3 marks (1 mark per valid point, up to 3)</h5>
 <ul>
-<li>Software may be designed to run on 1 core and not multiple cores // depends on the task(s) …some tasks cannot be split across cores</li>
-<li>Clock speed also affects speed // dual core may have a faster clock speed // quad-core may have slower clock speed …so one task may be run faster/slower</li>
-<li>RAM size also affects speed // Quad-core may have less RAM // amount of VM being used</li>
-<li>Cache size also affects speed // Quad-core may have less cache</li>
+<li>Some tasks cannot be split across multiple cores, so extra cores are not always used; performance also depends on whether the software is written to make use of several cores.</li>
+<li>The two laptops may not have the same clock speed, so the new laptop could be slower for a single task if its clock speed is lower.</li>
+<li>The two laptops may not have the same cache size or amount of RAM, both of which also affect performance.</li>
 </ul>
 </div>
 <div class="marks-section">
 <h5>How the marks are given</h5>
 <ul>
-<li>Allow marks for other components that could affect the speed e.g. secondary storage access speed, onboard GPU.</li>
-<li>Award description of concurrent processing.</li>
+<li>Accept reference to any other component that could differ between the two laptops and affect performance, such as storage type.</li>
+<li>Accept a description of tasks needing to run in a set order, where later steps depend on the result of earlier ones.</li>
 </ul>
 </div>
-<div class="marks-section">
-<h5>Examiner's Comments</h5>
-<p>Most candidates were able to identify other features that could also have an impact on the speed of the computer such as the processor speed, amount of RAM etc. The more able candidates were also able to identify that the tasks being performed will also impact on the speed, for example how software may not be optimised for quad-core, or that a process may have to wait for a different process to finish execution before it can be processed.</p>
-</div>`,
-            modelAnswer: "Some tasks cannot be split across cores, and software must be written to use multiple cores — otherwise the extra cores are not used.\n\nThe dual-core computer may have a faster clock speed, so it runs a single task more quickly.\n\nThe quad-core computer may have less RAM or less cache, both of which also affect performance."
+<div class="marks-section"><h5>Common mistakes</h5><p>Students often name only one reason, usually that "not all software uses multiple cores", and stop there — three marks needs three distinct points. A common gap is forgetting that the two laptops being compared are not identical apart from their core count: clock speed, cache size and RAM could easily differ too, and any of those could mean the quad-core laptop is not simply "twice as fast".</p></div>`,
+            modelAnswer: "Some tasks cannot be split across multiple cores, and software has to be written to make use of more than one core — so the extra cores may not be used at all.\n\nThe two laptops may not have the same clock speed, so if the quad-core laptop has a lower clock speed, a single task could actually run more slowly on it.\n\nThe laptops could also differ in cache size or amount of RAM, both of which affect performance separately from the number of cores."
         },
         {
             num: "Q5(a)",
             marks: 2,
             type: "written",
-            caseId: "quinn-fig4",
-            question: `<p>Quinn's current computer specification is shown in Fig. 4.</p><p>Describe the benefits of a dual core processor over a single core processor.</p>`,
-            hint: "You must give the splitting/multitasking idea FIRST — 'it is faster' only earns a mark once you've said what makes it faster.",
-            starter: "Tasks can be split between the two processors, so…",
+            caseId: "amara-laptop",
+            question: `<p>Amara's current laptop specification is shown in Fig. 2.</p><p>Describe how having a processor with more than one core, rather than a single core, could improve the performance of Amara's laptop.</p>`,
+            hint: "Give the splitting/simultaneous-processing idea FIRST — saying it is simply 'faster' only earns a mark once you've explained what makes it faster.",
+            starter: "Tasks can be processed by more than one core at once, so…",
             markScheme: `<div class="marks-section">
 <h5>Mark Scheme — 2 marks (2 from)</h5>
 <ul>
-<li>Tasks can split between the processors… …tasks / processes / software / can be processed faster …more processes completed per second</li>
-<li>Allows multitasking // Run more than one process / task / instruction / data at a time / per clock cycle… … tasks / processes / software / can be processed faster …more processes completed per second</li>
+<li>Work can be split between the cores, so more than one part of a task, or more than one program, can be processed at the same time, meaning more is completed in the same amount of time.</li>
+<li>It allows smoother multitasking, running more than one program or process at once, so tasks complete faster overall.</li>
 </ul>
 </div>
 <div class="marks-section">
 <h5>How the marks are given</h5>
 <ul>
-<li>MUST have given splitting tasks, or multi-tasking to allow speed.</li>
-<li>Faster can only be given a mark if the first bullet(s) have been given.</li>
+<li>An answer must state that work is split or run simultaneously between cores before "faster" can be credited.</li>
+<li>Simply stating "it is faster" without this idea is not enough.</li>
 </ul>
 </div>
-<div class="marks-section">
-<h5>Examiner's Comments</h5>
-<p>This question was answered fairly well, candidates were able to express that two processes could be carried out at once, and they then often got a second mark for identifying that this made it faster. Some candidates could not clearly express what was being processed, or simply stated that it was faster which was insufficient as the actual processes are not carried out faster, it is faster because it is completing two processes at the same time.</p>
-</div>`,
-            modelAnswer: "Tasks can be split between the two cores, so two processes can be carried out at the same time.\n\nThis means more processes are completed per second, and the computer can multitask more smoothly."
+<div class="marks-section"><h5>Common mistakes</h5><p>A common answer just says "it will be faster" or "it can do more things", without explaining what actually causes that. The mark only comes once a student says the cores act at the same time as each other — it isn't that each individual instruction runs quicker, it's that more than one instruction can be in progress simultaneously.</p></div>`,
+            modelAnswer: "Work can be split between the two cores, so two tasks (or two parts of the same task) can be processed at the same time. This means more work is completed in the same amount of time, and the laptop can multitask more smoothly."
         },
         {
             num: "Q5(b)(i)",
             marks: 4,
             type: "written",
-            caseId: "quinn-fig4",
+            caseId: "amara-laptop",
             stubs: ["Difference 1", "Difference 2"],
-            question: `<p>Quinn is considering upgrading the RAM.</p><p>Describe <strong>two</strong> differences between RAM and ROM.</p>`,
-            hint: "Write BOTH sides of each difference in the same space — 'RAM is volatile, whereas ROM is non-volatile'. Describing only RAM in box 1 and only ROM in box 2 loses marks.",
+            question: `<p>Amara is considering upgrading the RAM in her laptop.</p><p>Describe <strong>two</strong> differences between RAM and ROM.</p>`,
+            hint: "Write BOTH sides of each difference in the same space — e.g. 'RAM is …, whereas ROM is …'. Describing only RAM in box 1 and only ROM in box 2 will not score both marks.",
             starter: "Difference 1: RAM …, whereas ROM … | Difference 2: RAM …, whereas ROM …",
             markPoints: {
-                note: "Each difference is marked as its own PAIR: 1 mark for the RAM side and 1 mark for the ROM side of that same difference. Mark your two difference spaces separately — a box that describes only one side scores 1, not 2.",
+                note: "Each difference is marked as a pair: 1 mark for the RAM side and 1 mark for the matching ROM side of the same difference.",
                 groups: [
                     {
                         label: "Your first difference", max: 2, points: [
-                            { text: "Gave the RAM side (e.g. RAM is volatile / stores currently running instructions, programs, applications, OS or data / can be changed)", marks: 1 },
-                            { text: "Gave the matching ROM side of the SAME difference (e.g. ROM is non-volatile / stores boot-up instructions or BIOS / normally cannot be changed)", marks: 1 }
+                            { text: "Gives the RAM side, e.g. RAM is volatile, or RAM stores the programs, data and operating system currently running", marks: 1 },
+                            { text: "Gives the matching ROM side of the SAME difference, e.g. ROM is non-volatile, or ROM stores the boot-up instructions (BIOS)", marks: 1 }
                         ]
                     },
                     {
                         label: "Your second difference", max: 2, points: [
-                            { text: "Gave the RAM side of a DIFFERENT difference", marks: 1 },
-                            { text: "Gave the matching ROM side of that second difference", marks: 1 }
+                            { text: "Gives the RAM side of a DIFFERENT difference, e.g. the contents of RAM can be changed or written to", marks: 1 },
+                            { text: "Gives the matching ROM side of that second difference, e.g. the contents of ROM normally cannot be changed", marks: 1 }
                         ]
                     }
                 ]
             },
             markScheme: `<div class="marks-section">
-<h5>Mark Scheme — 4 marks (Max 2 per difference, 1 for RAM, 1 for ROM) e.g.</h5>
+<h5>Mark Scheme — 4 marks (up to 2 marks per difference: 1 for the RAM side, 1 for the ROM side)</h5>
 <ul>
-<li>RAM is volatile / ROM is non-volatile</li>
-<li>RAM stores currently running instructions / programs / applications / OS / data — ROM stores boot-up instructions / bios</li>
-<li>RAM can be changed / ROM (normally) cannot be changed</li>
+<li>RAM is volatile; ROM is non-volatile.</li>
+<li>RAM stores the programs, data and operating system currently running; ROM stores the boot-up instructions (BIOS).</li>
+<li>The contents of RAM can be changed; the contents of ROM normally cannot be changed.</li>
 </ul>
 </div>
 <div class="marks-section">
 <h5>How the marks are given</h5>
 <ul>
-<li>Do not allow e.g. "ROM is not…" for the 2nd mark.</li>
-<li>Mark in pairs.</li>
+<li>Each difference is marked as a pair — the RAM statement and its contrasting ROM statement.</li>
+<li>A box describing only RAM, or only ROM, with no comparison, scores at most 1 mark for that difference.</li>
 </ul>
 </div>
-<div class="marks-section">
-<h5>Examiner's Comments</h5>
-<p>This question was answered well, with candidates able to express the differences between RAM and ROM, although many candidates gave a full description of one in the first difference space, and a full description of the second in the second difference space. Candidates should be writing both sides of the difference in the given space. Some candidates only gave one side of the difference, or did not full describe both sides.</p>
-</div>`,
-            modelAnswer: "Difference 1: RAM is volatile, so it loses its contents when the power is turned off, whereas ROM is non-volatile and keeps its contents.\n\nDifference 2: RAM stores the programs and data currently running, whereas ROM stores the boot-up instructions (the BIOS)."
+<div class="marks-section"><h5>Common mistakes</h5><p>Students often write a full description of RAM in the first answer space and a full, separate description of ROM in the second space. That gives two descriptions rather than two differences, and loses marks, because each difference needs both the RAM side and the ROM side written together so they are directly compared.</p></div>`,
+            modelAnswer: "Difference 1: RAM is volatile, so its contents are lost when the power is turned off, whereas ROM is non-volatile and keeps its contents.\n\nDifference 2: RAM stores the programs, data and operating system currently running, whereas ROM stores the boot-up instructions (the BIOS)."
         },
         {
             num: "Q5(b)(ii)",
             marks: 2,
             type: "written",
-            caseId: "quinn-fig4",
-            question: `<p>Quinn has decided to upgrade the RAM on his computer. Explain why this would improve the computer's performance.</p>`,
-            hint: "Look at Quinn's spec — he only has 1GB of RAM. Think about what happens when RAM fills up, and what the computer has to use instead.",
+            caseId: "amara-laptop",
+            question: `<p>Amara decides to upgrade her laptop's RAM from 4GB to 16GB.</p><p>Explain why this is likely to improve her laptop's performance.</p>`,
+            hint: "Look at Amara's spec — she only has 4GB of RAM. Think about what happens once RAM fills up, and what the laptop has to rely on instead.",
             starter: "With more RAM, …",
             markScheme: `<div class="marks-section">
 <h5>Mark Scheme — 2 marks (2 from)</h5>
 <ul>
-<li>More instructions / programs / applications can run at the same time / be held in RAM</li>
-<li>Open software faster / respond faster</li>
-<li>More memory space for current programs</li>
-<li>Run more memory intensive programs / relevant example e.g. computer games / graphic rendering</li>
-<li>reduces use of Virtual Memory …..less use of hard drive which is slower to access</li>
+<li>More programs, applications or data can be held in RAM and run at the same time.</li>
+<li>Programs open and respond faster, and more memory-intensive software (e.g. video editing, games) can run properly.</li>
+<li>It reduces reliance on virtual memory, meaning less use of the much slower hard disk drive as overflow storage.</li>
 </ul>
 </div>
 <div class="marks-section">
-<h5>Examiner's Comments</h5>
-<p>Many candidates were able to identify that virtual memory would be relied on less. Fewer candidates could identify that more programs could be open at once, a common error was that the computer could store more data or more programs which was referring to secondary storage.</p>
-</div>`,
-            modelAnswer: "With more RAM, more programs and data can be held in memory at the same time, so more can run at once and they respond faster.\n\nIt also reduces the use of virtual memory, so the computer relies less on the hard drive, which is much slower to access."
+<h5>How the marks are given</h5>
+<ul>
+<li>Do not award vague answers referring only to more storage space for files, since that describes secondary storage rather than RAM.</li>
+</ul>
+</div>
+<div class="marks-section"><h5>Common mistakes</h5><p>Some students confuse RAM with storage space and say the upgrade means "more files can be saved" — that describes the hard disk drive, not RAM. The credit-worthy idea is that more currently running programs and data can fit in fast memory at once, and the laptop needs to fall back on slow virtual memory (on the hard disk) far less often.</p></div>`,
+            modelAnswer: "With more RAM, more programs and data can be held in memory at the same time, so more of them can run at once and respond faster. It also reduces the laptop's use of virtual memory, so it relies less on the much slower hard disk drive."
         },
         {
             num: "Q5(b)(iii)*",
             marks: 6,
             type: "written",
             format: "banded",
-            caseId: "quinn-fig4",
-            question: `<p>*After upgrading the RAM, Quinn could make further changes to improve his computer's performance.</p><p>Identify the changes and explain how these changes would improve performance.</p><p><em>The quality of your written communication will be assessed in your answer.</em></p>`,
-            hint: "Several upgrades, each with a detailed 'how'. Don't re-explain RAM (that was the last question), and avoid peripherals like touchscreens — they don't affect performance.",
-            starter: "One change Quinn could make is… This would improve performance because…",
+            caseId: "amara-laptop",
+            question: `<p>*After upgrading her RAM, Amara could make further changes to improve her laptop's performance.</p><p>Identify the changes Amara could make, and explain how each would improve her laptop's performance.</p><p><em>The quality of your written communication will be assessed in your answer.</em></p>`,
+            hint: "Name several upgrades, each with a detailed 'how'. Don't repeat the RAM answer, and avoid suggesting things that don't affect processing, like a webcam or DVD drive.",
+            starter: "One change Amara could make is… This would improve performance because…",
             markScheme: `<div class="marks-section">
-<h5>Mark Scheme — 6 marks (levelled, QWC assessed) — indicative content</h5>
+<h5>Mark Scheme — 6 marks (levelled, quality of written communication assessed) — indicative content</h5>
 <ul>
-<li><strong>Increase processor clock speed</strong> — Run more FE cycles per second; Faster response; Smoother actions; Less likely to freeze</li>
-<li><strong>Add more cores</strong> — Run more tasks simultaneously; Better performance for programs that are programmed for multi-core systems, e.g. new computer games</li>
-<li><strong>Increase cache size</strong> — Cache stores frequently used instructions / programs / data; Can store more so increase access speed to more frequently used instructions / programs / data</li>
-<li><strong>New graphics card</strong> — Can carry out more processes for CPU; Can improve speed and quality of graphics</li>
-<li><strong>Change hard disk drive to SSD</strong> — faster read / write speed</li>
+<li><strong>Increase the processor's clock speed</strong> — runs more fetch–execute cycles every second, so the laptop responds faster and is less likely to freeze.</li>
+<li><strong>Add more cores</strong> — allows more tasks, or more parts of one task, to be processed at the same time, especially for software written to use multiple cores.</li>
+<li><strong>Increase the cache size</strong> — holds more of the frequently used instructions and data close to the CPU, so it needs to fetch from the slower RAM less often.</li>
+<li><strong>Upgrade the integrated graphics to a dedicated graphics card</strong> — takes graphics processing off the CPU, improving speed and image quality.</li>
+<li><strong>Replace the hard disk drive with an SSD</strong> — much faster read/write speeds, so programs and files load more quickly.</li>
 </ul>
 </div>
 <div class="marks-section">
 <h5>How the marks are given — levels of response</h5>
 <ul>
-<li><strong>High Level Response (5–6):</strong> Several upgrades are identified and there is a detailed explanation of how each of these will impact the computer given in the example. There will be few if any errors in spelling, grammar and punctuation. Technical terms will be used appropriately and correctly.</li>
-<li><strong>Medium Level Response (3–4):</strong> Upgrades are identified, although how these would improve the performance may be weak. There may be occasional errors in spelling, grammar and punctuation. Technical terms will be mainly correct.</li>
-<li><strong>Low Level Response (1–2):</strong> There is an attempt to identify upgrades that could be made. There may be little or no explanation of how these improve performance. The points are poorly expressed or are not related to the context. There is limited, if any, use of technical terms. Errors in grammar, punctuation and spelling may be intrusive.</li>
-<li>Allow defragmentation and reducing the read time for the hard disk.</li>
-<li>Do not allow hard drive if referring to secondary storage size, allow for increasing amount of VM.</li>
-<li>Do not allow: Increasing RAM; Upgrading components that do not affect performance (e.g. peripherals).</li>
+<li><strong>High level (5–6 marks):</strong> Several upgrades are identified, each with a detailed and accurate explanation of how it would affect Amara's laptop specifically. Few if any errors in spelling, grammar and punctuation; technical terms used correctly.</li>
+<li><strong>Mid level (3–4 marks):</strong> Upgrades are identified, but the explanation of how they improve performance is thinner or only partly developed. Occasional errors in spelling, grammar and punctuation; technical terms mostly correct.</li>
+<li><strong>Low level (1–2 marks):</strong> An attempt is made to name possible upgrades, with little or no explanation of how they improve performance, or points not clearly related to Amara's laptop. Limited use of technical terms; errors in spelling, grammar and punctuation may be noticeable.</li>
+<li>Do not credit increasing the RAM again, since this has already been covered by the previous question.</li>
+<li>Do not credit upgrading components that do not affect performance, such as the webcam, DVD drive or USB ports.</li>
 </ul>
 </div>
-<div class="marks-section">
-<h5>Examiner's Comments</h5>
-<p>This question was answered well by the majority of candidates, who were able to give a structured response. Most candidates could identify a number of different improvements that could be made. A small number of candidates did not answer the question, and gave a description of how RAM improvers the computer, repeating their response to Q.6(b)(ii). Some candidates described hardware that would not affect the performance, such as using a touch screen and adding a printer.</p>
-</div>`,
-            modelAnswer: "Quinn could increase the processor's clock speed. This would run more fetch–execute cycles every second, so the computer responds faster and is less likely to freeze.\n\nHe could increase the cache size from 64KB. Cache stores the instructions used most frequently, so a larger cache means more of them are held close to the CPU and fetched without waiting for RAM.\n\nHe could replace the 100GB hard drive with an SSD. An SSD has much faster read and write speeds, so programs and files load more quickly.\n\nHe could also add more cores, allowing more tasks to be processed at the same time — although this only helps for software written for multi-core systems."
+<div class="marks-section"><h5>Common mistakes</h5><p>Some students repeat their answer about upgrading the RAM, which has already been credited on the previous question and earns nothing here. Others list peripherals such as the webcam, microphone or DVD drive — these change how Amara interacts with the laptop, not how quickly it processes data, so they don't score. The strongest answers name a small number of genuine upgrades and explain, in detail, exactly how each one changes Amara's laptop's performance.</p></div>`,
+            modelAnswer: "Amara could increase the processor's clock speed. This would let it carry out more fetch–execute cycles every second, so her laptop responds faster and is less likely to freeze.\n\nShe could increase the cache size from 128KB. A bigger cache holds more of the instructions used most often close to the CPU, so it needs to fetch from the slower RAM less frequently.\n\nShe could replace the 250GB hard disk drive with an SSD. An SSD has much faster read and write speeds, so programs and files load more quickly.\n\nShe could also look for a laptop with more cores, allowing more tasks to be processed at the same time — although this only helps for software that is written to make use of multiple cores."
         },
         {
             num: "Q6",
@@ -1135,29 +1102,29 @@
             type: "written",
             format: "banded",
             caseStudy: "",
-            question: `<p>Even though the computer devices they own still work, people often want to buy the most up-to-date models, such as the latest smartphone.</p><p>Discuss the impact of people wanting to upgrade to the latest smartphone.</p><p>In your answer you might consider the impact on:</p><ul><li>stakeholders</li><li>technology</li><li>ethical issues</li><li>environmental issues</li></ul>`,
-            hint: "Use all four bullets as your plan — the top band needs all the areas AND both sides weighed. Make chains: point → effect → consequence. Spend about 10–12 minutes.",
-            starter: "One impact on stakeholders is… This means… As a result…",
+            question: `<p>A small design agency is deciding how to improve the performance of its office computers, which are now several years old and struggle to run modern design software.</p><p>Discuss the factors the agency should consider when choosing between upgrading the CPUs in its existing computers and buying entirely new computers.</p><p>In your answer you might consider:</p><ul><li>the effect on performance</li><li>cost</li><li>compatibility with existing software and components</li><li>environmental impact</li></ul>`,
+            hint: "Use all four bullets as your plan. Make chains: point → effect → consequence for the agency. Weigh both options against each other before reaching a conclusion.",
+            starter: "One factor to consider is the effect on performance. Upgrading the CPU would… whereas buying new computers would…",
             markScheme: `<div class="marks-section">
 <h5>Mark Scheme — 8 marks (levelled) — indicative content</h5>
-<p>The following is indicative of possible factors/evidence that candidates may refer to but is not prescriptive or exhaustive:</p>
+<p>The following is indicative of possible points candidates may refer to, but is not a complete or required list:</p>
 <ul>
-<li><strong>Stakeholders</strong> — Can adversely affect people in this country and abroad: health issues; financially; socially; culturally. The phone manufacturers. The phone shops/networks.</li>
-<li><strong>Technology</strong> — The type of devices that are disposed of; Modern phones poorly designed for durability; Phones hardware not upgradeable/replaceable; Proprietary technology used by some manufacturers.</li>
-<li><strong>Environmental</strong> — Reference to e-waste (people dispose of their devices in landfill even if they are in good working order); Some equipment is also sent abroad to be disposed of; Leads to excessive landfill (in this country and/or abroad, e.g. Africa and Asia); Toxic waste released into land, ground water, air; Waste of resources — precious metals in phones.</li>
-<li><strong>Ethical Issues</strong> — Contributes to ill health; Contributes to the digital divide; Contributes to social divide; Problem of confidential data stored on the devices; Puts social pressure on parents to pay for their children to upgrade; Puts social pressure on the public to upgrade; Can lead to bullying of those who cannot afford the latest technology; Phone manufacturers intentionally designing fragile phones so they need to be replaced more often; High cost of new devices.</li>
+<li><strong>Effect on performance</strong> — Upgrading just the CPU (or its clock speed, cache or core count) can improve processing speed, but other older components, such as RAM or storage, may still hold performance back; buying entirely new computers upgrades every component at once, giving a more complete performance boost.</li>
+<li><strong>Cost</strong> — Upgrading individual CPUs is likely to be cheaper in the short term than replacing whole machines, but it may only delay the need to buy new computers later; buying new computers is a bigger upfront cost but could mean fewer repairs and replacements for longer.</li>
+<li><strong>Compatibility</strong> — A new CPU may not be compatible with the agency's existing motherboards, so the whole computer may need replacing anyway; buying new computers guarantees the CPU is compatible with all the other new components and the latest software.</li>
+<li><strong>Environmental impact</strong> — Upgrading only the CPU (or keeping the computers longer) reduces electronic waste compared with replacing whole computers; manufacturing brand new computers uses raw materials and energy, and the old computers may end up as waste if not reused or recycled responsibly.</li>
 </ul>
 </div>
 <div class="marks-section">
 <h5>How the marks are given — levels of response</h5>
 <ul>
-<li><strong>Mark Band 3 — High Level (6–8 marks):</strong> The candidate demonstrates a thorough knowledge and understanding of a wide range of considerations in relation to the question; the material is generally accurate and detailed. The candidate is able to apply their knowledge and understanding directly and consistently to the context provided. Evidence/examples will be explicitly relevant to the explanation. The candidate is able to weigh up both sides of the discussion and includes reference to the impact on all areas showing thorough recognition of influencing factors. There is a well-developed line of reasoning which is clear and logically structured. The information presented is relevant and substantiated.</li>
-<li><strong>Mark Band 2 — Mid Level (3–5 marks):</strong> The candidate demonstrates reasonable knowledge and understanding of a range of considerations in relation to the question; the material is generally accurate but at times underdeveloped. The candidate is able to apply their knowledge and understanding directly to the context provided although one or two opportunities are missed. Evidence/examples are for the most part implicitly relevant to the explanation. The candidate makes a reasonable attempt to discuss the impact on most areas, showing reasonable recognition of influencing factors. There is a line of reasoning presented with some structure. The information presented is in the most part relevant and supported by some evidence.</li>
-<li><strong>Mark Band 1 — Low Level (1–2 marks):</strong> The candidate demonstrates a basic knowledge of considerations with limited understanding shown; the material is basic and contains some inaccuracies. The candidate makes a limited attempt to apply acquired knowledge and understanding to the context provided. The candidate provides nothing more than an unsupported assertion. The information is basic and communicated in an unstructured way. The information is supported by limited evidence and the relationship to the evidence may not be clear.</li>
-<li><strong>0 marks:</strong> No attempt to answer the question or response is not worthy of credit.</li>
+<li><strong>Band 3 — High level (6–8 marks):</strong> Thorough and detailed knowledge, applied consistently to the agency's situation. Both options are compared and weighed against each other across the given areas, reaching a clear, justified overall view. Reasoning is well-developed and logically structured.</li>
+<li><strong>Band 2 — Mid level (3–5 marks):</strong> Reasonable knowledge, generally accurate but sometimes underdeveloped. Most of the given areas are addressed and applied to the agency, but the two options are not fully weighed against each other, or the conclusion is underdeveloped.</li>
+<li><strong>Band 1 — Low level (1–2 marks):</strong> Basic knowledge with limited understanding. Points may be unsupported assertions, poorly linked to the agency's situation, and presented with little structure.</li>
+<li><strong>0 marks:</strong> No attempt to answer the question, or the response is not worthy of credit.</li>
 </ul>
 </div>`,
-            modelAnswer: "Stakeholders: phone manufacturers and networks benefit financially from frequent upgrades, but consumers are affected too — the high cost of new devices puts financial and social pressure on families, and those who cannot afford the latest model can face bullying.\n\nTechnology: many modern phones are poorly designed for durability and their hardware cannot be upgraded or replaced, so the only option is to buy a new device. Some manufacturers use proprietary technology, which locks users in further.\n\nEthical: constant upgrading widens the digital divide between those who can and cannot afford new technology, and old devices often still hold confidential data. Some argue manufacturers deliberately design phones with short lifespans.\n\nEnvironmental: working phones are thrown away, creating e-waste that goes to landfill here or is shipped abroad to countries in Africa and Asia. Toxic materials leak into land, groundwater and air, and precious metals inside the phones are wasted.\n\nOn balance, while the industry and its customers gain from newer, more capable technology, the environmental and ethical costs of replacing working devices are severe — and they fall hardest on people who did not choose the upgrade cycle."
+            modelAnswer: "One factor is the effect on performance: upgrading just the CPU could improve clock speed, cache size or core count, but the agency's older RAM or storage might still limit how much difference this makes, whereas buying entirely new computers upgrades every component together, giving a more complete performance boost for demanding design software.\n\nCost is also important: upgrading individual CPUs is likely to be cheaper in the short term, but if the rest of the computer is old it may only delay having to buy new machines later, whereas new computers cost more upfront but could avoid repeated repair and upgrade costs for several years.\n\nCompatibility matters too, since a newer CPU may not fit or work with the agency's existing motherboards, meaning the whole computer would need replacing anyway; new computers avoid this problem entirely, as everything is designed to work together.\n\nEnvironmentally, upgrading the CPU (or simply keeping computers for longer) produces less electronic waste than replacing whole machines, but the agency should also consider whether its old computers can be reused, donated or recycled responsibly rather than discarded.\n\nOn balance, if the rest of the agency's computers are otherwise in good condition, upgrading the CPUs is likely to be the more cost-effective and environmentally responsible choice; but if several components are old and incompatible with newer processors, buying new computers may be necessary despite the higher upfront cost and environmental impact of manufacturing them."
         }
     ];
 </script>

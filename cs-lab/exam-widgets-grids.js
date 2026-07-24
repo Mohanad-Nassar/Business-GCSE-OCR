@@ -72,6 +72,23 @@
   function showRecorded(host, mark, max) {
     host.appendChild(H.el('p', 'csew-awarded', '✓ Recorded: ' + mark + ' / ' + max + ' marks'));
   }
+
+  // ── Deterministic per-question DISPLAY shuffle (mirrors script.js's
+  // _shuffledIndices). Returns a permutation of [0..n-1] seeded by the
+  // question, so authored answer positions (word-bank listed answer-first,
+  // tick-grid diagonals) are broken up — but STABLE per question, so it
+  // never re-jumbles on reload. ONLY the DOM insertion order uses this;
+  // every data structure (checkboxes, chips, grading, saved state) stays
+  // keyed to the ORIGINAL index, so marking and persistence are unchanged.
+  function _hashStr(s) { var h = 2166136261 >>> 0; s = String(s); for (var i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); } return h >>> 0; }
+  function seededPerm(n, seedStr) {
+    var idx = []; for (var k = 0; k < n; k++) idx.push(k);
+    var seed = _hashStr(seedStr) || 1;
+    function rnd() { seed = (seed + 0x6D2B79F5) | 0; var t = Math.imul(seed ^ seed >>> 15, 1 | seed); t = (t + Math.imul(t ^ t >>> 7, 61 | t)) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }
+    for (var i = n - 1; i > 0; i--) { var j = Math.floor(rnd() * (i + 1)); var tmp = idx[i]; idx[i] = idx[j]; idx[j] = tmp; }
+    return idx;
+  }
+  function qSeed(q) { return String((q && q.num) || '') + '|' + String((q && q.question) || '').slice(0, 120); }
   // Remount through the core registry's own 'lines' widget (ruled
   // textarea + buildSelfMarkPanel on submit) — the documented fallback
   // for every format here when its optional structured field is absent.
@@ -353,6 +370,7 @@
     table.appendChild(htr);
 
     var checkboxes = grid.rows.map(function () { return []; });
+    var rowEls = [];
     grid.rows.forEach(function (row, ri) {
       var tr = document.createElement('tr');
       tr.appendChild(H.el('td', 'csew-grids-rowlabel', row.label));
@@ -365,8 +383,12 @@
         td.appendChild(cb);
         tr.appendChild(td);
       });
-      table.appendChild(tr);
+      rowEls[ri] = tr;
     });
+    // Insert rows in a seeded shuffled order so the correct column is not a
+    // fixed diagonal. checkboxes[] and grid.rows stay in ORIGINAL order, so
+    // readTicks / markTickGrid / saved state are entirely unchanged.
+    seededPerm(grid.rows.length, qSeed(q)).forEach(function (origRi) { table.appendChild(rowEls[origRi]); });
     elc.appendChild(table);
     marksRightTag(elc, q);
     var ctrl = checkButtonRow(elc);
@@ -522,14 +544,18 @@
       leftEls.push(item);
       leftCol.appendChild(item);
     });
-    m.right.forEach(function (txt) {
+    m.right.forEach(function (txt, i) {
       var item = document.createElement('button');
       item.type = 'button';
       item.className = 'csew-grids-match-item';
       item.textContent = txt;
-      rightEls.push(item);
-      rightCol.appendChild(item);
+      rightEls[i] = item;
     });
+    // Append the right-hand options in a seeded shuffled order so the correct
+    // matches are not a straight-across pattern. rightEls stays in ORIGINAL
+    // order, so click handling (connections store the original index), line
+    // drawing and marking are all unchanged.
+    seededPerm(m.right.length, qSeed(q)).forEach(function (origI) { rightCol.appendChild(rightEls[origI]); });
 
     var connections = {}; // leftIdx -> rightIdx
     var selectedLeft = null;
@@ -728,6 +754,10 @@
 
     var bankWrap = H.el('div', 'csew-grids-bank');
     var chips = [];
+    // Each chip keeps its ORIGINAL bank index as chipId (grading is by the
+    // chip's word, saved state is by chipId), but the chips are appended to
+    // the DOM in a seeded shuffled order so the answer words are not simply
+    // listed first in the bank.
     q.bank.forEach(function (word, i) {
       var chip = document.createElement('button');
       chip.type = 'button';
@@ -736,9 +766,9 @@
       chip.draggable = true;
       chip.dataset.word = word;
       chip.dataset.chipId = String(i);
-      chips.push(chip);
-      bankWrap.appendChild(chip);
+      chips[i] = chip;
     });
+    seededPerm(q.bank.length, qSeed(q)).forEach(function (origI) { bankWrap.appendChild(chips[origI]); });
     elc.appendChild(bankWrap);
     marksRightTag(elc, q);
 

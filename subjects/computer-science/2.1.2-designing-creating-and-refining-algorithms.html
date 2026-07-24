@@ -16,7 +16,7 @@
         <div>
             <div class="badge">OCR GCSE Computer Science — Paper 2 · 2.1 Algorithms</div>
             <h1>2.1.2 Designing, Creating and Refining Algorithms</h1>
-            <p>Interactive revision guide · Content coming soon</p>
+            <p>Interactive revision guide</p>
         </div>
         <a href="/index.html" class="home-link">← 🏡 Home</a>
     </header>
@@ -268,21 +268,1068 @@
 
     const topics = [
         {
-            title: "This topic is being written",
-            tag: "Coming soon",
-            content: `<p>🚧 <strong>Content for this topic is on its way.</strong> Key Learning notes, practice questions and exam-style questions for <strong>2.1.2 Designing, Creating and Refining Algorithms</strong> will appear here soon.</p>`
+            title: "Analysing a problem: Inputs, Processes, Outputs (IPO)",
+            tag: "Analysis",
+            content: `<h4>Break the problem down before you write any code</h4>
+<ul>
+<li>Before writing pseudocode, a programmer analyses the problem in terms of its <strong>Inputs, Processes and Outputs (IPO)</strong>.</li>
+<li><strong>Inputs</strong> — the data that must be entered or read in (from the user, a file, a sensor…).</li>
+<li><strong>Processes</strong> — what the program must DO to that data: calculations, decisions, repeats.</li>
+<li><strong>Outputs</strong> — what the program must produce or display as a result.</li>
+</ul>
+<p><strong>Example:</strong> "Write a program that asks for three test scores and prints the average."</p>
+<div class="code-block">Inputs:    three test scores
+Processes: add the three scores together, then divide by 3
+Outputs:   the average score</div>
+<ul><li>Doing this FIRST stops you missing a requirement — and it is often asked for directly in the exam as an IPO table.</li></ul>`,
+            readCheck: {
+                q: "A program asks for a rectangle's length and width, then displays its area. What is the PROCESS?",
+                opts: ["Reading in the length and width values that the user has entered", "Multiplying the length by the width to work out the area", "Displaying the calculated area on the screen", "Storing the length and width as two separate named variables in memory, ready for later use"],
+                ans: 1,
+                explain: "The process is what the program DOES to the data — here, multiplying length by width. Reading in the values is the input; displaying the result is the output."
+            }
+        },
+        {
+            title: "Structure diagrams",
+            tag: "Design",
+            content: `<h4>Top-down design: breaking a big problem into small tasks</h4>
+<ul>
+<li>A <strong>structure diagram</strong> shows how a problem is broken down into smaller sub-tasks, drawn as a <strong>hierarchy chart</strong> with the whole problem at the top.</li>
+<li>This process is called <strong>top-down design (decomposition)</strong>: start with the overall task, split it into a few major sub-tasks, then split each of those into smaller steps if needed.</li>
+<li>Example: "Print a school report" might decompose into <strong>Get student data</strong>, <strong>Calculate grades</strong>, <strong>Format report</strong> and <strong>Print report</strong> — each shown as a box beneath the main task.</li>
+</ul>
+<div class="code-block">            Print School Report
+          /       |         |        \\
+   Get data   Calculate   Format    Print
+              grades      report    report</div>
+<ul><li>Each box can later be developed as its own sub-program (subroutine) — this is why structure diagrams and subroutines link together.</li></ul>`,
+            readCheck: {
+                q: "What does a structure diagram show?",
+                opts: ["How a problem is broken down into smaller sub-tasks, arranged as a hierarchy", "The exact pseudocode that will be typed to solve the whole problem, line by line", "The order that variables are declared and given their very first starting values", "The flow of data backwards and forwards between every input and output device used"],
+                ans: 0,
+                explain: "A structure diagram (hierarchy chart) shows top-down decomposition — how a big problem splits into smaller sub-tasks. It does not show pseudocode, declaration order or literal data flow."
+            }
+        },
+        {
+            title: "Flowchart symbols",
+            tag: "Flowcharts",
+            content: `<h4>The shapes used to draw an algorithm</h4>
+<ul>
+<li>A <strong>flowchart</strong> shows an algorithm using standard symbols, joined by <strong>flow lines (arrows)</strong> that show the order the steps happen in.</li>
+<li><strong>Terminal (stadium / rounded rectangle)</strong> — marks the <strong>start</strong> or <strong>stop</strong> of the algorithm. There is exactly one start and at least one stop.</li>
+<li><strong>Parallelogram</strong> — an <strong>input</strong> (reading a value in) or an <strong>output</strong> (displaying a value).</li>
+<li><strong>Rectangle</strong> — a <strong>process</strong> step: a calculation or an assignment.</li>
+<li><strong>Diamond</strong> — a <strong>decision</strong>: asks a yes/no question, and the flow splits into two branches (used for selection AND for loop conditions).</li>
+<li><strong>Rectangle with double side bars</strong> — a <strong>sub-program (subroutine)</strong> call: a separate, named piece of the algorithm defined elsewhere.</li>
+<li><strong>Arrow (flow line)</strong> — shows the <strong>direction</strong> the algorithm runs in, connecting one symbol to the next.</li>
+</ul>`,
+            readCheck: {
+                q: "Which flowchart symbol is used for a decision, such as testing IF a value is greater than 10?",
+                opts: ["A diamond, which splits the flow into a Yes branch and a No branch", "A rectangle with double side bars, because that shape always represents any kind of decision", "A parallelogram, because the value being tested must first be read in as an input", "A terminal (stadium) shape, since decisions always happen at the very start of a flowchart"],
+                ans: 0,
+                explain: "A decision is always shown with a diamond, with the flow splitting into two branches depending on the answer. Rectangles with side bars are sub-programs, parallelograms are input/output, and terminals mark start/stop."
+            }
+        },
+        {
+            title: "Flowcharts: sequence and selection",
+            tag: "Flowcharts",
+            content: `<h4>Sequence and selection drawn as a flowchart</h4>
+<ul>
+<li>In a flowchart, <strong>sequence</strong> is shown by process/input/output boxes joined one after another by arrows, top to bottom.</li>
+<li><strong>Selection</strong> is shown by a <strong>diamond</strong>: the flow arrives, the diamond asks a yes/no question, and the flow splits into a <strong>Yes</strong> branch and a <strong>No</strong> branch. The branches usually re-join further down before the flowchart continues.</li>
+</ul>
+<div class="code-compare">
+<div><p class="code-label">Flowchart (in words)</p><div class="code-block">Start
+→ Input: age
+→ Decision: age &gt;= 18 ?
+   Yes → Output: "Adult"
+   No  → Output: "Minor"
+→ Stop</div></div>
+<div><p class="code-label">Pseudocode (ERL)</p><div class="code-block">age = input("Enter age: ")
+if age &gt;= 18 then
+  print("Adult")
+else
+  print("Minor")
+endif</div></div>
+</div>`,
+            readCheck: {
+                q: "In a flowchart, how many arrows normally leave a decision (diamond) symbol?",
+                opts: ["Two — one for the Yes branch and one for the No branch", "Just one, because a decision can only ever lead to a single outcome no matter what", "None at all, because a diamond always marks the very end of the whole flowchart", "Four, one for each of the possible answers a decision could ever have"],
+                ans: 0,
+                explain: "A decision diamond always has two exits — a Yes branch and a No branch — which is what makes selection possible in a flowchart."
+            }
+        },
+        {
+            title: "Flowcharts: iteration",
+            tag: "Flowcharts",
+            content: `<h4>Showing a loop in a flowchart</h4>
+<ul>
+<li><strong>Iteration</strong> is shown using a diamond too — but this time one branch loops <strong>back</strong> to an earlier point in the flowchart instead of moving on, creating a cycle.</li>
+<li>A <strong>pre-condition loop</strong> (like <code>while</code>) puts the diamond <strong>before</strong> the repeated steps — the flow can skip the loop entirely if the condition is already false.</li>
+<li>A <strong>post-condition loop</strong> (like <code>do…until</code>) puts the diamond <strong>after</strong> the repeated steps — those steps always run at least once before the condition is tested.</li>
+</ul>
+<div class="code-block">Start
+→ count = 0
+→ Decision: count &lt; 3 ?
+   Yes → Output: count → count = count + 1 → (back to Decision)
+   No  → Stop</div>`,
+            readCheck: {
+                q: "In a flowchart for a while loop, where is the decision diamond drawn relative to the repeated steps?",
+                opts: ["Before the steps, so the loop can be skipped if the condition is already false", "After the steps, so that the repeated steps are always guaranteed to run through at least one time first", "In the middle of the steps, splitting them exactly in half every single time", "Nowhere, because loops in a flowchart never use a decision diamond at all"],
+                ans: 0,
+                explain: "A while (pre-condition) loop puts the diamond BEFORE the repeated steps, so the flow can skip the loop entirely if the condition is already false. A do…until loop puts it after, guaranteeing at least one pass."
+            }
+        },
+        {
+            title: "Creating an algorithm: from problem to pseudocode",
+            tag: "Creating algorithms",
+            content: `<h4>Turning a decomposed problem into pseudocode</h4>
+<ul>
+<li>Once a problem is broken into IPO and a structure diagram, each part is written up as <strong>pseudocode</strong> using the three constructs — sequence, selection, iteration — in <strong>ERL</strong>.</li>
+<li>A useful method: write each sub-task from the structure diagram as a short block of pseudocode, then put the blocks together in the right order.</li>
+</ul>
+<div class="code-block">// Sub-task: get three scores and find the average
+total = 0
+for i = 1 to 3
+  score = input("Enter score: ")
+  total = total + score
+next i
+average = total / 3
+print(average)</div>
+<ul><li>Keep it simple and readable: use meaningful variable names (<code>total</code>, not <code>x</code>), and only use the constructs you actually need.</li></ul>`,
+            readCheck: {
+                q: "What is a sensible method for turning a structure diagram into pseudocode?",
+                opts: ["Write each sub-task as a short block of pseudocode, then combine the blocks in the right order", "Write the whole algorithm in one single line so that it runs as fast as possible", "Start with the last sub-task in the diagram and work backwards to the first one", "Guess the pseudocode first without planning, and only draw the structure diagram afterwards once the code already works"],
+                ans: 0,
+                explain: "Writing each sub-task from the structure diagram as its own short block, then assembling the blocks in order, keeps the algorithm organised and matches how the problem was decomposed."
+            }
+        },
+        {
+            title: "Interpreting an algorithm — determining its purpose",
+            tag: "Interpreting algorithms",
+            content: `<h4>Reading someone else's code and working out what it does</h4>
+<ul>
+<li>The exam often gives you a short algorithm and asks you to state its <strong>purpose</strong> — what problem it solves — not to describe it line by line.</li>
+<li>Method: <strong>trace it mentally with a simple example</strong>, then describe the pattern in the outputs, not the individual steps.</li>
+</ul>
+<div class="code-block">total = 0
+count = 0
+for i = 1 to 5
+  n = input("Enter a number: ")
+  total = total + n
+  count = count + 1
+next i
+print(total / count)</div>
+<ul><li>This algorithm reads 5 numbers, adds them up, and divides by how many there were — its <strong>purpose</strong> is: "it calculates the <strong>average (mean)</strong> of 5 numbers entered by the user."</li></ul>`,
+            readCheck: {
+                q: "An algorithm reads 5 numbers, adds them together, then divides the total by 5. What is its PURPOSE?",
+                opts: ["It calculates the average (mean) of 5 numbers entered by the user", "It only checks whether each of the 5 numbers entered is a positive number", "It sorts the 5 numbers into order from smallest to largest before displaying them", "It counts how many of the 5 numbers entered by the user are even numbers, one at a time"],
+                ans: 0,
+                explain: "Adding values then dividing by how many there were is the standard method for finding an average (mean) — that is the algorithm's purpose, not sorting, validating or counting evens."
+            }
+        },
+        {
+            title: "Building a trace table",
+            tag: "Trace tables",
+            content: `<h4>Hand-tracing an algorithm, one line at a time</h4>
+<ul>
+<li>A <strong>trace table</strong> records the value of each variable <strong>every time it changes</strong>, so you can work out exactly what an algorithm does for given input(s) — without running it.</li>
+<li>Method: draw one column per variable (plus an output column). Go through the algorithm <strong>line by line</strong>. Every time a line changes a variable, write its new value in that column on a new row. For a loop, repeat this for <strong>every pass</strong>.</li>
+</ul>
+<div class="code-compare">
+<div><p class="code-label">Algorithm</p><div class="code-block">total = 0
+for i = 1 to 3
+  total = total + i
+next i
+print(total)</div></div>
+<div><p class="code-label">Trace table</p><div class="code-block">i  | total
+1  | 1
+2  | 3
+3  | 6
+
+Output: 6</div></div>
+</div>
+<ul><li>Never skip a pass or guess — go slowly and mechanically, exactly as the computer would.</li></ul>`,
+            readCheck: {
+                q: "What is the golden rule for completing a trace table correctly?",
+                opts: ["Go through the algorithm line by line, recording a variable's new value every time it changes", "Skim the algorithm once and write down whichever output looks the most likely", "Only record the very last value each variable has, once the whole algorithm has finished", "Run every loop exactly once no matter how many times the condition actually says it should repeat, to save time"],
+                ans: 0,
+                explain: "A trace table must be built mechanically, line by line, updating a variable's column every time that line changes it — including every single pass of a loop, not just the last one."
+            }
+        },
+        {
+            title: "Syntax errors",
+            tag: "Errors",
+            content: `<h4>Errors that break the rules of the language</h4>
+<ul>
+<li>A <strong>syntax error</strong> breaks the grammar/rules of the programming language — the program will not run (or translate) at all until it is fixed.</li>
+<li>Common examples: a missing <code>endif</code> / <code>endwhile</code>, a missing bracket, a misspelt keyword, or mismatched quotation marks.</li>
+</ul>
+<div class="code-block">if age &gt;= 18 then
+  print("Adult")
+// missing endif — SYNTAX ERROR: the if statement is never closed</div>
+<ul><li>The translator (interpreter/compiler) usually reports a syntax error with a line number, because it cannot understand the instruction at all.</li></ul>`,
+            readCheck: {
+                q: "Which of these is an example of a SYNTAX error?",
+                opts: ["An if statement that is never closed with its matching endif keyword", "A loop that repeats one time too many because of an incorrect condition", "A calculation that adds two values together when it should have multiplied them", "A condition that uses AND when the algorithm actually needed to use OR instead, giving the wrong result"],
+                ans: 0,
+                explain: "A missing endif breaks the rules of the language, so the program will not run at all — that's a syntax error. The other options all describe programs that run but give the wrong answer (logic errors)."
+            }
+        },
+        {
+            title: "Logic errors",
+            tag: "Errors",
+            content: `<h4>Errors that run — but give the wrong answer</h4>
+<ul>
+<li>A <strong>logic error</strong> follows the rules of the language perfectly (it runs without crashing) but produces the <strong>wrong result</strong>, because the programmer's logic was flawed.</li>
+<li>Common examples: using <code>&lt;</code> where <code>&lt;=</code> was needed (off-by-one), swapping <code>AND</code>/<code>OR</code>, adding instead of multiplying, or using the wrong variable.</li>
+</ul>
+<div class="code-block">total = 0
+for i = 1 to 10
+  total = total + i
+next i
+average = total + 10   // LOGIC ERROR: should be total / 10</div>
+<ul><li>Logic errors are harder to find than syntax errors because the program runs successfully — you have to <strong>trace it</strong> and compare the output to what it should be.</li></ul>`,
+            readCheck: {
+                q: "Which of these is an example of a LOGIC error?",
+                opts: ["A while loop's counter is never updated inside the loop, so the loop never ends", "A missing closing quotation mark on a string of text being printed to the screen", "The keyword 'pritn' is typed instead of 'print', so the translator cannot understand it", "An endwhile keyword is left out completely, so the while loop is never properly closed"],
+                ans: 0,
+                explain: "The loop runs without breaking any language rules, but the missing update means the condition never becomes false — the program runs, just with the wrong (infinite) behaviour. That's a logic error. The others are all syntax errors."
+            }
+        },
+        {
+            title: "Finding and correcting errors: syntax vs logic",
+            tag: "Errors",
+            content: `<h4>Spotting which kind of error you are looking at</h4>
+<ul>
+<li>Ask: <strong>"Will this even run?"</strong> If no — it's a <strong>syntax</strong> error (fix the broken rule: add the missing keyword/bracket/quote). If it runs but the <strong>output is wrong</strong> — it's a <strong>logic</strong> error (fix the flawed condition/calculation/variable).</li>
+</ul>
+<div class="code-block">while count &lt; 10
+  print(count)
+  count = count + 1
+// missing endwhile → SYNTAX (program won't run)
+
+while count &lt; 10
+  print(count)
+// missing count = count + 1 → LOGIC (infinite loop, but no syntax error)</div>
+<ul><li>An infinite loop caused by a missing increment is a classic <strong>logic</strong> error: nothing is broken grammatically, the loop condition is just never made false.</li></ul>`,
+            readCheck: {
+                q: "What is the quickest first question to ask when classifying an error as syntax or logic?",
+                opts: ["'Will this program even run?' — if not, it's syntax; if it runs but is wrong, it's logic", "'Is the error found in the first line of the algorithm, or somewhere near the very last line instead?'", "'Does the error involve a loop, or does it involve an if statement instead?'", "'Is the variable name spelled correctly throughout the whole algorithm?'"],
+                ans: 0,
+                explain: "Asking whether the program runs at all separates the two error types instantly: won't run → syntax; runs but the output is wrong → logic. The line number, construct used and spelling don't tell you which type it is."
+            }
+        },
+        {
+            title: "Completing an algorithm",
+            tag: "Completing algorithms",
+            content: `<h4>Filling in a missing line or condition</h4>
+<ul>
+<li>"Complete the algorithm" questions give you a working algorithm with one or more lines <strong>missing</strong>, and ask you to supply exactly what belongs there so it does what is described.</li>
+<li>Method: work out what the SURROUNDING lines need to be true. Match variable names already in use exactly, and check loop/condition boundaries carefully — off-by-one is the most common slip.</li>
+</ul>
+<div class="code-block">total = 0
+for i = 1 to ____        // must repeat 5 times → "5"
+  total = total + i
+next i
+print(____)               // must show the result → "total"</div>`,
+            readCheck: {
+                q: "When completing a missing line in a given algorithm, what should you check most carefully?",
+                opts: ["That your line matches the variable names already used, and that any loop bounds are exactly right", "That your line is written in whichever real programming language you personally feel the most comfortable and confident using", "That your line is as short as possible, even if it does not do quite the right job", "That your line comes before the start of the algorithm rather than in the middle of it"],
+                ans: 0,
+                explain: "A completed line must fit its surroundings exactly — using the SAME variable names already in use, and getting loop/condition boundaries exactly right (off-by-one is the classic slip)."
+            }
+        },
+        {
+            title: "Refining an algorithm",
+            tag: "Refining algorithms",
+            content: `<h4>Making a correct algorithm better</h4>
+<ul>
+<li><strong>Refining</strong> means improving an algorithm that already works — making it more efficient, more readable, or able to cope with more cases — without changing what it is meant to do.</li>
+<li>Common refinements: replacing repeated code with a <strong>loop</strong>, adding <strong>validation</strong> so bad input can't break it, using better variable names, or combining nested selections into one clearer condition.</li>
+</ul>
+<div class="code-compare">
+<div><p class="code-label">Before</p><div class="code-block">print(input("Score 1: "))
+print(input("Score 2: "))
+print(input("Score 3: "))</div></div>
+<div><p class="code-label">Refined</p><div class="code-block">for i = 1 to 3
+  print(input("Score " + i + ": "))
+next i</div></div>
+</div>
+<ul><li>The refined version does the same job, but scales to any number of scores just by changing one number.</li></ul>`,
+            readCheck: {
+                q: "What does 'refining' an algorithm mean?",
+                opts: ["Improving an algorithm that already works, without changing what it is meant to do", "Fixing a syntax error so that a broken program is finally able to run at all", "Rewriting the algorithm from scratch to solve a completely different problem", "Deleting most of the algorithm's lines so that it becomes as short as it can possibly be, whatever the cost"],
+                ans: 0,
+                explain: "Refining takes a CORRECT algorithm and makes it better — more efficient, readable or robust — without changing what it does. Fixing a syntax error is correcting, not refining."
+            }
+        },
+        {
+            title: "Nesting: selection inside selection",
+            tag: "Nesting",
+            content: `<h4>An if inside another if</h4>
+<ul>
+<li><strong>Nesting</strong> means putting one construct <strong>inside</strong> another. A common form is <strong>selection inside selection</strong>: an inner <code>if</code> only runs once the outer condition has already been met.</li>
+</ul>
+<div class="code-block">if age &gt;= 17 then
+  if hasLicence == "yes" then
+    print("Can drive")
+  else
+    print("Needs a licence")
+  endif
+else
+  print("Too young to drive")
+endif</div>
+<ul><li>The inner <code>if</code> is only reached at all when <code>age &gt;= 17</code> is true — this lets an algorithm test a <strong>second condition</strong> that only makes sense once the first has been satisfied.</li></ul>`,
+            readCheck: {
+                q: "In an algorithm with an if statement nested inside another if statement, when does the INNER if get checked?",
+                opts: ["Only once the outer if's condition has already been found to be true", "Always, no matter what the outer if's condition works out to be", "Only if the outer if statement's condition has been found to be false instead", "Before the outer if statement has even been reached during execution"],
+                ans: 0,
+                explain: "A nested if is only reached — and only checked — once the flow has already entered the outer if's branch, i.e. once the outer condition is true. It cannot run before the outer if, or if the outer condition was false."
+            }
+        },
+        {
+            title: "Nesting: selection and iteration inside a loop",
+            tag: "Nesting",
+            content: `<h4>An if inside a loop (and a loop inside a loop)</h4>
+<ul>
+<li>Putting <strong>selection inside iteration</strong> lets a loop make a different decision on <strong>every pass</strong>. Putting <strong>iteration inside iteration</strong> (a loop inside a loop) repeats the inner loop <strong>completely</strong> for every single pass of the outer loop.</li>
+</ul>
+<div class="code-block">for i = 1 to 5
+  n = input("Enter a number: ")
+  if n MOD 2 == 0 then
+    print(n + " is even")
+  else
+    print(n + " is odd")
+  endif
+next i</div>
+<ul><li>Here the <code>if</code> is nested inside the <code>for</code> loop, so every one of the 5 numbers is tested and labelled individually.</li></ul>`,
+            readCheck: {
+                q: "An if statement is placed inside a for loop. How many times is the if statement checked?",
+                opts: ["Once for every single pass of the for loop", "Only once, no matter how many times the for loop repeats in total", "Exactly twice, regardless of how many passes the for loop actually makes", "Never, because a for loop and an if statement cannot be nested inside each other at all"],
+                ans: 0,
+                explain: "Nesting an if inside a for loop means the if's condition is evaluated freshly on every pass of the loop — that's what lets the loop make a different decision each time."
+            }
         }
     ];
 
-    const mcqData = [];
-    const matchData = [];
-    const fibData = [];
-    const fibWords = [];
-    const tfData = [];
-    const miscData = [];
-    const examTips = [];
-    const flashcards = [];
-    const examQuestions = [];
+    const mcqData = [
+        {
+            q: "Which of these is NOT one of the three parts of IPO analysis?",
+            opts: ["Inputs", "Processes", "Outputs", "Operators"],
+            ans: 3,
+            explain: "IPO stands for Inputs, Processes and Outputs. Operators (like MOD or AND) are not one of the three parts of this analysis."
+        },
+        {
+            q: "Which flowchart symbol shows an input or an output step?",
+            opts: ["Parallelogram", "Diamond", "Rectangle", "Terminal (stadium) shape"],
+            ans: 0,
+            explain: "A parallelogram represents an input or an output. Diamonds are decisions, rectangles are processes, and terminals mark start/stop."
+        },
+        {
+            q: "Which flowchart symbol marks the start or the stop of an algorithm?",
+            opts: ["Terminal (stadium) shape", "Rectangle with double side bars, used for a sub-program instead", "Diamond, which is actually used for decisions rather than start/stop", "Parallelogram, which is actually used for input and output instead"],
+            ans: 0,
+            explain: "The terminal (stadium/rounded) shape marks the start or stop of a flowchart. The others represent sub-programs, decisions, and input/output."
+        },
+        {
+            q: "Which type of error stops a program from running at all?",
+            opts: ["Logic error", "Syntax error", "Runtime warning", "Boolean error"],
+            ans: 1,
+            explain: "A syntax error breaks the rules of the language, so the program cannot even run until it is fixed. A logic error still runs, just with the wrong result."
+        },
+        {
+            q: "Which type of error allows a program to run, but produces the wrong result?",
+            opts: ["Syntax error", "Logic error", "Compilation error", "Translation error"],
+            ans: 1,
+            explain: "A logic error obeys the rules of the language and runs successfully, but the programmer's flawed reasoning means the output is wrong."
+        },
+        {
+            q: "What is the main purpose of a trace table?",
+            opts: ["To record the value of each variable as an algorithm runs, line by line", "To list every syntax error that the translator finds anywhere in the whole algorithm before it will run", "To draw the flowchart symbols used by an algorithm", "To count how many variables an algorithm uses in total"],
+            ans: 0,
+            explain: "A trace table tracks how each variable's value changes as the algorithm executes, one line (and one loop pass) at a time — it is a way of testing an algorithm by hand."
+        },
+        {
+            q: "What is a structure diagram used for?",
+            opts: ["Showing how a problem is broken down into smaller sub-tasks, as a hierarchy", "Showing the exact order that a program's variables are declared in memory", "Showing which flowchart symbols are the correct ones to use", "Showing precisely how much memory an algorithm will use once it has been fully compiled and is running"],
+            ans: 0,
+            explain: "A structure diagram (hierarchy chart) shows top-down decomposition — how a problem splits into smaller sub-tasks. It does not show memory use, declaration order or flowchart symbol choice."
+        },
+        {
+            q: "Which construct is being used when an if statement is placed inside another if statement?",
+            opts: ["Nesting", "Sequencing", "Casting", "Validation"],
+            ans: 0,
+            explain: "Placing one construct inside another — such as an if inside an if, or an if inside a loop — is called nesting."
+        },
+        {
+            q: "A for loop is missing its closing 'next i' line. What type of error is this?",
+            opts: ["Logic error", "Syntax error", "Design error", "Output error"],
+            ans: 1,
+            explain: "The for loop's structure is incomplete, breaking the rules of the language — the program will not run until 'next i' is added. That makes it a syntax error."
+        },
+        {
+            q: "A for loop is written as 'for i = 1 to 20' when only 10 passes were wanted. What type of error is this, once the loop DOES run?",
+            opts: ["Logic error", "Syntax error", "Compiler error", "Interpreter error"],
+            ans: 0,
+            explain: "The loop runs perfectly happily (it follows the rules), it just repeats the wrong number of times — a flawed piece of logic, not a broken rule. That makes it a logic error."
+        },
+        {
+            q: "What does 'refining' an algorithm mean?",
+            opts: ["Improving an algorithm that already works, without changing what it does", "Fixing a syntax error in a program so that a completely broken piece of code is finally able to run at all", "Correcting a logic error so the output finally becomes right", "Deleting the algorithm and starting again from a blank page"],
+            ans: 0,
+            explain: "Refining means improving a CORRECT algorithm — e.g. making it more efficient, readable or robust — not fixing an error. Fixing broken code is correcting it, not refining it."
+        },
+        {
+            q: "Which pair correctly matches the flowchart symbol to its meaning?",
+            opts: ["Diamond = decision, Parallelogram = input/output", "Diamond = input/output, Rectangle = decision", "Parallelogram = decision, Rectangle = sub-program", "Rectangle = start/stop, Diamond = process"],
+            ans: 0,
+            explain: "A diamond represents a decision (splitting the flow into Yes/No), and a parallelogram represents an input or output — the other pairings mix up the symbols."
+        }
+    ];
+
+    const matchData = [
+        { term: "Terminal (stadium) shape", def: "Marks the start or stop of an algorithm" },
+        { term: "Parallelogram", def: "Shows an input or an output step" },
+        { term: "Rectangle", def: "Shows a process step, such as a calculation" },
+        { term: "Diamond", def: "Shows a decision, splitting the flow into two branches" },
+        { term: "Rectangle with double side bars", def: "Shows a call to a sub-program (subroutine)" },
+        { term: "Flow line (arrow)", def: "Shows the direction the algorithm runs in" },
+        { term: "IPO analysis", def: "Identifying the inputs, processes and outputs of a problem" },
+        { term: "Structure diagram", def: "A hierarchy chart showing how a problem is broken into sub-tasks" },
+        { term: "Trace table", def: "A table used to track variable values as an algorithm runs" },
+        { term: "Syntax error", def: "An error that breaks the rules of the language, so the program won't run" },
+        { term: "Logic error", def: "An error that runs, but produces the wrong result" },
+        { term: "Nesting", def: "Placing one construct inside another, such as an if inside a loop" }
+    ];
+
+    const fibData = [
+        {
+            display: "A _____ error breaks the rules of the language, so the program will not even run.",
+            blanks: { B1: "syntax" }
+        },
+        {
+            display: "A _____ error runs without crashing, but produces the wrong result.",
+            blanks: { B1: "logic" }
+        },
+        {
+            display: "A _____ table is used to record the value of each variable as an algorithm runs, line by line.",
+            blanks: { B1: "trace" }
+        },
+        {
+            display: "In a flowchart, a _____ symbol shows a decision, splitting the flow into two branches.",
+            blanks: { B1: "diamond" }
+        },
+        {
+            display: "In a flowchart, a _____ symbol shows an input or an output step.",
+            blanks: { B1: "parallelogram" }
+        },
+        {
+            display: "In a flowchart, a _____ shape marks the start or the stop of the algorithm.",
+            blanks: { B1: "terminal" }
+        },
+        {
+            display: "Breaking a large problem down into smaller sub-tasks, shown as a hierarchy chart, is called _____.",
+            blanks: { B1: "decomposition" }
+        },
+        {
+            display: "Placing one construct inside another, such as an if statement inside a loop, is called _____.",
+            blanks: { B1: "nesting" }
+        }
+    ];
+    const fibWords = ["syntax", "logic", "trace", "diamond", "parallelogram", "terminal", "decomposition", "nesting"];
+
+    const tfData = [
+        {
+            statement: "A syntax error stops a program from running at all.",
+            answer: true,
+            explanation: "Correct — a syntax error breaks the rules of the language, so the program cannot run until it is fixed."
+        },
+        {
+            statement: "A logic error always causes the program to crash immediately.",
+            answer: false,
+            explanation: "A logic error runs without crashing — it just gives the wrong result. Crashing/not running at all describes a syntax error."
+        },
+        {
+            statement: "A trace table is used to record the value of variables as an algorithm runs.",
+            answer: true,
+            explanation: "Correct — that is exactly what a trace table is for, updated line by line (and pass by pass) as the algorithm executes."
+        },
+        {
+            statement: "In a flowchart, a diamond symbol always represents an input or output step.",
+            answer: false,
+            explanation: "A diamond represents a decision. A parallelogram is used for input/output steps."
+        },
+        {
+            statement: "A structure diagram shows a problem broken down into smaller sub-tasks as a hierarchy.",
+            answer: true,
+            explanation: "Correct — this is top-down decomposition, shown as a hierarchy (like a family tree) with the whole problem at the top."
+        },
+        {
+            statement: "IPO stands for Inputs, Processes and Outputs.",
+            answer: true,
+            explanation: "Correct — analysing a problem's inputs, processes and outputs is done before writing an algorithm."
+        },
+        {
+            statement: "Refining an algorithm means changing what problem it solves.",
+            answer: false,
+            explanation: "Refining improves a CORRECT algorithm (efficiency, readability, robustness) without changing what it is meant to do."
+        },
+        {
+            statement: "Nesting means placing one construct, such as an if statement, inside another.",
+            answer: true,
+            explanation: "Correct — an if inside an if, or an if inside a loop, are both examples of nesting."
+        }
+    ];
+
+    const miscData = [
+        {
+            wrong: "Thinking every error that stops a program from working must be a 'logic error'.",
+            correct: "A <strong>logic</strong> error still RUNS — it just gives the wrong result. An error that stops the program running at all (like a missing <code>endif</code>) is a <strong>syntax</strong> error, because it breaks the rules of the language.",
+            readCheck: {
+                q: "A program will not run at all because of a missing bracket. What type of error is this?",
+                opts: ["Syntax error", "Logic error", "Runtime error", "Value error"],
+                ans: 0,
+                explain: "An error that stops the program from running breaks the rules of the language — that makes it a syntax error, not a logic error."
+            }
+        },
+        {
+            wrong: "Believing a diamond symbol in a flowchart is just another process step.",
+            correct: "A diamond is specifically a <strong>decision</strong> symbol — it asks a yes/no question and the flow <strong>splits into two branches</strong>. A plain process step (like a calculation) uses a <strong>rectangle</strong> instead, which has only one way in and one way out.",
+            readCheck: {
+                q: "How many exits does a flowchart rectangle (process) symbol normally have?",
+                opts: ["One", "Two", "Three", "Zero"],
+                ans: 0,
+                explain: "A process rectangle has a single flow of instructions in and out. Two exits (Yes/No) is the signature of a decision diamond, not a process rectangle."
+            }
+        },
+        {
+            wrong: "Thinking a while loop's missing counter update is a syntax error.",
+            correct: "The loop's grammar is perfectly correct — <code>while</code>/<code>endwhile</code> are matched properly, so it <strong>runs</strong>. It just never becomes false, so it repeats forever. Because the program runs (just wrongly), this is a <strong>logic</strong> error, not a syntax error.",
+            readCheck: {
+                q: "A while loop repeats forever because its counter is never updated inside the loop body. What type of error is this?",
+                opts: ["Logic error", "Syntax error", "Formatting error", "Naming error"],
+                ans: 0,
+                explain: "The loop obeys every rule of the language and runs — it just never stops, because the condition is never made false. That is a logic error."
+            }
+        },
+        {
+            wrong: "Confusing a structure diagram with a flowchart.",
+            correct: "A <strong>structure diagram</strong> is a hierarchy chart showing how a problem is <strong>decomposed</strong> into sub-tasks — it has no decisions or arrows showing execution order. A <strong>flowchart</strong> shows the actual <strong>step-by-step logic</strong> of an algorithm, including decisions (diamonds) and loops.",
+            readCheck: {
+                q: "Which diagram shows decisions and loops using standard symbols like a diamond?",
+                opts: ["A flowchart", "A structure diagram", "An IPO table", "A trace table"],
+                ans: 0,
+                explain: "A flowchart shows an algorithm's step-by-step logic, including decisions and loops. A structure diagram only shows decomposition into sub-tasks, with no decisions."
+            }
+        },
+        {
+            wrong: "Thinking 'refining' an algorithm means fixing a mistake in it.",
+            correct: "Refining assumes the algorithm <strong>already works correctly</strong>. It means making it <strong>better</strong> — more efficient, more readable, or able to handle more cases — without changing what it does. Fixing a mistake so it works correctly is <strong>correcting</strong> it, a different step.",
+            readCheck: {
+                q: "An algorithm already gives the correct answer. A programmer rewrites it to be shorter and easier to read. What is this called?",
+                opts: ["Refining", "Correcting", "Debugging", "Testing"],
+                ans: 0,
+                explain: "Improving a CORRECT algorithm — without changing its behaviour — is refining. Correcting and debugging both imply the algorithm was wrong to begin with."
+            }
+        },
+        {
+            wrong: "Believing a trace table only needs the FINAL value of each variable.",
+            correct: "A trace table must record a variable's value <strong>every time it changes</strong> — including on <strong>every pass</strong> of a loop — not just the value it ends up with. Skipping passes is how marks are lost, even if the final answer looks right.",
+            readCheck: {
+                q: "A loop runs 4 times, changing 'total' on every pass. How many values of 'total' should a full trace table show?",
+                opts: ["Four — one for every pass of the loop", "One — just the final value", "Two — the first and the last only", "None, because totals are not usually traced"],
+                ans: 0,
+                explain: "A trace table records a value every time it changes, so a 4-pass loop needs 4 rows for 'total' — not just the final one."
+            }
+        }
+    ];
+
+    const examTips = [
+        {
+            type: "tip",
+            title: "How to answer 'complete the algorithm' questions",
+            pills: ["AO2", "Key skill", "Completing algorithms"],
+            content: `<p>"Complete the algorithm" questions give you a working algorithm with one or two lines removed — you don't need to write the whole thing, just work out exactly what belongs in the gap.</p>
+<ul>
+<li>Read the <strong>whole</strong> algorithm first, including the lines AFTER the gap — they often reveal what the missing line must produce.</li>
+<li>Check the <strong>variable names</strong> already used and match them <strong>exactly</strong> (case and spelling matter).</li>
+<li>Check loop and condition <strong>boundaries</strong> carefully — "1 to 5" vs "1 to 4" is the classic off-by-one slip that loses marks.</li>
+</ul>
+<p><strong>Example:</strong> if the line after a for loop is <code>print(total)</code>, the loop itself must be building up a running total called <code>total</code> — that tells you what to write inside the loop body.</p>`,
+            readCheck: {
+                q: "What should you read FIRST before deciding what belongs in a missing line of an algorithm?",
+                opts: ["The whole algorithm, including the lines that come after the gap", "On every single line of the algorithm you are given, regardless of whether it changes anything at all", "Only the title given to the exam question itself", "The mark scheme, which is always printed just below the question"],
+                ans: 0,
+                explain: "Reading the lines AFTER the gap often reveals exactly what the missing line needs to produce, e.g. a variable that gets printed later."
+            }
+        },
+        {
+            type: "explain",
+            title: "Classifying syntax vs logic errors fast",
+            pills: ["AO2", "Errors", "Common question"],
+            content: `<p>"Is this a syntax error or a logic error?" is one of the most repeated question types on this topic. Use one quick test:</p>
+<ul>
+<li>Ask: <strong>"Would this program even run?"</strong></li>
+<li>If <strong>no</strong> — a rule of the language has been broken (missing keyword, bracket, quote) — it's a <strong>syntax</strong> error.</li>
+<li>If <strong>yes</strong>, but the <strong>output is wrong</strong> — the language rules are fine, the programmer's reasoning was flawed — it's a <strong>logic</strong> error.</li>
+</ul>
+<p><strong>Watch for:</strong> a missing loop-update (infinite loop), the wrong comparison (<code>&lt;</code> instead of <code>&lt;=</code>), or a swapped <code>AND</code>/<code>OR</code> — these all still RUN, so they are logic errors, even though the result is clearly broken.</p>`,
+            readCheck: {
+                q: "A condition uses OR when it should have used AND, so the algorithm behaves incorrectly. What type of error is this?",
+                opts: ["Logic error", "Syntax error", "Grammar error", "Compilation error"],
+                ans: 0,
+                explain: "Swapping AND and OR doesn't break any language rule — the program runs — it just makes the wrong decision. That is a logic error."
+            }
+        },
+        {
+            type: "tip",
+            title: "Writing a clean trace table under exam pressure",
+            pills: ["AO2", "Trace tables", "Technique"],
+            content: `<p>Trace-table questions are marked <strong>row by row</strong> (or pass by pass), so a slow, organised table scores far better than a fast guess.</p>
+<ul>
+<li>Copy the <strong>column headers</strong> the question gives you exactly, in the same order.</li>
+<li>Go through the algorithm <strong>one line at a time</strong>. Only write a new value in a column when that line actually <strong>changes</strong> that variable.</li>
+<li>For a loop, treat each pass as its own row — never merge two passes together or skip a pass "because it's obvious".</li>
+</ul>
+<p>If you lose track, restart the trace from the beginning rather than guessing the rest — a fully correct restart earns more marks than a table that goes wrong halfway through.</p>`,
+            readCheck: {
+                q: "In a trace table, when should you write a new value in a variable's column?",
+                opts: ["Only on the exact line where that variable's value actually changes", "On every single line of the algorithm you are given, regardless of whether it changes anything at all", "Only once, right at the very end of the whole algorithm", "Only when the algorithm prints something to the screen"],
+                ans: 0,
+                explain: "A trace table column only gets a new entry when that specific line changes the variable — not on every line, and not just once at the end."
+            }
+        }
+    ];
+
+    const flashcards = [
+        { term: "IPO analysis", def: "Identifying a problem's Inputs, Processes and Outputs before writing any code" },
+        { term: "Structure diagram", def: "A hierarchy chart showing how a problem is broken down into sub-tasks (top-down decomposition)" },
+        { term: "Terminal (stadium) symbol", def: "Marks the start or the stop of a flowchart" },
+        { term: "Parallelogram", def: "Flowchart symbol for an input or an output step" },
+        { term: "Rectangle", def: "Flowchart symbol for a process step (a calculation or assignment)" },
+        { term: "Diamond", def: "Flowchart symbol for a decision, splitting the flow into two branches" },
+        { term: "Sub-program symbol", def: "Rectangle with double side bars — a call to a named subroutine" },
+        { term: "Flow line (arrow)", def: "Shows the direction an algorithm runs in" },
+        { term: "Syntax error", def: "Breaks the rules of the language — the program will not run" },
+        { term: "Logic error", def: "Runs without crashing, but gives the wrong result" },
+        { term: "Trace table", def: "Records each variable's value, line by line, as an algorithm runs" },
+        { term: "Purpose of an algorithm", def: "What problem it solves — worked out by tracing it and describing the pattern in its outputs" },
+        { term: "Refining an algorithm", def: "Improving a correct algorithm (efficiency/readability) without changing what it does" },
+        { term: "Nesting", def: "Placing one construct inside another, e.g. an if inside a loop" },
+        { term: "Completing an algorithm", def: "Filling in a missing line so it matches its surrounding code exactly" }
+    ];
+
+    // ── Original clean-room exam questions (2026-07-24) ──
+    // Written from scratch against the §2.1.2 spec scope (CS-CONTENT-PLAN.md
+    // §6.2 clean-room rule) — NOT transcribed from any OCR paper. No exam PDF
+    // was supplied for this topic, so the tariff spread and format mix are
+    // authored from the standard J277 Paper 2 assessment style for algorithm
+    // design (IPO tables, flowchart symbols, syntax/logic classification,
+    // trace tables, completing/writing algorithms, nesting), NOT profiled
+    // from a real paper — treat the ceiling as a best estimate.
+    // Spread: 3x1, 4x2, 4x3, 2x4 = 13 questions / 34 marks (mcq/written/
+    // tableFill/tickGrid/matchLine/traceTable/codeGaps/codeWrite).
+    const EXAM_CASE_STUDIES = {};
+
+    const examQuestions = [
+        {
+            num: "Q1",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: `<p>Tick <strong>one</strong> box to identify the flowchart symbol used to show a decision, such as testing IF a value meets a condition.</p>`,
+            options: ["Diamond", "Rectangle", "Parallelogram", "Terminal (stadium) shape"],
+            answer: 0,
+            hint: "Which shape has two exits — a Yes branch and a No branch?",
+            starter: "",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<ul><li><strong>Diamond</strong></li></ul>
+</div>`,
+            modelAnswer: "Diamond."
+        },
+        {
+            num: "Q2",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: `<p>A program runs without crashing, but a shop's discount calculator always gives an answer that is £10 too high. Tick <strong>one</strong> box to identify the type of error.</p>`,
+            options: ["A syntax error, since the discount value itself is calculated a small amount wrong each time", "A logic error", "A runtime error caused by the translator being unable to understand one of the keywords", "A boolean error, because the calculation depends on a Boolean AND/OR condition somewhere in the code"],
+            answer: 1,
+            hint: "The program runs successfully — it just produces the wrong number. Does that sound like a broken rule, or a flawed calculation?",
+            starter: "",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<ul><li><strong>Logic error</strong> — the program runs, but the calculation itself is wrong.</li></ul>
+</div>`,
+            modelAnswer: "A logic error."
+        },
+        {
+            num: "Q3",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            stubs: ["Syntax error", "Logic error"],
+            question: `<p>State <strong>one</strong> difference between a <strong>syntax error</strong> and a <strong>logic error</strong>.</p>`,
+            hint: "Think about which one stops the program running, and which one lets it run but gives the wrong result.",
+            starter: "A syntax error…, whereas a logic error…",
+            markPoints: {
+                note: "Up to 2 marks: both sides of the difference (the syntax side AND the logic side).",
+                groups: [
+                    {
+                        label: "The difference (both sides)", max: 2, points: [
+                            { text: "Says a syntax error breaks the rules of the language, so the program will not run", marks: 1 },
+                            { text: "Contrasts this with a logic error, which runs but produces the wrong result", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks</h5>
+<ul>
+<li>Award 1 mark for: a syntax error breaks the rules of the language, so the program will not run.</li>
+<li>Award 1 mark for: a logic error runs without crashing, but produces the wrong result.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul><li>Both sides of the contrast are needed for full marks.</li></ul>
+</div>`,
+            modelAnswer: "A syntax error breaks the rules of the language, so the program will not run at all, whereas a logic error runs without crashing but produces the wrong result."
+        },
+        {
+            num: "Q4",
+            marks: 3,
+            type: "written",
+            format: "tableFill",
+            caseStudy: "",
+            question: `<p>A booking system reads in a customer's chosen seat number, checks whether that seat is already taken, works out the total price, and displays a confirmation message.</p><p>Complete the table by classifying each statement as an <strong>Input</strong>, a <strong>Process</strong> or an <strong>Output</strong>.</p>`,
+            table: {
+                headers: ["Statement from the booking system", "Input, Process or Output?"],
+                rows: [
+                    ["Reading in the customer's chosen seat number", null],
+                    ["Checking whether that seat is already taken and calculating the total price", null],
+                    ["Displaying a confirmation message showing the seat and price", null]
+                ]
+            },
+            answers: {
+                "0,1": ["input", "Input"],
+                "1,1": ["process", "Process"],
+                "2,1": ["output", "Output"]
+            },
+            hint: "Ask each time: is this data going IN, is something being WORKED OUT, or is a result being SHOWN?",
+            starter: "Row 1: … | Row 2: … | Row 3: …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 3 marks (1 mark for each row)</h5>
+<ul>
+<li>Reading in the seat number → <strong>Input</strong></li>
+<li>Checking availability and calculating the price → <strong>Process</strong></li>
+<li>Displaying the confirmation message → <strong>Output</strong></li>
+</ul>
+</div>`,
+            modelAnswer: "Row 1: Input. Row 2: Process. Row 3: Output."
+        },
+        {
+            num: "Q5",
+            marks: 4,
+            type: "written",
+            format: "tickGrid",
+            caseStudy: "",
+            question: `<p>Tick <strong>one</strong> box in each row to classify the described error as a <strong>syntax error</strong> or a <strong>logic error</strong>.</p>`,
+            grid: {
+                cols: ["Syntax error", "Logic error"],
+                rows: [
+                    { label: "An if statement is missing its closing endif keyword.", correct: [0] },
+                    { label: "A while loop's condition never becomes false because the counter variable inside the loop is never updated.", correct: [1] },
+                    { label: "The keyword 'whlie' is typed instead of 'while'.", correct: [0] },
+                    { label: "A for loop is written as 'for i = 1 to 20' when only 10 values were wanted, so the output has extra unwanted lines.", correct: [1] }
+                ]
+            },
+            hint: "Ask each time: would this stop the program from running at all, or does it run but give the wrong result?",
+            starter: "Row 1: … | Row 2: … | Row 3: … | Row 4: …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (1 mark for each row)</h5>
+<ul>
+<li>Missing endif → <strong>Syntax error</strong></li>
+<li>Counter never updated (infinite loop) → <strong>Logic error</strong></li>
+<li>'whlie' misspelt → <strong>Syntax error</strong></li>
+<li>Loop bound wrong (1 to 20 instead of 1 to 10) → <strong>Logic error</strong></li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul><li>Each row is marked independently; 2+ ticks in a row scores 0 for that row.</li></ul>
+</div>`,
+            modelAnswer: "Row 1: Syntax error. Row 2: Logic error. Row 3: Syntax error. Row 4: Logic error."
+        },
+        {
+            num: "Q6",
+            marks: 4,
+            type: "written",
+            format: "matchLine",
+            caseStudy: "",
+            question: `<p>Draw <strong>one</strong> line from each flowchart symbol to what it represents.</p><p>(There are more descriptions than symbols — one description is not used.)</p>`,
+            match: {
+                left: ["Diamond", "Parallelogram", "Rectangle", "Rectangle with double side bars"],
+                right: ["Represents a decision, splitting the flow into a Yes and a No branch", "Represents an input or an output step", "Represents a process step, such as a calculation or assignment", "Represents a call to a named sub-program (subroutine)", "Marks the start or the stop of the algorithm"],
+                answer: { "0": 0, "1": 1, "2": 2, "3": 3 },
+                decoys: [4]
+            },
+            hint: "Watch the decoy: 'marks the start or stop' describes the terminal (stadium) shape, which is not one of the four symbols listed.",
+            starter: "Diamond → …, Parallelogram → …, Rectangle → …, Rectangle with double side bars → …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (1 mark per correct line)</h5>
+<ul>
+<li>Diamond → <strong>A</strong> (decision, splitting into Yes/No)</li>
+<li>Parallelogram → <strong>B</strong> (input or output)</li>
+<li>Rectangle → <strong>C</strong> (process step)</li>
+<li>Rectangle with double side bars → <strong>D</strong> (sub-program call)</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul><li>1 mark per correct line. Description E ('marks the start or stop') is a decoy describing the terminal shape, and is not used.</li></ul>
+</div>`,
+            modelAnswer: "Diamond → decision, splitting into Yes/No. Parallelogram → input or output. Rectangle → process step. Rectangle with double side bars → sub-program call."
+        },
+        {
+            num: "Q7",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: `<p>The algorithm below reads 20 numbers, one at a time.</p><pre>count = 0
+for i = 1 to 20
+  n = input("Enter a number: ")
+  if n MOD 2 == 0 then
+    count = count + 1
+  endif
+next i
+print(count)</pre><p>State the <strong>purpose</strong> of this algorithm.</p>`,
+            hint: "Trace it with a couple of made-up numbers. What does 'count' end up representing?",
+            starter: "This algorithm…",
+            markPoints: {
+                note: "Up to 2 marks for a correct statement of purpose.",
+                groups: [
+                    {
+                        label: "Purpose", max: 2, points: [
+                            { text: "Identifies that the algorithm reads in 20 numbers entered by the user", marks: 1 },
+                            { text: "States that it counts how many of those 20 numbers are even", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks</h5>
+<ul>
+<li>1 mark: the algorithm reads in 20 numbers entered by the user.</li>
+<li>1 mark: it counts how many of those 20 numbers are even.</li>
+</ul>
+</div>`,
+            modelAnswer: "This algorithm reads in 20 numbers entered by the user and counts how many of them are even numbers."
+        },
+        {
+            num: "Q8",
+            marks: 4,
+            type: "written",
+            format: "traceTable",
+            caseStudy: "",
+            question: `<p>The algorithm below reads four numbers, one at a time, and keeps track of the largest number seen so far.</p><pre>maxVal = 0
+for i = 1 to 4
+  n = input("Enter a number: ")
+  if n &gt; maxVal then
+    maxVal = n
+  endif
+next i
+print(maxVal)</pre><p>The user enters, in this order: <strong>4, 9, 2, 7</strong>.</p><p>Complete the trace table to show the value of <strong>i</strong>, <strong>n</strong> and <strong>maxVal</strong> at the end of each pass of the loop.</p>`,
+            trace: {
+                columns: ["i", "n", "maxVal"],
+                rows: [
+                    ["1", "4", "4"],
+                    ["2", "9", "9"],
+                    ["3", "2", "9"],
+                    ["4", "7", "9"]
+                ]
+            },
+            hint: "maxVal only changes when n is bigger than the current maxVal. It stays the same otherwise.",
+            starter: "Pass 1: i=1, n=4, maxVal=4 …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (1 mark per correct row of the trace)</h5>
+<ul>
+<li>Pass 1 → i = 1, n = 4, maxVal = 4</li>
+<li>Pass 2 → i = 2, n = 9, maxVal = 9</li>
+<li>Pass 3 → i = 3, n = 2, maxVal = 9 (unchanged — 2 is not greater than 9)</li>
+<li>Pass 4 → i = 4, n = 7, maxVal = 9 (unchanged — 7 is not greater than 9)</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul><li>1 mark for each fully-correct row of the trace (all three columns right). The program finally outputs 9.</li></ul>
+</div>`,
+            modelAnswer: "Pass 1: i=1, n=4, maxVal=4. Pass 2: i=2, n=9, maxVal=9. Pass 3: i=3, n=2, maxVal=9. Pass 4: i=4, n=7, maxVal=9. Output: 9."
+        },
+        {
+            num: "Q9",
+            marks: 3,
+            type: "written",
+            format: "codeGaps",
+            caseStudy: "",
+            question: `<p>The algorithm below should print, for each whole number from 1 to 10, whether that number is even or odd.</p><p>Complete the three gaps.</p>`,
+            gaps: {
+                lines: [
+                    "for i = 1 to {1}",
+                    "  if i MOD 2 {2} 0 then",
+                    "    print(i + \" is even\")",
+                    "  else",
+                    "    print(i + \" is odd\")",
+                    "  endif",
+                    "next {3}"
+                ],
+                answers: {
+                    "1": ["10"],
+                    "2": ["=="],
+                    "3": ["i"]
+                }
+            },
+            hint: "The loop must cover 1 to 10; each pass tests whether the remainder after dividing by 2 EQUALS 0; a for loop is closed with 'next' followed by its own counter.",
+            starter: "Gap 1: … Gap 2: … Gap 3: …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 3 marks (1 mark per gap)</h5>
+<ul>
+<li>Gap 1: <strong>10</strong></li>
+<li>Gap 2: <strong>==</strong></li>
+<li>Gap 3: <strong>i</strong></li>
+</ul>
+</div>`,
+            modelAnswer: "for i = 1 to 10 ; if i MOD 2 == 0 then ; next i"
+        },
+        {
+            num: "Q10",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: `<p>State <strong>one</strong> difference between a <strong>structure diagram</strong> and a <strong>flowchart</strong>.</p>`,
+            hint: "Think about whether each one shows decisions and the order of execution, or just how the problem is split up.",
+            starter: "A structure diagram…, whereas a flowchart…",
+            markPoints: {
+                note: "Up to 2 marks: both sides of the difference.",
+                groups: [
+                    {
+                        label: "The difference (both sides)", max: 2, points: [
+                            { text: "A structure diagram shows how a problem is broken down into sub-tasks, as a hierarchy (top-down decomposition)", marks: 1 },
+                            { text: "A flowchart shows the step-by-step order that an algorithm actually runs in, including decisions and loops, using standard symbols", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks</h5>
+<ul>
+<li>1 mark: a structure diagram shows a problem broken down into sub-tasks, as a hierarchy.</li>
+<li>1 mark: a flowchart shows the step-by-step order an algorithm runs in, including decisions and loops.</li>
+</ul>
+</div>`,
+            modelAnswer: "A structure diagram shows how a problem is broken down into smaller sub-tasks as a hierarchy, whereas a flowchart shows the step-by-step order an algorithm actually runs in, including its decisions and loops."
+        },
+        {
+            num: "Q11",
+            marks: 3,
+            type: "written",
+            caseStudy: "",
+            question: `<p>The algorithm below uses a nested selection.</p><pre>mark = 55
+attendance = "good"
+if mark &gt;= 50 then
+  if attendance == "good" then
+    print("Pass with merit")
+  else
+    print("Pass")
+  endif
+else
+  print("Fail")
+endif</pre><p>State the output of this algorithm, and explain how the nested if statements produce it.</p>`,
+            hint: "First check whether the OUTER condition (mark) is true. Only if it is, check the INNER condition (attendance).",
+            starter: "The output is…, because…",
+            markPoints: {
+                note: "1 mark for the correct output, up to 2 marks for a correct explanation of the nesting.",
+                groups: [
+                    {
+                        label: "Output + explanation", max: 3, points: [
+                            { text: "States the output is 'Pass with merit'", marks: 1 },
+                            { text: "Explains the outer condition (mark >= 50) is true, so the inner if is reached", marks: 1 },
+                            { text: "Explains the inner condition (attendance == 'good') is also true, so the nested if branch runs", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 3 marks</h5>
+<ul>
+<li>1 mark: output is <strong>Pass with merit</strong></li>
+<li>1 mark: mark &gt;= 50 is true (55 &gt;= 50), so the outer if branch — and the inner if — is reached</li>
+<li>1 mark: attendance == "good" is also true, so the nested if branch runs and prints "Pass with merit"</li>
+</ul>
+</div>`,
+            modelAnswer: "The output is \"Pass with merit\". mark is 55, so the outer condition mark >= 50 is true (55 >= 50), meaning the inner if statement is reached. attendance is \"good\", so the inner condition attendance == \"good\" is also true, and the nested if branch runs, printing \"Pass with merit\"."
+        },
+        {
+            num: "Q12",
+            marks: 4,
+            type: "written",
+            format: "codeWrite",
+            caseStudy: "",
+            question: `<p>Write an algorithm, using pseudocode, that:</p><ul><li>repeatedly asks the user to enter a whole number, until they enter a number from 1 to 100 inclusive, and</li><li>then prints the valid number.</li></ul><p>You may answer in OCR Exam Reference Language or in a high-level language you know.</p>`,
+            hint: "You don't know in advance how many attempts the user will need, so use a condition-controlled loop (while or do…until) that repeats until the number is valid.",
+            starter: "do",
+            markPoints: {
+                note: "Mark the LOGIC (any equivalent, correct algorithm earns full marks — exact wording/language may vary).",
+                groups: [
+                    {
+                        label: "A correct validation algorithm", max: 4, points: [
+                            { text: "Uses a condition-controlled loop (e.g. do…until or while) to repeat the input", marks: 1 },
+                            { text: "Reads a whole number as input inside the loop", marks: 1 },
+                            { text: "Correct condition testing both the lower bound (>=1) and the upper bound (<=100), combined with AND", marks: 1 },
+                            { text: "Prints the valid number once the loop ends", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks — mark the logic (accept any equivalent code)</h5>
+<ul>
+<li>1 mark: uses a loop (do…until or while) to repeat the input</li>
+<li>1 mark: reads a whole number as input inside the loop</li>
+<li>1 mark: correct condition combining the lower bound (1) and upper bound (100) with AND</li>
+<li>1 mark: prints the valid number after the loop ends</li>
+</ul>
+<p>Example (ERL):</p>
+<div class="code-block">do
+  num = input("Enter a number 1-100: ")
+until num >= 1 AND num <= 100
+print(num)</div>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul><li>Any logically correct answer scores full marks — mark the logic, not the exact wording or choice of language.</li></ul>
+</div>`,
+            modelAnswer: "do\n  num = input(\"Enter a number 1-100: \")\nuntil num >= 1 AND num <= 100\nprint(num)"
+        },
+        {
+            num: "Q13",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: `<p>Tick <strong>one</strong> box to identify what 'refining' an algorithm means.</p>`,
+            options: ["Improving an algorithm that already works, without changing what it does", "Fixing a logic error in an algorithm so that it finally gives the mathematically correct result every time", "Fixing a syntax error so that the program will run", "Rewriting the algorithm completely to solve a different problem"],
+            answer: 0,
+            hint: "Refining assumes the algorithm is already CORRECT — it's about making it better, not fixing it.",
+            starter: "",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<ul><li><strong>Improving an algorithm that already works, without changing what it does</strong></li></ul>
+</div>`,
+            modelAnswer: "Improving an algorithm that already works, without changing what it does."
+        }
+    ];
 </script>
     <script src="/script.js"></script>
 <script src="section-totals.js"></script>

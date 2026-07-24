@@ -28,7 +28,7 @@
     const s = document.createElement('style');
     s.id = 'vlMqStyles';
     s.textContent = `
-      .vl-mq-dirrow { display:flex; justify-content:center; gap:8px; margin-bottom:16px; }
+      .vl-mq-dirrow { display:flex; flex-wrap:wrap; justify-content:center; gap:8px; margin-bottom:16px; }
       .vl-mq-prompt { text-align:center; padding:20px 20px 8px; }
       .vl-mq-word { font-family:'Playfair Display',serif; font-weight:700; font-size:24px; color:var(--ink); }
       .vl-mq-say { border:1px solid var(--border); background:var(--card-bg); border-radius:999px; padding:2px 10px; font-size:13px; cursor:pointer; margin-bottom:6px; }

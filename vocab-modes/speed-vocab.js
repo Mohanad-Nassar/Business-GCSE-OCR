@@ -39,7 +39,7 @@
       .vl-sv-topbar { display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; font-family:'DM Mono',monospace; font-size:13px; color:var(--mid); }
       .vl-sv-timer { font-weight:700; color:var(--ink); font-size:16px; }
       .vl-sv-timer.urgent { color:var(--wrong); }
-      .vl-sv-dirrow { display:flex; justify-content:center; gap:8px; margin-bottom:16px; }
+      .vl-sv-dirrow { display:flex; flex-wrap:wrap; justify-content:center; gap:8px; margin-bottom:16px; }
       .vl-sv-card { background:var(--cream); border:2px solid var(--border); border-radius:14px; padding:36px 28px; text-align:center; min-height:130px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; cursor:pointer; }
       .vl-sv-term { font-family:'Playfair Display',serif; font-weight:700; font-size:22px; color:var(--ink); }
       .vl-sv-def { font-size:15px; color:var(--mid); display:none; }

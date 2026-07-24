@@ -16,7 +16,7 @@
         <div>
             <div class="badge">OCR GCSE Computer Science — Paper 2 · 2.2 Programming Fundamentals</div>
             <h1>2.2.1 Programming Fundamentals</h1>
-            <p>Interactive revision guide · Content coming soon</p>
+            <p>Interactive revision guide</p>
         </div>
         <a href="/index.html" class="home-link">← 🏡 Home</a>
     </header>
@@ -256,7 +256,9 @@
 
 <script>
     // ══════════════════════════════════════
-    //  DATA: 2.2.1 Programming Fundamentals — placeholder, content not yet written
+    //  DATA: 2.2.1 Programming Fundamentals
+    //  Pseudocode shown in OCR Exam Reference Language (ERL) — the language
+    //  Paper 2 questions are set in — with Python alongside where it helps.
     // ══════════════════════════════════════
     const pageMeta = {
             id: '2-2-1-programming-fundamentals',
@@ -268,21 +270,987 @@
 
     const topics = [
         {
-            title: "This topic is being written",
-            tag: "Coming soon",
-            content: `<p>🚧 <strong>Content for this topic is on its way.</strong> Key Learning notes, practice questions and exam-style questions for <strong>2.2.1 Programming Fundamentals</strong> will appear here soon.</p>`
+            title: "What programming is made of",
+            tag: "Key concept",
+            content: `<h4>Every program is built from a few basic ideas</h4>
+<ul>
+<li>A <strong>program</strong> is a set of instructions a computer follows. No matter how big, it is built from a small set of fundamentals: <strong>data stored in variables and constants</strong>, <strong>operators</strong> that work on that data, and the <strong>three programming constructs</strong> — <strong>sequence</strong>, <strong>selection</strong> and <strong>iteration</strong>.</li>
+<li>In Paper 2 you read and write algorithms as <strong>pseudocode</strong>, written in OCR's <strong>Exam Reference Language (ERL)</strong>. It looks a lot like Python, but you are not tied to any one real language.</li>
+<li>This page teaches each fundamental with a short ERL example. Learn to <strong>read</strong> the code (trace it) and <strong>write</strong> it yourself.</li>
+</ul>`,
+            readCheck: {
+                q: "What are the three programming constructs that all programs are built from?",
+                opts: ["Variables, constants and operators, which together store and change all of the data used by the program", "Sequence, selection and iteration", "Input, processing and output, which is the order that a computer always deals with any data in", "Compiling, interpreting and assembling, which are the three ways a program can finally be translated"],
+                ans: 1,
+                explain: "The three constructs are sequence, selection and iteration. Variables/operators and input-process-output are important ideas but not the three constructs."
+            }
+        },
+        {
+            title: "Variables",
+            tag: "Key concept",
+            content: `<h4>A named store for a value that can change</h4>
+<ul>
+<li>A <strong>variable</strong> is a named location in memory that holds a value. Its value <strong>can change</strong> while the program runs — that is what "vary" means.</li>
+<li>You put a value into a variable using <strong>assignment</strong> (the <code>=</code> sign): the value on the <strong>right</strong> is stored in the name on the <strong>left</strong>.</li>
+</ul>
+<div class="code-compare">
+<div><p class="code-label">Pseudocode (ERL)</p><div class="code-block">score = 0
+name = input("Enter your name: ")
+score = score + 10</div></div>
+<div><p class="code-label">Python</p><div class="code-block">score = 0
+name = input("Enter your name: ")
+score = score + 10</div></div>
+</div>
+<ul>
+<li>Think of a variable as a <strong>labelled box</strong>: <code>score</code> is the label, and you can swap what's inside at any time.</li>
+</ul>`,
+            readCheck: {
+                q: "What is a variable?",
+                opts: ["A fixed value that is written into the program by the programmer and can never be altered while it runs", "A named store in memory whose value can change while the program runs", "A message that the program prints out onto the screen for the user to read while it is running", "A special symbol, such as + or *, that performs a calculation on two different numbers in a program"],
+                ans: 1,
+                explain: "A variable is a named store whose value can change as the program runs — unlike a constant, which stays fixed."
+            }
+        },
+        {
+            title: "Constants",
+            tag: "Key concept",
+            content: `<h4>A named value that does NOT change</h4>
+<ul>
+<li>A <strong>constant</strong> is a named value that is set once and <strong>cannot change</strong> while the program runs.</li>
+<li>Use one for a value that is fixed and used in several places — for example a rate of tax, the value of Pi, or a maximum score.</li>
+</ul>
+<div class="code-block">const VAT_RATE = 0.20
+const MAX_SCORE = 100</div>
+<ul>
+<li><strong>Why use constants?</strong> They make code <strong>easier to read</strong> (a name explains what a number means) and <strong>easier to change</strong> (edit it in <strong>one place</strong> instead of hunting for every <code>0.20</code>). Constant names are often written in CAPITALS.</li>
+</ul>`,
+            readCheck: {
+                q: "Why might a programmer use a constant instead of just typing the number 0.20 throughout their code?",
+                opts: ["Because using a constant somehow makes the whole program run considerably faster than an ordinary plain typed-in number ever could", "Because it gives the value a clear name and can be changed in one place, making the code easier to read and update", "Because a constant is the only way to store a decimal number, as variables can only ever hold whole numbers", "Because constants are automatically kept secret from anyone who might later try to read the program's code"],
+                ans: 1,
+                explain: "A constant gives the value a meaningful name and means a change is made in one place — improving readability and maintainability."
+            }
+        },
+        {
+            title: "Input, output and assignment",
+            tag: "Key concept",
+            content: `<h4>Getting data in, sending results out</h4>
+<ul>
+<li><strong>Input</strong> — read a value from the user with <code>input(...)</code>. It usually comes in as text, so it is often converted to a number (see 2.2.2 casting).</li>
+<li><strong>Output</strong> — display a value with <code>print(...)</code>.</li>
+<li><strong>Assignment</strong> — store a value in a variable with <code>=</code>. It works <strong>right to left</strong>: work out the right-hand side, then put the result in the variable on the left.</li>
+</ul>
+<div class="code-block">age = input("How old are you? ")
+nextYear = age + 1
+print("Next year you will be " + nextYear)</div>
+<ul>
+<li><code>total = total + 1</code> is not a contradiction — it means "work out the <strong>old</strong> total plus 1, then make that the <strong>new</strong> total". This is how counters and running totals work.</li>
+</ul>`,
+            readCheck: {
+                q: "What does the statement  count = count + 1  do?",
+                opts: ["It checks whether the variable count is currently equal to count plus one, and reports true or false", "It works out the current value of count plus 1, then stores that new value back into count", "It creates a brand new second variable, also called count, that permanently holds the value 1", "It outputs the value of count to the screen and then adds the number 1 next to it for the user"],
+                ans: 1,
+                explain: "Assignment is right-to-left: the old value of count plus 1 is calculated, then stored back into count. This is how a counter increases."
+            }
+        },
+        {
+            title: "Arithmetic operators",
+            tag: "Operators",
+            content: `<h4>Doing maths in a program</h4>
+<ul>
+<li>The usual four: <code>+</code> add, <code>-</code> subtract, <code>*</code> multiply, <code>/</code> divide.</li>
+<li>Plus three you must know for GCSE:</li>
+<li><code>^</code> — <strong>exponent</strong> (to the power of). <code>2 ^ 3</code> = 8.</li>
+<li><code>DIV</code> — <strong>integer (whole-number) division</strong>: the whole number of times one divides into another, throwing away any remainder. <code>17 DIV 5</code> = 3.</li>
+<li><code>MOD</code> — <strong>modulus</strong>: the <strong>remainder</strong> after that division. <code>17 MOD 5</code> = 2.</li>
+</ul>
+<div class="code-block">17 DIV 5   → 3      (5 goes into 17 three whole times)
+17 MOD 5   → 2      (2 is left over)
+2 ^ 3      → 8</div>`,
+            readCheck: {
+                q: "What is the result of  20 DIV 6 ?",
+                opts: ["2, because that is the amount that is left over after taking as many whole sixes as possible out of twenty", "3", "3.33", "6"],
+                ans: 1,
+                explain: "DIV gives the whole number of times 6 divides into 20, which is 3 (the remainder of 2 is discarded). 20 MOD 6 would give the remainder, 2."
+            }
+        },
+        {
+            title: "MOD and DIV in action",
+            tag: "Operators",
+            content: `<h4>Why the remainder is so useful</h4>
+<ul>
+<li><strong>Is a number even?</strong> A number is even if it divides by 2 with no remainder — i.e. <code>number MOD 2 == 0</code>.</li>
+<li><strong>Split into groups.</strong> To put 30 students into teams of 4: <code>30 DIV 4</code> = 7 full teams, and <code>30 MOD 4</code> = 2 students left over.</li>
+<li><strong>Get the last digit</strong> of a number: <code>number MOD 10</code>. For 253, <code>253 MOD 10</code> = 3.</li>
+</ul>
+<div class="code-block">if number MOD 2 == 0 then
+  print("even")
+else
+  print("odd")
+endif</div>`,
+            readCheck: {
+                q: "Which test correctly checks whether the value in  number  is even?",
+                opts: ["number DIV 2 == 0, because DIV finds how many times 2 goes in and an even number always gives zero here", "number MOD 2 == 0", "number MOD 2 == 1, because an even number always leaves a remainder of exactly one when it is halved", "number / 2 == 0, because dividing any even number by two will always give an answer of exactly zero"],
+                ans: 1,
+                explain: "An even number leaves NO remainder when divided by 2, so number MOD 2 == 0. (MOD 2 == 1 tests for odd.)"
+            }
+        },
+        {
+            title: "Comparison operators",
+            tag: "Operators",
+            content: `<h4>Asking true/false questions</h4>
+<ul>
+<li>Comparison operators compare two values and give a <strong>Boolean</strong> result — <strong>true</strong> or <strong>false</strong>. They are what conditions in <code>if</code> and <code>while</code> are built from.</li>
+<li><code>==</code> equal to · <code>!=</code> not equal to · <code>&lt;</code> less than · <code>&lt;=</code> less than or equal to · <code>&gt;</code> greater than · <code>&gt;=</code> greater than or equal to.</li>
+</ul>
+<div class="code-block">5 &gt; 3      → true
+5 == 3     → false
+5 != 3     → true
+7 &lt;= 7     → true</div>
+<ul>
+<li><strong>Watch the trap:</strong> <code>=</code> means <strong>assign</strong> (store a value); <code>==</code> means <strong>compare</strong> (are these equal?). Using <code>=</code> where you meant <code>==</code> is one of the most common mistakes.</li>
+</ul>`,
+            readCheck: {
+                q: "What is the difference between  =  and  ==  ?",
+                opts: ["There is no real difference between them; they both simply check whether two values are equal to each other", "= assigns a value to a variable, whereas == compares two values and gives a true or false result", "= compares two values for equality, whereas == is used to store a new value inside a variable", "= is used only with numbers and == is used only with text, but otherwise they do exactly the same job"],
+                ans: 1,
+                explain: "= stores a value in a variable (assignment); == tests whether two values are equal (comparison). Mixing them up is a classic error."
+            }
+        },
+        {
+            title: "Boolean operators (AND, OR, NOT)",
+            tag: "Operators",
+            content: `<h4>Combining conditions</h4>
+<ul>
+<li><strong>Boolean operators</strong> join or invert conditions:</li>
+<li><code>AND</code> — true only if <strong>both</strong> sides are true.</li>
+<li><code>OR</code> — true if <strong>either</strong> side (or both) is true.</li>
+<li><code>NOT</code> — <strong>reverses</strong> a condition: <code>NOT true</code> is false.</li>
+</ul>
+<div class="code-block">if age &gt;= 13 AND age &lt;= 19 then
+  print("You are a teenager")
+endif
+
+if day == "Sat" OR day == "Sun" then
+  print("It's the weekend")
+endif</div>
+<ul>
+<li>These let one condition test more than one thing at once — e.g. a value being <strong>within a range</strong> uses <code>AND</code>.</li>
+</ul>`,
+            readCheck: {
+                q: "A condition is written as  score &gt;= 40 AND score &lt;= 69 . When is it true?",
+                opts: ["When score is 40 or more, OR 69 or less, which as it happens is true for absolutely every possible score", "Only when score is both 40 or more AND 69 or less — that is, anywhere from 40 to 69 inclusive", "Only when score is exactly equal to either the number 40 or the number 69, but no other value in between", "Whenever score is either less than 40 or greater than 69, i.e. any score that sits outside that range"],
+                ans: 1,
+                explain: "AND needs BOTH sides true, so score must be ≥40 and ≤69 — the range 40 to 69 inclusive."
+            }
+        },
+        {
+            title: "Sequence",
+            tag: "Construct",
+            content: `<h4>One step after another, in order</h4>
+<ul>
+<li><strong>Sequence</strong> is the simplest construct: instructions are carried out <strong>one after another, top to bottom, in the order they are written</strong>.</li>
+<li>Order matters — swapping two lines can change the result.</li>
+</ul>
+<div class="code-block">length = 5
+width = 3
+area = length * width
+print(area)</div>
+<ul>
+<li>Here each line depends on the ones before it: you can't work out <code>area</code> until <code>length</code> and <code>width</code> exist.</li>
+</ul>`,
+            readCheck: {
+                q: "What does 'sequence' mean as a programming construct?",
+                opts: ["The program repeats a set of instructions over and over again until some particular condition finally becomes true", "Instructions are carried out one after another, in the order they are written", "The program chooses between two or more different paths depending on whether a condition is true or false", "The instructions are automatically sorted into alphabetical order by the computer before the program is run"],
+                ans: 1,
+                explain: "Sequence means running instructions in order, top to bottom. Repeating is iteration; choosing a path is selection."
+            }
+        },
+        {
+            title: "Selection (if / else)",
+            tag: "Construct",
+            content: `<h4>Choosing a path based on a condition</h4>
+<ul>
+<li><strong>Selection</strong> lets a program <strong>choose</strong> what to do, based on whether a condition is true or false. It uses <code>if … then … else … endif</code>, and <code>elseif</code> for extra branches.</li>
+</ul>
+<div class="code-compare">
+<div><p class="code-label">Pseudocode (ERL)</p><div class="code-block">if mark &gt;= 70 then
+  print("Distinction")
+elseif mark &gt;= 40 then
+  print("Pass")
+else
+  print("Fail")
+endif</div></div>
+<div><p class="code-label">Python</p><div class="code-block">if mark &gt;= 70:
+  print("Distinction")
+elif mark &gt;= 40:
+  print("Pass")
+else:
+  print("Fail")</div></div>
+</div>
+<ul>
+<li>Only <strong>one</strong> branch runs — the first whose condition is true. (OCR also allows a <code>switch/case</code> for choosing between many fixed values.)</li>
+</ul>`,
+            readCheck: {
+                q: "In the grade example above, what is printed when mark is 55?",
+                opts: ["Both \"Pass\" and \"Fail\" are printed, because 55 is not high enough to reach the Distinction branch at the top", "Pass", "Fail", "Distinction, because once a mark is 40 or more the program treats it as reaching the highest grade band"],
+                ans: 1,
+                explain: "55 is not ≥70, but it is ≥40, so the elseif branch runs and prints \"Pass\". Only the first matching branch runs."
+            }
+        },
+        {
+            title: "Iteration — count-controlled (for)",
+            tag: "Construct",
+            content: `<h4>Repeat a set number of times</h4>
+<ul>
+<li><strong>Iteration</strong> means repeating instructions (a <strong>loop</strong>). A <strong>count-controlled</strong> loop repeats a <strong>known, fixed number of times</strong>, using a <strong>for</strong> loop with a counter.</li>
+</ul>
+<div class="code-compare">
+<div><p class="code-label">Pseudocode (ERL)</p><div class="code-block">for i = 1 to 5
+  print(i)
+next i</div></div>
+<div><p class="code-label">Python</p><div class="code-block">for i in range(1, 6):
+  print(i)</div></div>
+</div>
+<ul>
+<li>The counter <code>i</code> starts at 1, goes up by one each time, and the loop stops after 5 — printing 1, 2, 3, 4, 5.</li>
+<li>Use a count-controlled loop when you <strong>know in advance how many times</strong> to repeat.</li>
+</ul>`,
+            readCheck: {
+                q: "When is a count-controlled (for) loop the right choice?",
+                opts: ["When you do not know in advance how many times to repeat, and must keep going until a condition changes", "When you know in advance exactly how many times the loop should repeat", "When you only ever want the instructions inside the loop to run one single time and then stop completely", "When you need the program to choose between two different paths rather than repeating anything at all"],
+                ans: 1,
+                explain: "A count-controlled (for) loop is used when the number of repetitions is known in advance. Not knowing means a condition-controlled loop."
+            }
+        },
+        {
+            title: "Iteration — condition-controlled (while / do-until)",
+            tag: "Construct",
+            content: `<h4>Repeat until a condition changes</h4>
+<ul>
+<li>A <strong>condition-controlled</strong> loop repeats <strong>while (or until) a condition</strong> is met — used when you <strong>don't know in advance</strong> how many repetitions are needed.</li>
+<li><code>while … endwhile</code> checks the condition <strong>before</strong> each pass, so it may run <strong>zero</strong> times.</li>
+<li><code>do … until</code> checks the condition <strong>after</strong> each pass, so it always runs <strong>at least once</strong>.</li>
+</ul>
+<div class="code-block">password = input("Password: ")
+while password != "secret"
+  password = input("Wrong. Try again: ")
+endwhile
+print("Access granted")</div>
+<ul>
+<li>Here the loop keeps asking until the right password is typed — you can't know how many tries that will take.</li>
+</ul>`,
+            readCheck: {
+                q: "What is the key difference between a  while  loop and a  do … until  loop?",
+                opts: ["A while loop can only ever repeat a fixed, pre-set number of times, whereas a do…until loop is the only kind of loop that is able to repeat any number of times at all", "A while loop checks its condition before each pass (so it may run zero times); do…until checks after, so it always runs at least once", "A while loop is used for numbers and a do…until loop is used for text, but otherwise they behave in exactly the same way", "A while loop chooses between two paths, whereas a do…until loop simply runs its instructions once in strict order"],
+                ans: 1,
+                explain: "A while loop tests the condition first (may run zero times); do…until tests after the body, so it always runs at least once."
+            }
+        },
+        {
+            title: "Count-controlled vs condition-controlled",
+            tag: "Exam skill",
+            content: `<h4>Choosing the right loop</h4>
+<ul>
+<li>The exam often asks you to pick, or justify, the right kind of loop:</li>
+<li><strong>Count-controlled (for)</strong> — you know the number of repetitions <strong>in advance</strong> (e.g. "do this 10 times", "for each of the 5 scores").</li>
+<li><strong>Condition-controlled (while / do-until)</strong> — you <strong>don't</strong> know the number in advance; you repeat <strong>until something happens</strong> (e.g. "until the user enters 0", "while there is still input").</li>
+</ul>
+<div class="code-block">// known count → for loop
+for i = 1 to 10
+  ...
+next i
+
+// unknown count → while loop
+while guess != answer
+  ...
+endwhile</div>`,
+            readCheck: {
+                q: "A program keeps asking the user for a number until they type a value between 1 and 10. Which loop suits this best?",
+                opts: ["A count-controlled for loop, because the program will always end up needing to run for exactly ten separate repetitions in total, no matter what the user does", "A condition-controlled loop (while or do…until), because you cannot know in advance how many tries the user will take", "A sequence with no loop at all, because asking the user for a value only ever needs to happen a single time", "A selection statement on its own, because the program simply chooses whether the entered number is valid or not"],
+                ans: 1,
+                explain: "You don't know how many attempts the user will need, so a condition-controlled loop (repeat until valid) is right — not a fixed for loop."
+            }
         }
     ];
 
-    const mcqData = [];
-    const matchData = [];
-    const fibData = [];
-    const fibWords = [];
-    const tfData = [];
-    const miscData = [];
-    const examTips = [];
-    const flashcards = [];
-    const examQuestions = [];
+    const mcqData = [
+        {
+            q: "What is a constant?",
+            opts: ["A named store in memory whose value the program is free to change as often as it needs to while running", "A named value that is set once and cannot change while the program runs", "An instruction that repeats a block of code a set number of times before the program finally moves on", "A symbol such as MOD or DIV that carries out a particular calculation on the numbers on either side of it"],
+            ans: 1,
+            explain: "A constant is a named value fixed for the run of the program. A store whose value can change is a variable."
+        },
+        {
+            q: "What is the result of  23 MOD 4 ?",
+            opts: ["5 (which is how many whole times four divides into twenty-three, once the leftover remainder is ignored)", "3", "5.75", "4"],
+            ans: 1,
+            explain: "MOD gives the remainder: 4 goes into 23 five times (20), leaving 3. (23 DIV 4 would give 5.)"
+        },
+        {
+            q: "Which operator gives the WHOLE number of times one value divides into another, ignoring any remainder?",
+            opts: ["MOD", "DIV", "/", "^"],
+            ans: 1,
+            explain: "DIV is integer (whole-number) division. MOD gives the remainder, / gives a normal (possibly decimal) result, and ^ is exponent."
+        },
+        {
+            q: "Which of these is a comparison operator?",
+            opts: ["The MOD operator, which is used to find the remainder that is left over after one whole-number division", "!=", "AND", "^"],
+            ans: 1,
+            explain: "!= (not equal to) is a comparison operator. MOD and ^ are arithmetic; AND is a Boolean operator."
+        },
+        {
+            q: "A program contains the line  if x = 5 then  where the programmer meant to test whether x equals 5. What is wrong?",
+            opts: ["Nothing is wrong; a single = sign is the correct and normal way to test whether two values are equal to each other", "= is assignment; to test for equality the condition should use == ", "The condition should use MOD instead of =, because MOD is the operator that checks whether two numbers match", "The word 'then' is missing, and once it is added the single = sign will correctly compare the two values"],
+            ans: 1,
+            explain: "= assigns a value; comparing for equality needs ==. This is a very common error."
+        },
+        {
+            q: "The Boolean operator that is true only when BOTH of its conditions are true is:",
+            opts: ["OR", "AND", "NOT", "MOD"],
+            ans: 1,
+            explain: "AND is true only if both sides are true. OR is true if either side is true, and NOT reverses a single condition."
+        },
+        {
+            q: "Which construct repeats a block of instructions?",
+            opts: ["Sequence", "Iteration", "Selection", "Assignment"],
+            ans: 1,
+            explain: "Iteration means repetition (loops). Sequence runs in order, selection chooses a path, and assignment stores a value."
+        },
+        {
+            q: "You need to repeat a block of code exactly 8 times. Which loop is most suitable?",
+            opts: ["A condition-controlled while loop, because it will keep checking whether it has reached eight repetitions yet", "A count-controlled for loop", "No loop at all, because eight separate copies of the code should simply be written out one after another", "A selection statement, because the program has to decide each time whether it should repeat the code again"],
+            ans: 1,
+            explain: "The number of repetitions (8) is known in advance, so a count-controlled for loop is the natural choice."
+        },
+        {
+            q: "What does  2 ^ 4  evaluate to?",
+            opts: ["8, because the ^ operator simply multiplies the two numbers on either side of it together in the usual way", "16", "6", "24"],
+            ans: 1,
+            explain: "^ is 'to the power of': 2 to the power 4 = 2×2×2×2 = 16."
+        },
+        {
+            q: "In a  do … until  loop, how many times does the body always run, at minimum?",
+            opts: ["Zero, because the loop checks its condition before it runs the body even once, exactly like a while loop does", "At least once, because the condition is checked after the body has run", "Exactly the number stated by a counter that has to be set before the loop can begin running at all", "It can never be predicted, because a do…until loop runs its body a completely random number of times"],
+            ans: 1,
+            explain: "do…until checks the condition AFTER the body, so the body always runs at least once. A while loop can run zero times."
+        },
+        {
+            q: "Which line correctly assigns the number 0 to a variable called  total ?",
+            opts: ["total == 0", "total = 0", "0 = total", "total := equals(0)"],
+            ans: 1,
+            explain: "Assignment stores the right-hand value into the left-hand name: total = 0. (== is comparison, and the value must go into the variable.)"
+        },
+        {
+            q: "A condition is  age &lt; 13 OR age &gt; 65 . For which age is it TRUE?",
+            opts: ["age = 40, because forty comfortably sits inside the normal range that the two conditions are describing together", "age = 70", "age = 30", "age = 13"],
+            ans: 1,
+            explain: "OR is true if either side is true. 70 is greater than 65, so the condition is true. 40, 30 and 13 satisfy neither side."
+        }
+    ];
+
+    const matchData = [
+        { term: "Variable", def: "A named store whose value can change while the program runs" },
+        { term: "Constant", def: "A named value that is fixed and cannot change while the program runs" },
+        { term: "Assignment ( = )", def: "Stores the value on the right into the variable on the left" },
+        { term: "MOD", def: "Gives the remainder after a whole-number division" },
+        { term: "DIV", def: "Gives the whole number of times one value divides into another" },
+        { term: "^", def: "Exponent — raises a number to a power" },
+        { term: "==", def: "Comparison — is true when two values are equal" },
+        { term: "AND", def: "Boolean — true only when both conditions are true" },
+        { term: "OR", def: "Boolean — true when either condition is true" },
+        { term: "Sequence", def: "Instructions carried out one after another, in order" },
+        { term: "Selection", def: "Choosing a path based on whether a condition is true" },
+        { term: "Iteration", def: "Repeating a block of instructions (a loop)" }
+    ];
+
+    const fibData = [
+        {
+            display: "A _____ is a named store in memory whose value can change while the program runs.",
+            blanks: { B1: "variable" }
+        },
+        {
+            display: "A _____ is a named value that is set once and cannot change while the program runs.",
+            blanks: { B1: "constant" }
+        },
+        {
+            display: "The _____ operator gives the remainder after a whole-number division, so 17 MOD 5 is 2.",
+            blanks: { B1: "MOD" }
+        },
+        {
+            display: "The _____ operator gives the whole number of times one value divides into another, so 17 DIV 5 is 3.",
+            blanks: { B1: "DIV" }
+        },
+        {
+            display: "The _____ construct runs instructions one after another, in the order they are written.",
+            blanks: { B1: "sequence" }
+        },
+        {
+            display: "The _____ construct chooses a path using if, then and else.",
+            blanks: { B1: "selection" }
+        },
+        {
+            display: "A count-controlled (for) loop is used when you know the number of _____ in advance.",
+            blanks: { B1: "repetitions" }
+        },
+        {
+            display: "The Boolean operator _____ is true only when both of its conditions are true.",
+            blanks: { B1: "AND" }
+        }
+    ];
+    const fibWords = ["variable", "constant", "MOD", "DIV", "sequence", "selection", "repetitions", "AND"];
+
+    const tfData = [
+        {
+            statement: "The value stored in a variable can change while the program runs.",
+            answer: true,
+            explanation: "Correct — that is exactly what makes it a variable, as opposed to a constant which stays fixed."
+        },
+        {
+            statement: "17 MOD 5 gives the answer 3.",
+            answer: false,
+            explanation: "17 MOD 5 gives the remainder, which is 2. It is 17 DIV 5 that gives 3."
+        },
+        {
+            statement: "In pseudocode, = is used to assign a value and == is used to compare two values.",
+            answer: true,
+            explanation: "Correct — = stores a value in a variable; == tests whether two values are equal."
+        },
+        {
+            statement: "A count-controlled loop is used when you do not know in advance how many times to repeat.",
+            answer: false,
+            explanation: "That describes a condition-controlled loop. A count-controlled (for) loop is used when the number of repetitions IS known in advance."
+        },
+        {
+            statement: "The AND operator is true only when both of its conditions are true.",
+            answer: true,
+            explanation: "Correct — AND needs both sides true. OR needs only one side true."
+        },
+        {
+            statement: "Selection means repeating a block of instructions many times.",
+            answer: false,
+            explanation: "Repeating is iteration. Selection means choosing a path based on whether a condition is true or false."
+        },
+        {
+            statement: "A do…until loop always runs its body at least once.",
+            answer: true,
+            explanation: "Correct — the condition is checked after the body, so the body runs at least once. A while loop can run zero times."
+        },
+        {
+            statement: "^ is the operator for finding a remainder.",
+            answer: false,
+            explanation: "^ is the exponent (to the power of) operator. MOD is the operator that finds a remainder."
+        }
+    ];
+
+    const miscData = [
+        {
+            wrong: "Using = when you mean == (or thinking they are the same).",
+            correct: "<strong>=</strong> is <strong>assignment</strong> — it <em>stores</em> the right-hand value into a variable. <strong>==</strong> is <strong>comparison</strong> — it <em>asks</em> whether two values are equal and gives true/false. A condition (in an <code>if</code> or <code>while</code>) needs <code>==</code>.",
+            readCheck: {
+                q: "Which symbol belongs in a condition that tests whether  score  equals 100?",
+                opts: ["=, because a single equals sign is the standard way to check that two values are the same as each other", "==, because a condition compares two values and == is the comparison operator for 'is equal to'", "MOD, because you need to find the remainder before you are able to compare the score against one hundred", "!=, because that is the operator that specifically checks whether the score has reached exactly one hundred"],
+                ans: 1,
+                explain: "A condition compares values, so it needs == (equal to). A single = would try to assign, not compare."
+            }
+        },
+        {
+            wrong: "Mixing up MOD and DIV.",
+            correct: "<strong>DIV</strong> gives the <strong>whole-number result</strong> of a division (how many times it goes in); <strong>MOD</strong> gives the <strong>remainder</strong> left over. For 17 and 5: <code>17 DIV 5 = 3</code> and <code>17 MOD 5 = 2</code>. A memory hook: <strong>D</strong>IV = the <strong>D</strong>ivision result; MOD = what's left over.",
+            readCheck: {
+                q: "What is  17 DIV 5 ?",
+                opts: ["2, which is the amount that is left over once five has been divided into seventeen as many times as it can be", "3", "3.4", "5"],
+                ans: 1,
+                explain: "DIV gives the whole-number result: 5 goes into 17 three times, so 17 DIV 5 = 3. The remainder (2) is 17 MOD 5."
+            }
+        },
+        {
+            wrong: "Thinking a variable and a constant are the same thing.",
+            correct: "Both are <strong>named stores</strong>, but a <strong>variable's</strong> value <strong>can change</strong> as the program runs, while a <strong>constant's</strong> value is <strong>fixed</strong> once set. Use a constant for values that should never change, like a tax rate.",
+            readCheck: {
+                q: "Which of these should be stored as a CONSTANT rather than a variable?",
+                opts: ["A running total of a player's score, which needs to go up and down repeatedly as they play through the game", "The fixed rate of VAT (0.20) that is used in several places and should never change while the program runs", "The user's latest guess in a guessing game, which is different every single time they are asked to enter one", "The current number of items in a shopping basket, which changes each time the user adds or removes something"],
+                ans: 1,
+                explain: "A fixed value used in several places (the VAT rate) suits a constant. The others all change as the program runs, so they are variables."
+            }
+        },
+        {
+            wrong: "Confusing count-controlled and condition-controlled loops.",
+            correct: "A <strong>count-controlled</strong> (for) loop runs a <strong>known number of times</strong>. A <strong>condition-controlled</strong> (while / do-until) loop runs <strong>until a condition changes</strong>, when you <strong>don't know</strong> the number in advance. Ask: 'Do I know how many times?' Yes → for; No → while.",
+            readCheck: {
+                q: "A loop must keep running until the user finally types the word 'quit'. Which type of loop is this?",
+                opts: ["A count-controlled loop, because the program can always work out the exact number of repetitions before it starts", "A condition-controlled loop, because you cannot know in advance how many times the user will type before quitting", "Neither — this task cannot be done with a loop at all, and must instead be written out as a plain sequence", "A selection statement, because the program only has to decide once whether the user has typed the word quit"],
+                ans: 1,
+                explain: "The number of repetitions is unknown (it depends on the user), so it's condition-controlled — repeat until they type 'quit'."
+            }
+        },
+        {
+            wrong: "Reading assignment  x = x + 1  as an impossible equation.",
+            correct: "It is <strong>not</strong> an equation to solve — assignment works <strong>right to left</strong>. The computer works out the <strong>right-hand side using the old value</strong> of <code>x</code>, then stores the result as the <strong>new</strong> <code>x</code>. So if x was 4, <code>x = x + 1</code> makes x become 5.",
+            readCheck: {
+                q: "If  total  currently holds 7, what does  total = total + 3  leave in  total ?",
+                opts: ["It leaves nothing valid, because a variable can never be defined in terms of itself within a single statement", "10, because the old value 7 is added to 3 and the result is stored back into total as its new value", "3, because the number on the right of the equals sign simply replaces whatever total used to be holding", "It leaves 7 unchanged, because the two sides of the statement have to be equal for it to be allowed to run"],
+                ans: 1,
+                explain: "The right-hand side (7 + 3) is worked out first, then stored back into total, giving 10."
+            }
+        },
+        {
+            wrong: "Thinking a while loop always runs at least once.",
+            correct: "A <strong>while</strong> loop checks its condition <strong>before</strong> the first pass, so if the condition is already false it runs <strong>zero</strong> times. It is the <strong>do…until</strong> loop that always runs at least once, because it checks <strong>after</strong> the body.",
+            readCheck: {
+                q: "A while loop's condition is false before the loop is even reached. How many times does its body run?",
+                opts: ["Once, because every loop is guaranteed to run its body a minimum of one single time before any checking happens", "Zero times, because a while loop checks the condition before each pass and the condition is already false", "Exactly the number set by its counter, because a while loop always repeats a fixed number of times overall", "It runs forever, because a false condition means the loop can never find a reason to stop itself running"],
+                ans: 1,
+                explain: "A while loop tests first, so a condition that is already false means the body runs zero times."
+            }
+        }
+    ];
+
+    const examTips = [
+        {
+            type: "tip",
+            title: "How to trace code line by line",
+            pills: ["AO2", "Key skill", "Trace tables"],
+            content: `<p>"What does this output?" and trace-table questions are worth a lot on Paper 2, and you get them right by being <strong>slow and mechanical</strong>, not by reading the code and guessing.</p>
+<ul>
+<li>Draw a small table with a <strong>column for each variable</strong> (and one for output).</li>
+<li>Work through <strong>one line at a time</strong>, writing the new value each time a variable changes. Never skip a loop pass.</li>
+<li>For a loop, check the <strong>condition</strong> each pass and stop the moment it is false.</li>
+</ul>
+<p><strong>Example:</strong> for <code>total = 0</code> then <code>for i = 1 to 3 … total = total + i … next i</code>, your table fills in i = 1 (total 1), i = 2 (total 3), i = 3 (total 6). Output: 6. Slow beats clever.</p>`,
+            readCheck: {
+                q: "What is the safest way to answer a 'what does this code output?' question?",
+                opts: ["Read the whole program quickly and write down the answer that looks the most likely based on the variable names", "Build a trace table and work through one line at a time, writing each variable's new value as it changes", "Run the code in your head as fast as you can so you do not run out of time for the other questions on the paper", "Count the number of lines of code in the program, since that is usually equal to the value it will output"],
+                ans: 1,
+                explain: "Tracing line by line in a table, updating each variable as it changes, is the reliable method — guessing from names is not."
+            }
+        },
+        {
+            type: "explain",
+            title: "MOD and DIV: show the working",
+            pills: ["AO2", "Calculation", "Common question"],
+            content: `<p>You'll be asked to work out <code>MOD</code> and <code>DIV</code> results, and to use them (e.g. testing for even, splitting into groups). Do it in two steps:</p>
+<ul>
+<li>First find the <strong>whole number of times</strong> the divisor goes in — that's the <strong>DIV</strong> answer.</li>
+<li>Then find what's <strong>left over</strong> — that's the <strong>MOD</strong> answer.</li>
+</ul>
+<p><strong>Worked:</strong> <code>30 DIV 7</code> → 7 goes into 30 four times (28), so <strong>DIV = 4</strong>; 30 − 28 = 2 left over, so <code>30 MOD 7</code> <strong>= 2</strong>. And remember the classic use: <code>n MOD 2 == 0</code> tests whether <code>n</code> is even.</p>`,
+            readCheck: {
+                q: "Using the two-step method, what are  30 DIV 7  and  30 MOD 7 ?",
+                opts: ["DIV is 2 and MOD is 4, because 30 MOD 7 counts how many whole times seven divides into thirty altogether", "DIV is 4 and MOD is 2, because 7 goes into 30 four times (28) with 2 left over", "DIV is 4.3 and MOD is 0, because seven divides into thirty exactly with only a small decimal part remaining", "DIV is 7 and MOD is 30, because DIV always gives the divisor and MOD always gives the original number back"],
+                ans: 1,
+                explain: "7 into 30 is 4 whole times (28), so DIV = 4; 30 − 28 = 2 left over, so MOD = 2."
+            }
+        },
+        {
+            type: "tip",
+            title: "Naming the constructs and choosing the right loop",
+            pills: ["AO1", "Definitions", "Justify"],
+            content: `<p>Questions frequently ask you to <strong>name</strong> the three constructs, or to <strong>choose and justify</strong> a loop. Keep the definitions crisp:</p>
+<ul>
+<li><strong>Sequence</strong> — steps in order. <strong>Selection</strong> — choose a path (<code>if</code>). <strong>Iteration</strong> — repeat (loop).</li>
+<li><strong>for</strong> loop → when you <strong>know</strong> the number of repeats. <strong>while / do-until</strong> → when you <strong>don't</strong> (repeat until a condition changes).</li>
+</ul>
+<p>If a question says "repeat until the user enters a valid value" or "keep going while there is more data", that's a <strong>condition-controlled</strong> loop — the count isn't known ahead of time. "Do this for each of the 5 items" is <strong>count-controlled</strong>.</p>`,
+            readCheck: {
+                q: "A question asks you to justify using a while loop rather than a for loop for validating user input. What is the best justification?",
+                opts: ["A while loop is always faster than a for loop, so it should be chosen whenever a program needs to run quickly", "You cannot know in advance how many times the user will enter invalid data, so the number of repeats is unknown", "A for loop cannot contain an if statement inside it, whereas a while loop is able to make decisions as it repeats", "A while loop uses less memory than a for loop because it does not need to store a counter variable anywhere at all"],
+                ans: 1,
+                explain: "Validation repeats an unknown number of times (until the input is valid), so a condition-controlled while loop fits — not a fixed for loop."
+            }
+        }
+    ];
+
+    const flashcards = [
+        { term: "Variable", def: "A named store whose value can change while the program runs" },
+        { term: "Constant", def: "A named value that is fixed once set and cannot change while running" },
+        { term: "Assignment ( = )", def: "Stores the right-hand value into the variable on the left" },
+        { term: "Input / output", def: "input() reads a value from the user; print() displays a value" },
+        { term: "+  -  *  /", def: "Add, subtract, multiply, divide" },
+        { term: "^", def: "Exponent — to the power of (2 ^ 3 = 8)" },
+        { term: "DIV", def: "Whole-number (integer) division: 17 DIV 5 = 3" },
+        { term: "MOD", def: "Remainder after division: 17 MOD 5 = 2" },
+        { term: "Comparison operators", def: "==  !=  <  <=  >  >=  — give a true/false result" },
+        { term: "= vs ==", def: "= assigns a value; == compares two values for equality" },
+        { term: "AND / OR / NOT", def: "Boolean: AND needs both true; OR needs one; NOT reverses" },
+        { term: "Sequence", def: "Instructions carried out in order, top to bottom" },
+        { term: "Selection", def: "Choosing a path with if / elseif / else / endif" },
+        { term: "Count-controlled loop", def: "for loop — repeats a known number of times" },
+        { term: "Condition-controlled loop", def: "while / do-until — repeats until a condition changes" },
+        { term: "while vs do-until", def: "while checks before (may run 0 times); do-until checks after (runs ≥1)" }
+    ];
+
+    // ── Original clean-room exam questions (2026-07-24) ──
+    // Written from scratch against the §2.2.1 spec scope (CS-CONTENT-PLAN.md
+    // §6.2 clean-room rule) — NOT transcribed from any OCR paper. This is the
+    // FIRST Paper 2 (2.x) page, so pseudocode uses OCR Exam Reference Language
+    // (ERL). No exam PDF was supplied for this topic, so the tariff spread and
+    // format mix are authored from the standard J277 Paper 2 assessment style
+    // for programming fundamentals (identify/complete/trace code, operator
+    // calculations, choose-and-justify a construct, write a short algorithm),
+    // NOT profiled from a real paper — treat the ceiling as a best estimate.
+    // Spread: 2x1, 3x2, 4x3, 3x4 = 12 questions / 33 marks (mcq/written/
+    // tickGrid/matchLine/bankCloze/traceTable/codeGaps/codeWrite).
+    const EXAM_CASE_STUDIES = {};
+
+    const examQuestions = [
+        {
+            num: "Q1",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: `<p>Tick <strong>one</strong> box to identify the programming construct that repeats a block of instructions.</p>`,
+            options: ["Sequence", "Iteration", "Selection", "Assignment"],
+            answer: 1,
+            hint: "Which word means 'repeating'?",
+            starter: "",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<ul><li><strong>Iteration</strong></li></ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul><li>Only the correct option scores; 2 or more ticks scores 0.</li></ul>
+</div>`,
+            modelAnswer: "Iteration."
+        },
+        {
+            num: "Q2",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: `<p>Tick <strong>one</strong> box to give the value of  <strong>19 MOD 4</strong>.</p>`,
+            options: ["4", "3", "4.75", "16"],
+            answer: 1,
+            hint: "MOD gives the remainder. How many are left over after taking 4s out of 19?",
+            starter: "",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<ul><li><strong>3</strong> (4 goes into 19 four times = 16, leaving a remainder of 3)</li></ul>
+</div>`,
+            modelAnswer: "3"
+        },
+        {
+            num: "Q3",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            stubs: ["Variable", "Constant"],
+            question: `<p>State <strong>one</strong> difference between a <strong>variable</strong> and a <strong>constant</strong>.</p>`,
+            hint: "Think about which one can change its value while the program is running.",
+            starter: "A variable…, whereas a constant…",
+            markPoints: {
+                note: "Up to 2 marks: both sides of the difference (the variable side AND the constant side).",
+                groups: [
+                    {
+                        label: "The difference (both sides)", max: 2, points: [
+                            { text: "Says a variable's value can change while the program runs", marks: 1 },
+                            { text: "Contrasts this with a constant, whose value is fixed / cannot change while the program runs", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks</h5>
+<ul>
+<li>Award 1 mark for: a variable's value can change while the program runs.</li>
+<li>Award 1 mark for: a constant's value is fixed and cannot change while the program runs.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul><li>Both sides of the contrast are needed for full marks.</li></ul>
+</div>`,
+            modelAnswer: "A variable's value can change while the program is running, whereas a constant's value is set once and cannot change while the program runs."
+        },
+        {
+            num: "Q4",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: `<p>Give the value of each of the following:</p><p>(a) <strong>26 DIV 5</strong>  <strong>[1]</strong><br>(b) <strong>26 MOD 5</strong>  <strong>[1]</strong></p>`,
+            hint: "First find how many whole 5s are in 26 (that's DIV), then what is left over (that's MOD).",
+            starter: "(a) …  (b) …",
+            markPoints: {
+                note: "1 mark for each correct value.",
+                groups: [
+                    { label: "(a) 26 DIV 5", max: 1, points: [{ text: "5", marks: 1 }] },
+                    { label: "(b) 26 MOD 5", max: 1, points: [{ text: "1", marks: 1 }] }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks</h5>
+<ul>
+<li>(a) <strong>5</strong> — 5 goes into 26 five whole times (25)</li>
+<li>(b) <strong>1</strong> — 26 − 25 leaves a remainder of 1</li>
+</ul>
+</div>`,
+            modelAnswer: "(a) 5\n(b) 1"
+        },
+        {
+            num: "Q5",
+            marks: 4,
+            type: "written",
+            format: "tickGrid",
+            caseStudy: "",
+            question: `<p>Tick <strong>one</strong> box in each row to identify the type of each operator.</p>`,
+            grid: {
+                cols: ["Arithmetic", "Comparison", "Boolean"],
+                rows: [
+                    { label: "MOD", correct: [0] },
+                    { label: "!=", correct: [1] },
+                    { label: "AND", correct: [2] },
+                    { label: ">=", correct: [1] }
+                ]
+            },
+            hint: "Arithmetic operators do maths; comparison operators compare two values; Boolean operators combine conditions.",
+            starter: "MOD: … | != : … | AND: … | >= : …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (1 mark for each row)</h5>
+<ul>
+<li>MOD → <strong>Arithmetic</strong></li>
+<li>!= → <strong>Comparison</strong></li>
+<li>AND → <strong>Boolean</strong></li>
+<li>&gt;= → <strong>Comparison</strong></li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul><li>Each row is marked independently; 2+ ticks in a row scores 0 for that row.</li></ul>
+</div>`,
+            modelAnswer: "MOD: Arithmetic. != : Comparison. AND: Boolean. >= : Comparison."
+        },
+        {
+            num: "Q6",
+            marks: 4,
+            type: "written",
+            format: "matchLine",
+            caseStudy: "",
+            question: `<p>Draw <strong>one</strong> line from each operator to what it does.</p><p>(There are more descriptions than operators — one description is not used.)</p>`,
+            match: {
+                left: ["DIV", "==", "^", "OR"],
+                right: ["Gives the whole number of times one value divides into another", "Is true when two values are equal", "Raises a number to a power", "Is true when at least one condition is true", "Gives the remainder after a division"],
+                answer: { "0": 0, "1": 1, "2": 2, "3": 3 },
+                decoys: [4]
+            },
+            hint: "Watch the decoy: 'gives the remainder' describes MOD, which is not one of the four operators listed.",
+            starter: "DIV → …, == → …, ^ → …, OR → …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (1 mark per correct line)</h5>
+<ul>
+<li>DIV → <strong>A</strong> (whole number of times one value divides into another)</li>
+<li>== → <strong>B</strong> (true when two values are equal)</li>
+<li>^ → <strong>C</strong> (raises a number to a power)</li>
+<li>OR → <strong>D</strong> (true when at least one condition is true)</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul><li>1 mark per correct line. Description E ('gives the remainder') is a decoy describing MOD, and is not used.</li></ul>
+</div>`,
+            modelAnswer: "DIV → whole number of times one value divides into another. == → true when two values are equal. ^ → raises a number to a power. OR → true when at least one condition is true."
+        },
+        {
+            num: "Q7",
+            marks: 3,
+            type: "written",
+            format: "bankCloze",
+            caseStudy: "",
+            question: `<p>Complete the paragraph about the three programming constructs by selecting terms from the list. <strong>Not all terms are used.</strong></p>`,
+            cloze: `<p>In a program, ___1___ means the instructions are carried out in order, one after another. ___2___ chooses which instructions to run based on whether a condition is true. ___3___ repeats a block of instructions, either a set number of times or until a condition changes.</p>`,
+            bank: ["sequence", "selection", "iteration", "assignment", "comparison", "operator"],
+            answers: {
+                "1": ["sequence"],
+                "2": ["selection"],
+                "3": ["iteration"]
+            },
+            hint: "Order → one; choosing a path → one; repeating → one. Several terms are decoys.",
+            starter: "(1) … (2) … (3) …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 3 marks (1 mark for each completed term)</h5>
+<p>In a program, <strong>sequence</strong> means the instructions are carried out in order, one after another. <strong>Selection</strong> chooses which instructions to run based on whether a condition is true. <strong>Iteration</strong> repeats a block of instructions.</p>
+</div>`,
+            modelAnswer: "(1) sequence (2) selection (3) iteration"
+        },
+        {
+            num: "Q8",
+            marks: 4,
+            type: "written",
+            format: "traceTable",
+            caseStudy: "",
+            question: `<p>The algorithm below uses a count-controlled loop.</p><pre>total = 0
+for i = 1 to 4
+  total = total + i
+next i
+print(total)</pre>
+<p>Complete the trace table to show the value of <strong>i</strong> and <strong>total</strong> at the end of each pass of the loop.</p>`,
+            trace: {
+                columns: ["i", "total"],
+                rows: [
+                    ["1", "1"],
+                    ["2", "3"],
+                    ["3", "6"],
+                    ["4", "10"]
+                ]
+            },
+            hint: "Start with total = 0. Each pass adds the current i to total: 0+1, then +2, then +3, then +4.",
+            starter: "Pass 1: i=1, total=1 …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (1 mark per correct row of the trace)</h5>
+<ul>
+<li>Pass 1 → i = 1, total = 1</li>
+<li>Pass 2 → i = 2, total = 3</li>
+<li>Pass 3 → i = 3, total = 6</li>
+<li>Pass 4 → i = 4, total = 10</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul><li>1 mark for each fully-correct row of the trace (both columns right). The program finally outputs 10.</li></ul>
+</div>`,
+            modelAnswer: "Pass 1: i=1, total=1. Pass 2: i=2, total=3. Pass 3: i=3, total=6. Pass 4: i=4, total=10. Output: 10."
+        },
+        {
+            num: "Q9",
+            marks: 3,
+            type: "written",
+            format: "codeGaps",
+            caseStudy: "",
+            question: `<p>The algorithm below should add up the numbers from 1 to 5 and print the total.</p><p>Complete the three gaps.</p>`,
+            gaps: {
+                lines: [
+                    "total = 0",
+                    "for i = 1 to {1}",
+                    "  total = total {2} i",
+                    "next i",
+                    "print({3})"
+                ],
+                answers: {
+                    "1": ["5"],
+                    "2": ["+"],
+                    "3": ["total"]
+                }
+            },
+            hint: "The loop must run for the numbers 1 to 5; each pass should add i onto the running total; finally output the total.",
+            starter: "Gap 1: … Gap 2: … Gap 3: …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 3 marks (1 mark per gap)</h5>
+<ul>
+<li>Gap 1: <strong>5</strong></li>
+<li>Gap 2: <strong>+</strong></li>
+<li>Gap 3: <strong>total</strong></li>
+</ul>
+</div>`,
+            modelAnswer: "for i = 1 to 5 ; total = total + i ; print(total)"
+        },
+        {
+            num: "Q10",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: `<p>A program needs to keep asking the user to enter a password until they type the correct one.</p><p>State which type of iteration (count-controlled or condition-controlled) is most suitable, and give <strong>one</strong> reason.</p>`,
+            hint: "Do you know in advance how many attempts the user will need?",
+            starter: "The most suitable type is…, because…",
+            markPoints: {
+                note: "1 mark for the correct type, 1 mark for a valid reason.",
+                groups: [
+                    { label: "Type", max: 1, points: [{ text: "Condition-controlled (while / do-until)", marks: 1 }] },
+                    { label: "Reason", max: 1, points: [{ text: "You do not know in advance how many attempts the user will take, so the number of repetitions is unknown", marks: 1 }] }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks</h5>
+<ul>
+<li>1 mark: condition-controlled (while or do-until)</li>
+<li>1 mark: the number of repetitions is not known in advance (it depends on how many tries the user takes)</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul><li>The reason must link to the number of repetitions being unknown.</li></ul>
+</div>`,
+            modelAnswer: "Condition-controlled (a while or do-until loop), because you cannot know in advance how many attempts the user will take — you simply repeat until the correct password is entered."
+        },
+        {
+            num: "Q11",
+            marks: 3,
+            type: "written",
+            caseStudy: "",
+            question: `<p>Explain what the following algorithm outputs, and why.</p><pre>x = 10
+if x &gt; 5 AND x &lt; 20 then
+  print("in range")
+else
+  print("out of range")
+endif</pre>`,
+            hint: "Work out whether BOTH parts of the AND condition are true for x = 10.",
+            starter: "The output is…, because…",
+            markPoints: {
+                note: "1 mark for the correct output, up to 2 marks for a correct explanation of the AND condition.",
+                groups: [
+                    {
+                        label: "Output + explanation", max: 3, points: [
+                            { text: "States the output is 'in range'", marks: 1 },
+                            { text: "Explains that x > 5 is true (10 > 5)", marks: 1 },
+                            { text: "Explains that x < 20 is also true, and AND needs BOTH sides true, so the if branch runs", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 3 marks</h5>
+<ul>
+<li>1 mark: output is <strong>in range</strong></li>
+<li>1 mark: 10 &gt; 5 is true</li>
+<li>1 mark: 10 &lt; 20 is also true, and AND requires both sides true, so the first branch runs</li>
+</ul>
+</div>`,
+            modelAnswer: "The output is \"in range\". x is 10, so x > 5 is true (10 > 5) and x < 20 is also true (10 < 20). The AND operator needs both conditions to be true, and they are, so the if branch runs and prints \"in range\"."
+        },
+        {
+            num: "Q12",
+            marks: 4,
+            type: "written",
+            format: "codeWrite",
+            caseStudy: "",
+            question: `<p>Write an algorithm, using pseudocode, that:</p><ul><li>asks the user to enter a whole number, and</li><li>prints <strong>"even"</strong> if the number is even, or <strong>"odd"</strong> if it is not.</li></ul><p>You may answer in OCR Exam Reference Language or in a high-level language you know.</p>`,
+            hint: "Read the number in, then use MOD 2 to test whether the remainder is 0 (even). Use selection (if…else).",
+            starter: "number = input(...)",
+            markPoints: {
+                note: "Mark the LOGIC (any equivalent, correct algorithm earns full marks — exact wording/language may vary).",
+                groups: [
+                    {
+                        label: "A correct even/odd algorithm", max: 4, points: [
+                            { text: "Takes a number as input (e.g. number = input(...))", marks: 1 },
+                            { text: "Uses number MOD 2 to test for a remainder", marks: 1 },
+                            { text: "Correct selection: if the remainder is 0 → even, otherwise → odd", marks: 1 },
+                            { text: "Outputs the correct word ('even' / 'odd') in each case", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks — mark the logic (accept any equivalent code)</h5>
+<ul>
+<li>1 mark: inputs a number</li>
+<li>1 mark: uses MOD 2 to find the remainder</li>
+<li>1 mark: correct selection (remainder 0 → even, else odd)</li>
+<li>1 mark: outputs the correct word in each branch</li>
+</ul>
+<p>Example (ERL):</p>
+<div class="code-block">number = input("Enter a whole number: ")
+if number MOD 2 == 0 then
+  print("even")
+else
+  print("odd")
+endif</div>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul><li>Any logically correct answer scores full marks — mark the logic, not the exact wording or choice of language.</li></ul>
+</div>`,
+            modelAnswer: "number = input(\"Enter a whole number: \")\nif number MOD 2 == 0 then\n  print(\"even\")\nelse\n  print(\"odd\")\nendif"
+        }
+    ];
 </script>
     <script src="/script.js"></script>
 <script src="section-totals.js"></script>

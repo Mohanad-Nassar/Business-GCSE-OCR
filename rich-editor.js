@@ -78,6 +78,12 @@
     td: { colspan: 1, rowspan: 1 },
     ol: { start: 1, type: 1 },
     font: { color: 1 }, // execCommand foreColor emits <font color> in some engines
+    // Spanish topic-page content (rendered through this sanitizer wherever a
+    // `reading` bank field is shown — daily-revise/task/review) marks audible
+    // Spanish with data-say/data-listen (see speech.js). Plain-text values,
+    // no markup/URL risk — safe to pass through untouched like any other
+    // allowlisted attribute.
+    span: { 'data-say': 1, 'data-listen': 1 },
   };
 
   // Inline style properties a teacher can legitimately produce with the
@@ -98,6 +104,7 @@
     'rt-callout': 1, 'rt-tip': 1, 'rt-keyterm': 1, 'rt-warning': 1,
     'rt-img-left': 1, 'rt-img-center': 1, 'rt-img-right': 1,
     'rt-img-wrap-left': 1, 'rt-img-wrap-right': 1,
+    'vocab-tbl': 1, 'tier-h': 1, // Spanish topic pages' vocab table + tier-tag styling — same reading-field path as data-say above
   };
 
   function escapeHtml(str) {

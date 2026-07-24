@@ -233,10 +233,39 @@
         setTimeout(() => p.remove(), 4000);
       }
     },
+    // Teacher feedback: students typing Spanish have no easy way to enter
+    // accented letters (á/é/í/ó/ú/ñ/ü) or ¿/¡ on most keyboards. A tap-to-
+    // insert bar next to the answer box, shared by every typed-answer mode
+    // rather than reimplemented per-mode. Inserts at the cursor position
+    // (not just appended) and returns focus to the input so typing isn't
+    // interrupted.
+    attachAccentBar(inputEl) {
+      const CHARS = ['á', 'é', 'í', 'ó', 'ú', 'ñ', 'ü', '¿', '¡'];
+      const bar = document.createElement('div');
+      bar.className = 'vl-accentbar';
+      CHARS.forEach(ch => {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'vl-accentbtn';
+        b.textContent = ch;
+        b.tabIndex = -1; // decorative helper, not part of the tab order
+        b.addEventListener('mousedown', e => e.preventDefault()); // don't steal focus from the input
+        b.addEventListener('click', () => {
+          const start = inputEl.selectionStart != null ? inputEl.selectionStart : inputEl.value.length;
+          const end = inputEl.selectionEnd != null ? inputEl.selectionEnd : inputEl.value.length;
+          inputEl.value = inputEl.value.slice(0, start) + ch + inputEl.value.slice(end);
+          inputEl.focus();
+          inputEl.setSelectionRange(start + ch.length, start + ch.length);
+        });
+        bar.appendChild(b);
+      });
+      inputEl.insertAdjacentElement('afterend', bar);
+      return bar;
+    },
   };
   (function injectConfettiKeyframes() {
     const s = document.createElement('style');
-    s.textContent = '@keyframes vlConfettiFall { to { transform: translateY(100vh) rotate(360deg); opacity: 0; } } .vl-btn { background: var(--chrome, var(--ink)); color: var(--chrome-text, var(--paper)); border: none; padding: 10px 18px; border-radius: 7px; font-family: "DM Sans", sans-serif; font-weight: 600; font-size: 13px; cursor: pointer; } .vl-btn:hover { opacity: .9; } .vl-btn:disabled { opacity: .5; cursor: default; }';
+    s.textContent = '@keyframes vlConfettiFall { to { transform: translateY(100vh) rotate(360deg); opacity: 0; } } .vl-btn { background: var(--chrome, var(--ink)); color: var(--chrome-text, var(--paper)); border: none; padding: 10px 18px; border-radius: 7px; font-family: "DM Sans", sans-serif; font-weight: 600; font-size: 13px; cursor: pointer; } .vl-btn:hover { opacity: .9; } .vl-btn:disabled { opacity: .5; cursor: default; } .vl-accentbar { display:flex; flex-wrap:wrap; justify-content:center; gap:6px; max-width:360px; margin:8px auto 0; } .vl-accentbtn { min-width:34px; height:34px; padding:0 4px; border:1.5px solid var(--border); border-radius:7px; background:var(--card-bg); color:var(--ink); font-size:16px; cursor:pointer; } .vl-accentbtn:hover { border-color:var(--accent); color:var(--accent); } .vl-accentbtn:focus-visible { outline:2px solid var(--accent); outline-offset:1px; }';
     document.head.appendChild(s);
   })();
 

@@ -87,6 +87,7 @@
 
       const input = area.querySelector('#vlLtInput');
       const feedback = area.querySelector('#vlLtFeedback');
+      ctx.ui.attachAccentBar(input);
       input.focus();
       area.querySelector('#vlLtSubmitBtn').addEventListener('click', () => submit(input, feedback, w));
       input.addEventListener('keydown', (e) => {

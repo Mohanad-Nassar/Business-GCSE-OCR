@@ -16,7 +16,7 @@
         <div>
             <div class="badge">OCR GCSE Computer Science — Paper 2 · 2.3 Producing Robust Programs</div>
             <h1>2.3.2 Testing</h1>
-            <p>Interactive revision guide · Content coming soon</p>
+            <p>Interactive revision guide</p>
         </div>
         <a href="/index.html" class="home-link">← 🏡 Home</a>
     </header>
@@ -256,7 +256,9 @@
 
 <script>
     // ══════════════════════════════════════
-    //  DATA: 2.3.2 Testing — placeholder, content not yet written
+    //  DATA: 2.3.2 Testing
+    //  Clean-room content written from the §2.3.2 spec scope (CS-CONTENT-PLAN.md
+    //  §6.2 clean-room rule) — NOT transcribed from any OCR paper.
     // ══════════════════════════════════════
     const pageMeta = {
             id: '2-3-2-testing',
@@ -268,21 +270,905 @@
 
     const topics = [
         {
-            title: "This topic is being written",
-            tag: "Coming soon",
-            content: `<p>🚧 <strong>Content for this topic is on its way.</strong> Key Learning notes, practice questions and exam-style questions for <strong>2.3.2 Testing</strong> will appear here soon.</p>`
+            title: "The purpose of testing",
+            tag: "Key concept",
+            content: `<h4>Why we test a program</h4>
+<ul>
+<li>Testing is carried out to <strong>find and remove errors</strong> in a program, and to <strong>check that it meets its requirements</strong> and works correctly for <strong>all kinds of input</strong> — not just the input a programmer happens to try while writing it.</li>
+<li>A program that has never been tested with unusual or invalid input might look perfect in a quick demonstration, but crash or give the wrong answer the first time a real user makes a mistake.</li>
+<li>Good testing tries to <strong>break</strong> the program on purpose — feeding it data it was never designed to expect — so weaknesses are found and fixed <strong>before release</strong>, not after.</li>
+</ul>`,
+            readCheck: {
+                q: "What is testing carried out to do?",
+                opts: ["Make the finished program run faster on any computer it is installed on, regardless of the hardware", "Find and remove errors, and check the program meets its requirements for all kinds of input", "Translate the program's source code into machine code so that it is able to run at all", "Add extra features to the program that were never part of its original requirements"],
+                ans: 1,
+                explain: "Testing finds and removes errors, and checks the program meets its requirements and works for all kinds of input. Translating code and adding features are different tasks entirely."
+            }
+        },
+        {
+            title: "Iterative testing vs final (terminal) testing",
+            tag: "Key concept",
+            content: `<h4>Testing throughout development, and testing at the end</h4>
+<ul>
+<li><strong>Iterative testing</strong> happens <strong>throughout</strong> development — each module or part of a program is tested <strong>repeatedly, as it is written and refined</strong>, so problems are caught early, while the code that caused them is still fresh in the programmer's mind.</li>
+<li><strong>Final (terminal) testing</strong> happens <strong>once, at the end</strong>, when the whole program has been completed. The complete program is tested against its original requirements, checking that every part still works correctly once put together.</li>
+<li>Both matter: iterative testing keeps development moving without small problems piling up; final testing checks the finished product as a whole, including how its modules interact.</li>
+</ul>`,
+            readCheck: {
+                q: "What is iterative testing?",
+                opts: ["Testing modules or parts of a program repeatedly, as it is developed and refined", "Testing the complete, finished program once, right at the very end of development", "Running the program on several different computers to check it works on all of them", "Asking a different group of users to test the program once every single version is released"],
+                ans: 0,
+                explain: "Iterative testing repeats throughout development, testing modules as they are built. Testing the complete program once at the end is final (terminal) testing."
+            }
+        },
+        {
+            title: "Syntax errors",
+            tag: "Errors",
+            content: `<h4>Breaking the rules of the language</h4>
+<ul>
+<li>A <strong>syntax error</strong> breaks the <strong>rules</strong> of the programming language — for example a missing bracket, a misspelt keyword, or a missing colon. Because a rule is broken, the program <strong>cannot be translated or run at all</strong>.</li>
+<li>Syntax errors are usually the <strong>easiest</strong> to find: the <strong>translator</strong> (compiler or interpreter) detects them automatically and reports an <strong>error message</strong>, often pointing at the exact line.</li>
+</ul>
+<div class="code-block">if score => 50 then     // syntax error: => is not a valid operator
+  print("pass")
+endif</div>`,
+            readCheck: {
+                q: "What is a syntax error?",
+                opts: ["An error that lets the program run normally from start to finish, but that quietly produces the wrong final result", "An error that breaks the rules of the programming language, so the program cannot be translated or run", "An error that only ever appears the very first time a brand new user happens to try running the program", "An error that a program's own test plan can sometimes accidentally introduce while it is being written"],
+                ans: 1,
+                explain: "A syntax error breaks the language's rules, so the program can't be translated or run at all. Running but giving the wrong result describes a logic error instead."
+            }
+        },
+        {
+            title: "Logic errors",
+            tag: "Errors",
+            content: `<h4>Running, but giving the wrong result</h4>
+<ul>
+<li>A <strong>logic error</strong> does <strong>not</strong> stop a program running or translating — the rules of the language are followed correctly. Instead, the program runs but produces the <strong>wrong result</strong>, because the algorithm itself is flawed.</li>
+<li>Logic errors are much <strong>harder to find</strong> than syntax errors, because the translator cannot detect them — there is nothing "wrong" for it to spot. They are usually found by <strong>testing</strong> the program with data where the correct answer is already known, and comparing the <strong>actual</strong> output with the <strong>expected</strong> output.</li>
+</ul>
+<div class="code-block">total = a - b     // logic error: should be a + b
+print(total)</div>`,
+            readCheck: {
+                q: "How are logic errors normally found?",
+                opts: ["The translator reports an error message and refuses to run the program at all", "By testing the program and comparing its actual output with the expected output", "They cannot be found at all, since a logic error never affects the program's output", "By checking that every bracket and keyword in the code has been spelt correctly"],
+                ans: 1,
+                explain: "The translator can't spot a logic error, since the code obeys the language's rules. Testing — comparing actual output against the expected output — is how they are found."
+            }
+        },
+        {
+            title: "Normal test data",
+            tag: "Test data",
+            content: `<h4>Typical, everyday valid data</h4>
+<ul>
+<li><strong>Normal</strong> test data is <strong>typical, sensible, valid</strong> data — the kind of input the program is designed to receive, and should <strong>accept and process correctly</strong> in everyday use.</li>
+<li>Example: if a program accepts a whole number age from 0 to 120, a normal test value could be <strong>32</strong> — a completely ordinary, valid age, nowhere near the edges of what is accepted.</li>
+</ul>`,
+            readCheck: {
+                q: "What is normal test data?",
+                opts: ["Data of the wrong type entirely, which the program should always reject on sight", "Typical, valid data that the program is designed to accept and process correctly", "Data sitting exactly on the minimum or maximum edge of what the program accepts", "Data that is technically the right type, but that falls outside the accepted range"],
+                ans: 1,
+                explain: "Normal test data is typical, valid data the program should accept and process correctly — not data at an edge, out of range, or of the wrong type."
+            }
+        },
+        {
+            title: "Boundary (extreme) test data",
+            tag: "Test data",
+            content: `<h4>Right at the edge of what's accepted</h4>
+<ul>
+<li><strong>Boundary</strong> (or <strong>extreme</strong>) test data sits <strong>right at the edge</strong> of what a program should accept — the <strong>minimum</strong> and <strong>maximum</strong> valid values. Boundary values are still <strong>valid</strong>, so the program should <strong>accept</strong> them.</li>
+<li>Boundary values matter because errors often happen at the edges of a range — a validation check that uses <code>&lt;</code> where it should use <code>&lt;=</code> will wrongly reject a value that should actually be accepted.</li>
+<li>Example: for an age from 0 to 120, the boundary values are <strong>0</strong> and <strong>120</strong>.</li>
+</ul>
+<div class="code-block">if age &gt;= 0 AND age &lt;= 120 then
+  print("accepted")
+else
+  print("rejected")
+endif</div>`,
+            readCheck: {
+                q: "A program accepts a whole number from 5 to 15. Which value is boundary (extreme) test data?",
+                opts: ["10, since it sits roughly in the middle of the accepted range and is the safest value to try", "15", "16, since it is the very first whole number that falls just outside the accepted range", "'fifteen', since typing the word instead of the digits is about as extreme as an input can get"],
+                ans: 1,
+                explain: "Boundary data is a valid value right at the edge of the accepted range — here, 5 or 15. 16 is outside the range (invalid) and 'fifteen' is the wrong type (erroneous)."
+            }
+        },
+        {
+            title: "Invalid test data",
+            tag: "Test data",
+            content: `<h4>Correct type, but outside the accepted range</h4>
+<ul>
+<li><strong>Invalid</strong> test data is data of the <strong>correct type</strong>, but <strong>outside</strong> the range or criteria the program accepts. A well-written program should <strong>reject</strong> it.</li>
+<li>Example: for an age from 0 to 120, both <strong>-5</strong> and <strong>130</strong> are whole numbers (the correct type), but out of range — invalid.</li>
+</ul>`,
+            readCheck: {
+                q: "What is invalid test data?",
+                opts: ["Data of the correct type, but outside the range or criteria the program accepts", "Data that the program is guaranteed to accept and process correctly every time", "Data of the wrong type altogether, such as entering letters where a number is expected", "Data placed exactly on the minimum or maximum edge of the accepted range"],
+                ans: 0,
+                explain: "Invalid data is the right TYPE, just outside the accepted range — it should be rejected. Wrong type entirely is erroneous data, not invalid data."
+            }
+        },
+        {
+            title: "Erroneous test data",
+            tag: "Test data",
+            content: `<h4>The wrong type of data altogether</h4>
+<ul>
+<li><strong>Erroneous</strong> test data is data of the <strong>wrong type</strong> entirely — not just outside the range, but not even the right kind of data. It should also be <strong>rejected</strong>.</li>
+<li>Example: for an age from 0 to 120 (a whole number), typing <strong>"cat"</strong> or <strong>"twenty"</strong> is erroneous — text where a number was expected.</li>
+</ul>`,
+            readCheck: {
+                q: "A program expects a whole number for a person's age. Which of these is erroneous test data?",
+                opts: ["45, since it is a completely ordinary whole number that sits well inside a sensible age range", "0, since it is the lowest whole number the program is designed to accept as a valid age", "'young', since it is text and not a number at all — the wrong type of data entirely", "130, since it is a whole number that is simply too large to be a realistic human age"],
+                ans: 2,
+                explain: "Erroneous data is the wrong TYPE of data altogether — text where a number is needed. 130 is the correct type but out of range, so it is invalid, not erroneous."
+            }
+        },
+        {
+            title: "Worked example — classifying test data",
+            tag: "Worked example",
+            content: `<h4>Putting it together</h4>
+<p>A program asks the user to enter a whole number age from 0 to 120. Here is how sample inputs would be classified:</p>
+<ul>
+<li><strong>45</strong> → <strong>Normal</strong> — a typical, valid age well inside the range.</li>
+<li><strong>0</strong> and <strong>120</strong> → <strong>Boundary</strong> — the minimum and maximum valid values.</li>
+<li><strong>-5</strong> and <strong>130</strong> → <strong>Invalid</strong> — whole numbers, but outside the 0–120 range.</li>
+<li><strong>"cat"</strong> → <strong>Erroneous</strong> — not a number at all.</li>
+</ul>
+<p>To classify any value, ask two questions: <strong>Is it the right type of data?</strong> (no → erroneous) and, if yes, <strong>where does it sit relative to the range?</strong> (typical → normal; exactly at the edge → boundary; outside the range → invalid).</p>`,
+            readCheck: {
+                q: "Using the age (0–120) example, which type of test data is -5?",
+                opts: ["Normal, because negative numbers are still perfectly ordinary, everyday values for a program to receive", "Boundary, because it is close to the bottom edge of the range that the program is designed to accept", "Invalid — a whole number, but outside the 0–120 range that the program accepts", "Erroneous, because a minus sign makes a value the wrong type of data altogether for any program"],
+                ans: 2,
+                explain: "-5 is the correct type (a whole number) but falls outside the accepted 0–120 range, so it is invalid — not boundary (0 and 120 are the boundary values) and not erroneous (that needs the wrong type)."
+            }
+        },
+        {
+            title: "Choosing suitable test data for a scenario",
+            tag: "Exam skill",
+            content: `<h4>A repeatable method for any scenario</h4>
+<ul>
+<li>Exam questions often describe a new input rule and ask you to choose suitable test data. Use the same two questions every time: <strong>1) Is it the right type of data?</strong> If not, it's <strong>erroneous</strong>. <strong>2) If it is the right type, is it typical, right at an edge, or outside the range?</strong> — typical → <strong>normal</strong>; at the minimum/maximum → <strong>boundary</strong>; outside the range → <strong>invalid</strong>.</li>
+<li><strong>Worked scenario:</strong> a program must accept a whole number of pizza slices to order, from 1 to 12.</li>
+<li><strong>7</strong> → normal (a typical order, well inside the range). <strong>1</strong> and <strong>12</strong> → boundary (the minimum and maximum valid orders). <strong>0</strong> and <strong>13</strong> → invalid (whole numbers, but outside 1–12). <strong>"a lot"</strong> → erroneous (not a number at all).</li>
+</ul>`,
+            readCheck: {
+                q: "A program accepts a whole number from 1 to 12. Which of these values is boundary test data?",
+                opts: ["7, because it sits roughly in the middle of the range and is therefore the most typical value to pick", "12", "13, because it is the very first whole number that falls just outside the accepted range", "'twelve', because typing the word instead of the digits is about as extreme as an input can get"],
+                ans: 1,
+                explain: "12 is the maximum valid value — a boundary/extreme value. 7 is normal, 13 is invalid (correct type, out of range), and 'twelve' is erroneous (wrong type)."
+            }
+        },
+        {
+            title: "Test plans",
+            tag: "Key concept",
+            content: `<h4>Recording what you tested, and what happened</h4>
+<ul>
+<li>A <strong>test plan</strong> is a table used to plan and record testing. Each row usually has: the <strong>test data</strong> used, the <strong>type of test data</strong> (normal / boundary / invalid / erroneous), the <strong>expected result</strong> (what should happen if the program is correct), and — once the test has actually been run — the <strong>actual result</strong> and whether it was a <strong>pass or fail</strong>.</li>
+<li>Writing the expected result <strong>before</strong> running the test matters: it stops the programmer just accepting whatever the program happens to output.</li>
+</ul>
+<div class="code-block">Test data | Type      | Expected result | Actual result | Pass/Fail
+32        | Normal    | Accepted         | Accepted      | Pass
+0         | Boundary  | Accepted         | Accepted      | Pass
+-5        | Invalid   | Rejected         | Accepted      | Fail
+"cat"     | Erroneous | Rejected         | Rejected      | Pass</div>
+<ul><li>A good test plan includes <strong>at least one</strong> value of each type — normal, boundary, invalid and erroneous — so the whole range of possible input is checked, not just the easy cases.</li></ul>`,
+            readCheck: {
+                q: "Why should the expected result be written before a test is actually run?",
+                opts: ["So the programmer can objectively judge pass/fail, instead of just accepting whatever the program outputs", "Because the actual result is never actually needed at all, once the expected result has already been written down first", "Because a test plan is only ever considered valid if the expected and actual results always turn out to match exactly", "So the program can be translated into machine code before the testing stage is even allowed to begin"],
+                ans: 0,
+                explain: "Writing the expected result first lets the programmer compare it fairly against what actually happens, rather than judging success after the fact."
+            }
+        },
+        {
+            title: "Refining a program",
+            tag: "Key concept",
+            content: `<h4>Using test results to make it better</h4>
+<ul>
+<li><strong>Refining</strong> means using the results of testing to <strong>find and correct</strong> problems in a program, then <strong>re-testing</strong> to check the fix worked (and that it hasn't broken anything else).</li>
+<li>In the test plan above, the row for -5 is a <strong>Fail</strong> — the program should have rejected it, but didn't. This tells the programmer exactly where to look: the validation check is missing or wrong for negative numbers.</li>
+<li>Refining is a <strong>cycle</strong>: test → find a fail → fix the code → re-test the same case (and re-run the earlier passes, to make sure the fix didn't break them) → repeat until everything passes.</li>
+</ul>`,
+            readCheck: {
+                q: "What does 'refining' a program mean?",
+                opts: ["Using test results to find and correct problems, then re-testing to check the fix worked", "Deleting the whole program and starting again from a blank file every time a test fails", "Running the exact same test a second time, without changing anything in the code at all", "Adding brand new features to a program that were never part of its original requirements"],
+                ans: 0,
+                explain: "Refining means correcting the specific problem a test revealed, then re-testing — not rewriting from scratch or repeating a test without changing anything."
+            }
         }
     ];
 
-    const mcqData = [];
-    const matchData = [];
-    const fibData = [];
-    const fibWords = [];
-    const tfData = [];
-    const miscData = [];
-    const examTips = [];
-    const flashcards = [];
-    const examQuestions = [];
+    const mcqData = [
+        {
+            q: "What is one purpose of testing a program?",
+            opts: ["To make the finished program run faster on whichever computer it happens to be installed on", "To check the program meets its requirements and works correctly for all kinds of input", "To translate the program's source code into machine code so that it is able to run", "To document every line of code so that another programmer could read it later on"],
+            ans: 1,
+            explain: "Testing checks a program meets its requirements and works for all kinds of input. Translating code and documenting it are different tasks."
+        },
+        {
+            q: "Which best describes iterative testing?",
+            opts: ["Testing the complete, finished program once, right at the very end of development", "Testing modules or parts of the program repeatedly as it is developed and refined", "Asking real users to test the finished program after it has already been released", "Running the finished program on several different makes and models of computer"],
+            ans: 1,
+            explain: "Iterative testing repeats throughout development, testing parts of the program as they are built and refined. Testing once at the end is final (terminal) testing."
+        },
+        {
+            q: "Which best describes final (terminal) testing?",
+            opts: ["Testing each small module the moment it is first written, before any other code exists", "Testing the complete program, once it is finished, against its original requirements", "Testing carried out by the end user rather than by the programmer who wrote the code", "Testing that only ever checks for syntax errors and nothing else about the program"],
+            ans: 1,
+            explain: "Final (terminal) testing happens once, at the end, testing the whole finished program against its requirements — not one module at a time during development."
+        },
+        {
+            q: "A program has a missing closing bracket, so it cannot be run at all. What type of error is this?",
+            opts: ["A logic error, because the missing bracket produces the wrong result once the program runs", "A syntax error", "A boundary error caused by a value being placed right at the edge of what is accepted", "A test-plan error, because it is really a mistake in how the program was tested, not written"],
+            ans: 1,
+            explain: "Breaking the rules of the language (like a missing bracket) so the program can't run at all is a syntax error. A logic error still lets the program run."
+        },
+        {
+            q: "A program runs without crashing, but always calculates the wrong total. What type of error is this?",
+            opts: ["A syntax error, since the program is clearly breaking one of the rules of the language it is written in", "A logic error", "An erroneous-data error, since this can only ever be caused by the user entering the wrong data", "There is no error here at all, since the program does successfully run all the way through"],
+            ans: 1,
+            explain: "The program runs (so the language rules are followed correctly) but gives the wrong result — that is a logic error, not a syntax error."
+        },
+        {
+            q: "How are syntax errors usually found?",
+            opts: ["Automatically, by the translator, which reports an error message when the program is run", "By testing the program with data where the correct answer is already known in advance", "By asking a different programmer to read through every single line of the code by eye", "They cannot be found until after the finished program has already been released to users"],
+            ans: 0,
+            explain: "The translator automatically detects syntax errors and reports them, because the code breaks the language's own rules. Logic errors need testing instead."
+        },
+        {
+            q: "A program accepts a whole number from 1 to 50. Which of these is NORMAL test data?",
+            opts: ["25", "50, since it is the very largest whole number that the program is designed to accept", "51, since it is a whole number that is just one more than the program should ever allow", "'fifty', since typing the word instead of the digits is not the right type of data at all"],
+            ans: 0,
+            explain: "25 is a typical, valid value comfortably inside the range — normal data. 50 is boundary, 51 is invalid, and 'fifty' is erroneous."
+        },
+        {
+            q: "Using the same program (accepts 1 to 50), which of these is BOUNDARY test data?",
+            opts: ["25, since it sits roughly in the middle of the range and is the most ordinary value to try", "50", "51, since it is the very first whole number that falls just outside the accepted range", "'fifty', since typing the word instead of the digits is the most extreme input imaginable"],
+            ans: 1,
+            explain: "50 is the maximum valid value — a boundary value. 25 is normal, 51 is invalid (correct type, out of range), and 'fifty' is erroneous (wrong type)."
+        },
+        {
+            q: "Using the same program (accepts 1 to 50), which of these is INVALID test data?",
+            opts: ["25, since it sits comfortably inside the accepted range and is a perfectly typical value", "50, since it is the largest whole number that the program should still accept as valid", "51", "'fifty', since it is text rather than a number and is therefore not the correct type at all"],
+            ans: 2,
+            explain: "51 is a whole number (the correct type) but outside the 1–50 range — invalid. 'fifty' is the wrong type entirely, which makes it erroneous, not invalid."
+        },
+        {
+            q: "Using the same program (accepts 1 to 50), which of these is ERRONEOUS test data?",
+            opts: ["25, since it sits comfortably inside the range and is a completely ordinary value to try", "50, since it is the largest whole number that the program is designed to accept", "51, since it is a whole number that is just one more than the highest accepted value", "'fifty'"],
+            ans: 3,
+            explain: "'fifty' is text, not a number — the wrong type of data entirely, which makes it erroneous. 51 is the correct type but out of range, so it is invalid instead."
+        },
+        {
+            q: "What should a test plan record about a test, before it is actually carried out?",
+            opts: ["The expected result", "The actual result, since this is the only column that genuinely matters in a test plan", "The name of the programmer who will eventually be blamed if the test happens to fail", "The exact time and date on which the finished program will finally be released"],
+            ans: 0,
+            explain: "The expected result should be written before running the test, so it can be compared fairly against the actual result to judge pass or fail."
+        },
+        {
+            q: "A test plan row shows: test data 0, type boundary, expected result 'accepted', actual result 'rejected'. What does this tell the programmer?",
+            opts: ["The test has passed, because 0 was a boundary value and boundary values should always automatically be rejected outright", "The test has failed — the program wrongly rejected a value it should have accepted, so the code needs correcting", "Nothing useful, since boundary values are not really considered a meaningful type of test data to use at all", "The test data itself was chosen rather badly and should have been normal data instead of boundary data"],
+            ans: 1,
+            explain: "The expected and actual results don't match (expected accepted, actually rejected), so the test fails — the validation code needs fixing, then re-testing."
+        }
+    ];
+
+    const matchData = [
+        { term: "Testing", def: "Checking that a program works correctly and meets its requirements, and finding any errors before release" },
+        { term: "Debugging", def: "Finding and fixing an error once testing has located it" },
+        { term: "Iterative testing", def: "Testing modules or parts of a program repeatedly as it is developed and refined" },
+        { term: "Final (terminal) testing", def: "Testing the complete, finished program against its original requirements" },
+        { term: "Syntax error", def: "An error that breaks the rules of the programming language, so the program cannot be translated or run" },
+        { term: "Logic error", def: "An error that lets the program run, but produces the wrong result" },
+        { term: "Normal test data", def: "Typical, valid data that the program should accept and process correctly" },
+        { term: "Boundary (extreme) test data", def: "Data right at the edge of what the program accepts — the minimum or maximum valid value" },
+        { term: "Invalid test data", def: "Data of the correct type, but outside the accepted range, which should be rejected" },
+        { term: "Erroneous test data", def: "Data of the wrong type entirely, which should be rejected" },
+        { term: "Test plan", def: "A table recording the test data, its type, and the expected and actual results" },
+        { term: "Refining", def: "Using test results to correct problems in a program, then re-testing" }
+    ];
+
+    const fibData = [
+        {
+            display: "_____ testing checks modules or parts of a program repeatedly, as it is developed.",
+            blanks: { B1: "iterative" }
+        },
+        {
+            display: "_____ (terminal) testing checks the complete, finished program against its requirements.",
+            blanks: { B1: "final" }
+        },
+        {
+            display: "A _____ error breaks the rules of the programming language, so the program will not run.",
+            blanks: { B1: "syntax" }
+        },
+        {
+            display: "A _____ error lets the program run, but gives the wrong result.",
+            blanks: { B1: "logic" }
+        },
+        {
+            display: "_____ test data is typical, valid data that the program should accept.",
+            blanks: { B1: "normal" }
+        },
+        {
+            display: "_____ test data sits right at the edge of what the program accepts.",
+            blanks: { B1: "boundary" }
+        },
+        {
+            display: "_____ test data is the correct type but outside the accepted range.",
+            blanks: { B1: "invalid" }
+        },
+        {
+            display: "_____ test data is the wrong type of data altogether.",
+            blanks: { B1: "erroneous" }
+        }
+    ];
+    const fibWords = ["iterative", "final", "syntax", "logic", "normal", "boundary", "invalid", "erroneous"];
+
+    const tfData = [
+        {
+            statement: "The purpose of testing is only to find errors, not to check the program meets its requirements.",
+            answer: false,
+            explanation: "Testing also checks the program meets its requirements and works for all kinds of input — not just error-finding."
+        },
+        {
+            statement: "Iterative testing happens throughout development, testing modules repeatedly as they are built.",
+            answer: true,
+            explanation: "Correct — iterative testing repeats as the program is developed and refined, module by module."
+        },
+        {
+            statement: "Final (terminal) testing happens once, when the whole program is complete.",
+            answer: true,
+            explanation: "Correct — final testing checks the complete program against its requirements at the end of development."
+        },
+        {
+            statement: "A syntax error still allows the program to run, just with the wrong result.",
+            answer: false,
+            explanation: "That describes a logic error. A syntax error breaks the rules of the language, so the program cannot run at all."
+        },
+        {
+            statement: "A logic error is detected automatically by the translator before the program runs.",
+            answer: false,
+            explanation: "The translator cannot detect logic errors, since the code obeys the language's rules. Only testing can find one."
+        },
+        {
+            statement: "Boundary (extreme) test data uses values right at the edge of what is accepted, such as the minimum or maximum valid value.",
+            answer: true,
+            explanation: "Correct — boundary data sits exactly at the edge of the accepted range and should still be accepted."
+        },
+        {
+            statement: "Invalid test data is of the wrong type entirely, e.g. text where a number is expected.",
+            answer: false,
+            explanation: "That describes erroneous data. Invalid data is the correct type, but outside the accepted range."
+        },
+        {
+            statement: "A test plan should record the expected result before the test is actually run.",
+            answer: true,
+            explanation: "Correct — writing the expected result first lets the actual result be compared fairly against it."
+        },
+        {
+            statement: "Refining means writing the whole program again from scratch after every failed test.",
+            answer: false,
+            explanation: "Refining means correcting the specific problem a test revealed, then re-testing — not rewriting everything."
+        },
+        {
+            statement: "A good test plan uses at least one value of each type of test data: normal, boundary, invalid and erroneous.",
+            answer: true,
+            explanation: "Correct — covering all four types checks the whole range of possible input, not just the easy cases."
+        }
+    ];
+
+    const miscData = [
+        {
+            wrong: "Thinking a test plan only needs normal, everyday values.",
+            correct: "A good test plan uses <strong>all four types</strong> of test data — <strong>normal, boundary, invalid and erroneous</strong> — because errors often hide at the edges of a range or with data the program was never designed to handle. Normal data alone can pass every test while a validation check is still broken.",
+            readCheck: {
+                q: "Why shouldn't a test plan only use normal test data?",
+                opts: ["Because normal data can never actually be entered into most real programs by an ordinary, everyday user at all", "Because errors often occur at the edges of a range or with unexpected input, which normal data never tests", "Because normal data always causes a syntax error the very moment it happens to be entered into the program", "Because a test plan is not technically allowed to ever contain more than a single row of normal test data"],
+                ans: 1,
+                explain: "Boundary, invalid and erroneous data test the edges and the program's validation — problems that normal data, being typical and safe, would never reveal."
+            }
+        },
+        {
+            wrong: "Confusing invalid and erroneous test data.",
+            correct: "<strong>Invalid</strong> data is the <strong>correct type</strong>, just <strong>outside the accepted range</strong> (e.g. 130 for an age 0–120). <strong>Erroneous</strong> data is the <strong>wrong type</strong> entirely (e.g. \"cat\" for an age). Both should be rejected, but for different reasons — ask \"is it the right type?\" first.",
+            readCheck: {
+                q: "A program expects a whole number age from 0 to 120. Someone enters 200. What type of test data is this?",
+                opts: ["Erroneous, because 200 is far too large a number for any person's realistic age to ever be", "Invalid — a whole number (correct type), but outside the accepted 0–120 range", "Normal, because 200 is still a perfectly valid whole number for the program to receive", "Boundary, because 200 is reasonably close to the upper edge of the accepted range"],
+                ans: 1,
+                explain: "200 is the correct type (a whole number) but outside the accepted range — that makes it invalid, not erroneous (which needs the wrong type of data)."
+            }
+        },
+        {
+            wrong: "Thinking a logic error can be caught by the translator, the same way a syntax error can.",
+            correct: "The translator only checks the program obeys the <strong>rules of the language</strong> — it has no idea what the program is <em>supposed</em> to calculate. A <strong>logic error</strong> follows those rules perfectly but still gives the <strong>wrong result</strong>, so it can only be found by <strong>testing</strong> and comparing output against what was expected.",
+            readCheck: {
+                q: "Why can't a translator detect a logic error?",
+                opts: ["Because logic errors are actually thought to be considerably far rarer in real programs than syntax errors ever are", "Because the code obeys the language's rules correctly — there is nothing invalid for the translator to spot", "Because translators are, in every single case, only ever able to check the very first line of a program", "Because logic errors are believed to always stop the program from being able to run at all"],
+                ans: 1,
+                explain: "A logic error still follows the language's rules, so the translator finds nothing wrong — the mistake is in what the program does, only found by testing its output."
+            }
+        },
+        {
+            wrong: "Thinking boundary values should always be rejected by the program.",
+            correct: "Boundary (extreme) values are the <strong>minimum and maximum VALID</strong> values, so a correct program should <strong>accept</strong> them, not reject them. It is <strong>invalid</strong> data — values just outside that range — that a program should reject.",
+            readCheck: {
+                q: "A program accepts a whole number from 0 to 100. What should happen when the value 100 is entered?",
+                opts: ["It should be rejected, since 100 sits exactly on the boundary of the accepted range", "It should be accepted — 100 is the maximum valid value, not an invalid one", "It should cause a syntax error, since boundary values are not really valid input at all", "It cannot be tested, because boundary values are never actually used in a real test plan"],
+                ans: 1,
+                explain: "100 is the maximum VALID value (a boundary value), so a correctly written program should accept it. Values just outside the range, like 101, should be rejected."
+            }
+        },
+        {
+            wrong: "Believing the 'expected result' column of a test plan isn't really necessary.",
+            correct: "Writing the expected result <strong>before</strong> running the test is essential — it lets the programmer objectively compare it against the <strong>actual result</strong> to decide pass or fail, instead of just accepting whatever the program happened to output.",
+            readCheck: {
+                q: "What is the risk of skipping the 'expected result' column in a test plan?",
+                opts: ["The program will produce a syntax error the very next time that it is translated or run again", "The programmer may end up just accepting whatever the program outputs, without a fair pass/fail check", "The whole test plan will automatically be rejected by the translator before testing can even begin at all", "Nothing changes at all, since the expected result column is really just purely decorative in a genuine test plan"],
+                ans: 1,
+                explain: "Without a pre-written expected result, there's nothing fixed to compare the actual output against, so mistakes can be missed or wrongly waved through as correct."
+            }
+        },
+        {
+            wrong: "Thinking refining means rewriting the whole program from scratch.",
+            correct: "Refining means using test results to <strong>correct the specific problem</strong> a test revealed, then <strong>re-testing</strong> — both the case that failed and the earlier cases that passed, in case the fix broke something else. It is a targeted cycle, not a restart.",
+            readCheck: {
+                q: "A test plan shows one failed row out of ten. What should refining involve?",
+                opts: ["Deleting the whole program and starting again, since one failure means the whole design is flawed", "Correcting the specific problem behind the failed row, then re-testing that case and the others", "Removing the failed row from the test plan so that all remaining rows show a pass", "Changing the expected result of the failed row so that it matches the actual result instead"],
+                ans: 1,
+                explain: "Refining targets the actual cause of the failure, fixes it, then re-tests — including re-checking the rows that already passed, in case the fix affected them."
+            }
+        }
+    ];
+
+    const examTips = [
+        {
+            type: "tip",
+            title: "Spot the four types of test data fast",
+            pills: ["AO1", "Definitions", "Classify"],
+            content: `<p>Classification questions ("is this normal, boundary, invalid or erroneous?") are common. Answer them mechanically with two questions, in order:</p>
+<ul>
+<li><strong>1) Is it the right type of data?</strong> If it is text where a number is expected (or similar), it's <strong>erroneous</strong> — stop there.</li>
+<li><strong>2) If it is the right type, where does it sit?</strong> Typical, well inside the range → <strong>normal</strong>. Exactly at the minimum/maximum → <strong>boundary</strong>. Correct type but outside the range → <strong>invalid</strong>.</li>
+</ul>
+<p><strong>Example:</strong> for a whole number 1–10: 5 is normal, 1 and 10 are boundary, 0 and 11 are invalid, "five" is erroneous.</p>`,
+            readCheck: {
+                q: "A program accepts a whole number from 1 to 10. Which two questions correctly classify a test value?",
+                opts: ["Is it a large number? Is it a small number? — because size alone decides the type of test data", "Is it the right type of data? If so, is it typical, at an edge, or outside the range?", "Is it positive? Is it negative? — because sign alone is what test-data classification depends on", "Was it entered quickly? Was it entered slowly? — because speed of entry affects classification"],
+                ans: 1,
+                explain: "First check the type (wrong type = erroneous); if it is the right type, check where it sits relative to the range (typical = normal, at the edge = boundary, outside = invalid)."
+            }
+        },
+        {
+            type: "explain",
+            title: "Syntax vs logic: how each is actually found",
+            pills: ["AO1", "Compare", "Common question"],
+            content: `<p>Questions often ask you to explain the difference between a syntax and a logic error, INCLUDING how each is found — both halves are needed for full marks.</p>
+<ul>
+<li><strong>Syntax error:</strong> breaks the rules of the language, so the program can't be translated or run. Found <strong>automatically</strong> — the translator reports an error message.</li>
+<li><strong>Logic error:</strong> the program runs fine, but gives the wrong result. Found by <strong>testing</strong> — running the program and comparing its actual output with the expected output.</li>
+</ul>
+<p>Memory hook: the translator catches broken <em>rules</em>; only testing catches broken <em>reasoning</em>.</p>`,
+            readCheck: {
+                q: "A student says 'a syntax error is worse than a logic error because it's harder to find'. Is this correct?",
+                opts: ["Yes, since logic errors are always spotted instantly by the translator without any testing being needed at all", "No — it is the opposite: syntax errors are caught automatically by the translator, while logic errors need testing to find", "Yes, since a syntax error can genuinely only ever be found by comparing actual and expected output during real testing", "No, because it is sometimes claimed that neither type of error can actually ever be found before a program has been fully released"],
+                ans: 1,
+                explain: "Syntax errors are usually easier to find (the translator reports them automatically). Logic errors are harder — they need testing, since the translator can't detect them."
+            }
+        },
+        {
+            type: "tip",
+            title: "Writing a strong test plan",
+            pills: ["AO2", "Test plan", "Exam skill"],
+            content: `<p>"Create a test plan for..." questions are marked on covering the input properly, not just picking any four numbers. Structure your answer as a table with: <strong>test data</strong>, <strong>type of test data</strong>, and <strong>expected result</strong>.</p>
+<ul>
+<li>Include <strong>one value of each type</strong> — normal, boundary, invalid and erroneous — so every part of the accepted-input rule is actually tested.</li>
+<li>For each row, state the expected result as simply <strong>accepted</strong> or <strong>rejected</strong> (unless the question asks for a specific calculated output).</li>
+</ul>
+<p><strong>Example</strong> (whole number 1–20): 12 → normal → accepted; 20 → boundary → accepted; 21 → invalid → rejected; "twelve" → erroneous → rejected.</p>`,
+            readCheck: {
+                q: "A 'create a test plan' question is marked mainly on what?",
+                opts: ["Choosing exactly four random numbers, since the specific values chosen never actually seem to matter", "Covering all four types of test data with a suitable value and a correct expected result for each", "Writing out the longest possible list of numbers, since more test data always seems to mean more marks", "Only ever including normal data, since boundary, invalid and erroneous data are treated as optional extras"],
+                ans: 1,
+                explain: "Marks come from covering normal, boundary, invalid and erroneous data with a suitable value and a correctly stated expected result (accepted/rejected) for each."
+            }
+        }
+    ];
+
+    const flashcards = [
+        { term: "Testing", def: "Checking a program works correctly and meets its requirements, finding errors before release" },
+        { term: "Debugging", def: "Finding and fixing an error once testing has located it" },
+        { term: "Purpose of testing", def: "To find and remove errors, and check the program meets its requirements for all kinds of input" },
+        { term: "Iterative testing", def: "Testing modules or parts of a program repeatedly as it is developed" },
+        { term: "Final (terminal) testing", def: "Testing the complete, finished program against its requirements" },
+        { term: "Syntax error", def: "Breaks the rules of the language, so the program cannot be translated or run" },
+        { term: "Logic error", def: "The program runs, but produces the wrong result" },
+        { term: "Normal test data", def: "Typical, valid data the program should accept and process correctly" },
+        { term: "Boundary (extreme) test data", def: "Data right at the minimum or maximum valid value — should be accepted" },
+        { term: "Invalid test data", def: "Correct type, but outside the accepted range — should be rejected" },
+        { term: "Erroneous test data", def: "The wrong type of data entirely — should be rejected" },
+        { term: "Test plan", def: "A table of test data, type, expected result and (once run) actual result / pass-fail" },
+        { term: "Expected result", def: "What should happen if the program is correct — written BEFORE the test is run" },
+        { term: "Refining", def: "Using test results to correct a problem, then re-testing" }
+    ];
+
+    // ── Original clean-room exam questions (2026-07-24) ──
+    // Written from scratch against the §2.3.2 spec scope (CS-CONTENT-PLAN.md
+    // §6.2 clean-room rule) — NOT transcribed from any OCR paper. No exam PDF
+    // was supplied for this topic, so the tariff spread and format mix below
+    // are authored to the standard J277 Paper 2 assessment style for testing
+    // (identify error/data types, classify test data, complete/create a test
+    // plan, explain refining), NOT profiled from a real paper — treat the
+    // spread as a best estimate, not a transcription.
+    // Spread: 2x1, 2x2, 1x3(written)+1x3(bankCloze)+1x3(written), 2x4, 1x5,
+    // 1x6, 1x8 = 12 questions / 42 marks (mcq/written/tickGrid/tableFill/
+    // matchLine/bankCloze).
+    const EXAM_CASE_STUDIES = {};
+
+    const examQuestions = [
+        {
+            num: "Q1",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: `<p>Tick <strong>one</strong> box to identify the purpose of testing a program.</p>`,
+            options: ["To make the finished program run faster on any computer it is installed on", "To find and remove errors, and check the program meets its requirements", "To translate the program's source code into machine code so it can run", "To add new features to a program that were not part of its original design"],
+            answer: 1,
+            hint: "Think about errors AND about requirements.",
+            starter: "",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<ul><li><strong>To find and remove errors, and check the program meets its requirements</strong></li></ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul><li>Only the correct option scores; 2 or more ticks scores 0.</li></ul>
+</div>`,
+            modelAnswer: "To find and remove errors, and check the program meets its requirements."
+        },
+        {
+            num: "Q2",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: `<p>Tick <strong>one</strong> box to identify which type of error stops a program being translated or run at all.</p>`,
+            options: ["Logic error", "Syntax error", "Boundary error", "A runtime error caused by invalid data being entered while the program is already running"],
+            answer: 1,
+            hint: "Which error breaks the rules of the language itself?",
+            starter: "",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<ul><li><strong>Syntax error</strong></li></ul>
+</div>`,
+            modelAnswer: "Syntax error."
+        },
+        {
+            num: "Q3",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: `<p>State <strong>one</strong> difference between <strong>iterative testing</strong> and <strong>final (terminal) testing</strong>.</p>`,
+            hint: "Think about WHEN each one happens during development.",
+            starter: "Iterative testing…, whereas final testing…",
+            markPoints: {
+                note: "Up to 2 marks: both sides of the difference (the iterative side AND the final side).",
+                groups: [
+                    {
+                        label: "The difference (both sides)", max: 2, points: [
+                            { text: "States that iterative testing happens throughout development, testing modules repeatedly as they are built", marks: 1 },
+                            { text: "Contrasts this with final (terminal) testing, which tests the complete program once, at the end, against its requirements", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks</h5>
+<ul>
+<li>Award 1 mark for: iterative testing happens throughout development, testing modules/parts repeatedly.</li>
+<li>Award 1 mark for: final (terminal) testing happens once, at the end, on the complete program against its requirements.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul><li>Both sides of the contrast are needed for full marks.</li></ul>
+</div>`,
+            modelAnswer: "Iterative testing happens throughout development, testing modules repeatedly as they are built and refined, whereas final (terminal) testing happens once, at the end, testing the complete program against its requirements."
+        },
+        {
+            num: "Q4",
+            marks: 3,
+            type: "written",
+            caseStudy: "",
+            question: `<p>Explain the difference between a <strong>syntax error</strong> and a <strong>logic error</strong>, including how each is normally found.</p>`,
+            hint: "State what each error does to the program, then say how a programmer would discover each one.",
+            starter: "A syntax error…, whereas a logic error…",
+            markPoints: {
+                note: "Up to 3 marks for the definitions and how each is found.",
+                groups: [
+                    {
+                        label: "Syntax vs logic + how found", max: 3, points: [
+                            { text: "A syntax error breaks the rules of the language, so the program cannot be translated or run", marks: 1 },
+                            { text: "A logic error lets the program run, but produces the wrong result", marks: 1 },
+                            { text: "States how each is found: syntax errors are reported automatically by the translator; logic errors are found by testing (comparing actual output with expected output)", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 3 marks</h5>
+<ul>
+<li>1 mark: a syntax error breaks the rules of the language, so the program cannot be translated/run.</li>
+<li>1 mark: a logic error lets the program run, but gives the wrong result.</li>
+<li>1 mark: syntax errors are found automatically by the translator; logic errors are found by testing (comparing actual vs expected output).</li>
+</ul>
+</div>`,
+            modelAnswer: "A syntax error breaks the rules of the programming language, so the program cannot be translated or run — the translator finds it automatically and reports an error message. A logic error lets the program run normally but produces the wrong result, and is found by testing the program and comparing its actual output with the expected output."
+        },
+        {
+            num: "Q5",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: `<p>State what is meant by <strong>boundary (extreme) test data</strong>, and give a suitable example for a program that accepts a whole number from 1 to 10.</p>`,
+            hint: "Boundary data sits right at the edge of what is accepted — what are the two edge values here?",
+            starter: "Boundary test data is…, for example…",
+            markPoints: {
+                note: "1 mark for the definition, 1 mark for a correct example.",
+                groups: [
+                    { label: "Definition", max: 1, points: [{ text: "Data right at the edge of what is accepted — the minimum or maximum valid value", marks: 1 }] },
+                    { label: "Example", max: 1, points: [{ text: "Gives 1 or 10 (the minimum or maximum valid value for this program)", marks: 1 }] }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks</h5>
+<ul>
+<li>1 mark: boundary (extreme) test data is data right at the edge of what the program accepts — the minimum or maximum valid value.</li>
+<li>1 mark: a correct example — 1 or 10.</li>
+</ul>
+</div>`,
+            modelAnswer: "Boundary (extreme) test data is data right at the edge of what the program accepts — the minimum or maximum valid value. For this program, a suitable example is 1 or 10."
+        },
+        {
+            num: "Q6",
+            marks: 5,
+            type: "written",
+            format: "tickGrid",
+            caseStudy: "",
+            question: `<p>A program accepts a whole number quiz score from <strong>0 to 20</strong>. Tick <strong>one</strong> box in each row to classify the test data.</p>`,
+            grid: {
+                cols: ["Normal", "Boundary", "Invalid", "Erroneous"],
+                rows: [
+                    { label: "10", correct: [0] },
+                    { label: "0", correct: [1] },
+                    { label: "20", correct: [1] },
+                    { label: "21", correct: [2] },
+                    { label: "'ten'", correct: [3] }
+                ]
+            },
+            hint: "Check the type first (text = erroneous); if it's a whole number, check whether it's typical, at an edge, or outside 0–20.",
+            starter: "10: … | 0: … | 20: … | 21: … | 'ten': …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 5 marks (1 mark for each row)</h5>
+<ul>
+<li>10 → <strong>Normal</strong></li>
+<li>0 → <strong>Boundary</strong></li>
+<li>20 → <strong>Boundary</strong></li>
+<li>21 → <strong>Invalid</strong></li>
+<li>'ten' → <strong>Erroneous</strong></li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul><li>Each row is marked independently; 2+ ticks in a row scores 0 for that row.</li></ul>
+</div>`,
+            modelAnswer: "10: Normal. 0: Boundary. 20: Boundary. 21: Invalid. 'ten': Erroneous."
+        },
+        {
+            num: "Q7",
+            marks: 4,
+            type: "written",
+            format: "tableFill",
+            caseStudy: "",
+            question: `<p>A program accepts an employee's age as a whole number from <strong>16 to 100</strong>. Complete the table by giving the type of each item of test data.</p>`,
+            table: {
+                headers: ["Test data", "Type of test data"],
+                rows: [
+                    ["45", null],
+                    ["16", null],
+                    ["150", null],
+                    ["'thirty'", null]
+                ]
+            },
+            answers: {
+                "0,1": ["normal"],
+                "1,1": ["boundary", "extreme"],
+                "2,1": ["invalid"],
+                "3,1": ["erroneous"]
+            },
+            hint: "45 is typical; 16 is the minimum valid age; 150 is a whole number but out of range; 'thirty' is not a number at all.",
+            starter: "45: … | 16: … | 150: … | 'thirty': …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (1 mark each)</h5>
+<ul>
+<li>45 → <strong>Normal</strong></li>
+<li>16 → <strong>Boundary</strong></li>
+<li>150 → <strong>Invalid</strong></li>
+<li>'thirty' → <strong>Erroneous</strong></li>
+</ul>
+</div>`,
+            modelAnswer: "45: Normal. 16: Boundary. 150: Invalid. 'thirty': Erroneous."
+        },
+        {
+            num: "Q8",
+            marks: 4,
+            type: "written",
+            format: "matchLine",
+            caseStudy: "",
+            question: `<p>Draw <strong>one</strong> line from each term to its correct description.</p><p>(There are more descriptions than terms — one description is not used.)</p>`,
+            match: {
+                left: ["Syntax error", "Logic error", "Boundary test data", "Erroneous test data"],
+                right: ["Breaks the rules of the programming language, so the program cannot be translated or run at all", "Lets the program run, but produces the wrong result", "Data right at the edge of what the program accepts, such as the minimum or maximum valid value", "Data of the wrong type entirely, which should be rejected", "Data of the correct type but outside the accepted range, which should also be rejected"],
+                answer: { "0": 0, "1": 1, "2": 2, "3": 3 },
+                decoys: [4]
+            },
+            hint: "Watch the decoy: 'correct type but outside the range' describes invalid data, which is not one of the four terms listed.",
+            starter: "Syntax error → …, Logic error → …, Boundary test data → …, Erroneous test data → …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (1 mark per correct line)</h5>
+<ul>
+<li>Syntax error → <strong>A</strong> (breaks the rules of the language)</li>
+<li>Logic error → <strong>B</strong> (runs, but gives the wrong result)</li>
+<li>Boundary test data → <strong>C</strong> (right at the edge of what is accepted)</li>
+<li>Erroneous test data → <strong>D</strong> (wrong type of data entirely)</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul><li>1 mark per correct line. Description E ('correct type but outside the range') describes invalid data, and is not used.</li></ul>
+</div>`,
+            modelAnswer: "Syntax error → breaks the rules of the language. Logic error → runs but gives the wrong result. Boundary test data → right at the edge of what is accepted. Erroneous test data → wrong type of data entirely."
+        },
+        {
+            num: "Q9",
+            marks: 3,
+            type: "written",
+            format: "bankCloze",
+            caseStudy: "",
+            question: `<p>Complete the paragraph about types of test data by selecting terms from the list. <strong>Not all terms are used.</strong></p>`,
+            cloze: `<p>___1___ test data is typical, valid data that a program should accept and process correctly. ___2___ test data sits right at the edge of what is accepted — the minimum or maximum valid value. ___3___ test data is data of the wrong type entirely, and should be rejected.</p>`,
+            bank: ["normal", "boundary", "invalid", "erroneous", "iterative", "final"],
+            answers: {
+                "1": ["normal"],
+                "2": ["boundary"],
+                "3": ["erroneous"]
+            },
+            hint: "Typical → one; at the edge → one; wrong type entirely → one. Some terms are decoys.",
+            starter: "(1) … (2) … (3) …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 3 marks (1 mark for each completed term)</h5>
+<p><strong>Normal</strong> test data is typical, valid data that a program should accept and process correctly. <strong>Boundary</strong> test data sits right at the edge of what is accepted. <strong>Erroneous</strong> test data is data of the wrong type entirely.</p>
+</div>`,
+            modelAnswer: "(1) normal (2) boundary (3) erroneous"
+        },
+        {
+            num: "Q10",
+            marks: 3,
+            type: "written",
+            caseStudy: "",
+            question: `<p>A programmer fixes a validation bug found by testing, then re-tests the program.</p><p>Explain why refining a program should include re-testing the earlier passing test cases, not just the case that failed.</p>`,
+            hint: "Think about what a code fix might accidentally affect, beyond just the case it was meant to fix.",
+            starter: "Re-testing the case that failed checks…, and re-running the earlier passes checks…",
+            markPoints: {
+                note: "Up to 3 marks for a clear explanation of why re-testing is needed.",
+                groups: [
+                    {
+                        label: "Why re-test", max: 3, points: [
+                            { text: "Re-testing the SAME case that failed confirms the fix actually worked", marks: 1 },
+                            { text: "The earlier PASSING tests should also be re-run, in case the fix broke something that previously worked correctly", marks: 1 },
+                            { text: "Only once all tests pass can the programmer be confident the program is fully correct, not just that one bug is gone", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 3 marks</h5>
+<ul>
+<li>1 mark: re-testing the case that failed confirms the fix worked.</li>
+<li>1 mark: the earlier passing tests should be re-run in case the fix broke something else.</li>
+<li>1 mark: confidence that the program is correct only comes once everything passes.</li>
+</ul>
+</div>`,
+            modelAnswer: "Re-testing the case that originally failed checks that the fix has actually solved the problem. The earlier tests that passed should also be re-run, because a code change made to fix one problem can accidentally break something that used to work. Only once every test passes can the programmer be confident the program is fully correct."
+        },
+        {
+            num: "Q11",
+            marks: 6,
+            type: "written",
+            format: "tableFill",
+            caseStudy: "",
+            question: `<p>A program accepts a whole number number of tickets to buy, from <strong>1 to 6</strong>. Complete the test plan by giving the type of test data and the expected result for each row.</p>`,
+            table: {
+                headers: ["Test data", "Type of test data", "Expected result"],
+                rows: [
+                    ["4", null, null],
+                    ["6", null, null],
+                    ["8", null, null]
+                ]
+            },
+            answers: {
+                "0,1": ["normal"],
+                "0,2": ["accepted"],
+                "1,1": ["boundary", "extreme"],
+                "1,2": ["accepted"],
+                "2,1": ["invalid"],
+                "2,2": ["rejected"]
+            },
+            hint: "4 is typical; 6 is the maximum valid value; 8 is a whole number but outside the 1–6 range. Boundary values should still be accepted.",
+            starter: "4: … / … | 6: … / … | 8: … / …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (1 mark per cell)</h5>
+<ul>
+<li>4 → <strong>Normal</strong> → <strong>Accepted</strong></li>
+<li>6 → <strong>Boundary</strong> → <strong>Accepted</strong></li>
+<li>8 → <strong>Invalid</strong> → <strong>Rejected</strong></li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul><li>1 mark for each correct type, 1 mark for each correct expected result — 6 marks in total.</li></ul>
+</div>`,
+            modelAnswer: "4: Normal, Accepted. 6: Boundary, Accepted. 8: Invalid, Rejected."
+        },
+        {
+            num: "Q12",
+            marks: 8,
+            type: "written",
+            caseStudy: "",
+            question: `<p>A program asks the user to enter a whole number number of students going on a trip. It should accept any whole number from <strong>1 to 30</strong>.</p><p>Create a test plan for this input. Choose <strong>one</strong> suitable value for each of the four types of test data (normal, boundary, invalid, erroneous), and state the expected result for each.</p>`,
+            hint: "For each type, pick a value that fits its definition, then decide: should the program accept it, or reject it?",
+            starter: "Normal: … → … | Boundary: … → … | Invalid: … → … | Erroneous: … → …",
+            markPoints: {
+                note: "2 marks for each of the four types: 1 for a suitable value, 1 for the correct expected result.",
+                groups: [
+                    {
+                        label: "Normal data", max: 2, points: [
+                            { text: "Gives a suitable normal value, e.g. 15 (a typical valid value clearly inside the range)", marks: 1 },
+                            { text: "States the correct expected result: the value is accepted", marks: 1 }
+                        ]
+                    },
+                    {
+                        label: "Boundary data", max: 2, points: [
+                            { text: "Gives a suitable boundary value, e.g. 1 or 30 (the minimum or maximum valid value)", marks: 1 },
+                            { text: "States the correct expected result: the value is accepted", marks: 1 }
+                        ]
+                    },
+                    {
+                        label: "Invalid data", max: 2, points: [
+                            { text: "Gives a suitable invalid value, e.g. 0 or 31 (correct type, but outside the 1–30 range)", marks: 1 },
+                            { text: "States the correct expected result: the value is rejected", marks: 1 }
+                        ]
+                    },
+                    {
+                        label: "Erroneous data", max: 2, points: [
+                            { text: "Gives a suitable erroneous value, e.g. 'ten' or 'thirty' (the wrong type of data entirely)", marks: 1 },
+                            { text: "States the correct expected result: the value is rejected", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 8 marks (2 marks per type: value + expected result)</h5>
+<ul>
+<li>Normal, e.g. 15 → <strong>Accepted</strong></li>
+<li>Boundary, e.g. 1 or 30 → <strong>Accepted</strong></li>
+<li>Invalid, e.g. 0 or 31 → <strong>Rejected</strong></li>
+<li>Erroneous, e.g. 'ten' or 'thirty' → <strong>Rejected</strong></li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul><li>Any correct example of each type is accepted — mark the classification and expected result, not the exact value chosen.</li></ul>
+</div>`,
+            modelAnswer: "Normal: 15 → accepted.\nBoundary: 1 (or 30) → accepted.\nInvalid: 0 (or 31) → rejected.\nErroneous: 'ten' → rejected."
+        }
+    ];
 </script>
     <script src="/script.js"></script>
 <script src="section-totals.js"></script>

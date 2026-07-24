@@ -1,0 +1,1252 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2.2.3b Arrays – Interactive Study Guide</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+    <header>
+        <div>
+            <div class="badge">OCR GCSE Computer Science — Paper 2 · 2.2 Programming Fundamentals</div>
+            <h1>2.2.3b Arrays</h1>
+            <p>Interactive revision guide</p>
+        </div>
+        <a href="/index.html" class="home-link">← 🏡 Home</a>
+    </header>
+
+    <nav class="tab-bar" id="tabBar">
+        <button class="tab-btn active" onclick="switchTab('learn', this)">
+            📚 Key Learning
+        </button>
+        <button class="tab-btn" onclick="switchTab('mcq', this)">
+            ❓ MCQ Quiz
+        </button>
+        <button class="tab-btn" onclick="switchTab('matching', this)">
+            🔗 Matching
+        </button>
+        <button class="tab-btn" onclick="switchTab('fib', this)">
+            ✏️ Fill the Blanks
+        </button>
+        <button class="tab-btn" onclick="switchTab('misconceptions', this)">
+            ⚠️ Misconceptions
+        </button>
+        <button class="tab-btn" onclick="switchTab('examtips', this)">
+            🎯 Exam Tips
+        </button>
+        <button class="tab-btn" onclick="switchTab('flashcards', this)">
+            🃏 Flashcards
+        </button>
+        <button class="tab-btn" onclick="switchTab('truefalse', this)">
+            ✅ True / False
+        </button>
+        <button class="tab-btn" onclick="switchTab('exampractice', this)">
+            📝 Exam Practice
+        </button>
+    </nav>
+
+    <main>
+        <div class="tab-panel active" id="tab-learn">
+            <h2 class="section-title">Key Learning Topics</h2>
+            <p class="section-sub">Click any card to expand detailed notes.</p>
+            <div class="topic-grid" id="topicGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-mcq">
+            <h2 class="section-title">Multiple Choice Questions</h2>
+            <p class="section-sub">Select an answer to reveal instant feedback.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="mcqScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">
+                        correct answers
+                    </div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    out of <strong id="mcqTotal">0</strong> attempted
+                </div>
+                <button class="reset-btn" onclick="resetMCQ()">RESET</button>
+            </div>
+            <div class="quiz-wrap" id="mcqWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-matching">
+            <h2 class="section-title">Matching Activity</h2>
+            <p class="section-sub">
+                Click a term on the left, then click the matching definition on the
+                right.
+            </p>
+            <div style="margin-bottom: 16px">
+                <div class="score-bar">
+                    <div>
+                        <div class="score-num" id="matchScore">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">matched</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="matchTotal">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetMatch()">RESET</button>
+                </div>
+            </div>
+            <div class="match-grid">
+                <div>
+                    <div class="match-label">TERMS</div>
+                    <div class="match-col" id="matchLeft"></div>
+                </div>
+                <div>
+                    <div class="match-label">DEFINITIONS</div>
+                    <div class="match-col" id="matchRight"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-fib">
+            <h2 class="section-title">Fill in the Blanks</h2>
+            <p class="section-sub">
+                Click each dropdown and choose the correct word. Wrong answers reset —
+                try again!
+            </p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="fibScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="fibTotal">0</strong> blanks
+                </div>
+                <button class="reset-btn" onclick="resetFIB()">RESET</button>
+            </div>
+            <div class="fib-wrap" id="fibWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-misconceptions">
+            <h2 class="section-title">Common Misconceptions</h2>
+            <p class="section-sub">
+                What students often think — and what examiners actually want.
+            </p>
+            <div class="misc-list" id="miscList"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-examtips">
+            <h2 class="section-title">Exam Questions &amp; Tips</h2>
+            <p class="section-sub">
+                Most repeated question types and mark-scheme structures from real OCR
+                papers.
+            </p>
+            <div class="tips-grid" id="tipsGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-flashcards">
+            <h2 class="section-title">Flashcards</h2>
+            <p class="section-sub">
+                Test yourself! Flip the card and rate your knowledge. Review your weak
+                areas at the end.
+            </p>
+
+            <div class="fc-container">
+                <div class="score-bar" id="fcScoreBar" style="display: none; margin-bottom: 20px">
+                    <div>
+                        <div class="score-num" id="fcKnown" style="color: #2d7a4f">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">known</div>
+                    </div>
+                    <div>
+                        <div class="score-num" id="fcUnknown" style="color: #c84b31">
+                            0
+                        </div>
+                        <div style="font-size: 12px; color: var(--mid)">learning</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="fcTotalTrack">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
+                </div>
+
+                <div id="fcActiveArea">
+                    <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
+                    <div class="flashcard" id="flashcard" onclick="flipCard()">
+                        <div class="fc-inner">
+                            <div class="fc-front">
+                                <div class="fc-label">KEY TERM</div>
+                                <div class="fc-term" id="fcTerm"></div>
+                            </div>
+                            <div class="fc-back">
+                                <div class="fc-def" id="fcDef"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="fc-hint">👆 Click card to flip</p>
+
+                    <div class="fc-nav" id="fcNavDefault">
+                        <button class="fc-btn outline" onclick="prevCard()">
+                            ← Prev
+                        </button>
+                        <button class="fc-btn outline" onclick="flipCard()">Flip</button>
+                        <button class="fc-btn" onclick="nextCard()">Next →</button>
+                    </div>
+
+                    <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px">
+                        <button class="fc-btn outline" style="border-color: #c84b31; color: #c84b31; flex: 1"
+                            onclick="markCard(false)">
+                            ❌ Still Learning
+                        </button>
+                        <button class="fc-btn" style="background: #2d7a4f; border-color: #2d7a4f; flex: 1"
+                            onclick="markCard(true)">
+                            ✅ Got It
+                        </button>
+                    </div>
+                </div>
+
+                <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px">
+                    <h3>Session Complete! 🎉</h3>
+                    <p style="margin: 15px 0">
+                        You knew <strong id="fcSummaryKnown">0</strong> out of
+                        <strong id="fcSummaryTotal">0</strong> cards.
+                    </p>
+                    <div style="
+                margin-top: 25px;
+                display: flex;
+                gap: 15px;
+                justify-content: center;
+                flex-wrap: wrap;
+              ">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
+                            style="background: #c84b31; border-color: #c84b31">
+                            Review Incorrect
+                        </button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">
+                            Practice All Again
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-truefalse">
+            <h2 class="section-title">True or False?</h2>
+            <p class="section-sub">Test your knowledge with these statements.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="tfScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="tfTotal">0</strong> answered
+                </div>
+                <button class="reset-btn" onclick="resetTF()">RESET</button>
+            </div>
+            <div class="tf-wrap" id="tfWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-exampractice">
+            <h2 class="section-title">Exam Practice Questions</h2>
+            <p class="section-sub">
+                Full exam questions with case studies. Use <strong>Hint</strong>,
+                <strong>Sentence Starter</strong> and
+                <strong>Submit &amp; See Mark Scheme</strong> for each question.
+            </p>
+            <div class="ep-list" id="epList"></div>
+        </div>
+    </main>
+
+<script>
+    // ══════════════════════════════════════
+    //  DATA: 2.2.3b Arrays
+    //  Original clean-room content, written from scratch against the
+    //  §2.2.3 spec scope (arrays only — split out of the combined
+    //  2.2.3 Additional Programming Techniques page). No exam PDF
+    //  was supplied for this sub-topic.
+    // ══════════════════════════════════════
+    const pageMeta = {
+            id: '2-2-3b-arrays',
+            badge: 'OCR GCSE Computer Science — Paper 2 · 2.2 Programming Fundamentals',
+            title: '2.2.3b Arrays',
+            subtitle: 'Interactive revision guide',
+            subject: 'computer-science',
+        };
+
+    const topics = [
+        {
+            title: "Why use an array?",
+            tag: "Key concept",
+            content: `<h4>Storing many related values under one name</h4>
+<ul>
+<li>Without an array, storing five test scores would need five separate variables: <code>score1</code>, <code>score2</code>, <code>score3</code>, <code>score4</code>, <code>score5</code>.</li>
+<li>An <strong>array</strong> stores several values of the <strong>same type</strong> under a single name instead, e.g. <code>scores</code>. Each individual value is called an <strong>element</strong>.</li>
+<li>Because every element shares one name, a <strong>loop</strong> can process the whole array — adding the values up, searching through them, or printing each one — without writing a separate line of code for every value.</li>
+</ul>
+<div class="code-block">// Without an array
+score1 = 56
+score2 = 78
+score3 = 91
+
+// With an array
+array scores[3]
+scores[0] = 56
+scores[1] = 78
+scores[2] = 91</div>`,
+            readCheck: {
+                q: "What is the main advantage of using an array instead of several separate variables to store related data?",
+                opts: ["A loop can process every value using one name and an index, instead of writing a separate line of code for each variable", "Arrays automatically sort their values into ascending order the moment any new element is assigned to them, no matter what", "An array can store values of several completely different data types mixed together within the very same single element", "Arrays always take up far less memory than an ordinary variable does, no matter how many elements they end up holding"],
+                ans: 0,
+                explain: "An array's real strength is that a loop can process every element using one name and an index — that's what makes it worth using over separate variables."
+            }
+        },
+        {
+            title: "Declaring a 1D array — static and fixed size",
+            tag: "Arrays",
+            content: `<h4>Reserving space for a fixed number of elements</h4>
+<ul>
+<li>A 1D array is declared with a name and a <strong>size</strong> in square brackets, e.g. <code>array scores[5]</code> reserves space for 5 elements.</li>
+<li>ERL arrays are <strong>static</strong> — once declared, the size <strong>cannot change</strong>. You cannot add a 6th element to a 5-element array while the program is running.</li>
+</ul>
+<div class="code-block">array scores[5]     // reserves 5 elements</div>
+<ul>
+<li>If a program does not know in advance exactly how many values it will need, the array must be declared big enough to hold the maximum possible number of values.</li>
+</ul>`,
+            readCheck: {
+                q: "Why can't a program add a 6th value to an array that was declared as  array scores[5] ?",
+                opts: ["It can — ERL arrays automatically resize themselves whenever a new value is assigned beyond the declared size", "Arrays in ERL are static, so their size is fixed once declared and cannot grow", "Because scores is a reserved keyword, so no more than 5 values may ever be assigned to any array with that name", "Because 5 is the maximum size any array is allowed to be declared with in ERL, regardless of the array's name"],
+                ans: 1,
+                explain: "ERL arrays are static: the size is fixed at the point of declaration and cannot grow or shrink afterwards."
+            }
+        },
+        {
+            title: "0-indexing — the first element is index 0",
+            tag: "Arrays",
+            content: `<h4>Every array element has a numbered position</h4>
+<ul>
+<li>Each element in an array has an <strong>index</strong> — its numbered position. ERL arrays are <strong>0-indexed</strong>: the <strong>first</strong> element is always at index <strong>0</strong>, not index 1.</li>
+<li>For <code>array scores[5]</code>, the valid indices are <code>0, 1, 2, 3, 4</code> — five elements, but the <strong>last</strong> index is <strong>4</strong>, not 5.</li>
+</ul>
+<div class="code-block">array scores[5]
+scores[0] = 90
+scores[1] = 65
+scores[2] = 78
+print(scores[2])    // 78</div>`,
+            readCheck: {
+                q: "array letters[7]  is declared. What is the index of the LAST element in this array?",
+                opts: ["7, because that is the number used in the array's declaration to state its size", "0, since 0-indexing means the very first element is also treated as the array's last element", "6", "1, because the second element is sometimes miscounted as being the actual last index of a small array"],
+                ans: 2,
+                explain: "A 7-element array holds indices 0 to 6 (0-indexed), so the last valid index is 6 — one less than the declared size of 7."
+            }
+        },
+        {
+            title: "Assigning and accessing elements",
+            tag: "Arrays",
+            content: `<h4>Writing to, and reading from, an element</h4>
+<ul>
+<li>To <strong>assign</strong> a value to an element, write the array name with the index in square brackets on the left of an <code>=</code>: <code>scores[0] = 90</code>.</li>
+<li>To <strong>access</strong> (read) the value stored at an element, use the same square-bracket notation anywhere a value is needed — for example inside a <code>print</code> statement or a calculation.</li>
+</ul>
+<div class="code-block">array ages[4]
+ages[0] = 15
+ages[1] = 16
+ages[2] = 15
+ages[3] = 17
+print(ages[1])            // 16
+total = ages[0] + ages[2]
+print(total)               // 30</div>`,
+            readCheck: {
+                q: "For the array ages[4] set up above (ages[0]=15, ages[1]=16, ages[2]=15, ages[3]=17), what does  print(ages[1] + ages[3])  output?",
+                opts: ["31, because this instead adds together the two elements stored at index 0 and index 2, not index 1 and index 3", "15, since ages[1] and ages[3] are mistakenly treated as being exactly the same single element", "32, because this instead adds together the two elements stored at index 0 and index 3, not index 1 and index 3", "33"],
+                ans: 3,
+                explain: "ages[1] is 16 and ages[3] is 17, so ages[1] + ages[3] = 16 + 17 = 33."
+            }
+        },
+        {
+            title: "Looping through a 1D array — totalling",
+            tag: "Arrays",
+            content: `<h4>Using a for loop to process every element</h4>
+<ul>
+<li>Because array indices run from 0 up to (size − 1), a <strong>for loop</strong> using a counter variable as the index can visit every element in turn.</li>
+</ul>
+<div class="code-block">array prices[4]
+prices[0] = 12
+prices[1] = 25
+prices[2] = 8
+prices[3] = 19
+total = 0
+for i = 0 to 3
+  total = total + prices[i]
+next i
+print(total)    // 64</div>
+<ul>
+<li>The loop runs from <code>i = 0</code> to <code>i = 3</code> — the <strong>last valid index</strong> of a 4-element array — not to 4.</li>
+</ul>`,
+            readCheck: {
+                q: "In the loop above, why does the for loop run  for i = 0 to 3  rather than  for i = 0 to 4 ?",
+                opts: ["Because prices[4] has 4 elements, with valid indices 0 to 3 — index 4 does not exist", "Because a for loop is only ever able to repeat a maximum of 4 times in total, regardless of how big the array actually is", "Because the total variable would otherwise be calculated incorrectly, even though every index from 0 to 4 is genuinely valid", "Because ERL for loops always stop one iteration earlier than the number written after 'to', on every single occasion"],
+                ans: 0,
+                explain: "prices[4] holds 4 elements at indices 0, 1, 2 and 3 (0-indexed) — there is no prices[4], so the loop must stop at 3."
+            }
+        },
+        {
+            title: "Finding the largest value in an array",
+            tag: "Arrays",
+            content: `<h4>Keeping track of the biggest value seen so far</h4>
+<ul>
+<li>To find the largest element, start by assuming the <strong>first</strong> element is the largest, then compare every other element against it — updating whenever a bigger value is found.</li>
+</ul>
+<div class="code-block">array temps[4]
+temps[0] = 14
+temps[1] = 21
+temps[2] = 19
+temps[3] = 25
+largest = temps[0]
+for i = 1 to 3
+  if temps[i] > largest then
+    largest = temps[i]
+  endif
+next i
+print(largest)    // 25</div>
+<ul>
+<li>The loop starts at <code>i = 1</code>, not 0 — <code>temps[0]</code> has already been used to set the starting value of <code>largest</code>.</li>
+</ul>`,
+            readCheck: {
+                q: "In the algorithm above, why does  largest  start as  temps[0]  before the loop even begins?",
+                opts: ["Because temps[0] is guaranteed by the ERL specification to always automatically hold the biggest value in any array whatsoever", "So there is already a value to compare every other element against, without needing a separate 'no value yet' case", "Because the loop is not permitted to begin running until at least one variable has already been given a value beforehand", "Because index 0 is defined to always hold the smallest possible value that any array element could ever store"],
+                ans: 1,
+                explain: "Starting largest as the first element gives the comparison loop something to compare against right from its very first pass — no special 'empty' case is needed."
+            }
+        },
+        {
+            title: "Searching an array for a value",
+            tag: "Arrays",
+            content: `<h4>Checking every element for a match</h4>
+<ul>
+<li>A <strong>linear search</strong> checks each element in turn against a target value, using a Boolean <strong>flag</strong> variable to record whether a match has been found.</li>
+</ul>
+<div class="code-block">array codes[5]
+codes[0] = 12
+codes[1] = 47
+codes[2] = 8
+codes[3] = 47
+codes[4] = 30
+target = 8
+found = false
+for i = 0 to 4
+  if codes[i] == target then
+    found = true
+  endif
+next i
+print(found)    // true</div>
+<ul>
+<li>The loop still checks <strong>every</strong> element, even after a match is found at index 2 — this simple linear search does not stop early.</li>
+</ul>`,
+            readCheck: {
+                q: "In the search above, what value is stored in  found  once the loop has finished?",
+                opts: ["false, because target is compared against codes[4] last, and codes[4] does not equal 8, so found ends up false", "true, but only because codes[3] happens to equal 47, not because of the actual target value 8 being searched for", "true, because codes[2] equals the target value 8, and no line resets found back to false afterwards", "It cannot be determined, since found is never actually given a starting value before the loop begins running at all"],
+                ans: 2,
+                explain: "codes[2] equals the target (8), so found is set to true on that pass — and nothing in the rest of the loop ever sets it back to false."
+            }
+        },
+        {
+            title: "2D arrays — a grid of rows and columns",
+            tag: "Arrays",
+            content: `<h4>Storing table-shaped data</h4>
+<ul>
+<li>A <strong>2D array</strong> stores data arranged as a <strong>grid</strong> — rows and columns — useful for anything table-shaped, such as a seating plan, a spreadsheet, or a game board.</li>
+<li>It is declared with <strong>two</strong> sizes: <code>array grid[3,4]</code> declares a grid with <strong>3 rows</strong> and <strong>4 columns</strong>.</li>
+</ul>
+<div class="code-block">array grid[3,4]     // 3 rows, 4 columns — 12 elements in total</div>`,
+            readCheck: {
+                q: "How many elements does  array seatingPlan[4,5]  hold in total?",
+                opts: ["9, because the two numbers in a 2D array's declaration are added together rather than multiplied", "4, because only the first number in the declaration actually has any effect on a 2D array's size", "5, because only the second number in the declaration actually has any effect on a 2D array's size", "20"],
+                ans: 3,
+                explain: "A 2D array's total elements = rows × columns. seatingPlan[4,5] is 4 rows × 5 columns = 20 elements."
+            }
+        },
+        {
+            title: "Accessing 2D array elements",
+            tag: "Arrays",
+            content: `<h4>Two indices: row, then column</h4>
+<ul>
+<li>An element of a 2D array is accessed with <strong>two indices</strong> in square brackets, separated by a comma: <code>grid[row, col]</code>.</li>
+<li>Both indices are <strong>0-indexed</strong>, exactly like a 1D array — so <code>grid[0,0]</code> is the <strong>top-left</strong> cell of the grid.</li>
+</ul>
+<div class="code-block">array grid[3,3]
+grid[0,0] = "X"
+grid[0,2] = "O"
+grid[2,1] = "X"
+print(grid[0,2])    // "O"
+print(grid[2,1])    // "X"</div>`,
+            readCheck: {
+                q: "For  array grid[3,3] , which cell does  grid[0,2]  refer to?",
+                opts: ["Row 0, column 2 — the last cell of the first (top) row", "Row 2, column 0 — the first cell of the last row, since the row is always written as whichever number comes second", "Column 0, row 2, because a 2D array's two indices are always written column-first rather than row-first in ERL", "The centre cell of the grid, since index 2 always refers to the middle position of a 3-element row or column"],
+                ans: 0,
+                explain: "grid[row, col] — grid[0,2] is row 0 (the top row) and column 2 (the last column of a 3-column row)."
+            }
+        },
+        {
+            title: "Looping through a 2D array with nested loops",
+            tag: "Arrays",
+            content: `<h4>A loop inside a loop — one for rows, one for columns</h4>
+<ul>
+<li>To visit <strong>every</strong> element of a 2D array, use <strong>nested loops</strong>: an <strong>outer</strong> loop for the row index, and an <strong>inner</strong> loop for the column index.</li>
+<li>For each single pass of the outer loop, the <strong>whole</strong> inner loop runs — moving across every column in that row before moving on to the next row.</li>
+</ul>
+<div class="code-block">array grid[2,3]
+grid[0,0] = 1
+grid[0,1] = 2
+grid[0,2] = 3
+grid[1,0] = 4
+grid[1,1] = 5
+grid[1,2] = 6
+total = 0
+for row = 0 to 1
+  for col = 0 to 2
+    total = total + grid[row, col]
+  next col
+next row
+print(total)    // 21</div>`,
+            readCheck: {
+                q: "In the nested loop above, how many times does the line  total = total + grid[row, col]  execute in total?",
+                opts: ["2 times, because that is how many times the outer loop itself runs from start to finish, on its own", "6 times — once for every one of the 6 elements in the 2×3 grid", "3 times, because that is how many times the inner loop runs during just one single pass of the outer loop", "12 times, because the 2 rows must always be multiplied again by the number 2 once the columns have been counted"],
+                ans: 1,
+                explain: "Every pass of the outer loop (2 rows) runs the whole inner loop (3 columns), so the line runs 2 × 3 = 6 times — once per element."
+            }
+        }
+    ];
+
+    const mcqData = [
+        {
+            q: "array vals[8]  is declared. Tick the index of the FIRST element in this array.",
+            opts: ["vals[0]", "vals[1], because counting normally begins at one rather than at zero when people count everyday objects", "vals[8]", "vals[-1]"],
+            ans: 0,
+            explain: "ERL arrays are 0-indexed — the first element is always at index 0."
+        },
+        {
+            q: "array vals[8]  is declared. What is the index of the LAST valid element?",
+            opts: ["8, because that is the number used in the array's declaration to state its size", "7", "0", "-1, since negative indices are sometimes assumed to represent the very last element of an array"],
+            ans: 1,
+            explain: "An 8-element array (0-indexed) holds indices 0 to 7 — the last valid index is one less than the declared size."
+        },
+        {
+            q: "array board[5,3]  is declared. How many elements does it hold in total?",
+            opts: ["8, because the two numbers in a 2D declaration are added together instead of multiplied", "3, because only the second number in a 2D declaration actually has any effect on its size", "15", "5, because only the first number in a 2D declaration actually has any effect on its size"],
+            ans: 2,
+            explain: "Total elements in a 2D array = rows × columns. board[5,3] is 5 × 3 = 15 elements."
+        },
+        {
+            q: "array grid[4,4]  is declared. Which cell does  grid[3,0]  refer to?",
+            opts: ["Row 0, column 3 — the last cell of the first row, because the column is always written first in ERL", "The very last cell in the whole grid, since index 3 is the highest index that a 4-row grid can ever use", "It is not a valid reference, since a 4x4 array can only ever use the indices 1, 2, 3 and 4", "Row 3, column 0 — the first cell of the last row"],
+            ans: 3,
+            explain: "grid[row, col] — grid[3,0] is row 3 (the last row of a 4-row grid, since rows run 0 to 3) and column 0 (the first column)."
+        },
+        {
+            q: "What does it mean to say that ERL arrays are 'static'?",
+            opts: ["The array's size is fixed once it has been declared, and cannot grow or shrink while the program runs", "The array automatically becomes read-only, so none of its individual element values can ever be changed afterwards", "The array is always declared using only whole numbers, and can never be used to store any other data type at all", "The array's values are permanently sorted into order the very first time any value is assigned to one of its elements"],
+            ans: 0,
+            explain: "'Static' means the array's size is fixed at the point it is declared, and cannot change afterwards."
+        },
+        {
+            q: "array vals[3]  holds  vals[0]=10, vals[1]=20, vals[2]=5 . After  total = 0; for i = 0 to 2: total = total + vals[i] , what is total?",
+            opts: ["30, because this instead leaves out the final element, vals[2], from the running total", "35", "15, because this instead adds together only the first two elements, vals[0] and vals[1]", "25, because this instead swaps the values stored at vals[1] and vals[2] before adding them together"],
+            ans: 1,
+            explain: "10 + 20 + 5 = 35 — every element from index 0 to 2 is added onto total."
+        },
+        {
+            q: "array items[7]  is declared. Which for loop correctly visits every element without going out of range?",
+            opts: ["for i = 0 to 7, to make sure that every single possible element is definitely included in the loop", "for i = 1 to 7, since counting normally starts at one rather than at zero when people count everyday objects", "for i = 0 to 6", "for i = 0 to 8, just to be safe and make sure the loop always runs for slightly longer than is strictly necessary"],
+            ans: 2,
+            explain: "items[7] holds indices 0 to 6 (0-indexed) — the loop must run from 0 to 6, not to 7."
+        },
+        {
+            q: "In a 'find the largest' algorithm, why is  largest  set to  arr[0]  BEFORE the comparison loop begins?",
+            opts: ["Because arr[0] is defined by ERL to always automatically hold the biggest value in any array whatsoever, in every case", "Because the loop is not permitted to begin running until at least one variable has already been assigned a value", "Because index 0 is defined to always hold the smallest possible value that any array element could ever store", "So the comparison loop already has a value to compare every other element against from its very first pass"],
+            ans: 3,
+            explain: "Setting largest to the first element first gives the loop something to compare every other element against, right from its first pass."
+        },
+        {
+            q: "In a linear search algorithm, what is the  found  variable used for?",
+            opts: ["A Boolean variable used to record whether a match has been found while searching through the array", "A special index that always points automatically to the very last element checked by a search algorithm", "A separate array that stores a backup copy of every single value in the array currently being searched", "A loop counter that always increases by exactly 2 every time the search loop completes one more full pass"],
+            ans: 0,
+            explain: "found is a Boolean flag: it starts false, and is set to true once a matching element has been found."
+        },
+        {
+            q: "array table[6,2]  is declared. How many rows does this 2D array have?",
+            opts: ["2, because only the second number in a 2D declaration actually gives the number of rows in the grid", "6", "12, because the two numbers in a 2D declaration are always multiplied together to give the row count", "8, because the two numbers in a 2D declaration are added together to give the total row count"],
+            ans: 1,
+            explain: "In array table[rows, cols], the FIRST number gives the number of rows — so table[6,2] has 6 rows and 2 columns."
+        },
+        {
+            q: "What is the correct structure of nested loops used to process every element of a 2D array?",
+            opts: ["A single loop that increases both the row index and the column index by 1 together on every single pass", "Two completely separate loops, run one immediately after the other, never nested inside each other at all", "An outer loop for the row index, with an inner loop for the column index nested inside it", "An inner loop for the row index, with an outer loop for the column index wrapped around the very outside of it"],
+            ans: 2,
+            explain: "The standard structure is an outer loop for rows, with an inner loop nested inside it for columns — the inner loop runs fully for every single pass of the outer loop."
+        },
+        {
+            q: "array points[5]  is declared. What happens if the program tries to run  print(points[5]) ?",
+            opts: ["It returns 0 automatically, since ERL treats any out-of-range index as if it were simply equal to zero", "It silently creates a brand new 6th element in the array, growing its size from 5 up to 6 elements in total", "It instead returns whatever value happens to be stored at points[0], since ERL wraps invalid indices back around", "It causes an error, since the valid indices for a 5-element array are only 0 to 4"],
+            ans: 3,
+            explain: "points[5] is out of range: a 5-element array (0-indexed) only has valid indices 0 to 4."
+        }
+    ];
+
+    const matchData = [
+        { term: "array scores[5]", def: "Declares a static, 0-indexed 1D array with 5 elements (indices 0 to 4)" },
+        { term: "scores[0]", def: "Refers to the FIRST element of the array scores" },
+        { term: "Static array", def: "An array whose size is fixed once declared and cannot grow or shrink" },
+        { term: "Index", def: "The numbered position of an element within an array, starting from 0" },
+        { term: "array grid[3,4]", def: "Declares a 2D array arranged as a grid with 3 rows and 4 columns" },
+        { term: "grid[row, col]", def: "Accesses an element of a 2D array using a row index and a column index" },
+        { term: "grid[0,0]", def: "Refers to the top-left cell of a 2D array" },
+        { term: "for i = 0 to n-1", def: "A loop that visits every index of an n-element array in turn" },
+        { term: "Linear search", def: "Checks each element of an array in turn against a target value" },
+        { term: "Nested loop", def: "A loop placed inside another loop, used to visit every element of a 2D array" },
+        { term: "Element", def: "A single value stored at one position (index) within an array" },
+        { term: "total = total + arr[i]", def: "A line inside a loop that adds each element onto a running total" }
+    ];
+
+    const fibData = [
+        {
+            display: "An array stores several values of the same _____ under one name.",
+            blanks: { B1: "type" }
+        },
+        {
+            display: "ERL arrays are _____ — indexed from 0, and their size cannot change once declared.",
+            blanks: { B1: "static" }
+        },
+        {
+            display: "The first element of an ERL array is always at index _____.",
+            blanks: { B1: "0" }
+        },
+        {
+            display: "array grid[3,3] declares a _____ array arranged as a grid of rows and columns.",
+            blanks: { B1: "2D" }
+        },
+        {
+            display: "grid[row, col] accesses a 2D array element using a row index and a _____ index.",
+            blanks: { B1: "column" }
+        },
+        {
+            display: "To visit every element of a 2D array, use a _____ loop — one loop inside another.",
+            blanks: { B1: "nested" }
+        },
+        {
+            display: "A _____ search checks each element of an array in turn against a target value.",
+            blanks: { B1: "linear" }
+        },
+        {
+            display: "For array nums[6], the last valid index is _____.",
+            blanks: { B1: "5" }
+        }
+    ];
+    const fibWords = ["type", "static", "0", "2D", "column", "nested", "linear", "5"];
+
+    const tfData = [
+        {
+            statement: "In ERL, the first element of an array is stored at index 0.",
+            answer: true,
+            explanation: "Correct — ERL arrays are 0-indexed, so index 0 always holds the first element."
+        },
+        {
+            statement: "Once an array has been declared, its size can be increased later in the program.",
+            answer: false,
+            explanation: "ERL arrays are static — the size is fixed once declared and cannot be increased or decreased afterwards."
+        },
+        {
+            statement: "array marks[10] has valid indices from 0 to 9.",
+            answer: true,
+            explanation: "Correct — a 10-element array (0-indexed) holds indices 0 to 9; there is no marks[10]."
+        },
+        {
+            statement: "In a 2D array declared as array grid[4,6], grid[0,0] refers to the very last cell of the grid.",
+            answer: false,
+            explanation: "grid[0,0] refers to the top-left (first) cell, not the last cell — both indices start counting from 0."
+        },
+        {
+            statement: "A for loop used to sum an array should run from i = 0 to (size − 1), not to size.",
+            answer: true,
+            explanation: "Correct — the last valid index is always one less than the array's declared size."
+        },
+        {
+            statement: "grid[2,5] and grid[5,2] always refer to exactly the same cell in a 2D array.",
+            answer: false,
+            explanation: "The order matters: the first index is the row and the second is the column, so grid[2,5] and grid[5,2] are different cells unless row and column happen to match."
+        },
+        {
+            statement: "A linear search checks each element of an array in turn against a target value.",
+            answer: true,
+            explanation: "Correct — that is exactly what a linear search does, usually using a Boolean flag to record a match."
+        },
+        {
+            statement: "When processing a 2D array with nested loops, the outer loop is usually used to control the row index, and the inner loop the column index.",
+            answer: true,
+            explanation: "Correct — this is the standard pattern: the outer loop steps through rows, and the inner loop steps through every column within that row."
+        }
+    ];
+
+    const miscData = [
+        {
+            wrong: "Thinking array indices start at 1, matching everyday counting.",
+            correct: "ERL arrays are <strong>0-indexed</strong>: the first element is always at index <strong>0</strong>. For <code>array codes[4]</code>, the valid indices are <code>0, 1, 2, 3</code> — there is no <code>codes[4]</code>.",
+            readCheck: {
+                q: "array codes[4]  is declared. Which of these is NOT a valid index for this array?",
+                opts: ["4", "0", "1", "2, because valid indices for an array are always counted down from its declared size, finishing at the number one"],
+                ans: 0,
+                explain: "A 4-element array has indices 0, 1, 2 and 3 (0-indexed) — index 4 does not exist, since the last valid index is always one less than the declared size."
+            }
+        },
+        {
+            wrong: "Thinking an array can grow bigger while the program is running, simply by assigning a value beyond its declared size.",
+            correct: "ERL arrays are <strong>static</strong> — their size is fixed once declared. Assigning to an index beyond the declared size (e.g. <code>levels[3]</code> for a 3-element array with indices 0–2) causes an <strong>error</strong>, not automatic resizing.",
+            readCheck: {
+                q: "array levels[3]  is declared. What happens if the program tries to run  levels[3] = 10 ?",
+                opts: ["It causes an error, because index 3 is out of range for a 3-element (0, 1, 2) static array", "The array automatically grows to hold 4 elements instead of 3, since ERL arrays resize themselves as needed", "levels[3] is simply ignored by the program, and the rest of the code afterwards runs completely normally", "The value 10 overwrites whatever was previously stored at levels[0], since index 3 wraps back around to the start"],
+                ans: 0,
+                explain: "levels[3] is out of range for a 3-element array (valid indices 0, 1, 2) — since ERL arrays are static, this causes an error rather than growing the array."
+            }
+        },
+        {
+            wrong: "Thinking the two numbers in a 2D array's declaration, e.g. array grid[3,5], are added together rather than giving separate rows and columns.",
+            correct: "The two numbers in a 2D declaration give the <strong>rows</strong> and the <strong>columns</strong> separately. The total number of elements is found by <strong>multiplying</strong> them, not adding them.",
+            readCheck: {
+                q: "array board[4,2]  is declared. How many elements does this hold in total, and how many rows does it have?",
+                opts: ["8 elements in total, arranged as 4 rows of 2 columns each", "6 elements in total, since the two numbers in the declaration are added together rather than multiplied", "4 elements in total, because only the first number in a 2D declaration actually has any effect at all", "2 elements in total, because only the second number in a 2D declaration actually has any effect at all"],
+                ans: 0,
+                explain: "board[4,2] is 4 rows × 2 columns = 8 elements in total — the two numbers are multiplied, not added."
+            }
+        },
+        {
+            wrong: "Thinking grid[row, col] and grid[col, row] always refer to the same cell.",
+            correct: "The <strong>order</strong> of the two indices matters: the first index is always the <strong>row</strong>, and the second is always the <strong>column</strong>. <code>grid[0,1]</code> and <code>grid[1,0]</code> are different cells unless the grid happens to be symmetrical at that point.",
+            readCheck: {
+                q: "For  array grid[3,3] , is  grid[0,1]  the same cell as  grid[1,0] ?",
+                opts: ["No — grid[0,1] is row 0, column 1, while grid[1,0] is row 1, column 0; these are different cells unless the grid happens to be symmetrical", "Yes, because the order in which the two indices happen to be written down never actually makes the slightest difference at all for any 2D array in ERL", "Yes, but only because grid[3,3] happens to be a square grid with exactly the same number of rows as it has columns", "No, because grid[1,0] is not actually considered to be a valid reference into any 2D array whatsoever, under any circumstances"],
+                ans: 0,
+                explain: "grid[row, col] — the row always comes first. grid[0,1] and grid[1,0] are two different cells unless their values happen to match."
+            }
+        },
+        {
+            wrong: "Thinking a for loop over an array should run  for i = 0 to size , using the array's declared size as the loop's upper bound.",
+            correct: "The loop's upper bound should be <strong>(size − 1)</strong>, the array's <strong>last valid index</strong> — not the declared size itself. For <code>array data[6]</code>, the correct loop is <code>for i = 0 to 5</code>.",
+            readCheck: {
+                q: "array data[6]  is declared. Which for loop correctly visits every element without going out of range?",
+                opts: ["for i = 0 to 5", "for i = 0 to 6, because that matches the number used in the array's own declaration", "for i = 1 to 6, since counting normally starts at one rather than at zero", "for i = 0 to 7, to make sure that every possible element is definitely included"],
+                ans: 0,
+                explain: "data[6] holds indices 0 to 5 (0-indexed) — the loop's upper bound should be (size − 1) = 5, not the declared size 6."
+            }
+        },
+        {
+            wrong: "Thinking a simple linear search loop (with no explicit exit instruction) automatically stops checking as soon as it finds a match.",
+            correct: "Unless the algorithm includes an explicit exit instruction, a plain <code>for</code> loop carries on running through <strong>every</strong> remaining index, even after a match has already been found earlier in the array.",
+            readCheck: {
+                q: "A linear search is written using a plain  for i = 0 to n-1  loop, with no exit statement. If the target is found at index 1 out of 5 elements, does the loop stop searching immediately at index 1?",
+                opts: ["No — without an explicit exit instruction, the for loop carries on checking every remaining index up to the end", "Yes, because any linear search automatically stops as soon as the very first match is found, in every implementation", "Yes, because for loops in ERL always stop the moment any variable inside them changes value at all", "No, but only because index 1 does not count as a valid match for a search algorithm to actually stop on"],
+                ans: 0,
+                explain: "A plain for loop with no exit instruction always runs to completion — it keeps checking every remaining index, even once found has already been set to true."
+            }
+        }
+    ];
+
+    const examTips = [
+        {
+            type: "tip",
+            title: "Tracing 1D and 2D array loops carefully",
+            pills: ["AO2", "Key skill", "Trace tables"],
+            content: `<p>"What does this output?" questions on arrays are worth a lot of marks, and the safest approach is <strong>slow and mechanical</strong>:</p>
+<ul>
+<li>For a 1D array loop, draw a small table with a column for the <strong>index</strong> and a column for any <strong>running total</strong> (or other tracked variable), and fill it in one pass at a time.</li>
+<li>For a 2D array with nested loops, keep the <strong>row</strong> and <strong>column</strong> values in separate columns of your own working — it's easy to mix them up under pressure.</li>
+<li>Remember that a loop bound written as <code>to (size − 1)</code>, e.g. <code>for i = 0 to 3</code> for a 4-element array, is <strong>correct</strong> — it is not "missing" the last element.</li>
+</ul>
+<p><strong>Example:</strong> for <code>nums = [3, 7, 2]</code> and <code>total = 0; for i = 0 to 2: total = total + nums[i]</code>, the table fills in i=0 (total 3), i=1 (total 10), i=2 (total 12). Output: 12. Slow beats clever.</p>`,
+            readCheck: {
+                q: "What is the safest way to answer a 'what does this array code output?' question?",
+                opts: ["Work through the loop mechanically, one pass (or one index) at a time, writing down each new value as it changes", "Read the code once quickly, then write down whichever final answer feels the most likely to you, based only on the variable names that have been used", "Only check the very last line of the algorithm, since the earlier lines only very rarely affect the value that ends up being printed", "Count how many lines the algorithm has in total, since the final output is usually equal to that same number of lines exactly"],
+                ans: 0,
+                explain: "Working through the loop mechanically — one pass or one index at a time — is reliable. Guessing from names or skipping lines is not."
+            }
+        },
+        {
+            type: "explain",
+            title: "Writing a 1D array algorithm from a description (sum / largest / search)",
+            pills: ["AO2", "Exam skill", "Write code"],
+            content: `<p>When asked to <strong>write</strong> an array algorithm (rather than trace one), a reliable structure earns the marks reliably:</p>
+<ul>
+<li><strong>Declare</strong> the array with the correct size, and use a <code>for</code> loop running from <code>0</code> to <code>(size − 1)</code> to fill or read it.</li>
+<li>Before the main loop, set up any <strong>accumulator</strong> (e.g. <code>total = 0</code>) or starting value (e.g. <code>largest = arr[0]</code>) or <strong>flag</strong> (e.g. <code>found = false</code>) that the algorithm needs.</li>
+<li>Inside the loop, apply the correct comparison or calculation to <strong>each</strong> element in turn.</li>
+<li>After the loop finishes, <strong>output</strong> the final result.</li>
+</ul>
+<p>Marks are usually given for the logic — correct array use, correct loop bounds, correct comparison/accumulation, and a correct output — not for using one particular programming language, so pseudocode or Python are both fine unless the question says otherwise.</p>`,
+            readCheck: {
+                q: "What is the best general approach when asked to WRITE an algorithm that processes an array?",
+                opts: ["Skip straight to the comparison logic, since the array declaration and loop bounds are not usually worth any marks", "Declare the array with the right size, loop from 0 to (size − 1), and set up any accumulator or flag before the loop starts", "Write the whole algorithm using only a while loop, since for loops are never accepted by OCR mark schemes for any array question at all", "Always include a completely separate 2D array in the answer, even when the question itself only ever describes a single list of values"],
+                ans: 1,
+                explain: "A reliable structure is: declare the array correctly, loop from 0 to (size − 1), set up any accumulator/flag before the loop, then output the result afterwards."
+            }
+        },
+        {
+            type: "tip",
+            title: "2D arrays — keep row and column straight",
+            pills: ["AO1", "AO2", "2D arrays"],
+            content: `<p>Mixing up the row and column index is one of the most common mistakes in 2D array questions. Some quick anchors:</p>
+<ul>
+<li>In <code>grid[row, col]</code>, the <strong>first</strong> value written is always the <strong>row</strong>, and the <strong>second</strong> is always the <strong>column</strong>.</li>
+<li><code>grid[0,0]</code> is the <strong>top-left</strong> cell — both indices start at 0, exactly like a 1D array.</li>
+<li>In nested loops, the convention is an <strong>outer</strong> loop for rows and an <strong>inner</strong> loop for columns — the inner loop runs fully for every single pass of the outer loop.</li>
+</ul>`,
+            readCheck: {
+                q: "Why is the order of the two indices in  grid[row, col]  important?",
+                opts: ["Because the second index written is always assumed to represent the row, not the column, in every 2D array", "Because ERL automatically swaps the two indices around whenever the array happens to have equal numbers of rows and columns", "Because grid[row, col] and grid[col, row] refer to different cells unless the row and column indices happen to be equal", "Because 2D arrays are not actually indexed from 0 in the same way that 1D arrays are indexed"],
+                ans: 2,
+                explain: "The order matters because the first index is always the row and the second is always the column — swapping them points to a different cell unless the two values happen to match."
+            }
+        }
+    ];
+
+    const flashcards = [
+        { term: "Array", def: "Stores several values of the same type under one name" },
+        { term: "Element", def: "A single value stored in an array, at a particular index" },
+        { term: "Index", def: "The numbered position of an element in an array" },
+        { term: "0-indexed", def: "The first element of an array is always at index 0" },
+        { term: "Static array", def: "An array whose size is fixed once declared and cannot change while the program runs" },
+        { term: "array scores[5]", def: "Declares a static 1D array with 5 elements, indices 0 to 4" },
+        { term: "scores[0] = 90", def: "Assigns the value 90 to the element at index 0" },
+        { term: "print(scores[2])", def: "Accesses (reads) the value stored at index 2" },
+        { term: "for i = 0 to size-1", def: "A loop that visits every index of an array in turn" },
+        { term: "Summing an array", def: "Set total = 0, then add each element onto total inside a loop" },
+        { term: "Finding the largest", def: "Start by assuming the first element is largest, then update it whenever a bigger element is found" },
+        { term: "Linear search", def: "Checks each element in turn against a target value, usually using a Boolean flag" },
+        { term: "2D array", def: "Stores data as a grid of rows and columns, e.g. array grid[3,4]" },
+        { term: "grid[row, col]", def: "Accesses an element of a 2D array using two 0-indexed values, row then column" },
+        { term: "Nested loop", def: "A loop inside another loop; used to visit every element of a 2D array (outer = rows, inner = columns)" },
+        { term: "Total elements in a 2D array", def: "rows × columns, e.g. array grid[3,4] holds 12 elements" }
+    ];
+
+    // ── Original clean-room exam questions (2026-07-24) ──
+    // Written from scratch against the §2.2.3 spec scope, arrays only
+    // (CS-CONTENT-PLAN.md §6.2 clean-room rule) — NOT transcribed from
+    // any OCR paper. No exam PDF was supplied for this sub-topic, so
+    // the tariff spread and format mix are authored from the standard
+    // J277 Paper 2 assessment style for arrays (index access, 1D loop
+    // trace/write, 2D grid access, nested-loop trace, search), NOT
+    // profiled from a real paper — treat the ceiling as a best estimate.
+    // Spread: 2x1, 4x2, 3x3, 4x4 = 13 questions / 35 marks (mcq/written/
+    // tableFill/traceTable/codeGaps/tickGrid/matchLine/bankCloze/codeWrite).
+    const EXAM_CASE_STUDIES = {};
+
+    const examQuestions = [
+        {
+            num: "Q1",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: `<p>An array is declared as  <strong>array prices[6]</strong> . Tick <strong>one</strong> box to identify the index of the FIRST element in this array.</p>`,
+            options: ["prices[1], because counting normally begins at one rather than at zero when people count everyday objects", "prices[0]", "prices[6]", "prices[-1]"],
+            answer: 1,
+            hint: "ERL arrays are indexed from 0, not from 1.",
+            starter: "",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<ul><li><strong>prices[0]</strong> (arrays are 0-indexed, so the first element is always at index 0)</li></ul>
+</div>`,
+            modelAnswer: "prices[0]."
+        },
+        {
+            num: "Q2",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: `<p>The same array is declared as  <strong>array prices[6]</strong> . Tick <strong>one</strong> box to identify the index of the LAST valid element in this array.</p>`,
+            options: ["6, because that is the number used in the array's declaration to state its size", "0", "5", "-1, since negative indices are sometimes assumed to represent the final element of an array"],
+            answer: 2,
+            hint: "The last valid index of an array is always one less than its declared size.",
+            starter: "",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<ul><li><strong>5</strong> (a 6-element array is 0-indexed, so its valid indices run 0 to 5 — there is no prices[6])</li></ul>
+</div>`,
+            modelAnswer: "5."
+        },
+        {
+            num: "Q3",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: `<p>The following code runs.</p><pre>array temp[4]
+temp[0] = 12
+temp[1] = 18
+temp[2] = 9
+temp[3] = 15</pre><p>State the value stored at <strong>temp[1]</strong>, and the value stored at <strong>temp[3]</strong>.</p>`,
+            hint: "Match each index directly to the line of code that assigned it.",
+            starter: "temp[1] = … , temp[3] = …",
+            markPoints: {
+                note: "1 mark for each correct value.",
+                groups: [
+                    { label: "temp[1]", max: 1, points: [{ text: "18", marks: 1 }] },
+                    { label: "temp[3]", max: 1, points: [{ text: "15", marks: 1 }] }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks</h5>
+<ul>
+<li>temp[1] = <strong>18</strong></li>
+<li>temp[3] = <strong>15</strong></li>
+</ul>
+</div>`,
+            modelAnswer: "temp[1] = 18\ntemp[3] = 15"
+        },
+        {
+            num: "Q4",
+            marks: 3,
+            type: "written",
+            format: "tableFill",
+            caseStudy: "",
+            question: `<p>A 1D array is set up as <strong>marks[5]</strong>, holding <strong>marks[0]=88, marks[1]=45, marks[2]=72, marks[3]=60, marks[4]=91</strong>.</p><p>Complete the table to show the output of each statement.</p>`,
+            table: {
+                headers: ["Statement", "Output"],
+                rows: [
+                    ["print(marks[0])", "88"],
+                    ["print(marks[2])", null],
+                    ["print(marks[4])", null],
+                    ["print(marks[1] + marks[3])", null]
+                ]
+            },
+            answers: {
+                "1,1": ["72"],
+                "2,1": ["91"],
+                "3,1": ["105"]
+            },
+            hint: "print(marks[0]) has been done for you. Match each remaining index (or pair of indices) to the values given above.",
+            starter: "print(marks[2]) → … , print(marks[4]) → … , print(marks[1] + marks[3]) → …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 3 marks (1 mark for each correct output)</h5>
+<ul>
+<li>print(marks[2]) → <strong>72</strong></li>
+<li>print(marks[4]) → <strong>91</strong></li>
+<li>print(marks[1] + marks[3]) → <strong>105</strong> (45 + 60)</li>
+</ul>
+</div>`,
+            modelAnswer: "print(marks[2]) = 72. print(marks[4]) = 91. print(marks[1] + marks[3]) = 105."
+        },
+        {
+            num: "Q5",
+            marks: 4,
+            type: "written",
+            format: "traceTable",
+            caseStudy: "",
+            question: `<p>The following algorithm finds the largest value in an array.</p><pre>array nums[5]
+nums[0] = 4
+nums[1] = 9
+nums[2] = 2
+nums[3] = 9
+nums[4] = 6
+largest = nums[0]
+for i = 1 to 4
+  if nums[i] &gt; largest then
+    largest = nums[i]
+  endif
+next i
+print(largest)</pre><p>Complete the trace table to show the value of <strong>i</strong> and <strong>largest</strong> at the end of each pass of the loop.</p>`,
+            trace: {
+                columns: ["i", "largest"],
+                rows: [
+                    ["1", "9"],
+                    ["2", "9"],
+                    ["3", "9"],
+                    ["4", "9"]
+                ]
+            },
+            hint: "largest starts as nums[0] = 4, BEFORE the loop begins. Each pass only updates largest if nums[i] is STRICTLY greater than the current largest.",
+            starter: "Before the loop: largest = 4. Pass 1: i=1, largest=…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (1 mark per correct row of the trace)</h5>
+<ul>
+<li>Pass 1 → i = 1, largest = 9 (nums[1]=9 &gt; 4, so largest updates)</li>
+<li>Pass 2 → i = 2, largest = 9 (nums[2]=2 is not &gt; 9, so largest is unchanged)</li>
+<li>Pass 3 → i = 3, largest = 9 (nums[3]=9 is not STRICTLY &gt; 9, so largest is unchanged)</li>
+<li>Pass 4 → i = 4, largest = 9 (nums[4]=6 is not &gt; 9, so largest is unchanged)</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul><li>1 mark for each fully-correct row (both columns right). The program finally outputs 9.</li></ul>
+</div>`,
+            modelAnswer: "Before loop: largest=4. Pass 1: i=1, largest=9. Pass 2: i=2, largest=9. Pass 3: i=3, largest=9. Pass 4: i=4, largest=9. Output: 9."
+        },
+        {
+            num: "Q6",
+            marks: 3,
+            type: "written",
+            format: "codeGaps",
+            caseStudy: "",
+            question: `<p>The algorithm below should search the array <strong>items</strong> for the value stored in <strong>target</strong>, setting <strong>found</strong> to true if a match exists.</p><p>Complete the three gaps.</p>`,
+            gaps: {
+                lines: [
+                    "array items[6]",
+                    "items[0] = 12",
+                    "items[1] = 7",
+                    "items[2] = 25",
+                    "items[3] = 7",
+                    "items[4] = 30",
+                    "items[5] = 18",
+                    "target = 25",
+                    "found = false",
+                    "for i = 0 to 5",
+                    "  if items[{1}] == target then",
+                    "    found = {2}",
+                    "  endif",
+                    "next i",
+                    "print({3})"
+                ],
+                answers: {
+                    "1": ["i"],
+                    "2": ["true"],
+                    "3": ["found"]
+                }
+            },
+            hint: "Gap 1 is the index used to access each element in turn. Gap 2 is what found should be set to on a match. Gap 3 is what the algorithm should finally print.",
+            starter: "Gap 1: … Gap 2: … Gap 3: …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 3 marks (1 mark per gap)</h5>
+<ul>
+<li>Gap 1: <strong>i</strong></li>
+<li>Gap 2: <strong>true</strong></li>
+<li>Gap 3: <strong>found</strong></li>
+</ul>
+</div>`,
+            modelAnswer: "if items[i] == target then ; found = true ; print(found)"
+        },
+        {
+            num: "Q7",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: `<p>The following code sets up a 2D array representing part of a cinema seating plan.</p><pre>array seating[3,4]
+seating[0,0] = "Amir"
+seating[1,2] = "Priya"
+seating[2,3] = "Ben"</pre><p>State the value stored at <strong>seating[1,2]</strong>, and the value stored at <strong>seating[2,3]</strong>.</p>`,
+            hint: "seating[row, col] — match the row and column numbers to the lines of code that assigned each value.",
+            starter: "seating[1,2] = … , seating[2,3] = …",
+            markPoints: {
+                note: "1 mark for each correct value.",
+                groups: [
+                    { label: "seating[1,2]", max: 1, points: [{ text: "\"Priya\"", marks: 1 }] },
+                    { label: "seating[2,3]", max: 1, points: [{ text: "\"Ben\"", marks: 1 }] }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks</h5>
+<ul>
+<li>seating[1,2] = <strong>"Priya"</strong></li>
+<li>seating[2,3] = <strong>"Ben"</strong></li>
+</ul>
+</div>`,
+            modelAnswer: "seating[1,2] = \"Priya\". seating[2,3] = \"Ben\"."
+        },
+        {
+            num: "Q8",
+            marks: 4,
+            type: "written",
+            format: "tickGrid",
+            caseStudy: "",
+            question: `<p>Tick <strong>one</strong> box in each row to classify the array statement described as <strong>1D array</strong> or <strong>2D array</strong>.</p>`,
+            grid: {
+                cols: ["1D array", "2D array"],
+                rows: [
+                    { label: "array colours[8] — declared with a single size in the square brackets", correct: [0] },
+                    { label: "array timetable[5,6] — declared with two sizes, separated by a comma", correct: [1] },
+                    { label: "colours[3] — accessed using a single index", correct: [0] },
+                    { label: "timetable[row, col] — accessed using two indices, a row and a column", correct: [1] }
+                ]
+            },
+            hint: "One size in the declaration (or one index when accessing an element) means 1D. Two sizes (or two indices) means 2D.",
+            starter: "colours[8]: … timetable[5,6]: … colours[3]: … timetable[row,col]: …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (1 mark per row)</h5>
+<ul>
+<li>array colours[8] → <strong>1D array</strong></li>
+<li>array timetable[5,6] → <strong>2D array</strong></li>
+<li>colours[3] → <strong>1D array</strong></li>
+<li>timetable[row, col] → <strong>2D array</strong></li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul><li>Each row is marked independently; 2 ticks in a row scores 0 for that row.</li></ul>
+</div>`,
+            modelAnswer: "colours[8]: 1D. timetable[5,6]: 2D. colours[3]: 1D. timetable[row,col]: 2D."
+        },
+        {
+            num: "Q9",
+            marks: 4,
+            type: "written",
+            format: "matchLine",
+            caseStudy: "",
+            question: `<p>Draw <strong>one</strong> line from each term to its correct description.</p><p>(There are more descriptions than terms — one description is not used.)</p>`,
+            match: {
+                left: ["array scores[8]", "scores[0]", "array grid[4,4]", "grid[row, col]"],
+                right: [
+                    "Declares a static 1D array with 8 elements, indexed 0 to 7",
+                    "Accesses the first element of the array scores",
+                    "Declares a 2D array arranged as a grid with 4 rows and 4 columns",
+                    "Accesses an element of a 2D array using a row index and a column index",
+                    "Declares an array whose size can grow or shrink while the program is running"
+                ],
+                answer: { "0": 0, "1": 1, "2": 2, "3": 3 },
+                decoys: [4]
+            },
+            hint: "Watch the decoy: ERL arrays are static, so no array can grow or shrink once declared.",
+            starter: "array scores[8] → …, scores[0] → …, array grid[4,4] → …, grid[row, col] → …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (1 mark per correct line)</h5>
+<ul>
+<li>array scores[8] → <strong>A</strong> (declares a static 1D array, indices 0 to 7)</li>
+<li>scores[0] → <strong>B</strong> (the first element of scores)</li>
+<li>array grid[4,4] → <strong>C</strong> (a 2D grid, 4 rows by 4 columns)</li>
+<li>grid[row, col] → <strong>D</strong> (accesses a 2D element using a row and a column index)</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul><li>1 mark per correct line. Description E is a decoy and is not used — ERL arrays cannot grow or shrink.</li></ul>
+</div>`,
+            modelAnswer: "array scores[8] → declares a static 1D array, indices 0 to 7. scores[0] → the first element of scores. array grid[4,4] → a 2D grid, 4 rows by 4 columns. grid[row, col] → accesses a 2D element using a row and a column index."
+        },
+        {
+            num: "Q10",
+            marks: 3,
+            type: "written",
+            format: "bankCloze",
+            caseStudy: "",
+            question: `<p>Complete the paragraph about arrays by selecting terms from the list. <strong>Not all terms are used.</strong></p>`,
+            cloze: `<p>An array stores several values of the same type under one name. In the OCR Exam Reference Language, arrays are ___1___ — their size is fixed once declared — and ___2___, meaning the very first element is always stored at index ___3___.</p>`,
+            bank: ["static", "0-indexed", "dynamic", "1-indexed", "0", "1"],
+            answers: {
+                "1": ["static"],
+                "2": ["0-indexed"],
+                "3": ["0"]
+            },
+            hint: "Fixed size once declared → one term. Counting scheme for element positions → another. The position of the very first element → a number.",
+            starter: "(1) … (2) … (3) …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 3 marks (1 mark for each completed term)</h5>
+<p>Arrays are <strong>static</strong>. Arrays are <strong>0-indexed</strong>. The first element is at index <strong>0</strong>.</p>
+</div>`,
+            modelAnswer: "(1) static (2) 0-indexed (3) 0"
+        },
+        {
+            num: "Q11",
+            marks: 4,
+            type: "written",
+            format: "codeWrite",
+            caseStudy: "",
+            question: `<p>Write an algorithm, using pseudocode, that:</p><ul><li>uses a 2D array called grid[4,4], representing a 4×4 grid of whole numbers that has already been filled with values, and</li><li>uses <strong>nested loops</strong> to calculate and output the total of every value stored in the grid.</li></ul><p>You may answer in OCR Exam Reference Language or in a high-level language you know.</p>`,
+            hint: "Use an outer loop for the row index and an inner loop for the column index. Add grid[row, col] onto a running total inside the inner loop.",
+            starter: "array grid[4,4]\ntotal = 0",
+            markPoints: {
+                note: "Mark the LOGIC (any equivalent, correct algorithm earns full marks — exact wording/language may vary).",
+                groups: [
+                    {
+                        label: "A correct 2D total algorithm", max: 4, points: [
+                            { text: "Uses two nested for loops — an outer loop for the row index, an inner loop for the column index", marks: 1 },
+                            { text: "Initialises a total variable to 0 before the loops start", marks: 1 },
+                            { text: "Adds grid[row, col] onto total inside the inner loop, for every cell", marks: 1 },
+                            { text: "Outputs the final value of total once both loops have finished", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks — mark the logic (accept any equivalent code)</h5>
+<ul>
+<li>1 mark: two nested for loops used, outer loop for rows and inner loop for columns</li>
+<li>1 mark: total set to 0 before the loops begin</li>
+<li>1 mark: grid[row, col] added onto total inside the inner loop</li>
+<li>1 mark: the final total is output after both loops finish</li>
+</ul>
+<p>Example (ERL):</p>
+<div class="code-block">array grid[4,4]
+total = 0
+for row = 0 to 3
+  for col = 0 to 3
+    total = total + grid[row, col]
+  next col
+next row
+print(total)</div>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul><li>Any logically correct answer scores full marks — mark the logic, not the exact wording or choice of language.</li></ul>
+</div>`,
+            modelAnswer: "array grid[4,4]\ntotal = 0\nfor row = 0 to 3\n  for col = 0 to 3\n    total = total + grid[row, col]\n  next col\nnext row\nprint(total)"
+        },
+        {
+            num: "Q12",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: `<p>An array is declared as <strong>array scores[5]</strong>. A programmer writes the line <strong>print(scores[5])</strong>.</p><p>State why this line causes an error, and state the index that should have been used instead to correctly access the LAST element of the array.</p>`,
+            hint: "Work out the valid range of indices for a 5-element array first.",
+            starter: "print(scores[5]) causes an error because…, and the correct index is…",
+            markPoints: {
+                note: "1 mark for the explanation, 1 mark for the correct index.",
+                groups: [
+                    { label: "Explanation", max: 1, points: [{ text: "scores[5] is out of range, since a 5-element array (0-indexed) only has valid indices 0 to 4", marks: 1 }] },
+                    { label: "Correct index", max: 1, points: [{ text: "scores[4]", marks: 1 }] }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks</h5>
+<ul>
+<li>1 mark: scores[5] is out of range, since a 5-element array only has valid indices 0 to 4 (0-indexed)</li>
+<li>1 mark: the correct index for the last element is <strong>scores[4]</strong></li>
+</ul>
+</div>`,
+            modelAnswer: "print(scores[5]) causes an error because a 5-element array only has valid indices 0 to 4 (0-indexed) — there is no index 5. The correct index for the last element is scores[4]."
+        },
+        {
+            num: "Q13",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: `<p>A programmer needs to store the test scores of 30 students. State <strong>two</strong> reasons why using a single array called <strong>scores[30]</strong> is better than creating 30 separate variables (score1, score2, score3…).</p>`,
+            hint: "Think about what becomes possible once all the values share one name and can be reached using an index.",
+            starter: "One reason is…, and a second reason is…",
+            markPoints: {
+                note: "1 mark for each of two distinct valid reasons.",
+                groups: [
+                    {
+                        label: "Two reasons", max: 2, points: [
+                            { text: "A loop can process every value using an index, instead of 30 separate lines of near-identical code being written by hand", marks: 1 },
+                            { text: "The related data is grouped together under one name, making the program shorter, easier to read and easier to maintain", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (1 mark for each valid, distinct reason, up to 2)</h5>
+<ul>
+<li>A loop can process every value using an index, instead of writing 30 separate near-identical lines of code</li>
+<li>The related data is grouped together under one name, making the program shorter and easier to read/maintain</li>
+</ul>
+</div>`,
+            modelAnswer: "A loop can process all 30 scores using an index, instead of writing 30 separate lines of code. The related values are also grouped together under one name, which keeps the program shorter and easier to read and maintain."
+        }
+    ];
+</script>
+    <script src="/script.js"></script>
+<script src="section-totals.js"></script>
+<script src="page-groups.js"></script>
+<script src="/progress-shared.js"></script>
+<script src="/gamification.js"></script>
+<script src="/topic-guard.js"></script>
+<script src="/notifications-shared.js"></script>
+<script src="/onboarding-tour.js"></script>
+<script src="/footer-legal.js"></script>
+<script src="/cs-lab/exam-widgets.js"></script>
+<script src="/cs-lab/exam-widgets-grids.js"></script>
+<script src="/cs-lab/exam-widgets-code.js"></script>
+<script src="/cs-lab/cs-lab.js" defer></script>
+</body>
+
+</html>

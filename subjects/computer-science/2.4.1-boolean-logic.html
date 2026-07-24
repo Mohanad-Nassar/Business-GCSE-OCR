@@ -16,7 +16,7 @@
         <div>
             <div class="badge">OCR GCSE Computer Science — Paper 2 · 2.4 Boolean Logic</div>
             <h1>2.4.1 Boolean Logic</h1>
-            <p>Interactive revision guide · Content coming soon</p>
+            <p>Interactive revision guide</p>
         </div>
         <a href="/index.html" class="home-link">← 🏡 Home</a>
     </header>
@@ -268,21 +268,780 @@
 
     const topics = [
         {
-            title: "This topic is being written",
-            tag: "Coming soon",
-            content: `<p>🚧 <strong>Content for this topic is on its way.</strong> Key Learning notes, practice questions and exam-style questions for <strong>2.4.1 Boolean Logic</strong> will appear here soon.</p>`
+            title: "What Boolean logic is",
+            tag: "Key concept",
+            content: `<h4>Decisions made from 1s and 0s</h4>
+<ul>
+<li>Computers work in <strong>binary</strong>, where everything is a <strong>1 (true)</strong> or a <strong>0 (false)</strong>. <strong>Boolean logic</strong> is how a computer makes decisions from these values.</li>
+<li>The basic building blocks are <strong>logic gates</strong>. Every processor is built from millions of them. For GCSE you need just three: <strong>AND</strong>, <strong>OR</strong> and <strong>NOT</strong>.</li>
+<li>You can describe the same logic in three ways, and the exam moves between them:</li>
+<li>a <strong>logic gate / diagram</strong> (the circuit), a <strong>truth table</strong> (every input combination and its output), and a <strong>Boolean expression</strong> (e.g. <code>Q = A AND B</code>).</li>
+</ul>`,
+            readCheck: {
+                q: "Which three logic gates do you need to know for GCSE Boolean logic?",
+                opts: ["ADD, SUBTRACT and COMPARE, which are the three operations a processor carries out on the binary numbers it is given", "AND, OR and NOT", "TRUE, FALSE and MAYBE, which together represent every possible state a single logic gate can ever be in", "INPUT, PROCESS and OUTPUT, which is the order a logic circuit always deals with the signals passing through it"],
+                ans: 1,
+                explain: "The three gates are AND, OR and NOT. (Input–process–output and arithmetic are separate ideas, not logic gates.)"
+            }
+        },
+        {
+            title: "The AND gate",
+            tag: "Logic gate",
+            content: `<h4>Output 1 only when BOTH inputs are 1</h4>
+<ul>
+<li>An <strong>AND</strong> gate takes two inputs and outputs <strong>1 only when both inputs are 1</strong>. In every other case the output is 0.</li>
+<li>Its symbol is a shape with a <strong>flat back and a rounded (D-shaped) front</strong>.</li>
+<li>Written as a Boolean expression: <code>Q = A AND B</code> (also written <code>A.B</code> or <code>A∧B</code>).</li>
+</ul>
+<div class="code-block">A  B | A AND B
+0  0 |   0
+0  1 |   0
+1  0 |   0
+1  1 |   1</div>
+<p>Think "both": like needing <em>both</em> a ticket AND ID to get in.</p>`,
+            readCheck: {
+                q: "When does an AND gate output 1?",
+                opts: ["When at least one of its two inputs is 1, so it only ever outputs 0 in the single case where both inputs are 0", "Only when both of its inputs are 1", "Only when both of its inputs are 0, because the AND gate reverses whatever combination of inputs it is given", "When its two inputs are different from each other, that is, when exactly one of the two inputs is a 1"],
+                ans: 1,
+                explain: "AND outputs 1 only when BOTH inputs are 1. 'At least one' describes OR; 'different' describes XOR (not needed at GCSE)."
+            }
+        },
+        {
+            title: "The OR gate",
+            tag: "Logic gate",
+            content: `<h4>Output 1 when AT LEAST ONE input is 1</h4>
+<ul>
+<li>An <strong>OR</strong> gate takes two inputs and outputs <strong>1 when at least one input is 1</strong> (including when both are 1). It only outputs 0 when <strong>both</strong> inputs are 0.</li>
+<li>Its symbol has a <strong>curved back and a pointed front</strong>.</li>
+<li>Boolean expression: <code>Q = A OR B</code> (also <code>A+B</code> or <code>A∨B</code>).</li>
+</ul>
+<div class="code-block">A  B | A OR B
+0  0 |   0
+0  1 |   1
+1  0 |   1
+1  1 |   1</div>
+<p>Think "either": like getting a discount with a student card OR a member card.</p>`,
+            readCheck: {
+                q: "When does an OR gate output 0?",
+                opts: ["Only when both of its inputs are 1, because the OR gate is designed to reject the case where everything is switched on", "Only when both of its inputs are 0", "Whenever its two inputs are the same as each other, whether they both happen to be 0 or both happen to be 1", "It never outputs 0 at all, because an OR gate is built so that its output signal is always a 1 no matter what"],
+                ans: 1,
+                explain: "An OR gate outputs 1 if either (or both) input is 1, so it only outputs 0 when BOTH inputs are 0."
+            }
+        },
+        {
+            title: "The NOT gate",
+            tag: "Logic gate",
+            content: `<h4>Reverses a single input</h4>
+<ul>
+<li>A <strong>NOT</strong> gate (an <strong>inverter</strong>) has just <strong>one</strong> input. It outputs the <strong>opposite</strong> of its input: 0 becomes 1, and 1 becomes 0.</li>
+<li>Its symbol is a <strong>triangle pointing at a small circle</strong> (the circle is what shows the inversion).</li>
+<li>Boolean expression: <code>Q = NOT A</code> (also written with a bar over A, or <code>¬A</code>).</li>
+</ul>
+<div class="code-block">A | NOT A
+0 |   1
+1 |   0</div>
+<p>The NOT gate is the only one of the three with a <strong>single</strong> input.</p>`,
+            readCheck: {
+                q: "How many inputs does a NOT gate have, and what does it do?",
+                opts: ["Two inputs, and it outputs a 1 only when both of those inputs are switched on to 1 at the same time as each other", "One input, and it outputs the opposite of that input (0 becomes 1, 1 becomes 0)", "Two inputs, and it outputs a 1 whenever at least one of the two inputs coming into it happens to be a 1", "Three inputs, and it outputs the value that appears most often across those three inputs at any one time"],
+                ans: 1,
+                explain: "A NOT gate has ONE input and inverts it. Two-input behaviour describes AND/OR."
+            }
+        },
+        {
+            title: "Truth tables",
+            tag: "Key concept",
+            content: `<h4>Every possible input, and its output</h4>
+<ul>
+<li>A <strong>truth table</strong> lists <strong>every possible combination of inputs</strong> and the output the circuit gives for each.</li>
+<li>The number of rows depends on the number of inputs: <strong>2 inputs → 4 rows</strong>, <strong>3 inputs → 8 rows</strong> (the rule is 2<sup>number of inputs</sup>).</li>
+<li>List the combinations <strong>systematically</strong> so you don't miss any — count up in binary: 00, 01, 10, 11 (for two inputs).</li>
+</ul>
+<div class="code-block">A  B  C     (3 inputs → 8 rows)
+0  0  0
+0  0  1
+0  1  0
+0  1  1
+1  0  0
+1  0  1
+1  1  0
+1  1  1</div>`,
+            readCheck: {
+                q: "How many rows does the truth table for a circuit with 3 inputs have?",
+                opts: ["6 rows, because you simply add together the number of inputs and the number of gates the circuit contains", "8", "3", "16, because each of the three separate inputs is able to take a value of either 0 or 1 independently"],
+                ans: 1,
+                explain: "Rows = 2 to the power of the number of inputs. For 3 inputs that is 2×2×2 = 8 rows."
+            }
+        },
+        {
+            title: "Combining gates into a circuit",
+            tag: "Key concept",
+            content: `<h4>Working out the output step by step</h4>
+<ul>
+<li>Real circuits use <strong>more than one gate</strong>. To find the output, work through the circuit <strong>one gate at a time</strong>, doing the <strong>inner gate(s) first</strong> — just like brackets in maths.</li>
+<li>Example circuit: inputs <strong>A</strong> and <strong>B</strong> go into an AND gate; that gate's output and input <strong>C</strong> go into an OR gate. As an expression: <code>Q = (A AND B) OR C</code>.</li>
+<li>To find Q when A=1, B=1, C=0: first <code>A AND B</code> = 1, then <code>1 OR 0</code> = <strong>1</strong>.</li>
+</ul>
+<p>Tip: write the Boolean expression from the diagram first — brackets show which gate is worked out first.</p>`,
+            readCheck: {
+                q: "For the circuit  Q = (A AND B) OR C , what is Q when A=0, B=1, C=1?",
+                opts: ["0, because at least one of the inputs A and B is a 0, which forces the whole circuit's output down to 0", "1", "It cannot be worked out, because the value of input A has to be a 1 before the circuit is able to give an output", "Both 0 and 1, because the circuit gives a different answer each time depending on which gate is looked at first"],
+                ans: 1,
+                explain: "First A AND B = 0 (B is 1 but A is 0). Then 0 OR C = 0 OR 1 = 1. The C input alone makes Q = 1."
+            }
+        },
+        {
+            title: "Truth tables for multi-gate circuits",
+            tag: "Exam skill",
+            content: `<h4>Add a column for each gate</h4>
+<ul>
+<li>To build the truth table for a circuit with several gates, add an <strong>intermediate column for each gate's output</strong>, then work left to right across each row.</li>
+<li>For <code>Q = (A AND B) OR C</code> you might have columns: A, B, C, (A AND B), then Q.</li>
+</ul>
+<div class="code-block">A  B  C | A AND B | Q = (A AND B) OR C
+0  0  0 |    0    |   0
+0  0  1 |    0    |   1
+0  1  1 |    0    |   1
+1  1  0 |    1    |   1
+1  1  1 |    1    |   1</div>
+<ul>
+<li>Filling the intermediate column first makes the final column much easier and stops silly mistakes.</li>
+</ul>`,
+            readCheck: {
+                q: "What is the best way to complete the truth table for a circuit with two or more gates?",
+                opts: ["Guess the final output for each row based on which of the two inputs looks like it is probably the most important one", "Add an intermediate column for each gate's output, then work across each row from left to right", "Only fill in the rows where all of the inputs are 1, since those are the only rows that can ever affect the output", "Write the outputs down the column in the repeating pattern 0, 1, 0, 1 because that is what every truth table does"],
+                ans: 1,
+                explain: "Adding a working column for each gate's output and going left-to-right across each row is the reliable method."
+            }
+        },
+        {
+            title: "Boolean expressions and notation",
+            tag: "Key concept",
+            content: `<h4>Writing logic as an expression</h4>
+<ul>
+<li>A <strong>Boolean expression</strong> describes a circuit in text. <strong>Brackets</strong> show which gate is worked out first, exactly like in maths.</li>
+<li>OCR accepts <strong>alternative notations</strong> — you may see any of these:</li>
+<li><strong>AND</strong>: <code>AND</code>, <code>.</code> (a dot), or <code>∧</code>.</li>
+<li><strong>OR</strong>: <code>OR</code>, <code>+</code> (a plus), or <code>∨</code>.</li>
+<li><strong>NOT</strong>: <code>NOT</code>, a <strong>bar over the letter</strong>, or <code>¬</code>.</li>
+<li>Inputs/outputs may be shown as <strong>1/0</strong> or <strong>T/F</strong> (true/false).</li>
+</ul>`,
+            readCheck: {
+                q: "In a Boolean expression, what do the brackets in  Q = A AND (B OR C)  tell you?",
+                opts: ["That the letters A, B and C should be swapped around into a different order before the circuit is worked out at all", "That the OR gate (B OR C) is worked out first, and its result is then fed into the AND gate with A", "That the whole expression should be read from right to left instead of the usual left to right reading order", "That input A is more important than inputs B and C, so its value alone decides the final output of the circuit"],
+                ans: 1,
+                explain: "Brackets show which part is done first: B OR C is worked out, then AND-ed with A — just like brackets in maths."
+            }
+        },
+        {
+            title: "Reading and drawing logic diagrams",
+            tag: "Exam skill",
+            content: `<h4>Between diagram, table and expression</h4>
+<ul>
+<li>The exam asks you to <strong>create, complete or edit</strong> logic diagrams and truth tables, and to move between a <strong>diagram</strong>, its <strong>truth table</strong>, and its <strong>Boolean expression</strong>.</li>
+<li><strong>Diagram → expression:</strong> trace the signals through each gate, writing the gate names, and use brackets for the order.</li>
+<li><strong>Expression → truth table:</strong> list all input combinations, work out each gate, then the final output.</li>
+<li><strong>Truth table → gate:</strong> look at the pattern — output 1 only on the "both 1" row means an AND; output 0 only on the "both 0" row means an OR.</li>
+</ul>`,
+            readCheck: {
+                q: "A two-input truth table shows an output of 1 on every row EXCEPT the row where both inputs are 0. Which single gate does this describe?",
+                opts: ["An AND gate, because the output is a 1 on almost all of the rows in the completed truth table shown", "An OR gate", "A NOT gate, because the output values are the opposite of the two input values on most of the table's rows", "No single gate can do this, so the circuit must be built from at least two different gates joined together"],
+                ans: 1,
+                explain: "Output 1 everywhere except when both inputs are 0 is exactly the OR gate's pattern."
+            }
         }
     ];
 
-    const mcqData = [];
-    const matchData = [];
-    const fibData = [];
-    const fibWords = [];
-    const tfData = [];
-    const miscData = [];
-    const examTips = [];
-    const flashcards = [];
-    const examQuestions = [];
+    const mcqData = [
+        {
+            q: "What is the output of an AND gate when its inputs are 1 and 0?",
+            opts: ["1, because an AND gate gives an output of 1 whenever at least one of the two inputs going into it is a 1", "0", "It has no output, because an AND gate needs both of its two inputs to be set to 1 before it can work at all", "Both 0 and 1, because the output of an AND gate depends on the order the two inputs are connected to it"],
+            ans: 1,
+            explain: "AND outputs 1 only when BOTH inputs are 1. With inputs 1 and 0, the output is 0."
+        },
+        {
+            q: "What is the output of an OR gate when both inputs are 0?",
+            opts: ["1", "0", "It depends on which of the two inputs was connected to the OR gate first when the circuit was built", "An OR gate cannot take two inputs of 0, so this combination can never actually happen in a real circuit"],
+            ans: 1,
+            explain: "OR outputs 1 if at least one input is 1. When both inputs are 0, the output is 0."
+        },
+        {
+            q: "A NOT gate has an input of 1. What is its output?",
+            opts: ["1", "0", "2, because the NOT gate adds one onto its input value each and every time a signal passes through it", "It has two outputs at once, one of which is a 0 and the other of which is a 1, because it inverts the signal"],
+            ans: 1,
+            explain: "A NOT gate inverts its input, so an input of 1 gives an output of 0."
+        },
+        {
+            q: "How many rows are in the truth table for a circuit with 2 inputs?",
+            opts: ["2", "4", "8", "It varies depending on how many logic gates the circuit happens to contain between its inputs and its output"],
+            ans: 1,
+            explain: "Rows = 2 to the power of the number of inputs. 2 inputs give 2×2 = 4 rows."
+        },
+        {
+            q: "Which gate outputs 1 when AT LEAST ONE of its inputs is 1?",
+            opts: ["AND", "OR", "NOT", "None of them, because a logic gate can only ever give an output of 1 when every one of its inputs is a 1"],
+            ans: 1,
+            explain: "OR outputs 1 when at least one input is 1. AND needs both; NOT inverts a single input."
+        },
+        {
+            q: "Which gate has only ONE input?",
+            opts: ["AND", "OR", "NOT", "They all take exactly two inputs, because a logic gate always needs a pair of signals in order to work at all"],
+            ans: 2,
+            explain: "The NOT gate (inverter) has a single input. AND and OR each take two inputs."
+        },
+        {
+            q: "For the expression  Q = A AND B , which row of the truth table gives Q = 1?",
+            opts: ["The row where A = 0 and B = 0, since an AND gate is designed to switch on only when both inputs are switched off", "The row where A = 1 and B = 1", "Every row except the one where both A and B are equal to 1 at the same time as one another", "The two rows where A and B have different values from each other, i.e. one is a 0 and the other is a 1"],
+            ans: 1,
+            explain: "AND gives 1 only when both inputs are 1 — the single row A=1, B=1."
+        },
+        {
+            q: "For the circuit  Q = (A OR B) AND C , what is Q when A=1, B=0, C=0?",
+            opts: ["1, because input A is a 1 and that is enough on its own to make the whole circuit output a 1 at the end", "0", "It cannot be found unless the value of input B is also changed to a 1 to match the value of input A", "The circuit gives an error, because you are not allowed to combine an OR gate and an AND gate together"],
+            ans: 1,
+            explain: "First A OR B = 1 (A is 1). Then 1 AND C = 1 AND 0 = 0. The AND with C=0 forces Q to 0."
+        },
+        {
+            q: "A truth table's output column is 1 only on the single row where both inputs are 1. Which gate is it?",
+            opts: ["OR", "AND", "NOT", "It must be two gates, because no single logic gate is able to give an output of 1 on only one row"],
+            ans: 1,
+            explain: "Output 1 only when both inputs are 1 is the defining pattern of an AND gate."
+        },
+        {
+            q: "Which of these is an accepted alternative way of writing  A OR B ?",
+            opts: ["A - B", "A + B", "A / B", "A curved bar drawn over the top of both of the letters A and B at the same time to join them together"],
+            ans: 1,
+            explain: "OR can be written as A + B (a plus). AND is written A.B (a dot); NOT uses a bar over the letter."
+        },
+        {
+            q: "In the expression  Q = NOT (A AND B) , which part is worked out first?",
+            opts: ["The NOT, because a NOT gate is always applied to the inputs before any other gate in the whole circuit runs", "A AND B (inside the brackets)", "It does not matter which part is done first, because the final output value comes out the same either way", "Input A on its own, because the letter that appears first in the expression is always evaluated before the rest"],
+            ans: 1,
+            explain: "Brackets are done first: work out A AND B, then apply NOT to that result."
+        },
+        {
+            q: "How many rows would the truth table for  Q = A AND B AND C  have?",
+            opts: ["3", "8", "6", "4, because a truth table always has four rows regardless of how many inputs the circuit is given"],
+            ans: 1,
+            explain: "Three inputs (A, B, C) give 2 to the power 3 = 8 rows, one for each combination."
+        }
+    ];
+
+    const matchData = [
+        { term: "AND gate", def: "Outputs 1 only when both inputs are 1" },
+        { term: "OR gate", def: "Outputs 1 when at least one input is 1" },
+        { term: "NOT gate", def: "Has one input and outputs the opposite value" },
+        { term: "Truth table", def: "A table of every input combination and its output" },
+        { term: "Boolean expression", def: "A circuit written in text, e.g. Q = A AND B" },
+        { term: "2 inputs", def: "A truth table with 4 rows" },
+        { term: "3 inputs", def: "A truth table with 8 rows" },
+        { term: "A . B", def: "Alternative notation for A AND B" },
+        { term: "A + B", def: "Alternative notation for A OR B" },
+        { term: "Bar over A", def: "Alternative notation for NOT A" },
+        { term: "Inverter", def: "Another name for a NOT gate" },
+        { term: "Brackets in an expression", def: "Show which gate is worked out first" }
+    ];
+
+    const fibData = [
+        {
+            display: "An _____ gate outputs 1 only when both of its inputs are 1.",
+            blanks: { B1: "AND" }
+        },
+        {
+            display: "An _____ gate outputs 1 when at least one of its inputs is 1.",
+            blanks: { B1: "OR" }
+        },
+        {
+            display: "A _____ gate has a single input and outputs the opposite value.",
+            blanks: { B1: "NOT" }
+        },
+        {
+            display: "A _____ table lists every possible combination of inputs and the resulting output.",
+            blanks: { B1: "truth" }
+        },
+        {
+            display: "A circuit with 3 inputs has a truth table with _____ rows.",
+            blanks: { B1: "8" }
+        },
+        {
+            display: "In a Boolean expression, _____ show which gate is worked out first.",
+            blanks: { B1: "brackets" }
+        },
+        {
+            display: "The NOT gate is also known as an _____.",
+            blanks: { B1: "inverter" }
+        },
+        {
+            display: "In binary logic, 1 means true and _____ means false.",
+            blanks: { B1: "0" }
+        }
+    ];
+    const fibWords = ["AND", "OR", "NOT", "truth", "8", "brackets", "inverter", "0"];
+
+    const tfData = [
+        {
+            statement: "An AND gate outputs 1 only when both of its inputs are 1.",
+            answer: true,
+            explanation: "Correct — that is the defining behaviour of an AND gate; any other combination gives 0."
+        },
+        {
+            statement: "An OR gate outputs 0 when at least one of its inputs is 1.",
+            answer: false,
+            explanation: "An OR gate outputs 1 when at least one input is 1. It outputs 0 only when both inputs are 0."
+        },
+        {
+            statement: "A NOT gate has two inputs.",
+            answer: false,
+            explanation: "A NOT gate (inverter) has a single input and outputs the opposite value. AND and OR have two inputs."
+        },
+        {
+            statement: "A truth table for a circuit with 2 inputs has 4 rows.",
+            answer: true,
+            explanation: "Correct — rows = 2 to the power of the number of inputs, so 2 inputs give 4 rows."
+        },
+        {
+            statement: "In the expression Q = A AND (B OR C), the AND gate is worked out before the OR gate.",
+            answer: false,
+            explanation: "Brackets are done first, so B OR C is worked out first, then AND-ed with A."
+        },
+        {
+            statement: "A + B is an accepted way of writing A OR B.",
+            answer: true,
+            explanation: "Correct — OR can be written with a plus (A + B); AND uses a dot (A.B) and NOT uses a bar."
+        },
+        {
+            statement: "A circuit with 3 inputs has a truth table with 6 rows.",
+            answer: false,
+            explanation: "3 inputs give 2 to the power 3 = 8 rows, not 6. (You do not add inputs; you use powers of 2.)"
+        },
+        {
+            statement: "The output of a NOT gate is the opposite of its input.",
+            answer: true,
+            explanation: "Correct — a NOT gate inverts its input: 0 becomes 1 and 1 becomes 0."
+        }
+    ];
+
+    const miscData = [
+        {
+            wrong: "Mixing up the AND and OR gates.",
+            correct: "<strong>AND</strong> needs <strong>both</strong> inputs to be 1 (think 'both'). <strong>OR</strong> needs <strong>at least one</strong> input to be 1 (think 'either'). The only row they disagree on the '0,0' and mixed rows: AND is 1 on just the '1,1' row, while OR is 1 on every row except '0,0'.",
+            readCheck: {
+                q: "Inputs are A=1, B=0. Which gate outputs 1 for these inputs?",
+                opts: ["The AND gate, because at least one of the two inputs going into it is set to a value of 1 in this case", "The OR gate", "Both the AND gate and the OR gate output a 1, because one of the two inputs is a 1 in this situation", "Neither gate outputs a 1, because a logic gate needs both of its inputs to match before it will output a 1"],
+                ans: 1,
+                explain: "OR outputs 1 because at least one input (A) is 1. AND would output 0 because both inputs are not 1."
+            }
+        },
+        {
+            wrong: "Thinking a NOT gate has two inputs like the others.",
+            correct: "A <strong>NOT</strong> gate has exactly <strong>one</strong> input — it simply flips it (0↔1). Only AND and OR take two inputs. In a diagram, a NOT gate is the small triangle-and-circle with a single wire going in.",
+            readCheck: {
+                q: "How many inputs does a NOT gate have?",
+                opts: ["Two, the same as an AND gate and an OR gate, because every logic gate must always be given a pair of inputs", "One", "It can have any number of inputs, and it outputs a 1 only if every single one of those inputs is a 0", "Zero, because a NOT gate generates its own output signal without needing any input value to be supplied to it"],
+                ans: 1,
+                explain: "A NOT gate has a single input, which it inverts. AND and OR are the two-input gates."
+            }
+        },
+        {
+            wrong: "Working out the number of truth-table rows by ADDING the inputs.",
+            correct: "The number of rows is <strong>2 to the power of the number of inputs</strong>, NOT the inputs added up. So 2 inputs → 2² = <strong>4</strong> rows, 3 inputs → 2³ = <strong>8</strong> rows. Each extra input <strong>doubles</strong> the number of rows.",
+            readCheck: {
+                q: "A circuit has 3 inputs. How many rows does its truth table need?",
+                opts: ["6, which you get by adding together the three separate inputs and then doubling the total that they make", "8", "3, because a truth table simply needs one single row for each of the separate inputs that the circuit has", "9, because each of the three inputs can be a 0 or a 1, giving three lots of three different combinations"],
+                ans: 1,
+                explain: "Rows double with each input: 2 to the power 3 = 8. Adding the inputs (3, or 6) is the common mistake."
+            }
+        },
+        {
+            wrong: "Doing the gates in a multi-gate circuit in the wrong order.",
+            correct: "Work out the gate <strong>inside the brackets first</strong>, just like in maths. For <code>Q = A AND (B OR C)</code>, work out <strong>B OR C first</strong>, then feed that into the AND with A. Doing the AND first gives the wrong answer.",
+            readCheck: {
+                q: "For  Q = A AND (B OR C) , what should you work out first?",
+                opts: ["A AND B, because you always take the first two letters that appear in the expression and combine them first", "B OR C, the part inside the brackets", "A on its own, because whichever input is written first in the expression is always the one worked out first", "It makes no difference at all, because an AND gate and an OR gate always produce the very same result anyway"],
+                ans: 1,
+                explain: "Brackets first: work out B OR C, then AND it with A. Order matters — doing the AND first is wrong."
+            }
+        },
+        {
+            wrong: "Assuming there is an 'XOR' or other gate to learn for J277.",
+            correct: "For OCR J277 you only need <strong>AND, OR and NOT</strong>. Any more complex behaviour (like 'output 1 when the inputs are different') is built by <strong>combining</strong> these three gates — you are not required to know a separate XOR/NAND/NOR gate.",
+            readCheck: {
+                q: "Which gates do you need to know for OCR J277 Boolean logic?",
+                opts: ["AND, OR, NOT, NAND, NOR and XOR, since a full understanding needs every one of the standard logic gates", "AND, OR and NOT only", "Only the AND gate and the OR gate, because the NOT gate is considered too simple to be examined on the paper", "Just the NOT gate, because every other kind of logic gate can be built out of NOT gates joined together"],
+                ans: 1,
+                explain: "J277 requires only AND, OR and NOT. More complex logic is made by combining these three."
+            }
+        },
+        {
+            wrong: "Missing input combinations when filling a truth table.",
+            correct: "List the input combinations <strong>systematically</strong> by counting up in binary, so none are missed. For two inputs: 00, 01, 10, 11. For three: 000, 001, 010, 011, 100, 101, 110, 111. A missing or repeated row is an easy way to lose marks.",
+            readCheck: {
+                q: "What is the safe way to list the input combinations in a truth table?",
+                opts: ["Write down only the combinations where the output is going to be a 1, since the other rows are not really needed", "Count up in binary (00, 01, 10, 11…) so every combination is listed exactly once", "Write the combinations in any random order that comes to mind, as long as most of them end up appearing", "Just list the combination where all the inputs are 0 and the one where all the inputs are 1, and ignore the rest"],
+                ans: 1,
+                explain: "Counting up in binary lists every combination exactly once, so none are missed or repeated."
+            }
+        }
+    ];
+
+    const examTips = [
+        {
+            type: "explain",
+            title: "Completing a truth table for a multi-gate circuit",
+            pills: ["AO2", "Key skill", "Truth tables"],
+            content: `<p>Completing the truth table for a two- or three-gate circuit is a very common Paper 2 question. Do it mechanically:</p>
+<ul>
+<li><strong>1. List every input combination</strong> by counting up in binary (don't miss any — 2 inputs = 4 rows, 3 inputs = 8 rows).</li>
+<li><strong>2. Add a working column for each gate.</strong> Fill the inner gate's column first.</li>
+<li><strong>3. Work across each row</strong> left to right to get the final output.</li>
+</ul>
+<p><strong>Worked (Q = (A AND B) OR C):</strong> add a column for <code>A AND B</code>, fill it in (only 1 when A and B are both 1), then OR each of those with C. The output is 1 whenever C is 1, or whenever A and B are both 1. Checking the intermediate column stops careless slips.</p>`,
+            readCheck: {
+                q: "When completing a truth table for a circuit with two gates, what should you fill in first?",
+                opts: ["The final output column, working from the bottom row upwards so that you finish with the very first row of all", "An intermediate column for the inner gate's output, before working out the final output column", "Only the rows where the final output is a 1, because the rows that output 0 do not need to be written down", "The input columns in a random order, since the order the inputs are listed in has no effect on the answer"],
+                ans: 1,
+                explain: "Fill the inner gate's working column first, then use it to work out the final output — the reliable method."
+            }
+        },
+        {
+            type: "tip",
+            title: "Spot the gate from its truth table",
+            pills: ["AO1", "Pattern", "Identify"],
+            content: `<p>If you're given a completed output column and asked which gate it is, match the pattern:</p>
+<ul>
+<li>Output <strong>1 on only the '1,1' row</strong> → <strong>AND</strong>.</li>
+<li>Output <strong>1 on every row except '0,0'</strong> → <strong>OR</strong>.</li>
+<li>Output is the <strong>opposite of the single input</strong> → <strong>NOT</strong>.</li>
+</ul>
+<p>And going the other way — build the expression from a diagram by tracing each wire through its gate, writing the gate name, and using brackets to show the order the gates are combined in.</p>`,
+            readCheck: {
+                q: "A two-input truth table outputs 1 on only the row where both inputs are 1. Which gate is it?",
+                opts: ["An OR gate, because its output is a 1 on at least one of the rows shown in the completed truth table", "An AND gate", "A NOT gate, because the single 1 in the output column is the opposite of most of the input values above it", "It is impossible to tell which gate it is from a truth table alone without also seeing the circuit diagram"],
+                ans: 1,
+                explain: "Output 1 only on the 'both inputs 1' row is exactly the AND gate's pattern."
+            }
+        },
+        {
+            type: "tip",
+            title: "Don't panic at unfamiliar notation",
+            pills: ["AO1", "Notation", "Common trap"],
+            content: `<p>The exam may write the gates in symbols instead of words, and it is all accepted:</p>
+<ul>
+<li><code>A . B</code> or <code>A ∧ B</code> both mean <strong>A AND B</strong>.</li>
+<li><code>A + B</code> or <code>A ∨ B</code> both mean <strong>A OR B</strong>.</li>
+<li>A <strong>bar over a letter</strong> or <code>¬A</code> both mean <strong>NOT A</strong>.</li>
+<li>Inputs/outputs may be shown as <strong>T/F</strong> instead of 1/0.</li>
+</ul>
+<p>Translate the symbols back into AND / OR / NOT in your head, then work through it exactly as normal. A <code>+</code> here means OR, not add.</p>`,
+            readCheck: {
+                q: "In a Boolean expression, what does the symbol  +  (a plus) mean?",
+                opts: ["Add the two values together, so 1 + 1 would give a result of 2 in the same way it does in ordinary maths", "OR", "AND, because the plus sign joins two inputs together and an AND gate is the gate that combines two inputs", "NOT, because the plus sign is one of the accepted ways of showing that an input value should be inverted"],
+                ans: 1,
+                explain: "In Boolean notation a plus (+) means OR, not addition. A dot (.) means AND."
+            }
+        }
+    ];
+
+    const flashcards = [
+        { term: "Boolean logic", def: "Making decisions from binary values (1 = true, 0 = false)" },
+        { term: "Logic gate", def: "A building block that outputs 1 or 0 based on its inputs" },
+        { term: "AND gate", def: "Outputs 1 only when both inputs are 1" },
+        { term: "OR gate", def: "Outputs 1 when at least one input is 1" },
+        { term: "NOT gate (inverter)", def: "One input; outputs the opposite value" },
+        { term: "Truth table", def: "Every input combination and the resulting output" },
+        { term: "Rows in a truth table", def: "2 to the power of the number of inputs (2 inputs = 4, 3 = 8)" },
+        { term: "Boolean expression", def: "A circuit written in text, e.g. Q = A AND B" },
+        { term: "Brackets in an expression", def: "Show which gate is worked out first" },
+        { term: "AND notation", def: "A AND B, A.B, or A∧B" },
+        { term: "OR notation", def: "A OR B, A+B, or A∨B" },
+        { term: "NOT notation", def: "NOT A, a bar over A, or ¬A" },
+        { term: "AND truth table", def: "0,0→0 · 0,1→0 · 1,0→0 · 1,1→1" },
+        { term: "OR truth table", def: "0,0→0 · 0,1→1 · 1,0→1 · 1,1→1" },
+        { term: "Gates for J277", def: "Only AND, OR and NOT (combine them for anything more)" },
+        { term: "Combining gates", def: "Work out the inner gate first, like brackets in maths" }
+    ];
+
+    // ── Original clean-room exam questions (2026-07-24) ──
+    // Written from scratch against the §2.4.1 spec scope (CS-CONTENT-PLAN.md
+    // §6.2 clean-room rule) — NOT transcribed from any OCR paper. Boolean logic
+    // (AND/OR/NOT, truth tables, multi-gate circuits, notation). Uses the
+    // truthTable widget (q.truth = {inputs, output, rows:[{in,out}]}, 1 mark
+    // per output cell) for complete-the-truth-table questions. No exam PDF was
+    // supplied, so the tariff/format spread is a best estimate of J277 Paper 2
+    // style, not profiled. Spread: 2x1, 2x2, 2x3, 3x4, 1x8 = 10 questions / 32 marks.
+    const EXAM_CASE_STUDIES = {};
+
+    const examQuestions = [
+        {
+            num: "Q1",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: `<p>Tick <strong>one</strong> box to give the output of an <strong>AND</strong> gate when both of its inputs are 1.</p>`,
+            options: ["0", "1", "2", "It has no output"],
+            answer: 1,
+            hint: "An AND gate outputs 1 only when both inputs are 1 — which is the case here.",
+            starter: "",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 1 mark</h5><ul><li><strong>1</strong></li></ul></div>`,
+            modelAnswer: "1"
+        },
+        {
+            num: "Q2",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: `<p>Tick <strong>one</strong> box to give the number of rows in the truth table for a circuit with <strong>3 inputs</strong>.</p>`,
+            options: ["3", "6", "8", "9"],
+            answer: 2,
+            hint: "Rows = 2 to the power of the number of inputs.",
+            starter: "",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 1 mark</h5><ul><li><strong>8</strong> (2 to the power 3)</li></ul></div>`,
+            modelAnswer: "8"
+        },
+        {
+            num: "Q3",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            stubs: ["AND gate", "OR gate"],
+            question: `<p>Describe the difference between an <strong>AND</strong> gate and an <strong>OR</strong> gate.</p>`,
+            hint: "Say when each one outputs a 1 — one needs both inputs to be 1, the other needs at least one.",
+            starter: "An AND gate…, whereas an OR gate…",
+            markPoints: {
+                note: "Up to 2 marks: the AND behaviour and the contrasting OR behaviour.",
+                groups: [
+                    {
+                        label: "The difference (both sides)", max: 2, points: [
+                            { text: "Says an AND gate outputs 1 only when both inputs are 1", marks: 1 },
+                            { text: "Contrasts with an OR gate, which outputs 1 when at least one input is 1", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks</h5>
+<ul>
+<li>Award 1 mark for: an AND gate outputs 1 only when both inputs are 1.</li>
+<li>Award 1 mark for: an OR gate outputs 1 when at least one input is 1 (only 0 when both are 0).</li>
+</ul>
+</div>`,
+            modelAnswer: "An AND gate outputs 1 only when both of its inputs are 1, whereas an OR gate outputs 1 when at least one of its inputs is 1 (it only outputs 0 when both inputs are 0)."
+        },
+        {
+            num: "Q4",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: `<p>A logic circuit is described by the Boolean expression:</p><pre>Q = (A OR B) AND C</pre><p>State the output <strong>Q</strong> when A = 0, B = 1 and C = 0, and show your working.</p>`,
+            hint: "Work out the bracket (A OR B) first, then AND the result with C.",
+            starter: "A OR B = …, then … AND C = …",
+            markPoints: {
+                note: "1 mark for the correct working of the inner gate, 1 mark for the correct final output.",
+                groups: [
+                    {
+                        label: "Working + output", max: 2, points: [
+                            { text: "A OR B = 1 (at least one input is 1)", marks: 1 },
+                            { text: "1 AND C = 1 AND 0 = 0, so Q = 0", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks</h5>
+<ul>
+<li>1 mark: A OR B = 1 (B is 1)</li>
+<li>1 mark: 1 AND C = 1 AND 0 = 0, so <strong>Q = 0</strong></li>
+</ul>
+</div>`,
+            modelAnswer: "A OR B = 1 (B is 1). Then 1 AND C = 1 AND 0 = 0. So Q = 0."
+        },
+        {
+            num: "Q5",
+            marks: 4,
+            type: "written",
+            format: "truthTable",
+            caseStudy: "",
+            question: `<p>Complete the truth table for the Boolean expression:</p><pre>Q = A OR B</pre>`,
+            truth: {
+                inputs: ["A", "B"],
+                output: "Q",
+                rows: [
+                    { in: [0, 0], out: 0 },
+                    { in: [0, 1], out: 1 },
+                    { in: [1, 0], out: 1 },
+                    { in: [1, 1], out: 1 }
+                ]
+            },
+            hint: "An OR gate outputs 1 when at least one input is 1 — so only the top row (0, 0) gives 0.",
+            starter: "Row 0,0 → … | Row 0,1 → … | Row 1,0 → … | Row 1,1 → …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (1 mark per correct output)</h5>
+<ul>
+<li>A=0, B=0 → Q = <strong>0</strong></li>
+<li>A=0, B=1 → Q = <strong>1</strong></li>
+<li>A=1, B=0 → Q = <strong>1</strong></li>
+<li>A=1, B=1 → Q = <strong>1</strong></li>
+</ul>
+</div>`,
+            modelAnswer: "0, 1, 1, 1 (down the Q column). OR gives 0 only when both inputs are 0."
+        },
+        {
+            num: "Q6",
+            marks: 4,
+            type: "written",
+            format: "truthTable",
+            caseStudy: "",
+            question: `<p>Complete the truth table for the Boolean expression:</p><pre>Q = A AND (NOT B)</pre>`,
+            truth: {
+                inputs: ["A", "B"],
+                output: "Q",
+                rows: [
+                    { in: [0, 0], out: 0 },
+                    { in: [0, 1], out: 0 },
+                    { in: [1, 0], out: 1 },
+                    { in: [1, 1], out: 0 }
+                ]
+            },
+            hint: "Work out NOT B first (flip B), then AND it with A. Q is 1 only when A is 1 and B is 0.",
+            starter: "Remember NOT B flips B before the AND.",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (1 mark per correct output)</h5>
+<ul>
+<li>A=0, B=0 → NOT B = 1, 0 AND 1 = <strong>0</strong></li>
+<li>A=0, B=1 → NOT B = 0, 0 AND 0 = <strong>0</strong></li>
+<li>A=1, B=0 → NOT B = 1, 1 AND 1 = <strong>1</strong></li>
+<li>A=1, B=1 → NOT B = 0, 1 AND 0 = <strong>0</strong></li>
+</ul>
+</div>`,
+            modelAnswer: "0, 0, 1, 0 (down the Q column). Q is 1 only when A = 1 and B = 0."
+        },
+        {
+            num: "Q7",
+            marks: 3,
+            type: "written",
+            format: "matchLine",
+            caseStudy: "",
+            question: `<p>Draw <strong>one</strong> line from each logic gate to the correct description of its output.</p>`,
+            match: {
+                left: ["AND gate", "OR gate", "NOT gate"],
+                right: ["Outputs 1 only when both inputs are 1", "Outputs 1 when at least one input is 1", "Outputs the opposite of its single input", "Outputs 1 only when both inputs are 0"],
+                answer: { "0": 0, "1": 1, "2": 2 },
+                decoys: [3]
+            },
+            hint: "Watch the decoy — 'outputs 1 only when both inputs are 0' is not any of these three gates.",
+            starter: "AND → …, OR → …, NOT → …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 3 marks (1 per correct line)</h5>
+<ul>
+<li>AND gate → <strong>A</strong> (1 only when both inputs are 1)</li>
+<li>OR gate → <strong>B</strong> (1 when at least one input is 1)</li>
+<li>NOT gate → <strong>C</strong> (opposite of its single input)</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul><li>Description D ('1 only when both inputs are 0') is a decoy — no single gate here does this.</li></ul>
+</div>`,
+            modelAnswer: "AND → outputs 1 only when both inputs are 1. OR → outputs 1 when at least one input is 1. NOT → outputs the opposite of its single input."
+        },
+        {
+            num: "Q8",
+            marks: 3,
+            type: "written",
+            format: "bankCloze",
+            caseStudy: "",
+            question: `<p>Complete the paragraph about logic gates by selecting terms from the list. <strong>Not all terms are used.</strong></p>`,
+            cloze: `<p>An ___1___ gate outputs 1 only when both inputs are 1. An OR gate outputs 1 when at least ___2___ input is 1. A NOT gate has a single input and outputs the ___3___ value.</p>`,
+            bank: ["AND", "OR", "NOT", "one", "both", "same", "opposite"],
+            answers: {
+                "1": ["AND"],
+                "2": ["one"],
+                "3": ["opposite"]
+            },
+            hint: "Both 1 → which gate? 'at least ___ input' → how many? NOT gives the ___ value.",
+            starter: "(1) … (2) … (3) …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 3 marks (1 per completed term)</h5>
+<p>An <strong>AND</strong> gate outputs 1 only when both inputs are 1. An OR gate outputs 1 when at least <strong>one</strong> input is 1. A NOT gate has a single input and outputs the <strong>opposite</strong> value.</p>
+</div>`,
+            modelAnswer: "(1) AND (2) one (3) opposite"
+        },
+        {
+            num: "Q9",
+            marks: 4,
+            type: "written",
+            format: "truthTable",
+            caseStudy: "",
+            question: `<p>A circuit has three inputs. Complete the truth table for the Boolean expression:</p><pre>Q = A AND B AND C</pre>`,
+            truth: {
+                inputs: ["A", "B", "C"],
+                output: "Q",
+                pairRows: true,
+                rows: [
+                    { in: [0, 0, 0], out: 0 },
+                    { in: [0, 0, 1], out: 0 },
+                    { in: [0, 1, 0], out: 0 },
+                    { in: [0, 1, 1], out: 0 },
+                    { in: [1, 0, 0], out: 0 },
+                    { in: [1, 0, 1], out: 0 },
+                    { in: [1, 1, 0], out: 0 },
+                    { in: [1, 1, 1], out: 1 }
+                ]
+            },
+            hint: "A three-input AND outputs 1 only when ALL THREE inputs are 1 — that is just the very last row.",
+            starter: "Only one row of the eight gives Q = 1.",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (½ per correct output, or 1 per pair — award full marks for the whole column correct)</h5>
+<ul>
+<li>Q = 0 for every row EXCEPT the last.</li>
+<li>Q = 1 only on the row A=1, B=1, C=1.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul><li>A three-input AND is 1 only when all three inputs are 1.</li></ul>
+</div>`,
+            modelAnswer: "Q = 0 on all rows except the last (A=1, B=1, C=1), where Q = 1."
+        },
+        {
+            num: "Q10",
+            marks: 8,
+            type: "written",
+            format: "truthTable",
+            caseStudy: "",
+            question: `<p>A security system uses a circuit with three inputs A, B and C, described by:</p><pre>Q = (A AND B) OR C</pre><p>Complete the full truth table for this circuit.</p>`,
+            truth: {
+                inputs: ["A", "B", "C"],
+                output: "Q",
+                rows: [
+                    { in: [0, 0, 0], out: 0 },
+                    { in: [0, 0, 1], out: 1 },
+                    { in: [0, 1, 0], out: 0 },
+                    { in: [0, 1, 1], out: 1 },
+                    { in: [1, 0, 0], out: 0 },
+                    { in: [1, 0, 1], out: 1 },
+                    { in: [1, 1, 0], out: 1 },
+                    { in: [1, 1, 1], out: 1 }
+                ]
+            },
+            hint: "Work out (A AND B) first for each row, then OR it with C. Q is 1 whenever C is 1, OR whenever A and B are both 1.",
+            starter: "Add a working column for A AND B, then OR each with C.",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 8 marks (1 mark per correct output row)</h5>
+<ul>
+<li>A=0,B=0,C=0 → 0 · A=0,B=0,C=1 → 1</li>
+<li>A=0,B=1,C=0 → 0 · A=0,B=1,C=1 → 1</li>
+<li>A=1,B=0,C=0 → 0 · A=1,B=0,C=1 → 1</li>
+<li>A=1,B=1,C=0 → <strong>1</strong> (A AND B = 1) · A=1,B=1,C=1 → 1</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul><li>Q = 1 whenever C = 1, or whenever A and B are both 1. So the only 0s are the three rows where C = 0 and A and B are not both 1.</li></ul>
+</div>`,
+            modelAnswer: "Q = 1 on every row where C = 1 (four rows), plus the row A=1, B=1, C=0. The 0s are: 000, 010, 100. So down the column: 0, 1, 0, 1, 0, 1, 1, 1."
+        }
+    ];
 </script>
     <script src="/script.js"></script>
 <script src="section-totals.js"></script>

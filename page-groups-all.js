@@ -2,7 +2,7 @@
 // ALL PAGE GROUPS — GENERATED FILE, DO NOT EDIT BY HAND
 // Built by tools/build_question_bank.py: every subject's topic tree
 // keyed by subject slug, for cross-subject pages (hub, profile).
-// Generated: 2026-07-24T07:26:56Z
+// Generated: 2026-07-24T18:45:57Z
 // ══════════════════════════════════════════════════════════════
 window.PAGE_GROUPS_ALL = {
  "additional-maths": [
@@ -789,10 +789,34 @@ window.PAGE_GROUPS_ALL = {
      "href": "/subjects/computer-science/2.2.2-data-types.html"
     },
     {
-     "id": "computer-science:2-2-3-additional-programming-techniques",
-     "name": "2.2.3 Additional Programming Techniques",
+     "id": "computer-science:2-2-3a-string-manipulation",
+     "name": "2.2.3a String Manipulation",
      "sub": "Programming Fundamentals",
-     "href": "/subjects/computer-science/2.2.3-additional-programming-techniques.html"
+     "href": "/subjects/computer-science/2.2.3a-string-manipulation.html"
+    },
+    {
+     "id": "computer-science:2-2-3b-arrays",
+     "name": "2.2.3b Arrays",
+     "sub": "Programming Fundamentals",
+     "href": "/subjects/computer-science/2.2.3b-arrays.html"
+    },
+    {
+     "id": "computer-science:2-2-3c-file-handling-and-records",
+     "name": "2.2.3c File Handling and Records",
+     "sub": "Programming Fundamentals",
+     "href": "/subjects/computer-science/2.2.3c-file-handling-and-records.html"
+    },
+    {
+     "id": "computer-science:2-2-3d-sql",
+     "name": "2.2.3d SQL",
+     "sub": "Programming Fundamentals",
+     "href": "/subjects/computer-science/2.2.3d-sql.html"
+    },
+    {
+     "id": "computer-science:2-2-3e-subprograms-and-random-numbers",
+     "name": "2.2.3e Sub Programs and Random Numbers",
+     "sub": "Programming Fundamentals",
+     "href": "/subjects/computer-science/2.2.3e-subprograms-and-random-numbers.html"
     }
    ]
   },
