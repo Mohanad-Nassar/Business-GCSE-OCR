@@ -396,6 +396,7 @@
      margin-top: 12px;
      border-top: 1px solid var(--border);
      padding-top: 12px;
+     container-type: inline-size; /* lets any responsive-table content react to its OWN rendered width, not the viewport — same fix as Spanish's .vocab-tbl */
  }
 
  .topic-card.open .topic-content {

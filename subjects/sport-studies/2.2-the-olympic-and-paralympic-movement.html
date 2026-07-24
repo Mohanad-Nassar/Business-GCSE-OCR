@@ -1,0 +1,697 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2.2 The Olympic & Paralympic Movement – Interactive Study Guide</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+    <header>
+        <div>
+            <div class="badge">OCR Level 1/Level 2 Sport Studies — R184 · 2. The Role of Sport in Promoting Values</div>
+            <h1>2.2 The Olympic & Paralympic Movement</h1>
+            <p>Interactive revision guide · Content coming soon</p>
+        </div>
+        <a href="/index.html" class="home-link">← 🏡 Home</a>
+    </header>
+
+    <nav class="tab-bar" id="tabBar">
+        <button class="tab-btn active" onclick="switchTab('learn', this)">
+            📚 Key Learning
+        </button>
+        <button class="tab-btn" onclick="switchTab('mcq', this)">
+            ❓ MCQ Quiz
+        </button>
+        <button class="tab-btn" onclick="switchTab('matching', this)">
+            🔗 Matching
+        </button>
+        <button class="tab-btn" onclick="switchTab('fib', this)">
+            ✏️ Fill the Blanks
+        </button>
+        <button class="tab-btn" onclick="switchTab('misconceptions', this)">
+            ⚠️ Misconceptions
+        </button>
+        <button class="tab-btn" onclick="switchTab('examtips', this)">
+            🎯 Exam Tips
+        </button>
+        <button class="tab-btn" onclick="switchTab('flashcards', this)">
+            🃏 Flashcards
+        </button>
+        <button class="tab-btn" onclick="switchTab('truefalse', this)">
+            ✅ True / False
+        </button>
+        <button class="tab-btn" onclick="switchTab('exampractice', this)">
+            📝 Exam Practice
+        </button>
+    </nav>
+
+    <main>
+        <div class="tab-panel active" id="tab-learn">
+            <h2 class="section-title">Key Learning Topics</h2>
+            <p class="section-sub">Click any card to expand detailed notes.</p>
+            <div class="topic-grid" id="topicGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-mcq">
+            <h2 class="section-title">Multiple Choice Questions</h2>
+            <p class="section-sub">Select an answer to reveal instant feedback.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="mcqScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">
+                        correct answers
+                    </div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    out of <strong id="mcqTotal">0</strong> attempted
+                </div>
+                <button class="reset-btn" onclick="resetMCQ()">RESET</button>
+            </div>
+            <div class="quiz-wrap" id="mcqWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-matching">
+            <h2 class="section-title">Matching Activity</h2>
+            <p class="section-sub">
+                Click a term on the left, then click the matching definition on the
+                right.
+            </p>
+            <div style="margin-bottom: 16px">
+                <div class="score-bar">
+                    <div>
+                        <div class="score-num" id="matchScore">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">matched</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="matchTotal">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetMatch()">RESET</button>
+                </div>
+            </div>
+            <div class="match-grid">
+                <div>
+                    <div class="match-label">TERMS</div>
+                    <div class="match-col" id="matchLeft"></div>
+                </div>
+                <div>
+                    <div class="match-label">DEFINITIONS</div>
+                    <div class="match-col" id="matchRight"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-fib">
+            <h2 class="section-title">Fill in the Blanks</h2>
+            <p class="section-sub">
+                Click each dropdown and choose the correct word. Wrong answers reset —
+                try again!
+            </p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="fibScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="fibTotal">0</strong> blanks
+                </div>
+                <button class="reset-btn" onclick="resetFIB()">RESET</button>
+            </div>
+            <div class="fib-wrap" id="fibWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-misconceptions">
+            <h2 class="section-title">Common Misconceptions</h2>
+            <p class="section-sub">
+                What students often think — and what examiners actually want.
+            </p>
+            <div class="misc-list" id="miscList"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-examtips">
+            <h2 class="section-title">Exam Questions &amp; Tips</h2>
+            <p class="section-sub">
+                Most repeated question types and mark-scheme structures from real OCR
+                papers.
+            </p>
+            <div class="tips-grid" id="tipsGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-flashcards">
+            <h2 class="section-title">Flashcards</h2>
+            <p class="section-sub">
+                Test yourself! Flip the card and rate your knowledge. Review your weak
+                areas at the end.
+            </p>
+
+            <div class="fc-container">
+                <div class="score-bar" id="fcScoreBar" style="display: none; margin-bottom: 20px">
+                    <div>
+                        <div class="score-num" id="fcKnown" style="color: #2d7a4f">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">known</div>
+                    </div>
+                    <div>
+                        <div class="score-num" id="fcUnknown" style="color: #c84b31">
+                            0
+                        </div>
+                        <div style="font-size: 12px; color: var(--mid)">learning</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="fcTotalTrack">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
+                </div>
+
+                <div id="fcActiveArea">
+                    <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
+                    <div class="flashcard" id="flashcard" onclick="flipCard()">
+                        <div class="fc-inner">
+                            <div class="fc-front">
+                                <div class="fc-label">KEY TERM</div>
+                                <div class="fc-term" id="fcTerm"></div>
+                            </div>
+                            <div class="fc-back">
+                                <div class="fc-def" id="fcDef"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="fc-hint">👆 Click card to flip</p>
+
+                    <div class="fc-nav" id="fcNavDefault">
+                        <button class="fc-btn outline" onclick="prevCard()">
+                            ← Prev
+                        </button>
+                        <button class="fc-btn outline" onclick="flipCard()">Flip</button>
+                        <button class="fc-btn" onclick="nextCard()">Next →</button>
+                    </div>
+
+                    <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px">
+                        <button class="fc-btn outline" style="border-color: #c84b31; color: #c84b31; flex: 1"
+                            onclick="markCard(false)">
+                            ❌ Still Learning
+                        </button>
+                        <button class="fc-btn" style="background: #2d7a4f; border-color: #2d7a4f; flex: 1"
+                            onclick="markCard(true)">
+                            ✅ Got It
+                        </button>
+                    </div>
+                </div>
+
+                <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px">
+                    <h3>Session Complete! 🎉</h3>
+                    <p style="margin: 15px 0">
+                        You knew <strong id="fcSummaryKnown">0</strong> out of
+                        <strong id="fcSummaryTotal">0</strong> cards.
+                    </p>
+                    <div style="
+                margin-top: 25px;
+                display: flex;
+                gap: 15px;
+                justify-content: center;
+                flex-wrap: wrap;
+              ">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
+                            style="background: #c84b31; border-color: #c84b31">
+                            Review Incorrect
+                        </button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">
+                            Practice All Again
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-truefalse">
+            <h2 class="section-title">True or False?</h2>
+            <p class="section-sub">Test your knowledge with these statements.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="tfScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="tfTotal">0</strong> answered
+                </div>
+                <button class="reset-btn" onclick="resetTF()">RESET</button>
+            </div>
+            <div class="tf-wrap" id="tfWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-exampractice">
+            <h2 class="section-title">Exam Practice Questions</h2>
+            <p class="section-sub">
+                Full exam questions with case studies. Use <strong>Hint</strong>,
+                <strong>Sentence Starter</strong> and
+                <strong>Submit &amp; See Mark Scheme</strong> for each question.
+            </p>
+            <div class="ep-list" id="epList"></div>
+        </div>
+    </main>
+
+<script>
+    // ══════════════════════════════════════
+    //  DATA: 2.2 The Olympic & Paralympic Movement — placeholder, content not yet written
+    // ══════════════════════════════════════
+    const pageMeta = {
+            id: '2-2-the-olympic-paralympic-movement',
+            badge: 'OCR Level 1/Level 2 Sport Studies — R184 · 2. The Role of Sport in Promoting Values',
+            title: '2.2 The Olympic & Paralympic Movement',
+            subtitle: 'Interactive revision guide',
+            subject: 'sport-studies',
+        };
+
+    const topics = [
+        {
+            title: "The Olympic Creed — the idea behind it",
+            tag: "Key concept",
+            content: `<h4>What the Creed is</h4>
+<ul>
+<li>The <strong>Olympic Creed</strong> is a short statement of the philosophy behind Olympic competition — it sums up what the Games are really meant to be about.</li>
+<li>Its core idea, in plain terms: genuine sporting achievement comes from the honesty of your effort and the personal challenge of competing at your very best — not simply from whether you walk away with a medal.</li>
+</ul>
+<h4>Why this trips people up</h4>
+<ul>
+<li>Some students read this and think it means "trying doesn't matter, just show up." That is the <strong>opposite</strong> of the idea — the Creed is about giving a maximum, honest effort in the contest itself, whatever the final result turns out to be.</li>
+<li>An athlete who competes flat-out and finishes eighth has lived out the Creed far more than one who wins by cheating or by barely trying at all.</li>
+<li>Exam answers that just say "it means taking part" without mentioning honest effort or personal best usually miss the real point the mark scheme is after.</li>
+</ul>`,
+            readCheck: {
+                q: "Which of these best captures the idea behind the Olympic Creed?",
+                opts: ["The Creed says that simply turning up to the stadium is enough, and no real effort is required once the event actually begins at all", "The Creed says that only athletes who win a medal have achieved anything worth celebrating at the Games", "The Creed says that genuine sporting success comes from an honest, maximum effort in competing, not only from winning", "The Creed says that athletes should beat their rivals by whatever method proves necessary to win"],
+                ans: 2,
+                explain: "The Creed is about honest, maximum effort in the competition itself — not about turning up without trying, not about medals alone, and not about winning by any means necessary."
+            }
+        },
+        {
+            title: "The Olympic symbol — the five rings",
+            tag: "Core knowledge",
+            content: `<h4>What the symbol shows</h4>
+<ul>
+<li>The Olympic symbol is <strong>five interlocking rings</strong>.</li>
+<li>The rings represent the <strong>coming together of the five continents of the world through sport</strong> — the whole point is unity, athletes from every part of the globe meeting in one competition.</li>
+</ul>
+<h4>The trap to avoid</h4>
+<ul>
+<li>A common mistake is assuming each ring is permanently "assigned" to one specific continent by its colour, as if it were a fixed key. The exam-relevant idea is simpler and more important: the rings are <strong>interlocking</strong> (linked, not separate) to show connection and unity, not a strict colour-to-continent code.</li>
+<li>If a question asks what the rings represent, the safe, testable answer is "the coming together of the five continents through sport" — not a list of which colour belongs to which continent.</li>
+</ul>`,
+            readCheck: {
+                q: "What do the five interlocking rings on the Olympic symbol represent?",
+                opts: ["The coming together of the five continents of the world through sport", "Five colours that are each permanently fixed to one particular continent", "Five nations that are the only countries ever allowed to host the Games", "Five separate sports that must always feature at every single Olympic Games"],
+                ans: 0,
+                explain: "The rings symbolise unity — the five continents coming together through sport. They are not a fixed colour-to-continent code, a list of host nations, or a list of sports."
+            }
+        },
+        {
+            title: "The Olympic values: Excellence, Friendship, Respect",
+            tag: "Core knowledge",
+            content: `<h4>The three Olympic values</h4>
+<ul>
+<li><strong>Excellence</strong> — striving to give your very best performance and to keep improving, measured against your own personal standard as well as against other competitors.</li>
+<li><strong>Friendship</strong> — the relationships, understanding and connections that competing together can build between people from different countries and backgrounds.</li>
+<li><strong>Respect</strong> — fair play, and consideration for the rules, for your opponents, for officials, and for yourself (including competing without banned substances).</li>
+</ul>
+<h4>How to use them in an answer</h4>
+<ul>
+<li>Don't just name the value — link it to a behaviour. "Excellence" on its own earns little; "Excellence, because the athlete kept improving their own personal best time" shows real understanding.</li>
+<li>These three values belong to the <strong>Olympic</strong> Games specifically — keep them separate in your memory from the Paralympic set below.</li>
+</ul>`,
+            readCheck: {
+                q: "Which three values are the Olympic values?",
+                opts: ["Excellence, Friendship and Respect", "Courage, Determination and Inspiration", "Speed, Power and Endurance", "Excellence, Determination and Equality"],
+                ans: 0,
+                explain: "The three Olympic values are Excellence, Friendship and Respect. The other options either mix in Paralympic values or use words that aren't official values at all."
+            }
+        },
+        {
+            title: "The Paralympic values: Courage, Determination, Inspiration, Equality",
+            tag: "Core knowledge",
+            content: `<h4>The four Paralympic values</h4>
+<ul>
+<li><strong>Courage</strong> — the mental strength to face a real challenge and perform under pressure, even when the odds feel stacked against you.</li>
+<li><strong>Determination</strong> — refusing to give up despite setbacks, and pushing on to reach your full potential.</li>
+<li><strong>Inspiration</strong> — using your performance to motivate other people and change how they see what is possible.</li>
+<li><strong>Equality</strong> — showing that every competitor deserves the same fair opportunity to take part and to be recognised on equal terms, whatever their impairment.</li>
+</ul>
+<h4>The #1 trap the exam tests</h4>
+<ul>
+<li>Students very often mix up which set a value belongs to — for example, writing "Courage" as an Olympic value, or "Excellence" as a Paralympic value. They are two separate, named lists: <strong>Olympic</strong> = Excellence/Friendship/Respect; <strong>Paralympic</strong> = Courage/Determination/Inspiration/Equality.</li>
+<li>"Equality" here is broader than just fairness after the event — it is about equal opportunity to compete and be valued as an athlete in the first place.</li>
+</ul>`,
+            readCheck: {
+                q: "Which four values are the Paralympic values?",
+                opts: ["The four Paralympic values are Courage, Determination, Inspiration and Equality", "The four Paralympic values are Excellence, Friendship, Respect and Equality", "The four Paralympic values are Strength, Speed, Power and Precision", "The four Paralympic values are Determination, Excellence, Respect and Courage, in that order"],
+                ans: 0,
+                explain: "The four Paralympic values are Courage, Determination, Inspiration and Equality. The other options either borrow Olympic values or use words that aren't the official set."
+            }
+        }
+    ];
+
+    const mcqData = [
+        {
+            q: "A student says the Olympic Creed means 'you don't need to try, just turn up.' What is wrong with this understanding?",
+            opts: ["Nothing is wrong — turning up without trying is exactly what the Creed asks of every athlete taking part", "The Creed actually asks for an honest, maximum effort during the competition itself, not just attendance", "The Creed is only about winning medals, so how hard an athlete tries does not matter at all", "The Creed has nothing to do with how much effort an athlete puts in once the competition starts"],
+            ans: 1,
+            explain: "The Creed is about giving an honest, maximum effort in the event itself — not about attendance alone, and not that effort is irrelevant."
+        },
+        {
+            q: "Why are the five Olympic rings drawn interlocking rather than as five separate shapes?",
+            opts: ["To show the continents connecting and coming together through sport", "To show that each continent must compete completely separately from every other continent", "To make the symbol easier to print in a single colour on flags and posters", "To represent five different events that always take place at every single Games"],
+            ans: 0,
+            explain: "Interlocking rings show connection and unity between the continents. They are not about printing convenience, separation, or a fixed set of events."
+        },
+        {
+            q: "'Inspiration' as an official sporting value is most closely associated with which movement?",
+            opts: ["The Olympic Movement only, and never the Paralympic Movement", "The Paralympic Movement", "Neither movement — inspiration is not an official value of either one", "Only one-off events that have no connection to the Olympic or Paralympic Games"],
+            ans: 1,
+            explain: "Inspiration is one of the four Paralympic values (with Courage, Determination and Equality) — it is not one of the three Olympic values."
+        },
+        {
+            q: "A performer trains hard to beat their own personal best time, even though they already know they will not win a medal this time. Which Olympic value does this best show?",
+            opts: ["Excellence — striving to reach your personal best, not only aiming to beat other people", "Friendship — building relationships with competitors from other countries and backgrounds", "Equality — making sure every competitor is given the same fair opportunity to take part", "Courage — finding the mental strength needed to perform well under real pressure"],
+            ans: 0,
+            explain: "Chasing your own personal best, regardless of the medal outcome, is Excellence. Friendship is about relationships, Equality about fair opportunity, and Courage is a Paralympic value, not Olympic."
+        },
+        {
+            q: "Two competitors shake hands and congratulate one another after a hard-fought, fairly contested race. Which Olympic value does this best demonstrate?",
+            opts: ["Friendship — the bonds and understanding that competing together can build between people", "Respect — for the rules, for each other, and for the spirit of fair competition", "Determination — refusing to give up despite the real difficulty of the challenge faced", "Inspiration — using a performance to motivate and change how other people think"],
+            ans: 1,
+            explain: "Fair, gracious behaviour toward an opponent after a clean contest is Respect. Friendship is about wider bonds, and Determination/Inspiration are Paralympic values, not Olympic."
+        },
+        {
+            q: "An athlete recovering from a serious injury refuses to give up on training and eventually competes again. Which Paralympic value does this best show?",
+            opts: ["Equality — showing that every competitor deserves the same fair chance to take part", "Excellence — striving to reach the highest personal standard that you possibly can", "Determination — refusing to give up despite setbacks, and pushing on toward a goal", "Respect — following the rules and treating opponents and officials fairly"],
+            ans: 2,
+            explain: "Pushing through setbacks without giving up is Determination. Equality is about fair opportunity, Excellence is an Olympic value, and Respect is about fair play, not perseverance."
+        }
+    ];
+
+    const matchData = [
+        { term: "Olympic Creed", def: "A statement of the philosophy behind the Games — that honest, maximum effort in competing matters as much as the result" },
+        { term: "Olympic symbol (five rings)", def: "Five interlocking rings representing the coming together of the five continents of the world through sport" },
+        { term: "Excellence", def: "An Olympic value about striving to reach your own personal best, not only about beating other people" },
+        { term: "Friendship", def: "An Olympic value about the bonds and understanding that competing together can build across cultures" },
+        { term: "Respect", def: "An Olympic value about fair play and consideration for rules, opponents and yourself" },
+        { term: "Courage", def: "A Paralympic value about the mental strength needed to face and overcome a real challenge" },
+        { term: "Determination", def: "A Paralympic value about refusing to give up despite setbacks, and pushing on toward a goal" },
+        { term: "Inspiration", def: "A Paralympic value about using a performance to motivate people and change how they think" }
+    ];
+
+    const fibData = [
+        {
+            display: "The Olympic symbol is made up of five interlocking _____.",
+            blanks: { B1: "rings" }
+        },
+        {
+            display: "The five rings represent the coming together of the five _____ through sport.",
+            blanks: { B1: "continents" }
+        },
+        {
+            display: "The three Olympic values are Excellence, Friendship and _____.",
+            blanks: { B1: "Respect" }
+        },
+        {
+            display: "The four Paralympic values are Courage, Determination, Inspiration and _____.",
+            blanks: { B1: "Equality" }
+        },
+        {
+            display: "The Olympic Creed teaches that honest effort matters as much as the final _____.",
+            blanks: { B1: "result" }
+        },
+        {
+            display: "Determination is a Paralympic value about refusing to give _____ despite setbacks.",
+            blanks: { B1: "up" }
+        }
+    ];
+    const fibWords = ["rings", "continents", "Respect", "Equality", "result", "up"];
+
+    const tfData = [
+        {
+            statement: "The Olympic Creed teaches that honest, maximum effort matters as much as the final result.",
+            answer: true,
+            explanation: "That is the core idea — genuine sporting success comes from the honesty of your effort, not only from whether you win."
+        },
+        {
+            statement: "The five Olympic rings represent five specific nations that are the only countries ever allowed to host the Games.",
+            answer: false,
+            explanation: "The rings represent the coming together of the five continents through sport — they are not a fixed list of host nations."
+        },
+        {
+            statement: "Excellence, Friendship and Respect are the three Olympic values.",
+            answer: true,
+            explanation: "Correct — these three values belong to the Olympic Games specifically."
+        },
+        {
+            statement: "Courage, Determination, Inspiration and Equality are the four Olympic values.",
+            answer: false,
+            explanation: "These four are the Paralympic values, not the Olympic values. Mixing the two sets up is a very common mistake."
+        },
+        {
+            statement: "Determination is a Paralympic value about refusing to give up despite setbacks.",
+            answer: true,
+            explanation: "Correct — Determination is about pushing on toward a goal even when things go wrong."
+        },
+        {
+            statement: "The Olympic Creed means an athlete never needs to try hard once the competition begins.",
+            answer: false,
+            explanation: "The opposite is true — the Creed is specifically about giving an honest, maximum effort during the competition."
+        }
+    ];
+
+    const miscData = [
+        {
+            wrong: "Students often think the Olympic Creed means trying doesn't matter, as long as you show up.",
+            correct: "It means the opposite. The Creed is about giving an honest, maximum effort in the contest itself — the taking part has to involve genuinely trying your best, not just being present. An athlete who competes flat-out and finishes last has lived out the idea far more than one who barely tries.",
+            readCheck: {
+                q: "What is wrong with saying the Olympic Creed means 'just show up, effort doesn't matter'?",
+                opts: ["Nothing is wrong — that is exactly what the Creed asks of every competitor, regardless of effort, at all", "The Creed actually requires an honest, maximum effort during the event itself, not just attendance", "The Creed only ever applies to athletes who go on to win an official medal", "The Creed was written specifically to discourage athletes from trying their hardest"],
+                ans: 1,
+                explain: "The Creed asks for genuine, maximum effort in the competition — attendance alone, without trying, is not what the idea describes."
+            }
+        },
+        {
+            wrong: "Some students think each of the five Olympic rings is permanently tied to one single, fixed continent by its colour.",
+            correct: "The exam-relevant idea is unity, not a colour key. The rings are drawn interlocking specifically to show the continents connecting and coming together through sport — that is the point being tested, not a strict one-ring-one-continent colour code.",
+            readCheck: {
+                q: "What is the exam-relevant point about the five interlocking Olympic rings?",
+                opts: ["Each ring's colour is permanently and officially fixed to one single specific continent", "The rings show the continents connecting and coming together through sport", "The rings represent five completely different sports played at every single Games", "The rings show exactly which nations are allowed to host only the Winter Games"],
+                ans: 1,
+                explain: "The tested idea is unity — the continents coming together — not a colour-to-continent lookup table, a list of sports, or host nations."
+            }
+        },
+        {
+            wrong: "A very common mistake is mixing up which values belong to the Olympics and which belong to the Paralympics — for example, saying 'Courage' is an Olympic value.",
+            correct: "Keep the two lists completely separate. Olympic values = Excellence, Friendship, Respect (three values). Paralympic values = Courage, Determination, Inspiration, Equality (four values). If your answer swaps a value between the two lists, it loses the mark even if the value itself is spelled correctly.",
+            readCheck: {
+                q: "Which of these correctly sorts a value into its own movement?",
+                opts: ["Courage is officially counted as one of the three Olympic values", "Respect is officially counted as one of the four Paralympic values", "Determination is one of the four Paralympic values", "Friendship is officially counted as one of the four Paralympic values"],
+                ans: 2,
+                explain: "Determination is genuinely one of the four Paralympic values. The other options wrongly place a value in the opposite movement's list."
+            }
+        },
+        {
+            wrong: "Students sometimes think 'Equality' as a Paralympic value only means para-athletes should be treated the same as everyone else once the Games are already over.",
+            correct: "Equality is broader than that. It is about every competitor being given the same fair opportunity to take part and to be recognised as an athlete in the first place — before, during and after competition — whatever their impairment, not just a rule about treatment after the event has finished.",
+            readCheck: {
+                q: "What does 'Equality' as a Paralympic value actually cover?",
+                opts: ["Only how athletes are treated once the Olympic and Paralympic Games have already finished", "Fair opportunity to take part and be recognised as an athlete, at every stage", "Making sure that every single athlete wins exactly the same number of medals", "Only which particular sports are included in the Paralympic programme itself"],
+                ans: 1,
+                explain: "Equality covers fair opportunity and recognition throughout, not only post-event treatment, medal counts, or the sports programme."
+            }
+        }
+    ];
+
+    const examTips = [
+        {
+            type: "tip",
+            title: "Command words for this topic — what each one wants",
+            pills: ["Identify", "State", "Describe", "Explain"],
+            content: `<p>Questions on the Creed, the symbol and the values are usually short and precise. Match your answer length to the command word:</p>
+<ul>
+<li><strong>Identify / State</strong> — just name it. "Identify two Olympic values [2]" = two correct names, nothing more.</li>
+<li><strong>Describe</strong> — say what it is or what it involves. "Describe the Olympic symbol [2]" = the rings, interlocking, representing the continents.</li>
+<li><strong>Explain</strong> — give a reason, using the word <em>because</em>. "Explain how an athlete showed Determination" = name the value <em>and</em> link it to what they actually did.</li>
+</ul>
+<p><strong>Read the mark tariff:</strong> [1] wants one point; [2] usually wants two points, or one point plus a short reason; higher tariffs in Section B/C want the value applied to the scenario, not just named.</p>`,
+            readCheck: {
+                q: "A question says: 'Identify two Paralympic values [2]'. What is the safest answer?",
+                opts: ["A long paragraph describing one value in detail", "Two correct Paralympic value names", "One value name plus a lengthy explanation", "A list of all seven Olympic and Paralympic values"],
+                ans: 1,
+                explain: "'Identify' + [2] = two correct names, one mark each. A long paragraph on one value, or a list of every value, wastes time for no extra credit."
+            }
+        },
+        {
+            type: "tip",
+            title: "Don't muddle Olympic and Paralympic values",
+            pills: ["Section A", "Section B", "AO1"],
+            content: `<p>The single most common way to lose marks on this topic is placing a value in the wrong list. Learn them as two separate groups, and check every answer against the count:</p>
+<ul>
+<li><strong>Olympic values (three):</strong> Excellence, Friendship, Respect.</li>
+<li><strong>Paralympic values (four):</strong> Courage, Determination, Inspiration, Equality.</li>
+</ul>
+<p>If an answer names four "Olympic values" or three "Paralympic values", the count itself tells you a value has been placed in the wrong list before you even check which one.</p>`,
+            readCheck: {
+                q: "A student writes that the Olympic values are 'Excellence, Friendship, Respect and Courage' — four values. What is the quickest way to spot the error?",
+                opts: ["There is absolutely nothing wrong with including a fourth, different value in that same list of values itself", "The Olympic values are only three, so a fourth name means one has been borrowed from the Paralympic list", "Courage should simply replace Excellence as the third value in that same list", "The order that the four values happen to be written in is what is incorrect"],
+                ans: 1,
+                explain: "The Olympic values are exactly three (Excellence, Friendship, Respect). A fourth name — Courage — signals a Paralympic value has been mixed in by mistake."
+            }
+        },
+        {
+            type: "tip",
+            title: "Where this topic appears + sentence starters",
+            pills: ["Section A", "Section B", "AO2"],
+            content: `<p><strong>Where it shows up:</strong> the Creed, the symbol and the two value lists appear as quick recall in <strong>Section A</strong> (identify/state/describe), and as applied points in <strong>Section B</strong> scenarios about a sporting event or a performer's behaviour. They can also feed a longer discussion of how sport promotes positive attitudes.</p>
+<p><strong>Three punchy tips:</strong></p>
+<ul>
+<li>Learn the two lists by their <em>count</em> first — three Olympic, four Paralympic — then the names.</li>
+<li>Never name a value alone; always link it to a behaviour ("Determination, because the athlete kept training despite the injury").</li>
+<li>Keep the Creed and the values separate in your head — the Creed is about effort vs. result, the values are named qualities.</li>
+</ul>
+<p><strong>Sentence starters for a longer answer:</strong></p>
+<ul>
+<li>"One value shown here is… because…"</li>
+<li>"This matters because it links to the idea that…"</li>
+<li>"However, this value alone does not guarantee… because…"</li>
+</ul>`,
+            readCheck: {
+                q: "Why is it important to link a named value to a specific behaviour in a scenario answer?",
+                opts: ["It simply fills space and takes up extra time in the answer", "It shows understanding of what the value actually means, not just its name", "It completely replaces any need to name the value at all in the answer", "It guarantees full marks automatically, regardless of the accuracy given each time"],
+                ans: 1,
+                explain: "Naming a value alone shows recall; linking it to a behaviour in the scenario shows the understanding that scenario-based marks actually reward."
+            }
+        }
+    ];
+
+    const flashcards = [
+        { term: "Olympic Creed", def: "The idea that honest, maximum effort in competing matters as much as the final result" },
+        { term: "Excellence", def: "Olympic value: striving to reach your own personal best, not only beating others" },
+        { term: "Friendship", def: "Olympic value: the bonds and understanding competing together can build across cultures" },
+        { term: "Respect", def: "Olympic value: fair play and consideration for rules, opponents and yourself" },
+        { term: "Courage", def: "Paralympic value: the mental strength to face and overcome a real challenge" },
+        { term: "Determination", def: "Paralympic value: refusing to give up despite setbacks, pushing toward a goal" },
+        { term: "Inspiration", def: "Paralympic value: using a performance to motivate people and change their thinking" },
+        { term: "Equality", def: "Paralympic value: every competitor given the same fair chance to take part and be recognised" }
+    ];
+
+    const examQuestions = [
+        {
+            num: "1",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: "Identify <strong>two</strong> of the four Paralympic values.",
+            hint: "Choose any two from Courage, Determination, Inspiration and Equality.",
+            starter: "One Paralympic value is… Another Paralympic value is…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1)</h5>
+<p><strong>1 mark for each correct Paralympic value named, to a maximum of two. Accept any two, different values from:</strong></p>
+<ul>
+<li>Courage</li>
+<li>Determination</li>
+<li>Inspiration</li>
+<li>Equality</li>
+</ul>
+<p>Do not credit an Olympic value (Excellence, Friendship, Respect) or the same value written twice.</p>
+</div>`,
+            modelAnswer: "One Paralympic value is Determination.\n\nAnother Paralympic value is Courage.",
+            markPoints: { note: "One tick per correct, DIFFERENT Paralympic value; cap at 2.", groups: [
+                { label: "Your first value", max: 1, points: ["Names a valid Paralympic value (Courage, Determination, Inspiration or Equality)"] },
+                { label: "Your second value", max: 1, points: ["Names a DIFFERENT valid Paralympic value (not a repeat of the first)"] }
+            ] }
+        },
+        {
+            num: "2",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Which of these is one of the three Olympic values?",
+            options: ["Courage", "Friendship", "Inspiration", "Equality"],
+            answer: 1,
+            hint: "Remember: the Olympic values are Excellence, Friendship and Respect — the other three names belong to the Paralympic list.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1)</h5>
+<p><strong>Answer: B — Friendship.</strong></p>
+<ul>
+<li>Friendship is one of the three Olympic values (with Excellence and Respect).</li>
+<li>Courage, Inspiration and Equality are Paralympic values, not Olympic values.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "3",
+            marks: 4,
+            type: "written",
+            caseStudy: `<p><strong>Scenario — Northfield Academy Values Week</strong></p><p>Northfield Academy runs an annual "Values Week", where students from several local schools take part in a friendly athletics event. This year, a wheelchair racer named Priya took part despite still recovering from a long injury lay-off. Priya finished last in her race, but completed the whole distance, and the crowd of students and parents applauded warmly as she crossed the line.</p>`,
+            question: "Explain how Priya's participation shows <strong>two</strong> Olympic or Paralympic values.",
+            hint: "Take each value in turn. Name the value, then link it to something Priya (or the crowd) actually did in the scenario — her recovery and finishing, and the crowd's reaction.",
+            starter: "One value shown is… because Priya…\n\nAnother value shown is… because the crowd…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (AO2: application)</h5>
+<p><strong>Up to 2 marks per value: 1 for naming a relevant value, 1 for linking it to the scenario. Answers may include:</strong></p>
+<ul>
+<li><strong>Determination</strong> — Priya kept training and returned to competition despite a long injury lay-off, refusing to give up on reaching the start line.</li>
+<li><strong>Courage</strong> — Priya faced the mental challenge of racing (and finishing last) in public, in front of a crowd, so soon after injury.</li>
+<li><strong>Respect / Friendship</strong> — the crowd's warm applause for a fairly completed race, regardless of finishing position, shows respect for effort and a friendly, supportive atmosphere.</li>
+</ul>
+<p>Accept any two different, reasonable values, each linked to a detail from the scenario. A value named with no link to the scenario earns 1 of the 2 marks for that value.</p>
+</div>`,
+            modelAnswer: "Determination, because Priya kept training and returned to race despite a long injury lay-off, refusing to give up on competing again.\n\nCourage, because she found the mental strength to race in public and finish, even knowing she would come last.",
+            markPoints: { note: "Mark each value out of 2: one tick for naming a relevant value, one for linking it to a detail from the scenario.", groups: [
+                { label: "Your first value", max: 2, points: ["Names a relevant Olympic or Paralympic value (e.g. Determination, Courage, Respect, Friendship)", "Links it to a specific detail from the scenario (e.g. the injury recovery, finishing the race, the crowd's reaction)"] },
+                { label: "Your second value", max: 2, points: ["Names a DIFFERENT relevant value", "Links it to a DIFFERENT detail from the scenario, not a repeat of the first link"] }
+            ] }
+        },
+        {
+            num: "4",
+            marks: 8,
+            type: "written",
+            format: "banded",
+            caseStudy: `<p><strong>Scenario — Greenfield School</strong></p><p>Greenfield School currently gives trophies only to the winners of each event at its annual Sports Day. The head teacher is considering redesigning the day around the Olympic and Paralympic values instead — for example, giving recognition for Determination or Friendship as well as for coming first.</p>`,
+            question: "Discuss how effective this change could be in promoting positive attitudes among students, and evaluate any limitations.",
+            hint: "Pick two or three values. For each, explain how recognising it could shape positive attitudes. Then weigh up the limits (some students may still only care about winning, judging effort fairly is harder than judging a stopwatch). Finish with a judgement.",
+            starter: "Recognising… could help students… because…\n\nAnother value, …, could encourage…\n\nHowever, a limitation is…\n\nOverall, …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 8 marks (level-of-response). Read the band you fit, then pick a mark.</h5>
+<ul>
+<li><strong>Band 3 (thorough), 6–8:</strong> a balanced, well-applied discussion of how recognising values could shape positive attitudes AND a clear evaluation of real limitations, ending in a justified judgement.</li>
+<li><strong>Band 2 (reasonable), 3–5:</strong> sound understanding applied to the scenario with some analysis, but the discussion may be one-sided or the judgement unsupported.</li>
+<li><strong>Band 1 (basic), 1–2:</strong> names values with little application to Greenfield and no real evaluation; largely a list.</li>
+<li><strong>0 marks:</strong> nothing creditworthy.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Indicative content (indicative, not a checklist — reward valid alternatives)</h5>
+<ul>
+<li><strong>Determination:</strong> recognising students who kept trying despite setbacks could encourage more students to take part, even if they are unlikely to win.</li>
+<li><strong>Friendship / Respect:</strong> rewarding supportive, fair behaviour toward competitors could reduce students who drop out because they fear finishing last.</li>
+<li><strong>Excellence:</strong> recognising personal-best performances (not only race winners) could motivate a wider range of students to improve.</li>
+<li><strong>Evaluation:</strong> some students and parents may still see trophies for winning as the "real" prize, so attitudes may not shift quickly; judging qualities like Determination or Friendship is more subjective than a stopwatch time, which could feel unfair or inconsistent between staff; the change works best if explained clearly and applied consistently across every event.</li>
+<li><strong>Judgement:</strong> the change is likely to help broaden what students value about Sports Day, because it rewards effort and behaviour that a winners-only system ignores — but it will only shift attitudes if it is judged fairly and explained well, not treated as a token add-on to the existing trophies.</li>
+</ul>
+</div>`,
+            modelAnswer: "Recognising Determination could encourage students to keep trying even if they are unlikely to win, because effort would finally be rewarded rather than ignored. Recognising Friendship or Respect could reduce students dropping out for fear of finishing last, since supportive behaviour would count for something too.\n\nHowever, a limitation is that some students and parents may still see the trophy for winning as the real prize, so attitudes may not shift quickly. Judging qualities like Determination is also more subjective than a stopwatch time, which could feel inconsistent between staff.\n\nOverall, the change should broaden what students value about Sports Day, but only if it is judged fairly and explained clearly, not added as a token extra alongside the existing trophies."
+        }
+    ];
+</script>
+    <script src="/cs-lab/exam-widgets.js"></script>
+    <script src="/script.js"></script>
+<script src="section-totals.js"></script>
+<script src="page-groups.js"></script>
+<script src="/progress-shared.js"></script>
+<script src="/gamification.js"></script>
+<script src="/topic-guard.js"></script>
+<script src="/notifications-shared.js"></script>
+<script src="/onboarding-tour.js"></script>
+<script src="/footer-legal.js"></script>
+</body>
+
+</html>

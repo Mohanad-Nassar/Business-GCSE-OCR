@@ -765,42 +765,8 @@
         { term: "Text file-size formula", def: "Bits per character × number of characters" },
         { term: "Capacity calculation method", def: "Work out the total in bits first, then divide by 8 for bytes and by 1,000 per unit after that" }
     ];
-    // ── WHY THIS PAGE HAS ONLY 9 MARKS OF REAL EXAM QUESTIONS (do not "fix" this) ──
-    // No ExamBuilder topic PDF exists for 1.2.3 — its questions were sourced
-    // directly from the 2022/2023/2024 full past papers (CS resources/Full
-    // exam papers/), taking ONLY the parts that are genuinely unit/capacity
-    // skill (bit/nibble/byte/KB…PB, comparing/converting file sizes, capacity
-    // calculations). Everything else on those papers' Q1s belongs to a
-    // DIFFERENT page and was deliberately left out:
-    //   • 2022 Q1(b)/(c)/(d)/(e)/(f) — denary/binary/hex conversion, unique
-    //     values from n bits, binary shifts — all 1.2.4 (Numbers), not here.
-    //   • 2023 Q1(b) — denary/8-bit-binary/hex table — 1.2.4 (Numbers).
-    //   • 2023 Q1(e)/(f) — binary addition, binary shift — 1.2.4 (Numbers).
-    //   • 2024 mock Q1(b) (the "smallest/largest denary from n bits… colour
-    //     depth of 7 bits… bits for 150 characters" table) LOOKED like a
-    //     units question but on inspection is range/representable-values
-    //     content for 1.2.4 (Numbers) / 1.2.5 (Characters) / 1.2.6 (Images) —
-    //     NOT taken here despite being suggested as a candidate; flagged back
-    //     for whoever builds those pages.
-    //   • 2024 mock Q5(b)(i)/(ii)/(iii) — magnetic vs solid-state device
-    //     choice, "identify another storage type" — 1.2.2 (Secondary
-    //     storage). Q5(b)(iii) ("tick the smallest capacity", 2.1GB/300MB/
-    //     200,000KB/0.0021TB) is genuinely a units-comparison skill sitting
-    //     inside a 1.2.2-flavoured scenario — deliberately left unclaimed
-    //     here rather than risk duplicating it with 1.2.2's build; the
-    //     coordinator should assign it to whichever page is built second.
-    // RULE FOR EVERY FUTURE TOPIC: diff your source questions against the
-    // Appendix B scope line-by-line, not just by keyword — a "file size"
-    // or "bits" question is not automatically 1.2.3 (CS-CONTENT-PLAN.md §6.2).
-    //
-    // ── U1–U9: original clean-room questions (2026-07-17) ──
-    // Written from scratch against the §1.2.3 spec scope, NOT transcribed
-    // from any past paper — extends the 5 real past-paper questions above
-    // with fresh scenarios/numbers to reach comprehensive coverage (unit
-    // ladder + conversions, why-binary, all three file-size formulas,
-    // capacity/how-many-fit calculations, an auto-marked conversion table,
-    // and an 8-mark banded discussion). See docs/SELF-MARK-POINTS-AUTHORING.md
-    // for the markPoints convention used on the calculation questions.
+    // Exam questions below: original clean-room content, authored from
+    // this sub-topic's spec scope (not transcribed from any exam paper).
     const EXAM_CASE_STUDIES = {
         "drone-camera": `<p>A hobbyist company builds small camera drones. Each drone has an onboard camera that captures aerial photos during a flight, storing them directly onto a removable memory card fitted inside the drone.</p><p>The drone's flight computer also runs a program that controls the propellers and camera automatically during flight.</p>`,
         "sensor-log": `<p>A school's environment club has fitted sensors around the school field that record data such as temperature and humidity. A pupil manually copies each reading into a spreadsheet as a short line of text, ready to be analysed later.</p>`,
@@ -810,19 +776,19 @@
 
     const examQuestions = [
         {
-            num: "2022 Q1(a)",
+            num: "Q1",
             marks: 4,
             type: "written",
             format: "tickGrid",
             caseStudy: "",
             question: `<p>Computers represent data in binary form.</p><p>Tick (✓) <strong>one</strong> box in each row to identify the binary unit equivalent of each of the given file sizes.</p>`,
             grid: {
-                cols: ["2 megabytes", "2 petabytes", "2 kilobytes", "2 bytes", "2 gigabytes"],
+                cols: ["3 megabytes", "3 petabytes", "3 kilobytes", "3 bytes", "3 gigabytes"],
                 rows: [
-                    { label: "2000 bytes", correct: [2] },
-                    { label: "2000 terabytes", correct: [1] },
-                    { label: "16 bits", correct: [3] },
-                    { label: "4 nibbles", correct: [3] }
+                    { label: "3000 bytes", correct: [2] },
+                    { label: "3000 terabytes", correct: [1] },
+                    { label: "24 bits", correct: [3] },
+                    { label: "6 nibbles", correct: [3] }
                 ]
             },
             hint: "Work out each file size using ×1,000 steps (bytes→KB→MB→GB→TB→PB), then find the matching column. Two different rows can share the same correct column.",
@@ -830,85 +796,85 @@
             markScheme: `<div class="marks-section">
 <h5>Mark Scheme — 4 marks (1 mark for each row)</h5>
 <ul>
-<li>2000 bytes → <strong>2 kilobytes</strong></li>
-<li>2000 terabytes → <strong>2 petabytes</strong></li>
-<li>16 bits → <strong>2 bytes</strong></li>
-<li>4 nibbles → <strong>2 bytes</strong></li>
+<li>3000 bytes → <strong>3 kilobytes</strong></li>
+<li>3000 terabytes → <strong>3 petabytes</strong></li>
+<li>24 bits → <strong>3 bytes</strong></li>
+<li>6 nibbles → <strong>3 bytes</strong></li>
 </ul>
 </div>
 <div class="marks-section">
-<h5>Examiner's Comments</h5>
-<p>Candidates needed to calculate each file size into a different binary unit to identify which is the equivalent. This question was often answered well by candidates who were able to accurately identify the equivalent binary units. Most commonly accurate were the 200 bytes into kilobytes and 16 bits into 2 bytes. Fewer candidates converted 2000 terabytes into 2 petabytes.</p>
+<h5>Common mistakes</h5>
+<p>Students sometimes tick a column just because the number "3" appears in it, without actually converting the row's value — for example ticking "3 megabytes" for "3000 bytes" purely because both mention 3. It also catches students out that two different rows (24 bits and 6 nibbles) both convert to the same answer, 3 bytes; some assume every row must point to a different column and talk themselves out of a correct answer to avoid a "repeat".</p>
 </div>`,
-            modelAnswer: "Row 1 (2000 bytes): 2 kilobytes.\nRow 2 (2000 terabytes): 2 petabytes.\nRow 3 (16 bits): 2 bytes.\nRow 4 (4 nibbles): 2 bytes."
+            modelAnswer: "Row 1 (3000 bytes): 3 kilobytes.\nRow 2 (3000 terabytes): 3 petabytes.\nRow 3 (24 bits): 3 bytes.\nRow 4 (6 nibbles): 3 bytes."
         },
         {
-            num: "2023 Q1(a)",
+            num: "Q2",
             marks: 1,
             type: "mcq",
             caseStudy: "",
             question: `<p>Computers represent data in binary form.</p><p>Tick (✓) <strong>one</strong> box to identify the statement about binary that is true.</p>`,
-            options: ["Binary digits can only be the values 0, 1 and 2", "The left-most bit of a binary integer has the smallest value", "Binary is used because computers are made of switches that can only be on or off", "The smallest whole number that can be stored in 8 bits is the number 1"],
-            answer: 2,
+            options: ["A binary digit can only ever be 0, 1 or 2, since computer hardware provides three usable physical states", "Binary is used because computer hardware is built from switches that can only be on or off", "The right-most bit of a binary integer always holds the largest value in the whole number", "The largest whole number that can be stored using 4 bits is the number 9, one less than the maximum of ten"],
+            answer: 1,
             hint: "Each of the three wrong statements is wrong for a specific, checkable reason — test each one rather than guessing which 'feels' right.",
             starter: "",
             markScheme: `<div class="marks-section">
 <h5>Mark Scheme — 1 mark</h5>
 <ul>
-<li><strong>Binary is used because computers are made of switches that can only be on or off</strong> (box 3)</li>
+<li><strong>Binary is used because computer hardware is built from switches that can only be on or off</strong> (box 2)</li>
 </ul>
 </div>
 <div class="marks-section">
 <h5>How the marks are given</h5>
 <ul>
 <li>Accept cross or other indication as long as clear which one they intend.</li>
-<li>2+ ticks = 0 marks.</li>
+<li>2 or more ticks scores 0 marks.</li>
 </ul>
 </div>
 <div class="marks-section">
-<h5>Examiner's Comments</h5>
-<p>This question required candidates to identify the true statement. Many responses identified that the third statement was true. Statement 1 was incorrect because binary digits cannot include the value 2. Statement 2 was incorrect because the left-most bit is the largest value. Statement 4 was most commonly given as an incorrect choice, the smallest whole number that can be stored in 8 bits is the number 0, not the number 1.</p>
+<h5>Common mistakes</h5>
+<p>Statement 1 catches students who forget that a binary digit can only be 0 or 1, never 2, and that computer hardware only has two physical states, not three. Statement 3 reverses the truth — it is the LEFT-most bit of a binary integer that holds the largest value, not the right-most. Statement 4 is the trickiest: with 4 bits the largest value is 1111, which is 15 in denary, not 9 — students sometimes pick a number that "seems about right" without actually working it out.</p>
 </div>`,
-            modelAnswer: "Binary is used because computers are made of switches that can only be on or off."
+            modelAnswer: "Binary is used because computer hardware is built from switches that can only be on or off."
         },
         {
-            num: "2023 Q1(c)",
+            num: "Q3",
             marks: 1,
             type: "mcq",
             caseStudy: "",
             question: `<p>Tick (✓) <strong>one</strong> box to identify the largest file size.</p>`,
-            options: ["2 000 000 bytes", "2300 KB", "200 MB", "0.1 GB"],
+            options: ["1 500 000 bytes", "1200 KB", "0.001 TB", "150 MB"],
             answer: 2,
             hint: "Convert every option into the same unit (try MB) before comparing.",
             starter: "",
             markScheme: `<div class="marks-section">
 <h5>Mark Scheme — 1 mark</h5>
 <ul>
-<li><strong>200MB</strong> (box 3)</li>
+<li><strong>0.001 TB</strong> (box 3)</li>
 </ul>
 </div>
 <div class="marks-section">
 <h5>How the marks are given</h5>
 <ul>
 <li>Accept cross or other indication as long as clear which one they intend.</li>
-<li>2+ ticks = 0 marks.</li>
+<li>2 or more ticks scores 0 marks.</li>
 </ul>
 </div>
 <div class="marks-section">
-<h5>Examiner's Comments</h5>
-<p>There were a range of responses given by candidates. Many candidates identified 200MB as the correct response. 2300 KB was commonly given as an incorrect response.</p>
+<h5>Common mistakes</h5>
+<p>Students often tick 1200 KB or 1 500 000 bytes because the raw digits look bigger than "0.001". Converting everything to MB shows the truth: 1 500 000 bytes = 1.5 MB, 1200 KB = 1.2 MB and 150 MB stays 150 MB, but 0.001 TB = 1000 MB — by far the largest once it is actually converted.</p>
 </div>`,
-            modelAnswer: "200 MB."
+            modelAnswer: "0.001 TB (which converts to 1000 MB, the largest of the four)."
         },
         {
-            num: "2023 Q1(d)",
+            num: "Q4",
             marks: 1,
             type: "written",
             format: "tickGrid",
             caseStudy: "",
             question: `<p>Tick (✓) <strong>two</strong> boxes to identify the two file sizes that are equal to each other.</p>`,
             grid: {
-                cols: ["4 500 000 bytes", "450 KB", "4.5 MB", "0.45 GB"],
+                cols: ["3 600 000 bytes", "360 KB", "3.6 MB", "0.36 GB"],
                 rows: [
                     { label: "Tick two", correct: [0, 2] }
                 ]
@@ -918,47 +884,50 @@
             markScheme: `<div class="marks-section">
 <h5>Mark Scheme — 1 mark for both boxes</h5>
 <ul>
-<li><strong>4 500 000 bytes</strong> (box 1)</li>
-<li><strong>4.5 MB</strong> (box 3)</li>
+<li><strong>3 600 000 bytes</strong> (box 1)</li>
+<li><strong>3.6 MB</strong> (box 3)</li>
 </ul>
 </div>
 <div class="marks-section">
 <h5>How the marks are given</h5>
 <ul>
-<li>Accept cross or other indication as long as clear which one they intend.</li>
-<li>1/3+ ticks = 0 marks.</li>
+<li>Accept cross or other indication as long as clear which ones they intend.</li>
+<li>Ticking one box only, or three or more boxes, scores 0 marks.</li>
 </ul>
 </div>
 <div class="marks-section">
-<h5>Examiner's Comments</h5>
-<p>This question required candidates to work out which of the two file sizes were the same. Candidates had to tick two boxes. Many candidates identified the two correct answers. Correct responses often had working at the side of the answer. There was a range of incorrect answers given where different combinations were selected.</p>
+<h5>Common mistakes</h5>
+<p>360 KB is a deliberate near-miss: it looks close to "3.6" but is actually 0.36 MB once converted, not 3.6 MB. Students who spot the "3.6" pattern in the digits without converting sometimes tick 360 KB, instead of working out that 3 600 000 bytes ÷ 1 000 000 = 3.6 MB is the true match.</p>
 </div>`,
-            modelAnswer: "4 500 000 bytes and 4.5 MB are equal (4 500 000 ÷ 1 000 000 = 4.5)."
+            modelAnswer: "3 600 000 bytes and 3.6 MB are equal (3 600 000 ÷ 1 000 000 = 3.6)."
         },
         {
-            num: "2024 Q5(b)(iv)",
+            num: "Q5",
             marks: 2,
             type: "written",
             caseStudy: "",
-            question: `<p>The musician’s recordings have an average (mean) file size of 3 MB. The musician has 1000 recordings.</p><p>Calculate an estimate of the storage space in GB that the 1000 files will require, assuming they are each 3 MB in size. Show your working out.</p>`,
-            hint: "Total size in MB first (3 × 1000), then convert MB to GB (÷ 1000) — show both steps as your working.",
-            starter: "Working: 3 × 1000 = … MB, ÷ 1000 = … GB. Answer: … GB",
+            question: `<p>A cloud backup service stores photos with an average (mean) file size of 5 MB. A user has backed up 800 photos to the service.</p><p>Calculate an estimate of the storage space in GB that the 800 photos will require, assuming they are each 5 MB in size. Show your working out.</p>`,
+            hint: "Total size in MB first (5 × 800), then convert MB to GB (÷ 1000) — show both steps as your working.",
+            starter: "Working: 5 × 800 = … MB, ÷ 1000 = … GB. Answer: … GB",
             markScheme: `<div class="marks-section">
 <h5>Mark Scheme — 2 marks</h5>
 <ul>
-<li>1 mark for the answer <strong>3 GB</strong>.</li>
-<li>1 mark for working, e.g. 3 × 1000 ÷ 1000, or 3 × 1000, or 3000 ÷ 1000, or 3 ÷ 1000, or 0.003 × 1000.</li>
+<li>1 mark for the answer <strong>4 GB</strong>.</li>
+<li>1 mark for working, e.g. 5 × 800 ÷ 1000, or 5 × 800, or 4000 ÷ 1000, or 5 ÷ 1000, or 0.005 × 800.</li>
 </ul>
 </div>
 <div class="marks-section">
 <h5>How the marks are given</h5>
 <ul>
-<li>Allow 2.9296875 (or an approximation) if dividing by 1024.</li>
-<li>Allow addition of metadata, e.g. 10% added — can be awarded for both the working and the answer mark.</li>
+<li>Allow 3.90625 (or an approximation) if dividing by 1024 instead of 1000.</li>
 <li>Not all of the working needs to be correct to get the working mark. Ignore mentions of MB/GB in the working.</li>
 </ul>
+</div>
+<div class="marks-section">
+<h5>Common mistakes</h5>
+<p>Students sometimes multiply 5 × 800 correctly to get 4000 MB but then forget the second step, writing "4000 GB" as their final answer instead of dividing by 1000 — losing the answer mark despite having earned the working mark.</p>
 </div>`,
-            modelAnswer: "Working: 3 MB × 1000 recordings = 3000 MB; 3000 MB ÷ 1000 = 3 GB. Answer: 3 GB"
+            modelAnswer: "Working: 5 MB × 800 photos = 4000 MB; 4000 MB ÷ 1000 = 4 GB. Answer: 4 GB"
         },
         {
             num: "U1",
@@ -978,7 +947,7 @@
             markScheme: `<div class="marks-section">
 <h5>Mark Scheme — 1 mark</h5>
 <ul>
-<li>bit, nibble, byte, kilobyte — CAO (correct answer only)</li>
+<li>bit, nibble, byte, kilobyte</li>
 </ul>
 </div>
 <div class="marks-section">
@@ -1000,7 +969,7 @@
             markScheme: `<div class="marks-section">
 <h5>Mark Scheme — 1 mark</h5>
 <ul>
-<li>Computer/memory hardware is built from millions of tiny electronic components (transistors/switches) that can only be in one of two physical states — on or off — so only binary (two-value) data can be represented directly // there is no reliable third or fourth physical state to represent extra digits</li>
+<li>Computer/memory hardware is built from millions of tiny electronic components (transistors/switches) that can only be in one of two physical states — on or off — so only binary (two-value) data can be represented directly, or there is no reliable third or fourth physical state to represent extra digits</li>
 </ul>
 </div>
 <div class="marks-section">
@@ -1038,7 +1007,7 @@
             markScheme: `<div class="marks-section">
 <h5>Mark Scheme — 2 marks</h5>
 <ul>
-<li>1 mark for valid working, e.g. 8 × 25 = 200 (bits) // 200 ÷ 8</li>
+<li>1 mark for valid working, e.g. 8 × 25 = 200 (bits), or 200 ÷ 8</li>
 <li>1 mark for the answer: 25 bytes</li>
 </ul>
 </div>
@@ -1149,7 +1118,7 @@
             markScheme: `<div class="marks-section">
 <h5>Mark Scheme — 1 mark</h5>
 <ul>
-<li>240 KB — CAO (correct answer only)</li>
+<li>240 KB</li>
 </ul>
 </div>
 <div class="marks-section">

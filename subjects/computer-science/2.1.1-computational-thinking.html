@@ -16,7 +16,7 @@
         <div>
             <div class="badge">OCR GCSE Computer Science — Paper 2 · 2.1 Algorithms</div>
             <h1>2.1.1 Computational Thinking</h1>
-            <p>Interactive revision guide · Content coming soon</p>
+            <p>Interactive revision guide</p>
         </div>
         <a href="/index.html" class="home-link">← 🏡 Home</a>
     </header>
@@ -256,7 +256,10 @@
 
 <script>
     // ══════════════════════════════════════
-    //  DATA: 2.1.1 Computational Thinking — placeholder, content not yet written
+    //  DATA: 2.1.1 Computational Thinking
+    //  Conceptual topic (little/no code) — abstraction, decomposition and
+    //  algorithmic thinking as the three tools used to define and refine a
+    //  problem before any code is written.
     // ══════════════════════════════════════
     const pageMeta = {
             id: '2-1-1-computational-thinking',
@@ -268,21 +271,758 @@
 
     const topics = [
         {
-            title: "This topic is being written",
-            tag: "Coming soon",
-            content: `<p>🚧 <strong>Content for this topic is on its way.</strong> Key Learning notes, practice questions and exam-style questions for <strong>2.1.1 Computational Thinking</strong> will appear here soon.</p>`
+            title: "What is computational thinking?",
+            tag: "Key concept",
+            content: `<h4>Working out how to solve a problem before you code it</h4>
+<ul>
+<li><strong>Computational thinking</strong> is a set of thinking skills used to work out how to solve a problem — <strong>before</strong> any program code is written.</li>
+<li>It uses three main techniques: <strong>abstraction</strong> (removing unnecessary detail), <strong>decomposition</strong> (breaking a problem into smaller parts) and <strong>algorithmic thinking</strong> (working out the steps needed).</li>
+<li>Together, these techniques help a programmer <strong>define</strong> a problem (work out exactly what it involves) and <strong>refine</strong> it (simplify it), so that it becomes easier to solve.</li>
+<li>Computational thinking is not only used by programmers — it is a general way of tackling any large or complex problem, on a computer or off one.</li>
+</ul>`,
+            readCheck: {
+                q: "Which of the following best describes computational thinking?",
+                opts: ["A set of thinking skills used to work out how to solve a problem, applied before any program code is written", "A programming language used to write the final version of a solution once every step has already been planned out", "A single technique for removing unnecessary detail from a problem", "The process of testing a finished program to find and fix any bugs"],
+                ans: 0,
+                explain: "Computational thinking is the set of thinking skills (abstraction, decomposition, algorithmic thinking) used to plan a solution before any code is written."
+            }
+        },
+        {
+            title: "Abstraction",
+            tag: "Key concept",
+            content: `<h4>Removing or hiding unnecessary detail</h4>
+<ul>
+<li><strong>Abstraction</strong> means removing or hiding the detail that is <strong>not needed</strong> to solve a problem, so that only the parts that matter are left.</li>
+<li>A road map is a classic example: it shows the roads you need for a journey, but leaves out every building, tree and fence along the way. Those details are real, but they are <strong>not relevant</strong> to finding a route.</li>
+<li>A <strong>model</strong> of something (a diagram, a plan, a set of program data) is a simplified version created using abstraction — it keeps the features that matter for the task and ignores the rest.</li>
+</ul>`,
+            readCheck: {
+                q: "What does abstraction mean in computational thinking?",
+                opts: ["Removing or hiding unnecessary detail so that only the parts of a problem that matter are kept", "Adding as much extra detail as possible so that every single feature of a real situation is represented", "Breaking a large problem down into smaller, more manageable sub-problems", "Working out the exact order of steps needed to solve a problem"],
+                ans: 0,
+                explain: "Abstraction means removing or hiding unneeded detail. Adding more detail is the opposite of abstraction; splitting into parts is decomposition; working out steps is algorithmic thinking."
+            }
+        },
+        {
+            title: "Abstraction in practice",
+            tag: "Example",
+            content: `<h4>Deciding what to keep and what to leave out</h4>
+<ul>
+<li>Abstraction is a <strong>choice</strong>: for any real problem there are far more details than a program (or a person) actually needs.</li>
+<li>Example: a school's student record system needs a student's <strong>name, ID number and year group</strong> — but it does not need their shoe size or favourite colour. Leaving those out is abstraction.</li>
+<li>Example: a bus tracking app shows <strong>which stop a bus is near and when it will arrive</strong> — the driver's exact GPS coordinates and engine data are hidden from the passenger, because they add nothing useful.</li>
+<li>Good abstraction keeps a problem <strong>simple enough to work with</strong>, without losing anything that is actually needed.</li>
+</ul>`,
+            readCheck: {
+                q: "A programmer designing a school library system decides to store each book's title, author and shelf number, but not the exact minute it was printed. What is this an example of?",
+                opts: ["Abstraction — irrelevant detail (the exact printing time) is left out because it is not needed to find a book", "Decomposition — the library system has been broken down into smaller, separate parts that can be solved one at a time", "Algorithmic thinking — the steps needed to search for a book have been listed", "An error, because a complete system must always store every single piece of data that could possibly exist"],
+                ans: 0,
+                explain: "Leaving out detail that isn't needed (the printing time) so that only the useful fields remain is abstraction, not decomposition or algorithmic thinking."
+            }
+        },
+        {
+            title: "Decomposition",
+            tag: "Key concept",
+            content: `<h4>Breaking a big problem into smaller pieces</h4>
+<ul>
+<li><strong>Decomposition</strong> means breaking a large, complex problem down into <strong>smaller, more manageable sub-problems</strong> that can be tackled one at a time.</li>
+<li>Example: building a quiz app is a big problem. Decomposed, it becomes several smaller ones: "show a question", "check the answer", "keep score", "show the final result".</li>
+<li>If a sub-problem is still too complex, it can be <strong>decomposed again</strong> into even smaller sub-problems, until each one is simple enough to solve directly.</li>
+</ul>`,
+            readCheck: {
+                q: "What does decomposition mean?",
+                opts: ["Breaking a large, complex problem down into smaller, more manageable sub-problems", "Removing or hiding every possible piece of detail so that literally nothing about the original problem is left to consider", "Working out the step-by-step sequence of instructions needed to solve a problem", "Testing every sub-problem at the very end, once the whole program has already been completed"],
+                ans: 0,
+                explain: "Decomposition splits a large problem into smaller sub-problems. Removing detail is abstraction; working out steps is algorithmic thinking."
+            }
+        },
+        {
+            title: "Decomposition in practice",
+            tag: "Example",
+            content: `<h4>Why smaller pieces are easier to solve</h4>
+<ul>
+<li>Each sub-problem can be <strong>looked at, solved and tested on its own</strong>, without having to think about the whole problem at the same time.</li>
+<li>Different sub-problems can sometimes be <strong>shared out between different people</strong> in a team, so several parts can be worked on at once.</li>
+<li>A solution to one sub-problem can sometimes be <strong>reused</strong> elsewhere — for example, a "check the answer" sub-problem from a quiz app could be reused in a different quiz.</li>
+<li>Decomposition does not solve the problem by itself — it just makes the problem <strong>easier to plan and to solve</strong>.</li>
+</ul>`,
+            readCheck: {
+                q: "A team of three programmers is building a booking system. They agree that one person will build the login screen, one will build the search screen, and one will build the payment screen. What allowed them to split the work like this?",
+                opts: ["Decomposition — the overall problem had already been broken down into separate, more manageable sub-problems", "Abstraction — every unnecessary detail about the booking system had been removed before any work started at all", "Algorithmic thinking — the exact order of steps for the whole system had been written out for everyone to follow", "A coincidence, since a booking system cannot actually be split into separate parts by different programmers"],
+                ans: 0,
+                explain: "Splitting an overall problem into separate parts that different people can work on is decomposition."
+            }
+        },
+        {
+            title: "Algorithmic thinking",
+            tag: "Key concept",
+            content: `<h4>Working out the steps to follow</h4>
+<ul>
+<li><strong>Algorithmic thinking</strong> means working out the <strong>step-by-step sequence of instructions</strong> — the logic — needed to solve a problem, or a sub-problem.</li>
+<li>It is usually applied <strong>after</strong> a problem has been decomposed, one sub-problem at a time: for each sub-problem, work out exactly what steps need to happen, and in what order.</li>
+<li>The finished sequence of steps is called an <strong>algorithm</strong>. It can be written in plain English, as a diagram, or later turned into program code.</li>
+</ul>`,
+            readCheck: {
+                q: "What does algorithmic thinking mean?",
+                opts: ["Working out the step-by-step sequence of instructions needed to solve a problem", "Removing detail from a problem so that only the features which are actually needed for a solution are kept", "Breaking a problem down into smaller sub-problems that can be solved one at a time", "Running a finished program many times to check that it produces the correct result"],
+                ans: 0,
+                explain: "Algorithmic thinking is working out the ordered steps (the logic) needed to solve a problem. The other options describe abstraction, decomposition and testing."
+            }
+        },
+        {
+            title: "Algorithmic thinking in practice",
+            tag: "Example",
+            content: `<h4>From steps to a working algorithm</h4>
+<ul>
+<li>Take the sub-problem "check whether a number is a valid exam mark (0 to 100)". Algorithmic thinking works out the steps: <em>ask for the number → check it is 0 or more → check it is 100 or less → if both are true, accept it, otherwise reject it</em>.</li>
+<li>Writing the steps out clearly, in the right order, <strong>before</strong> touching a keyboard makes it far easier to spot mistakes in the logic — and far easier to translate into any programming language afterwards.</li>
+<li>A good algorithm is <strong>precise</strong> (each step has one clear meaning) and <strong>complete</strong> (it covers every case the problem needs, not just the obvious one).</li>
+</ul>`,
+            readCheck: {
+                q: "Why is it useful to work out the steps of an algorithm before writing any program code?",
+                opts: ["It makes it easier to spot mistakes in the logic first, and easier to turn the steps into code in any language afterwards", "It is not useful at all, because a programmer should always start by typing code directly into an editor without planning anything out in advance first", "It removes the need to ever test the program once it has finally been written and completed", "It automatically translates the steps into working code without a programmer needing to type anything"],
+                ans: 0,
+                explain: "Planning the steps first makes mistakes easier to spot and the algorithm easier to turn into code afterwards — it does not remove the need for testing or write the code for you."
+            }
+        },
+        {
+            title: "Defining and refining a problem",
+            tag: "Key concept",
+            content: `<h4>Using all three techniques together</h4>
+<ul>
+<li>The three techniques are not used in strict isolation — they work together to help a programmer <strong>define</strong> a problem (work out exactly what it involves) and <strong>refine</strong> it (make it simpler and clearer) before any code is written.</li>
+<li>A typical order: use <strong>abstraction</strong> to strip away detail that does not matter, use <strong>decomposition</strong> to split what is left into sub-problems, then use <strong>algorithmic thinking</strong> to work out the steps needed for each sub-problem.</li>
+<li>This does not have to be a one-way process — a programmer might return to an earlier technique if a sub-problem still turns out to be too complex, and decompose it further.</li>
+</ul>`,
+            readCheck: {
+                q: "Which of these best describes how abstraction, decomposition and algorithmic thinking are normally used together?",
+                opts: ["Abstraction removes unneeded detail, decomposition splits what is left into sub-problems, and algorithmic thinking works out the steps for each sub-problem", "They must always be used in exactly the reverse order every single time, starting with algorithmic thinking, then decomposition, and only finally using abstraction at the very end", "Only one of the three techniques is ever needed to solve any given problem, so a programmer simply picks whichever one they prefer", "They are three completely unrelated skills that are never used on the same problem at the same time"],
+                ans: 0,
+                explain: "The three techniques normally work together in this order: abstraction removes detail, decomposition splits what's left into parts, and algorithmic thinking works out each part's steps."
+            }
+        },
+        {
+            title: "Why computational thinking makes problems easier to solve",
+            tag: "Benefits",
+            content: `<h4>The benefits of thinking before coding</h4>
+<ul>
+<li><strong>Simpler problems</strong> — a huge, complicated problem is hard to hold in your head all at once; abstraction and decomposition turn it into small pieces that are easy to understand.</li>
+<li><strong>Easier to test</strong> — each small sub-problem can be checked on its own, so mistakes are easier to find and fix than in one giant block of logic.</li>
+<li><strong>Easier to share out</strong> — separate sub-problems can be divided between different people, so a team can work on a problem at the same time.</li>
+<li><strong>Reusable solutions</strong> — a well-defined sub-problem, and the algorithm that solves it, can sometimes be reused in a different program.</li>
+</ul>`,
+            readCheck: {
+                q: "Which of these is a genuine benefit of using decomposition on a large problem?",
+                opts: ["Each sub-problem is small enough to be solved, tested and understood on its own", "The overall problem magically disappears completely, so that no further work of any kind is ever required from anyone", "It guarantees that the final program will never contain a single bug or mistake of any kind whatsoever", "It means every sub-problem must always be solved by exactly one single programmer working entirely alone"],
+                ans: 0,
+                explain: "Decomposition makes each sub-problem small enough to solve, test and understand on its own — it does not remove the problem, guarantee no bugs, or force one programmer to work alone."
+            }
+        },
+        {
+            title: "Spotting the right technique in a scenario",
+            tag: "Exam skill",
+            content: `<h4>How to tell abstraction, decomposition and algorithmic thinking apart</h4>
+<ul>
+<li>Exam scenarios describe someone solving a problem and ask which technique is being used. Look for these cues:</li>
+<li><strong>Abstraction</strong> — the scenario talks about <em>leaving out, ignoring, hiding or simplifying</em> detail that isn't needed.</li>
+<li><strong>Decomposition</strong> — the scenario talks about <em>splitting, dividing or breaking the problem into separate parts</em> or stages.</li>
+<li><strong>Algorithmic thinking</strong> — the scenario talks about working out the <em>order of steps</em>, or planning what happens <em>first, next and last</em>.</li>
+<li>Answer using the exact term the mark scheme expects (e.g. "decomposition", not just "breaking it up") and, where asked, explain your choice using detail from the scenario.</li>
+</ul>`,
+            readCheck: {
+                q: "A scenario says a student 'listed the exact order in which the robot should turn, move forward, and stop.' Which technique does this describe?",
+                opts: ["Algorithmic thinking — the student worked out the ordered sequence of steps the robot must follow", "Abstraction — the student removed every unnecessary detail about the robot before listing anything at all", "Decomposition — the student split the robot's overall task into several completely separate, smaller sub-problems", "None of these — listing steps in order is not part of computational thinking in any way"],
+                ans: 0,
+                explain: "Listing an ordered sequence of steps (turn, move, stop) is algorithmic thinking — working out the logic to follow, not removing detail or splitting into sub-problems."
+            }
         }
     ];
 
-    const mcqData = [];
-    const matchData = [];
-    const fibData = [];
-    const fibWords = [];
-    const tfData = [];
-    const miscData = [];
-    const examTips = [];
-    const flashcards = [];
-    const examQuestions = [];
+    const mcqData = [
+        {
+            q: "Which technique means breaking a large, complex problem into smaller, more manageable sub-problems?",
+            opts: ["Decomposition", "Abstraction, because it always removes every piece of detail from a problem until nothing at all is left to solve", "Algorithmic thinking", "Testing"],
+            ans: 0,
+            explain: "Decomposition splits a large problem into smaller sub-problems. Abstraction removes detail; algorithmic thinking works out the steps."
+        },
+        {
+            q: "Which technique means working out the step-by-step sequence of instructions needed to solve a problem?",
+            opts: ["Algorithmic thinking", "Decomposition, because it always breaks the problem into an ordered list of numbered instructions to follow", "Abstraction", "Testing, since it always finds every single step required to solve the whole problem correctly"],
+            ans: 0,
+            explain: "Algorithmic thinking is working out the ordered steps (the logic) needed to solve a problem."
+        },
+        {
+            q: "Which technique means removing or hiding detail that is not needed to solve a problem?",
+            opts: ["Abstraction", "Decomposition, because it removes every unnecessary sub-problem until only one single detail about the task is left", "Algorithmic thinking", "Refinement"],
+            ans: 0,
+            explain: "Abstraction removes or hides unneeded detail so only what matters is kept."
+        },
+        {
+            q: "A programmer chooses to store only a customer's name and order number, and leaves out their exact home address. Which technique is this?",
+            opts: ["Abstraction — irrelevant detail has been left out because it is not needed", "Decomposition — the customer record has been split into two entirely separate smaller programs that must be built one after another", "Algorithmic thinking — the steps needed to look up a customer have been listed", "Testing — the programmer is checking that the data is stored correctly"],
+            ans: 0,
+            explain: "Leaving out unneeded detail (the address) is abstraction, not decomposition, algorithmic thinking or testing."
+        },
+        {
+            q: "A large 'build a school website' problem is split into 'homepage', 'staff pages' and 'contact form'. Which technique is this?",
+            opts: ["Decomposition — the overall problem has been broken into smaller, more manageable sub-problems", "Abstraction, because every website has to have unnecessary detail removed before any of its pages can possibly be built at all", "Algorithmic thinking — the exact steps for building the whole website have been written out", "An algorithm, which is the finished set of instructions that solves a problem"],
+            ans: 0,
+            explain: "Splitting an overall problem into separate parts (homepage, staff pages, contact form) is decomposition."
+        },
+        {
+            q: "A student writes out, in order: 'ask for two numbers, add them together, then display the result.' Which technique is this?",
+            opts: ["Algorithmic thinking — the ordered steps needed to solve the problem have been worked out", "Decomposition, because the single task of adding two numbers has somehow been split into several completely separate sub-problems", "Abstraction — unnecessary detail about the two numbers has been removed", "Debugging — mistakes in a finished program are being found and corrected"],
+            ans: 0,
+            explain: "Writing out an ordered sequence of steps (ask, add, display) is algorithmic thinking."
+        },
+        {
+            q: "What is an algorithm?",
+            opts: ["A finished set of step-by-step instructions that solves a problem", "A thinking skill used to remove unnecessary detail from a large and complicated real-world problem before it is solved", "A named store in memory whose value can change while a program runs", "A simplified diagram that shows only the roads in a particular area"],
+            ans: 0,
+            explain: "An algorithm is the finished, ordered set of instructions produced by algorithmic thinking."
+        },
+        {
+            q: "Which of these is the best definition of 'define a problem' in computational thinking?",
+            opts: ["Working out exactly what a problem involves before trying to solve it", "Writing the final working program code in a specific programming language such as Python or Java", "Testing a finished solution to check that it produces the correct result every time", "Removing every single feature of a problem so that literally nothing about it remains to be solved"],
+            ans: 0,
+            explain: "Defining a problem means working out exactly what it involves before attempting a solution."
+        },
+        {
+            q: "Why might a programmer decompose a sub-problem even further, into smaller sub-problems?",
+            opts: ["Because the sub-problem is still too complex to solve or understand as a single piece", "Because computational thinking rules require exactly three levels of decomposition for absolutely every problem, with no exceptions", "Because abstraction can only be used once on any given problem, no matter how complicated it is", "Because algorithms are not allowed to contain more than one single step in total"],
+            ans: 0,
+            explain: "A sub-problem can be decomposed again if it is still too complex to tackle directly — there is no fixed number of levels."
+        },
+        {
+            q: "A programmer is planning a solution and works out the order: 'check stock is available, THEN take payment, THEN confirm the order.' What has the programmer produced?",
+            opts: ["An algorithm — the ordered steps needed to solve the problem", "A model, which is a simplified representation of something real created using only abstraction and nothing else", "A sub-problem, which is one smaller part of a larger overall problem", "A decomposition diagram that shows every possible detail about the order in full"],
+            ans: 0,
+            explain: "An ordered sequence of steps that solves a problem is an algorithm — the result of algorithmic thinking."
+        }
+    ];
+
+    const matchData = [
+        { term: "Abstraction", def: "Removing or hiding unnecessary detail so that only what matters to solving the problem is kept" },
+        { term: "Decomposition", def: "Breaking a large, complex problem down into smaller, more manageable sub-problems" },
+        { term: "Algorithmic thinking", def: "Working out the step-by-step sequence of instructions needed to solve a problem" },
+        { term: "Algorithm", def: "The finished set of step-by-step instructions produced by algorithmic thinking" },
+        { term: "Sub-problem", def: "A smaller part of a larger problem, created by decomposition" },
+        { term: "Computational thinking", def: "The set of thinking skills used to plan how to solve a problem, before any code is written" },
+        { term: "Define a problem", def: "Work out exactly what a problem involves before trying to solve it" },
+        { term: "Refine a problem", def: "Simplify or improve the understanding of a problem so that it becomes easier to solve" },
+        { term: "Model", def: "A simplified representation of something real, created using abstraction" },
+        { term: "Reusability", def: "Being able to use the solution to a sub-problem again elsewhere" }
+    ];
+
+    const fibData = [
+        {
+            display: "_____ means removing or hiding unnecessary detail so that only the parts of a problem that matter are left.",
+            blanks: { B1: "abstraction" }
+        },
+        {
+            display: "_____ means breaking a large, complex problem down into smaller, more manageable sub-problems.",
+            blanks: { B1: "decomposition" }
+        },
+        {
+            display: "_____ is working out the step-by-step sequence of instructions needed to solve a problem.",
+            blanks: { B1: "algorithmic thinking" }
+        },
+        {
+            display: "A road map is an everyday example of _____, because it leaves out buildings and shows only the roads that matter for a journey.",
+            blanks: { B1: "abstraction" }
+        },
+        {
+            display: "Splitting the job of building an entire app into a login screen, a menu screen and a save screen is an example of _____.",
+            blanks: { B1: "decomposition" }
+        },
+        {
+            display: "A smaller part of a larger problem, produced by decomposition, is called a _____.",
+            blanks: { B1: "sub-problem" }
+        },
+        {
+            display: "The thinking skills used to work out how to solve a problem, before any code is written, are together called _____.",
+            blanks: { B1: "computational thinking" }
+        },
+        {
+            display: "The finished set of step-by-step instructions produced by algorithmic thinking is called an _____.",
+            blanks: { B1: "algorithm" }
+        }
+    ];
+    const fibWords = ["abstraction", "decomposition", "algorithmic thinking", "sub-problem", "computational thinking", "algorithm"];
+
+    const tfData = [
+        {
+            statement: "Abstraction means adding more detail to a problem so that it becomes more accurate.",
+            answer: false,
+            explanation: "Abstraction means the opposite — removing or hiding unnecessary detail so that only the parts that matter are kept."
+        },
+        {
+            statement: "Decomposition means breaking a large problem into smaller, more manageable sub-problems.",
+            answer: true,
+            explanation: "Correct — that is exactly what decomposition means."
+        },
+        {
+            statement: "Algorithmic thinking is the process of writing the final program code in a specific language such as Python.",
+            answer: false,
+            explanation: "Algorithmic thinking is working out the step-by-step logic needed to solve a problem — writing it in a specific language comes afterwards."
+        },
+        {
+            statement: "A road map is an example of abstraction, because it leaves out details that are not needed, such as the exact height of every building.",
+            answer: true,
+            explanation: "Correct — a map keeps the roads (what's needed for a journey) and hides irrelevant detail."
+        },
+        {
+            statement: "Decomposition can be applied more than once, breaking a sub-problem down into even smaller sub-problems.",
+            answer: true,
+            explanation: "Correct — if a sub-problem is still too complex, it can be decomposed again."
+        },
+        {
+            statement: "Computational thinking is only used by professional programmers once they have already started writing code.",
+            answer: false,
+            explanation: "Computational thinking is used to plan a solution BEFORE any code is written, and can be applied to any complex problem, not just programming."
+        },
+        {
+            statement: "Breaking a big problem into smaller sub-problems can make it possible to share the work between several people.",
+            answer: true,
+            explanation: "Correct — separate sub-problems can be divided between different people in a team."
+        },
+        {
+            statement: "Algorithmic thinking must always be applied before decomposition, in every case.",
+            answer: false,
+            explanation: "Usually decomposition happens first, splitting the problem into sub-problems; algorithmic thinking is then applied to work out the steps for each sub-problem."
+        }
+    ];
+
+    const miscData = [
+        {
+            wrong: "Thinking abstraction means adding more detail to a problem, to make it more accurate.",
+            correct: "Abstraction means the opposite — it means <strong>removing or hiding</strong> detail that is not needed, so that only the parts of a problem that matter are left.",
+            readCheck: {
+                q: "Which of these correctly describes abstraction?",
+                opts: ["Removing or hiding detail that is not needed, so only the important parts of a problem remain", "Adding as much extra detail as possible so that a problem is represented completely and perfectly, with nothing left out at all", "Splitting a problem into smaller, more manageable sub-problems", "Working out the order of steps needed to solve a problem"],
+                ans: 0,
+                explain: "Abstraction removes or hides unneeded detail — it does not add detail, split a problem into parts, or work out steps."
+            }
+        },
+        {
+            wrong: "Thinking decomposition and algorithmic thinking are the same thing.",
+            correct: "They are different: <strong>decomposition</strong> splits a problem into smaller <em>sub-problems</em>; <strong>algorithmic thinking</strong> works out the <em>steps</em> needed to solve a problem (or sub-problem).",
+            readCheck: {
+                q: "What is the difference between decomposition and algorithmic thinking?",
+                opts: ["Decomposition splits a problem into sub-problems; algorithmic thinking works out the steps to solve a problem", "There is no real difference at all — the two terms are simply two completely different names that programmers use for exactly the same single technique", "Decomposition removes unnecessary detail; algorithmic thinking splits a problem into smaller parts", "Algorithmic thinking is only used once a program has already been completely finished and tested"],
+                ans: 0,
+                explain: "Decomposition splits a problem into sub-problems; algorithmic thinking works out the ordered steps needed to solve it. They are different techniques."
+            }
+        },
+        {
+            wrong: "Believing decomposition can only ever be applied once to a problem.",
+            correct: "A sub-problem can be <strong>decomposed again</strong> if it is still too complex — decomposition can be applied more than once, breaking a problem down as many times as needed.",
+            readCheck: {
+                q: "A sub-problem is still too complicated to solve directly. What should a programmer do?",
+                opts: ["Decompose the sub-problem again, breaking it into even smaller sub-problems", "Give up on decomposition completely, since it is only ever allowed to be used a single time on any one problem", "Apply abstraction instead, because decomposition cannot be used more than once under any circumstances", "Write the final program code immediately, without doing any further planning"],
+                ans: 0,
+                explain: "Decomposition can be applied more than once — a sub-problem that is still too complex can be broken down further."
+            }
+        },
+        {
+            wrong: "Believing computational thinking is only relevant once you are already writing code.",
+            correct: "Computational thinking is used <strong>before</strong> code is written, to plan and simplify a solution — and it applies to solving <em>any</em> complex problem, not only programming ones.",
+            readCheck: {
+                q: "When is computational thinking used?",
+                opts: ["Before any code is written, to plan and simplify a solution to a problem", "Only after a program has already been fully written, in order to test whether it works correctly", "Only while a program is actually running, to control how fast it processes data", "Only by professional programmers, and only when they are using a single specific programming language"],
+                ans: 0,
+                explain: "Computational thinking is used before any code is written, to plan and simplify a solution to a problem."
+            }
+        },
+        {
+            wrong: "Thinking an algorithm and algorithmic thinking are the same thing.",
+            correct: "<strong>Algorithmic thinking</strong> is the thinking <em>process</em> of working out the steps needed. An <strong>algorithm</strong> is the <em>result</em> — the finished sequence of steps itself.",
+            readCheck: {
+                q: "What is the difference between an algorithm and algorithmic thinking?",
+                opts: ["Algorithmic thinking is the process of working out the steps; an algorithm is the finished sequence of steps produced", "There is no difference — an algorithm and algorithmic thinking are simply two different names that always mean precisely the same single idea", "An algorithm is a computer, and algorithmic thinking is a type of computer program", "Algorithmic thinking is only used in maths lessons, and algorithms are only used in computing lessons"],
+                ans: 0,
+                explain: "Algorithmic thinking is the process of working out the steps; an algorithm is the result — the finished sequence of steps itself."
+            }
+        },
+        {
+            wrong: "Believing computational thinking techniques must always be used in one fixed order and never revisited.",
+            correct: "In practice the three techniques are used <strong>flexibly</strong> — a programmer might return to abstraction or decomposition again if a sub-problem turns out to be too complex, rather than moving through them only once.",
+            readCheck: {
+                q: "Must abstraction, decomposition and algorithmic thinking always be used in a strict, one-way order?",
+                opts: ["No — a programmer can return to an earlier technique, such as decomposing a sub-problem further, if needed", "Yes, they must always be used in the exact same fixed order, with absolutely no exceptions ever allowed at all", "No, because only one of the three techniques is ever needed to solve any problem at all", "Yes, but only when the problem being solved involves numbers rather than any other kind of data"],
+                ans: 0,
+                explain: "The techniques are used flexibly — a programmer can revisit an earlier one (e.g. decomposing further) if a sub-problem is still too complex."
+            }
+        }
+    ];
+
+    const examTips = [
+        {
+            type: "tip",
+            title: "Naming the right technique — look for the cue words",
+            pills: ["AO1", "Definitions", "Identify"],
+            content: `<p>"Identify the technique used" questions are answered by spotting <strong>cue words</strong> in the scenario, not by guessing.</p>
+<ul>
+<li><strong>Abstraction</strong> — look for words like <em>ignore, leave out, hide, simplify</em>, or "only the detail that matters".</li>
+<li><strong>Decomposition</strong> — look for words like <em>split, divide, break down</em>, or a problem described as several separate parts.</li>
+<li><strong>Algorithmic thinking</strong> — look for an <em>ordered list of steps</em>, or words like "first, then, finally".</li>
+</ul>
+<p>Always answer using the <strong>exact term</strong> the mark scheme expects — "decomposition", not "breaking it into bits" — and back it up with a short reason from the scenario.</p>`,
+            readCheck: {
+                q: "A scenario says an app designer 'decided the app did not need to record every user's exact age, only whether they were under or over 18.' Which cue tells you this is abstraction?",
+                opts: ["The unnecessary detail (the exact age) has been simplified down to only what is needed", "The overall design task has been split into several separate, smaller sub-problems for different people to build", "The exact order of steps needed to check a user's age has been written out in full", "The finished algorithm has been tested to make sure it works correctly every time"],
+                ans: 0,
+                explain: "Simplifying detail down to only what is needed (exact age → under/over 18) is the cue for abstraction, not decomposition, algorithmic thinking or testing."
+            }
+        },
+        {
+            type: "explain",
+            title: "Explaining a benefit — always link it back to the problem",
+            pills: ["AO2", "Benefits", "Explain"],
+            content: `<p>"State/explain one benefit of decomposition" answers lose marks when they just repeat the definition. Structure your answer in <strong>two parts</strong>:</p>
+<ul>
+<li>1) Name the benefit — e.g. easier to test, easier to share between people, or a sub-problem can be reused.</li>
+<li>2) Explain <strong>why</strong> it helps, linked to the sub-problems being smaller and simpler than the whole problem.</li>
+</ul>
+<p><strong>Example:</strong> "Decomposition makes a solution easier to test, because each small sub-problem can be checked on its own, rather than trying to test the whole complicated program all at once."</p>`,
+            readCheck: {
+                q: "Which answer best explains a benefit of decomposition, rather than just naming it?",
+                opts: ["It is easier to test, because each small sub-problem can be checked separately rather than testing the whole program at once", "Testing", "It makes the entire problem completely disappear, meaning that no testing of any kind is ever required from anyone at all, under any circumstances", "Decomposition"],
+                ans: 0,
+                explain: "A full answer names the benefit AND explains why it happens (smaller sub-problems are easier to check individually) — a single word does not explain anything."
+            }
+        },
+        {
+            type: "tip",
+            title: "Answering a longer 'apply computational thinking' scenario question",
+            pills: ["AO2", "Scenario", "6-mark style"],
+            content: `<p>Longer questions describe a real problem and ask you to describe how computational thinking could be used to plan a solution. Structure your answer around the <strong>three techniques</strong>, one paragraph each:</p>
+<ul>
+<li><strong>Abstraction</strong> — say which details from the scenario would be kept, and which would be left out, and why.</li>
+<li><strong>Decomposition</strong> — say how the scenario's problem could be split into named sub-problems.</li>
+<li><strong>Algorithmic thinking</strong> — say that the steps for one of those sub-problems would then be worked out in order.</li>
+</ul>
+<p>Use details from the <strong>scenario itself</strong> in each paragraph — a generic definition with no reference to the scenario will not gain full marks.</p>`,
+            readCheck: {
+                q: "A 6-mark question gives a scenario and asks how computational thinking could be applied to it. What is the best way to structure the answer?",
+                opts: ["Cover each of abstraction, decomposition and algorithmic thinking in turn, applying each one to details from the scenario", "Write out only the plain dictionary definitions of the three separate terms, without referring to any specific detail from the scenario given in the question at all", "Focus entirely on writing the final program code needed to solve the scenario in a specific language", "Describe only decomposition in detail, since it is the single most important of the three techniques"],
+                ans: 0,
+                explain: "The strongest answers cover all three techniques and apply each one to the scenario's own details, rather than giving generic definitions or code."
+            }
+        }
+    ];
+
+    const flashcards = [
+        { term: "Computational thinking", def: "The set of thinking skills used to plan how to solve a problem, before any code is written" },
+        { term: "Abstraction", def: "Removing or hiding unnecessary detail so that only what matters is kept" },
+        { term: "Decomposition", def: "Breaking a large, complex problem down into smaller, more manageable sub-problems" },
+        { term: "Algorithmic thinking", def: "Working out the step-by-step sequence of instructions needed to solve a problem" },
+        { term: "Algorithm", def: "The finished set of step-by-step instructions produced by algorithmic thinking" },
+        { term: "Sub-problem", def: "A smaller part of a larger problem, created by decomposition" },
+        { term: "Model", def: "A simplified representation of something real, created using abstraction" },
+        { term: "Define a problem", def: "Work out exactly what a problem involves before trying to solve it" },
+        { term: "Refine a problem", def: "Simplify or improve the understanding of a problem so it becomes easier to solve" },
+        { term: "Benefit — easier to test", def: "Each small sub-problem can be tested on its own, rather than testing everything at once" },
+        { term: "Benefit — sharing work", def: "Separate sub-problems can be divided between different people in a team" },
+        { term: "Benefit — reuse", def: "A solution to a well-defined sub-problem can sometimes be reused elsewhere" },
+        { term: "Road map example", def: "A road map is abstraction — it shows roads but hides buildings and other unneeded detail" },
+        { term: "Typical order", def: "Decomposition usually splits a problem first; algorithmic thinking then works out each part's steps" }
+    ];
+
+    // ── Original clean-room exam questions (2026-07-24) ──
+    // Written from scratch against the §2.1.1 spec scope (abstraction,
+    // decomposition, algorithmic thinking) — NOT transcribed from any OCR
+    // paper. No exam PDF was supplied for this topic, so the tariff spread
+    // and format mix below are authored from the standard J277 assessment
+    // style for this kind of conceptual topic (identify-the-technique MCQ,
+    // define, tick-grid classification, match-the-term, cloze paragraph,
+    // explain-a-benefit, and one longer applied scenario) — NOT profiled
+    // from a real paper. Treat the ceiling (6 marks) as a best estimate.
+    // Spread: 2x1, 4x2, 2x3, 1x4(tick)+1x4(match), 1x6 = 10 questions / 28 marks.
+    const EXAM_CASE_STUDIES = {};
+
+    const examQuestions = [
+        {
+            num: "Q1",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: `<p>Tick <strong>one</strong> box to identify what <strong>abstraction</strong> means.</p>`,
+            options: ["Removing or hiding unnecessary detail so that only what matters is kept", "Breaking a large problem down into smaller, more manageable sub-problems", "Working out the step-by-step sequence of instructions needed to solve a problem", "Testing a finished program to find and fix mistakes"],
+            answer: 0,
+            hint: "Think about what is left OUT, not what is added.",
+            starter: "",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<ul><li><strong>Removing or hiding unnecessary detail so that only what matters is kept</strong></li></ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul><li>Only the correct option scores; 2 or more ticks scores 0.</li></ul>
+</div>`,
+            modelAnswer: "Removing or hiding unnecessary detail so that only what matters is kept."
+        },
+        {
+            num: "Q2",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: `<p>Tick <strong>one</strong> box to identify what <strong>decomposition</strong> means.</p>`,
+            options: ["Breaking a large, complex problem down into smaller, more manageable sub-problems", "Removing or hiding every possible piece of detail so that literally nothing about the original problem is left to consider", "Working out the step-by-step sequence of instructions needed to solve a problem", "Writing the final program code in a specific programming language"],
+            answer: 0,
+            hint: "Think about splitting a problem into parts, not removing detail or writing steps.",
+            starter: "",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<ul><li><strong>Breaking a large, complex problem down into smaller, more manageable sub-problems</strong></li></ul>
+</div>`,
+            modelAnswer: "Breaking a large, complex problem down into smaller, more manageable sub-problems."
+        },
+        {
+            num: "Q3",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: `<p>State what is meant by <strong>algorithmic thinking</strong>.</p>`,
+            hint: "Think about steps, order and logic — not about a finished program written in a particular language.",
+            starter: "Algorithmic thinking means…",
+            markPoints: {
+                note: "Up to 2 marks: the idea of a step-by-step sequence, and that it solves a problem.",
+                groups: [
+                    {
+                        label: "Definition", max: 2, points: [
+                            { text: "Working out the step-by-step sequence of instructions / the logic", marks: 1 },
+                            { text: "Needed to solve a problem (or a sub-problem)", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks</h5>
+<ul>
+<li>Award 1 mark for: working out the step-by-step sequence of instructions / the logic.</li>
+<li>Award 1 mark for: needed to solve a problem (or sub-problem).</li>
+</ul>
+</div>`,
+            modelAnswer: "Algorithmic thinking means working out the step-by-step sequence of instructions (the logic) needed to solve a problem."
+        },
+        {
+            num: "Q4",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: `<p>State <strong>one</strong> benefit of using decomposition when solving a large, complex problem.</p>`,
+            hint: "Name the benefit, then explain why breaking the problem into smaller sub-problems causes it.",
+            starter: "One benefit is…, because…",
+            markPoints: {
+                note: "1 mark for a valid benefit, 1 mark for linking it to smaller sub-problems.",
+                groups: [
+                    {
+                        label: "Benefit + link", max: 2, points: [
+                            { text: "Identifies a valid benefit, e.g. easier to test, easier to share between people, or a sub-problem can be reused", marks: 1 },
+                            { text: "Links this to sub-problems being smaller / simpler than the whole problem", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks</h5>
+<ul>
+<li>Award 1 mark for: a valid benefit (e.g. easier to test, easier to share between people, reusable solutions).</li>
+<li>Award 1 mark for: an explanation linking the benefit to sub-problems being smaller/simpler than the whole problem.</li>
+</ul>
+</div>`,
+            modelAnswer: "One benefit is that it makes the problem easier to test, because each small sub-problem can be checked on its own rather than testing the whole complicated program at once."
+        },
+        {
+            num: "Q5",
+            marks: 4,
+            type: "written",
+            format: "tickGrid",
+            caseStudy: "",
+            question: `<p>A student is planning a new solution. Tick <strong>one</strong> box in each row to identify which computational thinking technique is being used.</p>`,
+            grid: {
+                cols: ["Abstraction", "Decomposition", "Algorithmic thinking"],
+                rows: [
+                    { label: "Deciding to ignore the colour of each car and only record its number plate", correct: [0] },
+                    { label: "Splitting the design of a whole booking system into 'login', 'search' and 'payment' parts", correct: [1] },
+                    { label: "Writing out the exact order of steps a robot arm must follow to pick up an object", correct: [2] },
+                    { label: "Creating a simplified diagram of a school timetable that only shows subject and room, not teacher notes", correct: [0] }
+                ]
+            },
+            hint: "Ask: is detail being removed (abstraction), is the problem being split into parts (decomposition), or is an order of steps being worked out (algorithmic thinking)?",
+            starter: "Row 1: … | Row 2: … | Row 3: … | Row 4: …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (1 mark for each row)</h5>
+<ul>
+<li>Row 1 → <strong>Abstraction</strong></li>
+<li>Row 2 → <strong>Decomposition</strong></li>
+<li>Row 3 → <strong>Algorithmic thinking</strong></li>
+<li>Row 4 → <strong>Abstraction</strong></li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul><li>Each row is marked independently; 2+ ticks in a row scores 0 for that row.</li></ul>
+</div>`,
+            modelAnswer: "Row 1: Abstraction. Row 2: Decomposition. Row 3: Algorithmic thinking. Row 4: Abstraction."
+        },
+        {
+            num: "Q6",
+            marks: 4,
+            type: "written",
+            format: "matchLine",
+            caseStudy: "",
+            question: `<p>Draw <strong>one</strong> line from each term to what it means.</p><p>(There are more descriptions than terms — one description is not used.)</p>`,
+            match: {
+                left: ["Abstraction", "Decomposition", "Algorithmic thinking", "Sub-problem"],
+                right: ["Removing or hiding unnecessary detail so only what matters remains", "Breaking a large problem down into smaller, more manageable parts", "Working out the step-by-step sequence of instructions needed to solve a problem", "A smaller part of a larger problem, created by decomposition", "Translating a finished algorithm into program code in a specific language"],
+                answer: { "0": 0, "1": 1, "2": 2, "3": 3 },
+                decoys: [4]
+            },
+            hint: "Watch the decoy: 'translating into program code' describes writing a program, which is not one of the four terms listed.",
+            starter: "Abstraction → …, Decomposition → …, Algorithmic thinking → …, Sub-problem → …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (1 mark per correct line)</h5>
+<ul>
+<li>Abstraction → <strong>A</strong> (removing/hiding unnecessary detail)</li>
+<li>Decomposition → <strong>B</strong> (breaking a problem into smaller parts)</li>
+<li>Algorithmic thinking → <strong>C</strong> (working out the step-by-step sequence)</li>
+<li>Sub-problem → <strong>D</strong> (a smaller part of a larger problem)</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul><li>1 mark per correct line. Description E ('translating into program code') is a decoy and is not used.</li></ul>
+</div>`,
+            modelAnswer: "Abstraction → removing/hiding unnecessary detail. Decomposition → breaking a problem into smaller parts. Algorithmic thinking → working out the step-by-step sequence. Sub-problem → a smaller part of a larger problem."
+        },
+        {
+            num: "Q7",
+            marks: 3,
+            type: "written",
+            format: "bankCloze",
+            caseStudy: "",
+            question: `<p>Complete the paragraph about computational thinking by selecting terms from the list. <strong>Not all terms are used.</strong></p>`,
+            cloze: `<p>Before writing any code, a programmer uses computational thinking to plan a solution. ___1___ removes unnecessary detail so the important parts of the problem stand out. ___2___ then breaks the problem into smaller sub-problems. Finally, ___3___ works out the exact steps needed to solve each sub-problem.</p>`,
+            bank: ["Abstraction", "Decomposition", "Algorithmic thinking", "Iteration", "Selection", "Sequence"],
+            answers: {
+                "1": ["Abstraction"],
+                "2": ["Decomposition"],
+                "3": ["Algorithmic thinking"]
+            },
+            hint: "Removes detail → one term; splits into parts → one term; works out steps → one term. Iteration, selection and sequence are decoys from a different topic.",
+            starter: "(1) … (2) … (3) …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 3 marks (1 mark for each completed term)</h5>
+<p>Before writing any code, a programmer uses computational thinking to plan a solution. <strong>Abstraction</strong> removes unnecessary detail so the important parts of the problem stand out. <strong>Decomposition</strong> then breaks the problem into smaller sub-problems. Finally, <strong>Algorithmic thinking</strong> works out the exact steps needed to solve each sub-problem.</p>
+</div>`,
+            modelAnswer: "(1) Abstraction (2) Decomposition (3) Algorithmic thinking"
+        },
+        {
+            num: "Q8",
+            marks: 3,
+            type: "written",
+            caseStudy: "",
+            question: `<p>Explain how decomposition can make a large, complex problem easier to solve. Give <strong>three</strong> separate points in your answer.</p>`,
+            hint: "Think about the size of each part, whether it can be tested alone, and whether it can be shared between people.",
+            starter: "Decomposition breaks the problem into…",
+            markPoints: {
+                note: "Up to 3 marks, one per distinct point.",
+                groups: [
+                    {
+                        label: "Explanation", max: 3, points: [
+                            { text: "Breaks the problem into smaller, more manageable sub-problems", marks: 1 },
+                            { text: "Each sub-problem can be understood / worked on / tested on its own", marks: 1 },
+                            { text: "Sub-problems can be shared between different people, or tackled one at a time, so less has to be thought about at once", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 3 marks</h5>
+<ul>
+<li>1 mark: breaks the problem into smaller, more manageable sub-problems.</li>
+<li>1 mark: each sub-problem can be worked on/tested/understood on its own.</li>
+<li>1 mark: sub-problems can be shared between people, or tackled one at a time, reducing how much must be thought about at once.</li>
+</ul>
+</div>`,
+            modelAnswer: "Decomposition breaks a large problem into smaller, more manageable sub-problems. Each sub-problem can be worked on and tested on its own, without having to think about the whole problem at once. Sub-problems can also be shared out between different people, so a team can solve them at the same time."
+        },
+        {
+            num: "Q9",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: `<p>A student says: "An algorithm and algorithmic thinking are the same thing." Explain why the student is <strong>incorrect</strong>.</p>`,
+            hint: "One of them is a process; the other is the result of that process.",
+            starter: "The student is incorrect because…",
+            markPoints: {
+                note: "1 mark for algorithmic thinking as a process, 1 mark for an algorithm as the result.",
+                groups: [
+                    {
+                        label: "Explanation", max: 2, points: [
+                            { text: "Algorithmic thinking is the process of working out the steps needed to solve a problem", marks: 1 },
+                            { text: "An algorithm is the result — the finished sequence of steps itself", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks</h5>
+<ul>
+<li>1 mark: algorithmic thinking is the process of working out the steps needed to solve a problem.</li>
+<li>1 mark: an algorithm is the result — the finished sequence of steps itself.</li>
+</ul>
+</div>`,
+            modelAnswer: "The student is incorrect because algorithmic thinking is the process of working out the steps needed to solve a problem, whereas an algorithm is the result of that process — the finished sequence of steps itself."
+        },
+        {
+            num: "Q10",
+            marks: 6,
+            type: "written",
+            caseStudy: "",
+            question: `<p>A school wants a new computer program that lets students book a library computer for a 30-minute slot.</p><p>Describe how a programmer could use computational thinking to plan a solution to this problem. Refer to <strong>abstraction</strong>, <strong>decomposition</strong> and <strong>algorithmic thinking</strong> in your answer.</p>`,
+            hint: "Cover all three techniques separately, and use details from the library booking scenario in each part — not just the dictionary definition.",
+            starter: "Abstraction could be used to… Decomposition could be used to… Algorithmic thinking could be used to…",
+            markPoints: {
+                note: "Up to 6 marks: 2 marks for each technique (identify how it applies to the scenario, and explain the benefit).",
+                groups: [
+                    {
+                        label: "Abstraction", max: 2, points: [
+                            { text: "Identifies that abstraction would keep only the detail that is needed, e.g. student ID, computer number and time slot, and leave out anything irrelevant", marks: 1 },
+                            { text: "Explains this simplifies the problem, making it easier to plan a solution", marks: 1 }
+                        ]
+                    },
+                    {
+                        label: "Decomposition", max: 2, points: [
+                            { text: "Identifies that the overall problem would be split into sub-problems, e.g. checking which computers are free, checking the student hasn't already booked, and recording the new booking", marks: 1 },
+                            { text: "Explains this makes each part more manageable to solve and test separately", marks: 1 }
+                        ]
+                    },
+                    {
+                        label: "Algorithmic thinking", max: 2, points: [
+                            { text: "Identifies that algorithmic thinking would work out the ordered steps for a sub-problem, e.g. the exact steps to check availability and then save a booking", marks: 1 },
+                            { text: "Explains this produces a clear algorithm that can be turned into program code", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (2 marks per technique)</h5>
+<ul>
+<li><strong>Abstraction (2):</strong> keeps only needed detail (e.g. student ID, computer number, time slot), ignoring irrelevant detail (1); this simplifies the problem (1).</li>
+<li><strong>Decomposition (2):</strong> splits the problem into sub-problems, e.g. checking availability, checking for an existing booking, recording the booking (1); this makes each part easier to solve and test separately (1).</li>
+<li><strong>Algorithmic thinking (2):</strong> works out the ordered steps for a sub-problem, e.g. checking availability then saving a booking (1); this produces a clear algorithm that can become program code (1).</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul><li>Credit any equivalent, sensible application of each technique to the library booking scenario — the exact sub-problems named do not have to match the mark scheme.</li></ul>
+</div>`,
+            modelAnswer: "Abstraction would be used to decide which details matter, such as the student's ID, the computer number and the time slot, while ignoring irrelevant details such as the rest of their timetable — this simplifies the problem. Decomposition would split the overall problem into sub-problems, such as checking which computers are free, checking the student hasn't already booked a slot, and recording the new booking — each part can then be solved and tested on its own. Algorithmic thinking would then work out the exact steps for a sub-problem, such as checking availability and saving a booking in order, producing a clear algorithm that can be turned into program code."
+        }
+    ];
 </script>
     <script src="/script.js"></script>
 <script src="section-totals.js"></script>

@@ -1,0 +1,696 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1.4 Popularity of Sport in the UK – Interactive Study Guide</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+    <header>
+        <div>
+            <div class="badge">OCR Level 1/Level 2 Sport Studies — R184 · 1. Issues Affecting Participation</div>
+            <h1>1.4 Popularity of Sport in the UK</h1>
+            <p>Interactive revision guide · Content coming soon</p>
+        </div>
+        <a href="/index.html" class="home-link">← 🏡 Home</a>
+    </header>
+
+    <nav class="tab-bar" id="tabBar">
+        <button class="tab-btn active" onclick="switchTab('learn', this)">
+            📚 Key Learning
+        </button>
+        <button class="tab-btn" onclick="switchTab('mcq', this)">
+            ❓ MCQ Quiz
+        </button>
+        <button class="tab-btn" onclick="switchTab('matching', this)">
+            🔗 Matching
+        </button>
+        <button class="tab-btn" onclick="switchTab('fib', this)">
+            ✏️ Fill the Blanks
+        </button>
+        <button class="tab-btn" onclick="switchTab('misconceptions', this)">
+            ⚠️ Misconceptions
+        </button>
+        <button class="tab-btn" onclick="switchTab('examtips', this)">
+            🎯 Exam Tips
+        </button>
+        <button class="tab-btn" onclick="switchTab('flashcards', this)">
+            🃏 Flashcards
+        </button>
+        <button class="tab-btn" onclick="switchTab('truefalse', this)">
+            ✅ True / False
+        </button>
+        <button class="tab-btn" onclick="switchTab('exampractice', this)">
+            📝 Exam Practice
+        </button>
+    </nav>
+
+    <main>
+        <div class="tab-panel active" id="tab-learn">
+            <h2 class="section-title">Key Learning Topics</h2>
+            <p class="section-sub">Click any card to expand detailed notes.</p>
+            <div class="topic-grid" id="topicGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-mcq">
+            <h2 class="section-title">Multiple Choice Questions</h2>
+            <p class="section-sub">Select an answer to reveal instant feedback.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="mcqScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">
+                        correct answers
+                    </div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    out of <strong id="mcqTotal">0</strong> attempted
+                </div>
+                <button class="reset-btn" onclick="resetMCQ()">RESET</button>
+            </div>
+            <div class="quiz-wrap" id="mcqWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-matching">
+            <h2 class="section-title">Matching Activity</h2>
+            <p class="section-sub">
+                Click a term on the left, then click the matching definition on the
+                right.
+            </p>
+            <div style="margin-bottom: 16px">
+                <div class="score-bar">
+                    <div>
+                        <div class="score-num" id="matchScore">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">matched</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="matchTotal">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetMatch()">RESET</button>
+                </div>
+            </div>
+            <div class="match-grid">
+                <div>
+                    <div class="match-label">TERMS</div>
+                    <div class="match-col" id="matchLeft"></div>
+                </div>
+                <div>
+                    <div class="match-label">DEFINITIONS</div>
+                    <div class="match-col" id="matchRight"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-fib">
+            <h2 class="section-title">Fill in the Blanks</h2>
+            <p class="section-sub">
+                Click each dropdown and choose the correct word. Wrong answers reset —
+                try again!
+            </p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="fibScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="fibTotal">0</strong> blanks
+                </div>
+                <button class="reset-btn" onclick="resetFIB()">RESET</button>
+            </div>
+            <div class="fib-wrap" id="fibWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-misconceptions">
+            <h2 class="section-title">Common Misconceptions</h2>
+            <p class="section-sub">
+                What students often think — and what examiners actually want.
+            </p>
+            <div class="misc-list" id="miscList"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-examtips">
+            <h2 class="section-title">Exam Questions &amp; Tips</h2>
+            <p class="section-sub">
+                Most repeated question types and mark-scheme structures from real OCR
+                papers.
+            </p>
+            <div class="tips-grid" id="tipsGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-flashcards">
+            <h2 class="section-title">Flashcards</h2>
+            <p class="section-sub">
+                Test yourself! Flip the card and rate your knowledge. Review your weak
+                areas at the end.
+            </p>
+
+            <div class="fc-container">
+                <div class="score-bar" id="fcScoreBar" style="display: none; margin-bottom: 20px">
+                    <div>
+                        <div class="score-num" id="fcKnown" style="color: #2d7a4f">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">known</div>
+                    </div>
+                    <div>
+                        <div class="score-num" id="fcUnknown" style="color: #c84b31">
+                            0
+                        </div>
+                        <div style="font-size: 12px; color: var(--mid)">learning</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="fcTotalTrack">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
+                </div>
+
+                <div id="fcActiveArea">
+                    <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
+                    <div class="flashcard" id="flashcard" onclick="flipCard()">
+                        <div class="fc-inner">
+                            <div class="fc-front">
+                                <div class="fc-label">KEY TERM</div>
+                                <div class="fc-term" id="fcTerm"></div>
+                            </div>
+                            <div class="fc-back">
+                                <div class="fc-def" id="fcDef"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="fc-hint">👆 Click card to flip</p>
+
+                    <div class="fc-nav" id="fcNavDefault">
+                        <button class="fc-btn outline" onclick="prevCard()">
+                            ← Prev
+                        </button>
+                        <button class="fc-btn outline" onclick="flipCard()">Flip</button>
+                        <button class="fc-btn" onclick="nextCard()">Next →</button>
+                    </div>
+
+                    <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px">
+                        <button class="fc-btn outline" style="border-color: #c84b31; color: #c84b31; flex: 1"
+                            onclick="markCard(false)">
+                            ❌ Still Learning
+                        </button>
+                        <button class="fc-btn" style="background: #2d7a4f; border-color: #2d7a4f; flex: 1"
+                            onclick="markCard(true)">
+                            ✅ Got It
+                        </button>
+                    </div>
+                </div>
+
+                <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px">
+                    <h3>Session Complete! 🎉</h3>
+                    <p style="margin: 15px 0">
+                        You knew <strong id="fcSummaryKnown">0</strong> out of
+                        <strong id="fcSummaryTotal">0</strong> cards.
+                    </p>
+                    <div style="
+                margin-top: 25px;
+                display: flex;
+                gap: 15px;
+                justify-content: center;
+                flex-wrap: wrap;
+              ">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
+                            style="background: #c84b31; border-color: #c84b31">
+                            Review Incorrect
+                        </button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">
+                            Practice All Again
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-truefalse">
+            <h2 class="section-title">True or False?</h2>
+            <p class="section-sub">Test your knowledge with these statements.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="tfScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="tfTotal">0</strong> answered
+                </div>
+                <button class="reset-btn" onclick="resetTF()">RESET</button>
+            </div>
+            <div class="tf-wrap" id="tfWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-exampractice">
+            <h2 class="section-title">Exam Practice Questions</h2>
+            <p class="section-sub">
+                Full exam questions with case studies. Use <strong>Hint</strong>,
+                <strong>Sentence Starter</strong> and
+                <strong>Submit &amp; See Mark Scheme</strong> for each question.
+            </p>
+            <div class="ep-list" id="epList"></div>
+        </div>
+    </main>
+
+<script>
+    // ══════════════════════════════════════
+    //  DATA: 1.4 Popularity of Sport in the UK — placeholder, content not yet written
+    // ══════════════════════════════════════
+    const pageMeta = {
+            id: '1-4-popularity-of-sport-in-the-uk',
+            badge: 'OCR Level 1/Level 2 Sport Studies — R184 · 1. Issues Affecting Participation',
+            title: '1.4 Popularity of Sport in the UK',
+            subtitle: 'Interactive revision guide',
+            subject: 'sport-studies',
+        };
+
+    const topics = [
+        {
+            title: "What makes a sport popular — participation, facilities and climate",
+            tag: "Key concept",
+            content: `<h4>Popularity moves up and down</h4>
+<ul>
+<li>A sport's popularity in the UK is not fixed. Several factors push it <strong>up</strong> or <strong>down</strong> over time, and the same factor can work in either direction depending on what happens.</li>
+<li>The exam skill: don't just name a factor — say which <strong>direction</strong> it pushed popularity in your example, and explain the <strong>effect</strong> this had.</li>
+</ul>
+<h4>Factor 1 — the number of people participating</h4>
+<ul>
+<li>When more people take part in a sport, its overall popularity tends to rise — participants often go on to watch it, follow it and talk about it too.</li>
+<li>If participation falls (perhaps because a sport is seen as old-fashioned or hard to access), popularity can shrink alongside it.</li>
+</ul>
+<h4>Factor 2 — the provision of facilities</h4>
+<ul>
+<li>A sport needs somewhere to be played. Plenty of accessible, well-maintained venues and equipment make it easy to take up, which raises popularity.</li>
+<li>Where facilities are scarce, expensive to hire, or a long way from where people live, they cannot get involved even if they want to, so popularity stays low.</li>
+</ul>
+<h4>Factor 3 — environmental and climate influences</h4>
+<ul>
+<li>The UK's weather and geography make some activities easy to access all year (such as pitch and court sports) but limit others that need conditions like reliable snow, ice, open water or warm temperatures.</li>
+<li>A sport that depends on conditions the UK rarely provides will struggle to build mass popularity here, however popular that sport is in other countries.</li>
+</ul>`,
+            readCheck: {
+                q: "A sport can only be played on natural ice that forms reliably for several months a year. Which factor best explains why this limits its popularity across most of the UK?",
+                opts: ["Environmental and climate influences, because the UK rarely provides those conditions consistently", "Social acceptability, because wider society has generally decided the sport is not respectable enough to watch or take part in", "Having a wide pool of relatable, high-profile athletes who inspire newcomers to give the sport a go", "Live spectator opportunities, because grounds selling tickets to matches are always too expensive"],
+                ans: 0,
+                explain: "The UK's climate rarely gives reliable natural ice for long periods, so environment/climate is the factor limiting this sport — not role models, acceptability or ticket prices."
+            }
+        },
+        {
+            title: "Watching it happen — spectators, media coverage and elite success",
+            tag: "Core knowledge",
+            content: `<h4>Factor 4 — live spectator opportunities</h4>
+<ul>
+<li>When people can go and watch a sport live — affordably, nearby, with a good atmosphere — it builds a following, and some spectators go on to become new participants themselves.</li>
+<li>If tickets are expensive, venues are far away, or few live fixtures are staged at all, the sport stays out of sight and popularity struggles to grow.</li>
+</ul>
+<h4>Factor 5 — the amount and range of media coverage</h4>
+<ul>
+<li>Regular TV, radio, print and online coverage keeps a sport in the public eye, attracts sponsorship money and inspires new fans and participants.</li>
+<li>A sport that receives little coverage, or coverage of only one narrow part of it, struggles to reach new audiences even if it is genuinely exciting to watch.</li>
+</ul>
+<h4>Factor 6 — the high-level success of individuals and teams</h4>
+<ul>
+<li>When UK athletes or teams succeed at the highest level (winning a major tournament or an international medal), the sport usually gets a short-term surge in interest, participation and coverage — sometimes called a <strong>feel-good bounce</strong>.</li>
+<li>A long run of poor results at major competitions can have the opposite effect, and public interest can quietly fade away.</li>
+</ul>`,
+            readCheck: {
+                q: "A UK team wins a major international trophy for the first time in years, and club enquiries rise the following week. What does this best show?",
+                opts: ["Elite success can cause a short-term surge in a sport's participation and popularity", "Winning a major trophy always guarantees that a sport stays popular permanently from that point onward", "Media coverage is completely unrelated to how well a national team happens to perform", "Only players on the winning team personally benefit from any rise in popularity"],
+                ans: 0,
+                explain: "High-level success often produces a temporary 'feel-good bounce' in interest and participation — it is not permanent, and it is not limited to the players themselves."
+            }
+        },
+        {
+            title: "Role models, social acceptability — and the exam skill: up or down?",
+            tag: "Exam skill",
+            content: `<h4>Factor 7 — how relatable and visible its role models are</h4>
+<ul>
+<li>Athletes who are visible, respected, and easy to relate to (across gender, ethnicity, disability and background) encourage people who see themselves reflected in that role model to get involved.</li>
+<li>A narrow range of role models — or role models linked to bad publicity — gives fewer people a reason to see a sport as "for them", which can hold its popularity back.</li>
+</ul>
+<h4>Factor 8 — social acceptability</h4>
+<ul>
+<li>A sport tends to grow when wider society sees it as safe, fair and appropriate to take part in or to watch.</li>
+<li>Concerns about violence, cruelty (to people or animals), or unfairness can make a sport socially unacceptable to some people, which can lower both participation and popularity.</li>
+</ul>
+<h4>The exam skill: always say UP or DOWN, and why</h4>
+<ul>
+<li>Every one of the eight factors above can work in either direction. Weak answer: <em>"Media coverage affects popularity."</em> Strong answer: <em>"Extensive TV coverage of a major tournament exposed the sport to new audiences, which raised participation as more people wanted to try it after watching."</em></li>
+<li>This same skill reappears later in the course — in 1.5 (why emerging sports grow or stall) and in Topic 5 (the effects of technology and media on sport) — so it is worth mastering here first.</li>
+</ul>`,
+            readCheck: {
+                q: "Which sentence uses the exam skill correctly (names a factor, a direction, AND an effect)?",
+                opts: ["Positive role models generally make a sport feel a little more interesting to people who already enjoy watching it", "A wider range of visible role models can raise popularity, as more people relate to them and take part", "Role models are simply one of the eight factors mentioned somewhere in the specification for this particular topic", "Some sports currently have more famous role models attached to them than other sports do"],
+                ans: 1,
+                explain: "Only this option names the factor, states the direction (raise), and gives the effect (more people relate and take part) — the others stop at naming or describing without direction and effect."
+            }
+        }
+    ];
+
+    const mcqData = [
+        {
+            q: "Which best explains how a rise in the number of people playing a sport tends to affect its popularity?",
+            opts: ["More participants usually raise overall popularity, since players often go on to watch, follow and talk about the sport too", "It has no real connection to popularity whatsoever, because participation numbers and general popularity are always two entirely separate and unrelated things", "It always causes the sport to be added permanently to the school national curriculum the following year", "It automatically doubles the amount of prize money available at every professional competition"],
+            ans: 0,
+            explain: "Rising participation tends to raise popularity because players often become fans, spectators and word-of-mouth promoters too. The other options invent effects the factor doesn't actually have."
+        },
+        {
+            q: "A town removes its only public swimming pool. What effect is this most likely to have on swimming's local popularity?",
+            opts: ["None, because facility provision never has any influence on whether people can take part in a sport", "Swimming becomes instantly more popular, because people enjoy a challenge when facilities disappear", "It is likely to lower popularity, because people can no longer easily access somewhere to swim", "It has no effect locally, but it makes swimming much more popular in every neighbouring town instead"],
+            ans: 2,
+            explain: "Losing the only local facility removes easy access, which tends to lower participation and popularity — it does not raise it, and it doesn't magically boost swimming elsewhere."
+        },
+        {
+            q: "Why does the UK produce relatively few elite alpine skiers compared with mountainous countries?",
+            opts: ["British people have never once shown any interest in snow sports of any kind", "The UK's climate and terrain rarely provide the reliable snow and mountains that skiing needs", "Skiing has been officially banned by every national governing body across the whole of the UK", "No UK television channel has ever broadcast any footage of a ski competition at all"],
+            ans: 1,
+            explain: "Environmental and climate influences are the real reason — the UK's terrain and weather rarely give the reliable snow and mountains skiing needs, unlike a lack of interest, a ban, or zero coverage."
+        },
+        {
+            q: "A new stadium opens with cheap tickets and a great matchday atmosphere for a local team. What effect is this likely to have on that sport's popularity?",
+            opts: ["It falls, because larger crowds at a cheaper new stadium always make the atmosphere feel worse for loyal regular fans", "It stays exactly the same, because where people go to watch sport never really changes their genuine interest in it", "It only affects popularity among the small number of people who already owned season tickets at the old ground", "It rises, because affordable live opportunities can turn spectators into new fans and participants"],
+            ans: 3,
+            explain: "Cheap, accessible live spectator opportunities tend to raise popularity by turning casual watchers into fans and even participants — not lower it or leave it unchanged."
+        },
+        {
+            q: "A sport that used to get almost no TV coverage suddenly gets a full season broadcast live every week. What effect does this tend to have?",
+            opts: ["Popularity tends to rise, because regular coverage reaches new audiences and attracts sponsorship", "Popularity always falls, because loyal fans much prefer to attend a fixture in person rather than ever watch it on TV at home", "There is no effect at all, because television coverage has never once influenced any sport's popularity in any way", "The sport is instantly removed from all live fixture listings published in national newspapers"],
+            ans: 0,
+            explain: "Regular media coverage tends to raise popularity by reaching new audiences and attracting sponsors — coverage does not automatically reduce attendance or get a sport dropped from listings."
+        },
+        {
+            q: "A UK team wins a major international tournament for the first time in decades. What short-term effect does this typically have on the sport?",
+            opts: ["None, because results at major tournaments never change public interest in a sport", "The opposite of what you'd expect — interest and participation usually fall straight away", "A surge in interest, participation and coverage, sometimes called a feel-good bounce", "It only affects the players on that specific team and nobody else who follows the sport"],
+            ans: 2,
+            explain: "High-level success typically produces a short-term 'feel-good bounce' — a surge in interest, participation and coverage — rather than no change, a fall, or an effect limited only to the players."
+        }
+    ];
+
+    const matchData = [
+        { term: "Participation numbers", def: "How many people actually take part; a rise tends to raise a sport's overall popularity" },
+        { term: "Provision of facilities", def: "How accessible, available and well-maintained a sport's venues and equipment are" },
+        { term: "Environmental/climate influences", def: "The UK's weather and terrain, which allow some activities easily but limit others needing snow, ice or warmth" },
+        { term: "Live spectator opportunities", def: "The chance to watch a sport in person, which can turn spectators into new fans and participants" },
+        { term: "Media coverage", def: "The amount and range of TV, radio, print and online exposure a sport receives" },
+        { term: "High-level success", def: "Wins by individuals or teams at the highest level, which can cause a short-term surge in interest" },
+        { term: "Positive role models", def: "Visible, respected performers people can relate to, encouraging them to take part" },
+        { term: "Social acceptability", def: "Whether wider society sees a sport as safe, fair and appropriate to take part in or watch" }
+    ];
+
+    const fibData = [
+        {
+            display: "A sport tends to become more popular when the number of people _____ in it increases.",
+            blanks: { B1: "participating" }
+        },
+        {
+            display: "Plentiful, accessible sports _____ make it easier for people to take up a sport in the first place.",
+            blanks: { B1: "facilities" }
+        },
+        {
+            display: "A sport that needs reliable snow or ice can struggle to grow across the UK because of the _____.",
+            blanks: { B1: "climate" }
+        },
+        {
+            display: "Extensive media _____ keeps a sport visible to the public and can attract new fans.",
+            blanks: { B1: "coverage" }
+        },
+        {
+            display: "A wider range of positive role _____ encourages more people who relate to them to get involved.",
+            blanks: { B1: "models" }
+        },
+        {
+            display: "Concerns about violence or cruelty can lower a sport's social _____ to some people.",
+            blanks: { B1: "acceptability" }
+        }
+    ];
+    const fibWords = ["participating", "facilities", "climate", "coverage", "models", "acceptability"];
+
+    const tfData = [
+        {
+            statement: "Every one of the eight popularity factors can only ever raise a sport's popularity, never lower it.",
+            answer: false,
+            explanation: "Each factor can push popularity in EITHER direction — for example, poor facility provision lowers popularity just as good provision raises it."
+        },
+        {
+            statement: "A short-term surge in interest after a major tournament win is sometimes called a feel-good bounce.",
+            answer: true,
+            explanation: "That's the term used for the temporary rise in participation, interest and coverage that often follows high-level success."
+        },
+        {
+            statement: "The UK's climate and terrain can limit how popular certain snow- or ice-based sports become nationally.",
+            answer: true,
+            explanation: "Environmental and climate influences are a genuine factor — the UK rarely provides the conditions some sports need all year round."
+        },
+        {
+            statement: "Social acceptability has no connection to concerns about violence or fairness in a sport.",
+            answer: false,
+            explanation: "Social acceptability IS partly about this — concerns about violence, cruelty or unfairness can make a sport less socially acceptable and lower its popularity."
+        },
+        {
+            statement: "A wider range of positive role models tends to help more people see a sport as 'for them'.",
+            answer: true,
+            explanation: "Role models people can relate to (across gender, ethnicity, disability and background) encourage more people to get involved."
+        },
+        {
+            statement: "Removing an accessible local facility for a sport usually has no effect on how popular it stays.",
+            answer: false,
+            explanation: "Losing easy access to facilities tends to lower participation, since people can no longer take part as easily — that in turn can lower popularity."
+        }
+    ];
+
+    const miscData = [
+        {
+            wrong: "If I just name a factor like 'media coverage', that explains why a sport's popularity changed.",
+            correct: "Naming the factor is only the start. The mark is for saying which DIRECTION it pushed popularity and the EFFECT this had. Weak: \"Media coverage affects popularity.\" Full marks: \"Extensive TV coverage of a tournament exposed the sport to new audiences, which raised participation as more people wanted to try it.\"",
+            readCheck: {
+                q: "An 'Explain' question asks how a factor affected a sport's popularity. What earns the marks?",
+                opts: ["Naming as many of the eight different popularity factors as you can possibly remember", "Naming the factor, the direction it pushed popularity, and the effect", "Writing the factor's name in capital letters for emphasis", "Describing a sport you personally enjoy watching"],
+                ans: 1,
+                explain: "Explain = factor + direction + effect. Naming the factor alone, or listing several factors, does not show the understanding the mark scheme rewards."
+            }
+        },
+        {
+            wrong: "These eight factors only ever make a sport MORE popular — they can't work the other way.",
+            correct: "Every factor can push popularity up OR down. Good facility provision raises popularity; losing facilities lowers it. Strong media coverage raises popularity; almost no coverage limits it. Always check which direction your example actually shows before you write the effect.",
+            readCheck: {
+                q: "A sport loses most of its live TV coverage over several years. What is the most likely effect on its popularity?",
+                opts: ["It rises, because every one of these factors can only ever raise a sport's popularity", "It is likely to fall, because losing exposure to audiences can reduce interest", "There is no possible effect on popularity from any change in coverage", "The sport instantly becomes an emerging sport as a result"],
+                ans: 1,
+                explain: "Losing coverage removes exposure to new audiences, so popularity is likely to fall — the same factor that can raise popularity can also lower it."
+            }
+        },
+        {
+            wrong: "Participation and popularity are two totally separate ideas with no real link between them.",
+            correct: "They are closely linked, which is exactly why 'the number of people participating' is one of the eight factors. More participants tend to raise overall popularity (players often become fans and promoters too); fewer participants can shrink it. They are not identical ideas, but they clearly affect each other.",
+            readCheck: {
+                q: "Why is 'the number of people participating' listed as a factor affecting a sport's popularity?",
+                opts: ["Because participation and popularity have no meaningful connection to one another at all, ever", "Because participants often go on to watch, follow and promote a sport too, which can raise popularity", "Because only fully professional, highly paid athletes ever count as genuine participants in any sport", "Because participation always falls whenever popularity rises"],
+                ans: 1,
+                explain: "Participants frequently become spectators, fans and word-of-mouth promoters, which is why rising participation tends to raise a sport's wider popularity."
+            }
+        },
+        {
+            wrong: "Social acceptability is just about whether a sport looks 'cool' — it has nothing to do with things like violence or fairness.",
+            correct: "Social acceptability is specifically about whether wider society views a sport as safe, fair and appropriate. Concerns about violence, cruelty to people or animals, or unfairness are the main things that can lower it — 'looking cool' is not the concept being tested.",
+            readCheck: {
+                q: "What does 'social acceptability' as a popularity factor actually refer to?",
+                opts: ["Whether a sport currently looks fashionable and trendy to teenagers specifically", "Whether wider society sees a sport as safe, fair and appropriate", "Whether a sport is expensive to take part in", "Whether a sport has an official national governing body"],
+                ans: 1,
+                explain: "Social acceptability concerns whether society sees a sport as safe, fair and appropriate — concerns about violence, cruelty or unfairness are what can lower it."
+            }
+        }
+    ];
+
+    const examTips = [
+        {
+            type: "tip",
+            title: "Command words for this topic — what each one wants",
+            pills: ["Identify", "State", "Explain", "Discuss"],
+            content: `<p>Popularity questions can be short recall or longer applied answers. Match your answer length to the command word:</p>
+<ul>
+<li><strong>Identify / State</strong> — just name it. "Identify two factors affecting popularity" = two factor names, nothing more. 1 mark each.</li>
+<li><strong>Explain</strong> — name the factor, give the direction (up or down), and give the effect. Use "because" to link them.</li>
+<li><strong>Discuss</strong> — weigh up more than one factor, applied to a scenario, and reach a judgement about which matters most or how far it would work.</li>
+</ul>
+<p><strong>Read the mark tariff:</strong> [1]–[2] wants one or two points; [4] in Section B wants points applied to the scenario given; [8] levelled wants balance across factors and a justified judgement.</p>`,
+            readCheck: {
+                q: "A question says: 'Identify two factors that affect a sport's popularity [2]'. What is the safest answer?",
+                opts: ["A long paragraph about one single factor", "Two factor names", "One factor explained in great detail", "A list of all eight factors"],
+                ans: 1,
+                explain: "'Identify' + [2] = two names, one mark each. Explaining one factor in depth, or listing all eight, wastes time and risks the examiner marking only the first two anyway."
+            }
+        },
+        {
+            type: "tip",
+            title: "The golden rule: factor, direction, effect",
+            pills: ["Section A", "Section B", "AO2"],
+            content: `<p>The single most common way to lose marks here is stopping at the factor's name. Build every answer as <strong>factor → direction → effect</strong>:</p>
+<ul>
+<li><strong>❌ 0–1 marks:</strong> "Media coverage."</li>
+<li><strong>✅ full marks:</strong> "Wider media coverage raised the sport's popularity, because it exposed new audiences to the sport who then wanted to try it themselves."</li>
+</ul>
+<p>In <strong>Section B</strong> the question gives you a scenario (a named sport, club or event). You must use a detail <em>from that scenario</em>, not a general example from a different sport.</p>`,
+            readCheck: {
+                q: "In a Section B scenario about a named sports club, your example should come from...",
+                opts: ["absolutely any sport that you happen to prefer", "the scenario you are given", "a famous athlete not mentioned anywhere in the question", "your own personal experience of a completely different sport"],
+                ans: 1,
+                explain: "Section B is applied — the marks are for using the scenario in front of you. A general example that ignores the scenario is capped."
+            }
+        },
+        {
+            type: "tip",
+            title: "Where this topic appears + sentence starters",
+            pills: ["Section A", "Section B", "Section C"],
+            content: `<p><strong>Where it shows up:</strong> popularity factors appear as quick recall in <strong>Section A</strong> (identify/state), as applied points in <strong>Section B</strong> scenarios about a specific sport or event, and they feed <strong>Section C</strong> 8-mark answers discussing how to grow a sport's popularity. The same skill links forward to 1.5 (emerging sports) and Topic 5 (technology and media).</p>
+<p><strong>Three punchy tips:</strong></p>
+<ul>
+<li>Learn the eight factors as a checklist so you can always recall several under pressure.</li>
+<li>For every factor, memorise one "up" example and one "down" example — direction is where the mark often sits.</li>
+<li>In a longer answer, weigh factors against each other rather than just listing them one after another.</li>
+</ul>
+<p><strong>Sentence starters for a longer answer:</strong></p>
+<ul>
+<li>"One factor affecting popularity here is… which raised/lowered it because…"</li>
+<li>"This mattered because it changed…"</li>
+<li>"However, on its own this factor might not be enough because…"</li>
+</ul>`,
+            readCheck: {
+                q: "Why is it useful to know an 'up' example AND a 'down' example for the same factor?",
+                opts: ["It simply fills useful space in a longer written answer without really needing to add anything new or relevant to it", "Because the exam can ask about either direction, and a fixed 'always up' answer would be wrong for a 'down' question", "Because every one of these eight factors only ever works in a single, fixed direction anyway", "It completely replaces the need to apply the factor to any scenario given in the question"],
+                ans: 1,
+                explain: "Every factor can raise OR lower popularity, so knowing both directions means you're ready whichever way a question is framed — you still need to apply it to the scenario too."
+            }
+        }
+    ];
+
+    const flashcards = [
+        { term: "Participation numbers", def: "How many people take part; a rise tends to raise overall popularity" },
+        { term: "Provision of facilities", def: "Access to venues/equipment; more accessible provision raises popularity" },
+        { term: "Environmental/climate influences", def: "UK weather/terrain allow some sports easily but limit those needing snow, ice or warmth" },
+        { term: "Live spectator opportunities", def: "Watching in person; affordable, accessible opportunities can create new fans" },
+        { term: "Media coverage", def: "TV/radio/print/online exposure; more coverage reaches new audiences" },
+        { term: "High-level success", def: "Elite wins can cause a short-term 'feel-good bounce' in interest" },
+        { term: "Positive role models", def: "Relatable, visible performers who encourage others to take part" },
+        { term: "Social acceptability", def: "Whether society sees a sport as safe, fair and appropriate" }
+    ];
+
+    const examQuestions = [
+        {
+            num: "1",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: "Identify <strong>two</strong> factors that can affect the popularity of a sport in the UK.",
+            hint: "Just name two — pick from participation numbers, facility provision, climate/environment, live spectator opportunities, media coverage, elite success, role models or social acceptability.",
+            starter: "One factor is… Another factor is…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1)</h5>
+<p><strong>1 mark for each correct factor named, to a maximum of two. Accept any two different factors, including:</strong></p>
+<ul>
+<li>How many venues, pitches and equipment are available for people to use</li>
+<li>How many people currently take part in the sport</li>
+<li>Whether wider society sees the sport as acceptable to watch or play</li>
+<li>How well the UK's weather and geography suit playing it all year round</li>
+<li>How many relatable star players a sport has</li>
+<li>How much and how widely it is shown in the media</li>
+<li>How well its top athletes and teams do in major competitions</li>
+<li>How easy and affordable it is for fans to watch it live</li>
+</ul>
+<p>Do not credit the same factor written twice.</p>
+</div>`,
+            modelAnswer: "One factor is the amount and range of media coverage a sport receives.\n\nAnother factor is the high-level success of individuals and teams.",
+            markPoints: { note: "One tick per correct, DIFFERENT factor; cap at 2.", groups: [
+                { label: "Your first factor", max: 1, points: ["Names a valid popularity factor from the specification"] },
+                { label: "Your second factor", max: 1, points: ["Names a DIFFERENT valid popularity factor (not a repeat of the first)"] }
+            ] }
+        },
+        {
+            num: "2",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Which factor is most likely to explain why a sport gets a short-term surge in interest immediately after a national team wins a major trophy?",
+            options: ["The provision of facilities available in the local area", "The high-level success of individuals and teams", "The amount and range of media coverage a sport typically receives during an average season", "Environmental and climate influences on which sports can be played across the UK"],
+            answer: 1,
+            hint: "Think about what has just happened in the question — a win at the highest level.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO2)</h5>
+<p><strong>Answer: B — The high-level success of individuals and teams.</strong></p>
+<ul>
+<li>A major win at the highest level typically causes a short-term "feel-good bounce" in interest, participation and coverage.</li>
+<li>The other options describe ongoing factors, not the immediate cause of a surge right after a single tournament win.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "3",
+            marks: 4,
+            type: "written",
+            caseStudy: `<p><strong>Scenario — Fenmoor Hockey Club</strong></p><p>Fenmoor Hockey Club's men's team has just reached the final of a major national cup for the first time in the club's history. Local television broadcast the semi-final live for the first time ever, and enquiries about joining junior sessions at the club have risen sharply since the game aired.</p>`,
+            question: "Explain how these <strong>two</strong> factors are likely to be affecting the popularity of hockey at Fenmoor.",
+            hint: "Take each factor in turn. Name it, say which direction it is pushing popularity, and explain the effect using details from the scenario (reaching the final, the live broadcast, the rise in enquiries).",
+            starter: "One factor is… which is raising popularity because…\n\nAnother factor is… which is raising popularity because…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (AO2: application)</h5>
+<p><strong>Up to 2 marks per factor: 1 for identifying the factor and correct direction, 1 for an effect linked to the scenario. Answers may include:</strong></p>
+<ul>
+<li><strong>High-level success</strong> — reaching a national final for the first time is raising popularity; it has generated a "feel-good bounce" shown by the rise in junior enquiries.</li>
+<li><strong>Media coverage</strong> — the first-ever live broadcast is raising popularity; showing the semi-final to a wider audience exposed the club to new potential participants.</li>
+</ul>
+<p>Accept any other reasonable, applied answer. A factor named with no scenario-linked effect earns 1 of the 2 marks for that factor.</p>
+</div>`,
+            modelAnswer: "Reaching the national final is an example of high-level success, which is raising Fenmoor's popularity — this feel-good bounce is shown by the sharp rise in junior enquiries since the run began.\n\nThe live broadcast of the semi-final is an example of media coverage, which is also raising popularity, because showing the match to a much wider audience exposed people who had never seen the club before to the sport.",
+            markPoints: { note: "Mark each factor out of 2: one tick for factor + direction, one for a scenario-linked effect.", groups: [
+                { label: "First factor", max: 2, points: ["Identifies a relevant factor with the correct direction (e.g. high-level success, raising popularity)", "Gives an effect linked to the scenario (e.g. the rise in junior enquiries following the cup run)"] },
+                { label: "Second factor", max: 2, points: ["Identifies a DIFFERENT relevant factor with the correct direction (e.g. media coverage, raising popularity)", "Gives an effect linked to the scenario (e.g. the live broadcast reaching a wider audience)"] }
+            ] }
+        },
+        {
+            num: "4",
+            marks: 8,
+            type: "written",
+            format: "banded",
+            caseStudy: `<p><strong>Scenario — Growing Riverside Rowing</strong></p><p>Riverside Rowing's national governing body is deciding where to invest limited funding over the next five years to raise the sport's popularity. It is considering three options: building new accessible boathouses in more towns, negotiating a weekly televised highlights show, and funding an elite performance programme aimed at future international success.</p>`,
+            question: "Discuss how far focusing on facility provision, media coverage and high-level success could raise the popularity of rowing in the UK.",
+            hint: "Take two or three factors. For each, explain how it could raise popularity in this scenario. Then weigh it up — what limits how much it could achieve on its own? Finish with a judgement on which matters most, or whether they are needed together.",
+            starter: "One factor Riverside could target is… because…\n\nAnother is…\n\nHowever, the extent to which this raises popularity depends on…\n\nOverall, …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 8 marks (level-of-response). Read the band you fit, then pick a mark.</h5>
+<ul>
+<li><strong>Band 3 (thorough), 6–8:</strong> a balanced, well-applied discussion of several factors, showing clearly how each could raise popularity AND weighing the limits (cost, the UK's terrain limiting where rowing can be based, one factor alone not being enough), ending in a justified judgement.</li>
+<li><strong>Band 2 (reasonable), 3–5:</strong> sound understanding applied to more than one factor with some analysis, but the discussion may be one-sided or the judgement unsupported.</li>
+<li><strong>Band 1 (basic), 1–2:</strong> names factors with little application and no real evaluation; largely a list.</li>
+<li><strong>0 marks:</strong> nothing creditworthy.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Indicative content (indicative, not a checklist — reward valid alternatives)</h5>
+<ul>
+<li><strong>Facility provision:</strong> new, accessible boathouses in more towns could let far more people try rowing who currently have no nearby access.</li>
+<li><strong>Media coverage:</strong> a weekly highlights show could raise the sport's public profile and attract sponsors, reaching audiences who currently never see it.</li>
+<li><strong>High-level success:</strong> funding elite performers could produce a future feel-good bounce if they succeed internationally, inspiring new participants.</li>
+<li><strong>Evaluation:</strong> the budget is limited, so funding all three fully may be impossible; rowing also needs suitable water nearby (an environmental limit), so boathouses only help where geography allows; elite success is not guaranteed and could take years to arrive, while media coverage without new facilities may create interest with nowhere local to act on it.</li>
+<li><strong>Judgement:</strong> facility provision arguably has the most reliable, immediate effect because it removes the barrier of access directly — but real, lasting growth is more likely if provision is paired with media coverage or eventual elite success rather than relying on any single factor alone.</li>
+</ul>
+</div>`,
+            modelAnswer: "Riverside could raise rowing's popularity in several ways. New accessible boathouses would let more people try the sport who currently live too far from suitable water, directly raising participation. A weekly highlights show would raise the sport's profile with audiences who rarely see it, and could attract sponsorship. Funding elite performers could eventually create a feel-good bounce if they succeed internationally.\n\nHowever, the budget is limited, so all three may not be affordable at once, and rowing still needs suitable open water nearby, so new boathouses only help where geography allows. Elite success also is not guaranteed and could take years.\n\nOverall, facility provision is probably the safest first investment because it removes the barrier of access immediately, but lasting growth is more likely if it is paired with media coverage rather than relying on one factor alone."
+        }
+    ];
+</script>
+    <script src="/cs-lab/exam-widgets.js"></script>
+    <script src="/script.js"></script>
+<script src="section-totals.js"></script>
+<script src="page-groups.js"></script>
+<script src="/progress-shared.js"></script>
+<script src="/gamification.js"></script>
+<script src="/topic-guard.js"></script>
+<script src="/notifications-shared.js"></script>
+<script src="/onboarding-tour.js"></script>
+<script src="/footer-legal.js"></script>
+</body>
+
+</html>

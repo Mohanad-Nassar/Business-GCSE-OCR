@@ -1,0 +1,926 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1.6.1c Software Licensing – Interactive Study Guide</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+    <header>
+        <div>
+            <div class="badge">OCR GCSE Computer Science — Paper 1 · 1.6 Impacts of Digital Technology</div>
+            <h1>1.6.1c Software Licensing</h1>
+            <p>Interactive revision guide</p>
+        </div>
+        <a href="/index.html" class="home-link">← 🏡 Home</a>
+    </header>
+
+    <nav class="tab-bar" id="tabBar">
+        <button class="tab-btn active" onclick="switchTab('learn', this)">
+            📚 Key Learning
+        </button>
+        <button class="tab-btn" onclick="switchTab('mcq', this)">
+            ❓ MCQ Quiz
+        </button>
+        <button class="tab-btn" onclick="switchTab('matching', this)">
+            🔗 Matching
+        </button>
+        <button class="tab-btn" onclick="switchTab('fib', this)">
+            ✏️ Fill the Blanks
+        </button>
+        <button class="tab-btn" onclick="switchTab('misconceptions', this)">
+            ⚠️ Misconceptions
+        </button>
+        <button class="tab-btn" onclick="switchTab('examtips', this)">
+            🎯 Exam Tips
+        </button>
+        <button class="tab-btn" onclick="switchTab('flashcards', this)">
+            🃏 Flashcards
+        </button>
+        <button class="tab-btn" onclick="switchTab('truefalse', this)">
+            ✅ True / False
+        </button>
+        <button class="tab-btn" onclick="switchTab('exampractice', this)">
+            📝 Exam Practice
+        </button>
+    </nav>
+
+    <main>
+        <div class="tab-panel active" id="tab-learn">
+            <h2 class="section-title">Key Learning Topics</h2>
+            <p class="section-sub">Click any card to expand detailed notes.</p>
+            <div class="topic-grid" id="topicGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-mcq">
+            <h2 class="section-title">Multiple Choice Questions</h2>
+            <p class="section-sub">Select an answer to reveal instant feedback.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="mcqScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">
+                        correct answers
+                    </div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    out of <strong id="mcqTotal">0</strong> attempted
+                </div>
+                <button class="reset-btn" onclick="resetMCQ()">RESET</button>
+            </div>
+            <div class="quiz-wrap" id="mcqWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-matching">
+            <h2 class="section-title">Matching Activity</h2>
+            <p class="section-sub">
+                Click a term on the left, then click the matching definition on the
+                right.
+            </p>
+            <div style="margin-bottom: 16px">
+                <div class="score-bar">
+                    <div>
+                        <div class="score-num" id="matchScore">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">matched</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="matchTotal">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetMatch()">RESET</button>
+                </div>
+            </div>
+            <div class="match-grid">
+                <div>
+                    <div class="match-label">TERMS</div>
+                    <div class="match-col" id="matchLeft"></div>
+                </div>
+                <div>
+                    <div class="match-label">DEFINITIONS</div>
+                    <div class="match-col" id="matchRight"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-fib">
+            <h2 class="section-title">Fill in the Blanks</h2>
+            <p class="section-sub">
+                Click each dropdown and choose the correct word. Wrong answers reset —
+                try again!
+            </p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="fibScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="fibTotal">0</strong> blanks
+                </div>
+                <button class="reset-btn" onclick="resetFIB()">RESET</button>
+            </div>
+            <div class="fib-wrap" id="fibWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-misconceptions">
+            <h2 class="section-title">Common Misconceptions</h2>
+            <p class="section-sub">
+                What students often think — and what examiners actually want.
+            </p>
+            <div class="misc-list" id="miscList"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-examtips">
+            <h2 class="section-title">Exam Questions &amp; Tips</h2>
+            <p class="section-sub">
+                Most repeated question types and mark-scheme structures from real OCR
+                papers.
+            </p>
+            <div class="tips-grid" id="tipsGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-flashcards">
+            <h2 class="section-title">Flashcards</h2>
+            <p class="section-sub">
+                Test yourself! Flip the card and rate your knowledge. Review your weak
+                areas at the end.
+            </p>
+
+            <div class="fc-container">
+                <div class="score-bar" id="fcScoreBar" style="display: none; margin-bottom: 20px">
+                    <div>
+                        <div class="score-num" id="fcKnown" style="color: #2d7a4f">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">known</div>
+                    </div>
+                    <div>
+                        <div class="score-num" id="fcUnknown" style="color: #c84b31">
+                            0
+                        </div>
+                        <div style="font-size: 12px; color: var(--mid)">learning</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="fcTotalTrack">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
+                </div>
+
+                <div id="fcActiveArea">
+                    <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
+                    <div class="flashcard" id="flashcard" onclick="flipCard()">
+                        <div class="fc-inner">
+                            <div class="fc-front">
+                                <div class="fc-label">KEY TERM</div>
+                                <div class="fc-term" id="fcTerm"></div>
+                            </div>
+                            <div class="fc-back">
+                                <div class="fc-def" id="fcDef"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="fc-hint">👆 Click card to flip</p>
+
+                    <div class="fc-nav" id="fcNavDefault">
+                        <button class="fc-btn outline" onclick="prevCard()">
+                            ← Prev
+                        </button>
+                        <button class="fc-btn outline" onclick="flipCard()">Flip</button>
+                        <button class="fc-btn" onclick="nextCard()">Next →</button>
+                    </div>
+
+                    <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px">
+                        <button class="fc-btn outline" style="border-color: #c84b31; color: #c84b31; flex: 1"
+                            onclick="markCard(false)">
+                            ❌ Still Learning
+                        </button>
+                        <button class="fc-btn" style="background: #2d7a4f; border-color: #2d7a4f; flex: 1"
+                            onclick="markCard(true)">
+                            ✅ Got It
+                        </button>
+                    </div>
+                </div>
+
+                <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px">
+                    <h3>Session Complete! 🎉</h3>
+                    <p style="margin: 15px 0">
+                        You knew <strong id="fcSummaryKnown">0</strong> out of
+                        <strong id="fcSummaryTotal">0</strong> cards.
+                    </p>
+                    <div style="
+                margin-top: 25px;
+                display: flex;
+                gap: 15px;
+                justify-content: center;
+                flex-wrap: wrap;
+              ">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
+                            style="background: #c84b31; border-color: #c84b31">
+                            Review Incorrect
+                        </button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">
+                            Practice All Again
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-truefalse">
+            <h2 class="section-title">True or False?</h2>
+            <p class="section-sub">Test your knowledge with these statements.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="tfScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="tfTotal">0</strong> answered
+                </div>
+                <button class="reset-btn" onclick="resetTF()">RESET</button>
+            </div>
+            <div class="tf-wrap" id="tfWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-exampractice">
+            <h2 class="section-title">Exam Practice Questions</h2>
+            <p class="section-sub">
+                Full exam questions with case studies. Use <strong>Hint</strong>,
+                <strong>Sentence Starter</strong> and
+                <strong>Submit &amp; See Mark Scheme</strong> for each question.
+            </p>
+            <div class="ep-list" id="epList"></div>
+        </div>
+    </main>
+
+<script>
+    // ══════════════════════════════════════
+    //  DATA: 1.6.1c Software Licensing
+    //  (Part 3 of 3 for OCR spec point 1.6.1 — see also 1.6.1a Impacts
+    //   and 1.6.1b Legislation)
+    // ══════════════════════════════════════
+    const pageMeta = {
+            id: '1-6-1c-software-licensing',
+            badge: 'OCR GCSE Computer Science — Paper 1 · 1.6 Impacts of Digital Technology',
+            title: '1.6.1c Software Licensing',
+            subtitle: 'Interactive revision guide',
+            subject: 'computer-science',
+        };
+
+    const topics = [
+        {
+            title: "What is a software licence?",
+            tag: "Key concept",
+            content: `<h4>You buy permission to use software, not the software itself</h4>
+<ul>
+<li>A <strong>software licence</strong> is the set of <strong>legal terms</strong> that says <strong>how you are allowed to use</strong> a piece of software — for example how many computers you can install it on, and whether you may change or share it.</li>
+<li>When you "buy" software you are really buying (or agreeing to) a <strong>licence to use it</strong>; the <strong>creator keeps the copyright</strong>.</li>
+<li>The two main types you must know are <strong>proprietary (closed source)</strong> and <strong>open source</strong>. A third idea, <strong>Creative Commons</strong>, is a way of licensing creative work such as videos and images.</li>
+</ul>`,
+            readCheck: {
+                q: "What is a software licence?",
+                opts: ["A physical certificate printed on paper that must always be kept inside the box the software was sold in", "The legal terms that set out how you are allowed to use a piece of software", "A special piece of hardware that has to be plugged into the computer before the software will run", "A guarantee that the software will never contain any bugs or errors of any kind for as long as it is used"],
+                ans: 1,
+                explain: "A software licence is the legal terms setting out how you may use the software — the creator keeps the copyright even after you buy a licence."
+            }
+        },
+        {
+            title: "Proprietary (closed source) software",
+            tag: "Licence type",
+            content: `<h4>Owned by a company, source code hidden</h4>
+<ul>
+<li><strong>Proprietary</strong> (or <strong>closed source</strong>) software is owned by the company that made it. You usually <strong>pay</strong> for a licence to use it.</li>
+<li>The <strong>source code is kept secret</strong> — users <strong>cannot see or change</strong> it — and you are <strong>not allowed to copy or redistribute</strong> the software.</li>
+<li>Examples include <strong>Microsoft Windows</strong>, <strong>Microsoft Office</strong> and <strong>Adobe Photoshop</strong>.</li>
+</ul>`,
+            readCheck: {
+                q: "Which statement is true of proprietary (closed source) software?",
+                opts: ["Its source code is freely available, so any user is able to read it, change it and then share their new version", "You usually pay for it, and its source code is kept secret so users cannot change it", "It is always completely free of charge, but it can only ever be installed on one single computer at a time", "It can be legally copied and given away to as many other people as the user likes, at absolutely no cost"],
+                ans: 1,
+                explain: "Proprietary software is usually paid for and keeps its source code secret, so users cannot view or change it or freely redistribute it."
+            }
+        },
+        {
+            title: "Open source software",
+            tag: "Licence type",
+            content: `<h4>Source code available, free to use and change</h4>
+<ul>
+<li><strong>Open source</strong> software is released with its <strong>source code available</strong> to everyone.</li>
+<li>It is usually <strong>free</strong>, and users are allowed to <strong>view, modify (change) and redistribute</strong> it. It is often developed and improved by a <strong>community</strong> of volunteers.</li>
+<li>Examples include the <strong>Linux</strong> operating system, the <strong>Firefox</strong> browser and the <strong>GIMP</strong> image editor.</li>
+</ul>`,
+            readCheck: {
+                q: "What is a key feature of open source software?",
+                opts: ["It is owned by a single company that keeps the source code completely secret from every one of its users", "Its source code is available, so users can view, change and redistribute it, and it is usually free", "It can only be used by professional software developers who have first paid for an expensive yearly licence", "It is a physical product that is always sold on a disc rather than being made available to download online"],
+                ans: 1,
+                explain: "Open source software makes its source code available so users can view, change and redistribute it, and it is usually free."
+            }
+        },
+        {
+            title: "Proprietary software — benefits and drawbacks",
+            tag: "Compare",
+            content: `<h4>Weighing up closed source software</h4>
+<ul>
+<li><strong>Benefits:</strong> it is usually <strong>well tested and reliable</strong>, comes with <strong>official support</strong> and <strong>regular updates</strong>, and is often <strong>polished and easy to use</strong> — good for a business that needs dependable software.</li>
+<li><strong>Drawbacks:</strong> it <strong>costs money</strong> (sometimes a lot), you <strong>cannot change or customise</strong> it to your own needs because the source code is hidden, and you depend on the company to keep supporting it.</li>
+</ul>`,
+            readCheck: {
+                q: "Which is a benefit of proprietary software compared with open source?",
+                opts: ["It can always be copied and shared freely with anyone, at no cost, because the company positively encourages it", "It usually comes with official support and regular updates from the company that made it", "Its source code can be freely changed by the user to add any new feature that they happen to want", "It is developed only by unpaid community volunteers, which is what makes it so reliable and well tested"],
+                ans: 1,
+                explain: "A key benefit of proprietary software is official support and regular updates from the company — the other options actually describe open source."
+            }
+        },
+        {
+            title: "Open source software — benefits and drawbacks",
+            tag: "Compare",
+            content: `<h4>Weighing up open source software</h4>
+<ul>
+<li><strong>Benefits:</strong> it is usually <strong>free</strong>, you can <strong>change and customise</strong> it because the source code is available, and a <strong>community</strong> can improve it and fix problems.</li>
+<li><strong>Drawbacks:</strong> there may be <strong>no official support</strong> if something goes wrong, quality can <strong>vary</strong>, and you may need <strong>technical skill</strong> to set it up or modify it. Its security relies on the community spotting and fixing issues.</li>
+</ul>`,
+            readCheck: {
+                q: "Which is a drawback of open source software compared with proprietary?",
+                opts: ["It usually costs a very large amount of money to buy before a person is allowed to install and use it", "There may be no official support to turn to if something goes wrong, and quality can vary between versions", "Its source code is kept completely hidden, so it is impossible for anyone to fix a problem with the program", "It can never be changed or customised in any way at all, because doing so is against the terms of its licence"],
+                ans: 1,
+                explain: "Open source may lack official support and its quality can vary — the other options describe proprietary software or are simply untrue of open source."
+            }
+        },
+        {
+            title: "Choosing and recommending a licence",
+            tag: "Exam skill",
+            content: `<h4>Match the licence to the situation</h4>
+<ul>
+<li>Questions often ask you to <strong>recommend</strong> a licence for a scenario and <strong>justify</strong> it. There is no single right answer — it depends on what the user <strong>needs</strong>.</li>
+<li>Lean <strong>proprietary</strong> when the user needs <strong>reliability and official support</strong>, has money to spend, and does not need to change the software — e.g. a <strong>business</strong> that needs dependable, supported tools.</li>
+<li>Lean <strong>open source</strong> when the user wants to <strong>save money</strong>, values being able to <strong>adapt</strong> the software, and has the <strong>skills</strong> (or a community) to support it — e.g. a <strong>developer</strong> building on top of it.</li>
+<li>Remember: <strong>both</strong> types are still protected by <strong>copyright</strong>.</li>
+</ul>`,
+            readCheck: {
+                q: "A business needs reliable, well-supported software and is happy to pay for it. Which licence is the better fit, and why?",
+                opts: ["Open source, because a large community of unpaid volunteers will always fix any problem far faster than a company ever possibly could", "Proprietary, because it typically offers reliability and official support, which the business values and can pay for", "Open source, because the business will definitely want to rewrite the software's source code to suit its own needs", "Proprietary, because it is the only kind of software that it is actually legal for a business to use at work"],
+                ans: 1,
+                explain: "A business that values reliability and support, and can pay, is a good fit for proprietary software. Both licence types are legal to use."
+            }
+        },
+        {
+            title: "Creative Commons licences",
+            tag: "Licence type",
+            content: `<h4>Sharing creative work with conditions</h4>
+<ul>
+<li>A <strong>Creative Commons (CC)</strong> licence is a way for a creator of work such as <strong>videos, images, music or writing</strong> to let <strong>others use and share it</strong>, while <strong>keeping some rights</strong>.</li>
+<li>The creator chooses the <strong>conditions</strong>. Common ones include: others must give <strong>credit (attribution)</strong> to the creator; the work may or may not be used for <strong>commercial (money-making)</strong> purposes; and any new version may have to be <strong>shared under the same licence</strong>.</li>
+<li>It sits between "all rights reserved" (normal copyright) and fully free — the creator says in advance <strong>what others are allowed to do</strong>, so they don't have to ask permission each time.</li>
+</ul>`,
+            readCheck: {
+                q: "How does releasing a video under a Creative Commons licence affect how others can use it?",
+                opts: ["It means absolutely nobody else is ever allowed to watch, use or share the video without paying a fee first", "It lets others use and share the video under conditions the creator sets, such as giving credit", "It transfers the full copyright of the video to whoever downloads it first, so the creator loses all rights", "It guarantees that the video can only ever be used by large companies for their paid advertising campaigns"],
+                ans: 1,
+                explain: "A Creative Commons licence lets others use and share the work under conditions the creator chooses (such as attribution) — the creator keeps some rights."
+            }
+        }
+    ];
+
+    const mcqData = [
+        {
+            q: "What does a software licence actually give the person who buys it?",
+            opts: ["Full ownership of the software's source code, which they are then completely free to sell on to somebody else", "Permission to use the software under certain terms, while the creator keeps the copyright", "A physical piece of hardware that must be connected before the software is allowed to run on the computer", "A promise from the developer that the software will always run perfectly and never once need to be updated"],
+            ans: 1,
+            explain: "A licence grants permission to use the software under set terms; the creator keeps the copyright — you don't own the software itself."
+        },
+        {
+            q: "Which of these is a feature of open source software?",
+            opts: ["The company that made it keeps the source code completely secret so that no user is ever able to see it", "Its source code is available, and users are allowed to change it and redistribute it", "It always costs a large one-off fee, which must be paid before it can be downloaded and installed", "It can only be installed and used on one single computer, which must be registered with the developer first"],
+            ans: 1,
+            explain: "Open source software provides its source code and allows users to modify and redistribute it — usually for free."
+        },
+        {
+            q: "Which of these is a feature of proprietary software?",
+            opts: ["Anyone at all is free to view its source code, change it however they wish, and then redistribute their version", "You usually pay for it, and its source code is kept secret so users cannot change it", "It is always written and maintained entirely by unpaid volunteers working together in an online community", "It must, by law, be given away completely free of charge to any person or business that asks the company for it"],
+            ans: 1,
+            explain: "Proprietary (closed source) software is usually paid for and keeps its source code hidden, so users cannot change it."
+        },
+        {
+            q: "A company needs software that is reliable and comes with professional support and regular updates. Which is the better fit?",
+            opts: ["Open source software", "Proprietary software", "Software with no licence of any kind", "Software that is still only a rough, unfinished test version"],
+            ans: 1,
+            explain: "Proprietary software typically offers reliability, official support and regular updates — a good fit for a business that needs dependability."
+        },
+        {
+            q: "Which is a genuine benefit of open source software?",
+            opts: ["It always comes with a guaranteed telephone support line staffed by the original developers around the clock", "It is usually free and can be changed and customised because its source code is available", "It is always more secure than proprietary software because absolutely nobody can ever see how it works inside", "It can never contain any bugs, because so many different community volunteers have looked at all of the code"],
+            ans: 1,
+            explain: "Open source is usually free and can be customised because its source code is open — but it does not guarantee support, security or a bug-free program."
+        },
+        {
+            q: "Which is a drawback of proprietary software?",
+            opts: ["Its source code is available for anyone to change, which can make different copies behave inconsistently", "It usually costs money and you cannot change it, because the source code is kept hidden from you", "It is developed only by volunteers, so there is never anyone available to provide official support for it", "It can be freely copied and shared, which makes it very hard for the company to earn any money from it"],
+            ans: 1,
+            explain: "Proprietary software costs money and cannot be customised (its source code is hidden) — the other options actually describe open source."
+        },
+        {
+            q: "Which statement about copyright and these licence types is correct?",
+            opts: ["Only proprietary software is protected by copyright; open source software has no copyright protection at all", "Both proprietary and open source software are protected by copyright", "Neither proprietary nor open source software is ever protected by copyright once it has been released to users", "Copyright applies to open source software but is completely removed from proprietary software when it is sold"],
+            ans: 1,
+            explain: "Both types are protected by copyright — open source simply grants users more permissions (to view, change and share) than proprietary does."
+        },
+        {
+            q: "A developer wants software they can adapt and build on, and they want to avoid licence costs. Which is the better fit?",
+            opts: ["Proprietary software", "Open source software", "Software that has had all of its copyright legally and permanently removed by the developer", "A trial version of proprietary software that stops working completely after only thirty days"],
+            ans: 1,
+            explain: "Open source suits a developer who wants to adapt the software and avoid cost, because the source code is available and it is usually free."
+        },
+        {
+            q: "What is a Creative Commons licence used for?",
+            opts: ["Permanently removing all copyright from a piece of work so that it belongs to nobody and can never be owned again", "Letting a creator share work such as videos or images under conditions they choose, like requiring credit", "Guaranteeing that a piece of open source software will always keep working on every future operating system", "Forcing everyone who wants to view a creator's work to pay a fee to the creator before they are allowed to see it"],
+            ans: 1,
+            explain: "A Creative Commons licence lets a creator share their work under chosen conditions (such as attribution) while keeping some rights."
+        },
+        {
+            q: "William releases his videos under a Creative Commons licence that requires attribution. What must other people do to use them?",
+            opts: ["Nothing at all is required of them, because a Creative Commons licence removes every single condition on the work", "Give William credit as the creator when they use his videos, following the licence's conditions", "Pay William a fixed licence fee each and every time that they choose to use one of his videos anywhere", "Ask William for his written permission in advance before they are allowed to use any of the videos at all"],
+            ans: 1,
+            explain: "An attribution Creative Commons licence requires users to credit the creator — that is the condition William has set, so no separate permission is needed."
+        },
+        {
+            q: "Why might a school with little money and skilled IT staff choose open source software?",
+            opts: ["Because open source software is the only type that is actually legal for a school to install on its computers", "Because it is usually free and the staff have the skills to set it up and customise it themselves", "Because open source software always comes with a paid support contract that a school is required to buy", "Because open source software cannot be changed, which makes it much simpler for the school to manage safely"],
+            ans: 1,
+            explain: "Open source is usually free and can be customised; a school with skilled staff can support it themselves, saving on licence costs."
+        },
+        {
+            q: "Which pairing of a user with the most suitable licence is best justified?",
+            opts: ["A hospital that needs guaranteed, reliable support → open source, because a community will always help quickly", "A large business that needs dependable, supported software → proprietary, because it offers official support", "A developer wanting to freely adapt the code → proprietary, because the hidden source code is easier to change", "A charity with no money and skilled staff → proprietary, because paying for software is always the safest choice"],
+            ans: 1,
+            explain: "A business needing dependable, supported software is well matched to proprietary. The other pairings match the user to the wrong licence."
+        }
+    ];
+
+    const matchData = [
+        { term: "Software licence", def: "The legal terms setting out how you are allowed to use a piece of software" },
+        { term: "Proprietary software", def: "Owned by a company, paid for, with hidden source code that cannot be changed" },
+        { term: "Closed source", def: "Another name for proprietary — the source code is not made available" },
+        { term: "Open source software", def: "Released with its source code available; usually free to use, change and share" },
+        { term: "Source code", def: "The human-readable program instructions written by the developers" },
+        { term: "Creative Commons", def: "A licence letting creators share work under conditions they choose" },
+        { term: "Attribution", def: "A licence condition requiring users to credit the original creator" },
+        { term: "Benefit of proprietary", def: "Reliable, well tested, with official support and regular updates" },
+        { term: "Drawback of proprietary", def: "Costs money and cannot be customised (source code hidden)" },
+        { term: "Benefit of open source", def: "Usually free and can be customised; improved by a community" },
+        { term: "Drawback of open source", def: "May have no official support and variable quality; needs skill" },
+        { term: "Copyright (both types)", def: "Protects both proprietary and open source software" }
+    ];
+
+    const fibData = [
+        {
+            display: "A software _____ sets out the legal terms of how you are allowed to use a piece of software.",
+            blanks: { B1: "licence" }
+        },
+        {
+            display: "_____ software is owned by a company, is usually paid for, and keeps its source code secret.",
+            blanks: { B1: "proprietary" }
+        },
+        {
+            display: "Open _____ software is released with its source code available so users can change and share it.",
+            blanks: { B1: "source" }
+        },
+        {
+            display: "A benefit of proprietary software is that it usually comes with official _____ and regular updates.",
+            blanks: { B1: "support" }
+        },
+        {
+            display: "A benefit of open source software is that it is usually _____ and can be customised.",
+            blanks: { B1: "free" }
+        },
+        {
+            display: "The human-readable program instructions written by developers are called the source _____.",
+            blanks: { B1: "code" }
+        },
+        {
+            display: "A Creative _____ licence lets a creator share work under conditions such as requiring attribution.",
+            blanks: { B1: "Commons" }
+        },
+        {
+            display: "Both proprietary and open source software are still protected by _____.",
+            blanks: { B1: "copyright" }
+        }
+    ];
+    const fibWords = ["licence", "proprietary", "source", "support", "free", "code", "Commons", "copyright"];
+
+    const tfData = [
+        {
+            statement: "When you buy proprietary software you are buying a licence to use it, not the copyright.",
+            answer: true,
+            explanation: "Correct — you buy permission to use it under set terms; the creator keeps the copyright."
+        },
+        {
+            statement: "Open source software makes its source code available so users can change and redistribute it.",
+            answer: true,
+            explanation: "Correct — that is the defining feature of open source, and it is usually free as well."
+        },
+        {
+            statement: "Proprietary software lets users freely view and edit its source code.",
+            answer: false,
+            explanation: "Proprietary (closed source) software keeps its source code secret — users cannot view or change it."
+        },
+        {
+            statement: "A benefit of proprietary software is that it usually comes with official support and updates.",
+            answer: true,
+            explanation: "Correct — reliable official support and regular updates are key benefits of proprietary software."
+        },
+        {
+            statement: "A drawback of open source software is that there may be no official support if something goes wrong.",
+            answer: true,
+            explanation: "Correct — open source often lacks a company to provide official support, and its quality can vary."
+        },
+        {
+            statement: "Open source software has no copyright protection at all.",
+            answer: false,
+            explanation: "Both open source and proprietary software are protected by copyright — open source simply grants users more permissions."
+        },
+        {
+            statement: "A Creative Commons licence lets a creator share their work while keeping some rights.",
+            answer: true,
+            explanation: "Correct — Creative Commons lets creators set conditions (like attribution) for how others may use and share their work."
+        },
+        {
+            statement: "Proprietary software is always the best choice for every situation.",
+            answer: false,
+            explanation: "There is no single best choice — it depends on the user's needs. Open source can be better when cost and customisation matter."
+        }
+    ];
+
+    const miscData = [
+        {
+            wrong: "Thinking open source software is exactly the same as 'freeware' — just free software.",
+            correct: "The key point of <strong>open source</strong> is that the <strong>source code is available</strong> to view, change and share — not just that it is free. Some free software (freeware) is still <strong>closed source</strong>: you can use it for free but you <strong>cannot see or change</strong> its code. Open source is about <strong>openness of the code</strong>, not only price.",
+            readCheck: {
+                q: "What most defines open source software?",
+                opts: ["Simply that it does not cost any money, which is the only thing that really separates it from other software", "That its source code is available for users to view, change and redistribute", "That it can only ever be used by large companies who employ their own team of professional programmers", "That it is always more powerful and more reliable than any proprietary software could possibly ever be"],
+                ans: 1,
+                explain: "Open source is defined by its source code being available to view, change and share — not merely by being free of charge."
+            }
+        },
+        {
+            wrong: "Believing open source software has no copyright, so you can do anything you like with it.",
+            correct: "Open source software <strong>is</strong> protected by <strong>copyright</strong> — the licence simply <strong>grants users permission</strong> to view, change and share the code, often on conditions (like keeping it open source). It is not a free-for-all; you must still follow the terms of its licence.",
+            readCheck: {
+                q: "Is open source software protected by copyright?",
+                opts: ["No — releasing software as open source completely removes all of its copyright protection straight away", "Yes — it is protected by copyright, and its licence grants users permission to view, change and share it", "No — copyright only ever applies to music and films, and it has never applied to computer software at all", "Yes — but only if the user pays an additional fee to the developer in order to activate that protection"],
+                ans: 1,
+                explain: "Open source software is protected by copyright; the licence grants extra permissions, but users must still follow its terms."
+            }
+        },
+        {
+            wrong: "Assuming proprietary software is always better because you pay for it.",
+            correct: "Paying does bring real benefits — <strong>reliability, support, updates</strong> — but proprietary software also has <strong>drawbacks</strong> (cost, no customisation). For some users, <strong>open source is the better choice</strong>. The 'best' licence <strong>depends on the situation</strong>: what the user needs, their budget and their skills.",
+            readCheck: {
+                q: "When might open source software be a better choice than proprietary?",
+                opts: ["Never — proprietary software is always the better choice because it is the only option that costs any money", "When the user wants to save money and be able to customise the software, and can support it themselves", "Only when the user has absolutely no interest in the software working reliably or being supported at all", "Only when the user is legally banned from buying any proprietary software for some particular reason"],
+                ans: 1,
+                explain: "Open source suits users who want to save money and customise the software and who can support it themselves — the best choice depends on the situation."
+            }
+        },
+        {
+            wrong: "Confusing 'closed source' and 'open source' — mixing up which one hides the code.",
+            correct: "<strong>Closed source (proprietary)</strong> = code is <strong>hidden</strong>, you can't change it. <strong>Open source</strong> = code is <strong>open</strong>, you can change it. The name tells you: is the source code <strong>open</strong> (visible) or <strong>closed</strong> (hidden)?",
+            readCheck: {
+                q: "Which type of software keeps its source code hidden from users?",
+                opts: ["Open source software, because the word 'open' actually refers to it being openly available to buy in shops", "Proprietary (closed source) software, because its source code is kept secret and cannot be changed", "Both types keep their source code hidden, so there is no real difference between them for the user at all", "Neither type hides its source code, because by law all software code must be published when it is released"],
+                ans: 1,
+                explain: "Proprietary (closed source) software hides its source code; open source makes it available. The name signals whether the code is open or closed."
+            }
+        },
+        {
+            wrong: "Thinking a Creative Commons licence means the work is free to use however you want.",
+            correct: "Creative Commons lets a creator <strong>share</strong> their work, but usually <strong>with conditions</strong> — most commonly requiring <strong>attribution</strong> (crediting the creator), and sometimes forbidding <strong>commercial use</strong> or requiring you to <strong>share alike</strong>. You must <strong>follow the specific conditions</strong> the creator chose, not just do anything you like.",
+            readCheck: {
+                q: "Someone finds a photo under a Creative Commons licence that requires attribution. What must they do to use it?",
+                opts: ["Nothing — a Creative Commons licence means the photo can be used in any way at all with no conditions", "Credit the photographer as the creator, following the attribution condition the licence sets", "Buy the full copyright to the photo from the photographer before they are allowed to use it anywhere", "Change the photo so much that the original photographer would no longer be able to recognise it as theirs"],
+                ans: 1,
+                explain: "An attribution licence requires the user to credit the creator — Creative Commons work comes with conditions that must be followed."
+            }
+        }
+    ];
+
+    const examTips = [
+        {
+            type: "tip",
+            title: "Feature vs benefit vs drawback — know which the question wants",
+            pills: ["AO1/AO2", "Compare", "Key skill"],
+            content: `<p>Licensing questions ask for <strong>features</strong>, <strong>benefits</strong>, <strong>drawbacks</strong>, or a <strong>recommendation</strong> — and they are different things:</p>
+<ul>
+<li><strong>Feature</strong> = a fact about it ("the source code is available").</li>
+<li><strong>Benefit</strong> = why that is good for the user ("so it can be customised for free").</li>
+<li><strong>Drawback</strong> = why it could be a problem ("but there may be no official support").</li>
+</ul>
+<p>If a question asks for a <strong>benefit</strong>, don't just state a feature — say <strong>why it helps the user</strong>. And a "give one benefit and one drawback" question needs <strong>one of each</strong>, not two benefits.</p>`,
+            readCheck: {
+                q: "A question asks for one BENEFIT of open source software. Which answer earns the mark?",
+                opts: ["Stating only the plain feature that the source code of the software happens to be available to look at", "Saying it is free and can be customised, so the user saves money and can adapt it to their needs", "Listing a clear drawback instead, such as the fact that there may be no official support available for it", "Naming a completely different piece of open source software without explaining anything about it at all"],
+                ans: 1,
+                explain: "A benefit says why the feature helps the user (free + customisable → saves money, can adapt it) — not just the bare feature, and not a drawback."
+            }
+        },
+        {
+            type: "explain",
+            title: "The 'recommend a licence and justify it' question",
+            pills: ["AO2/AO3", "Recommend", "Justify"],
+            content: `<p>A common question describes a scenario and asks you to <strong>recommend</strong> open source or proprietary and <strong>justify</strong> your choice. There is <strong>no single right answer</strong> — the marks are for the <strong>justification linked to the scenario</strong>.</p>
+<ul>
+<li>Pick the licence that fits the user's <strong>needs</strong>: reliability + support + budget → <strong>proprietary</strong>; low cost + wanting to adapt it + having the skills → <strong>open source</strong>.</li>
+<li>Justify with the <strong>benefits</strong> of your choice AND, ideally, why the <strong>drawbacks</strong> of the other option matter for this user.</li>
+<li>Always tie it to the <strong>specific scenario</strong> (a business, a school, a solo developer…).</li>
+</ul>`,
+            readCheck: {
+                q: "On a 'recommend and justify a licence' question, what earns the marks?",
+                opts: ["Simply naming either open source or proprietary, without giving any reason at all for the particular choice", "A justification linked to the scenario, explaining why the chosen licence suits that user's needs", "Explaining in detail how the computer's processor runs the machine code of the software while it is in use", "Always recommending proprietary software, because it is the only choice that could ever be marked correct"],
+                ans: 1,
+                explain: "The marks are for the justification tied to the scenario — why the chosen licence fits that user — not just naming one, and either choice can be valid."
+            }
+        },
+        {
+            type: "tip",
+            title: "Explaining a Creative Commons licence",
+            pills: ["AO1/AO2", "3 marks", "Creative Commons"],
+            content: `<p>If asked how a <strong>Creative Commons</strong> licence affects the use of someone's work, cover:</p>
+<ul>
+<li>It lets <strong>other people use and share</strong> the work <strong>without asking permission each time</strong>…</li>
+<li>…but <strong>under conditions the creator chooses</strong> — commonly <strong>attribution</strong> (give credit), sometimes <strong>non-commercial</strong> (no money-making use) or <strong>share-alike</strong> (share any new version the same way)…</li>
+<li>…and the creator still <strong>keeps some rights</strong> (it is not the same as giving up copyright).</li>
+</ul>
+<p>A strong answer names at least one <strong>specific condition</strong>, not just "people can use it".</p>`,
+            readCheck: {
+                q: "Which point would strengthen an answer about how a Creative Commons licence affects others' use of a video?",
+                opts: ["That the licence removes the creator's copyright entirely, so the video now belongs to whoever downloads it", "That others may use and share it without asking each time, but must follow conditions such as giving credit", "That the video can only be watched by people who have first paid the creator a monthly subscription fee", "That the video will automatically stop playing after a set number of views unless it is bought outright"],
+                ans: 1,
+                explain: "A strong answer notes that others can use/share it without asking each time but must meet the creator's conditions (e.g. attribution), and the creator keeps some rights."
+            }
+        }
+    ];
+
+    const flashcards = [
+        { term: "Software licence", def: "The legal terms setting out how you may use a piece of software" },
+        { term: "Proprietary software", def: "Company-owned, paid-for software with hidden source code you cannot change" },
+        { term: "Closed source", def: "Another name for proprietary — source code not made available" },
+        { term: "Open source software", def: "Software released with its source code available; usually free to use, change, share" },
+        { term: "Source code", def: "The human-readable program instructions written by developers" },
+        { term: "Proprietary — benefit", def: "Reliable, well tested, official support and regular updates" },
+        { term: "Proprietary — drawback", def: "Costs money; cannot be customised (source code hidden)" },
+        { term: "Open source — benefit", def: "Usually free; can be customised; improved by a community" },
+        { term: "Open source — drawback", def: "May lack official support; variable quality; needs skill" },
+        { term: "Creative Commons", def: "A licence letting creators share work under conditions they choose" },
+        { term: "Attribution", def: "A Creative Commons condition requiring users to credit the creator" },
+        { term: "Copyright (both types)", def: "Protects both proprietary and open source software" },
+        { term: "Example: proprietary", def: "Windows, Microsoft Office, Adobe Photoshop" },
+        { term: "Example: open source", def: "Linux, Firefox, GIMP" },
+        { term: "Choosing a licence", def: "Depends on the user's needs: support/reliability vs cost/customising" },
+        { term: "Feature vs benefit", def: "Feature = a fact about it; benefit = why that fact helps the user" }
+    ];
+
+    // ── Original clean-room exam questions (2026-07-23) ──
+    // Written from scratch against the §1.6.1 spec scope (licensing strand)
+    // (CS-CONTENT-PLAN.md §6.2 clean-room rule) — NOT transcribed from any OCR
+    // ExamBuilder PDF or past paper. Assessed via give-a-benefit/drawback,
+    // explain-why-one-is-more-appropriate, a Creative Commons explain question,
+    // and an 8-mark levelled "Discuss the features, benefits and drawbacks of
+    // each licence and recommend one" question. Spread: 1x2, 3x3, 1x4, 1x8
+    // (banded) = 6 questions / 23 marks.
+    const EXAM_CASE_STUDIES = {
+        "layla": `<p>Layla is a solo programmer who has written a new game. She is deciding whether to release it as open source or as proprietary software. She would like other people to be able to improve the game, but she also needs to earn some money from her work.</p>`,
+        "william": `<p>William makes educational videos and posts them online. He is considering releasing them under a Creative Commons licence so that teachers can use them in their lessons.</p>`
+    };
+
+    const examQuestions = [
+        {
+            num: "Q1",
+            marks: 2,
+            type: "written",
+            caseId: "layla",
+            stubs: ["Benefit", "Drawback"],
+            question: `<p>Give <strong>one</strong> benefit and <strong>one</strong> drawback for Layla of releasing her game as <strong>open source</strong>.</p>`,
+            hint: "One good thing about open source, and one problem with it — from Layla's point of view as the creator.",
+            starter: "Benefit: … Drawback: …",
+            markPoints: {
+                note: "1 mark for a valid benefit, 1 mark for a valid drawback of open source.",
+                groups: [
+                    { label: "Benefit", max: 1, points: [{ text: "A valid benefit, e.g. others can view/improve the code / it can build a community / free for players so more people play it", marks: 1 }] },
+                    { label: "Drawback", max: 1, points: [{ text: "A valid drawback, e.g. harder to earn money from it / others could copy or change it / she may get no payment", marks: 1 }] }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (1 benefit + 1 drawback)</h5>
+<ul>
+<li>Benefit: others can see and improve the code; a community may develop it; free, so more people play it</li>
+<li>Drawback: harder to make money from it; others could copy or change her work; little or no income</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>1 mark for a valid benefit AND 1 mark for a valid drawback — two benefits (or two drawbacks) score 1.</li>
+</ul>
+</div>`,
+            modelAnswer: "Benefit: because the source code is available, other programmers could improve Layla's game and build a community around it. Drawback: it would be harder for Layla to earn money from it, since it is usually free and others could copy or change her work."
+        },
+        {
+            num: "Q2",
+            marks: 3,
+            type: "written",
+            caseStudy: "",
+            question: `<p>Describe <strong>three</strong> features of <strong>proprietary</strong> software.</p>`,
+            hint: "Think about who owns it, whether you pay, and whether you can see or change the code.",
+            starter: "Proprietary software…",
+            markPoints: {
+                note: "1 mark per valid feature of proprietary software, max 3.",
+                groups: [
+                    {
+                        label: "Features of proprietary software", max: 3, points: [
+                            { text: "It is owned by a company / you buy a licence to use it (usually paid for)", marks: 1 },
+                            { text: "Its source code is kept secret / hidden from users", marks: 1 },
+                            { text: "Users cannot change it and/or cannot legally copy or redistribute it", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 3 marks</h5>
+<ul>
+<li>Owned by a company / usually paid for (a licence to use)</li>
+<li>Source code is kept secret</li>
+<li>Users cannot change it / cannot copy or redistribute it</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Award any three distinct valid features.</li>
+</ul>
+</div>`,
+            modelAnswer: "Proprietary software is owned by the company that made it, and you usually pay for a licence to use it. Its source code is kept secret, so users cannot see it. Users are not allowed to change it or to copy and redistribute it."
+        },
+        {
+            num: "Q3",
+            marks: 3,
+            type: "written",
+            caseStudy: "",
+            question: `<p>A large hospital needs software that is reliable and comes with guaranteed support.</p><p>Explain why a <strong>proprietary</strong> licence is a more appropriate choice than open source for the hospital.</p>`,
+            hint: "Link the benefits of proprietary (support, reliability) to the hospital's needs, and say why an open source drawback matters here.",
+            starter: "A proprietary licence is more appropriate because…",
+            markPoints: {
+                note: "Up to 3 marks for a justification linked to the hospital's need for reliability and support.",
+                groups: [
+                    {
+                        label: "Why proprietary suits the hospital", max: 3, points: [
+                            { text: "Proprietary software usually comes with official/guaranteed support the hospital can rely on", marks: 1 },
+                            { text: "It is well tested, reliable and regularly updated — important for critical hospital systems", marks: 1 },
+                            { text: "Open source might have no official support / variable quality, which is too risky for a hospital, and the hospital can afford to pay", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 3 marks</h5>
+<ul>
+<li>Proprietary usually comes with official/guaranteed support the hospital can rely on</li>
+<li>It is well tested, reliable and regularly updated — important for critical systems</li>
+<li>Open source may lack official support / have variable quality, too risky here; the hospital can afford to pay</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Reward reasons tied to the hospital's need for reliability and support.</li>
+</ul>
+</div>`,
+            modelAnswer: "A proprietary licence is more appropriate because it usually comes with official, guaranteed support from the company, which a hospital can rely on if something goes wrong. Proprietary software is also well tested, reliable and regularly updated, which matters for critical hospital systems. Open source software might have no official support and variable quality, which would be too risky for a hospital, and the hospital can afford to pay for a dependable product."
+        },
+        {
+            num: "Q4",
+            marks: 3,
+            type: "written",
+            caseId: "william",
+            question: `<p>Explain how releasing his videos under a <strong>Creative Commons</strong> licence will affect how other people can use William's videos.</p>`,
+            hint: "Say what others are allowed to do, the kind of condition the licence can set, and what happens to William's rights.",
+            starter: "A Creative Commons licence means that…",
+            markPoints: {
+                note: "Up to 3 marks for how a Creative Commons licence affects use.",
+                groups: [
+                    {
+                        label: "Effect of the licence", max: 3, points: [
+                            { text: "Others can use and share the videos without having to ask William's permission each time", marks: 1 },
+                            { text: "But only under the conditions William sets, e.g. giving him credit (attribution) / non-commercial use only", marks: 1 },
+                            { text: "William keeps some rights / still owns the copyright — it is not the same as giving the videos away completely", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 3 marks</h5>
+<ul>
+<li>Others can use and share the videos without asking permission each time</li>
+<li>But only under conditions William sets (e.g. attribution / non-commercial)</li>
+<li>William keeps some rights / still owns the copyright</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Credit at least one specific condition, not just "people can use them".</li>
+</ul>
+</div>`,
+            modelAnswer: "A Creative Commons licence means that teachers and others can use and share William's videos without having to ask his permission each time. However, they can only do so under the conditions William sets — for example, giving him credit as the creator (attribution), or only using them for non-commercial purposes. William still keeps some rights over his videos, so it is not the same as giving them away completely."
+        },
+        {
+            num: "Q5",
+            marks: 4,
+            type: "written",
+            caseStudy: "",
+            stubs: ["Open source", "Proprietary"],
+            question: `<p>Compare open source and proprietary software by giving <strong>one benefit and one drawback of each</strong>.</p>`,
+            hint: "One good point and one bad point for open source, and the same for proprietary — four points in total.",
+            starter: "Open source: benefit …, drawback …",
+            markPoints: {
+                note: "1 mark each: a benefit and a drawback of open source, and a benefit and a drawback of proprietary.",
+                groups: [
+                    {
+                        label: "Open source", max: 2, points: [
+                            { text: "Benefit: usually free / can be customised because the source code is available", marks: 1 },
+                            { text: "Drawback: may have no official support / variable quality / needs skill", marks: 1 }
+                        ]
+                    },
+                    {
+                        label: "Proprietary", max: 2, points: [
+                            { text: "Benefit: reliable / official support / regular updates", marks: 1 },
+                            { text: "Drawback: costs money / cannot be customised (source code hidden)", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks</h5>
+<ul>
+<li>Open source benefit: free / customisable (source code available)</li>
+<li>Open source drawback: no official support / variable quality</li>
+<li>Proprietary benefit: reliable / official support / regular updates</li>
+<li>Proprietary drawback: costs money / cannot be customised</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>1 mark for each of the four points; must include a benefit AND a drawback for each type.</li>
+</ul>
+</div>`,
+            modelAnswer: "Open source software is usually free and can be customised because its source code is available (benefit), but it may come with no official support if something goes wrong (drawback). Proprietary software is reliable and comes with official support and regular updates (benefit), but it costs money and cannot be customised because its source code is hidden (drawback)."
+        },
+        {
+            num: "Q6",
+            marks: 8,
+            type: "written",
+            format: "banded",
+            caseId: "layla",
+            question: `<p>Layla must decide whether to release her new game as <strong>open source</strong> or <strong>proprietary</strong> software.</p><p><strong>Discuss</strong> the features, benefits and drawbacks of each type of licence for Layla's game, and make a recommendation.</p><p>In your answer you might consider:</p><ul><li>the features of open source and proprietary software</li><li>the benefits and drawbacks of each for Layla</li><li>the fact that Layla wants others to improve the game but also needs to earn money</li><li>a recommendation with a justification</li></ul>`,
+            hint: "Cover both licence types (features + benefits + drawbacks), apply them to Layla's two aims (letting others improve it AND earning money), then recommend one with a clear reason.",
+            starter: "If Layla releases her game as open source…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 8 marks (levelled) — indicative content</h5>
+<p>Indicative points (not exhaustive):</p>
+<ul>
+<li><strong>Open source — features/benefits:</strong> source code available and usually free, so other programmers could improve and extend Layla's game and a community could grow around it; more people may play it because it is free.</li>
+<li><strong>Open source — drawbacks:</strong> hard for Layla to earn money as it is usually free; others could copy, change or even sell versions of her work; she may get little income.</li>
+<li><strong>Proprietary — features/benefits:</strong> Layla charges for a licence and keeps the source code secret, so she can earn money and keep control of her game; she can offer official support.</li>
+<li><strong>Proprietary — drawbacks:</strong> others cannot help improve it, so it grows only as fast as Layla can develop it; a price may put some players off.</li>
+<li><strong>Recommendation:</strong> a justified choice, e.g. proprietary best meets her need to earn money and keep control, though it limits community improvement; or a middle path (charge for the game but release some parts openly). The key is a reason linked to her two aims.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given — levels of response</h5>
+<ul>
+<li><strong>Band 3 (6–8):</strong> thorough, balanced discussion of both licence types (features, benefits, drawbacks) applied to Layla's aims, with a clear justified recommendation.</li>
+<li><strong>Band 2 (3–5):</strong> reasonable points but one-sided or generic, or covering only one licence type; recommendation weak or unjustified.</li>
+<li><strong>Band 1 (1–2):</strong> a few simple, unexplained statements.</li>
+<li><strong>0 marks:</strong> nothing worthy of credit.</li>
+</ul>
+</div>`,
+            modelAnswer: "If Layla releases her game as open source, its source code would be available and it would usually be free, so other programmers could improve and extend it and a community could grow around the game — which matches her wish for others to improve it. However, it would be hard for her to earn money, as open source software is usually free and others could copy or even sell changed versions of her work. If instead she releases it as proprietary software, she charges for a licence and keeps the source code secret, so she can earn money and keep control of her game and offer official support — but then others cannot help improve it, and a price may put some players off. On balance, because Layla needs to earn money from her work, a proprietary licence better meets her main need while still letting her develop the game herself; if community improvement matters more to her, she could consider a middle path, such as charging for the game but releasing part of it openly. The right choice depends on which of her two aims she values most."
+        }
+    ];
+</script>
+    <script src="/script.js"></script>
+<script src="section-totals.js"></script>
+<script src="page-groups.js"></script>
+<script src="/progress-shared.js"></script>
+<script src="/gamification.js"></script>
+<script src="/topic-guard.js"></script>
+<script src="/notifications-shared.js"></script>
+<script src="/onboarding-tour.js"></script>
+<script src="/footer-legal.js"></script>
+<script src="/cs-lab/exam-widgets.js"></script>
+<script src="/cs-lab/exam-widgets-grids.js"></script>
+<script src="/cs-lab/exam-widgets-code.js"></script>
+<script src="/cs-lab/cs-lab.js" defer></script>
+</body>
+
+</html>

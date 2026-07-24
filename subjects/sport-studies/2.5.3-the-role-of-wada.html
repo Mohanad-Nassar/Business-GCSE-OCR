@@ -1,0 +1,673 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2.5.3 The Role of WADA – Interactive Study Guide</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+    <header>
+        <div>
+            <div class="badge">OCR Level 1/Level 2 Sport Studies — R184 · 2. The Role of Sport in Promoting Values</div>
+            <h1>2.5.3 The Role of WADA</h1>
+            <p>Interactive revision guide · Content coming soon</p>
+        </div>
+        <a href="/index.html" class="home-link">← 🏡 Home</a>
+    </header>
+
+    <nav class="tab-bar" id="tabBar">
+        <button class="tab-btn active" onclick="switchTab('learn', this)">
+            📚 Key Learning
+        </button>
+        <button class="tab-btn" onclick="switchTab('mcq', this)">
+            ❓ MCQ Quiz
+        </button>
+        <button class="tab-btn" onclick="switchTab('matching', this)">
+            🔗 Matching
+        </button>
+        <button class="tab-btn" onclick="switchTab('fib', this)">
+            ✏️ Fill the Blanks
+        </button>
+        <button class="tab-btn" onclick="switchTab('misconceptions', this)">
+            ⚠️ Misconceptions
+        </button>
+        <button class="tab-btn" onclick="switchTab('examtips', this)">
+            🎯 Exam Tips
+        </button>
+        <button class="tab-btn" onclick="switchTab('flashcards', this)">
+            🃏 Flashcards
+        </button>
+        <button class="tab-btn" onclick="switchTab('truefalse', this)">
+            ✅ True / False
+        </button>
+        <button class="tab-btn" onclick="switchTab('exampractice', this)">
+            📝 Exam Practice
+        </button>
+    </nav>
+
+    <main>
+        <div class="tab-panel active" id="tab-learn">
+            <h2 class="section-title">Key Learning Topics</h2>
+            <p class="section-sub">Click any card to expand detailed notes.</p>
+            <div class="topic-grid" id="topicGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-mcq">
+            <h2 class="section-title">Multiple Choice Questions</h2>
+            <p class="section-sub">Select an answer to reveal instant feedback.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="mcqScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">
+                        correct answers
+                    </div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    out of <strong id="mcqTotal">0</strong> attempted
+                </div>
+                <button class="reset-btn" onclick="resetMCQ()">RESET</button>
+            </div>
+            <div class="quiz-wrap" id="mcqWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-matching">
+            <h2 class="section-title">Matching Activity</h2>
+            <p class="section-sub">
+                Click a term on the left, then click the matching definition on the
+                right.
+            </p>
+            <div style="margin-bottom: 16px">
+                <div class="score-bar">
+                    <div>
+                        <div class="score-num" id="matchScore">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">matched</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="matchTotal">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetMatch()">RESET</button>
+                </div>
+            </div>
+            <div class="match-grid">
+                <div>
+                    <div class="match-label">TERMS</div>
+                    <div class="match-col" id="matchLeft"></div>
+                </div>
+                <div>
+                    <div class="match-label">DEFINITIONS</div>
+                    <div class="match-col" id="matchRight"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-fib">
+            <h2 class="section-title">Fill in the Blanks</h2>
+            <p class="section-sub">
+                Click each dropdown and choose the correct word. Wrong answers reset —
+                try again!
+            </p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="fibScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="fibTotal">0</strong> blanks
+                </div>
+                <button class="reset-btn" onclick="resetFIB()">RESET</button>
+            </div>
+            <div class="fib-wrap" id="fibWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-misconceptions">
+            <h2 class="section-title">Common Misconceptions</h2>
+            <p class="section-sub">
+                What students often think — and what examiners actually want.
+            </p>
+            <div class="misc-list" id="miscList"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-examtips">
+            <h2 class="section-title">Exam Questions &amp; Tips</h2>
+            <p class="section-sub">
+                Most repeated question types and mark-scheme structures from real OCR
+                papers.
+            </p>
+            <div class="tips-grid" id="tipsGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-flashcards">
+            <h2 class="section-title">Flashcards</h2>
+            <p class="section-sub">
+                Test yourself! Flip the card and rate your knowledge. Review your weak
+                areas at the end.
+            </p>
+
+            <div class="fc-container">
+                <div class="score-bar" id="fcScoreBar" style="display: none; margin-bottom: 20px">
+                    <div>
+                        <div class="score-num" id="fcKnown" style="color: #2d7a4f">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">known</div>
+                    </div>
+                    <div>
+                        <div class="score-num" id="fcUnknown" style="color: #c84b31">
+                            0
+                        </div>
+                        <div style="font-size: 12px; color: var(--mid)">learning</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="fcTotalTrack">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
+                </div>
+
+                <div id="fcActiveArea">
+                    <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
+                    <div class="flashcard" id="flashcard" onclick="flipCard()">
+                        <div class="fc-inner">
+                            <div class="fc-front">
+                                <div class="fc-label">KEY TERM</div>
+                                <div class="fc-term" id="fcTerm"></div>
+                            </div>
+                            <div class="fc-back">
+                                <div class="fc-def" id="fcDef"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="fc-hint">👆 Click card to flip</p>
+
+                    <div class="fc-nav" id="fcNavDefault">
+                        <button class="fc-btn outline" onclick="prevCard()">
+                            ← Prev
+                        </button>
+                        <button class="fc-btn outline" onclick="flipCard()">Flip</button>
+                        <button class="fc-btn" onclick="nextCard()">Next →</button>
+                    </div>
+
+                    <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px">
+                        <button class="fc-btn outline" style="border-color: #c84b31; color: #c84b31; flex: 1"
+                            onclick="markCard(false)">
+                            ❌ Still Learning
+                        </button>
+                        <button class="fc-btn" style="background: #2d7a4f; border-color: #2d7a4f; flex: 1"
+                            onclick="markCard(true)">
+                            ✅ Got It
+                        </button>
+                    </div>
+                </div>
+
+                <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px">
+                    <h3>Session Complete! 🎉</h3>
+                    <p style="margin: 15px 0">
+                        You knew <strong id="fcSummaryKnown">0</strong> out of
+                        <strong id="fcSummaryTotal">0</strong> cards.
+                    </p>
+                    <div style="
+                margin-top: 25px;
+                display: flex;
+                gap: 15px;
+                justify-content: center;
+                flex-wrap: wrap;
+              ">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
+                            style="background: #c84b31; border-color: #c84b31">
+                            Review Incorrect
+                        </button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">
+                            Practice All Again
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-truefalse">
+            <h2 class="section-title">True or False?</h2>
+            <p class="section-sub">Test your knowledge with these statements.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="tfScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="tfTotal">0</strong> answered
+                </div>
+                <button class="reset-btn" onclick="resetTF()">RESET</button>
+            </div>
+            <div class="tf-wrap" id="tfWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-exampractice">
+            <h2 class="section-title">Exam Practice Questions</h2>
+            <p class="section-sub">
+                Full exam questions with case studies. Use <strong>Hint</strong>,
+                <strong>Sentence Starter</strong> and
+                <strong>Submit &amp; See Mark Scheme</strong> for each question.
+            </p>
+            <div class="ep-list" id="epList"></div>
+        </div>
+    </main>
+
+<script>
+    // ══════════════════════════════════════
+    //  DATA: 2.5.3 The Role of WADA — placeholder, content not yet written
+    // ══════════════════════════════════════
+    const pageMeta = {
+            id: '2-5-3-the-role-of-wada',
+            badge: 'OCR Level 1/Level 2 Sport Studies — R184 · 2. The Role of Sport in Promoting Values',
+            title: '2.5.3 The Role of WADA',
+            subtitle: 'Interactive revision guide',
+            subject: 'sport-studies',
+        };
+
+    const topics = [
+        {
+            title: "What WADA is and does",
+            tag: "Key concept",
+            content: `<h4>The idea</h4>
+<ul>
+<li><strong>WADA</strong> (the World Anti-Doping Agency) is the international organisation that leads the global fight against performance-enhancing drug (PED) use in sport.</li>
+<li>It sets and coordinates a shared set of anti-doping rules and testing standards, so every country and every sport works to the same expectations instead of each nation policing itself differently.</li>
+</ul>
+<h4>What WADA actually does</h4>
+<ul>
+<li>It keeps and reviews the list of substances and methods that are banned, updating it as new PEDs appear.</li>
+<li>It works with national anti-doping organisations and national governing bodies (NGBs), who carry out much of the day-to-day testing on its behalf.</li>
+<li>It funds and promotes research into new detection methods, so doping techniques do not stay ahead of testing.</li>
+<li>Its overall aim is to protect fair competition and protect athletes' health by detecting, deterring and eventually eradicating PED use.</li>
+</ul>
+<h4>Why a single global body is needed</h4>
+<ul>
+<li>Before a shared system existed, some countries tested rigorously and others barely tested at all, so athletes were not competing on a level playing field.</li>
+<li>One set of rules, applied everywhere, means an athlete cannot simply rely on weaker testing elsewhere to avoid being caught.</li>
+</ul>`,
+            readCheck: {
+                q: "What is WADA's main purpose in world sport?",
+                opts: ["To act as the single television broadcaster for every major international sporting competition", "To set shared global anti-doping rules and drive the detection and deterrence of PED use", "To train elite athletes and coach national teams ahead of the Olympic Games", "To design new sports equipment that improves athletic performance in competition"],
+                ans: 1,
+                explain: "WADA is the international body that sets global rules and coordinates testing to detect and deter doping — not a broadcaster, a coaching body, or an equipment designer."
+            }
+        },
+        {
+            title: "The Whereabouts Rule",
+            tag: "Core knowledge",
+            content: `<h4>The idea</h4>
+<ul>
+<li>The <strong>Whereabouts Rule</strong> requires athletes in a registered testing pool to tell anti-doping authorities where they will be, every day, so testers can find them for a test at any time — not only on competition days.</li>
+<li>Athletes typically give their regular schedule for the coming months, plus one specific time slot each day when they guarantee they will be at a stated location and available for testing.</li>
+</ul>
+<h4>Why it exists</h4>
+<ul>
+<li>Most doping happens away from competition — during training, in the off-season — when an athlete might assume nobody is watching. The rule allows genuinely <strong>unannounced, out-of-competition testing</strong> at any point in the year.</li>
+<li>Without it, an athlete could avoid every test at an event, dope during training, and let the substance clear their system before the next competition.</li>
+</ul>
+<h4>What counts as a violation</h4>
+<ul>
+<li>An athlete does not need to fail a drugs test to be sanctioned. Persistently filing inaccurate whereabouts information, or missing tests, can itself be treated as an anti-doping rule violation.</li>
+<li>This is why elite athletes take the paperwork seriously — a pattern of missed tests can damage a career even without a single positive sample.</li>
+</ul>`,
+            readCheck: {
+                q: "Why does the Whereabouts Rule require athletes to give a daily location and time slot?",
+                opts: ["So that testers can carry out an unannounced test at any point in the year, not just at events", "So that coaches always know exactly where their athletes are staying during a competition week", "So that ticket sales for major stadium events can be planned around athlete travel", "So that sponsors can arrange promotional photos with athletes at short notice"],
+                ans: 0,
+                explain: "The rule exists so testers can reach an athlete for a genuinely unannounced test out of competition — not to help coaches, ticketing or sponsors."
+            }
+        },
+        {
+            title: "Testing methods",
+            tag: "Core knowledge",
+            content: `<h4>The two main sample types</h4>
+<ul>
+<li><strong>Urine tests</strong> — the athlete provides a urine sample, analysed in a laboratory for banned substances or the products they break down into.</li>
+<li><strong>Blood tests</strong> — a blood sample can reveal doping methods urine testing struggles to detect, such as blood doping (artificially boosting red blood cells), and shows an athlete's blood values.</li>
+</ul>
+<h4>When testing happens</h4>
+<ul>
+<li>Testing is not limited to competition day. <strong>Out-of-competition (random) testing</strong> means officials can turn up unannounced during training, in the off-season, or away from any event — exactly what the Whereabouts Rule makes possible.</li>
+<li>Random, unannounced testing matters because it removes an athlete's ability to time their doping around when they expect to be tested.</li>
+</ul>
+<h4>The biological passport</h4>
+<ul>
+<li>Instead of judging one sample in isolation, the <strong>biological passport</strong> builds an athlete's own individual profile of blood and urine readings over months and years.</li>
+<li>A sudden, unusual change away from an athlete's own normal pattern can flag possible doping — even if the specific banned substance is never directly found in a sample.</li>
+<li>This matters because dopers cannot simply avoid one substance being detected; a suspicious pattern across many tests over time is itself evidence.</li>
+</ul>`,
+            readCheck: {
+                q: "What makes the biological passport a different approach from a single drugs test?",
+                opts: ["It tracks an athlete's own readings over time and flags unusual changes from their normal pattern", "It replaces every single urine and blood sample with one large photograph taken at the finish line of the race", "It only ever tests athletes once, on the very last day of their competitive career", "It is used exclusively to check the size and weight of an athlete's sports equipment"],
+                ans: 0,
+                explain: "The passport compares an athlete against their OWN normal pattern over time, rather than judging one isolated sample — unlike a single test, a photograph, or equipment checks."
+            }
+        }
+    ];
+
+    const mcqData = [
+        {
+            q: "What does WADA stand for and what is its overall aim?",
+            opts: ["The World Athletics Development Association, a group that funds new stadium construction projects", "The World Anti-Doping Agency, an international body aiming to detect and deter PED use", "The Worldwide Amateur Draft Assembly, a body that selects amateur athletes for professional contracts", "The World Athletic Data Analysts, a company that publishes statistics after major events"],
+            ans: 1,
+            explain: "WADA is the World Anti-Doping Agency — its job is detecting and deterring doping, not stadium funding, drafting amateurs, or publishing statistics."
+        },
+        {
+            q: "An athlete in a WADA testing pool must give anti-doping authorities their daily whereabouts. Why?",
+            opts: ["So that a specific supporters' club can arrange to meet the athlete after every home match", "So the athlete's diet can be planned in advance by a national governing body nutritionist", "So an unannounced test can be carried out at any time, including outside of competition", "So travel journalists can accurately report an athlete's holiday plans to the public"],
+            ans: 2,
+            explain: "The Whereabouts Rule exists so an unannounced test can reach the athlete at any time — not to help a supporters' club, a nutritionist, or journalists."
+        },
+        {
+            q: "Which of these is an example of an out-of-competition (random) test?",
+            opts: ["Officials test the reigning winning finalist immediately after the final whistle of a major championship", "Officials interview a retired athlete about their career for a televised documentary", "Officials measure the size of a stadium pitch before a scheduled international fixture", "Officials test a sprinter unannounced during a routine training session in the off-season"],
+            ans: 3,
+            explain: "Out-of-competition testing happens away from events, unannounced — such as during off-season training — not at a final, an interview, or a pitch measurement."
+        },
+        {
+            q: "What can a blood test detect that a urine test alone often struggles to pick up?",
+            opts: ["Blood doping, such as artificially boosting the number of red blood cells in circulation", "The exact brand and colour of the trainers an athlete happened to be wearing during a specific event", "How many hours of sleep an athlete had the night before a scheduled competition day", "The total number of spectators who attended a stadium on any single competition day"],
+            ans: 0,
+            explain: "Blood samples can reveal blood doping and an athlete's blood values — trainers, sleep and attendance figures are not things a drugs test detects."
+        },
+        {
+            q: "A drugs test never finds a banned substance, but an athlete's blood values change sharply over several tests. What does the biological passport do with this pattern?",
+            opts: ["Ignores it completely and permanently, because only a single positive sample is ever treated as valid evidence", "Flags it as suspicious, because it compares the athlete against their own normal readings over time", "Automatically bans the athlete's entire national team from the next major competition", "Deletes the athlete's testing history so a fresh profile can be started from zero"],
+            ans: 1,
+            explain: "The passport flags a suspicious change from an athlete's own normal pattern — it does not ignore the data, ban a whole team, or wipe the history."
+        },
+        {
+            q: "Which statement about missing scheduled anti-doping tests is correct?",
+            opts: ["Missing a test has absolutely no consequences at all as long as the athlete formally apologises to the testers afterwards", "Missing a test only matters if it happens during the same week as a major international final", "A pattern of missed tests or filing failures can be treated as a violation, even without a positive sample", "Missing a test simply moves the athlete to the very back of the queue for their next scheduled test"],
+            ans: 2,
+            explain: "Persistently missing tests or filing whereabouts incorrectly can itself count as a violation — it is not harmless, timing-dependent, or just a queuing issue."
+        }
+    ];
+
+    const matchData = [
+        { term: "WADA", def: "The international body that sets rules to detect and deter PED use worldwide" },
+        { term: "Whereabouts Rule", def: "Testing-pool athletes must report their daily location so an unannounced test can happen at any time" },
+        { term: "Urine test", def: "A sample analysed in a laboratory for banned substances or the products they break down into" },
+        { term: "Blood test", def: "A sample that can reveal blood doping and show an athlete's blood values" },
+        { term: "Out-of-competition testing", def: "Random, unannounced testing carried out during training or the off-season, not only at events" },
+        { term: "Biological passport", def: "A profile that tracks an athlete's own readings over time so unusual changes can be flagged" }
+    ];
+
+    const fibData = [
+        {
+            display: "WADA stands for the World Anti-Doping _____.",
+            blanks: { B1: "Agency" }
+        },
+        {
+            display: "The Whereabouts Rule means athletes must report their daily _____ so testers can find them for a test.",
+            blanks: { B1: "location" }
+        },
+        {
+            display: "Testing carried out unannounced during training, rather than only at an event, is called out-of-competition or _____ testing.",
+            blanks: { B1: "random" }
+        },
+        {
+            display: "A blood test can help detect blood _____, such as an artificial rise in red blood cells.",
+            blanks: { B1: "doping" }
+        },
+        {
+            display: "The biological _____ tracks an athlete's own readings over time so any unusual change can be flagged.",
+            blanks: { B1: "passport" }
+        }
+    ];
+    const fibWords = ["Agency", "location", "random", "doping", "passport"];
+
+    const tfData = [
+        {
+            statement: "WADA sets shared global anti-doping rules so that testing standards are consistent across countries.",
+            answer: true,
+            explanation: "That's WADA's core purpose — a single global standard rather than each nation policing itself differently."
+        },
+        {
+            statement: "The Whereabouts Rule only applies to athletes during the week of a major competition.",
+            answer: false,
+            explanation: "It applies all year round, including training and the off-season — catching doping that happens away from events is the whole point."
+        },
+        {
+            statement: "An athlete can only be sanctioned if a banned substance is actually found in one of their samples.",
+            answer: false,
+            explanation: "Persistently missing tests or filing whereabouts incorrectly can itself count as a violation, even with no positive sample."
+        },
+        {
+            statement: "Out-of-competition testing means testers can arrive unannounced during an athlete's normal training.",
+            answer: true,
+            explanation: "That is exactly what random, out-of-competition testing means — it is not limited to competition day."
+        },
+        {
+            statement: "The biological passport compares an athlete against a fixed national average rather than their own readings.",
+            answer: false,
+            explanation: "It compares an athlete against their OWN normal pattern built up over time, not a shared national average."
+        },
+        {
+            statement: "Blood tests can reveal doping methods, such as artificially boosting red blood cells, that urine tests alone may miss.",
+            answer: true,
+            explanation: "Blood samples can show blood doping and an athlete's blood values in ways urine testing struggles to match."
+        }
+    ];
+
+    const miscData = [
+        {
+            wrong: "WADA is basically just one laboratory that tests urine samples.",
+            correct: "WADA is an international coordinating body — it sets the rules, standards and banned-substance list, while national anti-doping organisations and NGBs carry out much of the actual day-to-day testing on its behalf. It also funds research, not just processes samples.",
+            readCheck: {
+                q: "What does WADA itself mainly do, compared to national anti-doping organisations?",
+                opts: ["It sets global rules and standards, while national bodies carry out much of the day-to-day testing", "It personally tests every single athlete in every single country using its own dedicated testing staff", "It only broadcasts televised doping scandals to a worldwide audience", "It only sells sports equipment approved for professional competition"],
+                ans: 0,
+                explain: "WADA sets the rules and standards; national anti-doping organisations and NGBs do most of the actual testing — WADA is not a broadcaster or an equipment seller."
+            }
+        },
+        {
+            wrong: "The Whereabouts Rule is only a paperwork formality with no real consequences.",
+            correct: "Missing scheduled tests, or repeatedly filing inaccurate location information, can itself count as an anti-doping rule violation — treated seriously even if the athlete never actually failed a drugs test. Elite athletes take the reporting seriously because of this.",
+            readCheck: {
+                q: "What can happen to an athlete who repeatedly fails to file accurate whereabouts information?",
+                opts: ["Nothing at all, because only a positive drugs test result can ever possibly lead to any kind of formal sanction", "They can be treated as having committed an anti-doping rule violation, even without a positive sample", "They automatically win their next competition without needing to attend at all", "Their national governing body is immediately replaced by a brand new organisation"],
+                ans: 1,
+                explain: "Repeated filing failures or missed tests can be treated as a violation in their own right, even with no positive sample — it is not consequence-free."
+            }
+        },
+        {
+            wrong: "The biological passport only works by directly detecting a specific banned substance in a sample.",
+            correct: "The biological passport can flag doping indirectly — by tracking an athlete's own blood and urine readings over time and noticing a suspicious change from their normal pattern, even when no specific banned substance is ever found.",
+            readCheck: {
+                q: "How can the biological passport suggest doping without finding a banned substance?",
+                opts: ["By comparing a single sample against a fixed international average reading taken from every other athlete", "By interviewing the athlete's family, friends and former training partners about their habits", "By flagging an unusual change away from that athlete's own normal pattern of readings over time", "By checking the make and model of the equipment the athlete used in competition"],
+                ans: 2,
+                explain: "The passport flags a change away from the athlete's OWN pattern over time — it does not use a fixed average, interviews, or equipment checks."
+            }
+        }
+    ];
+
+    const examTips = [
+        {
+            type: "tip",
+            title: "Command words for this topic — what each one wants",
+            pills: ["Identify", "Describe", "Explain", "Discuss"],
+            content: `<p>WADA questions range from quick recall to a full evaluation. Match your answer length to the command word:</p>
+<ul>
+<li><strong>Identify / State</strong> — just name it. "Identify one testing method WADA-linked authorities use" = one method, nothing more. 1 mark.</li>
+<li><strong>Describe</strong> — say what it is or how it works. "Describe the Whereabouts Rule" = explain what athletes must do.</li>
+<li><strong>Explain</strong> — give a reason, using "because". "Explain why out-of-competition testing matters" = the method plus why it closes a gap.</li>
+<li><strong>Discuss / Evaluate</strong> — weigh up both sides and reach a judgement, used in the longer levelled questions.</li>
+</ul>
+<p><strong>Read the mark tariff:</strong> [1] wants one point; [2]–[4] wants developed points or point+application; [6]/[8] levelled wants balanced analysis and a judgement.</p>`,
+            readCheck: {
+                q: "A question says 'Identify one testing method WADA uses [1]'. What is the safest answer?",
+                opts: ["A long paragraph explaining the entire history of anti-doping testing", "One named testing method, such as blood testing or urine testing", "A list of every testing method you can possibly remember", "A description of a famous doping scandal from a past competition"],
+                ans: 1,
+                explain: "'Identify' + [1] wants exactly one named method. A long history, a full list, or a scandal description all waste time for a single mark."
+            }
+        },
+        {
+            type: "tip",
+            title: "The golden rule: link the method to WHY it works",
+            pills: ["Section A", "Section B", "AO2"],
+            content: `<p>The most common way to lose marks here is naming a method without saying why it matters. Build every answer as <strong>method → what it catches → why that matters</strong>:</p>
+<ul>
+<li><strong>❌ 0–1 marks:</strong> "WADA does blood tests."</li>
+<li><strong>✅ full marks:</strong> "WADA-linked testers use blood tests because they can reveal blood doping, such as an artificial rise in red blood cells, which a urine test alone might miss."</li>
+</ul>
+<p>In <strong>Section B</strong> the question gives you a scenario (a named athlete or event). You must then apply a method to that scenario, not just describe it in general.</p>`,
+            readCheck: {
+                q: "In a Section B scenario about a named athlete, your answer about WADA's methods should...",
+                opts: ["ignore the scenario completely and describe any method in general terms", "apply a method to the specific detail given in the scenario", "only repeat the name of the athlete as many times as possible", "describe a completely different topic area instead"],
+                ans: 1,
+                explain: "Section B is applied — the marks are for using the detail in the scenario, not ignoring it, repeating a name, or drifting off-topic."
+            }
+        },
+        {
+            type: "tip",
+            title: "Where WADA appears + sentence starters",
+            pills: ["Section A", "Section B", "Section C"],
+            content: `<p><strong>Where it shows up:</strong> WADA's role appears as quick recall in <strong>Section A</strong> (identify/describe a method or the Whereabouts Rule), as an applied point in <strong>Section B</strong> scenarios about a doping case, and can feed a <strong>Section C</strong> levelled answer discussing how effective anti-doping testing really is.</p>
+<p><strong>Three punchy tips:</strong></p>
+<ul>
+<li>Always link a testing method to what it can detect that another method might miss.</li>
+<li>Remember the Whereabouts Rule applies ALL year, not just on competition day.</li>
+<li>The biological passport is about a PATTERN over time, not a single sample — say so explicitly.</li>
+</ul>
+<p><strong>Sentence starters for a longer answer:</strong></p>
+<ul>
+<li>"One method WADA-linked testers use is… because…"</li>
+<li>"This matters because it can catch doping that happens…"</li>
+<li>"However, a limitation of this method is…"</li>
+</ul>`,
+            readCheck: {
+                q: "Why is it useful to say the biological passport tracks a PATTERN over time?",
+                opts: ["It shows you understand it works differently from judging one single isolated sample", "It just fills up space in a longer answer without adding any real understanding at all to it", "It proves that no athlete has ever been caught doping in the history of sport", "It replaces the need to mention any testing method at all in your answer"],
+                ans: 0,
+                explain: "Naming the PATTERN-over-time idea shows real understanding of how the passport differs from a single test — it is not filler or a replacement for detail."
+            }
+        }
+    ];
+
+    const flashcards = [
+        { term: "WADA", def: "The World Anti-Doping Agency; sets global rules to detect and deter PED use" },
+        { term: "Whereabouts Rule", def: "Athletes report their daily location so an unannounced test can happen at any time" },
+        { term: "Urine test", def: "A sample analysed for banned substances or the products they break down into" },
+        { term: "Blood test", def: "A sample that can reveal blood doping and show an athlete's blood values" },
+        { term: "Out-of-competition testing", def: "Random, unannounced testing during training or the off-season, not only at events" },
+        { term: "Biological passport", def: "Tracks an athlete's own readings over time so unusual changes can be flagged" }
+    ];
+
+    const examQuestions = [
+        {
+            num: "1",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: "Identify <strong>two</strong> testing methods used to detect PED use.",
+            hint: "Think about the types of sample that can be taken from an athlete's body, and when testing can happen.",
+            starter: "One testing method is… Another testing method is…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1)</h5>
+<p><strong>1 mark for each correct testing method named, to a maximum of two. Accept any two from:</strong></p>
+<ul>
+<li>Urine test</li>
+<li>Blood test</li>
+<li>Out-of-competition / random / unannounced testing</li>
+<li>Biological passport (tracking readings over time)</li>
+</ul>
+<p>Do not credit the same method written twice.</p>
+</div>`,
+            modelAnswer: "One testing method is a urine test.\n\nAnother testing method is a blood test.",
+            markPoints: { note: "One tick per correct, DIFFERENT testing method; cap at 2.", groups: [
+                { label: "Your first method", max: 1, points: ["Names a valid WADA testing method"] },
+                { label: "Your second method", max: 1, points: ["Names a DIFFERENT valid testing method (not a repeat of the first)"] }
+            ] }
+        },
+        {
+            num: "2",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Which of these best describes the Whereabouts Rule?",
+            options: ["Athletes must report their daily location so testers can carry out an unannounced test at any time", "Athletes must only ever compete in sporting events held within their own home country each season", "Athletes must publish their full training diet in complete detail on a public social media account", "Athletes must retire from all competition once they reach a certain fixed age"],
+            answer: 0,
+            hint: "Think about why testers need to know where an athlete will be, even outside of competition.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1)</h5>
+<p><strong>Answer: A — Athletes must report their daily location so testers can carry out an unannounced test at any time.</strong></p>
+<ul>
+<li>This is the purpose of the Whereabouts Rule — allowing testing outside of competition, not only at events.</li>
+<li>The other options describe unrelated ideas (country of competition, diet publishing, retirement age).</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "3",
+            marks: 4,
+            type: "written",
+            caseStudy: `<p><strong>Scenario — Priya Devan, Northfield Athletics Club</strong></p><p>Priya Devan is a middle-distance runner preparing for the (fictional) Continental Championships. She is part of a national testing pool. Over the past six months, testers have visited her training base twice, both times without any advance warning, and taken a blood sample on each occasion.</p>`,
+            question: "Explain how <strong>two</strong> features of anti-doping testing are shown in Priya's experience.",
+            hint: "Look for two separate ideas in the scenario — something about WHEN the tests happened, and something about WHAT kind of sample was taken.",
+            starter: "One feature shown is… because…\n\nAnother feature shown is… because…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (AO2: application)</h5>
+<p><strong>Up to 2 marks per feature: 1 for identifying a relevant feature, 1 for a linked reason using the scenario. Answers may include:</strong></p>
+<ul>
+<li><strong>Out-of-competition / unannounced testing</strong> — the visits happened with no advance warning, at her training base rather than an event, matching the approach of testing at any time so doping cannot be timed around known tests.</li>
+<li><strong>Blood testing / the Whereabouts Rule</strong> — being in a testing pool and giving a blood sample links to reporting her whereabouts so testers can locate her, and blood tests can reveal doping methods a urine test might miss.</li>
+</ul>
+<p>Accept any other reasonable, applied answer using the scenario. A feature named with no linked reason earns 1 of the 2 marks for that feature.</p>
+</div>`,
+            modelAnswer: "One feature shown is unannounced, out-of-competition testing, because the testers visited her training base twice with no advance warning, rather than only testing her at a competition.\n\nAnother feature shown is the use of blood testing, because being part of a testing pool means she must be locatable at all times, and a blood sample can reveal doping methods that a urine test alone might miss.",
+            markPoints: { note: "Mark each feature out of 2: one tick for naming a relevant feature, one for a reason linked to the scenario.", groups: [
+                { label: "Your first feature", max: 2, points: ["Identifies a relevant feature of anti-doping testing (e.g. unannounced/out-of-competition testing)", "Gives a reason linked to the scenario (e.g. no advance warning, at her training base not an event)"] },
+                { label: "Your second feature", max: 2, points: ["Identifies a DIFFERENT relevant feature (e.g. blood testing, or being in a testing pool/Whereabouts Rule)", "Gives a reason linked to the scenario (e.g. testing pool membership, blood revealing doping urine might miss)"] }
+            ] }
+        },
+        {
+            num: "4",
+            marks: 8,
+            type: "written",
+            format: "banded",
+            caseStudy: `<p><strong>Scenario — Continental Championships review</strong></p><p>After the Continental Championships, the organising committee holds a review of the testing programme. Testers carried out a mix of unannounced out-of-competition tests, blood and urine sampling, and used biological passport data built up over the season. A small number of athletes were flagged only because of unusual changes in their long-term readings, not because a banned substance was found directly.</p>`,
+            question: "Discuss how effective WADA's methods are at stopping doping.",
+            hint: "Consider at least two methods (e.g. out-of-competition testing, the biological passport). For each, explain how it helps catch doping, then weigh up a limitation. Finish with a judgement on how effective the overall approach really is.",
+            starter: "One method that helps is… because…\n\nAnother method is…\n\nHowever, a limitation is…\n\nOverall, …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 8 marks (level-of-response). Read the band you fit, then pick a mark.</h5>
+<ul>
+<li><strong>Band 3 (thorough), 6–8:</strong> a balanced, well-applied discussion of several testing methods, showing clearly how they help detect and deter doping AND weighing genuine limitations (cost, athletes evading detection, indirect evidence being contested), ending in a justified judgement.</li>
+<li><strong>Band 2 (reasonable), 3–5:</strong> sound understanding applied to more than one method with some analysis, but the discussion may be one-sided or the judgement unsupported.</li>
+<li><strong>Band 1 (basic), 1–2:</strong> names methods with little application and no real evaluation; largely a list.</li>
+<li><strong>0 marks:</strong> nothing creditworthy.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Indicative content (indicative, not a checklist — reward valid alternatives)</h5>
+<ul>
+<li><strong>Out-of-competition/random testing:</strong> removes an athlete's ability to time doping around known test dates, since testers can arrive unannounced during training.</li>
+<li><strong>Blood and urine testing:</strong> together cover a wider range of banned substances and methods, such as blood doping, than either sample alone.</li>
+<li><strong>Biological passport:</strong> can flag doping indirectly through a suspicious pattern over time, catching cases where no single substance is ever found.</li>
+<li><strong>Evaluation — limitations:</strong> testing is costly and cannot cover every athlete equally; determined dopers may still find substances that are hard to detect or clear quickly; a flagged pattern from the passport can be contested rather than proven; testing catches many cases but is unlikely to eliminate doping entirely.</li>
+<li><strong>Judgement:</strong> WADA's combined approach is effective because it closes the main gaps (timing, sample type, indirect evidence) that a single method alone would leave open — but it reduces rather than eliminates doping, since resourcing and contested evidence still limit it.</li>
+</ul>
+</div>`,
+            modelAnswer: "WADA's methods work well together. Out-of-competition testing removes an athlete's ability to dope only when they expect no test, since officials can arrive unannounced during training. Blood and urine testing combined cover more banned substances than either alone, and the biological passport can flag a suspicious pattern over time even when no substance is directly found.\n\nHowever, testing is costly and cannot reach every athlete equally, and a flagged pattern from the passport can be contested rather than proven outright, so some cases stay unresolved.\n\nOverall, WADA's approach is effective because it closes the gaps a single method would leave open, but it reduces doping rather than eliminating it completely, since resources and contested evidence still limit what testing alone can achieve."
+        }
+    ];
+</script>
+    <script src="/cs-lab/exam-widgets.js"></script>
+    <script src="/script.js"></script>
+<script src="section-totals.js"></script>
+<script src="page-groups.js"></script>
+<script src="/progress-shared.js"></script>
+<script src="/gamification.js"></script>
+<script src="/topic-guard.js"></script>
+<script src="/notifications-shared.js"></script>
+<script src="/onboarding-tour.js"></script>
+<script src="/footer-legal.js"></script>
+</body>
+
+</html>

@@ -187,11 +187,15 @@ Existing tasks are unaffected by rebuilds (each task snapshots its questions in 
 
 1. Get a Gemini API key from [Google AI Studio](https://aistudio.google.com/apikey).
 2. Add it in two places (never in any `.html`/`.js` file that ships to the browser — only the
-   Netlify function reads it, via `process.env`):
-   - **Netlify (production):** Site configuration → Environment variables → add `GEMINI_API_KEY` =
-     your key (same screen as `SUPABASE_SERVICE_ROLE_KEY` in step 5). Redeploy after adding.
-   - **Local dev:** put `GEMINI_API_KEY=...` in a `.env` file at the repo root (already gitignored,
-     see `.env.example`) — `netlify dev` picks it up automatically.
+   Netlify function reads it, via `process.env`), under the name `MARKING_GEMINI_API_KEY` —
+   **not** `GEMINI_API_KEY`. Netlify Dev auto-detects AI coding agents and silently swaps
+   `GEMINI_API_KEY`/`ANTHROPIC_API_KEY`/`OPENAI_API_KEY` for its own AI Gateway proxy credentials
+   when it sees one, which breaks direct calls to Google's API — a different name avoids that:
+   - **Netlify (production):** Site configuration → Environment variables → add
+     `MARKING_GEMINI_API_KEY` = your key (same screen as `SUPABASE_SERVICE_ROLE_KEY` in step 5).
+     Redeploy after adding.
+   - **Local dev:** put `MARKING_GEMINI_API_KEY=...` in a `.env` file at the repo root (already
+     gitignored, see `.env.example`) — `netlify dev` picks it up automatically.
 3. Run `supabase/ai-marking.sql` (step 2.12 above) if you haven't already.
 4. That's it — no further code changes needed. In a task's **✏️ Marking queue** tab, click
    **✨ Suggest marks** to have Gemini pre-mark unmarked written answers (a mark, student-facing
@@ -202,8 +206,8 @@ Existing tasks are unaffected by rebuilds (each task snapshots its questions in 
    fraction of a penny per answer. Nothing runs automatically or on a schedule — you control spend
    entirely by choosing when to click the button, and a single click processes at most 20 answers
    (click again to top up a longer queue).
-6. If the Marking queue shows "Add GEMINI_API_KEY in Netlify", the key isn't set in Netlify's
-   environment variables yet — see step 2 above.
+6. If the Marking queue shows "Add MARKING_GEMINI_API_KEY in Netlify", the key isn't set in
+   Netlify's environment variables yet — see step 2 above.
 
 ## 10. Notifications bell, onboarding tour & Manage Account
 

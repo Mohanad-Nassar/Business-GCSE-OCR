@@ -1,0 +1,656 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>5.2.2 Negative Effects of Technology – Interactive Study Guide</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+    <header>
+        <div>
+            <div class="badge">OCR Level 1/Level 2 Sport Studies — R184 · 5. Technology in Sport</div>
+            <h1>5.2.2 Negative Effects of Technology</h1>
+            <p>Interactive revision guide · Content coming soon</p>
+        </div>
+        <a href="/index.html" class="home-link">← 🏡 Home</a>
+    </header>
+
+    <nav class="tab-bar" id="tabBar">
+        <button class="tab-btn active" onclick="switchTab('learn', this)">
+            📚 Key Learning
+        </button>
+        <button class="tab-btn" onclick="switchTab('mcq', this)">
+            ❓ MCQ Quiz
+        </button>
+        <button class="tab-btn" onclick="switchTab('matching', this)">
+            🔗 Matching
+        </button>
+        <button class="tab-btn" onclick="switchTab('fib', this)">
+            ✏️ Fill the Blanks
+        </button>
+        <button class="tab-btn" onclick="switchTab('misconceptions', this)">
+            ⚠️ Misconceptions
+        </button>
+        <button class="tab-btn" onclick="switchTab('examtips', this)">
+            🎯 Exam Tips
+        </button>
+        <button class="tab-btn" onclick="switchTab('flashcards', this)">
+            🃏 Flashcards
+        </button>
+        <button class="tab-btn" onclick="switchTab('truefalse', this)">
+            ✅ True / False
+        </button>
+        <button class="tab-btn" onclick="switchTab('exampractice', this)">
+            📝 Exam Practice
+        </button>
+    </nav>
+
+    <main>
+        <div class="tab-panel active" id="tab-learn">
+            <h2 class="section-title">Key Learning Topics</h2>
+            <p class="section-sub">Click any card to expand detailed notes.</p>
+            <div class="topic-grid" id="topicGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-mcq">
+            <h2 class="section-title">Multiple Choice Questions</h2>
+            <p class="section-sub">Select an answer to reveal instant feedback.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="mcqScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">
+                        correct answers
+                    </div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    out of <strong id="mcqTotal">0</strong> attempted
+                </div>
+                <button class="reset-btn" onclick="resetMCQ()">RESET</button>
+            </div>
+            <div class="quiz-wrap" id="mcqWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-matching">
+            <h2 class="section-title">Matching Activity</h2>
+            <p class="section-sub">
+                Click a term on the left, then click the matching definition on the
+                right.
+            </p>
+            <div style="margin-bottom: 16px">
+                <div class="score-bar">
+                    <div>
+                        <div class="score-num" id="matchScore">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">matched</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="matchTotal">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetMatch()">RESET</button>
+                </div>
+            </div>
+            <div class="match-grid">
+                <div>
+                    <div class="match-label">TERMS</div>
+                    <div class="match-col" id="matchLeft"></div>
+                </div>
+                <div>
+                    <div class="match-label">DEFINITIONS</div>
+                    <div class="match-col" id="matchRight"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-fib">
+            <h2 class="section-title">Fill in the Blanks</h2>
+            <p class="section-sub">
+                Click each dropdown and choose the correct word. Wrong answers reset —
+                try again!
+            </p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="fibScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="fibTotal">0</strong> blanks
+                </div>
+                <button class="reset-btn" onclick="resetFIB()">RESET</button>
+            </div>
+            <div class="fib-wrap" id="fibWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-misconceptions">
+            <h2 class="section-title">Common Misconceptions</h2>
+            <p class="section-sub">
+                What students often think — and what examiners actually want.
+            </p>
+            <div class="misc-list" id="miscList"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-examtips">
+            <h2 class="section-title">Exam Questions &amp; Tips</h2>
+            <p class="section-sub">
+                Most repeated question types and mark-scheme structures from real OCR
+                papers.
+            </p>
+            <div class="tips-grid" id="tipsGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-flashcards">
+            <h2 class="section-title">Flashcards</h2>
+            <p class="section-sub">
+                Test yourself! Flip the card and rate your knowledge. Review your weak
+                areas at the end.
+            </p>
+
+            <div class="fc-container">
+                <div class="score-bar" id="fcScoreBar" style="display: none; margin-bottom: 20px">
+                    <div>
+                        <div class="score-num" id="fcKnown" style="color: #2d7a4f">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">known</div>
+                    </div>
+                    <div>
+                        <div class="score-num" id="fcUnknown" style="color: #c84b31">
+                            0
+                        </div>
+                        <div style="font-size: 12px; color: var(--mid)">learning</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="fcTotalTrack">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
+                </div>
+
+                <div id="fcActiveArea">
+                    <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
+                    <div class="flashcard" id="flashcard" onclick="flipCard()">
+                        <div class="fc-inner">
+                            <div class="fc-front">
+                                <div class="fc-label">KEY TERM</div>
+                                <div class="fc-term" id="fcTerm"></div>
+                            </div>
+                            <div class="fc-back">
+                                <div class="fc-def" id="fcDef"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="fc-hint">👆 Click card to flip</p>
+
+                    <div class="fc-nav" id="fcNavDefault">
+                        <button class="fc-btn outline" onclick="prevCard()">
+                            ← Prev
+                        </button>
+                        <button class="fc-btn outline" onclick="flipCard()">Flip</button>
+                        <button class="fc-btn" onclick="nextCard()">Next →</button>
+                    </div>
+
+                    <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px">
+                        <button class="fc-btn outline" style="border-color: #c84b31; color: #c84b31; flex: 1"
+                            onclick="markCard(false)">
+                            ❌ Still Learning
+                        </button>
+                        <button class="fc-btn" style="background: #2d7a4f; border-color: #2d7a4f; flex: 1"
+                            onclick="markCard(true)">
+                            ✅ Got It
+                        </button>
+                    </div>
+                </div>
+
+                <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px">
+                    <h3>Session Complete! 🎉</h3>
+                    <p style="margin: 15px 0">
+                        You knew <strong id="fcSummaryKnown">0</strong> out of
+                        <strong id="fcSummaryTotal">0</strong> cards.
+                    </p>
+                    <div style="
+                margin-top: 25px;
+                display: flex;
+                gap: 15px;
+                justify-content: center;
+                flex-wrap: wrap;
+              ">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
+                            style="background: #c84b31; border-color: #c84b31">
+                            Review Incorrect
+                        </button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">
+                            Practice All Again
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-truefalse">
+            <h2 class="section-title">True or False?</h2>
+            <p class="section-sub">Test your knowledge with these statements.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="tfScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="tfTotal">0</strong> answered
+                </div>
+                <button class="reset-btn" onclick="resetTF()">RESET</button>
+            </div>
+            <div class="tf-wrap" id="tfWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-exampractice">
+            <h2 class="section-title">Exam Practice Questions</h2>
+            <p class="section-sub">
+                Full exam questions with case studies. Use <strong>Hint</strong>,
+                <strong>Sentence Starter</strong> and
+                <strong>Submit &amp; See Mark Scheme</strong> for each question.
+            </p>
+            <div class="ep-list" id="epList"></div>
+        </div>
+    </main>
+
+<script>
+    // ══════════════════════════════════════
+    //  DATA: 5.2.2 Negative Effects of Technology — placeholder, content not yet written
+    // ══════════════════════════════════════
+    const pageMeta = {
+            id: '5-2-2-negative-effects-of-technology',
+            badge: 'OCR Level 1/Level 2 Sport Studies — R184 · 5. Technology in Sport',
+            title: '5.2.2 Negative Effects of Technology',
+            subtitle: 'Interactive revision guide',
+            subject: 'sport-studies',
+        };
+
+    const topics = [
+        {
+            title: "Unequal access and rising cost",
+            tag: "Key concept",
+            content: `<h4>Not every team can afford the same kit</h4>
+<ul>
+<li>New technology is usually <strong>expensive</strong> when it first appears — cameras, sensors, materials and the software behind them all cost money to develop and buy.</li>
+<li>That cost creates <strong>unequal access</strong>: a wealthy club or a wealthy nation can buy the newest equipment, while a poorer club or nation cannot. The richer side then gains an <strong>advantage</strong> that has nothing to do with the players' actual ability.</li>
+<li>Example: a well-funded cycling team can afford aerodynamic skinsuits and custom-built bike frames that a smaller national team simply cannot buy, so the smaller team competes at a disadvantage before the race even starts.</li>
+</ul>
+<h4>Cost keeps climbing</h4>
+<ul>
+<li>As technology advances, each new version tends to cost <strong>more</strong>, not less — governing bodies, clubs and venues have to keep spending to stay up to date.</li>
+<li>That spending has to come from somewhere: often ticket prices, membership fees or grassroots budgets, which can mean less money reaching participation at the bottom of the sport.</li>
+</ul>`,
+            readCheck: {
+                q: "Why can new sports technology create unequal access between teams or nations?",
+                opts: ["Because all governing bodies are legally required to share every new invention with every other nation immediately", "Because it is usually expensive, so only wealthier teams or nations can afford to buy and benefit from it", "Because officials will not allow poorer teams to use any technology at all under any circumstances", "Because technology never actually improves a team's performance in any measurable way"],
+                ans: 1,
+                explain: "New technology tends to be costly, so wealthier teams and nations can buy an advantage that poorer ones cannot afford — that is the unequal-access problem."
+            }
+        },
+        {
+            title: "Availability and affordability problems",
+            tag: "Core knowledge",
+            content: `<h4>Two related but different problems</h4>
+<ul>
+<li><strong>Affordability</strong> is about price — a club, school or individual simply cannot pay for the technology.</li>
+<li><strong>Availability</strong> is about supply — even a club that could pay might not be able to get hold of the technology at all, because it is rare, still being trialled, or only used at the very top level of the sport.</li>
+<li>Example: goal-line technology is standard in a top professional football league, but a grassroots Sunday league pitch is unlikely to ever have it — the cost of installing and running the cameras and sensors makes it completely unavailable at that level.</li>
+</ul>
+<h4>Why this matters for participation and fairness</h4>
+<ul>
+<li>If only elite performers ever experience a piece of technology (say, an altitude training chamber or a biomechanics lab), then talented performers without access to it can be left behind, even if they train just as hard.</li>
+<li>This links back to unequal access: cost and availability together mean that technology can widen the gap between the best-funded performers and everyone else, rather than making competition fairer.</li>
+</ul>`,
+            readCheck: {
+                q: "A grassroots pitch cannot get goal-line technology installed at any price because hardly any suppliers offer it at that level. This is mainly a problem of...",
+                opts: ["officiating bias shown specifically and deliberately against smaller, lower-funded grassroots teams", "availability, since the technology is not accessible at that level regardless of budget", "the rules of the sport banning grassroots technology outright", "player fitness rather than technology at all"],
+                ans: 1,
+                explain: "Availability is about the technology simply not being obtainable at that level, which is different from affordability (being too expensive but technically obtainable)."
+            }
+        },
+        {
+            title: "Slowing the game down and over-relying on the decision",
+            tag: "Exam skill",
+            content: `<h4>Reduced flow of the game</h4>
+<ul>
+<li>Officiating technology (such as a video review) usually means the game must <strong>stop</strong> while the check happens. That stoppage breaks up the natural rhythm, or <strong>flow</strong>, of the contest.</li>
+<li>Example: a rugby referee sending a decision "upstairs" to the Television Match Official can pause play for over a minute, cooling down the crowd's atmosphere and interrupting the momentum of the team that was attacking.</li>
+<li>The more often technology is used to check decisions, the more often the game is interrupted — so a technology that improves accuracy can still be criticised for making the contest less enjoyable to play and to watch.</li>
+</ul>
+<h4>Over-influenced officials</h4>
+<ul>
+<li>A separate problem: officials can become <strong>over-reliant</strong> on technology, treating what the screen or sensor shows as automatically correct, even when the technology does not capture the full picture or the correct interpretation of the rule.</li>
+<li>Example: a football assistant referee might wait for a marginal offside decision to be confirmed by the technology instead of trusting their own read of the passage of play, even in situations the technology was never designed to judge precisely.</li>
+<li>The exam skill: don't just say "technology causes problems" — <strong>name the specific negative</strong> (unequal access, cost, availability, reduced flow, over-reliance) and back it with a sport-specific example.</li>
+</ul>`,
+            readCheck: {
+                q: "Which of these best describes 'reduced flow of the game' as a negative effect of technology?",
+                opts: ["Officiating technology can cause stoppages that interrupt the natural rhythm of play", "Technology always makes every single match finish far more quickly than it ever did before it existed", "Players become less fit because technology does the exercise for them", "Spectators are no longer allowed to watch matches that use technology"],
+                ans: 0,
+                explain: "Checks and reviews take time, and that stoppage interrupts the momentum and rhythm of the contest — that is what 'reduced flow' means."
+            }
+        }
+    ];
+
+    const mcqData = [
+        {
+            q: "Why might a wealthy national team gain an advantage purely from technology?",
+            opts: ["Because expensive new equipment is often only affordable to well-funded teams or nations", "Because officials are told to favour whichever team owns the most technology", "Because technology automatically disqualifies any team that cannot afford it", "Because poorer nations are officially banned by every governing body's written rules from using such equipment"],
+            ans: 0,
+            explain: "Cost is the barrier — a wealthy team can buy an edge that a poorer one simply cannot afford, which is the unequal-access problem, not a rule or an official's bias."
+        },
+        {
+            q: "A small athletics club cannot get access to a biomechanics lab because almost no supplier offers one outside elite programmes. This is best described as a problem of...",
+            opts: ["motivation, since the athletes involved are simply not trying hard enough to go and find one anywhere nearby", "availability, because the technology is not obtainable at that level regardless of funding", "rule-breaking, because using such labs is against the sport's official rules", "officiating, because referees control who is allowed to use training technology"],
+            ans: 1,
+            explain: "When a technology simply is not offered or accessible at a level, that is an availability problem, separate from cost (affordability) or rules."
+        },
+        {
+            q: "Which of these is a genuine downside of officials using video review technology?",
+            opts: ["It can slow the game down and reduce its natural flow while the check takes place", "It makes every single decision instantly and with absolutely no delay whatsoever", "It removes the need for any officials to be present at a fixture ever again", "It guarantees every decision will always be perfectly correct with no possible dispute"],
+            ans: 0,
+            explain: "Reviews take time, and that pause interrupts the rhythm of the contest — the other options overstate what the technology actually delivers."
+        },
+        {
+            q: "What does it mean if an official becomes 'over-influenced' by technology?",
+            opts: ["They ignore the technology completely and always trust their own on-field judgement over it instead", "They treat the technology's output as automatically correct, even outside its real limits", "They ask a second official to make every single decision instead of using any technology", "They stop the fixture permanently until new equipment can be purchased and installed"],
+            ans: 1,
+            explain: "Over-reliance means trusting the technology as final even in situations where it may not give the best interpretation of the rules."
+        },
+        {
+            q: "As sports technology advances, what typically happens to its cost over time?",
+            opts: ["It falls so quickly and so reliably that every grassroots club can easily afford it within just a year", "It usually stays high or keeps rising, since newer versions cost more to develop", "It becomes completely free once a governing body approves it for use", "It has no relationship at all with how advanced or recent the technology is"],
+            ans: 1,
+            explain: "Advancing technology tends to keep costs high or rising, which is part of why affordability remains a recurring problem for smaller clubs."
+        },
+        {
+            q: "A rugby TMO review pauses play for over a minute during an attacking passage of play. This mainly illustrates...",
+            opts: ["greatly improved availability of officiating technology reaching every single grassroots level fixture", "reduced flow of the game caused by an officiating stoppage", "unequal access between two professional teams", "the complete removal of the on-field referee's authority"],
+            ans: 1,
+            explain: "The stoppage interrupts the momentum of play, which is exactly what 'reduced flow of the game' describes."
+        }
+    ];
+
+    const matchData = [
+        { term: "Unequal access", def: "Wealthier teams or nations can afford technology that poorer ones cannot, gaining an advantage" },
+        { term: "Increased cost", def: "Newer sports technology tends to be expensive, and cost often keeps rising over time" },
+        { term: "Affordability", def: "A club or performer cannot pay the price of the technology" },
+        { term: "Availability", def: "A club or performer cannot obtain the technology at all, regardless of budget" },
+        { term: "Reduced flow of the game", def: "Officiating technology can cause stoppages that break up the rhythm of play" },
+        { term: "Over-influenced officials", def: "Officials treat technology's output as automatically correct, even outside its real limits" }
+    ];
+
+    const fibData = [
+        {
+            display: "Expensive new technology can create _____ access, since only wealthier teams or nations can afford it.",
+            blanks: { B1: "unequal" }
+        },
+        {
+            display: "The _____ of new sports technology tends to keep rising as it advances.",
+            blanks: { B1: "cost" }
+        },
+        {
+            display: "A club that cannot pay for technology has an _____ problem.",
+            blanks: { B1: "affordability" }
+        },
+        {
+            display: "A club that cannot obtain a technology at all, whatever its budget, faces an _____ problem.",
+            blanks: { B1: "availability" }
+        },
+        {
+            display: "Video review stoppages can reduce the _____ of the game by interrupting its rhythm.",
+            blanks: { B1: "flow" }
+        }
+    ];
+    const fibWords = ["unequal", "cost", "affordability", "availability", "flow"];
+
+    const tfData = [
+        {
+            statement: "New sports technology is usually expensive, which can create unequal access between wealthier and poorer teams.",
+            answer: true,
+            explanation: "Cost is the main driver of unequal access — richer teams and nations can buy an advantage that poorer ones cannot afford."
+        },
+        {
+            statement: "Availability and affordability mean exactly the same thing.",
+            answer: false,
+            explanation: "Affordability is about price; availability is about whether the technology can be obtained at all, even with money to spend."
+        },
+        {
+            statement: "As sports technology advances, its cost usually falls, making it cheaper for everyone straight away.",
+            answer: false,
+            explanation: "Newer technology tends to stay expensive or get more costly, not cheaper, which keeps affordability a live problem."
+        },
+        {
+            statement: "Officiating technology can reduce the flow of a game because checking a decision often causes a stoppage.",
+            answer: true,
+            explanation: "Reviews take time, and that pause interrupts the natural rhythm and momentum of play."
+        },
+        {
+            statement: "An official who is 'over-influenced' by technology always ignores what the technology shows.",
+            answer: false,
+            explanation: "Over-influenced means the opposite — trusting the technology's output as automatically correct, even beyond its real limits."
+        },
+        {
+            statement: "Technology can sometimes give the best-funded performers an advantage that has nothing to do with their actual ability.",
+            answer: true,
+            explanation: "That is the unequal-access problem — the advantage comes from money, not from greater skill or effort."
+        }
+    ];
+
+    const miscData = [
+        {
+            wrong: "Technology in sport only ever has positive effects — more accuracy, better performance, nothing to worry about.",
+            correct: "The specification specifically tests the NEGATIVES too. Unequal access, rising cost, availability/affordability problems, reduced flow of the game, and officials becoming over-influenced by technology are all genuine downsides, even where the technology also helps. A balanced exam answer weighs both sides.",
+            readCheck: {
+                q: "Which of these is a genuine negative effect the specification expects you to know?",
+                opts: ["Technology always makes officiating completely free of charge for every club", "Unequal access can give wealthier teams or nations an advantage", "Technology has literally no effect on the game whatsoever", "Every spectator always prefers a game with zero technology involved"],
+                ans: 1,
+                explain: "Unequal access is one of the named negatives — cost creates an advantage that has nothing to do with ability."
+            }
+        },
+        {
+            wrong: "Affordability and availability are just two words for the same problem.",
+            correct: "They are related but different. Affordability is about PRICE — a club cannot pay for it. Availability is about SUPPLY — even with money, the technology might not be offered at that level at all. A grassroots pitch may not get goal-line technology at any price, which is an availability problem, not just a cost one.",
+            readCheck: {
+                q: "A club has the budget to buy a technology, but no supplier will sell it at that level. This is mainly a problem of...",
+                opts: ["affordability", "availability", "officiating bias", "player motivation"],
+                ans: 1,
+                explain: "Having the money but no way to obtain the technology is an availability problem, distinct from affordability."
+            }
+        },
+        {
+            wrong: "A video review stopping play is only ever a good thing, because it makes the decision more accurate.",
+            correct: "Accuracy and flow are a genuine trade-off. A review can improve the accuracy of a decision while still damaging the flow of the game, because play has to stop while it happens. Good exam answers can hold both ideas at once, rather than treating the stoppage as automatically worth it.",
+            readCheck: {
+                q: "Why can a review that improves accuracy still be criticised?",
+                opts: ["Because it can reduce the flow of the game by causing a stoppage", "Because accurate decisions are against the official rules of every sport", "Because reviews are always slower than officials without any technology at all", "Because spectators are not allowed to watch a review taking place"],
+                ans: 0,
+                explain: "The trade-off is flow versus accuracy — a stoppage to check a decision interrupts the rhythm of play even if it gets the call right."
+            }
+        }
+    ];
+
+    const examTips = [
+        {
+            type: "tip",
+            title: "Command words and mark tariffs for this topic",
+            pills: ["State", "Explain", "Discuss/Evaluate"],
+            content: `<p>Negative-effects questions scale with the command word and the marks available:</p>
+<ul>
+<li><strong>State / Identify [1]</strong> — name one negative, nothing more. "State one negative effect of using technology in sport" = a single named point.</li>
+<li><strong>Explain [2–4]</strong> — name the negative, then give the reason or the sport-specific example that shows you understand it. Two linked points, or one point developed with an example, usually matches a [2] tariff.</li>
+<li><strong>Discuss / Evaluate [8]</strong> — cover more than one negative, apply them to the scenario, and weigh them against a positive before reaching a judgement. A list of negatives with no weighing rarely leaves Band 1.</li>
+</ul>
+<p><strong>Read the tariff before you write</strong> — a [2] question does not need five points, and an [8] question needs far more than a list.</p>`,
+            readCheck: {
+                q: "A question asks 'State one negative effect of technology in sport [1]'. What is the safest answer?",
+                opts: ["A single named negative effect", "A full paragraph covering every negative you know", "Two negatives explained in detail", "A description of a positive effect instead"],
+                ans: 0,
+                explain: "'State' + [1] wants one named point — writing more wastes time without earning extra marks."
+            }
+        },
+        {
+            type: "tip",
+            title: "Always attach a named-sport example",
+            pills: ["Section A", "Section B", "AO2"],
+            content: `<p>A negative named on its own is thin. Build every point as <strong>negative → named sport → what actually happens</strong>:</p>
+<ul>
+<li><strong>❌ weak:</strong> "Technology costs a lot of money."</li>
+<li><strong>✅ strong:</strong> "In cycling, aerodynamic equipment is expensive, so a well-funded team can afford gains a smaller national team cannot, giving them an advantage unrelated to ability."</li>
+</ul>
+<p>In <strong>Section B</strong>, take the example from the scenario you are given rather than a general one you already knew.</p>`,
+            readCheck: {
+                q: "Why does naming a specific sport strengthen an answer about a negative effect of technology?",
+                opts: ["It shows how the negative actually plays out in a real situation", "It is required purely to fill up space on the page", "It completely replaces the need to ever name the negative effect at all anywhere in the answer", "It is only needed in Section C and never elsewhere"],
+                ans: 0,
+                explain: "A concrete sporting example demonstrates real understanding of how the negative effect operates, not just that it exists."
+            }
+        },
+        {
+            type: "tip",
+            title: "Building a balanced Discuss/Evaluate answer",
+            pills: ["Section C", "Judgement", "8 marks"],
+            content: `<p>An 8-mark Discuss question usually wants you to weigh negatives against at least one positive, then reach a supported judgement.</p>
+<p><strong>Three sentence starters to build the structure:</strong></p>
+<ul>
+<li>"One negative effect is… which affects [named sport] because…"</li>
+<li>"However, technology also… which is a genuine benefit because…"</li>
+<li>"Overall, the negatives outweigh/are outweighed by the positives because…"</li>
+</ul>
+<p>Never stop at a list — the top band needs the weighing and the final judgement, not just more points.</p>`,
+            readCheck: {
+                q: "What usually separates a top-band Discuss answer from a middle-band one on this topic?",
+                opts: ["Writing about a much longer list of negatives with no weighing", "Weighing negatives against positives and reaching a justified judgement", "Only ever mentioning negative effects and ignoring positives completely", "Repeating the same point using slightly different wording each time"],
+                ans: 1,
+                explain: "Top-band answers weigh both sides and land on a justified judgement — a longer list alone does not move up a band."
+            }
+        }
+    ];
+
+    const flashcards = [
+        { term: "Unequal access", def: "Wealthier teams/nations can afford technology poorer ones cannot, gaining an advantage" },
+        { term: "Increased cost", def: "Newer sports technology tends to be expensive, and cost often keeps rising" },
+        { term: "Affordability", def: "A price problem — a club or performer cannot pay for the technology" },
+        { term: "Availability", def: "A supply problem — the technology cannot be obtained at that level at all" },
+        { term: "Reduced flow of the game", def: "Officiating stoppages for reviews interrupt the rhythm of play" },
+        { term: "Over-influenced officials", def: "Officials treat technology's output as automatically correct beyond its real limits" }
+    ];
+
+    const examQuestions = [
+        {
+            num: "1",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: "State <strong>two</strong> negative effects of using technology in sport.",
+            hint: "Pick two different negatives — for example unequal access, increased cost, availability/affordability, reduced flow of the game, or officials being over-influenced.",
+            starter: "One negative effect is… Another negative effect is…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1)</h5>
+<p><strong>1 mark for each different correct negative effect named, to a maximum of two. Accept any two from:</strong></p>
+<ul>
+<li>Unequal access to technology between teams/nations</li>
+<li>Increased cost of new technology</li>
+<li>Problems of availability</li>
+<li>Problems of affordability</li>
+<li>Reduced flow of the game caused by officiating stoppages</li>
+<li>Officials being over-influenced by technology</li>
+</ul>
+<p>Do not credit the same negative written twice, or a positive effect.</p>
+</div>`,
+            modelAnswer: "One negative effect is unequal access to technology.\n\nAnother negative effect is the reduced flow of the game caused by officiating stoppages.",
+            markPoints: { note: "One tick per correct, DIFFERENT negative effect; cap at 2.", groups: [
+                { label: "Your first negative effect", max: 1, points: ["Names a valid negative effect of technology in sport"] },
+                { label: "Your second negative effect", max: 1, points: ["Names a DIFFERENT valid negative effect (not a repeat of the first)"] }
+            ] }
+        },
+        {
+            num: "2",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Which of these best describes a negative effect of officiating technology on the flow of a game?",
+            options: ["It can cause stoppages that interrupt the rhythm and momentum of play", "It guarantees the crowd will always enjoy the fixture more than before", "It removes every official from the fixture completely and permanently", "It makes the game finish in exactly half its normal running time"],
+            answer: 0,
+            hint: "Think about what happens to play while a review is being checked.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO2)</h5>
+<p><strong>Answer: A — It can cause stoppages that interrupt the rhythm and momentum of play.</strong></p>
+<ul>
+<li>Checking a decision takes time, and that pause is the "reduced flow" problem.</li>
+<li>The other options overstate or misdescribe what officiating technology actually does.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "3",
+            marks: 4,
+            type: "written",
+            caseStudy: `<p><strong>Scenario — Ferrow Town Athletics Club</strong></p><p>Ferrow Town Athletics Club is a small club with a limited budget. A neighbouring, much wealthier club has just bought a set of motion-sensor spikes that give its sprinters detailed technique feedback, costing several thousand pounds. Ferrow Town cannot afford this equipment and cannot find a cheaper version anywhere, even second-hand.</p>`,
+            question: "Explain <strong>two</strong> negative effects of technology shown by this scenario.",
+            hint: "Look for two different negatives in the scenario — the price difference between the clubs, and the fact Ferrow Town cannot find the equipment anywhere at all.",
+            starter: "One negative effect shown is… because…\n\nAnother negative effect shown is… because…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (AO2: application)</h5>
+<p><strong>Up to 2 marks per negative effect: 1 for naming it, 1 for a reason/detail linked to the scenario. Accept:</strong></p>
+<ul>
+<li><strong>Unequal access / increased cost</strong> — the wealthier neighbouring club can afford the several-thousand-pound spikes, giving its sprinters a technique-feedback advantage that Ferrow Town's sprinters do not get, unrelated to their ability.</li>
+<li><strong>Availability</strong> — Ferrow Town cannot find even a cheaper or second-hand version anywhere, showing the technology is not just expensive but hard to obtain at their level at all.</li>
+</ul>
+<p>Accept any other reasonable, applied answer using scenario detail. A named effect with no scenario link earns 1 of the 2 marks for that point.</p>
+</div>`,
+            modelAnswer: "One negative effect shown is unequal access caused by cost, because the wealthier neighbouring club can afford motion-sensor spikes costing several thousand pounds, giving its sprinters a technique-feedback advantage Ferrow Town's sprinters do not have.\n\nAnother negative effect shown is an availability problem, because Ferrow Town cannot find even a cheaper or second-hand version of the equipment anywhere, showing the technology is not obtainable at their level regardless of budget.",
+            markPoints: { note: "Mark each effect out of 2: one tick for naming it, one for a scenario-linked reason.", groups: [
+                { label: "First negative effect", max: 2, points: ["Names a relevant negative effect (e.g. unequal access / cost)", "Links it to the scenario (e.g. the wealthier club affording the several-thousand-pound spikes)"] },
+                { label: "Second negative effect", max: 2, points: ["Names a different relevant negative effect (e.g. availability)", "Links it to the scenario (e.g. Ferrow Town unable to find any version anywhere)"] }
+            ] }
+        },
+        {
+            num: "4",
+            marks: 8,
+            type: "written",
+            format: "banded",
+            caseStudy: `<p><strong>Scenario — Ferrow Town Athletics Club</strong></p><p>Ferrow Town's committee is deciding whether to campaign for wider use of officiating and training technology across local athletics meetings, having seen both the benefits and the problems it can bring to smaller clubs like their own.</p>`,
+            question: "Discuss the negative effects of technology on sport, using examples to support your answer.",
+            hint: "Cover more than one negative (cost/unequal access, availability, reduced flow, over-influenced officials). Briefly weigh these against a positive, then give a justified judgement.",
+            starter: "One negative effect is… shown by…\n\nAnother negative effect is…\n\nHowever, technology also… which is a benefit because…\n\nOverall, …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 8 marks (level-of-response). Read the band you fit, then pick a mark.</h5>
+<ul>
+<li><strong>Band 3 (thorough), 6–8:</strong> a balanced discussion of several negative effects with named-sport examples, weighed against at least one genuine positive, ending in a justified judgement.</li>
+<li><strong>Band 2 (reasonable), 3–5:</strong> sound coverage of more than one negative effect with some examples, but limited weighing or an unsupported judgement.</li>
+<li><strong>Band 1 (basic), 1–2:</strong> names one or more negatives with little explanation or example, largely a list, no real evaluation.</li>
+<li><strong>0 marks:</strong> nothing creditworthy.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Indicative content (indicative, not a checklist — reward valid alternatives)</h5>
+<ul>
+<li><strong>Unequal access / increased cost:</strong> wealthier clubs or nations can buy an advantage (e.g. sensor spikes, aerodynamic kit) that smaller clubs like Ferrow Town cannot afford.</li>
+<li><strong>Availability:</strong> some technology simply is not offered at grassroots level, regardless of budget (e.g. a small club unable to find equipment at any price).</li>
+<li><strong>Reduced flow of the game:</strong> officiating checks (e.g. a review at a major meeting) pause competition and disrupt momentum.</li>
+<li><strong>Over-influenced officials:</strong> officials may treat a marginal reading as automatically correct even where the technology was not designed to judge it precisely.</li>
+<li><strong>Balance:</strong> technology can also improve accuracy, safety or performance, so the negatives are a trade-off rather than a reason to reject technology outright.</li>
+<li><strong>Judgement:</strong> the negatives are real and hit smaller clubs hardest, but they are a cost of an overall improvement in accuracy and safety — the fairest conclusion is that access needs addressing (e.g. shared/subsidised equipment) rather than technology being avoided altogether.</li>
+</ul>
+</div>`,
+            modelAnswer: "Technology brings real negatives. Unequal access means wealthier clubs can afford equipment like sensor spikes that smaller clubs such as Ferrow Town cannot, creating an advantage unrelated to ability. Availability compounds this, since some technology is not sold at grassroots level at any price. Officiating technology can also reduce the flow of a contest, as reviews pause play and disrupt momentum, and officials can become over-influenced, trusting a reading even where it was not designed to be precise.\n\nHowever, technology also improves accuracy and safety, so these problems are a trade-off rather than a reason to reject it.\n\nOverall, the negatives are genuine and fall hardest on smaller clubs, but the answer is better access, such as shared or subsidised equipment, rather than abandoning useful technology."
+        }
+    ];
+</script>
+    <script src="/cs-lab/exam-widgets.js"></script>
+    <script src="/script.js"></script>
+<script src="section-totals.js"></script>
+<script src="page-groups.js"></script>
+<script src="/progress-shared.js"></script>
+<script src="/gamification.js"></script>
+<script src="/topic-guard.js"></script>
+<script src="/notifications-shared.js"></script>
+<script src="/onboarding-tour.js"></script>
+<script src="/footer-legal.js"></script>
+</body>
+
+</html>

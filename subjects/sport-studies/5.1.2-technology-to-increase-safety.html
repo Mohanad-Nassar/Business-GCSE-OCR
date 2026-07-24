@@ -1,0 +1,670 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>5.1.2 Technology to Increase Safety – Interactive Study Guide</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+    <header>
+        <div>
+            <div class="badge">OCR Level 1/Level 2 Sport Studies — R184 · 5. Technology in Sport</div>
+            <h1>5.1.2 Technology to Increase Safety</h1>
+            <p>Interactive revision guide · Content coming soon</p>
+        </div>
+        <a href="/index.html" class="home-link">← 🏡 Home</a>
+    </header>
+
+    <nav class="tab-bar" id="tabBar">
+        <button class="tab-btn active" onclick="switchTab('learn', this)">
+            📚 Key Learning
+        </button>
+        <button class="tab-btn" onclick="switchTab('mcq', this)">
+            ❓ MCQ Quiz
+        </button>
+        <button class="tab-btn" onclick="switchTab('matching', this)">
+            🔗 Matching
+        </button>
+        <button class="tab-btn" onclick="switchTab('fib', this)">
+            ✏️ Fill the Blanks
+        </button>
+        <button class="tab-btn" onclick="switchTab('misconceptions', this)">
+            ⚠️ Misconceptions
+        </button>
+        <button class="tab-btn" onclick="switchTab('examtips', this)">
+            🎯 Exam Tips
+        </button>
+        <button class="tab-btn" onclick="switchTab('flashcards', this)">
+            🃏 Flashcards
+        </button>
+        <button class="tab-btn" onclick="switchTab('truefalse', this)">
+            ✅ True / False
+        </button>
+        <button class="tab-btn" onclick="switchTab('exampractice', this)">
+            📝 Exam Practice
+        </button>
+    </nav>
+
+    <main>
+        <div class="tab-panel active" id="tab-learn">
+            <h2 class="section-title">Key Learning Topics</h2>
+            <p class="section-sub">Click any card to expand detailed notes.</p>
+            <div class="topic-grid" id="topicGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-mcq">
+            <h2 class="section-title">Multiple Choice Questions</h2>
+            <p class="section-sub">Select an answer to reveal instant feedback.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="mcqScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">
+                        correct answers
+                    </div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    out of <strong id="mcqTotal">0</strong> attempted
+                </div>
+                <button class="reset-btn" onclick="resetMCQ()">RESET</button>
+            </div>
+            <div class="quiz-wrap" id="mcqWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-matching">
+            <h2 class="section-title">Matching Activity</h2>
+            <p class="section-sub">
+                Click a term on the left, then click the matching definition on the
+                right.
+            </p>
+            <div style="margin-bottom: 16px">
+                <div class="score-bar">
+                    <div>
+                        <div class="score-num" id="matchScore">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">matched</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="matchTotal">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetMatch()">RESET</button>
+                </div>
+            </div>
+            <div class="match-grid">
+                <div>
+                    <div class="match-label">TERMS</div>
+                    <div class="match-col" id="matchLeft"></div>
+                </div>
+                <div>
+                    <div class="match-label">DEFINITIONS</div>
+                    <div class="match-col" id="matchRight"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-fib">
+            <h2 class="section-title">Fill in the Blanks</h2>
+            <p class="section-sub">
+                Click each dropdown and choose the correct word. Wrong answers reset —
+                try again!
+            </p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="fibScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="fibTotal">0</strong> blanks
+                </div>
+                <button class="reset-btn" onclick="resetFIB()">RESET</button>
+            </div>
+            <div class="fib-wrap" id="fibWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-misconceptions">
+            <h2 class="section-title">Common Misconceptions</h2>
+            <p class="section-sub">
+                What students often think — and what examiners actually want.
+            </p>
+            <div class="misc-list" id="miscList"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-examtips">
+            <h2 class="section-title">Exam Questions &amp; Tips</h2>
+            <p class="section-sub">
+                Most repeated question types and mark-scheme structures from real OCR
+                papers.
+            </p>
+            <div class="tips-grid" id="tipsGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-flashcards">
+            <h2 class="section-title">Flashcards</h2>
+            <p class="section-sub">
+                Test yourself! Flip the card and rate your knowledge. Review your weak
+                areas at the end.
+            </p>
+
+            <div class="fc-container">
+                <div class="score-bar" id="fcScoreBar" style="display: none; margin-bottom: 20px">
+                    <div>
+                        <div class="score-num" id="fcKnown" style="color: #2d7a4f">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">known</div>
+                    </div>
+                    <div>
+                        <div class="score-num" id="fcUnknown" style="color: #c84b31">
+                            0
+                        </div>
+                        <div style="font-size: 12px; color: var(--mid)">learning</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="fcTotalTrack">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
+                </div>
+
+                <div id="fcActiveArea">
+                    <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
+                    <div class="flashcard" id="flashcard" onclick="flipCard()">
+                        <div class="fc-inner">
+                            <div class="fc-front">
+                                <div class="fc-label">KEY TERM</div>
+                                <div class="fc-term" id="fcTerm"></div>
+                            </div>
+                            <div class="fc-back">
+                                <div class="fc-def" id="fcDef"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="fc-hint">👆 Click card to flip</p>
+
+                    <div class="fc-nav" id="fcNavDefault">
+                        <button class="fc-btn outline" onclick="prevCard()">
+                            ← Prev
+                        </button>
+                        <button class="fc-btn outline" onclick="flipCard()">Flip</button>
+                        <button class="fc-btn" onclick="nextCard()">Next →</button>
+                    </div>
+
+                    <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px">
+                        <button class="fc-btn outline" style="border-color: #c84b31; color: #c84b31; flex: 1"
+                            onclick="markCard(false)">
+                            ❌ Still Learning
+                        </button>
+                        <button class="fc-btn" style="background: #2d7a4f; border-color: #2d7a4f; flex: 1"
+                            onclick="markCard(true)">
+                            ✅ Got It
+                        </button>
+                    </div>
+                </div>
+
+                <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px">
+                    <h3>Session Complete! 🎉</h3>
+                    <p style="margin: 15px 0">
+                        You knew <strong id="fcSummaryKnown">0</strong> out of
+                        <strong id="fcSummaryTotal">0</strong> cards.
+                    </p>
+                    <div style="
+                margin-top: 25px;
+                display: flex;
+                gap: 15px;
+                justify-content: center;
+                flex-wrap: wrap;
+              ">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
+                            style="background: #c84b31; border-color: #c84b31">
+                            Review Incorrect
+                        </button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">
+                            Practice All Again
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-truefalse">
+            <h2 class="section-title">True or False?</h2>
+            <p class="section-sub">Test your knowledge with these statements.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="tfScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="tfTotal">0</strong> answered
+                </div>
+                <button class="reset-btn" onclick="resetTF()">RESET</button>
+            </div>
+            <div class="tf-wrap" id="tfWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-exampractice">
+            <h2 class="section-title">Exam Practice Questions</h2>
+            <p class="section-sub">
+                Full exam questions with case studies. Use <strong>Hint</strong>,
+                <strong>Sentence Starter</strong> and
+                <strong>Submit &amp; See Mark Scheme</strong> for each question.
+            </p>
+            <div class="ep-list" id="epList"></div>
+        </div>
+    </main>
+
+<script>
+    // ══════════════════════════════════════
+    //  DATA: 5.1.2 Technology to Increase Safety
+    // ══════════════════════════════════════
+    const pageMeta = {
+            id: '5-1-2-technology-to-increase-safety',
+            badge: 'OCR Level 1/Level 2 Sport Studies — R184 · 5. Technology in Sport',
+            title: '5.1.2 Technology to Increase Safety',
+            subtitle: 'Interactive revision guide',
+            subject: 'sport-studies',
+        };
+
+    const topics = [
+        {
+            title: "Why sport invests in safety technology",
+            tag: "Key concept",
+            content: `<h4>One of four jobs technology does in sport</h4>
+<ul>
+<li>Technology in sport is usually built for one of four jobs: making performers <strong>better</strong>, keeping performers <strong>safer</strong>, helping officials be <strong>fairer and more accurate</strong>, or making the experience for <strong>spectators</strong> better.</li>
+<li>This page is only about the <strong>safety</strong> job — technology that lowers the chance of a performer getting hurt, or lowers how bad an injury turns out to be. The other three jobs are covered elsewhere and should not be mixed into an answer here.</li>
+</ul>
+<h4>Three broad kinds of safety technology</h4>
+<ul>
+<li><strong>Protective equipment</strong> worn by the performer — helmets, padding, mouthguards and similar items that absorb or block a force before it reaches the body.</li>
+<li><strong>Playing surfaces and equipment design</strong> — pitches, tracks, mats and landing areas engineered so that a fall or a collision does less damage.</li>
+<li><strong>Medical and monitoring technology</strong> — devices that detect an injury (such as a head impact) or track a performer's condition so problems are caught before they get serious.</li>
+</ul>
+<h4>Why it matters</h4>
+<ul>
+<li>A serious injury can end a performer's career, and repeated injuries damage trust in a sport. Safety technology lets performers compete and train with a lower level of risk than they otherwise would face.</li>
+</ul>`,
+            readCheck: {
+                q: "Which of these best describes what 'safety technology' does in sport?",
+                opts: ["Helps spectators see the action more clearly on a big screen inside a stadium", "Lowers the chance or the severity of an injury to a performer", "Helps officials reach faster, more accurate decisions during a contest", "Helps a performer train harder so they can beat a personal best"],
+                ans: 1,
+                explain: "Safety technology is aimed at reducing the likelihood or severity of injury. Spectator viewing, officiating accuracy and performance gains are the other three jobs technology does — not this one."
+            }
+        },
+        {
+            title: "Protective equipment and safer playing surfaces",
+            tag: "Core knowledge",
+            content: `<h4>Protective equipment: helmets, padding, mouthguards</h4>
+<ul>
+<li><strong>Helmets</strong> use a hard outer shell and an energy-absorbing liner to spread and reduce the force of an impact before it reaches the skull. Cycling helmets protect a rider's head in a fall; cricket helmets add a steel or titanium grille to protect the face from a fast-bowled ball; American football helmets combine a shell with a face cage for collision sport.</li>
+<li><strong>Padding</strong> cushions a specific body part. Hockey and football players wear shin pads; cricket wicketkeepers and batters wear pads and body armour; motorsport drivers wear fire-resistant padded race suits.</li>
+<li><strong>Mouthguards / gum shields</strong> are moulded to a performer's teeth and cushion the jaw and teeth from an impact. They are common in boxing, rugby and hockey. Some newer mouthguards also contain a sensor — that use is covered in the next card.</li>
+<li><strong>Exam note:</strong> protective equipment mostly <em>absorbs or cushions</em> a force. It reduces certain injuries (cuts, broken teeth, fractures) but does not remove every risk — a scrum cap, for example, gives little protection against concussion.</li>
+</ul>
+<h4>Safer playing surfaces and equipment design</h4>
+<ul>
+<li>Many football and hockey clubs have replaced old, hard artificial pitches with modern <strong>3G/4G surfaces</strong>, which use a cushioned rubber-crumb layer under the fibres to reduce the impact on a player's joints when they fall or land badly.</li>
+<li>Athletics tracks now use a springy, shock-absorbing surface rather than hard cinder, and events like high jump and pole vault use deep <strong>crash mats or landing airbags</strong> so a fall from height does not cause serious injury.</li>
+<li>Gymnastics uses sprung floors and thick crash mats for the same reason, and some pitches use padded goalposts or posts to reduce injury from a collision.</li>
+</ul>`,
+            readCheck: {
+                q: "What is the main safety purpose of a mouthguard worn in boxing or rugby?",
+                opts: ["To cushion the jaw and teeth from the force of a blow to the head or face", "To let the referee check a player's identity before a contest begins", "To help a coach analyse exactly how hard a player has been training that particular week", "To make a fast decision on a disputed refereeing call during a match"],
+                ans: 0,
+                explain: "A mouthguard is moulded to a performer's teeth and cushions the jaw and teeth from an impact. It has nothing to do with identity checks, training analysis or officiating decisions."
+            }
+        },
+        {
+            title: "Detecting concussion and monitoring player welfare",
+            tag: "Core knowledge",
+            content: `<h4>Detecting a head injury</h4>
+<ul>
+<li>Some rugby union teams now fit a sensor inside a scrum cap or mouthguard. The sensor measures the <strong>force of a blow to the head</strong> and sends an alert to side-line medical staff so they know to check that player straight away, rather than waiting for the player to report symptoms themselves.</li>
+<li>Sport also uses a structured, timed <strong>pitch-side head-injury assessment</strong> — medical staff use a fixed set of checks to judge whether a player who has taken a blow can safely return to play, instead of relying on a quick, informal look.</li>
+</ul>
+<h4>Medical and monitoring technology</h4>
+<ul>
+<li>Endurance athletes and team-sport players often train and compete wearing a <strong>heart-rate monitor and GPS vest</strong>. These track how hard a performer is working, so a coach can spot overtraining or fatigue building up and adjust a session before it causes an injury.</li>
+<li>In motorsport, Formula 1 drivers wear a <strong>HANS device</strong> (a rigid frame linking the helmet to the shoulders) which restrains the head and neck and reduces whiplash-type injury in a high-speed crash. Some race suits and gloves also carry biometric sensors that tell medical staff a driver's condition seconds after an impact.</li>
+</ul>
+<h4>Exam skill: name the sport AND the specific benefit</h4>
+<ul>
+<li>A weak answer says "technology helps safety." A strong answer names the technology, the sport, and exactly what it protects against or detects — for example, "an instrumented mouthguard in rugby union measures head-impact force and alerts side-line staff to check the player."</li>
+</ul>`,
+            readCheck: {
+                q: "A sensor fitted inside a rugby player's mouthguard is mainly used to...",
+                opts: ["broadcast the player's exact heart rate live to supporters in the stadium", "measure the force of a head impact and alert side-line staff to check the player", "automatically award a penalty against the opposing team whenever an illegal tackle occurs in play", "record tackle numbers purely so they can be used in a highlights programme"],
+                ans: 1,
+                explain: "Instrumented mouthguards measure head-impact force and flag it to side-line medical staff — a safety use. Awarding penalties is an officiating job, not a safety one, and the sensor is not a heart-rate or highlights tool."
+            }
+        }
+    ];
+
+    const mcqData = [
+        {
+            q: "What is the best definition of 'safety technology' in sport?",
+            opts: ["Technology that helps officials make faster and more accurate decisions during a contest", "Technology that gives spectators a clearer view of the action inside a stadium", "Technology designed to reduce the likelihood or severity of injury to participants", "Technology that helps a performer train harder and shave time off a personal best"],
+            ans: 2,
+            explain: "Safety technology is aimed at reducing the likelihood or severity of injury. Faster officiating decisions, a clearer spectator view and improved performance are the other three jobs technology can do, not this one."
+        },
+        {
+            q: "Rugby and boxing performers often wear a mouthguard. What is its main safety purpose?",
+            opts: ["To let the referee check a player's identity before a contest begins", "To cushion the jaw and teeth from the force of a blow to the head or face", "To help a coach analyse how hard a player has been training that week", "To help review a disputed refereeing decision in slow motion after the match"],
+            ans: 1,
+            explain: "A mouthguard is moulded to a performer's teeth and cushions the jaw and teeth from a blow. Identity checks, training analysis and reviewing decisions are unrelated jobs."
+        },
+        {
+            q: "Why have many football and hockey clubs replaced old hard artificial pitches with modern 3G/4G surfaces?",
+            opts: ["The synthetic fibres are a more consistent shade of green than a real grass pitch", "It lets a video review system display replays on a big screen beside the pitch", "It guarantees that no match is ever postponed for any reason at any time of year", "The cushioned rubber-crumb layer reduces the impact on joints when a player falls"],
+            ans: 3,
+            explain: "The cushioned layer under a 3G/4G pitch reduces the impact on a falling player's joints — that is the safety benefit. Pitch colour, replay screens and never postponing matches are not why clubs make the change."
+        },
+        {
+            q: "Some rugby union teams fit sensors inside a scrum cap or mouthguard. What do these sensors mainly do?",
+            opts: ["Measure the force of a blow to the head and alert side-line staff to check the player", "Automatically award a penalty against the other team whenever an illegal high tackle occurs", "Broadcast a player's exact heart rate live to supporters watching in the stadium", "Record the number of tackles a player makes purely for a post-match highlights reel"],
+            ans: 0,
+            explain: "These sensors measure head-impact force and flag it to side-line medical staff so the player can be checked. Awarding penalties is an officiating job; the sensors are not heart-rate monitors or highlights tools."
+        },
+        {
+            q: "Why might an endurance athlete train wearing a heart-rate monitor and GPS vest?",
+            opts: ["So a match official can check the athlete has not started running before the whistle", "So spectators at home can follow a live leaderboard of split times during a broadcast", "So coaches can spot overtraining or fatigue early and adjust the session before injury occurs", "So a governing body can confirm the exact make, model and size of the athlete's footwear before every race begins"],
+            ans: 2,
+            explain: "A heart-rate monitor and GPS vest track workload so a coach can catch overtraining or fatigue before it causes an injury. Checking a false start, entertaining spectators and confirming footwear are unrelated uses."
+        },
+        {
+            q: "In Formula 1, what is the main safety purpose of the HANS device worn by drivers?",
+            opts: ["To let race stewards review a start-line incident in extra slow motion after a race", "To restrain the head and neck and reduce whiplash-type injury in a high-speed crash", "To increase the top speed a car can reach on the longest straight of a circuit", "To give TV commentators live data on a driver's exact heart rate throughout a race"],
+            ans: 1,
+            explain: "The HANS device links the helmet to the shoulders and restrains the head and neck, reducing whiplash-type injury in a crash. Reviewing incidents, increasing speed and broadcasting heart-rate data are not its job."
+        }
+    ];
+
+    const matchData = [
+        { term: "Instrumented mouthguard", def: "A device fitted with a sensor that measures the force of a blow to the head" },
+        { term: "Shock-absorbing helmet", def: "Headwear with an energy-absorbing liner that reduces the force reaching the skull" },
+        { term: "3G/4G playing surface", def: "An artificial pitch with a cushioned layer that lowers the impact on a falling player's joints" },
+        { term: "HANS device", def: "Motorsport equipment that restrains the head and neck during a sudden, high-speed crash" },
+        { term: "Heart-rate and GPS monitor", def: "A wearable that tracks a performer's workload so fatigue is spotted before it causes injury" },
+        { term: "Crash mat / landing airbag", def: "Padded landing equipment that reduces injury from a fall in gymnastics or athletics" }
+    ];
+
+    const fibData = [
+        {
+            display: "Cricket and American football helmets use a reinforced shell to reduce the _____ of a blow reaching the head.",
+            blanks: { B1: "force" }
+        },
+        {
+            display: "Modern 3G/4G pitches use a shock-absorbing layer to reduce the impact on a falling player's _____.",
+            blanks: { B1: "joints" }
+        },
+        {
+            display: "An instrumented mouthguard can measure the force of a head impact and alert _____ medical staff.",
+            blanks: { B1: "side-line" }
+        },
+        {
+            display: "In Formula 1, the HANS device restrains the head and _____ during a high-speed crash.",
+            blanks: { B1: "neck" }
+        },
+        {
+            display: "A heart-rate and GPS monitor helps a coach spot _____ before it leads to injury.",
+            blanks: { B1: "fatigue" }
+        }
+    ];
+    const fibWords = ["force", "joints", "side-line", "neck", "fatigue"];
+
+    const tfData = [
+        {
+            statement: "Safety technology in sport is designed to reduce the likelihood or severity of injury.",
+            answer: true,
+            explanation: "That is the whole point of safety technology — lowering the chance of injury happening, or how serious it turns out to be, for the performer."
+        },
+        {
+            statement: "A rugby scrum cap gives a player full protection against concussion.",
+            answer: false,
+            explanation: "A scrum cap mainly reduces cuts and abrasions from soft padding — it gives little protection against concussion, which is exactly why sport also uses separate impact-detecting technology."
+        },
+        {
+            statement: "Modern 3G/4G pitches are used partly because their shock-absorbing layer reduces impact on a player's joints.",
+            answer: true,
+            explanation: "The cushioned rubber-crumb layer under a 3G/4G pitch is a genuine safety benefit, reducing joint impact compared with older, harder artificial surfaces."
+        },
+        {
+            statement: "An instrumented mouthguard's main job is to help a coach plan the following season's training fixtures.",
+            answer: false,
+            explanation: "Its job is to measure the force of a head impact and alert side-line staff so the player can be checked — nothing to do with planning a fixture list."
+        },
+        {
+            statement: "The HANS device used in Formula 1 helps restrain a driver's head and neck during a crash.",
+            answer: true,
+            explanation: "The HANS device links the helmet to the shoulders, restraining the head and neck and reducing whiplash-type injury in a high-speed crash."
+        },
+        {
+            statement: "Heart-rate and GPS monitoring technology is mainly used to give spectators live entertainment statistics.",
+            answer: false,
+            explanation: "Its main safety use is tracking a performer's workload so a coach can catch fatigue or overtraining before it causes injury — any spectator use is a different job of technology."
+        }
+    ];
+
+    const miscData = [
+        {
+            wrong: "Any padding a performer wears counts as the same kind of safety technology as an instrumented mouthguard.",
+            correct: "They do two different jobs. Protective equipment (helmets, pads, mouthguards, padded goalposts) mostly ABSORBS or CUSHIONS a force before it does damage. Detection and monitoring technology (an instrumented mouthguard's sensor, a heart-rate/GPS monitor) does not stop the force — it DETECTS an impact, or tracks a condition, and alerts someone. A strong answer says which job a piece of technology is actually doing.",
+            readCheck: {
+                q: "What is the key difference between protective equipment and detection/monitoring technology?",
+                opts: ["There is no real difference between the two types of technology at all", "Protective equipment cushions a force; monitoring technology detects and alerts staff instead", "Protective equipment is only ever used by professional motorsport teams, never in any other sport", "Monitoring technology removes the need for a performer to ever wear protective equipment again"],
+                ans: 1,
+                explain: "One kind reduces the force reaching the body; the other kind detects a problem (an impact, or a worrying condition) and flags it, rather than physically absorbing anything."
+            }
+        },
+        {
+            wrong: "Once a rugby player is wearing a scrum cap or mouthguard, head injury basically stops being a risk.",
+            correct: "Protective gear cushions certain impacts (cuts, jaw and tooth injury) but does not remove concussion risk. That is exactly why sport ALSO uses separate detection technology — impact sensors and structured pitch-side head-injury checks — as well as protective gear. Equipment and detection technology work together; neither one on its own makes a performer fully safe.",
+            readCheck: {
+                q: "Why does sport use head-impact sensors and pitch-side checks as well as protective headwear?",
+                opts: ["Because protective headwear alone does not remove the risk of concussion", "Because protective headwear has been banned completely in most contact sports now", "Because sensors are only ever used to replace worn-out scrum caps", "Because pitch-side checks are required only for spectators, not players"],
+                ans: 0,
+                explain: "Protective gear reduces some injuries but does not eliminate concussion risk, so detection technology and structured checks are used alongside it, not instead of it."
+            }
+        },
+        {
+            wrong: "Because this topic is about technology and safety, goal-line technology and video review are good examples to use in an answer here.",
+            correct: "Goal-line technology and video review help an OFFICIAL make a fair, accurate decision — that is a different job of technology from SAFETY. Using them in a safety-technology answer describes the wrong page's content and will not earn the marks. Keep officiating examples (like video review) out of a question specifically about safety.",
+            readCheck: {
+                q: "Why would goal-line technology be the wrong example to use in a question specifically about safety technology?",
+                opts: ["It does not exist in real sport", "It is officiating technology, aimed at fair and accurate decisions, not safety", "It is too expensive for most amateur clubs to install and maintain properly", "It has exactly the same safety purpose in every sport as an instrumented mouthguard"],
+                ans: 1,
+                explain: "Goal-line technology supports officiating decisions, not player safety, so using it as a safety example answers a different question and would not be credited here."
+            }
+        }
+    ];
+
+    const examTips = [
+        {
+            type: "tip",
+            title: "Command words for this topic — what each one wants",
+            pills: ["Identify", "State", "Describe", "Explain"],
+            content: `<p>Safety-technology questions are usually short recall or short application. Match your answer length to the command word:</p>
+<ul>
+<li><strong>Identify / State</strong> — just name it. "State one piece of technology used to increase safety" = one named example, nothing more. 1 mark.</li>
+<li><strong>Describe</strong> — say what it is or does. "Describe how an instrumented mouthguard increases safety" = explain what the sensor detects.</li>
+<li><strong>Explain</strong> — give a reason, using the word <em>because</em>. "Explain why a 3G pitch is safer than an old artificial pitch" = the feature <em>plus</em> the injury it reduces.</li>
+</ul>
+<p><strong>Read the mark tariff:</strong> [1] wants one named example; [2–4] wants the example PLUS how it works or why it helps; higher tariffs in Section B/C want it applied to a named sport or scenario.</p>`,
+            readCheck: {
+                q: "A question says: 'Identify one piece of technology that can increase safety in sport [1]'. What is the safest answer?",
+                opts: ["A full paragraph explaining several different technologies", "One named piece of technology", "A list of every safety technology you can remember", "An explanation of how officiating technology works instead"],
+                ans: 1,
+                explain: "'Identify' + [1] wants one named example. A long explanation, a long list, or an officiating example all waste the mark or answer the wrong question."
+            }
+        },
+        {
+            type: "tip",
+            title: "The golden rule: name the sport AND the specific safety benefit",
+            pills: ["Section A", "Section B", "AO2"],
+            content: `<p>The most common way to lose marks here is staying vague. Build every answer as <strong>technology → sport → specific benefit</strong>:</p>
+<ul>
+<li><strong>❌ 0–1 marks:</strong> "Technology makes sport safer."</li>
+<li><strong>✅ full marks:</strong> "An instrumented mouthguard in rugby union measures the force of a head impact and alerts side-line staff to check the player."</li>
+</ul>
+<p>In <strong>Section B</strong> you will usually be given a scenario. Use a detail <em>from that scenario</em> — the sport it names, the problem it describes — rather than a generic example.</p>`,
+            readCheck: {
+                q: "In a Section B scenario about a specific club or sport, your safety-technology example should come from...",
+                opts: ["any sport you happen to prefer, regardless of the scenario", "the scenario you are actually given", "a piece of officiating technology instead", "a technology that improves performance rather than safety"],
+                ans: 1,
+                explain: "Section B rewards applying your knowledge to the scenario given, not a generic or unrelated example."
+            }
+        },
+        {
+            type: "tip",
+            title: "Where this topic appears + sentence starters",
+            pills: ["Section A", "Section B", "Section C"],
+            content: `<p><strong>Where it shows up:</strong> safety technology appears as quick recall in <strong>Section A</strong> (name a technology, name a benefit), as an applied point in <strong>Section B</strong> scenarios about a club or performer, and it can feed a <strong>Section C</strong> discussion on how effective technology has been for a sport overall.</p>
+<p><strong>Three punchy tips:</strong></p>
+<ul>
+<li>Keep a mental list of three types: protective equipment, safer surfaces/equipment design, and detection/monitoring technology — you can always pull an example from one of the three.</li>
+<li>Never let a safety answer drift into officiating (video review, goal-line technology) — that is a different page's content and will not be credited.</li>
+<li>Remember protective equipment reduces some injuries but does not remove all risk — that is a strong evaluation point for a longer answer.</li>
+</ul>
+<p><strong>Sentence starters for a longer answer:</strong></p>
+<ul>
+<li>"One way technology increases safety in this sport is… because…"</li>
+<li>"This matters because, without it, a performer would risk…"</li>
+<li>"However, this technology does not remove every risk, because…"</li>
+</ul>`,
+            readCheck: {
+                q: "Why is 'protective equipment reduces some injuries but not all risk' a useful evaluation point?",
+                opts: ["It shows understanding that safety technology has real limits, not just benefits", "It proves that safety technology should never be used in any sport at all, under any circumstances", "It fills space without adding anything useful to the answer", "It replaces the need to name any technology in the answer"],
+                ans: 0,
+                explain: "Noticing the limits of a technology (not just its benefit) shows deeper understanding — exactly the kind of point that lifts a Section C answer beyond a simple list."
+            }
+        }
+    ];
+
+    const flashcards = [
+        { term: "Safety technology", def: "Technology designed to reduce the likelihood or severity of injury to performers" },
+        { term: "Instrumented mouthguard", def: "Sensor-fitted mouthguard measuring head-impact force, alerting side-line staff" },
+        { term: "Shock-absorbing helmet", def: "Headwear with an energy-absorbing liner that lowers force reaching the skull" },
+        { term: "3G/4G playing surface", def: "Artificial pitch with a cushioned layer that reduces impact on joints" },
+        { term: "HANS device", def: "Motorsport equipment restraining the head and neck in a high-speed crash" },
+        { term: "Heart-rate / GPS monitor", def: "Wearable tracking workload so fatigue or overtraining is caught early" }
+    ];
+
+    const examQuestions = [
+        {
+            num: "1",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: "State <strong>two</strong> different pieces of technology that can be used to increase the safety of participants in sport.",
+            hint: "Name two — pick from protective equipment, safer surfaces/equipment design, or detection/monitoring technology (for example an instrumented mouthguard, a 3G pitch, a HANS device).",
+            starter: "One piece of technology is… Another is…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1)</h5>
+<p><strong>1 mark for each correct piece of safety technology named, to a maximum of two. Accept any two different examples, including:</strong></p>
+<ul>
+<li>A protective helmet (cycling, cricket, American football)</li>
+<li>Padding (shin pads, body armour, a padded race suit)</li>
+<li>A mouthguard / gum shield</li>
+<li>An instrumented mouthguard / head-impact sensor</li>
+<li>A shock-absorbing 3G/4G playing surface</li>
+<li>A crash mat or landing airbag</li>
+<li>A heart-rate or GPS monitor</li>
+<li>A HANS device</li>
+</ul>
+<p>Do not credit the same example written twice, and do not credit officiating or spectator technology.</p>
+</div>`,
+            modelAnswer: "One piece of technology is an instrumented mouthguard.\n\nAnother is a shock-absorbing 3G playing surface.",
+            markPoints: { note: "One tick per correct, DIFFERENT safety technology; cap at 2. Officiating/spectator examples earn nothing.", groups: [
+                { label: "Your first example", max: 1, points: ["Names a valid safety technology"] },
+                { label: "Your second example", max: 1, points: ["Names a DIFFERENT valid safety technology (not a repeat of the first)"] }
+            ] }
+        },
+        {
+            num: "2",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Which piece of technology mainly reduces the force reaching a cyclist's skull in a fall?",
+            options: ["A GPS and heart-rate monitor", "A shock-absorbing cycling helmet", "A pitch-side video replay screen", "An instrumented mouthguard"],
+            answer: 1,
+            hint: "Think about which item is worn on the head and physically absorbs an impact.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO2)</h5>
+<p><strong>Answer: B — A shock-absorbing cycling helmet.</strong></p>
+<ul>
+<li>The helmet's outer shell and liner absorb and spread the force of a fall, reducing what reaches the skull.</li>
+<li>A GPS/heart-rate monitor and a video replay screen do not absorb any force, and a mouthguard protects the jaw and teeth, not the skull.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "3",
+            marks: 4,
+            type: "written",
+            caseStudy: `<p><strong>Scenario — Ashcombe Rugby Club</strong></p><p>Ashcombe Rugby Club has had several players taken off with suspected head injuries this season. The club committee wants to introduce technology that both protects players during a match and helps staff spot a head injury as soon as it happens.</p>`,
+            question: "Explain how <strong>two</strong> different pieces of technology could help increase the safety of players at Ashcombe Rugby Club.",
+            hint: "Pick one piece of protective equipment and one detection/monitoring technology. For each, say what it does and how it meets the club's problem in the scenario (protection during play, and spotting a head injury quickly).",
+            starter: "One piece of technology Ashcombe could use is… which would…\n\nAnother is… which would…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (AO2: application)</h5>
+<p><strong>Up to 2 marks per technology: 1 for naming a relevant technology, 1 for explaining how it meets the club's problem using the scenario. Answers may include:</strong></p>
+<ul>
+<li><strong>Protective equipment</strong> — a well-fitted scrum cap and mouthguard would cushion impacts to the head and face during matches, reducing cuts and jaw/teeth injuries (though not removing all head-injury risk).</li>
+<li><strong>Detection technology</strong> — an instrumented mouthguard or scrum-cap sensor would measure the force of any head impact and alert side-line staff immediately, so a player showing warning signs is checked straight away rather than staying on the pitch.</li>
+</ul>
+<p>Accept any other reasonable, applied answer (e.g. a structured pitch-side head-injury check). A technology named with no link to the scenario earns 1 of the 2 marks for that item.</p>
+</div>`,
+            modelAnswer: "Ashcombe could introduce a scrum cap and mouthguard for every player, cushioning impacts to the head and face and reducing cuts and jaw injuries during matches.\n\nThe club could also fit instrumented mouthguards with impact sensors, which measure the force of any blow to the head and alert side-line staff straight away, so a player who has taken a heavy hit is checked immediately rather than being left on the pitch.",
+            markPoints: { note: "Mark each technology out of 2: one tick for naming it, one for linking it to the club's problem in the scenario.", groups: [
+                { label: "Your first technology", max: 2, points: ["Names a relevant safety technology (e.g. a scrum cap/mouthguard, or padding)", "Explains how it addresses the scenario (e.g. cushions head/face impacts during matches)"] },
+                { label: "Your second technology", max: 2, points: ["Names a DIFFERENT relevant safety technology (e.g. an instrumented mouthguard/sensor)", "Explains how it addresses the scenario (e.g. alerts staff to a head injury immediately, instead of it going unnoticed)"] }
+            ] }
+        },
+        {
+            num: "4",
+            marks: 8,
+            type: "written",
+            format: "banded",
+            caseStudy: `<p><strong>Scenario — Ashcombe Rugby Club</strong></p><p>After introducing new protective equipment and head-impact sensors, Ashcombe Rugby Club's committee wants to know how effective this technology has really been in keeping players safe, before deciding whether to invest further.</p>`,
+            question: "Discuss how effective the use of technology has been in increasing the safety of participants in a sport such as rugby union.",
+            hint: "Cover more than one type of technology (protective equipment AND detection/monitoring). For each, say what it achieves, then weigh up its limits. Finish with a judgement on how effective technology really is overall.",
+            starter: "One piece of technology used is… which increases safety by…\n\nAnother is…\n\nHowever, the extent to which this fully removes risk depends on…\n\nOverall, …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 8 marks (level-of-response). Read the band you fit, then pick a mark.</h5>
+<ul>
+<li><strong>Band 3 (thorough), 6–8:</strong> a balanced, well-applied discussion of more than one type of safety technology, showing clearly how each increases safety AND weighing its real limits, ending in a justified judgement.</li>
+<li><strong>Band 2 (reasonable), 3–5:</strong> sound understanding applied to more than one technology with some analysis, but the discussion may be one-sided or the judgement unsupported.</li>
+<li><strong>Band 1 (basic), 1–2:</strong> names technology with little explanation and no real evaluation; largely a list.</li>
+<li><strong>0 marks:</strong> nothing creditworthy.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Indicative content (indicative, not a checklist — reward valid alternatives)</h5>
+<ul>
+<li><strong>Protective equipment (scrum caps, mouthguards, padding):</strong> cushions impacts and reduces cuts, fractures and jaw/teeth injury during a collision-heavy sport.</li>
+<li><strong>Detection/monitoring technology (instrumented mouthguards, pitch-side head-injury checks):</strong> catches a head impact or worrying symptom quickly, so a player is not left on the pitch after a serious blow.</li>
+<li><strong>Safer surfaces/equipment design:</strong> a well-maintained, shock-absorbing surface reduces the impact of a heavy fall or tackle.</li>
+<li><strong>Evaluation:</strong> protective equipment does not remove concussion risk on its own, so it works best alongside detection technology; monitoring only helps if staff act on the alert; smaller or lower-budget clubs may not be able to afford every piece of technology, limiting how far the benefit reaches.</li>
+<li><strong>Judgement:</strong> technology is genuinely effective because it both reduces certain impacts AND catches head injuries faster than relying on a player self-reporting — but it is not a complete solution, since no piece of equipment removes all risk, and its benefit depends on being affordable and actually used correctly by every club.</li>
+</ul>
+</div>`,
+            modelAnswer: "Technology increases safety in several ways. Protective equipment such as scrum caps, mouthguards and padding cushions impacts, reducing cuts, fractures and jaw injuries in a physical, collision-heavy sport. Detection technology, like an instrumented mouthguard, measures the force of a head impact and alerts side-line staff immediately, so an injured player is checked rather than staying on the pitch.\n\nHowever, this does not remove every risk. Protective equipment alone gives little protection against concussion, and monitoring only helps if staff act on the alert straight away. Smaller clubs may also struggle to afford every piece of equipment, limiting how widely the benefit reaches.\n\nOverall, technology is genuinely effective because it reduces certain injuries and catches head impacts faster than relying on a player to report symptoms themselves — but it works best as a combination of equipment and detection, not as a single guaranteed fix."
+        }
+    ];
+</script>
+    <script src="/cs-lab/exam-widgets.js"></script>
+    <script src="/script.js"></script>
+<script src="section-totals.js"></script>
+<script src="page-groups.js"></script>
+<script src="/progress-shared.js"></script>
+<script src="/gamification.js"></script>
+<script src="/topic-guard.js"></script>
+<script src="/notifications-shared.js"></script>
+<script src="/onboarding-tour.js"></script>
+<script src="/footer-legal.js"></script>
+</body>
+
+</html>

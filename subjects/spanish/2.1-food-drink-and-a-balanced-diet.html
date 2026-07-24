@@ -15,6 +15,7 @@
       .vocab-tbl{width:100%;border-collapse:collapse;margin:8px 0}
       .vocab-tbl td{border-bottom:1px solid var(--line,#e4e8f0);padding:6px 8px;vertical-align:top}
       .vocab-tbl td:first-child{font-weight:600;white-space:nowrap}
+      @container (max-width:640px){.vocab-tbl,.vocab-tbl tbody,.vocab-tbl tr,.vocab-tbl td{display:block;width:100%}.vocab-tbl td{border-bottom:none;padding:4px 0;white-space:normal}.vocab-tbl td:nth-child(2n){padding-bottom:10px;border-bottom:1px solid var(--line,#e4e8f0);margin-bottom:6px}}
       .tier-h{display:inline-block;font-size:.72em;font-weight:700;color:#8a5a00;
         background:#fff3d6;border-radius:5px;padding:1px 5px;margin-left:5px;vertical-align:middle}
     </style>
@@ -177,7 +178,14 @@
               <tr><td><span data-say="el agua">el agua</span></td><td>water</td><td><span data-say="la leche">la leche</span></td><td>milk</td></tr>
               <tr><td><span data-say="el azúcar">el azúcar</span></td><td>sugar</td><td><span data-say="la grasa">la grasa</span></td><td>fat</td></tr>
             </table>
-            <p>Two useful meal words: <span data-say="el desayuno">el desayuno</span> (breakfast) and <span data-say="la cena">la cena</span> (dinner).</p>`,
+            <p>Two useful meal words: <span data-say="el desayuno">el desayuno</span> (breakfast) and <span data-say="la cena">la cena</span> (dinner).</p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="el alimento">el alimento</span></td><td>food(stuff)</td><td><span data-say="el vaso">el vaso</span></td><td>glass</td></tr>
+              <tr><td><span data-say="la botella">la botella</span></td><td>bottle</td><td><span data-say="la sed">la sed</span></td><td>thirst</td></tr>
+              <tr><td><span data-say="vegetariano">vegetariano / vegetariana</span></td><td>vegetarian</td><td><span data-say="vegano">vegano / vegana</span></td><td>vegan</td></tr>
+            </table>
+            <p>Two more useful words: <span data-say="el diente">el diente</span> (tooth) — <span data-say="El azúcar es malo para los dientes.">El azúcar es malo para los dientes.</span> (Sugar is bad for your teeth) — and <span data-say="tener sed">tener sed</span> (to be thirsty): <span data-say="Cuando tengo sed, bebo un vaso de agua.">Cuando tengo sed, bebo un vaso de agua.</span></p>
+            <p>When we eat out, everyone often has to <span data-say="traer">traer</span> something — <span data-say="Voy a traer una ensalada a la fiesta.">Voy a traer una ensalada a la fiesta.</span> (I'm going to bring a salad to the party.) It's also important to <span data-say="incluir">incluir</span> vegetables in every meal: <span data-say="Intento incluir verduras en cada comida.">Intento incluir verduras en cada comida.</span> (I try to include vegetables in every meal.)</p>`,
             readCheck: { q: "Which pair means ‘fruit and vegetables’?", opts: ["la fruta y las verduras", "las legumbres y el pescado", "la carne y el queso", "el agua y la leche"], ans: 0, explain: "la fruta = fruit, las verduras = vegetables. B mixes pulses and fish; C is meat and cheese." }
         },
         {
@@ -189,7 +197,10 @@
               <li><span data-say="bueno para la salud">bueno para la salud</span> = good for your health</li>
               <li><span data-say="malo para la salud">malo para la salud</span> = bad for your health</li>
             </ul>
-            <p>Model sentence: <span data-say="Como una dieta equilibrada porque es buena para la salud.">Como una dieta equilibrada porque es buena para la salud.</span> — <em>I eat a balanced diet because it is good for your health.</em></p>`,
+            <p>Model sentence: <span data-say="Como una dieta equilibrada porque es buena para la salud.">Como una dieta equilibrada porque es buena para la salud.</span> — <em>I eat a balanced diet because it is good for your health.</em></p>
+            <p>We can also talk about <span data-say="nuestra dieta">nuestra dieta</span> (our diet), and use <span data-say="un régimen alimenticio">un régimen (alimenticio)</span> — <em>a diet / eating regime</em> — as another way to say “diet”. <span data-say="Seguir un régimen puede ser complicado al principio.">Seguir un régimen puede ser complicado al principio.</span> — <em>Following a diet/regime can be complicated at first.</em></p>
+            <p>Doctors recommend reducing <span data-say="el consumo de azúcar">el consumo de azúcar</span> (sugar consumption), because too much can lead to <span data-say="el sobrepeso">el sobrepeso</span> (being overweight). <span data-say="Dentro de una dieta equilibrada, se puede comer un poco de chocolate.">Dentro de una dieta equilibrada, se puede comer un poco de chocolate.</span> — <em>Within a balanced diet, you can eat a little chocolate.</em></p>
+            <p>Before buying, it's a good idea to <span data-say="mirar la etiqueta">mirar la etiqueta</span> (look at the label) to see how much sugar it contains. Within a balanced diet, <span data-say="te puedes permitir un capricho de vez en cuando">te puedes permitir un capricho de vez en cuando</span> — <em>you can allow yourself a treat now and then.</em></p>`,
             readCheck: { q: "Why does ‘equilibrada’ end in ‑a?", opts: ["It agrees with the feminine noun ‘dieta’", "It must copy the last letter of the word before it", "It is a verb ending", "It marks the plural"], ans: 0, explain: "Adjectives agree in gender and number with their noun: dieta is feminine singular → equilibrada (not a rule about the previous word)." }
         },
         {
@@ -206,7 +217,8 @@
               <li><span data-say="Se debe comer más fruta.">Se debe comer más fruta.</span> — One should eat more fruit.</li>
               <li><span data-say="No se debe comer demasiada grasa.">No se debe comer demasiada grasa.</span> — One must not eat too much fat.</li>
               <li><span data-say="Hay que beber mucha agua.">Hay que beber mucha agua.</span> — You have to drink lots of water.</li>
-            </ul>`,
+            </ul>
+            <p>Advice often mentions a <span data-say="el límite">el límite</span> (limit): <span data-say="Hay un límite de azúcar recomendado al día.">Hay un límite de azúcar recomendado al día.</span> — <em>There is a recommended sugar limit per day.</em> Some people have <span data-say="una reacción alérgica">una reacción alérgica</span> (an allergic reaction) to certain foods, so it is important to check the label.</p>`,
             readCheck: { q: "What kind of word follows ‘se debe’, ‘no se debe’ and ‘hay que’?", opts: ["an infinitive verb", "a fully conjugated past-tense verb", "a plural noun", "an adjective"], ans: 0, explain: "All three advice structures are followed by an infinitive (comer, beber, evitar…), never a conjugated form." }
         },
         {
@@ -218,7 +230,8 @@
               <li><span data-say="Voy a evitar la comida rápida.">Voy a evitar la comida rápida.</span> — I am going to avoid fast food.</li>
               <li><span data-say="Voy a beber menos azúcar.">Voy a beber menos azúcar.</span> — I am going to have less sugar.</li>
             </ul>
-            <p><strong>evitar</strong> = to avoid, <strong>la comida rápida</strong> = fast food. Add a time phrase to extend: <span data-say="todos los días">todos los días</span> (every day), <span data-say="a menudo">a menudo</span> (often).</p>`,
+            <p><strong>evitar</strong> = to avoid, <strong>la comida rápida</strong> = fast food. Add a time phrase to extend: <span data-say="todos los días">todos los días</span> (every day), <span data-say="a menudo">a menudo</span> (often).</p>
+            <p>You can add a month too: <span data-say="en mayo">en mayo</span> (in May), <span data-say="en julio">en julio</span> (in July), <span data-say="en noviembre">en noviembre</span> (in November) — for example: <span data-say="En julio como mucha fruta de temporada, pero en noviembre como más sopa.">En julio como mucha fruta de temporada, pero en noviembre como más sopa.</span> — <em>In July I eat a lot of seasonal fruit, but in November I eat more soup.</em> <span data-say="Probablemente voy a comer menos azúcar el año que viene.">Probablemente voy a comer menos azúcar el año que viene.</span> — <em>I am probably going to eat less sugar next year.</em></p>`,
             readCheck: { q: "How do you say ‘I am going to avoid fast food’?", opts: ["Voy a evitar la comida rápida", "Se debe evitar la comida rápida", "Evito la comida rápida", "Hay que evitar la comida rápida"], ans: 0, explain: "voy a + infinitive = a future plan; ‘I am going to avoid’ = Voy a evitar." }
         },
         {
@@ -230,7 +243,9 @@
               <li><span data-say="Me gustan las verduras.">Me gustan las verduras.</span> — I like vegetables. <em>(plural → gusta<strong>n</strong>)</em></li>
               <li><span data-say="Prefiero el pescado.">Prefiero el pescado.</span> — I prefer fish.</li>
             </ul>
-            <p>Connectors: <span data-say="porque">porque</span> (because), <span data-say="pero">pero</span> (but), <span data-say="también">también</span> (also). Example: <span data-say="Me gusta la carne, pero no como carne todos los días porque es mala para la salud.">Me gusta la carne, pero no como carne todos los días porque es mala para la salud.</span></p>`,
+            <p>Connectors: <span data-say="porque">porque</span> (because), <span data-say="pero">pero</span> (but), <span data-say="también">también</span> (also). Example: <span data-say="Me gusta la carne, pero no como carne todos los días porque es mala para la salud.">Me gusta la carne, pero no como carne todos los días porque es mala para la salud.</span></p>
+            <p><span data-say="Es extraño, pero no me gusta la fruta.">Es extraño, pero no me gusta la fruta.</span> — <em>It’s strange, but I don’t like fruit.</em> In some <span data-say="casos">casos</span> (cases), people prefer <span data-say="el segundo plato">el segundo plato</span> (the second course) to the first. <span data-say="En la comida anterior comí demasiada grasa, así que hoy prefiero algo más ligero.">En la comida anterior comí demasiada grasa, así que hoy prefiero algo más ligero.</span> — <em>In the previous meal I ate too much fat, so today I prefer something lighter.</em></p>
+            <p>I also like to <span data-say="acompañar la carne con verduras">acompañar la carne con verduras</span> — <em>accompany meat with vegetables</em> — and above all I want to <span data-say="disfrutar de la comida">disfrutar de la comida</span> — <em>enjoy the food</em> — instead of eating in a rush.</p>`,
             readCheck: { q: "Why is it ‘Me gustan las verduras’ (not ‘gusta’)?", opts: ["verduras is plural, so the verb agrees", "it expresses a future plan, not a preference", "verduras is a feminine singular noun here", "it is simply someone’s opinion"], ans: 0, explain: "gustar agrees with the THING liked; verduras is plural → gustan (nothing to do with plans or opinions)." }
         },
         {
@@ -242,7 +257,9 @@
               <li><span data-say="Lo más importante es llevar una dieta variada.">Lo más importante es llevar una dieta variada.</span> — The most important thing is to have a varied diet. <span class="tier-h">H</span></li>
               <li><span data-say="Aunque me gusta el chocolate, intento comer sano.">Aunque me gusta el chocolate, intento comer sano.</span> — Although I like chocolate, I try to eat healthily. <span class="tier-h">H</span></li>
             </ul>
-            <p>Aim for: <strong>opinion + reason + connector + a second tense</strong> in one sentence.</p>`,
+            <p>Aim for: <strong>opinion + reason + connector + a second tense</strong> in one sentence.</p>
+            <p><span class="tier-h">H</span> Compare people’s diets: <span data-say="Mi dieta es vegetariana; la suya es vegana.">Mi dieta es vegetariana; la suya es vegana.</span> — <em>My diet is vegetarian; theirs/his/hers is vegan.</em> <span data-say="Claro, cada persona tiene su propia opinión.">Claro, cada persona tiene su propia opinión.</span> — <em>Of course, everyone has their own opinion.</em> <span data-say="Desde mi juventud, intento comer sano, y el aceite de oliva es el tercer ingrediente más importante de mi dieta.">Desde mi juventud, intento comer sano, y el aceite de oliva es el tercer ingrediente más importante de mi dieta.</span> — <em>Since my youth, I have tried to eat healthily, and olive oil is the third most important ingredient in my diet.</em> <span class="tier-h">H</span></p>
+            <p><span class="tier-h">H</span> <span data-say="¿Te atreves a probar algo nuevo?">¿Te atreves a probar algo nuevo?</span> — <em>Do you dare to try something new?</em> And I'm always <span data-say="me alegro de comer sano">me alegro de comer sano</span> — <em>glad to eat healthily.</em> <span class="tier-h">H</span></p>`,
             readCheck: { q: "Which sentence shows a typically Higher-tier feature?", opts: ["Se debería reducir el azúcar", "Me gusta mucho la fruta fresca del país", "Como pan casi todos los días", "Bebo bastante agua con las comidas"], ans: 0, explain: "‘se debería’ is a conditional — a Higher feature. Option B is longer but only present-tense opinion." }
         }
     ];
@@ -262,7 +279,14 @@
         { q: "In ‘Voy a evitar la comida rápida’, ‘evitar’ means to…", opts: ["avoid", "prepare it quickly", "cut down on it", "order it less often"], ans: 0, explain: "evitar = to avoid. The longer options are tempting ‘sort of healthy’ ideas, but none means avoid." },
         { q: "‘Bebo mucha ___.’ — which word fits BOTH the grammar and ‘I drink lots of water’?", opts: ["agua", "leche", "zumo", "café con leche"], ans: 0, explain: "‘mucha’ is feminine, so leche/agua both fit grammatically — but only ‘agua’ = water. zumo is masculine (mucho zumo)." },
         { q: "Which word means ‘because’ (gives a reason)?", opts: ["porque", "aunque", "también", "pero"], ans: 0, explain: "porque = because. ‘aunque’ (although) is the closest trap; también = also; pero = but." },
-        { q: "Why is ‘Se debería reducir el azúcar’ a strong Higher-tier phrase?", opts: ["It uses the conditional", "It is in the present tense", "It gives a direct command", "It describes a completed past action"], ans: 0, explain: "‘se debería’ = one should (conditional) — a Higher feature. The traps name other tenses/moods of similar length." }
+        { q: "Why is ‘Se debería reducir el azúcar’ a strong Higher-tier phrase?", opts: ["It uses the conditional", "It is in the present tense", "It gives a direct command", "It describes a completed past action"], ans: 0, explain: "‘se debería’ = one should (conditional) — a Higher feature. The traps name other tenses/moods of similar length." },
+        { q: "What is true about ‘vegano’ and ‘vegetariano’?", opts: ["vegano is stricter than vegetariano", "vegetariano never eats cheese, eggs or milk, only vegano does", "vegano and vegetariano are just two spellings of the same word", "vegetariano is the stricter of the two and avoids all animal products"], ans: 0, explain: "A vegano avoids ALL animal products; a vegetariano may still eat cheese, eggs or milk — the traps swap which one is stricter or claim they are synonyms." },
+        { q: "‘un régimen (alimenticio)’ is another way of saying…", opts: ["a diet", "a military base", "a type of exercise", "a medical prescription"], ans: 0, explain: "régimen (alimenticio) = an eating regime/diet. The distractors are false-friend guesses from ‘régimen’ sounding like ‘regiment’ or ‘regimen’ in English." },
+        { q: "‘el sobrepeso’ means…", opts: ["being overweight", "losing weight quickly", "having a big appetite", "feeling very hungry"], ans: 0, explain: "el sobrepeso = being overweight (sobre = over + peso = weight). It is a state, not an action like losing weight or a feeling like hunger." },
+        { q: "‘una reacción alérgica a un alimento’ means…", opts: ["an allergic reaction to a food", "a strong preference for a food", "a diet based around one food", "a recipe using a rare food"], ans: 0, explain: "reacción alérgica = allergic reaction; alimento = food. The traps reinterpret ‘reacción’ as a preference or turn ‘alimento’ into a recipe/diet." },
+        { q: "Which sentence gives good advice about ‘el consumo de azúcar’?", opts: ["Se debe reducir el consumo de azúcar", "Se debe aumentar el consumo de azúcar todos los días", "No importa cuánto azúcar consumas", "El consumo de azúcar no afecta a la salud"], ans: 0, explain: "Good advice = reduce sugar consumption. The traps tell you to increase it, ignore it, or claim it has no effect on health." },
+        { q: "‘Quiero disfrutar de la comida’ means…", opts: ["I want to enjoy the food", "I want to finish the food quickly", "I want to share the food with everyone", "I want to complain about the food"], ans: 0, explain: "disfrutar (de) = to enjoy. The traps invent a rush, a share-out or a complaint that was never mentioned." },
+        { q: "‘¿Te atreves a probar algo nuevo?’ asks…", opts: ["Whether you dare to try something new", "Whether you have already tried something new", "Whether you like trying new restaurants", "Whether you are afraid of new food"], ans: 0, explain: "atreverse a = to dare to. The traps shift it to the past, to restaurants, or reverse it into fear." }
     ];
 
     const matchData = [
@@ -277,7 +301,27 @@
         { term: "voy a comer", def: "I am going to eat" },
         { term: "evitar", def: "to avoid" },
         { term: "bueno para la salud", def: "good for your health" },
-        { term: "todos los días", def: "every day" }
+        { term: "todos los días", def: "every day" },
+        { term: "el alimento", def: "food(stuff)" },
+        { term: "el vaso", def: "glass" },
+        { term: "la botella", def: "bottle" },
+        { term: "la sed", def: "thirst" },
+        { term: "vegetariano/a", def: "vegetarian" },
+        { term: "vegano/a", def: "vegan" },
+        { term: "el diente", def: "tooth" },
+        { term: "un régimen", def: "a diet / regime" },
+        { term: "el consumo", def: "consumption" },
+        { term: "el sobrepeso", def: "being overweight" },
+        { term: "el límite", def: "limit" },
+        { term: "una reacción alérgica", def: "an allergic reaction" },
+        { term: "mirar la etiqueta", def: "to look at the label" },
+        { term: "permitirse un capricho", def: "to allow yourself a treat" },
+        { term: "traer", def: "to bring" },
+        { term: "incluir", def: "to include" },
+        { term: "acompañar", def: "to accompany / go with" },
+        { term: "disfrutar", def: "to enjoy" },
+        { term: "atreverse a", def: "to dare to" },
+        { term: "alegrarse (de)", def: "to be glad (about)" }
     ];
 
     // FIB — mix of grammar gap-fill and DICTATION rows (🔊 plays the whole sentence,
@@ -289,9 +333,15 @@
         { display: `Me _____ las verduras. (I like vegetables — plural!)`, blanks: { B1: "gustan" } },
         { display: `Como una dieta _____. (balanced)`, blanks: { B1: "equilibrada" } },
         { display: `No se debe comer demasiado _____. (sugar)`, blanks: { B1: "azúcar" } },
-        { display: `Prefiero el pescado _____ es bueno para la salud. (because)`, blanks: { B1: "porque" } }
+        { display: `Prefiero el pescado _____ es bueno para la salud. (because)`, blanks: { B1: "porque" } },
+        { display: `Bebo un _____ de agua cuando tengo sed. <span data-say="Bebo un vaso de agua cuando tengo sed." data-listen>Bebo un vaso de agua cuando tengo sed.</span>`, blanks: { B1: "vaso" } },
+        { display: `Soy _____. No como ningún producto animal. (vegan, masculine)`, blanks: { B1: "vegano" } },
+        { display: `Hay un _____ de azúcar recomendado al día. (limit)`, blanks: { B1: "límite" } },
+        { display: `Voy a _____ una ensalada a la fiesta. <span data-say="Voy a traer una ensalada a la fiesta." data-listen>Voy a traer una ensalada a la fiesta.</span>`, blanks: { B1: "traer" } },
+        { display: `Intento _____ verduras en cada comida. (to include)`, blanks: { B1: "incluir" } },
+        { display: `Antes de comprar, hay que _____ la etiqueta. (to look at)`, blanks: { B1: "mirar" } }
     ];
-    const fibWords = ["debe", "evitar", "agua", "gustan", "equilibrada", "azúcar", "porque"];
+    const fibWords = ["debe", "evitar", "agua", "gustan", "equilibrada", "azúcar", "porque", "vaso", "vegano", "límite", "traer", "incluir", "mirar"];
 
     const tfData = [
         { statement: "‘una dieta equilibrada’ means ‘a balanced diet’.", answer: true, explanation: "equilibrada = balanced." },
@@ -301,7 +351,13 @@
         { statement: "‘voy a comer’ describes a future plan.", answer: true, explanation: "voy a + infinitive = near future." },
         { statement: "‘el azúcar’ means ‘salt’.", answer: false, explanation: "el azúcar = sugar; salt = la sal." },
         { statement: "‘porque’ means ‘but’.", answer: false, explanation: "porque = because; ‘but’ = pero." },
-        { statement: "‘Se debería reducir el azúcar’ uses the conditional and suits Higher tier.", answer: true, explanation: "se debería = one should (conditional)." }
+        { statement: "‘Se debería reducir el azúcar’ uses the conditional and suits Higher tier.", answer: true, explanation: "se debería = one should (conditional)." },
+        { statement: "‘vegetariano’ and ‘vegano’ mean exactly the same thing.", answer: false, explanation: "A vegano avoids all animal products; a vegetariano may still eat eggs, cheese or milk." },
+        { statement: "‘el consumo de azúcar’ means ‘sugar consumption’.", answer: true, explanation: "consumo = consumption." },
+        { statement: "‘tener sed’ means ‘to be hungry’.", answer: false, explanation: "tener sed = to be thirsty; tener hambre = to be hungry." },
+        { statement: "‘permitirse un capricho’ means ‘to allow yourself a treat’.", answer: true, explanation: "permitirse = to allow oneself; un capricho = a treat/indulgence." },
+        { statement: "‘acompañar la carne con verduras’ means to serve meat with vegetables.", answer: true, explanation: "acompañar = to accompany/go with — the vegetables are served alongside the meat." },
+        { statement: "‘Me alegro de comer sano’ means ‘I regret eating healthily’.", answer: false, explanation: "alegrarse (de) = to be glad (about); it means being glad to eat healthily, not regretting it." }
     ];
 
     const miscData = [
@@ -309,7 +365,8 @@
         { wrong: "una dieta equilibrado", correct: "una dieta equilibrada", readCheck: { q: "Why must it be ‘equilibrada’?", opts: ["the adjective agrees with the feminine noun ‘dieta’", "it copies the gender of whichever verb happens to be closest to it", "the masculine form is the safe default", "adjectives only change in the plural"], ans: 0, explain: "Adjectives agree with their noun in gender AND number: dieta is feminine singular → equilibrada." } },
         { wrong: "Se debe comí más fruta.", correct: "Se debe comer más fruta.", readCheck: { q: "What must follow ‘se debe’?", opts: ["an infinitive (comer)", "a verb written in a past tense form", "a plural noun", "an adjective"], ans: 0, explain: "‘se debe’ always takes an infinitive, never a conjugated past form." } },
         { wrong: "Voy comer más verduras.", correct: "Voy a comer más verduras.", readCheck: { q: "What is missing in ‘Voy comer…’?", opts: ["the linking word ‘a’ (voy a + infinitive)", "an accent on the final vowel of the infinitive comer", "the pronoun ‘me’", "the article ‘las’"], ans: 0, explain: "The near future is voy/vas/va + a + infinitive; the ‘a’ is compulsory." } },
-        { wrong: "Como comida sensible.", correct: "Como comida sana.", readCheck: { q: "Why is ‘sensible’ wrong here for ‘healthy’?", opts: ["it is a false friend meaning ‘sensitive’", "it is the plural of an adjective you can’t use", "it is a verb, not an adjective", "it simply needs a written accent"], ans: 0, explain: "False friend: Spanish ‘sensible’ = sensitive. Healthy = sano/sana/saludable." } }
+        { wrong: "Como comida sensible.", correct: "Como comida sana.", readCheck: { q: "Why is ‘sensible’ wrong here for ‘healthy’?", opts: ["it is a false friend meaning ‘sensitive’", "it is the plural of an adjective you can’t use", "it is a verb, not an adjective", "it simply needs a written accent"], ans: 0, explain: "False friend: Spanish ‘sensible’ = sensitive. Healthy = sano/sana/saludable." } },
+        { wrong: "Soy vegano, como queso y huevos.", correct: "Soy vegetariano, como queso y huevos. (Un vegano no come queso, huevos ni ningún otro producto animal.)", readCheck: { q: "Why is ‘Soy vegano, como queso y huevos’ a contradiction?", opts: ["a vegano eats no animal products at all, including cheese and eggs", "vegano and vegetariano are simply two different spellings of one word, so they mean exactly the same thing", "cheese and eggs are not animal products", "vegano only refers to not eating meat, cheese is always fine"], ans: 0, explain: "vegano = vegan (zero animal products, including dairy and eggs); vegetariano can still eat cheese and eggs — the two words are not interchangeable." } }
     ];
 
     const examTips = [
@@ -338,7 +395,42 @@
         { term: "bueno / malo para la salud", def: "good / bad for your health", say: "bueno para la salud, malo para la salud" },
         { term: "porque · pero · también", def: "because · but · also", say: "porque, pero, también" },
         { term: "se debería (H)", def: "one should… (conditional)", say: "se debería reducir" },
-        { term: "aunque (H)", def: "although", say: "aunque" }
+        { term: "aunque (H)", def: "although", say: "aunque" },
+        { term: "el alimento", def: "food, foodstuff", say: "el alimento" },
+        { term: "un régimen (alimenticio)", def: "a diet, eating regime", say: "un régimen alimenticio" },
+        { term: "la juventud", def: "youth", say: "la juventud" },
+        { term: "el diente", def: "tooth", say: "el diente" },
+        { term: "el consumo", def: "consumption", say: "el consumo" },
+        { term: "el vaso", def: "glass", say: "el vaso" },
+        { term: "la botella", def: "bottle", say: "la botella" },
+        { term: "la sed", def: "thirst", say: "la sed" },
+        { term: "el sobrepeso", def: "being overweight", say: "el sobrepeso" },
+        { term: "vegano / vegana", def: "vegan", say: "vegano, vegana" },
+        { term: "vegetariano / vegetariana", def: "vegetarian", say: "vegetariano, vegetariana" },
+        { term: "nuestro, nuestra, nuestros, nuestras", def: "our", say: "nuestra dieta" },
+        { term: "el caso", def: "case", say: "el caso" },
+        { term: "el segundo (plato)", def: "second (course)", say: "el segundo plato" },
+        { term: "tercero / tercer", def: "third", say: "el tercer ingrediente" },
+        { term: "anterior", def: "previous", say: "la comida anterior" },
+        { term: "dentro (de)", def: "inside / within", say: "dentro de" },
+        { term: "julio", def: "July", say: "julio" },
+        { term: "extraño", def: "strange", say: "extraño" },
+        { term: "mayo", def: "May", say: "mayo" },
+        { term: "suyo, suya, suyos, suyas", def: "his / hers / theirs / yours (formal)", say: "la suya" },
+        { term: "el límite", def: "limit", say: "el límite" },
+        { term: "una reacción (alérgica)", def: "an (allergic) reaction", say: "una reacción alérgica" },
+        { term: "noviembre", def: "November", say: "noviembre" },
+        { term: "claro", def: "clearly, of course", say: "claro" },
+        { term: "complicado", def: "complicated", say: "complicado" },
+        { term: "probablemente", def: "probably", say: "probablemente" },
+        { term: "mirar", def: "to look at, watch", say: "mirar" },
+        { term: "permitir; permitirse", def: "to allow; to allow oneself", say: "permitirse un capricho" },
+        { term: "traer", def: "to bring", say: "traer" },
+        { term: "incluir", def: "to include", say: "incluir" },
+        { term: "acompañar", def: "to accompany, go with", say: "acompañar" },
+        { term: "disfrutar", def: "to enjoy", say: "disfrutar" },
+        { term: "atreverse (a)", def: "to dare (to)", say: "atreverse" },
+        { term: "alegrarse (de)", def: "to be glad (about)", say: "alegrarse" }
     ];
 
     const EXAM_CASE_STUDIES = {

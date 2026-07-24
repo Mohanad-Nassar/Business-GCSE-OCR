@@ -4,297 +4,501 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>8.2 Social Media and Online Safety – Interactive Study Guide</title>
+    <title>8.2 Social Media and Online Safety – GCSE Spanish</title>
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
         rel="stylesheet" />
     <link rel="stylesheet" href="/style.css" />
+    <style>
+      /* 🔊 audio-button + Audio-panel styling is injected by /speech.js (shared).
+         Only page-specific styles live here. */
+      .vocab-tbl{width:100%;border-collapse:collapse;margin:8px 0}
+      .vocab-tbl td{border-bottom:1px solid var(--line,#e4e8f0);padding:6px 8px;vertical-align:top}
+      .vocab-tbl td:first-child{font-weight:600;white-space:nowrap}
+      @container (max-width:640px){.vocab-tbl,.vocab-tbl tbody,.vocab-tbl tr,.vocab-tbl td{display:block;width:100%}.vocab-tbl td{border-bottom:none;padding:4px 0;white-space:normal}.vocab-tbl td:nth-child(2n){padding-bottom:10px;border-bottom:1px solid var(--line,#e4e8f0);margin-bottom:6px}}
+      .tier-h{display:inline-block;font-size:.72em;font-weight:700;color:#8a5a00;
+        background:#fff3d6;border-radius:5px;padding:1px 5px;margin-left:5px;vertical-align:middle}
+    </style>
 </head>
 
 <body>
     <header>
         <div>
-            <div class="badge">AQA GCSE Spanish — Theme 3 · 8. Media and Technology</div>
+            <div class="badge">AQA GCSE Spanish (8692) — Theme 3 · 8. Media and Technology</div>
             <h1>8.2 Social Media and Online Safety</h1>
-            <p>Interactive revision guide · Content coming soon</p>
+            <p>Las redes sociales y la seguridad en línea · Interactive study guide</p>
         </div>
         <a href="/index.html" class="home-link">← 🏡 Home</a>
     </header>
 
     <nav class="tab-bar" id="tabBar">
-        <button class="tab-btn active" onclick="switchTab('learn', this)">
-            📚 Key Learning
-        </button>
-        <button class="tab-btn" onclick="switchTab('mcq', this)">
-            ❓ MCQ Quiz
-        </button>
-        <button class="tab-btn" onclick="switchTab('matching', this)">
-            🔗 Matching
-        </button>
-        <button class="tab-btn" onclick="switchTab('fib', this)">
-            ✏️ Fill the Blanks
-        </button>
-        <button class="tab-btn" onclick="switchTab('misconceptions', this)">
-            ⚠️ Misconceptions
-        </button>
-        <button class="tab-btn" onclick="switchTab('examtips', this)">
-            🎯 Exam Tips
-        </button>
-        <button class="tab-btn" onclick="switchTab('flashcards', this)">
-            🃏 Flashcards
-        </button>
-        <button class="tab-btn" onclick="switchTab('truefalse', this)">
-            ✅ True / False
-        </button>
-        <button class="tab-btn" onclick="switchTab('exampractice', this)">
-            📝 Exam Practice
-        </button>
+        <button class="tab-btn active" onclick="switchTab('learn', this)">📚 Key Learning</button>
+        <button class="tab-btn" onclick="switchTab('mcq', this)">❓ MCQ Quiz</button>
+        <button class="tab-btn" onclick="switchTab('matching', this)">🔗 Matching</button>
+        <button class="tab-btn" onclick="switchTab('fib', this)">✏️ Fill the Blanks</button>
+        <button class="tab-btn" onclick="switchTab('misconceptions', this)">⚠️ Misconceptions</button>
+        <button class="tab-btn" onclick="switchTab('examtips', this)">🎯 Exam Tips</button>
+        <button class="tab-btn" onclick="switchTab('flashcards', this)">🃏 Flashcards</button>
+        <button class="tab-btn" onclick="switchTab('truefalse', this)">✅ True / False</button>
+        <button class="tab-btn" onclick="switchTab('exampractice', this)">📝 Exam Practice</button>
     </nav>
 
     <main>
         <div class="tab-panel active" id="tab-learn">
             <h2 class="section-title">Key Learning Topics</h2>
-            <p class="section-sub">Click any card to expand detailed notes.</p>
+            <p class="section-sub">Click any card to expand. Tap 🔊 to hear the Spanish.</p>
             <div class="topic-grid" id="topicGrid"></div>
         </div>
-
         <div class="tab-panel" id="tab-mcq">
             <h2 class="section-title">Multiple Choice Questions</h2>
-            <p class="section-sub">Select an answer to reveal instant feedback.</p>
+            <p class="section-sub">Some questions play audio — tap 🔊 and choose the meaning.</p>
             <div class="score-bar">
-                <div>
-                    <div class="score-num" id="mcqScore">0</div>
-                    <div style="font-size: 12px; color: var(--mid)">
-                        correct answers
-                    </div>
-                </div>
-                <div style="font-size: 13px; color: var(--mid)">
-                    out of <strong id="mcqTotal">0</strong> attempted
-                </div>
+                <div><div class="score-num" id="mcqScore">0</div><div style="font-size:12px;color:var(--mid)">correct answers</div></div>
+                <div style="font-size:13px;color:var(--mid)">out of <strong id="mcqTotal">0</strong> attempted</div>
                 <button class="reset-btn" onclick="resetMCQ()">RESET</button>
             </div>
             <div class="quiz-wrap" id="mcqWrap"></div>
         </div>
-
         <div class="tab-panel" id="tab-matching">
             <h2 class="section-title">Matching Activity</h2>
-            <p class="section-sub">
-                Click a term on the left, then click the matching definition on the
-                right.
-            </p>
-            <div style="margin-bottom: 16px">
-                <div class="score-bar">
-                    <div>
-                        <div class="score-num" id="matchScore">0</div>
-                        <div style="font-size: 12px; color: var(--mid)">matched</div>
-                    </div>
-                    <div style="font-size: 13px; color: var(--mid)">
-                        out of <strong id="matchTotal">0</strong>
-                    </div>
-                    <button class="reset-btn" onclick="resetMatch()">RESET</button>
-                </div>
-            </div>
+            <p class="section-sub">Click a term on the left, then its match on the right.</p>
+            <div style="margin-bottom:16px"><div class="score-bar">
+                <div><div class="score-num" id="matchScore">0</div><div style="font-size:12px;color:var(--mid)">matched</div></div>
+                <div style="font-size:13px;color:var(--mid)">out of <strong id="matchTotal">0</strong></div>
+                <button class="reset-btn" onclick="resetMatch()">RESET</button>
+            </div></div>
             <div class="match-grid">
-                <div>
-                    <div class="match-label">TERMS</div>
-                    <div class="match-col" id="matchLeft"></div>
-                </div>
-                <div>
-                    <div class="match-label">DEFINITIONS</div>
-                    <div class="match-col" id="matchRight"></div>
-                </div>
+                <div><div class="match-label">TERMS</div><div class="match-col" id="matchLeft"></div></div>
+                <div><div class="match-label">DEFINITIONS</div><div class="match-col" id="matchRight"></div></div>
             </div>
         </div>
-
         <div class="tab-panel" id="tab-fib">
             <h2 class="section-title">Fill in the Blanks</h2>
-            <p class="section-sub">
-                Click each dropdown and choose the correct word. Wrong answers reset —
-                try again!
-            </p>
+            <p class="section-sub">Choose the correct word. Dictation rows play audio — tap 🔊, then fill the gap.</p>
             <div class="score-bar">
-                <div>
-                    <div class="score-num" id="fibScore">0</div>
-                    <div style="font-size: 12px; color: var(--mid)">correct</div>
-                </div>
-                <div style="font-size: 13px; color: var(--mid)">
-                    of <strong id="fibTotal">0</strong> blanks
-                </div>
+                <div><div class="score-num" id="fibScore">0</div><div style="font-size:12px;color:var(--mid)">correct</div></div>
+                <div style="font-size:13px;color:var(--mid)">of <strong id="fibTotal">0</strong> blanks</div>
                 <button class="reset-btn" onclick="resetFIB()">RESET</button>
             </div>
             <div class="fib-wrap" id="fibWrap"></div>
         </div>
-
         <div class="tab-panel" id="tab-misconceptions">
             <h2 class="section-title">Common Misconceptions</h2>
-            <p class="section-sub">
-                What students often think — and what examiners actually want.
-            </p>
+            <p class="section-sub">The mistakes GCSE Spanish students make most.</p>
             <div class="misc-list" id="miscList"></div>
         </div>
-
         <div class="tab-panel" id="tab-examtips">
             <h2 class="section-title">Exam Questions &amp; Tips</h2>
-            <p class="section-sub">
-                Most repeated question types and mark-scheme structures from real OCR
-                papers.
-            </p>
+            <p class="section-sub">How each of the four papers rewards this topic.</p>
             <div class="tips-grid" id="tipsGrid"></div>
         </div>
-
         <div class="tab-panel" id="tab-flashcards">
             <h2 class="section-title">Flashcards</h2>
-            <p class="section-sub">
-                Test yourself! Flip the card and rate your knowledge. Review your weak
-                areas at the end.
-            </p>
-
+            <p class="section-sub">Test yourself! Flip the card and rate your knowledge.</p>
             <div class="fc-container">
-                <div class="score-bar" id="fcScoreBar" style="display: none; margin-bottom: 20px">
-                    <div>
-                        <div class="score-num" id="fcKnown" style="color: #2d7a4f">0</div>
-                        <div style="font-size: 12px; color: var(--mid)">known</div>
-                    </div>
-                    <div>
-                        <div class="score-num" id="fcUnknown" style="color: #c84b31">
-                            0
-                        </div>
-                        <div style="font-size: 12px; color: var(--mid)">learning</div>
-                    </div>
-                    <div style="font-size: 13px; color: var(--mid)">
-                        out of <strong id="fcTotalTrack">0</strong>
-                    </div>
+                <div class="score-bar" id="fcScoreBar" style="display:none;margin-bottom:20px">
+                    <div><div class="score-num" id="fcKnown" style="color:#2d7a4f">0</div><div style="font-size:12px;color:var(--mid)">known</div></div>
+                    <div><div class="score-num" id="fcUnknown" style="color:#c84b31">0</div><div style="font-size:12px;color:var(--mid)">learning</div></div>
+                    <div style="font-size:13px;color:var(--mid)">out of <strong id="fcTotalTrack">0</strong></div>
                     <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
                 </div>
-
                 <div id="fcActiveArea">
                     <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
                     <div class="flashcard" id="flashcard" onclick="flipCard()">
                         <div class="fc-inner">
-                            <div class="fc-front">
-                                <div class="fc-label">KEY TERM</div>
-                                <div class="fc-term" id="fcTerm"></div>
-                            </div>
-                            <div class="fc-back">
-                                <div class="fc-def" id="fcDef"></div>
-                            </div>
+                            <div class="fc-front"><div class="fc-label">SPANISH</div><div class="fc-term" id="fcTerm"></div></div>
+                            <div class="fc-back"><div class="fc-def" id="fcDef"></div></div>
                         </div>
                     </div>
                     <p class="fc-hint">👆 Click card to flip</p>
-
                     <div class="fc-nav" id="fcNavDefault">
-                        <button class="fc-btn outline" onclick="prevCard()">
-                            ← Prev
-                        </button>
+                        <button class="fc-btn outline" onclick="prevCard()">← Prev</button>
                         <button class="fc-btn outline" onclick="flipCard()">Flip</button>
                         <button class="fc-btn" onclick="nextCard()">Next →</button>
                     </div>
-
-                    <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px">
-                        <button class="fc-btn outline" style="border-color: #c84b31; color: #c84b31; flex: 1"
-                            onclick="markCard(false)">
-                            ❌ Still Learning
-                        </button>
-                        <button class="fc-btn" style="background: #2d7a4f; border-color: #2d7a4f; flex: 1"
-                            onclick="markCard(true)">
-                            ✅ Got It
-                        </button>
+                    <div class="fc-nav" id="fcNavAssess" style="display:none;gap:15px">
+                        <button class="fc-btn outline" style="border-color:#c84b31;color:#c84b31;flex:1" onclick="markCard(false)">❌ Still Learning</button>
+                        <button class="fc-btn" style="background:#2d7a4f;border-color:#2d7a4f;flex:1" onclick="markCard(true)">✅ Got It</button>
                     </div>
                 </div>
-
-                <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px">
+                <div id="fcSummaryArea" style="display:none;text-align:center;padding:40px 20px">
                     <h3>Session Complete! 🎉</h3>
-                    <p style="margin: 15px 0">
-                        You knew <strong id="fcSummaryKnown">0</strong> out of
-                        <strong id="fcSummaryTotal">0</strong> cards.
-                    </p>
-                    <div style="
-                margin-top: 25px;
-                display: flex;
-                gap: 15px;
-                justify-content: center;
-                flex-wrap: wrap;
-              ">
-                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
-                            style="background: #c84b31; border-color: #c84b31">
-                            Review Incorrect
-                        </button>
-                        <button class="fc-btn outline" onclick="resetFlashcards()">
-                            Practice All Again
-                        </button>
+                    <p style="margin:15px 0">You knew <strong id="fcSummaryKnown">0</strong> out of <strong id="fcSummaryTotal">0</strong> cards.</p>
+                    <div style="margin-top:25px;display:flex;gap:15px;justify-content:center;flex-wrap:wrap">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()" style="background:#c84b31;border-color:#c84b31">Review Incorrect</button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">Practice All Again</button>
                     </div>
                 </div>
             </div>
         </div>
-
         <div class="tab-panel" id="tab-truefalse">
             <h2 class="section-title">True or False?</h2>
-            <p class="section-sub">Test your knowledge with these statements.</p>
+            <p class="section-sub">¿Verdadero o falso?</p>
             <div class="score-bar">
-                <div>
-                    <div class="score-num" id="tfScore">0</div>
-                    <div style="font-size: 12px; color: var(--mid)">correct</div>
-                </div>
-                <div style="font-size: 13px; color: var(--mid)">
-                    of <strong id="tfTotal">0</strong> answered
-                </div>
+                <div><div class="score-num" id="tfScore">0</div><div style="font-size:12px;color:var(--mid)">correct</div></div>
+                <div style="font-size:13px;color:var(--mid)">of <strong id="tfTotal">0</strong> answered</div>
                 <button class="reset-btn" onclick="resetTF()">RESET</button>
             </div>
             <div class="tf-wrap" id="tfWrap"></div>
         </div>
-
         <div class="tab-panel" id="tab-exampractice">
             <h2 class="section-title">Exam Practice Questions</h2>
-            <p class="section-sub">
-                Full exam questions with case studies. Use <strong>Hint</strong>,
-                <strong>Sentence Starter</strong> and
-                <strong>Submit &amp; See Mark Scheme</strong> for each question.
-            </p>
+            <p class="section-sub">Reading comprehension and translation. Use <strong>Hint</strong>, <strong>Sentence Starter</strong> and <strong>Submit &amp; See Mark Scheme</strong>.</p>
             <div class="ep-list" id="epList"></div>
         </div>
     </main>
 
 <script>
-    // ══════════════════════════════════════
-    //  DATA: 8.2 Social Media and Online Safety — placeholder, content not yet written
-    // ══════════════════════════════════════
+    // ══════════════════════════════════════════════════════════════════
+    //  DATA: 8.2 Social media and online safety  (AQA 8692, Theme 3 Topic 2)
+    //  All taught Spanish is on the prescribed wordlist. Audible Spanish carries
+    //  data-say="…"; data-listen makes a prompt audio-only (no transcript shown).
+    //  Higher-tier items marked <span class="tier-h">H</span>. Option-writing follows
+    //  docs/QUESTION-AUTHORING.md (no length tell; distractors = real errors).
+    // ══════════════════════════════════════════════════════════════════
     const pageMeta = {
-            id: '8-2-social-media-and-online-safety',
-            badge: 'AQA GCSE Spanish — Theme 3 · 8. Media and Technology',
-            title: '8.2 Social Media and Online Safety',
-            subtitle: 'Interactive revision guide',
-            subject: 'spanish',
-        };
+        id: '8-2-social-media-and-online-safety',
+        badge: 'AQA GCSE Spanish (8692) — Theme 3 · 8. Media and Technology',
+        title: '8.2 Social Media and Online Safety',
+        subtitle: 'Interactive study guide',
+        subject: 'spanish',
+    };
 
     const topics = [
         {
-            title: "This topic is being written",
-            tag: "Coming soon",
-            content: `<p>🚧 <strong>Content for this topic is on its way.</strong> Key Learning notes, practice questions and exam-style questions for <strong>8.2 Social Media and Online Safety</strong> will appear here soon.</p>`
+            title: "How do I talk about social media?",
+            tag: "Key concept",
+            content: `<p>The key noun is <span data-say="la red social">la red social</span> (the social network) / <span data-say="las redes sociales">las redes sociales</span> (social media). Note: on its own, <strong>‘red’</strong> means <em>network</em>, not the colour red! Tap 🔊 to hear each word.</p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="el perfil">el perfil</span></td><td>profile</td><td><span data-say="publicar">publicar</span></td><td>to post</td></tr>
+              <tr><td><span data-say="compartir">compartir</span></td><td>to share</td><td><span data-say="seguir a">seguir a</span></td><td>to follow</td></tr>
+              <tr><td><span data-say="el seguidor">el seguidor / la seguidora</span></td><td>follower</td><td><span data-say="el mensaje">el mensaje</span></td><td>message</td></tr>
+              <tr><td><span data-say="chatear">chatear</span></td><td>to chat</td><td><span data-say="en línea">en línea</span></td><td>online</td></tr>
+            </table>
+            <p>Model sentence: <span data-say="Publico fotos en mi perfil y sigo a mis amigos.">Publico fotos en mi perfil y sigo a mis amigos.</span> — <em>I post photos on my profile and I follow my friends.</em></p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="el usuario">el usuario / la usuaria</span></td><td>the user</td><td><span data-say="comentar">comentar</span></td><td>to comment</td></tr>
+            </table>
+            <p>Extra: <span data-say="Como usuario, comento las fotos y actualizo mi estado con un emoticón.">Como usuario, comento las fotos y actualizo mi estado con un emoticón.</span> — <em>As a user, I comment on photos and update my status with an emoji.</em></p>`,
+            readCheck: { q: "What does ‘la red social’ mean?", opts: ["a social network", "the colour red used socially", "a social advertisement online", "an online newspaper article"], ans: 0, explain: "la red social = social network. ‘Red’ alone is a false friend here — it means network, not the colour red." }
+        },
+        {
+            title: "What are the advantages of social media?",
+            tag: "Key concept",
+            content: `<p>Reasons people give for using social media:</p>
+            <ul>
+              <li><span data-say="estar en contacto con">estar en contacto con</span> — to be/stay in contact with</li>
+              <li><span data-say="conocer gente">conocer gente</span> — to meet people</li>
+              <li><span data-say="compartir fotos">compartir fotos</span> — to share photos</li>
+              <li><span data-say="es divertido">es divertido</span> — it is fun</li>
+            </ul>
+            <p>Model sentence: <span data-say="Me gusta usar las redes sociales porque puedo estar en contacto con mis amigos y es divertido.">Me gusta usar las redes sociales porque puedo estar en contacto con mis amigos y es divertido.</span> — <em>I like using social media because I can stay in contact with my friends and it is fun.</em></p>
+            <p>Extra: <span data-say="Una sonrisa o un comentario positivo puede cambiar la actitud de una persona.">Una sonrisa o un comentario positivo puede cambiar la actitud de una persona.</span> — <em>A smile or a positive comment can change someone's attitude.</em></p>`,
+            readCheck: { q: "What does ‘estar en contacto con’ mean?", opts: ["to stay in contact with", "to compete against someone", "to argue with a friend online", "to meet somebody only once"], ans: 0, explain: "estar en contacto con = to stay in contact with. The other options invent unrelated meanings." }
+        },
+        {
+            title: "What are the dangers of the internet?",
+            tag: "Exam skill",
+            content: `<p>Important safety vocabulary — the exam rewards recognising these:</p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="el peligro">el peligro</span></td><td>danger</td><td><span data-say="peligroso">peligroso / peligrosa</span></td><td>dangerous</td></tr>
+              <tr><td><span data-say="el ciberacoso">el ciberacoso</span></td><td>cyberbullying</td><td><span data-say="la privacidad">la privacidad</span></td><td>privacy</td></tr>
+              <tr><td><span data-say="los datos personales">los datos personales</span></td><td>personal data</td><td><span data-say="la contraseña">la contraseña</span></td><td>password</td></tr>
+            </table>
+            <p>Model sentence: <span data-say="El ciberacoso es un gran peligro en las redes sociales.">El ciberacoso es un gran peligro en las redes sociales.</span> — <em>Cyberbullying is a big danger on social media.</em></p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="seguro">seguro / segura</span></td><td>safe</td></tr>
+            </table>
+            <p>Extra: <span data-say="Si no tienes cuidado, la consecuencia puede ser un problema serio.">Si no tienes cuidado, la consecuencia puede ser un problema serio.</span> — <em>If you are not careful, the consequence can be a serious problem.</em> Es importante sentirte <span data-say="seguro en línea">seguro</span> en línea. — <em>It's important to feel safe online.</em></p>`,
+            readCheck: { q: "What does ‘el ciberacoso’ mean?", opts: ["cyberbullying", "a computer network fault", "an online friendship request", "a type of internet advertisement"], ans: 0, explain: "el ciberacoso = cyberbullying. The distractors invent unrelated tech meanings." }
+        },
+        {
+            title: "How do I stay safe online?",
+            tag: "Exam skill",
+            content: `<p>Safety verbs and phrases:</p>
+            <ul>
+              <li><span data-say="proteger">proteger</span> — to protect: <span data-say="proteger la contraseña">proteger la contraseña</span> (to protect your password)</li>
+              <li><span data-say="tener cuidado">tener cuidado</span> — to be careful</li>
+              <li><span data-say="pasar demasiado tiempo">pasar demasiado tiempo</span> — to spend too much time</li>
+              <li><span data-say="no compartir datos personales">no compartir datos personales</span> — not to share personal data</li>
+            </ul>
+            <p>Model sentence: <span data-say="Hay que tener cuidado y no se debe compartir datos personales en línea.">Hay que tener cuidado y no se debe compartir datos personales en línea.</span></p>`,
+            readCheck: { q: "What does ‘tener cuidado’ mean?", opts: ["to be careful", "to have a lot of free time", "to take care of a pet", "to feel very tired online"], ans: 0, explain: "tener cuidado = to be careful, a key safety phrase for this topic." }
+        },
+        {
+            title: "How do I give advice about online safety?",
+            tag: "Exam skill",
+            content: `<p>Reuse the advice structures — each is followed by an <strong>infinitive</strong>:</p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="se debe proteger la contraseña">se debe proteger la contraseña</span></td><td>one should protect your password</td></tr>
+              <tr><td><span data-say="no se debe compartir datos personales">no se debe compartir datos personales</span></td><td>one must not share personal data</td></tr>
+              <tr><td><span data-say="hay que tener cuidado">hay que tener cuidado</span></td><td>you have to be careful</td></tr>
+              <tr><td><span data-say="es importante proteger tu contraseña">es importante proteger tu contraseña</span></td><td>it is important to protect your password</td></tr>
+            </table>
+            <p>Example: <span data-say="Es importante proteger tu contraseña y no se debe compartir datos personales.">Es importante proteger tu contraseña y no se debe compartir datos personales.</span></p>
+            <p>Extra: <span data-say="En alguna ocasión, el peor error es compartir tu contraseña.">En alguna ocasión, el peor error es compartir tu contraseña.</span> — <em>On some occasions, the worst mistake is sharing your password.</em></p>`,
+            readCheck: { q: "What follows ‘se debe’, ‘hay que’ and ‘es importante’?", opts: ["an infinitive (proteger, compartir…)", "a verb conjugated in the preterite past tense", "an adjective that must agree", "a noun used completely on its own"], ans: 0, explain: "All three advice structures take an infinitive." }
+        },
+        {
+            title: "Higher: opinions and advice with the subjunctive",
+            tag: "Higher tier",
+            content: `<p><span class="tier-h">H</span> After <strong>es importante que</strong>, the verb changes to the <strong>subjunctive</strong>:</p>
+            <ul>
+              <li><span data-say="es importante que tengas cuidado">es importante que tengas cuidado</span> <span class="tier-h">H</span> — it is important that you are careful (tengas, not tienes)</li>
+              <li><span data-say="es importante que protejas tus datos personales">es importante que protejas tus datos personales</span> <span class="tier-h">H</span></li>
+            </ul>
+            <p>Combine with the conditional for the top band:</p>
+            <ul>
+              <li><span data-say="Se debería tener más cuidado en línea.">Se debería tener más cuidado en línea.</span> <span class="tier-h">H</span> — One should be more careful online.</li>
+            </ul>
+            <p><span class="tier-h">H</span> <span data-say="La privacidad es una cuestión importante y da una buena impresión si tienes cuidado.">La privacidad es una cuestión importante y da una buena impresión si tienes cuidado.</span> — <em>Privacy is an important issue and it gives a good impression if you are careful.</em></p>`,
+            readCheck: { q: "Which sentence correctly uses the subjunctive after ‘es importante que’?", opts: ["Es importante que tengas cuidado", "Es importante que tienes cuidado", "Es importante que tener cuidado", "Es importante que teniendo cuidado"], ans: 0, explain: "es importante que triggers the subjunctive: tengas, not the indicative tienes." }
+        },
+        {
+            title: "More verbs for talking about safety and support online",
+            tag: "Exam skill",
+            content: `<p>These verbs help you describe risks and give more thoughtful advice — tap 🔊:</p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="ocurrir">ocurrir</span></td><td>to occur / to happen</td><td><span data-say="prestar atención">prestar atención</span></td><td>to pay attention</td></tr>
+              <tr><td><span data-say="escaparse">escaparse</span></td><td>to escape / to leak</td><td><span data-say="merecer">merecer</span></td><td>to deserve</td></tr>
+              <tr><td><span data-say="despedirse de">despedirse (de)</span></td><td>to say goodbye (to)</td><td><span data-say="animar">animar</span></td><td>to encourage</td></tr>
+            </table>
+            <p>Model sentences: <span data-say="El ciberacoso puede ocurrir en cualquier momento.">El ciberacoso puede ocurrir en cualquier momento.</span> — <em>Cyberbullying can occur at any moment.</em> <span data-say="Hay que prestar atención a lo que compartes en línea.">Hay que prestar atención a lo que compartes en línea.</span> — <em>You have to pay attention to what you share online.</em></p>
+            <p><span data-say="Si no tienes cuidado, tus datos personales pueden escaparse.">Si no tienes cuidado, tus datos personales pueden escaparse.</span> — <em>If you're not careful, your personal data can leak.</em> <span data-say="Todos merecemos sentirnos seguros en línea.">Todos merecemos sentirnos seguros en línea.</span> — <em>We all deserve to feel safe online.</em></p>
+            <p>Extra: also use <span data-say="guardar un secreto">guardar</span> (to keep) for privacy, not just for saving files: <span data-say="Debes guardar tu contraseña en secreto.">Debes guardar tu contraseña en secreto.</span> — <em>You must keep your password secret.</em> <span data-say="Me despido de mis amigos con un emoticón antes de cerrar la aplicación.">Me despido de mis amigos con un emoticón antes de cerrar la aplicación.</span> — <em>I say goodbye to my friends with an emoji before closing the app.</em> Es importante <span data-say="animar a un amigo que sufre ciberacoso">animar a un amigo que sufre ciberacoso</span>. — <em>It is important to encourage a friend who suffers cyberbullying.</em></p>`,
+            readCheck: { q: "Which verb phrase means ‘to pay attention’?", opts: ["prestar atención", "tener cuidado", "estar en contacto", "sentirse seguro"], ans: 0, explain: "prestar atención = to pay attention. tener cuidado (to be careful), estar en contacto (to stay in contact) and sentirse seguro (to feel safe) are all real safety phrases, but different meanings." }
         }
     ];
 
-    const mcqData = [];
-    const matchData = [];
-    const fibData = [];
-    const fibWords = [];
-    const tfData = [];
-    const miscData = [];
-    const examTips = [];
-    const flashcards = [];
-    const examQuestions = [];
+    const mcqData = [
+        { q: `<span data-say="No se debe compartir datos personales." data-listen></span><br>Listen. What is the advice?`, opts: ["You should not share personal data", "You should always share personal data", "You must always protect your friends", "You should share photos with everyone"], ans: 0, explain: "‘no se debe compartir datos personales’ = you should not share personal data. The traps reverse the negative or swap the object." },
+        { q: `<span data-say="Sigo a muchos famosos en las redes sociales." data-listen></span><br>Listen. What is being said?`, opts: ["I follow lots of celebrities on social media", "I never follow celebrities on social media", "I met lots of celebrities at a concert", "I posted photos of lots of celebrities online"], ans: 0, explain: "‘sigo a muchos famosos’ = I follow lots of celebrities. Trap B negates it; C and D invent different actions." },
+        { q: "What does ‘el ciberacoso’ mean?", opts: ["cyberbullying", "a computer network fault that stops wifi working", "an online friendship request from a stranger", "a type of internet advertisement banner"], ans: 0, explain: "el ciberacoso = cyberbullying. The distractors invent longer, unrelated tech meanings." },
+        { q: "Careful — ‘la red’ on its own (as in ‘la red social’) means…", opts: ["network", "the colour red", "a red warning sign", "a type of red fruit grown in Spain"], ans: 0, explain: "False friend! ‘red’ = network, not the colour red. The obvious guess is the trap." },
+        { q: "Which sentence gives GOOD online safety advice?", opts: ["No se debe compartir datos personales", "Se debe compartir tu contraseña con todos tus amigos", "Se debe compartir datos personales sin cuidado", "No hay que proteger tu contraseña nunca"], ans: 0, explain: "‘no se debe compartir datos personales’ is sound advice; the rest recommend unsafe behaviour." },
+        { q: "Complete: ‘Es importante ___ tu contraseña.’", opts: ["proteger", "protejo", "protegido", "protegiendo"], ans: 0, explain: "‘es importante’ takes an infinitive → proteger. The others are conjugated / non-finite forms." },
+        { q: "What is ‘un seguidor’?", opts: ["a follower", "a private message", "a strong password", "a photo album shared online"], ans: 0, explain: "un seguidor = a follower, from the verb seguir (to follow)." },
+        { q: "‘Paso demasiado tiempo en línea’ means…", opts: ["I spend too much time online", "I never go online at all", "I spend only a little time online", "I spend my time offline with friends"], ans: 0, explain: "‘paso demasiado tiempo en línea’ = I spend too much time online. Every distractor changes the amount or negates it." },
+        { q: "Higher: ‘Es importante que tengas cuidado’ uses which verb form?", opts: ["the subjunctive (tengas)", "the ordinary present tense (tienes)", "the simple future tense (tendrás)", "a direct command form (ten)"], ans: 0, explain: "‘es importante que’ triggers the subjunctive: tengas, not tienes." },
+        { q: "Which describes the safest online habit?", opts: ["proteger la contraseña y no compartir datos personales", "compartir la contraseña con cualquier desconocido que conoces en línea", "publicar todos los datos personales en el perfil", "aceptar como amigo a cualquier desconocido en línea"], ans: 0, explain: "Protecting your password and not sharing personal data is safe practice; the others describe risky behaviour." },
+        { q: "Which word means ‘the user’?", opts: ["el usuario", "el ordenador", "la aplicación", "la tecnología"], ans: 0, explain: "el usuario = the user. The other three are real tech nouns, but they name a device or concept, not a person." },
+        { q: "Which verb means ‘to comment’?", opts: ["comentar", "compartir", "publicar", "chatear"], ans: 0, explain: "comentar = to comment. compartir (to share), publicar (to post) and chatear (to chat) are all real social-media verbs, but different actions." },
+        { q: "Which word means ‘emoji’ or ‘emoticon’?", opts: ["el emoticón", "el comentario", "el mensaje", "el perfil"], ans: 0, explain: "el emoticón = emoji/emoticon. comentario (comment), mensaje (message) and perfil (profile) are all real social-media nouns, but different things." },
+        { q: `<span data-say="Actualizo mi estado con un emoticón divertido." data-listen></span><br>Listen. What does the person update?`, opts: ["their status, with a fun emoji", "their password, with new letters", "their profile picture only", "their list of followers"], ans: 0, explain: "‘actualizo mi estado con un emoticón divertido’ = I update my status with a fun emoji. The traps swap in a password, a photo or a follower list." },
+        { q: "Which sentence means ‘It’s important to feel safe online’?", opts: ["Es importante sentirte seguro en línea", "Es importante sentirte perdido en línea", "Es importante sentirte solo en línea", "Es importante sentirte triste en línea"], ans: 0, explain: "seguro = safe. perdido (lost), solo (alone) and triste (sad) are real feeling-words that fit the same sentence shape, but change the meaning." },
+        { q: "Which word means ‘safe’?", opts: ["seguro", "peligroso", "divertido", "importante"], ans: 0, explain: "seguro = safe. peligroso (dangerous) is its direct opposite — a very common mix-up; divertido (fun) and importante (important) are unrelated." },
+        { q: "Which word means ‘consequence’?", opts: ["la consecuencia", "la preocupación", "el peligro", "el impacto"], ans: 0, explain: "la consecuencia = consequence. preocupación (worry), peligro (danger) and impacto (impact) are all similar abstract nouns about risk, easily confused." },
+        { q: "Which phrase describes ‘the worst mistake’?", opts: ["el peor error", "el mejor error", "el último error", "el mismo error"], ans: 0, explain: "el peor = the worst. el mejor (the best) is the opposite; el último (the last) and el mismo (the same) are other real describing words." },
+        { q: "Which word means ‘occasion’, as in ‘on one occasion’?", opts: ["la ocasión", "la opción", "la ocupación", "la operación"], ans: 0, explain: "la ocasión = occasion. opción (option), ocupación (occupation) and operación (operation) look similar in writing but mean something different." },
+        { q: "Which word means ‘attitude’?", opts: ["la actitud", "la aptitud", "la actividad", "la atención"], ans: 0, explain: "la actitud = attitude. la aptitud (aptitude) is the classic confusable pair; actividad (activity) and atención (attention) look similar too." },
+        { q: "Which word means ‘a smile’?", opts: ["una sonrisa", "una sorpresa", "una sombra", "una sonata"], ans: 0, explain: "una sonrisa = a smile. sorpresa (surprise), sombra (shadow) and sonata (sonata) all start similarly, so read carefully." },
+        { q: "Which word means ‘impression’?", opts: ["la impresión", "la expresión", "la impresora", "la depresión"], ans: 0, explain: "la impresión = impression. la impresora looks almost identical but is a false friend meaning ‘printer’; expresión (expression) and depresión (depression) are other look-alikes." },
+        { q: `<span data-say="El ciberacoso puede ocurrir en cualquier momento." data-listen></span><br>Listen. What is being said?`, opts: ["Cyberbullying can happen at any moment", "Cyberbullying never happens to anyone", "Cyberbullying happened a long time ago", "Cyberbullying only happens once a year"], ans: 0, explain: "‘puede ocurrir en cualquier momento’ = can happen at any moment. The traps negate it or change it to a fixed past or annual event." },
+        { q: "Complete: ‘Hay que ___ atención a lo que compartes en línea.’ (pay)", opts: ["prestar", "prestando", "prestado", "prestar a"], ans: 0, explain: "‘hay que’ is always followed by the infinitive: prestar. The others wrongly use the gerund, the past participle, or add an unneeded preposition." },
+        { q: "Which verb means ‘to keep (a secret)’?", opts: ["guardar", "compartir", "publicar", "comentar"], ans: 0, explain: "guardar (un secreto) = to keep (a secret). compartir (to share), publicar (to post) and comentar (to comment) are all real social-media verbs, but opposite or unrelated actions." },
+        { q: "Which describes a real online safety risk?", opts: ["tus datos personales pueden escaparse", "tu contraseña se hace más larga sola", "tu perfil se vuelve invisible siempre", "tus fotos se vuelven más claras solas"], ans: 0, explain: "‘tus datos personales pueden escaparse’ = your personal data can leak — a genuine risk. The others invent things that do not happen." },
+        { q: "Which sentence means ‘we all deserve to feel safe online’?", opts: ["Todos merecemos sentirnos seguros en línea", "Todos merecemos sentirnos solos en línea", "Todos merecemos sentirnos tristes en línea", "Todos merecemos sentirnos perdidos en línea"], ans: 0, explain: "merecer = to deserve. seguro (safe) fits the safety message; solo (alone), triste (sad) and perdido (lost) change the meaning." },
+        { q: "Which verb phrase means ‘to say goodbye (to)’?", opts: ["despedirse (de)", "estar en contacto con", "comentar", "chatear"], ans: 0, explain: "despedirse (de) = to say goodbye (to). estar en contacto con (to stay in contact with) is the near-opposite action; comentar (to comment) and chatear (to chat) are other real social-media verbs." },
+        { q: "Complete: ‘Es importante ___ a un amigo que sufre ciberacoso.’ (encourage)", opts: ["animar", "animando", "animado", "animador"], ans: 0, explain: "‘es importante’ is always followed by the infinitive: animar. The others are the gerund, past participle and a noun (‘presenter/host’)." }
+    ];
+
+    const matchData = [
+        { term: "las redes sociales", def: "social media" },
+        { term: "el perfil", def: "profile" },
+        { term: "publicar", def: "to post" },
+        { term: "compartir", def: "to share" },
+        { term: "seguir a", def: "to follow" },
+        { term: "el mensaje", def: "message" },
+        { term: "chatear", def: "to chat" },
+        { term: "en línea", def: "online" },
+        { term: "el peligro", def: "danger" },
+        { term: "el ciberacoso", def: "cyberbullying" },
+        { term: "la contraseña", def: "password" },
+        { term: "los datos personales", def: "personal data" },
+        { term: "el usuario / la usuaria", def: "the user" },
+        { term: "comentar", def: "to comment" },
+        { term: "el emoticón", def: "the emoji / emoticon" },
+        { term: "el estado", def: "the status (update)" },
+        { term: "seguro / segura", def: "safe" },
+        { term: "la cuestión", def: "the issue / matter" },
+        { term: "la ocasión", def: "the occasion" },
+        { term: "el peor / la peor", def: "the worst" },
+        { term: "la consecuencia", def: "the consequence" },
+        { term: "la actitud", def: "the attitude" },
+        { term: "la sonrisa", def: "the smile" },
+        { term: "la impresión", def: "the impression" },
+        { term: "la clave", def: "the key / code" },
+        { term: "la preocupación", def: "the worry / concern" },
+        { term: "el impacto", def: "the impact" },
+        { term: "de acuerdo", def: "agreed / OK" },
+        { term: "ocurrir", def: "to occur / to happen" },
+        { term: "guardar (un secreto)", def: "to keep (a secret)" },
+        { term: "escaparse", def: "to escape / to leak" },
+        { term: "prestar atención", def: "to pay attention" },
+        { term: "merecer", def: "to deserve" },
+        { term: "despedirse (de)", def: "to say goodbye (to)" },
+        { term: "animar", def: "to encourage" }
+    ];
+
+    const fibData = [
+        { display: `Sigo a mis amigos en las redes _____. <span data-say="Sigo a mis amigos en las redes sociales." data-listen>Sigo a mis amigos en las redes sociales.</span>`, blanks: { B1: "sociales" } },
+        { display: `Es importante proteger la _____. <span data-say="Es importante proteger la contraseña." data-listen>Es importante proteger la contraseña.</span>`, blanks: { B1: "contraseña" } },
+        { display: `El ciberacoso es un gran _____ en línea. <span data-say="El ciberacoso es un gran peligro en línea." data-listen>El ciberacoso es un gran peligro en línea.</span>`, blanks: { B1: "peligro" } },
+        { display: `Hay que tener _____ en las redes sociales. (be careful)`, blanks: { B1: "cuidado" } },
+        { display: `Publico muchas fotos en mi _____. (profile)`, blanks: { B1: "perfil" } },
+        { display: `No se debe _____ datos personales. <span data-say="no se debe compartir datos personales" data-listen></span>`, blanks: { B1: "compartir" } },
+        { display: `Paso demasiado _____ en línea. <span data-say="paso demasiado tiempo en línea" data-listen></span>`, blanks: { B1: "tiempo" } },
+        { display: `Soy un _____ nuevo en esta aplicación. (user)`, blanks: { B1: "usuario" } },
+        { display: `Me gusta _____ las fotos de mis amigos. (to comment on)`, blanks: { B1: "comentar" } },
+        { display: `Actualizo mi _____ con una foto nueva. <span data-say="Actualizo mi estado con una foto nueva." data-listen></span>`, blanks: { B1: "estado" } },
+        { display: `Envío un _____ para expresar que estoy feliz. (emoji)`, blanks: { B1: "emoticón" } },
+        { display: `Es importante sentirte _____ en línea. (safe)`, blanks: { B1: "seguro" } },
+        { display: `Compartir tu contraseña puede tener una _____ grave. (consequence)`, blanks: { B1: "consecuencia" } },
+        { display: `El ciberacoso puede _____ en cualquier momento. <span data-say="El ciberacoso puede ocurrir en cualquier momento." data-listen></span>`, blanks: { B1: "ocurrir" } },
+        { display: `Hay que _____ atención a lo que compartes en línea. (pay)`, blanks: { B1: "prestar" } },
+        { display: `Es importante _____ a un amigo que sufre ciberacoso. (encourage)`, blanks: { B1: "animar" } }
+    ];
+    const fibWords = ["sociales", "contraseña", "peligro", "cuidado", "perfil", "compartir", "tiempo", "usuario", "comentar", "estado", "emoticón", "seguro", "consecuencia", "ocurrir", "prestar", "animar"];
+
+    const tfData = [
+        { statement: "‘la red social’ means ‘social network’ — ‘red’ here is not the colour red.", answer: true, explanation: "red = network in this context, a common false friend." },
+        { statement: "‘compartir’ means ‘to share’.", answer: true, explanation: "compartir = to share, e.g. compartir fotos." },
+        { statement: "‘seguir a’ means ‘to stop following’ someone online.", answer: false, explanation: "seguir a = to follow someone, not to stop following." },
+        { statement: "‘el ciberacoso’ means ‘cyberbullying’.", answer: true, explanation: "el ciberacoso = cyberbullying, an important safety term." },
+        { statement: "It is good advice to share your password with new online friends.", answer: false, explanation: "You should never share your password — proteger la contraseña." },
+        { statement: "‘se debe’ and ‘hay que’ are both followed by an infinitive.", answer: true, explanation: "se debe descansar / hay que tener cuidado — always an infinitive." },
+        { statement: "‘tener cuidado’ means ‘to be careful’.", answer: true, explanation: "tener cuidado = to be careful, key online-safety phrase." },
+        { statement: "‘Es importante que tengas cuidado’ uses the subjunctive and is a Higher-tier structure.", answer: true, explanation: "es importante que + subjunctive (tengas) is a Higher-tier feature." },
+        { statement: "‘seguro’ means ‘dangerous’.", answer: false, explanation: "seguro = safe; peligroso = dangerous — opposite meanings." },
+        { statement: "‘la actitud’ means ‘attitude’, not ‘aptitude’ (that’s ‘la aptitud’).", answer: true, explanation: "actitud and aptitud are easily confused look-alikes with different meanings." },
+        { statement: "‘merecer’ means ‘to deserve’.", answer: true, explanation: "merecer = to deserve, e.g. todos merecemos sentirnos seguros en línea." },
+        { statement: "‘escaparse’ means ‘to arrive safely’.", answer: false, explanation: "escaparse = to escape / to leak, not to arrive — used for data that leaks online." }
+    ];
+
+    const miscData = [
+        { wrong: "Se debe compartir tu contraseña con tus amigos.", correct: "No se debe compartir tu contraseña con nadie.", readCheck: { q: "Why is sharing your password bad advice?", opts: ["a password protects your personal data and should stay private", "passwords are not written in Spanish so it does not matter at all", "friends never misuse a shared password with each other", "‘contraseña’ actually means ‘friendship’ in Spanish"], ans: 0, explain: "A password should never be shared — it protects your personal data and account." } },
+        { wrong: "‘La red social’ means ‘a red social event’.", correct: "‘La red social’ means ‘a social network’.", readCheck: { q: "Why is translating ‘red’ as ‘the colour red’ wrong here?", opts: ["‘red’ is a false friend that means ‘network’ in this phrase", "‘red’ is always a colour in Spanish with absolutely no other meaning", "‘social’ changes ‘red’ into a completely different word", "the sentence is actually about traffic lights"], ans: 0, explain: "red = network; ‘red social’ = social network, not anything about colour." } },
+        { wrong: "Es importante proteges tu contraseña.", correct: "Es importante proteger tu contraseña.", readCheck: { q: "Why is ‘Es importante proteges tu contraseña’ wrong?", opts: ["‘es importante’ must be followed by an infinitive, not a conjugated verb", "‘proteges’ needs a written accent on its final letter to be considered correct", "‘contraseña’ should be written in the plural form in this particular sentence", "the sentence is missing the word ‘no’ before the verb"], ans: 0, explain: "es importante + infinitive → proteger, not the conjugated form proteges." } },
+        { wrong: "‘Sigo a mis amigos’ means ‘I stopped following my friends’.", correct: "‘Sigo a mis amigos’ means ‘I follow my friends’.", readCheck: { q: "What tense/meaning does ‘sigo’ actually express?", opts: ["present tense — I follow (now, ongoing)", "preterite tense — I followed once and stopped", "future tense — I will follow later", "a command telling someone else to follow"], ans: 0, explain: "sigo is present tense (from seguir) — I follow, not a past or stopped action." } },
+        { wrong: "Es importante que tienes cuidado.", correct: "Es importante que tengas cuidado.", readCheck: { q: "Why must ‘tienes’ change to ‘tengas’ here?", opts: ["‘es importante que’ triggers the subjunctive mood", "‘tienes’ is spelt incorrectly and should have an accent", "the sentence needs the imperfect tense instead", "‘que’ should be removed from the sentence"], ans: 0, explain: "es importante que is a subjunctive trigger, so tienes → tengas." } }
+    ];
+
+    const examTips = [
+        { type: "tip", title: "Paper 1 — Dictation (listening)", pills: ["Listening", "Dictation"], content: "Safety-advice sentences reuse chunks you know: ‘no se debe…’, ‘hay que…’, ‘es importante…’. Listen carefully for the negative ‘no’ before ‘se debe’ — missing it reverses the whole meaning of the advice.", readCheck: { q: "You hear ‘…no se debe…’ but write ‘se debe’. What has gone wrong?", opts: ["the advice has been reversed by missing the negative ‘no’", "nothing at all — ‘se debe’ and ‘no se debe’ mean exactly the same thing", "the tense has changed from present to past", "the subject of the sentence has changed"], ans: 0, explain: "Missing ‘no’ turns ‘you must not’ into ‘you must’ — the opposite meaning." } },
+        { type: "tip", title: "Paper 3 — Reading and translation into English", pills: ["Reading", "Translation"], content: "Watch the false friend ‘red’ (network, not colour) and keep translations natural: ‘compartir datos personales’ = ‘to share personal data’, not a word-for-word oddity. Look out for ‘ciberacoso’, a topic-specific word worth learning by sight.", readCheck: { q: "‘Nunca comparto mis datos personales en línea’ means…", opts: ["I never share my personal data online", "I always share my personal data online", "I sometimes share photos online", "I never go online at all"], ans: 0, explain: "nunca = never; comparto = I share; the sentence is a negative statement about sharing data." } },
+        { type: "evaluate", title: "Paper 4 — Writing & translation into Spanish", pills: ["Writing", "Higher"], content: "Combine an opinion, advice and a reason: ‘Uso las redes sociales porque es divertido, pero es importante proteger tu contraseña.’ At Higher, add the subjunctive and conditional: ‘es importante que tengas cuidado’, ‘se debería tener más cuidado’.", readCheck: { q: "Which answer reaches the top band?", opts: ["Uso las redes sociales porque es divertido, pero es importante que tengas cuidado", "Uso las redes sociales y es divertido y divertido y muy divertido y divertido siempre", "Las redes sociales son buenas", "Tengo un perfil"], ans: 0, explain: "It links an opinion, a reason and a Higher-tier subjunctive structure — range and accuracy, not just length." } }
+    ];
+
+    const flashcards = [
+        { term: "las redes sociales", def: "social media", say: "las redes sociales" },
+        { term: "la red social", def: "social network", say: "la red social" },
+        { term: "el perfil", def: "profile", say: "el perfil" },
+        { term: "publicar", def: "to post", say: "publicar" },
+        { term: "compartir", def: "to share", say: "compartir" },
+        { term: "seguir a · el seguidor", def: "to follow · follower", say: "seguir a, el seguidor" },
+        { term: "el mensaje · chatear", def: "message · to chat", say: "el mensaje, chatear" },
+        { term: "en línea · la foto", def: "online · photo", say: "en línea, la foto" },
+        { term: "estar en contacto con", def: "to stay in contact with", say: "estar en contacto con" },
+        { term: "conocer gente", def: "to meet people", say: "conocer gente" },
+        { term: "el peligro · peligroso", def: "danger · dangerous", say: "el peligro, peligroso" },
+        { term: "el ciberacoso", def: "cyberbullying", say: "el ciberacoso" },
+        { term: "la privacidad", def: "privacy", say: "la privacidad" },
+        { term: "los datos personales", def: "personal data", say: "los datos personales" },
+        { term: "la contraseña · proteger", def: "password · to protect", say: "la contraseña, proteger" },
+        { term: "tener cuidado", def: "to be careful", say: "tener cuidado" },
+        { term: "pasar demasiado tiempo", def: "to spend too much time", say: "pasar demasiado tiempo" },
+        { term: "es importante que tengas cuidado (H)", def: "it is important that you are careful (subjunctive)", say: "es importante que tengas cuidado" },
+        { term: "el usuario / la usuaria", def: "the user", say: "el usuario" },
+        { term: "comentar", def: "to comment", say: "comentar una foto" },
+        { term: "el emoticón", def: "the emoji / emoticon", say: "un emoticón" },
+        { term: "el estado", def: "the status (update)", say: "actualizo mi estado" },
+        { term: "seguro / segura", def: "safe", say: "sentirte seguro en línea" },
+        { term: "la cuestión (H)", def: "the issue / matter", say: "una cuestión importante" },
+        { term: "la ocasión (H)", def: "the occasion", say: "en alguna ocasión" },
+        { term: "el peor / la peor (H)", def: "the worst", say: "el peor error" },
+        { term: "la consecuencia (H)", def: "the consequence", say: "una consecuencia grave" },
+        { term: "la actitud", def: "the attitude", say: "una buena actitud" },
+        { term: "la sonrisa", def: "the smile", say: "una sonrisa" },
+        { term: "la impresión (H)", def: "the impression", say: "una buena impresión" },
+        { term: "la clave (H)", def: "the key / code", say: "la clave" },
+        { term: "la preocupación (H)", def: "the worry / concern", say: "una preocupación" },
+        { term: "el impacto (H)", def: "the impact", say: "el impacto de la tecnología" },
+        { term: "de acuerdo", def: "agreed / OK", say: "estoy de acuerdo" },
+        { term: "ocurrir", def: "to occur / to happen", say: "el ciberacoso puede ocurrir" },
+        { term: "guardar (un secreto)", def: "to keep (a secret)", say: "guardar tu contraseña en secreto" },
+        { term: "escaparse", def: "to escape / to leak", say: "tus datos pueden escaparse" },
+        { term: "prestar atención", def: "to pay attention", say: "prestar atención en línea" },
+        { term: "merecer", def: "to deserve", say: "merecer sentirte seguro" },
+        { term: "despedirse (de)", def: "to say goodbye (to)", say: "despedirse de mis amigos" },
+        { term: "animar", def: "to encourage", say: "animar a un amigo" }
+    ];
+
+    const EXAM_CASE_STUDIES = {
+        "carla-social": `<p><strong>Lee lo que dice Carla.</strong></p>
+        <p><em>"Uso las redes sociales todos los días porque me gusta estar en contacto con mis amigos y compartir fotos. Sin embargo, tengo mucho cuidado: nunca comparto mis datos personales y protejo mi contraseña. El año pasado sufrí ciberacoso, así que ahora solo sigo a gente que conozco en persona. Creo que es importante que los jóvenes tengan cuidado en línea."</em></p>`
+    };
+
+    const examQuestions = [
+        {
+            num: 1, marks: 4, type: "written", caseId: "carla-social",
+            question: "Read what Carla says. Answer <strong>in English</strong>.<br>(a) Give <strong>one</strong> reason Carla uses social media. (1)<br>(b) What does she never share? (1)<br>(c) What happened to her last year? (1)<br>(d) Who does she follow now? (1)",
+            hint: "Find the reason after ‘porque’, what she never does after ‘nunca’, the past event after ‘el año pasado’, and who she follows after ‘ahora’.",
+            starter: "(a) She… (b) She never… (c) Last year… (d) Now she…",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 4 marks (AO3 Reading)</h5><ul>
+                <li><strong>(a)</strong> to be in contact with friends / to share photos (ANY ONE) <em>(1)</em>.</li>
+                <li><strong>(b)</strong> her personal data <em>(1)</em>.</li>
+                <li><strong>(c)</strong> she suffered/experienced cyberbullying <em>(1)</em>.</li>
+                <li><strong>(d)</strong> only people she knows in person <em>(1)</em>.</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+                <li>Answers in English; do not penalise spelling if the meaning is clear.</li>
+            </ul></div>`,
+            modelAnswer: "(a) To be in contact with her friends (or to share photos). (b) Her personal data. (c) She suffered cyberbullying. (d) Only people she knows in person.",
+            markPoints: { note: "One tick per correct detail; cap at 4.", groups: [
+                { label: "(a) a reason — 1", max: 1, points: ["being in contact with friends OR sharing photos"] },
+                { label: "(b) never shares — 1", max: 1, points: ["her personal data"] },
+                { label: "(c) last year — 1", max: 1, points: ["(she suffered) cyberbullying"] },
+                { label: "(d) follows now — 1", max: 1, points: ["only people she knows in person"] }
+            ] }
+        },
+        {
+            num: 2, marks: 5, type: "written",
+            question: "Translate these sentences <strong>into Spanish</strong>.<br>(a) You should protect your password. <br>(b) One must not share personal data. <br>(c) I am in contact with my friends because it is fun.",
+            hint: "‘You should protect’ = Se debe proteger… ‘One must not share’ = No se debe compartir… ‘I am in contact with’ = Estoy en contacto con…",
+            starter: "(a) Se debe… (b) No se debe… (c) Estoy en contacto con… porque…",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 5 marks (AO4 Writing: translation)</h5><ul>
+                <li><strong>(a)</strong> Se debe proteger tu/la contraseña. <em>(1)</em></li>
+                <li><strong>(b)</strong> No se debe compartir datos personales. <em>(1)</em></li>
+                <li><strong>(c)</strong> Estoy en contacto con mis amigos <em>(1)</em> porque <em>(1)</em> es divertido <em>(1)</em>.</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+                <li>Accept minor accent errors. ‘No se debe compartir datos personales’ must keep the negative ‘no’.</li>
+            </ul></div>`,
+            modelAnswer: "(a) Se debe proteger tu contraseña. (b) No se debe compartir datos personales. (c) Estoy en contacto con mis amigos porque es divertido.",
+            markPoints: { note: "One tick per scheme point; cap at 5.", groups: [
+                { label: "(a)", max: 1, points: ["Se debe proteger tu/la contraseña"] },
+                { label: "(b)", max: 1, points: ["No se debe compartir datos personales"] },
+                { label: "(c)", max: 3, points: ["Estoy en contacto con mis amigos", "porque", "es divertido"] }
+            ] }
+        }
+    ];
 </script>
+
+    <!-- Spanish voice capability (SPANISH-CONTENT-PLAN.md §8.1). Self-installs the 🔊
+         buttons + speed/voice panel + tab observer. Loads before /script.js. -->
     <script src="/speech.js"></script>
+    <!-- Exam self-marking: tick-the-mark-scheme panel (shared with CS / Additional Maths;
+         docs/SELF-MARK-POINTS-AUTHORING.md). -->
     <script src="/cs-lab/exam-widgets.js"></script>
     <script src="/script.js"></script>
-<script src="section-totals.js"></script>
-<script src="page-groups.js"></script>
-<script src="/progress-shared.js"></script>
-<script src="/gamification.js"></script>
-<script src="/topic-guard.js"></script>
-<script src="/notifications-shared.js"></script>
-<script src="/onboarding-tour.js"></script>
-<script src="/footer-legal.js"></script>
+    <script src="section-totals.js"></script>
+    <script src="page-groups.js"></script>
+    <script src="/progress-shared.js"></script>
+    <script src="/gamification.js"></script>
+    <script src="/topic-guard.js"></script>
+    <script src="/notifications-shared.js"></script>
+    <script src="/onboarding-tour.js"></script>
+    <script src="/footer-legal.js"></script>
 </body>
 
 </html>

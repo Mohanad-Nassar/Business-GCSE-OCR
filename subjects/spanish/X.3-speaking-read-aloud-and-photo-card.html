@@ -4,297 +4,396 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>X.3 Speaking: Read-Aloud and Photo Card – Interactive Study Guide</title>
+    <title>X.3 Speaking: Read-Aloud and Photo Card – GCSE Spanish</title>
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
         rel="stylesheet" />
     <link rel="stylesheet" href="/style.css" />
+    <style>
+      /* 🔊 audio-button + Audio-panel styling is injected by /speech.js (shared).
+         Only page-specific styles live here. */
+      .vocab-tbl{width:100%;border-collapse:collapse;margin:8px 0}
+      .vocab-tbl td{border-bottom:1px solid var(--line,#e4e8f0);padding:6px 8px;vertical-align:top}
+      .vocab-tbl td:first-child{font-weight:600;white-space:nowrap}
+      @container (max-width:640px){.vocab-tbl,.vocab-tbl tbody,.vocab-tbl tr,.vocab-tbl td{display:block;width:100%}.vocab-tbl td{border-bottom:none;padding:4px 0;white-space:normal}.vocab-tbl td:nth-child(2n){padding-bottom:10px;border-bottom:1px solid var(--line,#e4e8f0);margin-bottom:6px}}
+      .tier-h{display:inline-block;font-size:.72em;font-weight:700;color:#8a5a00;
+        background:#fff3d6;border-radius:5px;padding:1px 5px;margin-left:5px;vertical-align:middle}
+    </style>
 </head>
 
 <body>
     <header>
         <div>
-            <div class="badge">AQA GCSE Spanish — Exam Skills · X. Exam Skills</div>
+            <div class="badge">AQA GCSE Spanish (8692) — Exam Skills · Paper 2 Speaking</div>
             <h1>X.3 Speaking: Read-Aloud and Photo Card</h1>
-            <p>Interactive revision guide · Content coming soon</p>
+            <p>La expresión oral: leer en voz alta y la tarjeta con fotos · Interactive study guide</p>
         </div>
         <a href="/index.html" class="home-link">← 🏡 Home</a>
     </header>
 
     <nav class="tab-bar" id="tabBar">
-        <button class="tab-btn active" onclick="switchTab('learn', this)">
-            📚 Key Learning
-        </button>
-        <button class="tab-btn" onclick="switchTab('mcq', this)">
-            ❓ MCQ Quiz
-        </button>
-        <button class="tab-btn" onclick="switchTab('matching', this)">
-            🔗 Matching
-        </button>
-        <button class="tab-btn" onclick="switchTab('fib', this)">
-            ✏️ Fill the Blanks
-        </button>
-        <button class="tab-btn" onclick="switchTab('misconceptions', this)">
-            ⚠️ Misconceptions
-        </button>
-        <button class="tab-btn" onclick="switchTab('examtips', this)">
-            🎯 Exam Tips
-        </button>
-        <button class="tab-btn" onclick="switchTab('flashcards', this)">
-            🃏 Flashcards
-        </button>
-        <button class="tab-btn" onclick="switchTab('truefalse', this)">
-            ✅ True / False
-        </button>
-        <button class="tab-btn" onclick="switchTab('exampractice', this)">
-            📝 Exam Practice
-        </button>
+        <button class="tab-btn active" onclick="switchTab('learn', this)">📚 Key Learning</button>
+        <button class="tab-btn" onclick="switchTab('mcq', this)">❓ MCQ Quiz</button>
+        <button class="tab-btn" onclick="switchTab('matching', this)">🔗 Matching</button>
+        <button class="tab-btn" onclick="switchTab('fib', this)">✏️ Fill the Blanks</button>
+        <button class="tab-btn" onclick="switchTab('misconceptions', this)">⚠️ Misconceptions</button>
+        <button class="tab-btn" onclick="switchTab('examtips', this)">🎯 Exam Tips</button>
+        <button class="tab-btn" onclick="switchTab('flashcards', this)">🃏 Flashcards</button>
+        <button class="tab-btn" onclick="switchTab('truefalse', this)">✅ True / False</button>
+        <button class="tab-btn" onclick="switchTab('exampractice', this)">📝 Exam Practice</button>
     </nav>
 
     <main>
         <div class="tab-panel active" id="tab-learn">
             <h2 class="section-title">Key Learning Topics</h2>
-            <p class="section-sub">Click any card to expand detailed notes.</p>
+            <p class="section-sub">Click any card to expand. Tap 🔊 to hear the Spanish.</p>
             <div class="topic-grid" id="topicGrid"></div>
         </div>
-
         <div class="tab-panel" id="tab-mcq">
             <h2 class="section-title">Multiple Choice Questions</h2>
-            <p class="section-sub">Select an answer to reveal instant feedback.</p>
+            <p class="section-sub">Some questions play audio — tap 🔊 and choose the meaning.</p>
             <div class="score-bar">
-                <div>
-                    <div class="score-num" id="mcqScore">0</div>
-                    <div style="font-size: 12px; color: var(--mid)">
-                        correct answers
-                    </div>
-                </div>
-                <div style="font-size: 13px; color: var(--mid)">
-                    out of <strong id="mcqTotal">0</strong> attempted
-                </div>
+                <div><div class="score-num" id="mcqScore">0</div><div style="font-size:12px;color:var(--mid)">correct answers</div></div>
+                <div style="font-size:13px;color:var(--mid)">out of <strong id="mcqTotal">0</strong> attempted</div>
                 <button class="reset-btn" onclick="resetMCQ()">RESET</button>
             </div>
             <div class="quiz-wrap" id="mcqWrap"></div>
         </div>
-
         <div class="tab-panel" id="tab-matching">
             <h2 class="section-title">Matching Activity</h2>
-            <p class="section-sub">
-                Click a term on the left, then click the matching definition on the
-                right.
-            </p>
-            <div style="margin-bottom: 16px">
-                <div class="score-bar">
-                    <div>
-                        <div class="score-num" id="matchScore">0</div>
-                        <div style="font-size: 12px; color: var(--mid)">matched</div>
-                    </div>
-                    <div style="font-size: 13px; color: var(--mid)">
-                        out of <strong id="matchTotal">0</strong>
-                    </div>
-                    <button class="reset-btn" onclick="resetMatch()">RESET</button>
-                </div>
-            </div>
+            <p class="section-sub">Click a term on the left, then its match on the right.</p>
+            <div style="margin-bottom:16px"><div class="score-bar">
+                <div><div class="score-num" id="matchScore">0</div><div style="font-size:12px;color:var(--mid)">matched</div></div>
+                <div style="font-size:13px;color:var(--mid)">out of <strong id="matchTotal">0</strong></div>
+                <button class="reset-btn" onclick="resetMatch()">RESET</button>
+            </div></div>
             <div class="match-grid">
-                <div>
-                    <div class="match-label">TERMS</div>
-                    <div class="match-col" id="matchLeft"></div>
-                </div>
-                <div>
-                    <div class="match-label">DEFINITIONS</div>
-                    <div class="match-col" id="matchRight"></div>
-                </div>
+                <div><div class="match-label">TERMS</div><div class="match-col" id="matchLeft"></div></div>
+                <div><div class="match-label">DEFINITIONS</div><div class="match-col" id="matchRight"></div></div>
             </div>
         </div>
-
         <div class="tab-panel" id="tab-fib">
             <h2 class="section-title">Fill in the Blanks</h2>
-            <p class="section-sub">
-                Click each dropdown and choose the correct word. Wrong answers reset —
-                try again!
-            </p>
+            <p class="section-sub">Choose the correct word. Dictation rows play audio — tap 🔊, then fill the gap.</p>
             <div class="score-bar">
-                <div>
-                    <div class="score-num" id="fibScore">0</div>
-                    <div style="font-size: 12px; color: var(--mid)">correct</div>
-                </div>
-                <div style="font-size: 13px; color: var(--mid)">
-                    of <strong id="fibTotal">0</strong> blanks
-                </div>
+                <div><div class="score-num" id="fibScore">0</div><div style="font-size:12px;color:var(--mid)">correct</div></div>
+                <div style="font-size:13px;color:var(--mid)">of <strong id="fibTotal">0</strong> blanks</div>
                 <button class="reset-btn" onclick="resetFIB()">RESET</button>
             </div>
             <div class="fib-wrap" id="fibWrap"></div>
         </div>
-
         <div class="tab-panel" id="tab-misconceptions">
             <h2 class="section-title">Common Misconceptions</h2>
-            <p class="section-sub">
-                What students often think — and what examiners actually want.
-            </p>
+            <p class="section-sub">The mistakes GCSE Spanish students make most.</p>
             <div class="misc-list" id="miscList"></div>
         </div>
-
         <div class="tab-panel" id="tab-examtips">
             <h2 class="section-title">Exam Questions &amp; Tips</h2>
-            <p class="section-sub">
-                Most repeated question types and mark-scheme structures from real OCR
-                papers.
-            </p>
+            <p class="section-sub">How each of the four papers rewards this topic.</p>
             <div class="tips-grid" id="tipsGrid"></div>
         </div>
-
         <div class="tab-panel" id="tab-flashcards">
             <h2 class="section-title">Flashcards</h2>
-            <p class="section-sub">
-                Test yourself! Flip the card and rate your knowledge. Review your weak
-                areas at the end.
-            </p>
-
+            <p class="section-sub">Test yourself! Flip the card and rate your knowledge.</p>
             <div class="fc-container">
-                <div class="score-bar" id="fcScoreBar" style="display: none; margin-bottom: 20px">
-                    <div>
-                        <div class="score-num" id="fcKnown" style="color: #2d7a4f">0</div>
-                        <div style="font-size: 12px; color: var(--mid)">known</div>
-                    </div>
-                    <div>
-                        <div class="score-num" id="fcUnknown" style="color: #c84b31">
-                            0
-                        </div>
-                        <div style="font-size: 12px; color: var(--mid)">learning</div>
-                    </div>
-                    <div style="font-size: 13px; color: var(--mid)">
-                        out of <strong id="fcTotalTrack">0</strong>
-                    </div>
+                <div class="score-bar" id="fcScoreBar" style="display:none;margin-bottom:20px">
+                    <div><div class="score-num" id="fcKnown" style="color:#2d7a4f">0</div><div style="font-size:12px;color:var(--mid)">known</div></div>
+                    <div><div class="score-num" id="fcUnknown" style="color:#c84b31">0</div><div style="font-size:12px;color:var(--mid)">learning</div></div>
+                    <div style="font-size:13px;color:var(--mid)">out of <strong id="fcTotalTrack">0</strong></div>
                     <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
                 </div>
-
                 <div id="fcActiveArea">
                     <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
                     <div class="flashcard" id="flashcard" onclick="flipCard()">
                         <div class="fc-inner">
-                            <div class="fc-front">
-                                <div class="fc-label">KEY TERM</div>
-                                <div class="fc-term" id="fcTerm"></div>
-                            </div>
-                            <div class="fc-back">
-                                <div class="fc-def" id="fcDef"></div>
-                            </div>
+                            <div class="fc-front"><div class="fc-label">SPANISH</div><div class="fc-term" id="fcTerm"></div></div>
+                            <div class="fc-back"><div class="fc-def" id="fcDef"></div></div>
                         </div>
                     </div>
                     <p class="fc-hint">👆 Click card to flip</p>
-
                     <div class="fc-nav" id="fcNavDefault">
-                        <button class="fc-btn outline" onclick="prevCard()">
-                            ← Prev
-                        </button>
+                        <button class="fc-btn outline" onclick="prevCard()">← Prev</button>
                         <button class="fc-btn outline" onclick="flipCard()">Flip</button>
                         <button class="fc-btn" onclick="nextCard()">Next →</button>
                     </div>
-
-                    <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px">
-                        <button class="fc-btn outline" style="border-color: #c84b31; color: #c84b31; flex: 1"
-                            onclick="markCard(false)">
-                            ❌ Still Learning
-                        </button>
-                        <button class="fc-btn" style="background: #2d7a4f; border-color: #2d7a4f; flex: 1"
-                            onclick="markCard(true)">
-                            ✅ Got It
-                        </button>
+                    <div class="fc-nav" id="fcNavAssess" style="display:none;gap:15px">
+                        <button class="fc-btn outline" style="border-color:#c84b31;color:#c84b31;flex:1" onclick="markCard(false)">❌ Still Learning</button>
+                        <button class="fc-btn" style="background:#2d7a4f;border-color:#2d7a4f;flex:1" onclick="markCard(true)">✅ Got It</button>
                     </div>
                 </div>
-
-                <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px">
+                <div id="fcSummaryArea" style="display:none;text-align:center;padding:40px 20px">
                     <h3>Session Complete! 🎉</h3>
-                    <p style="margin: 15px 0">
-                        You knew <strong id="fcSummaryKnown">0</strong> out of
-                        <strong id="fcSummaryTotal">0</strong> cards.
-                    </p>
-                    <div style="
-                margin-top: 25px;
-                display: flex;
-                gap: 15px;
-                justify-content: center;
-                flex-wrap: wrap;
-              ">
-                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
-                            style="background: #c84b31; border-color: #c84b31">
-                            Review Incorrect
-                        </button>
-                        <button class="fc-btn outline" onclick="resetFlashcards()">
-                            Practice All Again
-                        </button>
+                    <p style="margin:15px 0">You knew <strong id="fcSummaryKnown">0</strong> out of <strong id="fcSummaryTotal">0</strong> cards.</p>
+                    <div style="margin-top:25px;display:flex;gap:15px;justify-content:center;flex-wrap:wrap">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()" style="background:#c84b31;border-color:#c84b31">Review Incorrect</button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">Practice All Again</button>
                     </div>
                 </div>
             </div>
         </div>
-
         <div class="tab-panel" id="tab-truefalse">
             <h2 class="section-title">True or False?</h2>
-            <p class="section-sub">Test your knowledge with these statements.</p>
+            <p class="section-sub">¿Verdadero o falso?</p>
             <div class="score-bar">
-                <div>
-                    <div class="score-num" id="tfScore">0</div>
-                    <div style="font-size: 12px; color: var(--mid)">correct</div>
-                </div>
-                <div style="font-size: 13px; color: var(--mid)">
-                    of <strong id="tfTotal">0</strong> answered
-                </div>
+                <div><div class="score-num" id="tfScore">0</div><div style="font-size:12px;color:var(--mid)">correct</div></div>
+                <div style="font-size:13px;color:var(--mid)">of <strong id="tfTotal">0</strong> answered</div>
                 <button class="reset-btn" onclick="resetTF()">RESET</button>
             </div>
             <div class="tf-wrap" id="tfWrap"></div>
         </div>
-
         <div class="tab-panel" id="tab-exampractice">
             <h2 class="section-title">Exam Practice Questions</h2>
-            <p class="section-sub">
-                Full exam questions with case studies. Use <strong>Hint</strong>,
-                <strong>Sentence Starter</strong> and
-                <strong>Submit &amp; See Mark Scheme</strong> for each question.
-            </p>
+            <p class="section-sub">Read-aloud and photo-card technique. Use <strong>Hint</strong>, <strong>Sentence Starter</strong> and <strong>Submit &amp; See Mark Scheme</strong>.</p>
             <div class="ep-list" id="epList"></div>
         </div>
     </main>
 
 <script>
-    // ══════════════════════════════════════
-    //  DATA: X.3 Speaking: Read-Aloud and Photo Card — placeholder, content not yet written
-    // ══════════════════════════════════════
-    const pageMeta = {
-            id: 'x-3-speaking-read-aloud-and-photo-card',
-            badge: 'AQA GCSE Spanish — Exam Skills · X. Exam Skills',
-            title: 'X.3 Speaking: Read-Aloud and Photo Card',
-            subtitle: 'Interactive revision guide',
-            subject: 'spanish',
-        };
+    // ══════════════════════════════════════════════════════════════════
+    //  DATA: X.3 Speaking: Read-Aloud and Photo Card  (AQA 8692, Paper 2 NEA)
+    //  Paper 2 Speaking NEA = 50 marks / 25% of GCSE, 15 mins supervised prep:
+    //  (1) role-play 10 marks, (2) reading aloud + conversation 15 marks,
+    //  (3) photo card + unprepared conversation 25 marks. All taught Spanish is
+    //  on the prescribed wordlist. Audible Spanish carries data-say="…";
+    //  data-listen makes a prompt audio-only (no transcript shown) for
+    //  listen-and-choose items — read-aloud MODELS keep the transcript visible
+    //  so the student can practise reading it. Higher-tier items marked
+    //  <span class="tier-h">H</span>. Option-writing follows
+    //  docs/QUESTION-AUTHORING.md (no length tell; distractors = real errors;
+    //  correct position varied across items).
+    // ══════════════════════════════════════════════════════════════════
+    const pageMeta = { id: 'x-3-speaking-read-aloud-and-photo-card', badge: 'AQA GCSE Spanish (8692) — Exam Skills · Paper 2 Speaking', title: 'X.3 Speaking: Read-Aloud and Photo Card', subtitle: 'Interactive study guide', subject: 'spanish' };
 
     const topics = [
         {
-            title: "This topic is being written",
-            tag: "Coming soon",
-            content: `<p>🚧 <strong>Content for this topic is on its way.</strong> Key Learning notes, practice questions and exam-style questions for <strong>X.3 Speaking: Read-Aloud and Photo Card</strong> will appear here soon.</p>`
+            title: "What is Paper 2 Speaking and how is it marked?",
+            tag: "Key concept",
+            content: `<p>Paper 2 is the <strong>Speaking Non-Exam Assessment (NEA)</strong> — worth <strong>50 marks, 25% of the whole GCSE</strong>. You get <span data-say="quince minutos">quince minutos</span> (15 minutes) of supervised preparation time before you go in. There are three parts:</p>
+            <ul>
+              <li><strong><span data-say="el juego de rol">el juego de rol</span></strong> (role-play) — 10 marks, about 1–1.5 minutes.</li>
+              <li>reading aloud + a short conversation — 15 marks: <span data-say="leer en voz alta">leer en voz alta</span> (read a short text aloud), then an unprepared conversation.</li>
+              <li><strong><span data-say="la tarjeta con fotos">la tarjeta con fotos</span></strong> (photo card) — 25 marks: describe the photo, then an unprepared conversation.</li>
+            </ul>`,
+            readCheck: { q: "How many marks is the Photo Card part worth?", opts: ["25 marks — the biggest part of Paper 2", "15 marks, the same as the reading-aloud task", "10 marks, the same as the role-play", "50 marks — the whole of Paper 2"], ans: 0, explain: "The photo card is 25 of the 50 marks — half the paper. The role-play is 10 and reading aloud + conversation is 15." }
+        },
+        {
+            title: "How do I read the text aloud accurately?",
+            tag: "Exam skill",
+            content: `<p>Reading aloud is marked on <strong>pronunciation and intonation</strong>. Six sound rules cover most of what examiners listen for — tap 🔊 to hear each example.</p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="cabeza">cabeza</span></td><td>soft c/z before e/i = a ‘th’ sound (Castilian), not a hard ‘k’ or an English ‘z’ buzz</td></tr>
+              <tr><td><span data-say="gente">gente</span> / <span data-say="jugar">jugar</span></td><td>throaty ‘g’ (before e/i) and ‘j’ — like clearing your throat, not an English ‘j’</td></tr>
+              <tr><td><span data-say="hacer">hacer</span> / <span data-say="hola">hola</span></td><td>the letter ‘h’ is always silent</td></tr>
+              <tr><td><span data-say="mañana">mañana</span></td><td>‘ñ’ = ‘ny’, as in the English word ‘canyon’</td></tr>
+              <tr><td><span data-say="perro">perro</span></td><td>double ‘rr’ is strongly rolled — different from a single ‘r’</td></tr>
+              <tr><td><span data-say="ejercicio">ejercicio</span></td><td>each vowel keeps one pure, short sound — don’t blend them like English diphthongs</td></tr>
+            </table>
+            <p>Read steadily, not fast: <span data-say="Los fines de semana, hago ejercicio con mi hermano.">Los fines de semana, hago ejercicio con mi hermano.</span></p>`,
+            readCheck: { q: "In Castilian pronunciation, how should the ‘z’ in ‘cabeza’ sound?", opts: ["exactly like an English ‘z’ buzzing sound", "like the English ‘th’ in ‘think’", "silent — you don’t pronounce it at all", "like a rolled Spanish ‘rr’"], ans: 1, explain: "Castilian c/z before e/i is a soft ‘th’ sound. It is not a buzzing English z, not silent, and not the rr sound." }
+        },
+        {
+            title: "How do I describe the photo card?",
+            tag: "Exam skill",
+            content: `<p>For the Photo Card, start by <strong>describing what you see</strong> before giving opinions. Use these structures — tap 🔊 to hear them.</p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="en la foto hay">en la foto hay…</span></td><td>in the photo there is / are…</td></tr>
+              <tr><td><span data-say="veo">veo…</span></td><td>I see…</td></tr>
+              <tr><td><span data-say="hay una persona que">hay una persona que…</span></td><td>there is a person who…</td></tr>
+            </table>
+            <p>Example: <span data-say="En la foto hay una familia. Veo a un chico que lleva una camiseta azul.">En la foto hay una familia. Veo a un chico que lleva una camiseta azul.</span> — <em>In the photo there is a family. I see a boy wearing a blue T-shirt.</em></p>`,
+            readCheck: { q: "Which phrase correctly starts a photo-card description?", opts: ["En la foto tiene dos personas", "En la foto son dos personas", "En la foto hay dos personas", "En la foto está dos personas"], ans: 2, explain: "‘hay’ (there is/are) is the correct impersonal verb for describing a photo. tiene/son/está are all wrong here." }
+        },
+        {
+            title: "How do I describe the action with the present continuous?",
+            tag: "Key concept",
+            content: `<p>To describe the ACTION happening in the photo, use <strong>estar + gerund</strong> (present continuous):</p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="está comiendo">está comiendo</span></td><td>he/she is eating</td><td><span data-say="está jugando">está jugando</span></td><td>he/she is playing</td></tr>
+              <tr><td><span data-say="está leyendo">está leyendo</span></td><td>he/she is reading</td><td><span data-say="están sonriendo">están sonriendo</span></td><td>they are smiling</td></tr>
+            </table>
+            <p><span class="tier-h">H</span> Watch the irregular gerunds: <span data-say="leyendo">leer → leyendo</span>, <span data-say="durmiendo">dormir → durmiendo</span>, <span data-say="pidiendo">pedir → pidiendo</span>.</p>
+            <p>Example: <span data-say="En la foto, el niño está jugando en el jardín mientras su madre está leyendo.">En la foto, el niño está jugando en el jardín mientras su madre está leyendo.</span></p>`,
+            readCheck: { q: "Which is the correct present continuous for ‘eating’?", opts: ["está come", "está comer", "estás comiendo", "está comiendo"], ans: 3, explain: "Present continuous = está + gerund → está comiendo. ‘está come’ and ‘está comer’ don’t use the gerund; ‘estás’ is the wrong subject (tú, not él/ella)." }
+        },
+        {
+            title: "How do I give opinions with reasons?",
+            tag: "Exam skill",
+            content: `<p>Top marks need an <strong>opinion with a reason</strong>, not just a description:</p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="creo que">creo que…</span></td><td>I think that…</td></tr>
+              <tr><td><span data-say="me parece que">me parece que…</span></td><td>it seems to me that…</td></tr>
+              <tr><td><span data-say="porque">porque</span></td><td>because</td></tr>
+            </table>
+            <p>Example: <span data-say="Creo que es una familia feliz porque todos están sonriendo.">Creo que es una familia feliz porque todos están sonriendo.</span> — <em>I think it’s a happy family because everyone is smiling.</em></p>`,
+            readCheck: { q: "Which gives an opinion WITH a reason?", opts: ["Creo que es una familia feliz porque están sonriendo", "Es una familia", "Hay una familia muy feliz que sonríe mucho aquí siempre hoy", "Creo que es una familia feliz"], ans: 0, explain: "Only option A gives both an opinion (creo que) AND a reason (porque). C is longer but is only a description, never an opinion." }
+        },
+        {
+            title: "Higher: role-play register and developing your answers",
+            tag: "Higher tier",
+            content: `<p><span class="tier-h">H</span> The role-play tests <strong>register</strong> — a formal register with a teacher or shop assistant, informal with a friend. In the unprepared conversation, <strong>develop</strong> every answer: add a reason, an opinion, and a second tense.</p>
+            <ul>
+              <li><span data-say="¿Podría repetir la pregunta, por favor?">¿Podría repetir la pregunta, por favor?</span> — formal, if you need it repeated</li>
+              <li><span data-say="En el futuro, me gustaría visitar España porque quiero mejorar mi español.">En el futuro, me gustaría visitar España porque quiero mejorar mi español.</span> <span class="tier-h">H</span> — adds a future plan + a reason</li>
+              <li><span data-say="El año pasado, fui de vacaciones con mi familia y fue estupendo.">El año pasado, fui de vacaciones con mi familia y fue estupendo.</span> <span class="tier-h">H</span> — adds a past tense</li>
+            </ul>`,
+            readCheck: { q: "What makes a Higher-tier answer stronger in the unprepared conversation?", opts: ["giving only one-word answers to save time", "adding a reason, an opinion and a second tense", "repeating the same sentence structure each time", "speaking as quickly as possible without pausing"], ans: 1, explain: "Developing an answer with a reason, an opinion and a second tense shows range — that is what the top band rewards." }
         }
     ];
 
-    const mcqData = [];
-    const matchData = [];
-    const fibData = [];
-    const fibWords = [];
-    const tfData = [];
-    const miscData = [];
-    const examTips = [];
-    const flashcards = [];
-    const examQuestions = [];
+    const mcqData = [
+        { q: `<span data-say="Voy a describir la foto." data-listen></span><br>Listen. What is the speaker about to do?`, opts: ["Give an opinion about school", "Ask a question about the family", "Describe the photo", "Talk about last weekend"], ans: 2, explain: "‘voy a describir la foto’ = I’m going to describe the photo. The traps swap in an opinion, a question or a different time." },
+        { q: `<span data-say="En la foto hay una familia que está comiendo." data-listen></span><br>Listen. What does the speaker say is happening?`, opts: ["A family is eating and talking loudly", "A family is going to eat later", "A family ate lunch yesterday", "A family is eating"], ans: 3, explain: "‘está comiendo’ = present continuous, eating right now. There is no mention of talking loudly, and it is not future or past." },
+        { q: "How should you pronounce the ‘g’ in ‘gente’?", opts: ["A throaty ‘h’ sound, like in ‘jamón’", "A hard ‘g’ sound, like in ‘gato’", "Completely silent, like the Spanish ‘h’", "A soft English ‘j’ sound, like in ‘jelly’"], ans: 0, explain: "Before e/i, Spanish ‘g’ is throaty like ‘j’ — gente, gimnasio. Before a/o/u it is hard, as in gato." },
+        { q: "Which word contains a completely SILENT letter?", opts: ["gente", "hacer", "cabeza", "perro"], ans: 1, explain: "The ‘h’ in hacer is always silent. The others test different sound rules (throaty g, soft c/z, rolled rr)." },
+        { q: "Complete: ‘Los chicos _____ en el parque.’ (playing, right now)", opts: ["juegan", "están jugar", "están jugando", "estás jugando"], ans: 2, explain: "Present continuous = estar + gerund: están jugando. ‘juegan’ is simple present; ‘están jugar’ wrongly uses the infinitive; ‘estás’ is the wrong subject." },
+        { q: "Which correctly means ‘I see a young girl’?", opts: ["Veo una chica joven que sonríe mucho hoy", "Vea una chica joven", "Veo un chica joven", "Veo a una chica joven"], ans: 3, explain: "The personal ‘a’ is needed before a person: veo A una chica. Option A omits the personal ‘a’ despite being longer; B wrongly conjugates ver; C mismatches the article." },
+        { q: "Which sentence gives a personal OPINION (not just a description)?", opts: ["Me parece que es una foto muy alegre", "Es una foto", "Hay una foto de una familia", "La foto muestra una cocina grande y moderna"], ans: 0, explain: "‘me parece que’ signals an opinion. The others only describe — D is longer but still just a description, the classic trap." },
+        { q: "How long is the supervised preparation time before Paper 2 Speaking?", opts: ["5 minutes", "15 minutes", "30 minutes", "50 minutes, the same as the total marks"], ans: 1, explain: "You get 15 minutes to prepare. The last trap confuses the prep time with the total marks (50)." },
+        { q: "In the role-play with a teacher or shop-assistant character, which register should you use?", opts: ["Exactly the same slang you use with friends", "No register at all — grammar doesn’t matter here", "A polite, formal register", "A random mix of formal and informal in one sentence"], ans: 2, explain: "Role-play characters in authority (teacher, shop assistant) need a formal register." },
+        { q: "Which best describes Spanish vowel sounds compared to English?", opts: ["Vowels change sound depending on the word’s length", "Spanish vowels are always silent when unstressed", "Vowels are pronounced exactly like English vowels", "Each vowel has one pure, short sound"], ans: 3, explain: "Spanish has five pure vowel sounds that don’t change or blend like English diphthongs." }
+    ];
+
+    const matchData = [
+        { term: "en la foto hay", def: "in the photo there is/are" },
+        { term: "veo", def: "I see" },
+        { term: "hay una persona que", def: "there is a person who" },
+        { term: "está comiendo", def: "he/she is eating" },
+        { term: "está jugando", def: "he/she is playing" },
+        { term: "creo que", def: "I think that" },
+        { term: "me parece que", def: "it seems to me that" },
+        { term: "porque", def: "because" },
+        { term: "la preparación", def: "the preparation (time)" },
+        { term: "el juego de rol", def: "the role-play" },
+        { term: "la conversación", def: "the conversation" },
+        { term: "leer en voz alta", def: "to read aloud" }
+    ];
+
+    const fibData = [
+        { display: `En la foto _____ dos personas. <span data-say="En la foto hay dos personas." data-listen>En la foto hay dos personas.</span>`, blanks: { B1: "hay" } },
+        { display: `También _____ un perro pequeño en el jardín. <span data-say="También veo un perro pequeño en el jardín." data-listen>También veo un perro pequeño en el jardín.</span>`, blanks: { B1: "veo" } },
+        { display: `La familia está _____ en el jardín. <span data-say="La familia está comiendo en el jardín." data-listen>La familia está comiendo en el jardín.</span>`, blanks: { B1: "comiendo" } },
+        { display: `Los niños están _____ al fútbol. <span data-say="Los niños están jugando al fútbol." data-listen>Los niños están jugando al fútbol.</span>`, blanks: { B1: "jugando" } },
+        { display: `Creo que están felices _____ están de vacaciones. <span data-say="Creo que están felices porque están de vacaciones." data-listen>Creo que están felices porque están de vacaciones.</span>`, blanks: { B1: "porque" } },
+        { display: `Hay que leer el texto en voz _____. <span data-say="Hay que leer el texto en voz alta." data-listen>Hay que leer el texto en voz alta.</span>`, blanks: { B1: "alta" } },
+        { display: `El chico está _____ un libro en la foto. <span data-say="El chico está leyendo un libro en la foto." data-listen>El chico está leyendo un libro en la foto.</span>`, blanks: { B1: "leyendo" } }
+    ];
+    const fibWords = ["hay", "veo", "comiendo", "jugando", "porque", "alta", "leyendo"];
+
+    const tfData = [
+        { statement: "Paper 2 Speaking is worth 25% of the whole GCSE.", answer: true, explanation: "50 marks out of the total GCSE = 25%." },
+        { statement: "The photo card is worth more marks than the role-play.", answer: true, explanation: "Photo card = 25 marks; role-play = 10 marks." },
+        { statement: "In Castilian Spanish, ‘c’ before e/i is pronounced like an English hard ‘k’.", answer: false, explanation: "It is pronounced like a soft ‘th’ sound, not a hard ‘k’." },
+        { statement: "The letter ‘h’ on its own is always silent in Spanish.", answer: true, explanation: "hola, hacer, hermano — the h is never pronounced on its own." },
+        { statement: "‘está comiendo’ uses the present continuous tense.", answer: true, explanation: "estar + gerund (comiendo) = present continuous." },
+        { statement: "You get 15 minutes to prepare before Paper 2 Speaking.", answer: true, explanation: "15 minutes of supervised preparation time." },
+        { statement: "‘Me parece que’ can be used to introduce an opinion.", answer: true, explanation: "me parece que = it seems to me that — a standard opinion phrase." },
+        { statement: "The rolled ‘rr’ sound is pronounced exactly the same as a single ‘r’.", answer: false, explanation: "‘rr’ is strongly rolled and clearly different from a single ‘r’, e.g. perro vs pero." }
+    ];
+
+    const miscData = [
+        { wrong: "El chico estoy comiendo.", correct: `El chico <span data-say="está comiendo">está comiendo</span>.`, readCheck: { q: "Why is ‘El chico estoy comiendo’ wrong?", opts: ["the verb must agree with ‘el chico’ → está, not estoy", "‘comiendo’ should be ‘comido’ instead", "you cannot use the present continuous tense to describe a photo at all", "‘el chico’ needs to become ‘los chicos’"], ans: 0, explain: "estar agrees with the subject: el chico (he) → está, not estoy (yo)." } },
+        { wrong: "En la foto es dos personas.", correct: `En la foto <span data-say="hay dos personas">hay dos personas</span>.`, readCheck: { q: "Why is ‘En la foto es dos personas’ wrong?", opts: ["‘dos’ should become ‘dos personas y’", "‘hay’ (there is/are) is needed, not ‘es’", "‘foto’ needs the article ‘el’, not ‘la’", "the sentence should start with ‘Veo’ instead"], ans: 1, explain: "‘hay’ is the impersonal verb for ‘there is/are’ used to describe a photo — ‘es’ does not work here." } },
+        { wrong: "Pronouncing cabeza with a hard English ‘k’ and a buzzing ‘z’.", correct: `<span data-say="cabeza">cabeza</span> pronounced with a soft Castilian ‘th’ sound for the c and z.`, readCheck: { q: "Which word uses the SAME soft sound rule as ‘cabeza’?", opts: ["gato", "hola", "cinco", "perro"], ans: 2, explain: "‘ci’ in cinco is soft, like the c/z in cabeza. gato has a hard g, hola has a silent h, perro tests rolled rr." } },
+        { wrong: "Veo un chica en la foto.", correct: `Veo a una <span data-say="chica">chica</span> en la foto.`, readCheck: { q: "What is missing from ‘Veo un chica’?", opts: ["an accent on the word ‘chica’", "the word ‘mucho’ needs to go somewhere before chica", "a comma after ‘veo’", "the personal ‘a’ and correct feminine article ‘una’"], ans: 3, explain: "You need the personal ‘a’ before a person (veo A) and the feminine article ‘una’, not ‘un’." } },
+        { wrong: "Me parece bien.", correct: `Me parece bien <span data-say="porque todos están sonriendo">porque todos están sonriendo</span>.`, readCheck: { q: "Why does ‘Me parece bien’ alone lose marks in the photo card?", opts: ["it gives an opinion but no reason (no ‘porque’)", "‘parece’ is spelt incorrectly in this sentence", "it should say ‘me parecen bien’ instead, every time", "it is in the wrong tense for a photo"], ans: 0, explain: "An opinion without a reason is incomplete — always follow it with ‘porque…’." } }
+    ];
+
+    const examTips = [
+        { type: "tip", title: "Reading Aloud — the pronunciation checklist", pills: ["Speaking", "Pronunciation"], content: "Before you read, scan the text for the six sound rules: silent ‘h’, soft ‘c/z’, throaty ‘g/j’, ‘ñ’, rolled ‘rr’, and pure vowels. Read at a <strong>steady, natural pace</strong> — rushing causes more pronunciation slips than any single sound.<br>Practice line: <span data-say=\"El hombre hace ejercicio y juega con su perro cerca del gimnasio.\">El hombre hace ejercicio y juega con su perro cerca del gimnasio.</span>", readCheck: { q: "What causes the most pronunciation slips when reading aloud?", opts: ["using the wrong preparation time before the exam", "reading too fast instead of at a steady pace", "choosing the wrong register for the task", "forgetting to give an opinion at the end"], ans: 1, explain: "Rushing is the biggest cause of pronunciation slips — read at a steady, natural pace." } },
+        { type: "tip", title: "Photo Card — build a full-mark answer", pills: ["Speaking", "Photo Card"], content: "Structure your answer in stages: describe with ‘hay’ / ‘veo’, add the action with the present continuous (está + gerund), then give an opinion (creo que…) with a reason (porque…) and a second detail.", readCheck: { q: "What is the best structure for a full photo-card answer?", opts: ["opinion first, then never describe the photo at all, for the whole answer", "reason only, with no description or opinion given anywhere", "describe (hay/veo) → action → opinion (creo que) → reason (porque)", "present continuous only, repeated four times with no other content"], ans: 2, explain: "Description, action, opinion, reason — in that order — builds a complete, high-scoring answer." } },
+        { type: "evaluate", title: "Role-play & unprepared conversation — Higher", pills: ["Speaking", "Higher"], content: "In the unprepared conversation, always <strong>develop</strong> your answer: add a reason, an opinion, and a second tense (past or future) instead of a bare fact. <span class=\"tier-h\">H</span>", readCheck: { q: "Which response would score highest at Higher tier?", opts: ["Fui de vacaciones el año pasado y fui de vacaciones otra vez el mes pasado", "Bien", "Fui de vacaciones el año pasado", "Fui de vacaciones el año pasado y fue estupendo porque hizo mucho sol"], ans: 3, explain: "Option D adds a past tense, an opinion (fue estupendo) and a reason (porque hizo mucho sol). Option A is just as long but repeats the same idea without developing it." } }
+    ];
+
+    const flashcards = [
+        { term: "en la foto hay", def: "in the photo there is/are", say: "en la foto hay" },
+        { term: "veo", def: "I see", say: "veo" },
+        { term: "hay una persona que", def: "there is a person who", say: "hay una persona que" },
+        { term: "está comiendo", def: "he/she is eating", say: "está comiendo" },
+        { term: "está jugando", def: "he/she is playing", say: "está jugando" },
+        { term: "está leyendo", def: "he/she is reading", say: "está leyendo" },
+        { term: "creo que", def: "I think that", say: "creo que" },
+        { term: "me parece que", def: "it seems to me that", say: "me parece que" },
+        { term: "porque", def: "because", say: "porque" },
+        { term: "el juego de rol", def: "the role-play", say: "el juego de rol" },
+        { term: "la conversación no preparada", def: "the unprepared conversation", say: "la conversación no preparada" },
+        { term: "leer en voz alta", def: "to read aloud", say: "leer en voz alta" },
+        { term: "la preparación", def: "the preparation (time)", say: "la preparación" },
+        { term: "quince minutos", def: "fifteen minutes", say: "quince minutos" },
+        { term: "la tarjeta con fotos", def: "the photo card", say: "la tarjeta con fotos" },
+        { term: "el registro formal (H)", def: "formal register", say: "el registro formal" },
+        { term: "desarrollar la respuesta (H)", def: "to develop your answer", say: "desarrollar la respuesta" },
+        { term: "la pronunciación", def: "pronunciation", say: "la pronunciación" }
+    ];
+
+    const EXAM_CASE_STUDIES = {};
+
+    const examQuestions = [
+        {
+            num: 1, marks: 5, type: "written",
+            question: `Practise reading this text aloud. Read it yourself first at a steady pace, then tap 🔊 to hear a model and self-mark your pronunciation against the checklist below.<br><span data-say="Los fines de semana, mi hermano hace ejercicio en el gimnasio y juega con nuestro perro en el parque. A veces le duele la cabeza porque hay mucha gente allí.">Los fines de semana, mi hermano hace ejercicio en el gimnasio y juega con nuestro perro en el parque. A veces le duele la cabeza porque hay mucha gente allí.</span>`,
+            hint: "Say it once yourself before you listen to the model, then compare each sound rule in turn.",
+            starter: "Focus on: hermano/hace (silent h) · cabeza (soft c) · gimnasio/juega/gente (throaty g/j) · perro (rolled rr) · steady vowels throughout.",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 5 marks (Speaking: pronunciation)</h5><ul>
+                <li>Silent ‘h’ in <em>hermano</em> and <em>hace</em> — not pronounced <em>(1)</em>.</li>
+                <li>Soft ‘c’ in <em>cabeza</em> — a ‘th’ sound, not a hard ‘k’ or English ‘z’ <em>(1)</em>.</li>
+                <li>Throaty ‘g/j’ in <em>gimnasio</em>, <em>juega</em>, <em>gente</em> <em>(1)</em>.</li>
+                <li>Strongly rolled ‘rr’ in <em>perro</em> <em>(1)</em>.</li>
+                <li>Clear, pure vowels read at a steady pace, not rushed <em>(1)</em>.</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+                <li>Self-assess honestly — tick a sound only if you actually produced it, not if you meant to.</li>
+            </ul></div>`,
+            modelAnswer: "Listen to the 🔊 model and compare: silent h in hermano/hace, soft ‘th’ c in cabeza, throaty g/j in gimnasio/juega/gente, rolled rr in perro, and clear steady vowels throughout.",
+            markPoints: { note: "Tick each sound you produced correctly; cap at 5.", groups: [
+                { label: "Silent ‘h’ (hermano, hace)", max: 1, points: ["h not pronounced"] },
+                { label: "Soft ‘c’ (cabeza)", max: 1, points: ["‘th’ sound, not k/z"] },
+                { label: "Throaty ‘g/j’ (gimnasio, juega, gente)", max: 1, points: ["throaty sound before e/i, and for j"] },
+                { label: "Rolled ‘rr’ (perro)", max: 1, points: ["strong rolled rr"] },
+                { label: "Pure, steady vowels", max: 1, points: ["clear single vowel sounds, steady pace"] }
+            ] }
+        },
+        {
+            num: 2, marks: 5, type: "written",
+            question: `Imagine your photo card shows: a big kitchen; a mother cooking; a boy doing his homework at the table; a dog under the table. Describe the photo <strong>in Spanish</strong>, then give your opinion with a reason.`,
+            hint: "Start with En la foto hay… or Veo…, add está + -ando/-iendo for the action, then Creo que… porque… for your opinion and reason.",
+            starter: "En la foto hay… Veo que… Creo que… porque…",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 5 marks (Speaking: photo card content)</h5><ul>
+                <li>Description using ‘hay’ or ‘veo’ <em>(1)</em>.</li>
+                <li>A present-continuous verb (está + gerund) <em>(1)</em>.</li>
+                <li>A clear opinion (creo que… / me parece que…) <em>(1)</em>.</li>
+                <li>A reason for the opinion (porque…) <em>(1)</em>.</li>
+                <li>One further detail from the photo <em>(1)</em>.</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+                <li>Tick a point only if you actually said it out loud, not just thought it.</li>
+            </ul></div>`,
+            modelAnswer: `<span data-say="En la foto hay una cocina grande. Veo que la madre está cocinando y el chico está haciendo los deberes en la mesa. Creo que es una familia feliz porque todos parecen ocupados y contentos. También hay un perro debajo de la mesa.">En la foto hay una cocina grande. Veo que la madre está cocinando y el chico está haciendo los deberes en la mesa. Creo que es una familia feliz porque todos parecen ocupados y contentos. También hay un perro debajo de la mesa.</span>`,
+            markPoints: { note: "One tick per content point; cap at 5.", groups: [
+                { label: "Description (hay/veo)", max: 1, points: ["En la foto hay… / Veo…"] },
+                { label: "Present continuous", max: 1, points: ["está + gerund, e.g. está cocinando / está haciendo"] },
+                { label: "Opinion", max: 1, points: ["Creo que… / Me parece que…"] },
+                { label: "Reason", max: 1, points: ["porque + justification"] },
+                { label: "Second detail", max: 1, points: ["a further detail, e.g. the dog under the table"] }
+            ] }
+        }
+    ];
 </script>
+
+    <!-- Spanish voice capability (SPANISH-CONTENT-PLAN.md §8.1). Self-installs the 🔊
+         buttons + speed/voice panel + tab observer. Loads before /script.js. -->
     <script src="/speech.js"></script>
+    <!-- Exam self-marking: tick-the-mark-scheme panel (shared with CS / Additional Maths;
+         docs/SELF-MARK-POINTS-AUTHORING.md). -->
     <script src="/cs-lab/exam-widgets.js"></script>
     <script src="/script.js"></script>
-<script src="section-totals.js"></script>
-<script src="page-groups.js"></script>
-<script src="/progress-shared.js"></script>
-<script src="/gamification.js"></script>
-<script src="/topic-guard.js"></script>
-<script src="/notifications-shared.js"></script>
-<script src="/onboarding-tour.js"></script>
-<script src="/footer-legal.js"></script>
+    <script src="section-totals.js"></script>
+    <script src="page-groups.js"></script>
+    <script src="/progress-shared.js"></script>
+    <script src="/gamification.js"></script>
+    <script src="/topic-guard.js"></script>
+    <script src="/notifications-shared.js"></script>
+    <script src="/onboarding-tour.js"></script>
+    <script src="/footer-legal.js"></script>
 </body>
 
 </html>

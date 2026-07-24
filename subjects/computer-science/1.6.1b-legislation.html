@@ -1,0 +1,1013 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1.6.1b Legislation – Interactive Study Guide</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+    <header>
+        <div>
+            <div class="badge">OCR GCSE Computer Science — Paper 1 · 1.6 Impacts of Digital Technology</div>
+            <h1>1.6.1b Legislation</h1>
+            <p>Interactive revision guide</p>
+        </div>
+        <a href="/index.html" class="home-link">← 🏡 Home</a>
+    </header>
+
+    <nav class="tab-bar" id="tabBar">
+        <button class="tab-btn active" onclick="switchTab('learn', this)">
+            📚 Key Learning
+        </button>
+        <button class="tab-btn" onclick="switchTab('mcq', this)">
+            ❓ MCQ Quiz
+        </button>
+        <button class="tab-btn" onclick="switchTab('matching', this)">
+            🔗 Matching
+        </button>
+        <button class="tab-btn" onclick="switchTab('fib', this)">
+            ✏️ Fill the Blanks
+        </button>
+        <button class="tab-btn" onclick="switchTab('misconceptions', this)">
+            ⚠️ Misconceptions
+        </button>
+        <button class="tab-btn" onclick="switchTab('examtips', this)">
+            🎯 Exam Tips
+        </button>
+        <button class="tab-btn" onclick="switchTab('flashcards', this)">
+            🃏 Flashcards
+        </button>
+        <button class="tab-btn" onclick="switchTab('truefalse', this)">
+            ✅ True / False
+        </button>
+        <button class="tab-btn" onclick="switchTab('exampractice', this)">
+            📝 Exam Practice
+        </button>
+    </nav>
+
+    <main>
+        <div class="tab-panel active" id="tab-learn">
+            <h2 class="section-title">Key Learning Topics</h2>
+            <p class="section-sub">Click any card to expand detailed notes.</p>
+            <div class="topic-grid" id="topicGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-mcq">
+            <h2 class="section-title">Multiple Choice Questions</h2>
+            <p class="section-sub">Select an answer to reveal instant feedback.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="mcqScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">
+                        correct answers
+                    </div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    out of <strong id="mcqTotal">0</strong> attempted
+                </div>
+                <button class="reset-btn" onclick="resetMCQ()">RESET</button>
+            </div>
+            <div class="quiz-wrap" id="mcqWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-matching">
+            <h2 class="section-title">Matching Activity</h2>
+            <p class="section-sub">
+                Click a term on the left, then click the matching definition on the
+                right.
+            </p>
+            <div style="margin-bottom: 16px">
+                <div class="score-bar">
+                    <div>
+                        <div class="score-num" id="matchScore">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">matched</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="matchTotal">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetMatch()">RESET</button>
+                </div>
+            </div>
+            <div class="match-grid">
+                <div>
+                    <div class="match-label">TERMS</div>
+                    <div class="match-col" id="matchLeft"></div>
+                </div>
+                <div>
+                    <div class="match-label">DEFINITIONS</div>
+                    <div class="match-col" id="matchRight"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-fib">
+            <h2 class="section-title">Fill in the Blanks</h2>
+            <p class="section-sub">
+                Click each dropdown and choose the correct word. Wrong answers reset —
+                try again!
+            </p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="fibScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="fibTotal">0</strong> blanks
+                </div>
+                <button class="reset-btn" onclick="resetFIB()">RESET</button>
+            </div>
+            <div class="fib-wrap" id="fibWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-misconceptions">
+            <h2 class="section-title">Common Misconceptions</h2>
+            <p class="section-sub">
+                What students often think — and what examiners actually want.
+            </p>
+            <div class="misc-list" id="miscList"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-examtips">
+            <h2 class="section-title">Exam Questions &amp; Tips</h2>
+            <p class="section-sub">
+                Most repeated question types and mark-scheme structures from real OCR
+                papers.
+            </p>
+            <div class="tips-grid" id="tipsGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-flashcards">
+            <h2 class="section-title">Flashcards</h2>
+            <p class="section-sub">
+                Test yourself! Flip the card and rate your knowledge. Review your weak
+                areas at the end.
+            </p>
+
+            <div class="fc-container">
+                <div class="score-bar" id="fcScoreBar" style="display: none; margin-bottom: 20px">
+                    <div>
+                        <div class="score-num" id="fcKnown" style="color: #2d7a4f">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">known</div>
+                    </div>
+                    <div>
+                        <div class="score-num" id="fcUnknown" style="color: #c84b31">
+                            0
+                        </div>
+                        <div style="font-size: 12px; color: var(--mid)">learning</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="fcTotalTrack">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
+                </div>
+
+                <div id="fcActiveArea">
+                    <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
+                    <div class="flashcard" id="flashcard" onclick="flipCard()">
+                        <div class="fc-inner">
+                            <div class="fc-front">
+                                <div class="fc-label">KEY TERM</div>
+                                <div class="fc-term" id="fcTerm"></div>
+                            </div>
+                            <div class="fc-back">
+                                <div class="fc-def" id="fcDef"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="fc-hint">👆 Click card to flip</p>
+
+                    <div class="fc-nav" id="fcNavDefault">
+                        <button class="fc-btn outline" onclick="prevCard()">
+                            ← Prev
+                        </button>
+                        <button class="fc-btn outline" onclick="flipCard()">Flip</button>
+                        <button class="fc-btn" onclick="nextCard()">Next →</button>
+                    </div>
+
+                    <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px">
+                        <button class="fc-btn outline" style="border-color: #c84b31; color: #c84b31; flex: 1"
+                            onclick="markCard(false)">
+                            ❌ Still Learning
+                        </button>
+                        <button class="fc-btn" style="background: #2d7a4f; border-color: #2d7a4f; flex: 1"
+                            onclick="markCard(true)">
+                            ✅ Got It
+                        </button>
+                    </div>
+                </div>
+
+                <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px">
+                    <h3>Session Complete! 🎉</h3>
+                    <p style="margin: 15px 0">
+                        You knew <strong id="fcSummaryKnown">0</strong> out of
+                        <strong id="fcSummaryTotal">0</strong> cards.
+                    </p>
+                    <div style="
+                margin-top: 25px;
+                display: flex;
+                gap: 15px;
+                justify-content: center;
+                flex-wrap: wrap;
+              ">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
+                            style="background: #c84b31; border-color: #c84b31">
+                            Review Incorrect
+                        </button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">
+                            Practice All Again
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-truefalse">
+            <h2 class="section-title">True or False?</h2>
+            <p class="section-sub">Test your knowledge with these statements.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="tfScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="tfTotal">0</strong> answered
+                </div>
+                <button class="reset-btn" onclick="resetTF()">RESET</button>
+            </div>
+            <div class="tf-wrap" id="tfWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-exampractice">
+            <h2 class="section-title">Exam Practice Questions</h2>
+            <p class="section-sub">
+                Full exam questions with case studies. Use <strong>Hint</strong>,
+                <strong>Sentence Starter</strong> and
+                <strong>Submit &amp; See Mark Scheme</strong> for each question.
+            </p>
+            <div class="ep-list" id="epList"></div>
+        </div>
+    </main>
+
+<script>
+    // ══════════════════════════════════════
+    //  DATA: 1.6.1b Legislation
+    //  (Part 2 of 3 for OCR spec point 1.6.1 — see also 1.6.1a Impacts
+    //   and 1.6.1c Software Licensing)
+    // ══════════════════════════════════════
+    const pageMeta = {
+            id: '1-6-1b-legislation',
+            badge: 'OCR GCSE Computer Science — Paper 1 · 1.6 Impacts of Digital Technology',
+            title: '1.6.1b Legislation',
+            subtitle: 'Interactive revision guide',
+            subject: 'computer-science',
+        };
+
+    const topics = [
+        {
+            title: "Why we need laws for computers",
+            tag: "Key concept",
+            content: `<h4>Technology created new ways to cause harm</h4>
+<ul>
+<li>Computers made it possible to <strong>store huge amounts of personal data</strong>, <strong>break into systems</strong>, and <strong>copy other people's work perfectly</strong> — so the law had to keep up.</li>
+<li>You need to know <strong>three key Acts</strong> for the exam, and what each one is <strong>for</strong>:</li>
+<li><strong>Data Protection Act 2018</strong> — protects people's <strong>personal data</strong>.</li>
+<li><strong>Computer Misuse Act 1990</strong> — makes <strong>hacking</strong> and misuse of computers illegal.</li>
+<li><strong>Copyright, Designs and Patents Act 1988</strong> — protects people's <strong>original work</strong> (intellectual property).</li>
+<li>A fourth, the <strong>Freedom of Information Act 2000</strong>, sometimes appears too. The key exam skill is picking the <strong>right law for a given situation</strong>.</li>
+</ul>`,
+            readCheck: {
+                q: "Why were new laws such as the Computer Misuse Act needed?",
+                opts: ["Because computers were becoming so expensive that the government had to control exactly who was allowed to buy one", "Because computers created new ways to cause harm, such as hacking, that older laws did not clearly cover", "Because computers use a large amount of electricity and the law had to limit how much energy each one could use", "Because computers were making too many older jobs disappear and a law was needed to bring all of them back again"],
+                ans: 1,
+                explain: "Computers created new kinds of harm (hacking, data misuse, easy copying) that existing laws didn't cover, so new legislation was introduced."
+            }
+        },
+        {
+            title: "Data Protection Act 2018 — what it is for",
+            tag: "Legislation",
+            content: `<h4>Controlling how personal data is handled</h4>
+<ul>
+<li>The <strong>Data Protection Act 2018 (DPA)</strong> controls how organisations <strong>collect, store and use people's personal data</strong> (information about identifiable living people).</li>
+<li>It gives people <strong>rights</strong> over their own data — for example the right to <strong>see</strong> what an organisation holds about them, and to have <strong>mistakes corrected</strong>.</li>
+<li>It applies whenever a business, school or club <strong>stores data about people</strong> — so it is the law that covers customer records, student records, and so on.</li>
+</ul>`,
+            readCheck: {
+                q: "What does the Data Protection Act 2018 mainly control?",
+                opts: ["The maximum number of computers that any single organisation is legally allowed to own and use at one time", "How organisations collect, store and use people's personal data, and the rights people have over it", "Whether it is legal for a person to copy and share a piece of software that somebody else has written", "The amount of electricity that a large company's data centre is permitted to use over the course of a year"],
+                ans: 1,
+                explain: "The DPA controls how organisations handle personal data and gives individuals rights over their own data."
+            }
+        },
+        {
+            title: "Data Protection Act — what organisations must do",
+            tag: "Legislation",
+            content: `<h4>The organisation's responsibilities</h4>
+<ul>
+<li>Personal data must be <strong>kept secure</strong> from unauthorised access — for example using passwords, access rights, encryption and firewalls.</li>
+<li>Data must only be <strong>collected and used with consent</strong>, kept for the <strong>stated purpose</strong>, be <strong>accurate</strong>, and <strong>not kept for longer than needed</strong>.</li>
+<li>Organisations must <strong>not share or sell</strong> personal data without permission, and larger ones may need to appoint a <strong>data protection officer</strong> to make sure the rules are followed.</li>
+</ul>`,
+            readCheck: {
+                q: "Which of these is a requirement of the Data Protection Act 2018 for an organisation storing personal data?",
+                opts: ["It must publish all of the personal data it holds on its public website so that anyone is able to check it", "It must keep the data secure and not share or sell it without the person's consent", "It must delete every piece of personal data it holds at the end of each and every working day without fail", "It must store the personal data of as many people as it possibly can in order to grow the business quickly"],
+                ans: 1,
+                explain: "The DPA requires personal data to be kept secure and not shared or sold without consent — publishing it or selling it freely would breach the Act."
+            }
+        },
+        {
+            title: "Computer Misuse Act 1990 — what it is for",
+            tag: "Legislation",
+            content: `<h4>Making hacking and misuse illegal</h4>
+<ul>
+<li>The <strong>Computer Misuse Act 1990 (CMA)</strong> makes it a crime to <strong>access or change a computer system without permission</strong> — in other words, it makes <strong>hacking</strong> illegal.</li>
+<li>It covers three main offences:</li>
+<li><strong>1. Unauthorised access</strong> to computer material (e.g. logging into someone's account without permission).</li>
+<li><strong>2. Unauthorised access with intent</strong> to commit a further crime (e.g. hacking in to steal money or data).</li>
+<li><strong>3. Unauthorised modification</strong> of data (e.g. deleting or changing files, or spreading malware such as a virus).</li>
+</ul>`,
+            readCheck: {
+                q: "Which action would break the Computer Misuse Act 1990?",
+                opts: ["A person taking a photograph on their own phone and then choosing to share it with a few of their friends", "A person logging into someone else's email account without permission to read their private messages", "A company keeping a secure, encrypted backup of its own customers' data on a separate storage device", "A student writing their own computer program from scratch and then running it on their own home computer"],
+                ans: 1,
+                explain: "Accessing someone else's account without permission is unauthorised access — a clear breach of the Computer Misuse Act."
+            }
+        },
+        {
+            title: "Copyright, Designs and Patents Act 1988 — what it is for",
+            tag: "Legislation",
+            content: `<h4>Protecting people's original work</h4>
+<ul>
+<li>The <strong>Copyright, Designs and Patents Act 1988 (CDPA)</strong> protects <strong>intellectual property</strong> — a person's or company's <strong>original work</strong>.</li>
+<li>It covers things like <strong>software, music, films, images, writing and designs</strong>. The creator automatically owns the <strong>copyright</strong>.</li>
+<li>It is <strong>illegal to copy, use, share or sell</strong> someone's copyrighted work <strong>without their permission</strong> — this includes <strong>software piracy</strong> (illegally copying programs) and using someone's image or logo without permission.</li>
+</ul>`,
+            readCheck: {
+                q: "What does the Copyright, Designs and Patents Act 1988 protect?",
+                opts: ["The amount of personal data that a large online company is allowed to collect about each of its customers", "People's original work, such as software, music, images and writing, from being copied without permission", "Computer systems from being accessed or hacked into by someone who does not have the owner's permission", "The right of any member of the public to request information that is held by a local council or a school"],
+                ans: 1,
+                explain: "The CDPA protects original work (intellectual property) such as software, music and images from being copied or used without permission."
+            }
+        },
+        {
+            title: "Freedom of Information Act 2000",
+            tag: "Legislation",
+            content: `<h4>The public's right to request information</h4>
+<ul>
+<li>The <strong>Freedom of Information Act 2000 (FoI)</strong> gives members of the public the <strong>right to request information</strong> held by <strong>public authorities</strong> — such as councils, schools, hospitals and government departments.</li>
+<li>The authority must normally <strong>respond and provide the information</strong>, unless there is a good reason not to (for example if it would breach someone's data protection or national security).</li>
+<li>It is about <strong>openness of public bodies</strong> — very different from the Data Protection Act, which protects <strong>personal</strong> data about individuals.</li>
+</ul>`,
+            readCheck: {
+                q: "What does the Freedom of Information Act 2000 allow?",
+                opts: ["It allows absolutely any company to freely share and then go on to sell the personal data of its own customers to any other company", "It allows members of the public to request information held by public authorities such as councils and schools", "It allows a person to copy and reuse any piece of software as long as they do not try to sell it for a profit", "It allows the police to access any computer system they wish without needing to obtain any permission first"],
+                ans: 1,
+                explain: "The Freedom of Information Act lets the public request information held by public authorities — it is about openness of public bodies."
+            }
+        },
+        {
+            title: "Choosing the right law for a scenario",
+            tag: "Exam skill",
+            content: `<h4>The exam's favourite question</h4>
+<p>You are very often given a situation and asked <strong>which law applies</strong>. Use these quick tests:</p>
+<ul>
+<li>Is it about <strong>personal data</strong> being mishandled, shared or leaked? → <strong>Data Protection Act 2018</strong>.</li>
+<li>Is it about <strong>accessing or changing a system without permission</strong> (hacking, malware)? → <strong>Computer Misuse Act 1990</strong>.</li>
+<li>Is it about <strong>copying someone's work</strong> (software, image, music, logo) without permission? → <strong>Copyright, Designs and Patents Act 1988</strong>.</li>
+<li>Is it about <strong>asking a public body for information</strong>? → <strong>Freedom of Information Act 2000</strong>.</li>
+</ul>
+<p>Watch the trap: storing customer data is <strong>Data Protection</strong>, <strong>not</strong> Computer Misuse or Copyright — a very common mistake.</p>`,
+            readCheck: {
+                q: "A company shares its customers' personal data with another company without the customers' permission. Which law does this break?",
+                opts: ["The Computer Misuse Act 1990, because sharing any kind of data always counts as misusing a computer system", "The Data Protection Act 2018, because it controls how personal data may be stored, used and shared", "The Copyright, Designs and Patents Act 1988, because the customer list was created by the company itself", "The Freedom of Information Act 2000, because the customers have a right to request their own information back"],
+                ans: 1,
+                explain: "Mishandling or sharing personal data without consent breaches the Data Protection Act 2018 — the law that governs personal data."
+            }
+        }
+    ];
+
+    const mcqData = [
+        {
+            q: "Which law makes it illegal to access a computer system without permission?",
+            opts: ["The Data Protection Act 2018", "The Computer Misuse Act 1990", "The Copyright, Designs and Patents Act 1988", "The Freedom of Information Act 2000"],
+            ans: 1,
+            explain: "The Computer Misuse Act 1990 makes unauthorised access to computer systems (hacking) illegal."
+        },
+        {
+            q: "Which law would a school be following when it keeps its students' personal records secure and private?",
+            opts: ["The Copyright, Designs and Patents Act, because the school created the records and therefore owns them fully", "The Data Protection Act 2018", "The Computer Misuse Act, because the records are stored on one of the school's own computer systems", "The Freedom of Information Act, because parents are allowed to request to see their own child's school records"],
+            ans: 1,
+            explain: "Keeping personal data (student records) secure and private is required by the Data Protection Act 2018."
+        },
+        {
+            q: "A person downloads and shares a paid-for game for free without the creator's permission. Which law does this break?",
+            opts: ["The Data Protection Act 2018, because the game will contain some personal data about the people who made it", "The Copyright, Designs and Patents Act 1988", "The Computer Misuse Act 1990", "The Freedom of Information Act 2000"],
+            ans: 1,
+            explain: "Copying and sharing someone's software without permission (software piracy) breaches the Copyright, Designs and Patents Act 1988."
+        },
+        {
+            q: "Which of these is one of the offences covered by the Computer Misuse Act 1990?",
+            opts: ["Keeping personal data for a little longer than the organisation that collected it actually needed to keep it", "Making an unauthorised modification to data, for example by deleting files or spreading a virus", "Selling a piece of software that you wrote entirely yourself to as many customers as you possibly can", "Requesting information from a local council about how it has chosen to spend its money over the last year"],
+            ans: 1,
+            explain: "Unauthorised modification of data (e.g. deleting files or spreading malware) is one of the Computer Misuse Act's offences."
+        },
+        {
+            q: "A member of the public asks their local council how much it spent on new computers last year. Which law gives them the right to ask?",
+            opts: ["The Data Protection Act 2018", "The Freedom of Information Act 2000", "The Computer Misuse Act 1990", "The Copyright, Designs and Patents Act 1988"],
+            ans: 1,
+            explain: "The Freedom of Information Act 2000 lets the public request information held by public authorities such as a council."
+        },
+        {
+            q: "Which of these is a responsibility placed on an organisation by the Data Protection Act 2018?",
+            opts: ["It must give a free copy of any software it has created to anybody who politely asks the company for one", "It must keep personal data secure and must not share or sell it without the person's consent", "It must allow anyone at all to access its computer systems so long as they do not change any of the data", "It must release a brand new version of its product every single year to keep its customers fully up to date"],
+            ans: 1,
+            explain: "The DPA requires personal data to be kept secure and not shared or sold without consent."
+        },
+        {
+            q: "A designer copies another company's logo and uses it on their own product without asking. Which law does this break?",
+            opts: ["The Computer Misuse Act 1990, because copying the logo means gaining access to the other company's systems", "The Copyright, Designs and Patents Act 1988", "The Data Protection Act 2018", "The Freedom of Information Act 2000"],
+            ans: 1,
+            explain: "A logo is an original work protected by copyright, so copying it without permission breaches the Copyright, Designs and Patents Act 1988."
+        },
+        {
+            q: "An employee logs into their manager's account without permission to read confidential emails. Which law is broken?",
+            opts: ["The Copyright, Designs and Patents Act 1988", "The Computer Misuse Act 1990", "The Freedom of Information Act 2000", "The Data Protection Act 2018"],
+            ans: 1,
+            explain: "Accessing an account without permission is unauthorised access — an offence under the Computer Misuse Act 1990."
+        },
+        {
+            q: "Why is storing customer data covered by the Data Protection Act rather than the Computer Misuse Act?",
+            opts: ["Because the Computer Misuse Act only ever applies to computers that are connected to the public internet", "Because the Data Protection Act is the law that specifically governs how personal data is stored and used", "Because the Computer Misuse Act only applies to schools and colleges, never to ordinary private businesses", "Because storing any data at all is always automatically a form of misusing a computer under the older law"],
+            ans: 1,
+            explain: "The Data Protection Act specifically governs personal data; the Computer Misuse Act is about unauthorised access, not routine data storage."
+        },
+        {
+            q: "The Copyright, Designs and Patents Act 1988 protects which of the following?",
+            opts: ["The personal contact details and payment information of every customer stored in a company's database", "Original work such as software, music, images and writing created by a person or company", "Computer networks and systems from being broken into by someone who does not have permission to use them", "The right of members of the public to see information that is held about them by government departments"],
+            ans: 1,
+            explain: "The CDPA protects original work (intellectual property) such as software, music, images and writing."
+        },
+        {
+            q: "Which pairing of a situation with the correct law is right?",
+            opts: ["Spreading a virus that deletes a company's files → the Freedom of Information Act, because files are information", "Spreading a virus that deletes a company's files → the Computer Misuse Act 1990", "Losing a laptop full of unencrypted customer data → the Copyright, Designs and Patents Act 1988", "Copying a song and selling it without permission → the Data Protection Act, because a song is personal to its writer"],
+            ans: 1,
+            explain: "Spreading a virus to delete files is unauthorised modification — a Computer Misuse Act offence. The other pairings are matched to the wrong law."
+        },
+        {
+            q: "Which of these best describes the difference between the Data Protection Act and the Freedom of Information Act?",
+            opts: ["They are really just one and the same single law, only written down with two completely different names by two separate parts of the government", "Data Protection protects individuals' personal data; Freedom of Information lets the public access public bodies' information", "Data Protection applies only to schools, while Freedom of Information applies only to large private companies", "Data Protection is about copying software, while Freedom of Information is about hacking into computer systems"],
+            ans: 1,
+            explain: "The DPA protects personal data about individuals; the FoI Act opens up information held by public authorities — opposite purposes."
+        }
+    ];
+
+    const matchData = [
+        { term: "Data Protection Act 2018", def: "Controls how organisations collect, store and use people's personal data" },
+        { term: "Computer Misuse Act 1990", def: "Makes it illegal to access or modify a computer system without permission" },
+        { term: "Copyright, Designs and Patents Act 1988", def: "Protects original work such as software, music, images and writing" },
+        { term: "Freedom of Information Act 2000", def: "Gives the public the right to request information held by public authorities" },
+        { term: "Personal data", def: "Information about an identifiable living person, protected by the DPA" },
+        { term: "Unauthorised access", def: "Getting into a computer system or account without permission (a CMA offence)" },
+        { term: "Unauthorised modification", def: "Changing or deleting data without permission, e.g. spreading a virus (CMA)" },
+        { term: "Intellectual property", def: "Original work such as software or music that belongs to its creator" },
+        { term: "Software piracy", def: "Illegally copying or sharing software, breaking the CDPA" },
+        { term: "Consent", def: "Permission a person gives for their personal data to be collected and used" },
+        { term: "Data protection officer", def: "A person appointed to ensure an organisation follows data protection rules" },
+        { term: "Public authority", def: "A body such as a council or school that FoI requests can be made to" }
+    ];
+
+    const fibData = [
+        {
+            display: "The _____ Act 1990 makes it illegal to access or change a computer system without permission.",
+            blanks: { B1: "Computer Misuse" }
+        },
+        {
+            display: "The Data _____ Act 2018 controls how organisations collect, store and use people's personal data.",
+            blanks: { B1: "Protection" }
+        },
+        {
+            display: "The Copyright, Designs and Patents Act 1988 protects original work such as software, music and _____.",
+            blanks: { B1: "images" }
+        },
+        {
+            display: "Illegally copying and sharing software is called software _____ and breaks the Copyright Act.",
+            blanks: { B1: "piracy" }
+        },
+        {
+            display: "Under the Data Protection Act, personal data must be kept _____ from unauthorised access.",
+            blanks: { B1: "secure" }
+        },
+        {
+            display: "Spreading a virus that deletes files is 'unauthorised _____' under the Computer Misuse Act.",
+            blanks: { B1: "modification" }
+        },
+        {
+            display: "The Freedom of _____ Act 2000 lets the public request information held by public authorities.",
+            blanks: { B1: "Information" }
+        },
+        {
+            display: "Under the Data Protection Act, an organisation must get a person's _____ before collecting their personal data.",
+            blanks: { B1: "consent" }
+        }
+    ];
+    const fibWords = ["Computer Misuse", "Protection", "images", "piracy", "secure", "modification", "Information", "consent"];
+
+    const tfData = [
+        {
+            statement: "The Computer Misuse Act 1990 makes hacking into a computer system illegal.",
+            answer: true,
+            explanation: "Correct — the Computer Misuse Act makes unauthorised access to computer systems (hacking) a criminal offence."
+        },
+        {
+            statement: "The Data Protection Act 2018 is the law that protects people's personal data.",
+            answer: true,
+            explanation: "Correct — the DPA controls how organisations collect, store and use personal data and gives individuals rights over it."
+        },
+        {
+            statement: "Copying and selling someone's software without permission breaks the Data Protection Act.",
+            answer: false,
+            explanation: "It breaks the Copyright, Designs and Patents Act 1988, which protects original work such as software from being copied."
+        },
+        {
+            statement: "Under the Data Protection Act, an organisation can freely sell customers' personal data to anyone it likes.",
+            answer: false,
+            explanation: "The DPA forbids sharing or selling personal data without the person's consent — this would breach the Act."
+        },
+        {
+            statement: "Spreading a virus that deletes files is an offence under the Computer Misuse Act.",
+            answer: true,
+            explanation: "Correct — this is unauthorised modification of data, one of the Computer Misuse Act's offences."
+        },
+        {
+            statement: "The Freedom of Information Act lets the public request information held by public authorities.",
+            answer: true,
+            explanation: "Correct — the FoI Act gives the public the right to request information from bodies such as councils and schools."
+        },
+        {
+            statement: "The Copyright, Designs and Patents Act protects computer systems from being hacked.",
+            answer: false,
+            explanation: "Protecting systems from hacking is the Computer Misuse Act. The CDPA protects original work such as software and music."
+        },
+        {
+            statement: "A logo is an original work that is protected by the Copyright, Designs and Patents Act.",
+            answer: true,
+            explanation: "Correct — a logo is intellectual property, so copying it without permission breaches the CDPA."
+        }
+    ];
+
+    const miscData = [
+        {
+            wrong: "Thinking that storing or losing customer data is covered by the Computer Misuse Act.",
+            correct: "The <strong>Computer Misuse Act</strong> is about <strong>unauthorised access</strong> (hacking) and changing systems without permission. Handling <strong>personal data</strong> — storing it, keeping it secure, sharing it — is the <strong>Data Protection Act 2018</strong>. Mixing these two up is one of the most common exam errors.",
+            readCheck: {
+                q: "A company accidentally leaks its customers' personal data. Which law has it most likely failed to follow?",
+                opts: ["The Computer Misuse Act 1990, because a leak means someone must have hacked into the company's systems", "The Data Protection Act 2018, because it requires personal data to be kept secure", "The Copyright, Designs and Patents Act 1988, because the customer list is the company's own original work", "The Freedom of Information Act 2000, because the customers have a right to know that the leak has happened"],
+                ans: 1,
+                explain: "Failing to keep personal data secure is a Data Protection Act failing — not the Computer Misuse Act, which is about hacking."
+            }
+        },
+        {
+            wrong: "Believing the Copyright Act protects computer systems from hackers.",
+            correct: "The <strong>Copyright, Designs and Patents Act</strong> protects <strong>original work</strong> (software, music, images, writing) from being <strong>copied</strong>. Protecting <strong>systems</strong> from being <strong>hacked</strong> is the <strong>Computer Misuse Act</strong>. One is about copying work; the other is about breaking in.",
+            readCheck: {
+                q: "Which law is broken by illegally copying and distributing a piece of paid-for software?",
+                opts: ["The Computer Misuse Act, because copying the software means gaining access to the company's private systems", "The Copyright, Designs and Patents Act 1988, because the software is original work protected by copyright", "The Data Protection Act, because the software will contain some of the personal data of the people who made it", "The Freedom of Information Act, because customers have the right to a free copy of any software they want"],
+                ans: 1,
+                explain: "Copying software without permission is software piracy — a breach of the Copyright, Designs and Patents Act, not the Computer Misuse Act."
+            }
+        },
+        {
+            wrong: "Confusing the Data Protection Act with the Freedom of Information Act.",
+            correct: "They point in <strong>opposite directions</strong>. The <strong>Data Protection Act</strong> <strong>protects</strong> individuals' <strong>personal</strong> data (keeping it private and secure). The <strong>Freedom of Information Act</strong> <strong>opens up</strong> information held by <strong>public bodies</strong> so the public can request it. One keeps data private; the other makes information public.",
+            readCheck: {
+                q: "Which law would a member of the public use to ask their local hospital how it spends its budget?",
+                opts: ["The Data Protection Act 2018, because the budget information is personal data belonging to the hospital itself", "The Freedom of Information Act 2000, because it lets the public request information held by public authorities", "The Computer Misuse Act 1990, because the budget figures are all stored on the hospital's computer systems", "The Copyright, Designs and Patents Act 1988, because the hospital created the budget report as its own work"],
+                ans: 1,
+                explain: "Requesting information from a public body (the hospital) is exactly what the Freedom of Information Act allows."
+            }
+        },
+        {
+            wrong: "Getting the Acts' names or years muddled (e.g. 'Data Misuse Act').",
+            correct: "Learn the exact names and years: <strong>Data Protection Act 2018</strong>, <strong>Computer Misuse Act 1990</strong>, <strong>Copyright, Designs and Patents Act 1988</strong>. Examiners usually allow small slips, but knowing them precisely avoids confusing two different laws — the years also help you keep them apart.",
+            readCheck: {
+                q: "Which of these is the correct name of a real piece of UK computer legislation?",
+                opts: ["The Data Misuse and Hacking Prevention Act, which is used to protect all personal data held by companies", "The Computer Misuse Act 1990", "The Digital Privacy and Software Copying Act, which covers both personal data and the copying of software", "The Internet Safety and Information Freedom Act, which controls what can be posted onto social media websites"],
+                ans: 1,
+                explain: "The Computer Misuse Act 1990 is a real Act. The other names are invented — knowing the correct names and years prevents this mistake."
+            }
+        },
+        {
+            wrong: "Thinking the Data Protection Act stops an organisation from storing ANY personal data at all.",
+            correct: "The DPA does <strong>not</strong> ban storing personal data — organisations need it to function. It sets <strong>rules</strong>: get <strong>consent</strong>, keep it <strong>secure</strong>, use it only for the <strong>stated purpose</strong>, keep it <strong>accurate</strong>, and <strong>not longer than needed</strong>. It controls <strong>how</strong> data is handled, not whether it can be held at all.",
+            readCheck: {
+                q: "What does the Data Protection Act require of an organisation that stores personal data?",
+                opts: ["That it must never store any personal data about any person under any circumstances whatsoever at all", "That it handles the data properly — with consent, kept secure, accurate, and only for as long as needed", "That it publishes all of the personal data it holds so that the information is open to the general public", "That it sells the personal data on to another company as soon as it has finished using the data itself"],
+                ans: 1,
+                explain: "The DPA controls HOW data is handled (consent, security, accuracy, retention) — it does not ban storing personal data outright."
+            }
+        }
+    ];
+
+    const examTips = [
+        {
+            type: "tip",
+            title: "The scenario → law matching skill",
+            pills: ["AO1/AO2", "Tick-grid / Identify", "Key skill"],
+            content: `<p>The most common question gives a scenario and asks which law applies — as a tick-grid, or "Identify the legislation…". Learn these signature links:</p>
+<ul>
+<li><strong>Personal data</strong> mishandled/shared/leaked → <strong>Data Protection Act 2018</strong></li>
+<li><strong>Accessing/changing a system</strong> without permission (hacking, malware) → <strong>Computer Misuse Act 1990</strong></li>
+<li><strong>Copying someone's work</strong> (software, image, music, logo) → <strong>Copyright, Designs and Patents Act 1988</strong></li>
+<li><strong>Requesting info from a public body</strong> → <strong>Freedom of Information Act 2000</strong></li>
+</ul>
+<p><strong>The classic trap:</strong> "a company storing customers' data" is <strong>Data Protection</strong> — students often wrongly pick Computer Misuse or Copyright here. Read for the key idea: <em>data</em>, <em>access</em>, <em>copying</em>, or <em>public information</em>?</p>`,
+            readCheck: {
+                q: "A youth centre stores personal data about the young people who attend. Which legislation must it follow?",
+                opts: ["The Computer Misuse Act 1990, because the data is being kept on the youth centre's own computer systems", "The Data Protection Act 2018, because it governs how organisations must handle people's personal data", "The Copyright, Designs and Patents Act 1988, because the youth centre created the records that it is storing", "The Freedom of Information Act 2000, because the young people can ask to see the data that is held on them"],
+                ans: 1,
+                explain: "Storing personal data means following the Data Protection Act — the classic trap is wrongly choosing Computer Misuse or Copyright."
+            }
+        },
+        {
+            type: "explain",
+            title: "Describe a law's purpose — say what it protects and forbids",
+            pills: ["AO1", "2–4 marks", "Describe / Identify"],
+            content: `<p>When asked to "identify one piece of legislation… and describe it", you need <strong>two things</strong>:</p>
+<ul>
+<li><strong>Identify (1 mark):</strong> the correct, named Act.</li>
+<li><strong>Describe (1+ marks):</strong> what it <strong>protects</strong> or what it makes <strong>illegal</strong>, ideally with a relevant detail.</li>
+</ul>
+<p><strong>Example (data storage):</strong> "The <strong>Data Protection Act 2018</strong> <em>(identify)</em>. It controls how organisations store and use people's <strong>personal data</strong>, requiring it to be kept <strong>secure</strong> and only used with <strong>consent</strong> <em>(describe)</em>."</p>
+<p>Just naming the Act is usually only half the marks — always add what it does.</p>`,
+            readCheck: {
+                q: "A 2-mark question says 'Identify one law the club must follow when storing members' data, and describe it.' What earns the second mark?",
+                opts: ["Writing the name of the Act a second time in slightly different words to make the answer look longer", "Describing what the Act does, e.g. it requires personal data to be kept secure and used only with consent", "Giving the exact date and time at which the law was originally passed by parliament many years ago", "Naming a second, completely different law that has nothing to do with the storing of personal data at all"],
+                ans: 1,
+                explain: "The first mark is naming the Act; the second comes from describing what it does — e.g. keeping personal data secure, used with consent."
+            }
+        },
+        {
+            type: "tip",
+            title: "Keep the three main Acts crisply apart",
+            pills: ["AO1", "Definitions", "Common trap"],
+            content: `<p>One line each — memorise these and you'll rarely pick the wrong law:</p>
+<ul>
+<li><strong>Data Protection Act 2018</strong> = my <strong>data</strong> (personal information kept safe).</li>
+<li><strong>Computer Misuse Act 1990</strong> = my <strong>system</strong> (no hacking or malware).</li>
+<li><strong>Copyright, Designs and Patents Act 1988</strong> = my <strong>work</strong> (no copying software, music, images).</li>
+</ul>
+<p>Three words: <strong>data, system, work</strong>. Match the scenario to one of those, and you've almost certainly found the right Act.</p>`,
+            readCheck: {
+                q: "Using the 'data, system, work' shortcut, which Act covers someone hacking into a company's network?",
+                opts: ["The Data Protection Act, because a network always contains at least some personal data about people", "The Computer Misuse Act 1990, because hacking into a system without permission is misusing that system", "The Copyright, Designs and Patents Act, because the company's network setup is its own original design work", "The Freedom of Information Act, because the hacker was only ever trying to find out information they wanted"],
+                ans: 1,
+                explain: "Hacking a system is the 'system' case — the Computer Misuse Act 1990, which forbids unauthorised access."
+            }
+        }
+    ];
+
+    const flashcards = [
+        { term: "Data Protection Act 2018", def: "Controls how organisations collect, store and use people's personal data" },
+        { term: "Computer Misuse Act 1990", def: "Makes it illegal to access or modify a computer system without permission" },
+        { term: "Copyright, Designs and Patents Act 1988", def: "Protects original work such as software, music, images and writing" },
+        { term: "Freedom of Information Act 2000", def: "Gives the public the right to request information held by public authorities" },
+        { term: "Personal data", def: "Information about an identifiable living person (protected by the DPA)" },
+        { term: "Consent", def: "Permission a person gives for their data to be collected and used" },
+        { term: "Unauthorised access", def: "Getting into a system or account without permission (CMA offence 1)" },
+        { term: "Access with intent", def: "Unauthorised access to commit a further crime (CMA offence 2)" },
+        { term: "Unauthorised modification", def: "Changing/deleting data or spreading malware (CMA offence 3)" },
+        { term: "Intellectual property", def: "Original work that belongs to its creator, protected by the CDPA" },
+        { term: "Software piracy", def: "Illegally copying or sharing software (breaks the CDPA)" },
+        { term: "Copyright", def: "The automatic right of a creator to control copying of their work" },
+        { term: "Data protection officer", def: "Person who ensures an organisation follows data protection rules" },
+        { term: "Public authority", def: "A body such as a council or school an FoI request can be made to" },
+        { term: "'Data, system, work'", def: "Shortcut: DPA = data, Computer Misuse = system, Copyright = work" },
+        { term: "GDPR", def: "EU data protection rules the UK's Data Protection Act 2018 is based on" }
+    ];
+
+    // ── Original clean-room exam questions (2026-07-23) ──
+    // Written from scratch against the §1.6.1 spec scope (legislation strand)
+    // (CS-CONTENT-PLAN.md §6.2 clean-room rule) — NOT transcribed from any OCR
+    // ExamBuilder PDF or past paper. This sub-topic is assessed via scenario→law
+    // matching (tick-grids / "identify the legislation") and short describe-the-
+    // Act questions; the three core Acts are DPA 2018 / CMA 1990 / CDPA 1988,
+    // with FoI 2000 as an additional law that appears in matching questions.
+    // Ceiling is modest here (the 8-mark Discuss lives on 1.6.1a/1.6.1c).
+    // Spread: 2x1, 3x2, 2x3, 2x4 = 9 questions / 22 marks.
+    const EXAM_CASE_STUDIES = {
+        "brightsparks": `<p>Bright Sparks is a youth centre. It stores the names, addresses and dates of birth of the young people who attend, on a computer in the office. It also has its own logo and a set of training videos it has made itself.</p>`
+    };
+
+    const examQuestions = [
+        {
+            num: "Q1",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: `<p>Tick <strong>one</strong> box to identify the law that makes it illegal to access a computer system without permission.</p>`,
+            options: ["Data Protection Act 2018", "Computer Misuse Act 1990", "Copyright, Designs and Patents Act 1988", "Freedom of Information Act 2000"],
+            answer: 1,
+            hint: "Which law is about hacking / accessing systems without permission?",
+            starter: "",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<ul>
+<li><strong>Computer Misuse Act 1990</strong></li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Only the correct option scores; 2 or more ticks scores 0.</li>
+</ul>
+</div>`,
+            modelAnswer: "Computer Misuse Act 1990."
+        },
+        {
+            num: "Q2",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: `<p>Tick <strong>one</strong> box to identify the law that protects original work such as software, music and images from being copied.</p>`,
+            options: ["Data Protection Act 2018", "Copyright, Designs and Patents Act 1988", "Computer Misuse Act 1990", "Freedom of Information Act 2000"],
+            answer: 1,
+            hint: "Which law is about copying someone's original work without permission?",
+            starter: "",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<ul>
+<li><strong>Copyright, Designs and Patents Act 1988</strong></li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Only the correct option scores; 2 or more ticks scores 0.</li>
+</ul>
+</div>`,
+            modelAnswer: "Copyright, Designs and Patents Act 1988."
+        },
+        {
+            num: "Q3",
+            marks: 4,
+            type: "written",
+            format: "tickGrid",
+            caseStudy: "",
+            question: `<p>Tick <strong>one</strong> box in each row to show which law applies to each action.</p>`,
+            grid: {
+                cols: ["Data Protection Act 2018", "Computer Misuse Act 1990", "Copyright, Designs and Patents Act 1988"],
+                rows: [
+                    { label: "Using another artist's picture as a company logo without permission", correct: [2] },
+                    { label: "A secretary opening a colleague's email account without permission", correct: [1] },
+                    { label: "A company sharing customers' personal data without their consent", correct: [0] },
+                    { label: "A school accidentally publishing pupils' home addresses online", correct: [0] }
+                ]
+            },
+            hint: "Copying work → Copyright; accessing without permission → Computer Misuse; personal data → Data Protection.",
+            starter: "Row 1: … | Row 2: … | Row 3: … | Row 4: …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (1 mark for each row)</h5>
+<ul>
+<li>Using another artist's picture as a logo without permission → <strong>Copyright, Designs and Patents Act 1988</strong></li>
+<li>Opening a colleague's email account without permission → <strong>Computer Misuse Act 1990</strong></li>
+<li>Sharing customers' personal data without consent → <strong>Data Protection Act 2018</strong></li>
+<li>Accidentally publishing pupils' home addresses → <strong>Data Protection Act 2018</strong></li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Each row is marked independently; 2+ ticks in a row scores 0 for that row.</li>
+</ul>
+</div>`,
+            modelAnswer: "Row 1: Copyright, Designs and Patents Act 1988. Row 2: Computer Misuse Act 1990. Row 3: Data Protection Act 2018. Row 4: Data Protection Act 2018."
+        },
+        {
+            num: "Q4",
+            marks: 2,
+            type: "written",
+            caseId: "brightsparks",
+            question: `<p>Identify <strong>one</strong> piece of legislation that Bright Sparks must follow when storing the young people's data, and describe what it requires.</p>`,
+            hint: "Name the correct Act (it's about personal data), then say one thing it requires the centre to do.",
+            starter: "Bright Sparks must follow the…",
+            markPoints: {
+                note: "1 mark for identifying the correct Act, 1 mark for a valid description of what it requires.",
+                groups: [
+                    {
+                        label: "Legislation + description", max: 2, points: [
+                            { text: "Identifies the Data Protection Act 2018", marks: 1 },
+                            { text: "Describes a valid requirement, e.g. keep the data secure / only use with consent / do not share without permission / keep it accurate / not longer than needed", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks</h5>
+<ul>
+<li>1 mark: Data Protection Act 2018</li>
+<li>1 mark: a valid requirement — keep data secure, only use with consent, do not share without permission, keep accurate, not keep longer than needed</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Do not credit the Computer Misuse Act or Copyright Act here — the scenario is about storing personal data.</li>
+</ul>
+</div>`,
+            modelAnswer: "Bright Sparks must follow the Data Protection Act 2018. It requires the centre to keep the young people's personal data secure from unauthorised access and to use it only for the purpose it was collected, not sharing it without consent."
+        },
+        {
+            num: "Q5",
+            marks: 3,
+            type: "written",
+            caseStudy: "",
+            question: `<p>Describe the three offences covered by the Computer Misuse Act 1990.</p>`,
+            hint: "There are three levels: simple unauthorised access; access with a further criminal intent; and changing/modifying data.",
+            starter: "The first offence is…",
+            markPoints: {
+                note: "1 mark for each of the three offences correctly described, max 3.",
+                groups: [
+                    {
+                        label: "The three offences", max: 3, points: [
+                            { text: "Unauthorised access to computer material (e.g. logging into an account without permission)", marks: 1 },
+                            { text: "Unauthorised access with intent to commit a further offence (e.g. hacking in to steal money/data)", marks: 1 },
+                            { text: "Unauthorised modification of data (e.g. deleting/changing files or spreading a virus)", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 3 marks</h5>
+<ul>
+<li>Unauthorised access to computer material</li>
+<li>Unauthorised access with intent to commit a further offence</li>
+<li>Unauthorised modification of data (e.g. spreading a virus)</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>1 mark for each of the three offences. An example alone (without the type of offence) may still be credited if it clearly matches.</li>
+</ul>
+</div>`,
+            modelAnswer: "The first offence is unauthorised access to computer material, such as logging into someone's account without permission. The second is unauthorised access with intent to commit a further offence, such as hacking into a system in order to steal money or data. The third is unauthorised modification of data, such as deleting or changing files or spreading a virus."
+        },
+        {
+            num: "Q6",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            stubs: ["Law", "Reason"],
+            question: `<p>A student copies a paragraph from a website into their own project and sells the project online, without permission.</p><p>Identify the law this breaks and give a reason.</p>`,
+            hint: "The student is copying someone's original written work — which law protects that?",
+            starter: "This breaks the…",
+            markPoints: {
+                note: "1 mark for the correct law, 1 mark for a valid reason.",
+                groups: [
+                    { label: "Law", max: 1, points: [{ text: "Copyright, Designs and Patents Act 1988", marks: 1 }] },
+                    { label: "Reason", max: 1, points: [{ text: "The writing is someone's original work / protected by copyright and was copied and sold without permission", marks: 1 }] }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks</h5>
+<ul>
+<li>1 mark: Copyright, Designs and Patents Act 1988</li>
+<li>1 mark: the writing is original work protected by copyright, copied/sold without permission</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>The reason must link to copying original work without permission.</li>
+</ul>
+</div>`,
+            modelAnswer: "This breaks the Copyright, Designs and Patents Act 1988, because the paragraph is someone else's original work, protected by copyright, and the student copied and sold it without the creator's permission."
+        },
+        {
+            num: "Q7",
+            marks: 3,
+            type: "written",
+            caseStudy: "",
+            question: `<p>Describe what the Data Protection Act 2018 requires an organisation to do with the personal data it collects.</p>`,
+            hint: "Give three distinct requirements — think about consent, security, purpose, accuracy and how long data is kept.",
+            starter: "The organisation must…",
+            markPoints: {
+                note: "1 mark per valid requirement, max 3.",
+                groups: [
+                    {
+                        label: "DPA requirements", max: 3, points: [
+                            { text: "Keep the data secure from unauthorised access", marks: 1 },
+                            { text: "Only collect/use it with consent and for the stated purpose", marks: 1 },
+                            { text: "Keep it accurate / not keep it longer than needed / not share or sell without permission (any valid extra)", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 3 marks</h5>
+<ul>
+<li>Keep data secure from unauthorised access</li>
+<li>Collect/use it only with consent and for the stated purpose</li>
+<li>Keep it accurate; not keep it longer than needed; not share/sell without permission</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Award any three distinct valid requirements.</li>
+</ul>
+</div>`,
+            modelAnswer: "The organisation must keep the personal data secure from unauthorised access, for example using passwords and encryption. It must only collect and use the data with the person's consent and for the purpose it was collected for. It must also keep the data accurate, not keep it for longer than needed, and not share or sell it without permission."
+        },
+        {
+            num: "Q8",
+            marks: 4,
+            type: "written",
+            format: "tickGrid",
+            caseStudy: "",
+            question: `<p>Tick <strong>one</strong> box in each row to identify the legislation that covers each event.</p>`,
+            grid: {
+                cols: ["Data Protection Act 2018", "Computer Misuse Act 1990", "Copyright, Designs and Patents Act 1988", "Freedom of Information Act 2000"],
+                rows: [
+                    { label: "A member of the public requests spending figures from their local council", correct: [3] },
+                    { label: "Someone spreads a virus that deletes a company's files", correct: [1] },
+                    { label: "A company keeps selling customers' data after they asked it not to", correct: [0] },
+                    { label: "A person downloads and shares a film without the studio's permission", correct: [2] }
+                ]
+            },
+            hint: "Requesting public info → Freedom of Information; virus/hacking → Computer Misuse; personal data → Data Protection; copying a film → Copyright.",
+            starter: "Row 1: … | Row 2: … | Row 3: … | Row 4: …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (1 mark for each row)</h5>
+<ul>
+<li>Requesting spending figures from a council → <strong>Freedom of Information Act 2000</strong></li>
+<li>Spreading a virus that deletes files → <strong>Computer Misuse Act 1990</strong></li>
+<li>Selling customers' data after being told not to → <strong>Data Protection Act 2018</strong></li>
+<li>Downloading and sharing a film without permission → <strong>Copyright, Designs and Patents Act 1988</strong></li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Each row is marked independently; 2+ ticks in a row scores 0 for that row.</li>
+</ul>
+</div>`,
+            modelAnswer: "Row 1: Freedom of Information Act 2000. Row 2: Computer Misuse Act 1990. Row 3: Data Protection Act 2018. Row 4: Copyright, Designs and Patents Act 1988."
+        },
+        {
+            num: "Q9",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: `<p>Explain the difference between the Data Protection Act 2018 and the Freedom of Information Act 2000.</p>`,
+            hint: "One keeps certain information private; the other makes certain information public. Say what each does.",
+            starter: "The Data Protection Act…, whereas the Freedom of Information Act…",
+            markPoints: {
+                note: "1 mark for each Act's purpose correctly stated (both sides of the contrast).",
+                groups: [
+                    {
+                        label: "The difference", max: 2, points: [
+                            { text: "Says the Data Protection Act protects individuals' personal data / keeps it private and secure", marks: 1 },
+                            { text: "Says the Freedom of Information Act lets the public request information held by public authorities", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks</h5>
+<ul>
+<li>1 mark: Data Protection Act protects individuals' personal data (keeps it private/secure)</li>
+<li>1 mark: Freedom of Information Act lets the public access information held by public authorities</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Both sides of the contrast are needed for 2 marks.</li>
+</ul>
+</div>`,
+            modelAnswer: "The Data Protection Act 2018 protects individuals' personal data, keeping it private and secure and controlling how it is used. The Freedom of Information Act 2000, in contrast, lets members of the public request information held by public authorities such as councils and schools, making that information more open."
+        }
+    ];
+</script>
+    <script src="/script.js"></script>
+<script src="section-totals.js"></script>
+<script src="page-groups.js"></script>
+<script src="/progress-shared.js"></script>
+<script src="/gamification.js"></script>
+<script src="/topic-guard.js"></script>
+<script src="/notifications-shared.js"></script>
+<script src="/onboarding-tour.js"></script>
+<script src="/footer-legal.js"></script>
+<script src="/cs-lab/exam-widgets.js"></script>
+<script src="/cs-lab/exam-widgets-grids.js"></script>
+<script src="/cs-lab/exam-widgets-code.js"></script>
+<script src="/cs-lab/cs-lab.js" defer></script>
+</body>
+
+</html>

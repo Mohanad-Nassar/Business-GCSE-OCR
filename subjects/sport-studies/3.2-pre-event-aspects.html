@@ -1,0 +1,705 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3.2 Pre-Event Aspects – Interactive Study Guide</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+    <header>
+        <div>
+            <div class="badge">OCR Level 1/Level 2 Sport Studies — R184 · 3. Hosting a Major Sporting Event</div>
+            <h1>3.2 Pre-Event Aspects</h1>
+            <p>Interactive revision guide · Content coming soon</p>
+        </div>
+        <a href="/index.html" class="home-link">← 🏡 Home</a>
+    </header>
+
+    <nav class="tab-bar" id="tabBar">
+        <button class="tab-btn active" onclick="switchTab('learn', this)">
+            📚 Key Learning
+        </button>
+        <button class="tab-btn" onclick="switchTab('mcq', this)">
+            ❓ MCQ Quiz
+        </button>
+        <button class="tab-btn" onclick="switchTab('matching', this)">
+            🔗 Matching
+        </button>
+        <button class="tab-btn" onclick="switchTab('fib', this)">
+            ✏️ Fill the Blanks
+        </button>
+        <button class="tab-btn" onclick="switchTab('misconceptions', this)">
+            ⚠️ Misconceptions
+        </button>
+        <button class="tab-btn" onclick="switchTab('examtips', this)">
+            🎯 Exam Tips
+        </button>
+        <button class="tab-btn" onclick="switchTab('flashcards', this)">
+            🃏 Flashcards
+        </button>
+        <button class="tab-btn" onclick="switchTab('truefalse', this)">
+            ✅ True / False
+        </button>
+        <button class="tab-btn" onclick="switchTab('exampractice', this)">
+            📝 Exam Practice
+        </button>
+    </nav>
+
+    <main>
+        <div class="tab-panel active" id="tab-learn">
+            <h2 class="section-title">Key Learning Topics</h2>
+            <p class="section-sub">Click any card to expand detailed notes.</p>
+            <div class="topic-grid" id="topicGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-mcq">
+            <h2 class="section-title">Multiple Choice Questions</h2>
+            <p class="section-sub">Select an answer to reveal instant feedback.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="mcqScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">
+                        correct answers
+                    </div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    out of <strong id="mcqTotal">0</strong> attempted
+                </div>
+                <button class="reset-btn" onclick="resetMCQ()">RESET</button>
+            </div>
+            <div class="quiz-wrap" id="mcqWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-matching">
+            <h2 class="section-title">Matching Activity</h2>
+            <p class="section-sub">
+                Click a term on the left, then click the matching definition on the
+                right.
+            </p>
+            <div style="margin-bottom: 16px">
+                <div class="score-bar">
+                    <div>
+                        <div class="score-num" id="matchScore">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">matched</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="matchTotal">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetMatch()">RESET</button>
+                </div>
+            </div>
+            <div class="match-grid">
+                <div>
+                    <div class="match-label">TERMS</div>
+                    <div class="match-col" id="matchLeft"></div>
+                </div>
+                <div>
+                    <div class="match-label">DEFINITIONS</div>
+                    <div class="match-col" id="matchRight"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-fib">
+            <h2 class="section-title">Fill in the Blanks</h2>
+            <p class="section-sub">
+                Click each dropdown and choose the correct word. Wrong answers reset —
+                try again!
+            </p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="fibScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="fibTotal">0</strong> blanks
+                </div>
+                <button class="reset-btn" onclick="resetFIB()">RESET</button>
+            </div>
+            <div class="fib-wrap" id="fibWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-misconceptions">
+            <h2 class="section-title">Common Misconceptions</h2>
+            <p class="section-sub">
+                What students often think — and what examiners actually want.
+            </p>
+            <div class="misc-list" id="miscList"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-examtips">
+            <h2 class="section-title">Exam Questions &amp; Tips</h2>
+            <p class="section-sub">
+                Most repeated question types and mark-scheme structures from real OCR
+                papers.
+            </p>
+            <div class="tips-grid" id="tipsGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-flashcards">
+            <h2 class="section-title">Flashcards</h2>
+            <p class="section-sub">
+                Test yourself! Flip the card and rate your knowledge. Review your weak
+                areas at the end.
+            </p>
+
+            <div class="fc-container">
+                <div class="score-bar" id="fcScoreBar" style="display: none; margin-bottom: 20px">
+                    <div>
+                        <div class="score-num" id="fcKnown" style="color: #2d7a4f">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">known</div>
+                    </div>
+                    <div>
+                        <div class="score-num" id="fcUnknown" style="color: #c84b31">
+                            0
+                        </div>
+                        <div style="font-size: 12px; color: var(--mid)">learning</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="fcTotalTrack">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
+                </div>
+
+                <div id="fcActiveArea">
+                    <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
+                    <div class="flashcard" id="flashcard" onclick="flipCard()">
+                        <div class="fc-inner">
+                            <div class="fc-front">
+                                <div class="fc-label">KEY TERM</div>
+                                <div class="fc-term" id="fcTerm"></div>
+                            </div>
+                            <div class="fc-back">
+                                <div class="fc-def" id="fcDef"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="fc-hint">👆 Click card to flip</p>
+
+                    <div class="fc-nav" id="fcNavDefault">
+                        <button class="fc-btn outline" onclick="prevCard()">
+                            ← Prev
+                        </button>
+                        <button class="fc-btn outline" onclick="flipCard()">Flip</button>
+                        <button class="fc-btn" onclick="nextCard()">Next →</button>
+                    </div>
+
+                    <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px">
+                        <button class="fc-btn outline" style="border-color: #c84b31; color: #c84b31; flex: 1"
+                            onclick="markCard(false)">
+                            ❌ Still Learning
+                        </button>
+                        <button class="fc-btn" style="background: #2d7a4f; border-color: #2d7a4f; flex: 1"
+                            onclick="markCard(true)">
+                            ✅ Got It
+                        </button>
+                    </div>
+                </div>
+
+                <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px">
+                    <h3>Session Complete! 🎉</h3>
+                    <p style="margin: 15px 0">
+                        You knew <strong id="fcSummaryKnown">0</strong> out of
+                        <strong id="fcSummaryTotal">0</strong> cards.
+                    </p>
+                    <div style="
+                margin-top: 25px;
+                display: flex;
+                gap: 15px;
+                justify-content: center;
+                flex-wrap: wrap;
+              ">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
+                            style="background: #c84b31; border-color: #c84b31">
+                            Review Incorrect
+                        </button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">
+                            Practice All Again
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-truefalse">
+            <h2 class="section-title">True or False?</h2>
+            <p class="section-sub">Test your knowledge with these statements.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="tfScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="tfTotal">0</strong> answered
+                </div>
+                <button class="reset-btn" onclick="resetTF()">RESET</button>
+            </div>
+            <div class="tf-wrap" id="tfWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-exampractice">
+            <h2 class="section-title">Exam Practice Questions</h2>
+            <p class="section-sub">
+                Full exam questions with case studies. Use <strong>Hint</strong>,
+                <strong>Sentence Starter</strong> and
+                <strong>Submit &amp; See Mark Scheme</strong> for each question.
+            </p>
+            <div class="ep-list" id="epList"></div>
+        </div>
+    </main>
+
+<script>
+    // ══════════════════════════════════════
+    //  DATA: 3.2 Pre-Event Aspects
+    // ══════════════════════════════════════
+    const pageMeta = {
+            id: '3-2-pre-event-aspects',
+            badge: 'OCR Level 1/Level 2 Sport Studies — R184 · 3. Hosting a Major Sporting Event',
+            title: '3.2 Pre-Event Aspects',
+            subtitle: 'Interactive revision guide',
+            subject: 'sport-studies',
+        };
+
+    const topics = [
+        {
+            title: "Bidding for a major event — a costly gamble",
+            tag: "Key concept",
+            content: `<h4>What a 'bid' actually is</h4>
+<ul>
+<li>Before any major event can happen, cities or countries have to <strong>bid</strong> for the right to host it — a formal, competitive process in which each applicant puts forward a detailed proposal to the sport's governing body.</li>
+<li>Bidding is <strong>expensive in itself</strong>. Putting a bid together — presentations, site visits, financial guarantees, planning documents — costs large sums of money, and that money is spent <em>before</em> anyone knows whether the bid will succeed.</li>
+<li>Because several places usually compete for the same event, most bids <strong>fail</strong>. The losing places still have to pay for the process; only one place gets the event at the end of it.</li>
+</ul>
+<h4>Justifications FOR bidding</h4>
+<ul>
+<li>A strong bid can raise a place's <strong>international profile</strong> long before the event starts.</li>
+<li>Chasing a bid can unlock political and public support for <strong>investment</strong> that might never have been approved otherwise.</li>
+<li>Working towards a shared bid can build a sense of <strong>national pride</strong> and common purpose.</li>
+</ul>
+<h4>Justifications AGAINST bidding</h4>
+<ul>
+<li>The bidding process costs real money with <strong>no guarantee of success</strong> — if the bid fails, that spending produces nothing.</li>
+<li>Critics argue that money spent chasing a bid could instead go on more certain local needs, such as schools, hospitals or grassroots sport.</li>
+<li>The exam skill here is to <strong>weigh the two sides of the same aspect</strong>: bidding can attract benefits, but it is also a genuine financial risk — never present only one side.</li>
+</ul>`,
+            readCheck: {
+                q: "Which of these best describes why bidding for a major sporting event is risky for the applicant?",
+                opts: ["The process itself is costly and competitive, so a failed bid still leaves a large, unrecovered bill", "The process is free of charge for every applicant, so nobody ever loses out even if their bid ultimately fails", "Only one place is ever allowed to submit a bid for any single major event", "A bid is approved automatically as soon as it is formally submitted for review"],
+                ans: 0,
+                explain: "Bidding costs real money on presentations, guarantees and planning before a winner is known — if the bid fails, that spending is lost, which is the genuine risk."
+            }
+        },
+        {
+            title: "Infrastructure and transport development",
+            tag: "Core knowledge",
+            content: `<h4>The positive side</h4>
+<ul>
+<li>Hosting a major event usually forces new or upgraded <strong>stadiums and venues</strong>, plus improved <strong>roads, rail lines and transport links</strong>, to be finished by a fixed deadline.</li>
+<li>These improvements can <strong>outlive the event</strong> — residents can keep using an upgraded rail line or a new sports venue for years after the closing ceremony.</li>
+</ul>
+<h4>The negative side of the SAME building programme</h4>
+<ul>
+<li>This construction is very costly, and projects built to a hard deadline commonly run <strong>over budget</strong>.</li>
+<li>Venues rushed to meet the event date may not actually suit <strong>local needs</strong> once the event has finished.</li>
+<li>The building work itself causes <strong>years of disruption</strong> beforehand — dug-up roads, noise and congestion for local residents.</li>
+</ul>
+<p>Notice this is <strong>one</strong> aspect (infrastructure) with a genuine upside and a genuine downside — the exam rewards students who can hold both in mind at once, not just list the positive.</p>`,
+            readCheck: {
+                q: "What is a genuine risk attached to infrastructure built before a major sporting event?",
+                opts: ["Every improved transport link instantly becomes free to use for local residents forever", "New stadiums are always demolished the day after they are finished being built", "Rushed building work can run over budget and cause years of local disruption beforehand", "Transport development is banned everywhere a major sporting event takes place"],
+                ans: 2,
+                explain: "Building to a fixed deadline commonly overruns its budget and disrupts local life for years beforehand — a genuine cost that sits alongside the lasting benefit."
+            }
+        },
+        {
+            title: "Financial investment and the jobs it creates",
+            tag: "Core knowledge",
+            content: `<h4>The positive side</h4>
+<ul>
+<li>Major events attract <strong>commercial investment</strong> — sponsors and investors are willing to put money behind an event that draws global attention, funding facilities that public money alone might never stretch to.</li>
+<li>Preparing for the event creates <strong>employment</strong>: construction jobs building venues and transport links, plus further jobs preparing and staffing the event as it approaches.</li>
+</ul>
+<h4>The negative side of the SAME investment and jobs</h4>
+<ul>
+<li>Much of this employment is <strong>temporary</strong> — construction jobs largely disappear once the building work finishes, often well before the event even begins.</li>
+<li>Sponsor interest is usually tied to the event itself, so it can fade quickly once the event is over, meaning any employment boost may not last.</li>
+<li>Relying on private investment can mean handing real decisions — such as naming rights or ticket allocation — over to the sponsors and investors who paid for them.</li>
+</ul>`,
+            readCheck: {
+                q: "Why is the employment created before a major sporting event often described as a limited benefit?",
+                opts: ["No construction jobs are ever created in the years before a major sporting event", "Every job created before the event is guaranteed to last for the entire remainder of that worker's whole career", "Employment always increases at exactly the same rate that commercial investment falls", "Most of these jobs are tied to construction and preparation, and usually end once that work is finished"],
+                ans: 3,
+                explain: "Construction and preparation jobs are largely temporary — they tend to disappear once the building work is complete, often before the event has even started."
+            }
+        },
+        {
+            title: "Objections to bidding — weighing positives against negatives",
+            tag: "Exam skill",
+            content: `<h4>Why people object to a bid</h4>
+<ul>
+<li>Local residents and national pressure groups often object to a bid <strong>before it is even submitted</strong>, arguing that the huge sums involved would do more good spent on other social needs — schools, hospitals or local sport facilities — than on chasing a bid that might fail.</li>
+<li>Objections can also focus on the years of <strong>disruption</strong> construction brings, or on doubts that the promised jobs and infrastructure will really benefit local people once contractors move on.</li>
+</ul>
+<h4>The exam skill: don't just list, WEIGH</h4>
+<ul>
+<li><strong>Weak answer:</strong> "Bidding costs money." This names a fact but shows no real understanding.</li>
+<li><strong>Strong answer:</strong> "Bidding is expensive and competitive, so a city risks spending heavily on a bid that fails; but if it succeeds, the investment attracted can fund lasting infrastructure — the real question is whether that gamble is worth taking."</li>
+<li>Every pre-event aspect (bidding, infrastructure, investment, employment) has a positive AND a negative side, and top answers compare <strong>the same aspect's two sides</strong> rather than one positive from one aspect against one negative from a different aspect.</li>
+</ul>`,
+            readCheck: {
+                q: "A question asks you to discuss objections to bidding for a major event. What shows the strongest understanding?",
+                opts: ["Naming a single positive of hosting the event, with absolutely no further comment added", "Weighing a genuine benefit of bidding against a genuine risk of the same bid", "Listing as many unrelated sports facts as you can possibly recall from memory", "Stating that objections to bidding never happen anywhere in real life"],
+                ans: 1,
+                explain: "Discuss questions reward comparing the benefit and the risk of the SAME aspect (bidding) — naming one fact alone, or listing unrelated facts, does not show that skill."
+            }
+        }
+    ];
+
+    const mcqData = [
+        {
+            q: "What is a 'bid' for a major sporting event best described as?",
+            opts: ["A costly, competitive process in which places apply to be chosen as host", "A free vote among fans deciding which city they would most like to visit next", "A short local meeting held only after a winning host has already been confirmed", "A guaranteed contract signed automatically as soon as a stadium design is drawn up"],
+            ans: 0,
+            explain: "Bidding is a costly, competitive process — several places apply and only one is chosen, so it is neither free, automatic, nor something that happens after the decision."
+        },
+        {
+            q: "Which of these is a genuine risk of the infrastructure built before a major sporting event?",
+            opts: ["Ticket sales from the event always cover the entire cost of every stadium and transport link built", "Building to a fixed deadline can run over budget and disrupt local residents for years beforehand", "Local roads are never affected by construction work carried out for a major sporting event", "New venues are only ever built well away from where any local residents actually live"],
+            ans: 1,
+            explain: "Construction to a hard deadline commonly overruns its budget and disrupts local life well before the event — the other options describe outcomes that do not reliably happen."
+        },
+        {
+            q: "Why might commercial investment attracted by a bid be seen as only a limited benefit?",
+            opts: ["Sponsors and investors never provide any funding towards a major sporting event", "Sponsor interest is usually tied to the event and can fade once it has finished", "Commercial investment always replaces every penny of public spending completely", "Investors are legally required to fund the event for at least twenty years afterwards"],
+            ans: 1,
+            explain: "Investment is often tied closely to the event itself, so interest and funding can fall away once it ends — that is the limit on this benefit, not that investment never happens."
+        },
+        {
+            q: "A city's bid for a major event fails after months of costly preparation. What does this best show?",
+            opts: ["Bidding guarantees the city a financial return no matter what the final outcome is", "Bidding is a genuine risk, since the cost of preparing it is spent whether it succeeds or fails", "A bid can only ever be submitted once by the same city in its entire history", "Every failed bid is fully refunded in cash by the sport's international governing body without any exception"],
+            ans: 1,
+            explain: "The money spent preparing a bid is spent regardless of the result, which is exactly why bidding is described as a genuine financial risk, not a safe investment."
+        },
+        {
+            q: "Which reason is most likely to be given by local residents objecting to a bid?",
+            opts: ["The bid money could be better spent on other local needs such as schools or hospitals", "Residents object because major sporting events are against the law in every country", "Residents object because bidding always guarantees the event will be hosted successfully", "Residents object because construction work never affects any nearby homes at all"],
+            ans: 0,
+            explain: "A common objection is that the large sums spent chasing a bid could instead fund more certain local needs — the other options describe things that are not true or not the reason given."
+        },
+        {
+            q: "Which sentence best shows the exam skill of weighing pre-event aspects, rather than just listing them?",
+            opts: ["Hosting a major event simply involves bidding, infrastructure and investment all happening", "Bidding can attract investment, but that gain only follows if the costly bid succeeds", "Major sporting events happen in many different countries around the world today", "Infrastructure, investment and employment are all things that genuinely exist"],
+            ans: 1,
+            explain: "Weighing the SAME aspect's benefit against its risk (bidding can attract investment, but only if it succeeds) shows real understanding — the other options merely list topics."
+        }
+    ];
+
+    const matchData = [
+        { term: "Bidding", def: "The costly, competitive process of formally applying to be chosen as host of a major event" },
+        { term: "Infrastructure development", def: "Building or upgrading stadiums and venues so a place is ready to host a major event" },
+        { term: "Transport development", def: "Improving roads, rail and other links so visitors and residents can reach a major event" },
+        { term: "Commercial investment", def: "Money that sponsors and investors put into an event, hoping for exposure or a return" },
+        { term: "Pre-event employment", def: "Jobs created constructing venues and preparing a place before a major event takes place" },
+        { term: "Local objection", def: "Opposition from residents who feel bid money could be better spent on other local needs" },
+        { term: "National objection", def: "Opposition at a country-wide level questioning why public money should fund a bid" }
+    ];
+
+    const fibData = [
+        {
+            display: "Bidding to host a major event is a _____ process, meaning several places apply for the same event.",
+            blanks: { B1: "competitive" }
+        },
+        {
+            display: "Because a bid can fail, the money spent preparing it is often described as a financial _____.",
+            blanks: { B1: "risk" }
+        },
+        {
+            display: "New stadiums, roads and transport links built before an event are examples of _____ development.",
+            blanks: { B1: "infrastructure" }
+        },
+        {
+            display: "Sponsors and investors provide _____ investment that can fund facilities public money alone might not cover.",
+            blanks: { B1: "commercial" }
+        },
+        {
+            display: "Construction work before a major event usually creates _____ employment that ends once the building finishes.",
+            blanks: { B1: "temporary" }
+        },
+        {
+            display: "Objectors often argue that bid money could be better spent on other local or national _____.",
+            blanks: { B1: "needs" }
+        }
+    ];
+    const fibWords = ["competitive", "risk", "infrastructure", "commercial", "temporary", "needs"];
+
+    const tfData = [
+        {
+            statement: "Bidding to host a major sporting event is a free and simple process.",
+            answer: false,
+            explanation: "Bidding is costly and competitive — bid teams spend large sums on presentations, guarantees and planning before any decision is made."
+        },
+        {
+            statement: "New stadiums, roads and transport links built before an event can go on to benefit local residents for years afterwards.",
+            answer: true,
+            explanation: "Infrastructure delivered to the event's deadline can keep serving residents long after the event has finished — a genuine lasting positive."
+        },
+        {
+            statement: "Every city or country that submits a bid is guaranteed to be chosen as host.",
+            answer: false,
+            explanation: "Bidding is competitive — usually only one place wins, so every other bidder has spent heavily on a bid that did not succeed."
+        },
+        {
+            statement: "Jobs created constructing venues before an event usually last only until the building work finishes.",
+            answer: true,
+            explanation: "Most pre-event construction employment is temporary, tied to the build itself, and tends to disappear once the venues are finished."
+        },
+        {
+            statement: "Local and national objections to a bid are only ever about damage to the environment.",
+            answer: false,
+            explanation: "Objections mainly focus on whether bid money could be better spent on other social needs, and on the disruption of construction — not only the environment."
+        },
+        {
+            statement: "Commercial investment from sponsors can help pay for facilities that public money alone might not cover.",
+            answer: true,
+            explanation: "Sponsors and investors are drawn to an event's global attention, and their money can fund facilities beyond what public spending alone could stretch to."
+        }
+    ];
+
+    const miscData = [
+        {
+            wrong: "Bidding for a major event is basically free advertising, so there's no real cost involved.",
+            correct: "The bidding process itself costs large sums of money — presentations, site visits, guarantees and planning documents all have to be paid for, whether or not the bid succeeds. If the bid fails, that spending is simply lost. Bidding is a genuine financial gamble, not free publicity.",
+            readCheck: {
+                q: "What is the truth about the cost of bidding for a major sporting event?",
+                opts: ["Bidding costs nothing at all for any of the places that choose to apply for it", "Only the winning bid ever has to pay for the cost of preparing its own bid", "The process itself is costly, whether or not the bid goes on to succeed", "Bids are always fully refunded by the governing body if they are unsuccessful"],
+                ans: 2,
+                explain: "The cost of preparing a bid is spent regardless of the outcome, which is exactly why a failed bid is a real financial loss for the applicant."
+            }
+        },
+        {
+            wrong: "New infrastructure built before an event is only ever a good thing for local people.",
+            correct: "Infrastructure has a genuine positive AND a genuine negative side. Yes, new venues and transport links can serve residents for years — but rushed builds may not fit local needs afterwards, projects can run over budget, and the construction itself disrupts local life for years beforehand. A strong answer holds both sides in mind.",
+            readCheck: {
+                q: "Which statement best captures the full picture of pre-event infrastructure?",
+                opts: ["It can bring lasting benefits, but also cost overruns and years of disruption", "It only ever benefits local residents, with no downside of any kind at all", "It never affects local residents in any way at all, whether positive or negative", "It is always finished many years before the event actually needs it to be ready"],
+                ans: 0,
+                explain: "Infrastructure carries a real upside (lasting facilities) and a real downside (overruns, disruption) — a one-sided answer misses half the picture."
+            }
+        },
+        {
+            wrong: "The jobs created before a major event are permanent, long-term jobs for local people.",
+            correct: "Most pre-event jobs are tied to construction and preparation, and they tend to disappear once the building work is finished — often well before the event itself even starts. Treating this employment boost as permanent overstates the benefit.",
+            readCheck: {
+                q: "What is true about most jobs created in the run-up to a major sporting event?",
+                opts: ["They are guaranteed to continue for the rest of the worker's entire career", "No jobs of any kind are ever created before a major sporting event takes place", "They only ever begin on the very same day that the event itself starts", "They are largely temporary, tied to construction and preparation work"],
+                ans: 3,
+                explain: "Construction and preparation jobs are mostly temporary and tend to end once the building phase is complete, which limits how lasting this benefit really is."
+            }
+        },
+        {
+            wrong: "Objecting to a bid means you don't want your country to host any sport at all.",
+            correct: "Objections are usually about priorities, not about opposing sport itself. Residents and pressure groups typically question whether the money spent chasing a bid is better used on other local or national needs, such as schools, hospitals or grassroots sport — not that sport shouldn't happen.",
+            readCheck: {
+                q: "What do most objections to a bidding process actually argue?",
+                opts: ["That sport itself should not be allowed to take place anywhere at all", "That the money involved could be better spent on other social needs", "That every major sporting event should be cancelled immediately as a result", "That bidding always succeeds, no matter which city or country applies"],
+                ans: 1,
+                explain: "Objections are usually about spending priorities — whether the money could do more good elsewhere — rather than opposition to sport itself."
+            }
+        }
+    ];
+
+    const examTips = [
+        {
+            type: "tip",
+            title: "Command words for pre-event questions — what each one wants",
+            pills: ["Identify", "Describe", "Explain", "Discuss"],
+            content: `<p>Pre-event questions range from quick recall to full evaluation. Match your answer length to the command word and the mark tariff:</p>
+<ul>
+<li><strong>Identify / State</strong> — just name it. "Identify two pre-event aspects [2]" = two names, one mark each, nothing more.</li>
+<li><strong>Describe</strong> — say what it involves. "Describe the bidding process" = give its features (competitive, costly, run by the governing body).</li>
+<li><strong>Explain</strong> — give a reason. "Explain why bidding is risky" = a point <em>plus</em> why (because the cost is spent whether or not it succeeds).</li>
+<li><strong>Discuss</strong> — weigh both sides. This is where pre-event questions are usually won or lost — see the next tip.</li>
+</ul>
+<p><strong>Read the mark tariff:</strong> [1] wants one point; [4] in Section B wants points applied to the scenario; [8] wants a balanced discussion with a judgement.</p>`,
+            readCheck: {
+                q: "A question says: 'Identify two pre-event aspects of hosting a major event [2]'. What is the safest answer?",
+                opts: ["A long paragraph that only explores one single aspect in real detail", "Two named aspects, such as bidding and infrastructure", "A list of every single aspect that you can possibly remember", "One aspect explained in full, with a supporting reason given"],
+                ans: 1,
+                explain: "'Identify' + [2] = two names, one mark each. Exploring one aspect in depth, or listing far more than asked, wastes time without extra reward."
+            }
+        },
+        {
+            type: "tip",
+            title: "The golden rule: weigh the positive against the negative of the SAME aspect",
+            pills: ["Section B", "Section C", "AO2"],
+            content: `<p>The single most common way to lose marks on this topic is treating positives and negatives as separate lists. Build every longer answer as <strong>aspect → benefit → but → risk</strong>:</p>
+<ul>
+<li><strong>❌ weak:</strong> "Bidding is good because it brings investment. Infrastructure is bad because it costs money." (two different aspects, no real comparison)</li>
+<li><strong>✅ strong:</strong> "Bidding can attract investment that funds lasting infrastructure, but that gain only follows if the costly bid actually succeeds."</li>
+</ul>
+<p>In <strong>Section B</strong> the question gives you a scenario. Use a detail <em>from that scenario</em> when you weigh the aspect, rather than a general example.</p>`,
+            readCheck: {
+                q: "Which of these best follows the 'aspect → benefit → but → risk' structure?",
+                opts: ["Bidding is competitive, and infrastructure is expensive to build", "Infrastructure and employment are both things that simply exist before an event", "Objections happen, and investment also happens, in some countries", "Bidding can raise a city's profile, but the cost is lost if the bid fails"],
+                ans: 3,
+                explain: "This links ONE aspect's benefit to ITS OWN risk (profile gained, but cost lost if it fails) — the other options just list separate facts side by side."
+            }
+        },
+        {
+            type: "tip",
+            title: "Where pre-event aspects appear + sentence starters",
+            pills: ["Section A", "Section B", "Section C"],
+            content: `<p><strong>Where it shows up:</strong> pre-event aspects appear as quick recall in <strong>Section A</strong> (identify/state), as applied points in <strong>Section B</strong> scenarios about a specific bidding city, and as balanced <strong>Section C</strong> 8-mark discussions weighing up whether hosting is worth it.</p>
+<p><strong>Three punchy tips:</strong></p>
+<ul>
+<li>Learn the five aspects (bidding, infrastructure/transport, investment, employment, objections) so you always have material to draw on.</li>
+<li>For every aspect, memorise <em>one</em> benefit and <em>one</em> risk — that pairing is usually where the marks sit.</li>
+<li>Watch for temporary vs lasting effects: infrastructure often lasts, jobs and sponsor interest usually don't — a sharp evaluation point.</li>
+</ul>
+<p><strong>Sentence starters for a longer answer:</strong></p>
+<ul>
+<li>"One benefit of bidding for this event is… because…"</li>
+<li>"However, this comes with a risk, because…"</li>
+<li>"Overall, whether this is worth it depends on…"</li>
+</ul>`,
+            readCheck: {
+                q: "Why is noticing 'temporary vs lasting' effects a useful evaluation point?",
+                opts: ["It shows some benefits fade quickly while others can last for years", "It fills space without adding any real understanding to the answer given here at all", "It proves that pre-event aspects never have any real effect on anyone", "It means a Section C answer can skip giving any kind of final judgement"],
+                ans: 0,
+                explain: "Spotting that jobs and sponsor interest are often temporary, while infrastructure can last, shows the kind of balanced thinking that lifts a Section C answer."
+            }
+        }
+    ];
+
+    const flashcards = [
+        { term: "Bidding", def: "Costly, competitive process of applying to be chosen as host of a major event" },
+        { term: "Infrastructure development", def: "New or upgraded stadiums and venues built before an event, to a fixed deadline" },
+        { term: "Transport development", def: "Improved roads, rail and other links built or upgraded before an event" },
+        { term: "Commercial investment", def: "Money from sponsors and investors funding event preparation" },
+        { term: "Pre-event employment", def: "Jobs building venues and preparing for the event; usually temporary" },
+        { term: "Local objection", def: "Residents' concern that bid money could serve other local needs instead" },
+        { term: "National objection", def: "Country-level concern about spending public money on a bid" }
+    ];
+
+    const examQuestions = [
+        {
+            num: "1",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: "Identify <strong>two</strong> different pre-event aspects a city must plan for before hosting a major sporting event.",
+            hint: "Just name two — pick from bidding, infrastructure/transport development, commercial investment, employment, or objections to the bid.",
+            starter: "One pre-event aspect is… Another pre-event aspect is…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1)</h5>
+<p><strong>1 mark for each correct pre-event aspect named, to a maximum of two. Accept any two different aspects, including:</strong></p>
+<ul>
+<li>Bidding for the event</li>
+<li>Infrastructure development</li>
+<li>Transport development</li>
+<li>Commercial/financial investment</li>
+<li>Potential increased employment</li>
+<li>Local or national objections to the bid</li>
+</ul>
+<p>Do not credit the same aspect written twice.</p>
+</div>`,
+            modelAnswer: "One pre-event aspect is bidding for the event.\n\nAnother pre-event aspect is infrastructure development.",
+            markPoints: { note: "One tick per correct, DIFFERENT pre-event aspect; cap at 2.", groups: [
+                { label: "Your first aspect", max: 1, points: ["Names a valid pre-event aspect from the specification"] },
+                { label: "Your second aspect", max: 1, points: ["Names a DIFFERENT valid pre-event aspect (not a repeat of the first)"] }
+            ] }
+        },
+        {
+            num: "2",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Which of these is most likely to be a reason local residents object to their city bidding for a major sporting event?",
+            options: ["The bid money could be better spent on other local needs such as schools or hospitals", "Major sporting events are completely banned by law in every single country that could host them", "Bidding always guarantees the event will be successfully hosted in the end", "Construction work never affects any homes near the proposed venues"],
+            answer: 0,
+            hint: "Think about what residents usually argue the money could be used for instead.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO2)</h5>
+<p><strong>Answer: A — the bid money could be better spent on other local needs.</strong></p>
+<ul>
+<li>This is the most common real objection: priorities, not opposition to sport itself.</li>
+<li>The other options describe things that are not true of bidding or its effects.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "3",
+            marks: 4,
+            type: "written",
+            caseStudy: `<p><strong>Scenario — Port Hendon's bid for the International Coastal Games</strong></p><p>The coastal town of Port Hendon is preparing a bid to host the fictional International Coastal Games. The bidding committee has been told the bid process alone will cost several million pounds before any decision is made, but a successful bid could unlock funding for a new stadium and an upgraded rail link into the town centre.</p>`,
+            question: "Explain one benefit and one risk Port Hendon faces by bidding for the International Coastal Games.",
+            hint: "Take the benefit first: what could winning the bid unlock, using the scenario? Then the risk: what happens to the millions already spent if the bid fails?",
+            starter: "One benefit for Port Hendon is… because…\n\nHowever, one risk is… because…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (AO2: application)</h5>
+<p><strong>Up to 2 marks for the benefit, up to 2 marks for the risk: 1 for identifying it, 1 for linking it to the scenario. Answers may include:</strong></p>
+<ul>
+<li><strong>Benefit</strong> — a successful bid could fund a new stadium and an upgraded rail link (infrastructure/transport development named in the scenario), or raise Port Hendon's profile.</li>
+<li><strong>Risk</strong> — the several million pounds spent on the bid itself is lost if the bid fails, since that cost is paid whether or not Port Hendon is chosen.</li>
+</ul>
+<p>Accept any other reasonable, applied answer. A benefit or risk with no link to the scenario earns 1 of the 2 marks available for that part.</p>
+</div>`,
+            modelAnswer: "One benefit for Port Hendon is that a successful bid could fund a new stadium and an upgraded rail link, because winning would unlock investment the town might not otherwise receive.\n\nHowever, one risk is that the several million pounds already spent preparing the bid would be lost if it fails, because that cost has to be paid whether or not Port Hendon is chosen as host.",
+            markPoints: { note: "Mark the benefit and the risk out of 2 each: one tick for identifying it, one for linking it to Port Hendon's scenario.", groups: [
+                { label: "The benefit you identified", max: 2, points: ["Identifies a relevant benefit of a successful bid (e.g. new infrastructure, higher profile, investment)", "Links it to the scenario (e.g. the stadium/rail link Port Hendon could unlock)"] },
+                { label: "The risk you identified", max: 2, points: ["Identifies a relevant risk of bidding (e.g. cost is spent whether or not it succeeds)", "Links it to the scenario (e.g. the several million pounds Port Hendon has already committed)"] }
+            ] }
+        },
+        {
+            num: "4",
+            marks: 8,
+            type: "written",
+            format: "banded",
+            caseStudy: `<p><strong>Scenario — Port Hendon's bid for the International Coastal Games</strong></p><p>Port Hendon's bid for the International Coastal Games has divided local opinion. Supporters point to the promised stadium, rail link and construction jobs. A local pressure group has objected, arguing the bid's cost would be better spent on the town's ageing schools and hospital.</p>`,
+            question: "Discuss whether the potential benefits of Port Hendon's bid outweigh the risks it involves.",
+            hint: "Cover at least two pre-event aspects (e.g. infrastructure, employment, objections). For each, weigh the benefit against its own risk, using the scenario. Finish with a judgement on whether the gamble is worth it.",
+            starter: "One benefit of Port Hendon's bid is… because…\n\nHowever, this comes with a risk, because…\n\nAnother aspect to consider is…\n\nOverall, …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 8 marks (level-of-response). Read the band you fit, then pick a mark.</h5>
+<ul>
+<li><strong>Band 3 (thorough), 6–8:</strong> a balanced, well-applied discussion of several pre-event aspects, weighing each aspect's own benefit against its own risk using the scenario, ending in a justified judgement on whether bidding is worthwhile.</li>
+<li><strong>Band 2 (reasonable), 3–5:</strong> sound understanding applied to more than one aspect with some analysis, but the discussion may be one-sided or the judgement unsupported.</li>
+<li><strong>Band 1 (basic), 1–2:</strong> names aspects and/or effects with little application and no real weighing of benefit against risk; largely a list.</li>
+<li><strong>0 marks:</strong> nothing creditworthy.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Indicative content (indicative, not a checklist — reward valid alternatives)</h5>
+<ul>
+<li><strong>Infrastructure/transport:</strong> the promised stadium and rail link could serve Port Hendon for years, but building to a fixed deadline risks running over budget and disrupting the town beforehand.</li>
+<li><strong>Employment:</strong> construction creates jobs preparing the bid's facilities, but most of this work is temporary and ends once building finishes, well before the Games themselves.</li>
+<li><strong>Objections:</strong> the pressure group's concern that the cost could instead fund schools and the hospital is a genuine risk if the bid does not deliver the promised gains.</li>
+<li><strong>Investment:</strong> a successful bid may attract sponsors funding facilities the town could not otherwise afford, but that interest may fade once the event is over.</li>
+<li><strong>Judgement:</strong> the bid could be worthwhile if the infrastructure genuinely outlasts the event and the promised facilities are delivered — but it is a real gamble, since the cost is committed and the objectors' concerns stand regardless of whether the bid ultimately succeeds.</li>
+</ul>
+</div>`,
+            modelAnswer: "One benefit of Port Hendon's bid is the promised stadium and rail link, which could serve residents for years after the Games. However, this comes with a risk: building to a fixed deadline can overrun its budget and disrupt the town beforehand.\n\nAnother aspect is employment — construction jobs are created preparing the bid's facilities, but most of these are temporary and end once the building work finishes, well before the event starts. The pressure group's objection is also valid: the bid's cost could instead fund schools and the hospital, and that concern stands whether or not the bid succeeds.\n\nOverall, the bid could be worthwhile if the infrastructure genuinely lasts and the promised gains are delivered, but it remains a real gamble because the cost is committed long before any benefit is guaranteed."
+        }
+    ];
+</script>
+    <script src="/cs-lab/exam-widgets.js"></script>
+    <script src="/script.js"></script>
+<script src="section-totals.js"></script>
+<script src="page-groups.js"></script>
+<script src="/progress-shared.js"></script>
+<script src="/gamification.js"></script>
+<script src="/topic-guard.js"></script>
+<script src="/notifications-shared.js"></script>
+<script src="/onboarding-tour.js"></script>
+<script src="/footer-legal.js"></script>
+</body>
+
+</html>

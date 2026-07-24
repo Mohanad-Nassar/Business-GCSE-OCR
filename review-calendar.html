@@ -174,7 +174,18 @@
 
     .qhead { display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:14px; font-family:'DM Mono',monospace; font-size:11px; color:var(--mid); text-transform:uppercase; letter-spacing:.06em; }
     .qtext { font-size:15px; font-weight:600; line-height:1.55; margin-bottom:16px; }
-    .case-study { background:#f0ece4; border-left:4px solid var(--accent); border-radius:0 6px 6px 0; padding:12px 14px; font-size:13px; line-height:1.7; margin-bottom:14px; white-space:pre-wrap; }
+    .case-study { background:#f0ece4; border-left:4px solid var(--accent); border-radius:0 6px 6px 0; padding:12px 14px; font-size:13px; line-height:1.7; margin-bottom:14px; white-space:pre-wrap; container-type:inline-size; }
+    /* Spanish `reading` fields carry their own vocab-table/tier markup (same classes as the topic pages) — style them here too, since this page never loads a topic page's own inline <style>. */
+    .case-study .vocab-tbl { width:100%; border-collapse:collapse; margin:8px 0; white-space:normal; }
+    .case-study .vocab-tbl td { border-bottom:1px solid var(--border); padding:6px 8px; vertical-align:top; }
+    .case-study .vocab-tbl td:first-child { font-weight:600; white-space:nowrap; }
+    .case-study .tier-h { display:inline-block; font-size:.72em; font-weight:700; color:#8a5a00; background:#fff3d6; border-radius:5px; padding:1px 5px; margin-left:5px; vertical-align:middle; white-space:nowrap; }
+    /* container-type keys off the MODAL's own rendered width (fixed 600px, see .sr-modal), not the viewport — a viewport media query would never trigger on desktop even though the modal is narrow. */
+    @container (max-width:640px) {
+      .case-study .vocab-tbl, .case-study .vocab-tbl tbody, .case-study .vocab-tbl tr, .case-study .vocab-tbl td { display:block; width:100%; }
+      .case-study .vocab-tbl td { border-bottom:none; padding:4px 0; }
+      .case-study .vocab-tbl td:nth-child(2n) { padding-bottom:10px; border-bottom:1px solid var(--border); margin-bottom:6px; }
+    }
 
     .opt {
       display:block; border:1.5px solid var(--border); background:var(--cream);
@@ -289,6 +300,7 @@
 <script src="progress-shared.js"></script>
 <script src="tasks-shared.js"></script>
 <script src="/math-render.js"></script>
+<script src="/speech.js"></script>
 <script src="/account-cluster.js"></script>
 <script src="/notifications-shared.js"></script>
 <script src="/content-protect.js"></script>

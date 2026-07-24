@@ -20,6 +20,23 @@
 -- for the class's subject rather than a cross-subject figure; null = every
 -- subject. Dropped-then-recreated because the signature changed.
 drop function if exists get_class_streaks(uuid);
+-- Streak-freeze shields (WP-5): dates that count as "active" for a subject's
+-- streak. Table + RLS are created TOGETHER here (never split) so streak_shields
+-- can NEVER exist without RLS, whichever file runs first — a bare table would be
+-- world-writable via the anon key (a student could forge streaks). rewards-store.sql
+-- carries the identical block as canonical. Writes only via use_perk (definer).
+create table if not exists streak_shields (
+    student_id   uuid not null references profiles(id) on delete cascade,
+    subject_slug text not null references subjects(slug),
+    shield_date  date not null,
+    created_at   timestamptz not null default now(),
+    primary key (student_id, subject_slug, shield_date)
+);
+alter table streak_shields enable row level security;
+drop policy if exists "streak_shields_self_select" on streak_shields;
+create policy "streak_shields_self_select" on streak_shields for select using (student_id = auth.uid());
+grant select on streak_shields to authenticated;
+
 create or replace function get_class_streaks(p_class_id uuid, p_subject text default null) returns jsonb
 language plpgsql security definer stable set search_path = public as $$
 declare
@@ -35,6 +52,12 @@ begin
         where cs.class_id = p_class_id
           and (p_subject is null or pe.page_id like p_subject || ':%')
         group by cs.student_id, (pe.answered_at at time zone 'utc')::date
+        union   -- streak-freeze shields count as active days (WP-5)
+        select cs.student_id, ss.shield_date
+        from class_students cs
+        join streak_shields ss on ss.student_id = cs.student_id
+        where cs.class_id = p_class_id
+          and (p_subject is null or ss.subject_slug = p_subject)
     ), last_seen as (
         -- Timestamp of each student's most recent answer (subject-scoped) —
         -- used for the "last practised X ago" display once a streak has lapsed.

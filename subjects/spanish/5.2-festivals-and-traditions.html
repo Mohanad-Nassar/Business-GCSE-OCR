@@ -4,297 +4,513 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>5.2 Festivals and Traditions – Interactive Study Guide</title>
+    <title>5.2 Festivals and Traditions – GCSE Spanish</title>
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
         rel="stylesheet" />
     <link rel="stylesheet" href="/style.css" />
+    <style>
+      /* 🔊 audio-button + Audio-panel styling is injected by /speech.js (shared).
+         Only page-specific styles live here. */
+      .vocab-tbl{width:100%;border-collapse:collapse;margin:8px 0}
+      .vocab-tbl td{border-bottom:1px solid var(--line,#e4e8f0);padding:6px 8px;vertical-align:top}
+      .vocab-tbl td:first-child{font-weight:600;white-space:nowrap}
+      @container (max-width:640px){.vocab-tbl,.vocab-tbl tbody,.vocab-tbl tr,.vocab-tbl td{display:block;width:100%}.vocab-tbl td{border-bottom:none;padding:4px 0;white-space:normal}.vocab-tbl td:nth-child(2n){padding-bottom:10px;border-bottom:1px solid var(--line,#e4e8f0);margin-bottom:6px}}
+      .tier-h{display:inline-block;font-size:.72em;font-weight:700;color:#8a5a00;
+        background:#fff3d6;border-radius:5px;padding:1px 5px;margin-left:5px;vertical-align:middle}
+    </style>
 </head>
 
 <body>
     <header>
         <div>
-            <div class="badge">AQA GCSE Spanish — Theme 2 · 5. Customs, Festivals and Celebrations</div>
+            <div class="badge">AQA GCSE Spanish (8692) — Theme 2 · 5. Customs, Festivals and Celebrations</div>
             <h1>5.2 Festivals and Traditions</h1>
-            <p>Interactive revision guide · Content coming soon</p>
+            <p>Las fiestas y las tradiciones · Interactive study guide</p>
         </div>
         <a href="/index.html" class="home-link">← 🏡 Home</a>
     </header>
 
     <nav class="tab-bar" id="tabBar">
-        <button class="tab-btn active" onclick="switchTab('learn', this)">
-            📚 Key Learning
-        </button>
-        <button class="tab-btn" onclick="switchTab('mcq', this)">
-            ❓ MCQ Quiz
-        </button>
-        <button class="tab-btn" onclick="switchTab('matching', this)">
-            🔗 Matching
-        </button>
-        <button class="tab-btn" onclick="switchTab('fib', this)">
-            ✏️ Fill the Blanks
-        </button>
-        <button class="tab-btn" onclick="switchTab('misconceptions', this)">
-            ⚠️ Misconceptions
-        </button>
-        <button class="tab-btn" onclick="switchTab('examtips', this)">
-            🎯 Exam Tips
-        </button>
-        <button class="tab-btn" onclick="switchTab('flashcards', this)">
-            🃏 Flashcards
-        </button>
-        <button class="tab-btn" onclick="switchTab('truefalse', this)">
-            ✅ True / False
-        </button>
-        <button class="tab-btn" onclick="switchTab('exampractice', this)">
-            📝 Exam Practice
-        </button>
+        <button class="tab-btn active" onclick="switchTab('learn', this)">📚 Key Learning</button>
+        <button class="tab-btn" onclick="switchTab('mcq', this)">❓ MCQ Quiz</button>
+        <button class="tab-btn" onclick="switchTab('matching', this)">🔗 Matching</button>
+        <button class="tab-btn" onclick="switchTab('fib', this)">✏️ Fill the Blanks</button>
+        <button class="tab-btn" onclick="switchTab('misconceptions', this)">⚠️ Misconceptions</button>
+        <button class="tab-btn" onclick="switchTab('examtips', this)">🎯 Exam Tips</button>
+        <button class="tab-btn" onclick="switchTab('flashcards', this)">🃏 Flashcards</button>
+        <button class="tab-btn" onclick="switchTab('truefalse', this)">✅ True / False</button>
+        <button class="tab-btn" onclick="switchTab('exampractice', this)">📝 Exam Practice</button>
     </nav>
 
     <main>
         <div class="tab-panel active" id="tab-learn">
             <h2 class="section-title">Key Learning Topics</h2>
-            <p class="section-sub">Click any card to expand detailed notes.</p>
+            <p class="section-sub">Click any card to expand. Tap 🔊 to hear the Spanish.</p>
             <div class="topic-grid" id="topicGrid"></div>
         </div>
-
         <div class="tab-panel" id="tab-mcq">
             <h2 class="section-title">Multiple Choice Questions</h2>
-            <p class="section-sub">Select an answer to reveal instant feedback.</p>
+            <p class="section-sub">Some questions play audio — tap 🔊 and choose the meaning.</p>
             <div class="score-bar">
-                <div>
-                    <div class="score-num" id="mcqScore">0</div>
-                    <div style="font-size: 12px; color: var(--mid)">
-                        correct answers
-                    </div>
-                </div>
-                <div style="font-size: 13px; color: var(--mid)">
-                    out of <strong id="mcqTotal">0</strong> attempted
-                </div>
+                <div><div class="score-num" id="mcqScore">0</div><div style="font-size:12px;color:var(--mid)">correct answers</div></div>
+                <div style="font-size:13px;color:var(--mid)">out of <strong id="mcqTotal">0</strong> attempted</div>
                 <button class="reset-btn" onclick="resetMCQ()">RESET</button>
             </div>
             <div class="quiz-wrap" id="mcqWrap"></div>
         </div>
-
         <div class="tab-panel" id="tab-matching">
             <h2 class="section-title">Matching Activity</h2>
-            <p class="section-sub">
-                Click a term on the left, then click the matching definition on the
-                right.
-            </p>
-            <div style="margin-bottom: 16px">
-                <div class="score-bar">
-                    <div>
-                        <div class="score-num" id="matchScore">0</div>
-                        <div style="font-size: 12px; color: var(--mid)">matched</div>
-                    </div>
-                    <div style="font-size: 13px; color: var(--mid)">
-                        out of <strong id="matchTotal">0</strong>
-                    </div>
-                    <button class="reset-btn" onclick="resetMatch()">RESET</button>
-                </div>
-            </div>
+            <p class="section-sub">Click a term on the left, then its match on the right.</p>
+            <div style="margin-bottom:16px"><div class="score-bar">
+                <div><div class="score-num" id="matchScore">0</div><div style="font-size:12px;color:var(--mid)">matched</div></div>
+                <div style="font-size:13px;color:var(--mid)">out of <strong id="matchTotal">0</strong></div>
+                <button class="reset-btn" onclick="resetMatch()">RESET</button>
+            </div></div>
             <div class="match-grid">
-                <div>
-                    <div class="match-label">TERMS</div>
-                    <div class="match-col" id="matchLeft"></div>
-                </div>
-                <div>
-                    <div class="match-label">DEFINITIONS</div>
-                    <div class="match-col" id="matchRight"></div>
-                </div>
+                <div><div class="match-label">TERMS</div><div class="match-col" id="matchLeft"></div></div>
+                <div><div class="match-label">DEFINITIONS</div><div class="match-col" id="matchRight"></div></div>
             </div>
         </div>
-
         <div class="tab-panel" id="tab-fib">
             <h2 class="section-title">Fill in the Blanks</h2>
-            <p class="section-sub">
-                Click each dropdown and choose the correct word. Wrong answers reset —
-                try again!
-            </p>
+            <p class="section-sub">Choose the correct word. Dictation rows play audio — tap 🔊, then fill the gap.</p>
             <div class="score-bar">
-                <div>
-                    <div class="score-num" id="fibScore">0</div>
-                    <div style="font-size: 12px; color: var(--mid)">correct</div>
-                </div>
-                <div style="font-size: 13px; color: var(--mid)">
-                    of <strong id="fibTotal">0</strong> blanks
-                </div>
+                <div><div class="score-num" id="fibScore">0</div><div style="font-size:12px;color:var(--mid)">correct</div></div>
+                <div style="font-size:13px;color:var(--mid)">of <strong id="fibTotal">0</strong> blanks</div>
                 <button class="reset-btn" onclick="resetFIB()">RESET</button>
             </div>
             <div class="fib-wrap" id="fibWrap"></div>
         </div>
-
         <div class="tab-panel" id="tab-misconceptions">
             <h2 class="section-title">Common Misconceptions</h2>
-            <p class="section-sub">
-                What students often think — and what examiners actually want.
-            </p>
+            <p class="section-sub">The mistakes GCSE Spanish students make most.</p>
             <div class="misc-list" id="miscList"></div>
         </div>
-
         <div class="tab-panel" id="tab-examtips">
             <h2 class="section-title">Exam Questions &amp; Tips</h2>
-            <p class="section-sub">
-                Most repeated question types and mark-scheme structures from real OCR
-                papers.
-            </p>
+            <p class="section-sub">How each of the four papers rewards this topic.</p>
             <div class="tips-grid" id="tipsGrid"></div>
         </div>
-
         <div class="tab-panel" id="tab-flashcards">
             <h2 class="section-title">Flashcards</h2>
-            <p class="section-sub">
-                Test yourself! Flip the card and rate your knowledge. Review your weak
-                areas at the end.
-            </p>
-
+            <p class="section-sub">Test yourself! Flip the card and rate your knowledge.</p>
             <div class="fc-container">
-                <div class="score-bar" id="fcScoreBar" style="display: none; margin-bottom: 20px">
-                    <div>
-                        <div class="score-num" id="fcKnown" style="color: #2d7a4f">0</div>
-                        <div style="font-size: 12px; color: var(--mid)">known</div>
-                    </div>
-                    <div>
-                        <div class="score-num" id="fcUnknown" style="color: #c84b31">
-                            0
-                        </div>
-                        <div style="font-size: 12px; color: var(--mid)">learning</div>
-                    </div>
-                    <div style="font-size: 13px; color: var(--mid)">
-                        out of <strong id="fcTotalTrack">0</strong>
-                    </div>
+                <div class="score-bar" id="fcScoreBar" style="display:none;margin-bottom:20px">
+                    <div><div class="score-num" id="fcKnown" style="color:#2d7a4f">0</div><div style="font-size:12px;color:var(--mid)">known</div></div>
+                    <div><div class="score-num" id="fcUnknown" style="color:#c84b31">0</div><div style="font-size:12px;color:var(--mid)">learning</div></div>
+                    <div style="font-size:13px;color:var(--mid)">out of <strong id="fcTotalTrack">0</strong></div>
                     <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
                 </div>
-
                 <div id="fcActiveArea">
                     <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
                     <div class="flashcard" id="flashcard" onclick="flipCard()">
                         <div class="fc-inner">
-                            <div class="fc-front">
-                                <div class="fc-label">KEY TERM</div>
-                                <div class="fc-term" id="fcTerm"></div>
-                            </div>
-                            <div class="fc-back">
-                                <div class="fc-def" id="fcDef"></div>
-                            </div>
+                            <div class="fc-front"><div class="fc-label">SPANISH</div><div class="fc-term" id="fcTerm"></div></div>
+                            <div class="fc-back"><div class="fc-def" id="fcDef"></div></div>
                         </div>
                     </div>
                     <p class="fc-hint">👆 Click card to flip</p>
-
                     <div class="fc-nav" id="fcNavDefault">
-                        <button class="fc-btn outline" onclick="prevCard()">
-                            ← Prev
-                        </button>
+                        <button class="fc-btn outline" onclick="prevCard()">← Prev</button>
                         <button class="fc-btn outline" onclick="flipCard()">Flip</button>
                         <button class="fc-btn" onclick="nextCard()">Next →</button>
                     </div>
-
-                    <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px">
-                        <button class="fc-btn outline" style="border-color: #c84b31; color: #c84b31; flex: 1"
-                            onclick="markCard(false)">
-                            ❌ Still Learning
-                        </button>
-                        <button class="fc-btn" style="background: #2d7a4f; border-color: #2d7a4f; flex: 1"
-                            onclick="markCard(true)">
-                            ✅ Got It
-                        </button>
+                    <div class="fc-nav" id="fcNavAssess" style="display:none;gap:15px">
+                        <button class="fc-btn outline" style="border-color:#c84b31;color:#c84b31;flex:1" onclick="markCard(false)">❌ Still Learning</button>
+                        <button class="fc-btn" style="background:#2d7a4f;border-color:#2d7a4f;flex:1" onclick="markCard(true)">✅ Got It</button>
                     </div>
                 </div>
-
-                <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px">
+                <div id="fcSummaryArea" style="display:none;text-align:center;padding:40px 20px">
                     <h3>Session Complete! 🎉</h3>
-                    <p style="margin: 15px 0">
-                        You knew <strong id="fcSummaryKnown">0</strong> out of
-                        <strong id="fcSummaryTotal">0</strong> cards.
-                    </p>
-                    <div style="
-                margin-top: 25px;
-                display: flex;
-                gap: 15px;
-                justify-content: center;
-                flex-wrap: wrap;
-              ">
-                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
-                            style="background: #c84b31; border-color: #c84b31">
-                            Review Incorrect
-                        </button>
-                        <button class="fc-btn outline" onclick="resetFlashcards()">
-                            Practice All Again
-                        </button>
+                    <p style="margin:15px 0">You knew <strong id="fcSummaryKnown">0</strong> out of <strong id="fcSummaryTotal">0</strong> cards.</p>
+                    <div style="margin-top:25px;display:flex;gap:15px;justify-content:center;flex-wrap:wrap">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()" style="background:#c84b31;border-color:#c84b31">Review Incorrect</button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">Practice All Again</button>
                     </div>
                 </div>
             </div>
         </div>
-
         <div class="tab-panel" id="tab-truefalse">
             <h2 class="section-title">True or False?</h2>
-            <p class="section-sub">Test your knowledge with these statements.</p>
+            <p class="section-sub">¿Verdadero o falso?</p>
             <div class="score-bar">
-                <div>
-                    <div class="score-num" id="tfScore">0</div>
-                    <div style="font-size: 12px; color: var(--mid)">correct</div>
-                </div>
-                <div style="font-size: 13px; color: var(--mid)">
-                    of <strong id="tfTotal">0</strong> answered
-                </div>
+                <div><div class="score-num" id="tfScore">0</div><div style="font-size:12px;color:var(--mid)">correct</div></div>
+                <div style="font-size:13px;color:var(--mid)">of <strong id="tfTotal">0</strong> answered</div>
                 <button class="reset-btn" onclick="resetTF()">RESET</button>
             </div>
             <div class="tf-wrap" id="tfWrap"></div>
         </div>
-
         <div class="tab-panel" id="tab-exampractice">
             <h2 class="section-title">Exam Practice Questions</h2>
-            <p class="section-sub">
-                Full exam questions with case studies. Use <strong>Hint</strong>,
-                <strong>Sentence Starter</strong> and
-                <strong>Submit &amp; See Mark Scheme</strong> for each question.
-            </p>
+            <p class="section-sub">Reading comprehension and translation. Use <strong>Hint</strong>, <strong>Sentence Starter</strong> and <strong>Submit &amp; See Mark Scheme</strong>.</p>
             <div class="ep-list" id="epList"></div>
         </div>
     </main>
 
 <script>
-    // ══════════════════════════════════════
-    //  DATA: 5.2 Festivals and Traditions — placeholder, content not yet written
-    // ══════════════════════════════════════
-    const pageMeta = {
-            id: '5-2-festivals-and-traditions',
-            badge: 'AQA GCSE Spanish — Theme 2 · 5. Customs, Festivals and Celebrations',
-            title: '5.2 Festivals and Traditions',
-            subtitle: 'Interactive revision guide',
-            subject: 'spanish',
-        };
+    // ══════════════════════════════════════════════════════════════════
+    //  DATA: 5.2 Festivals and traditions  (AQA 8692, Theme 2 Topic 2)
+    //  All taught Spanish is on the prescribed wordlist. Audible Spanish carries
+    //  data-say="…"; data-listen makes a prompt audio-only (no transcript shown).
+    //  Higher-tier items marked <span class="tier-h">H</span>. Option-writing follows
+    //  docs/QUESTION-AUTHORING.md (no length tell; distractors = real errors).
+    // ══════════════════════════════════════════════════════════════════
+    const pageMeta = { id: '5-2-festivals-and-traditions', badge: 'AQA GCSE Spanish (8692) — Theme 2 · 5. Customs, Festivals and Celebrations', title: '5.2 Festivals and Traditions', subtitle: 'Interactive study guide', subject: 'spanish' };
 
     const topics = [
         {
-            title: "This topic is being written",
-            tag: "Coming soon",
-            content: `<p>🚧 <strong>Content for this topic is on its way.</strong> Key Learning notes, practice questions and exam-style questions for <strong>5.2 Festivals and Traditions</strong> will appear here soon.</p>`
+            title: "How do I talk about festivals and special days?",
+            tag: "Key concept",
+            content: `<p>The key verb is <span data-say="celebrar">celebrar</span> (to celebrate). Here is the core festival vocabulary — tap 🔊 to hear each one.</p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="la fiesta">la fiesta</span></td><td>the party / festival</td><td><span data-say="el festival">el festival</span></td><td>the festival</td></tr>
+              <tr><td><span data-say="la Navidad">la Navidad</span></td><td>Christmas</td><td><span data-say="la Nochebuena">la Nochebuena</span></td><td>Christmas Eve</td></tr>
+              <tr><td><span data-say="el Año Nuevo">el Año Nuevo</span></td><td>New Year</td><td><span data-say="los Reyes Magos">los Reyes Magos</span></td><td>the Three Kings (6 Jan)</td></tr>
+              <tr><td><span data-say="la Semana Santa">la Semana Santa</span></td><td>Holy Week</td><td><span data-say="el cumpleaños">el cumpleaños</span></td><td>birthday</td></tr>
+              <tr><td><span data-say="Feliz Navidad">Feliz Navidad</span></td><td>Merry Christmas</td><td><span data-say="Feliz Año Nuevo">Feliz Año Nuevo</span></td><td>Happy New Year</td></tr>
+            </table>
+            <p>Model sentence: <span data-say="Celebramos la Navidad con toda la familia.">Celebramos la Navidad con toda la familia.</span> — <em>We celebrate Christmas with the whole family.</em></p>
+            <p>Some celebrations connect to a <span data-say="santo">santo</span> (saint) — many Spaniards celebrate <span data-say="el día del santo">el día del santo</span> (their saint's day) as well as their birthday. The <span data-say="Día de Reyes">Día de Reyes</span> (short for los Reyes Magos) is named after the <span data-say="rey">rey</span> (king) — actually three kings — and it is a <span data-say="tradición">tradición</span> (tradition) that goes back many <span data-say="siglos">siglos</span> (centuries). <span data-say="El Día de Reyes es una tradición muy antigua, de hace muchos siglos.">El Día de Reyes es una tradición muy antigua, de hace muchos siglos.</span> — <em>Día de Reyes is a very old tradition, from many centuries ago.</em></p>
+            <p>Many children <span data-say="creen en los Reyes Magos hasta que son bastante mayores">creen en los Reyes Magos hasta que son bastante mayores</span> — believe in the Three Kings until they are quite old — and on the night before, everyone <span data-say="espera la mañana con mucha ilusión">espera la mañana con mucha ilusión</span> — waits for the morning with a lot of excitement.</p>`,
+            readCheck: { q: "What is ‘la Nochebuena’?", opts: ["Christmas Eve", "New Year's Eve", "the night of the Three Kings", "a birthday party at night"], ans: 0, explain: "la Nochebuena = Christmas Eve (24 December); la Nochevieja is New Year's Eve — a common mix-up." }
+        },
+        {
+            title: "How do I talk about celebrating together?",
+            tag: "Key concept",
+            content: `<p>Celebrations centre on family and food. Key phrases:</p>
+            <ul>
+              <li><span data-say="la familia se reúne">la familia se reúne</span> — the family gets together (reflexive!)</li>
+              <li><span data-say="los regalos">los regalos</span> — the presents; <span data-say="regalar">regalar</span> — to give (as a present)</li>
+              <li><span data-say="cenar juntos">cenar juntos</span> — to have dinner together</li>
+              <li><span data-say="bailar">bailar</span> — to dance; <span data-say="los fuegos artificiales">los fuegos artificiales</span> — fireworks</li>
+            </ul>
+            <p>Example: <span data-say="En Nochevieja, vemos los fuegos artificiales y bailamos toda la noche.">En Nochevieja, vemos los fuegos artificiales y bailamos toda la noche.</span> — <em>On New Year's Eve, we watch the fireworks and dance all night.</em></p>
+            <p>People don't just watch — they <span data-say="participan">participan</span> (take part) actively: friends <span data-say="invitan a toda la familia">invitan a toda la familia</span> (invite the whole family), everyone <span data-say="canta">canta</span> (sings) traditional songs, and some festivals are decorated with <span data-say="flores">flores</span> (flowers). All of this creates real <span data-say="alegría">alegría</span> (joy). <span data-say="Cuando participamos en la fiesta, cantamos, bailamos y hay mucha alegría.">Cuando participamos en la fiesta, cantamos, bailamos y hay mucha alegría.</span> — <em>When we take part in the festival, we sing, we dance and there is a lot of joy.</em></p>
+            <p>Every member of the family <span data-say="contribuye con un plato para la cena">contribuye con un plato para la cena</span> — contributes a dish for dinner — and before handing out the presents, someone will often <span data-say="esconder algunos regalos">esconder algunos regalos</span> — hide a few presents — just to build the suspense!</p>`,
+            readCheck: { q: "Why does ‘reunirse’ need ‘se’ in ‘la familia se reúne’?", opts: ["it is reflexive — the family gathers itself", "‘se’ makes the whole verb negative instead", "‘se’ shows the action has already finished", "‘se’ is only ever used before certain plural nouns"], ans: 0, explain: "reunirse is reflexive: la familia se reúne = the family gets (itself) together." }
+        },
+        {
+            title: "How do I talk about costumes, processions and famous fiestas?",
+            tag: "Exam skill",
+            content: `<p>Some celebrations involve costumes and processions:</p>
+            <ul>
+              <li><span data-say="disfrazarse">disfrazarse</span> — to dress up / wear a costume; <span data-say="el disfraz">el disfraz</span> — the costume</li>
+              <li><span data-say="la procesión">la procesión</span> — the procession; <span data-say="el encierro">el encierro</span> — the running of the bulls</li>
+            </ul>
+            <p>Famous Spanish and Hispanic festivals:</p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="Las Fallas">Las Fallas</span></td><td>Valencia, March — giant sculptures are burned</td></tr>
+              <tr><td><span data-say="La Tomatina">La Tomatina</span></td><td>Buñol, August — a huge tomato fight</td></tr>
+              <tr><td><span data-say="San Fermín">San Fermín</span></td><td>Pamplona, July — the running of the bulls</td></tr>
+              <tr><td><span data-say="el Día de los Muertos">el Día de los Muertos</span></td><td>Mexico, 1–2 November — remembering the dead</td></tr>
+            </table>
+            <p><span data-say="En Semana Santa hay procesiones grandes por las calles.">En Semana Santa hay procesiones grandes por las calles.</span></p>
+            <p>These events aren't just for locals — an <span data-say="evento">evento</span> (event) like San Fermín (also called <span data-say="los Sanfermines">los Sanfermines</span>) can <span data-say="atraer">atraer</span> (attract) thousands of visitors from other countries. People often wear a traditional <span data-say="traje">traje</span> (outfit/costume) — white with a red scarf for San Fermín — and some say it feels a little <span data-say="loco">loco</span> (crazy) to run in front of bulls in the <span data-say="plaza de toros">plaza de toros</span> (bullring)!</p>
+            <p>During a busy fiesta like San Fermín, the crowd can <span data-say="empujar mucho">empujar mucho</span> — push a lot — so it can be hard to <span data-say="alcanzar un buen sitio para ver el desfile">alcanzar un buen sitio para ver el desfile</span> — reach a good spot to watch the parade. Once it has passed, the procession <span data-say="desaparece al doblar la esquina">desaparece al doblar la esquina</span> — disappears around the corner — almost as fast as it arrived.</p>
+            <p>Mexico's <span data-say="Día de Muertos">Día de Muertos</span> (another name for el Día de los Muertos) is calmer: instead of fearing <span data-say="la muerte">la muerte</span> (death), families <span data-say="se acuerdan de los que ya no están">se acuerdan de los que ya no están</span> — remember those who are no longer here — with music and flowers.</p>
+            <p>Spain's religious buildings reflect its history too: alongside Catholic churches there are also a few <span data-say="mezquitas">mezquitas</span> (mosques), <span data-say="sinagogas">sinagogas</span> (synagogues) and ancient <span data-say="templos">templos</span> (temples). If you get jostled in a crowd watching a procession, you say <span data-say="¡Perdón!">¡Perdón!</span> (Sorry!); and at a children's party, a <span data-say="piñata rota">piñata rota</span> (broken piñata) means the sweets have fallen out — a moment everyone walking <span data-say="detrás">detrás</span> (behind) the piñata loves!</p>`,
+            readCheck: { q: "Where does ‘La Tomatina’ take place?", opts: ["Buñol", "Pamplona", "Valencia", "Sevilla"], ans: 0, explain: "La Tomatina (the tomato fight) is in Buñol; Pamplona hosts San Fermín and Valencia hosts Las Fallas." }
+        },
+        {
+            title: "How do I say what happened at a festival? (preterite)",
+            tag: "Exam skill",
+            content: `<p>Use the <strong>preterite</strong> for a completed action at a specific past festival — what happened once:</p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="celebramos">celebramos</span></td><td>we celebrated</td><td><span data-say="fui">fui</span></td><td>I went</td></tr>
+              <tr><td><span data-say="comimos">comimos</span></td><td>we ate</td><td><span data-say="bailamos">bailamos</span></td><td>we danced</td></tr>
+              <tr><td><span data-say="lo pasé bien">lo pasé bien</span></td><td>I had a good time</td><td><span data-say="lo pasé genial">lo pasé genial</span></td><td>I had a great time</td></tr>
+            </table>
+            <p>Example: <span data-say="El año pasado celebramos la Navidad en casa de mis abuelos y lo pasé genial.">El año pasado celebramos la Navidad en casa de mis abuelos y lo pasé genial.</span> — <em>Last year we celebrated Christmas at my grandparents' house and I had a great time.</em></p>
+            <p>You can also describe festivals from other Spanish-speaking countries using nationality adjectives: <span data-say="cubano">cubano</span> (Cuban), <span data-say="mexicano">mexicano</span> (Mexican), <span data-say="argentino">argentino</span> (Argentine) and <span data-say="colombiano">colombiano</span> (Colombian). Example: <span data-say="El verano pasado, fui a un festival cubano y probé la música tradicional.">El verano pasado, fui a un festival cubano y probé la música tradicional.</span> — <em>Last summer, I went to a Cuban festival and tried the traditional music.</em></p>`,
+            readCheck: { q: "Which time phrase signals you need the PRETERITE, not the present?", opts: ["el año pasado (last year)", "normalmente (normally)", "todos los años (every year)", "los domingos (on Sundays)"], ans: 0, explain: "‘el año pasado’ points to one completed past event → preterite. The others signal habitual, repeated actions." }
+        },
+        {
+            title: "How do I say what usually happens? (imperfect / soler)",
+            tag: "Key concept",
+            content: `<p>For habits and things that happened <strong>repeatedly</strong>, use <strong>soler</strong> + infinitive or the imperfect tense:</p>
+            <ul>
+              <li><span data-say="solemos reunirnos">solemos reunirnos</span> — we usually get together (present habit)</li>
+              <li><span data-say="solíamos ir">solíamos ir</span> — we used to go (past habit) <span class="tier-h">H</span></li>
+              <li><span data-say="normalmente celebramos">normalmente celebramos</span> — we normally celebrate</li>
+              <li><span data-say="todos los años">todos los años</span> — every year</li>
+            </ul>
+            <p>Example: <span data-say="Cuando era niño, solíamos ir a ver los fuegos artificiales cada Año Nuevo.">Cuando era niño, solíamos ir a ver los fuegos artificiales cada Año Nuevo.</span> — <em>When I was a child, we used to go and see the fireworks every New Year.</em></p>
+            <p>Many festivals have a <span data-say="religioso">religioso</span> (religious) origin. Spain's main <span data-say="religión">religión</span> (religion) is <span data-say="cristiana">cristiana</span> (Christian), specifically <span data-say="católica">católica</span> (Catholic) — which is why Semana Santa is so important. But Spain is also home to <span data-say="judías">judías</span> (Jewish) and <span data-say="musulmanas">musulmanas</span> (Muslim) communities, who suelen celebrar (usually celebrate) their own festivals too. <span data-say="Mucha gente en España es católica, pero también hay comunidades judías y musulmanas que suelen celebrar sus propias fiestas.">Mucha gente en España es católica, pero también hay comunidades judías y musulmanas que suelen celebrar sus propias fiestas.</span> — <em>Many people in Spain are Catholic, but there are also Jewish and Muslim communities who usually celebrate their own festivals.</em></p>`,
+            readCheck: { q: "‘Solíamos ir a ver los fuegos artificiales’ describes…", opts: ["a repeated habit in the past", "one single event that just happened", "something that will happen next year", "an order someone gave you"], ans: 0, explain: "soler in the imperfect (solíamos) + infinitive = used to do something repeatedly." }
+        },
+        {
+            title: "Higher: combining preterite and imperfect",
+            tag: "Higher tier",
+            content: `<p><span class="tier-h">H</span> The strongest Higher-tier answers <strong>combine</strong> the imperfect (background/description) with the preterite (the event that interrupted it):</p>
+            <ul>
+              <li><span data-say="Era Navidad y toda la familia estaba en casa cuando mi abuela preparó una cena enorme.">Era Navidad y toda la familia estaba en casa cuando mi abuela preparó una cena enorme.</span> <span class="tier-h">H</span></li>
+              <li><span data-say="Hacía mucho calor durante La Tomatina cuando alguien me tiró un tomate.">Hacía mucho calor durante La Tomatina cuando alguien me tiró un tomate.</span> <span class="tier-h">H</span></li>
+            </ul>
+            <p>Pattern: <strong>imperfect</strong> (era / estaba / hacía…) sets the scene, <strong>preterite</strong> (preparó / tiró…) is the action that happened.</p>
+            <p><span class="tier-h">H</span> Another strong combination: <span data-say="La gente se pintaba la cara de colores cuando de repente empezaron los fuegos artificiales, y me sorprendió mucho.">La gente se pintaba la cara de colores cuando de repente empezaron los fuegos artificiales, y me sorprendió mucho.</span> <span class="tier-h">H</span> — <em>People were painting their faces with colours when suddenly the fireworks started, and it surprised me a lot.</em></p>`,
+            readCheck: { q: "In ‘Era Navidad y toda la familia estaba en casa cuando mi abuela preparó una cena enorme’, which verb is the PRETERITE?", opts: ["preparó", "era", "estaba", "preparaba"], ans: 0, explain: "‘preparó’ is the single completed action (preterite); ‘era’ and ‘estaba’ are imperfect, setting the scene, and ‘preparaba’ would be the imperfect of the same verb." }
         }
     ];
 
-    const mcqData = [];
-    const matchData = [];
-    const fibData = [];
-    const fibWords = [];
-    const tfData = [];
-    const miscData = [];
-    const examTips = [];
-    const flashcards = [];
-    const examQuestions = [];
+    const mcqData = [
+        { q: `<span data-say="Celebramos la Navidad en familia." data-listen></span><br>Listen. What does this mean?`, opts: ["We celebrate Christmas with family", "We celebrated Christmas with family last year", "We used to celebrate Christmas with family", "We are going to celebrate Christmas with family"], ans: 0, explain: "‘celebramos la Navidad en familia’ is present tense: we celebrate. The traps add a past-time marker, an imperfect meaning, or a future plan." },
+        { q: `<span data-say="Nos disfrazamos y vamos a la procesión." data-listen></span><br>Listen. What does this mean?`, opts: ["We dress up in costumes and go to the procession", "We get dressed up and go to see the fireworks", "We used to dress up and go to processions every year", "They dress up and go to the procession"], ans: 0, explain: "‘nos disfrazamos’ (reflexive, present) = we dress up; ‘la procesión’ = the procession, not fireworks. Trap D swaps ‘nos’ for ‘they’." },
+        { q: "Complete: ‘El año pasado, mi familia y yo ___ la Navidad en casa de mis abuelos.’", opts: ["celebramos", "celebrábamos", "celebra", "vamos a celebrar"], ans: 0, explain: "‘el año pasado’ = a completed past event → preterite ‘celebramos’. B is imperfect, C is 3rd person singular, D is a future plan." },
+        { q: "Complete: ‘Normalmente, mi familia ___ reunirse en Nochebuena.’", opts: ["suele", "solía", "solemos", "sueles"], ans: 0, explain: "‘mi familia’ is 3rd person singular → suele. ‘solía’ is imperfect (used to), ‘solemos’/‘sueles’ do not agree with ‘mi familia’." },
+        { q: "Which sentence means ‘The family gets together on Christmas Eve’?", opts: ["La familia se reúne en Nochebuena.", "La familia se reunió en Nochebuena.", "La familia reúne en Nochebuena.", "La familia se reúne en Nochevieja."], ans: 0, explain: "Present reflexive ‘se reúne’ + ‘Nochebuena’. B is preterite, C drops the reflexive ‘se’, D swaps to New Year's Eve." },
+        { q: "‘Los Reyes Magos’ celebrates…", opts: ["the Three Kings' arrival with gifts (6 Jan)", "the King and Queen of Spain's official wedding anniversary", "the crowning of a brand new king somewhere in Spain", "New Year's Eve, celebrated with a royal television speech"], ans: 0, explain: "Los Reyes Magos (6 January) is when the Three Kings bring gifts to children in Spain — not the King and Queen of Spain, a new coronation, or Nochevieja." },
+        { q: `<span data-say="Fuimos a ver los fuegos artificiales y lo pasamos genial." data-listen></span><br>Listen. What does this mean?`, opts: ["We went to see the fireworks and had a great time", "We go to see the fireworks every year and have a great time", "We are going to see the fireworks and will have a great time", "We used to go and see the fireworks and always had a good time"], ans: 0, explain: "‘fuimos’ (preterite of ir) + ‘lo pasamos genial’ = we went and had a great time — a single past event, not a habit or future plan." },
+        { q: "La Tomatina takes place in which month, and what happens?", opts: ["August — people throw tomatoes in Buñol", "July — people run in front of bulls through the streets of Pamplona", "March — people burn giant sculptures in the city of Valencia", "November — people visit graves to remember the dead in Mexico"], ans: 0, explain: "La Tomatina is a tomato fight in Buñol in August. B describes San Fermín, C describes Las Fallas, D describes el Día de los Muertos." },
+        { q: "Complete: ‘Este año, los niños ___ de superhéroes para el carnaval.’", opts: ["se disfrazan", "disfrazan", "se disfrazaron", "se disfrazaban"], ans: 0, explain: "disfrazarse is reflexive, present tense → se disfrazan. B drops ‘se’, C is preterite, D is imperfect." },
+        { q: "How do you say ‘We ate together and danced all night’?", opts: ["Comimos juntos y bailamos toda la noche.", "Comemos juntos y bailamos toda la noche.", "Comíamos juntos y bailábamos toda la noche.", "Vamos a comer juntos y a bailar toda la noche."], ans: 0, explain: "A completed one-off past event needs the preterite: comimos, bailamos. B is present, C is imperfect (used to), D is a future plan." },
+        { q: "What does ‘atraer turistas’ mean?", opts: ["to attract tourists", "to avoid tourists", "to charge tourists money", "to guide tourists home"], ans: 0, explain: "atraer = to attract. The traps are other things a festival might do to/with tourists." },
+        { q: "What is ‘la plaza de toros’?", opts: ["the bullring", "the town hall square", "the central market square", "the football stadium"], ans: 0, explain: "la plaza de toros = the bullring, where events like San Fermín's bullfights take place." },
+        { q: "What does ‘creer en los Reyes Magos’ mean?", opts: ["to believe in the Three Kings", "to wait for the Three Kings", "to remember the Three Kings", "to disappear during the Three Kings' visit"], ans: 0, explain: "creer en = to believe in, as young children believe in los Reyes Magos the way British children believe in Father Christmas." },
+        { q: "Complete: ‘Todos los años, mi familia ___ con un plato típico.’ (contributes)", opts: ["contribuye", "esconde", "espera", "desaparece"], ans: 0, explain: "contribuir = to contribute, so ‘(mi familia) contribuye’ fits. The others are ‘hides’, ‘waits’ and ‘disappears’." },
+        { q: "What does ‘esconder’ mean, as in ‘esconder los regalos’?", opts: ["to hide (the presents)", "to contribute (a dish)", "to push (through a crowd)", "to disappear (around a corner)"], ans: 0, explain: "esconder = to hide. The traps are other verbs from this topic's festival vocabulary." },
+        { q: "Which word means ‘to push’, as in a crowded festival?", opts: ["empujar", "alcanzar", "esconder", "desaparecer"], ans: 0, explain: "empujar = to push. alcanzar = to reach; esconder = to hide; desaparecer = to disappear." },
+        { q: "Complete: ‘Es difícil ___ un buen sitio en la procesión porque hay mucha gente.’ (to reach)", opts: ["alcanzar", "empujar", "esconder", "acordarse"], ans: 0, explain: "alcanzar = to reach/achieve. The others are ‘push’, ‘hide’ and ‘remember’." },
+        { q: "What does ‘acordarse de’ mean, as in ‘se acuerdan de los que ya no están’?", opts: ["to remember (someone)", "to forget (someone)", "to contribute (something)", "to disappear (suddenly)"], ans: 0, explain: "acordarse de = to remember. It is the opposite of olvidarse de (to forget)." },
+        { q: "What does ‘desaparecer’ mean, as in ‘la procesión desaparece al doblar la esquina’?", opts: ["to disappear", "to contribute", "to remember", "to reach"], ans: 0, explain: "desaparecer = to disappear. The traps are other verbs met in this topic." },
+        { q: "What does ‘esperar’ mean, as in ‘esperar la mañana con mucha ilusión’?", opts: ["to wait / to hope", "to remember something important", "to contribute something to the fiesta", "to disappear without warning"], ans: 0, explain: "esperar = to wait (for) / to hope. The other options are other verbs from this topic." }
+    ];
+
+    const matchData = [
+        { term: "la fiesta", def: "the party / festival" },
+        { term: "celebrar", def: "to celebrate" },
+        { term: "la Nochebuena", def: "Christmas Eve" },
+        { term: "los Reyes Magos", def: "the Three Kings" },
+        { term: "la Semana Santa", def: "Holy Week" },
+        { term: "el cumpleaños", def: "birthday" },
+        { term: "la familia se reúne", def: "the family gets together" },
+        { term: "los fuegos artificiales", def: "fireworks" },
+        { term: "disfrazarse", def: "to dress up / wear a costume" },
+        { term: "la procesión", def: "the procession" },
+        { term: "lo pasé genial", def: "I had a great time" },
+        { term: "solemos reunirnos", def: "we usually get together" },
+        { term: "el rey", def: "the king" },
+        { term: "la tradición", def: "the tradition" },
+        { term: "la alegría", def: "joy / happiness" },
+        { term: "cantar", def: "to sing" },
+        { term: "católico", def: "Catholic" },
+        { term: "el evento", def: "the event" },
+        { term: "atraer", def: "to attract" },
+        { term: "la plaza de toros", def: "the bullring" },
+        { term: "la mezquita", def: "the mosque" },
+        { term: "cubano", def: "Cuban" },
+        { term: "creer", def: "to believe" },
+        { term: "esperar", def: "to wait for / to hope" },
+        { term: "contribuir", def: "to contribute" },
+        { term: "esconder", def: "to hide" },
+        { term: "empujar", def: "to push" },
+        { term: "alcanzar", def: "to reach / to achieve" },
+        { term: "desaparecer", def: "to disappear" },
+        { term: "acordarse (de)", def: "to remember" }
+    ];
+
+    const fibData = [
+        { display: `Celebramos la _____ con mi familia el 24 de diciembre. <span data-say="Celebramos la Nochebuena con mi familia el 24 de diciembre." data-listen>Celebramos la Nochebuena con mi familia el 24 de diciembre.</span>`, blanks: { B1: "Nochebuena" } },
+        { display: `El seis de enero celebramos el día de los _____ Magos. (Three Kings)`, blanks: { B1: "Reyes" } },
+        { display: `En Navidad, toda la familia se _____ en casa de mis abuelos. (reunirse)`, blanks: { B1: "reúne" } },
+        { display: `Vemos los _____ artificiales a medianoche en Nochevieja. (fireworks)`, blanks: { B1: "fuegos" } },
+        { display: `Para Halloween, nos _____ de personajes de miedo. (disfrazarse — we dress up)`, blanks: { B1: "disfrazamos" } },
+        { display: `El año pasado, lo _____ genial en la fiesta de cumpleaños. <span data-say="El año pasado, lo pasé genial en la fiesta de cumpleaños." data-listen>El año pasado, lo pasé genial en la fiesta de cumpleaños.</span>`, blanks: { B1: "pasé" } },
+        { display: `Cuando éramos pequeños, _____ ir a ver la procesión de Semana Santa. (soler, imperfect)`, blanks: { B1: "solíamos" } },
+        { display: `Esta tradición tiene más de un _____ de historia. (century)`, blanks: { B1: "siglo" } },
+        { display: `El Día de los Muertos honra a los que ya no están, sin miedo a la _____ . (death)`, blanks: { B1: "muerte" } },
+        { display: `Durante la fiesta, mucha gente se _____ la cara de colores. (pintarse — paints)`, blanks: { B1: "pinta" } },
+        { display: `Muchos niños _____ en los Reyes Magos hasta que son bastante mayores. (believe)`, blanks: { B1: "creen" } },
+        { display: `La noche antes, todos _____ la mañana con mucha ilusión. (wait for)`, blanks: { B1: "esperan" } },
+        { display: `Cada persona de la familia _____ con un plato para la cena. (contributes)`, blanks: { B1: "contribuye" } },
+        { display: `Antes de repartir los regalos, mis padres _____ algunos para dar sorpresa. (hide)`, blanks: { B1: "esconden" } },
+        { display: `En San Fermín, la gente _____ mucho entre la multitud. (pushes)`, blanks: { B1: "empuja" } },
+        { display: `Es difícil _____ un buen sitio cuando hay tanta gente. (to reach)`, blanks: { B1: "alcanzar" } },
+        { display: `La procesión _____ al doblar la esquina. (disappears)`, blanks: { B1: "desaparece" } },
+        { display: `El Día de los Muertos, las familias se _____ de los que ya no están. (remember)`, blanks: { B1: "acuerdan" } }
+    ];
+    const fibWords = ["Nochebuena", "Reyes", "reúne", "fuegos", "disfrazamos", "pasé", "solíamos", "siglo", "muerte", "pinta", "creen", "esperan", "contribuye", "esconden", "empuja", "alcanzar", "desaparece", "acuerdan"];
+
+    const tfData = [
+        { statement: "‘Los Reyes Magos’ is celebrated on 6th January.", answer: true, explanation: "6 January — Epiphany, when the Three Kings bring presents in Spain." },
+        { statement: "‘La Tomatina’ takes place in Pamplona.", answer: false, explanation: "La Tomatina is in Buñol; Pamplona hosts San Fermín (the running of the bulls)." },
+        { statement: "‘Reunirse’ is reflexive, so ‘the family gets together’ is ‘la familia se reúne’.", answer: true, explanation: "Reflexive verbs need me/te/se — se reúne." },
+        { statement: "The preterite tense is used to describe what usually happens every year.", answer: false, explanation: "Habitual actions use soler/imperfect; the preterite is for one completed past event." },
+        { statement: "‘El Día de los Muertos’ is a Mexican celebration.", answer: true, explanation: "El Día de los Muertos (1–2 November) is celebrated across Mexico." },
+        { statement: "‘Lo pasé genial’ means ‘I had a great time’.", answer: true, explanation: "pasarlo genial/bien = to have a great/good time." },
+        { statement: "‘Vamos a celebrar la Navidad juntos’ describes something that already happened.", answer: false, explanation: "‘vamos a’ + infinitive is a future plan, not a completed past event." },
+        { statement: "San Fermín is famous for the running of the bulls in Pamplona.", answer: true, explanation: "San Fermín (July) in Pamplona is famous for el encierro, the running of the bulls." },
+        { statement: "‘La mezquita’ is a Christian church.", answer: false, explanation: "la mezquita = the mosque, a Muslim place of worship. A church is la iglesia." },
+        { statement: "‘Los Sanfermines’ refers to the same festival as San Fermín.", answer: true, explanation: "los Sanfermines is another name for the San Fermín festival in Pamplona." },
+        { statement: "‘Roto’ means ‘broken’.", answer: true, explanation: "roto/rota = broken, e.g. una piñata rota." },
+        { statement: "‘Esconder’ means ‘to hide’.", answer: true, explanation: "esconder = to hide, e.g. esconder los regalos (to hide the presents)." },
+        { statement: "‘Alcanzar’ means ‘to push’.", answer: false, explanation: "alcanzar = to reach/achieve; empujar = to push — two different crowd-related verbs." },
+        { statement: "‘Acordarse de’ means ‘to forget about’.", answer: false, explanation: "acordarse de = to remember; olvidarse de = to forget." }
+    ];
+
+    const miscData = [
+        { wrong: "Yo celebro la Navidad el año pasado.", correct: "Yo celebré la Navidad el año pasado.", readCheck: { q: "Why is ‘celebro’ wrong with ‘el año pasado’?", opts: ["‘el año pasado’ needs the preterite, celebré", "‘celebro’ should always be conjugated in the plural", "‘Navidad’ needs a capital C written at the end", "the sentence is missing the linking word ‘que’"], ans: 0, explain: "A specific past time phrase like ‘el año pasado’ requires the preterite: celebré." } },
+        { wrong: "La familia reúne en Nochebuena.", correct: "La familia se reúne en Nochebuena.", readCheck: { q: "What is missing from ‘La familia reúne en Nochebuena’?", opts: ["the reflexive pronoun ‘se’ (se reúne)", "the definite article before ‘familia’", "an accent on the word ‘familia’", "the word ‘mucho’ at the end"], ans: 0, explain: "reunirse is reflexive — you need ‘se’: la familia se reúne." } },
+        { wrong: "La Tomatina es en Pamplona.", correct: "La Tomatina es en Buñol.", readCheck: { q: "Why is ‘La Tomatina es en Pamplona’ wrong?", opts: ["La Tomatina is actually held in Buñol, not Pamplona", "‘Tomatina’ should really be spelt ‘Tomatino’ instead", "Pamplona does not exist as a real city in Spain", "‘es’ should be replaced with ‘está’ in this sentence"], ans: 0, explain: "La Tomatina (the tomato fight) is in Buñol; Pamplona is famous for San Fermín instead." } },
+        { wrong: "Los Reyes Magos es el 25 de diciembre.", correct: "Los Reyes Magos es el 6 de enero.", readCheck: { q: "Why is ‘el 25 de diciembre’ the wrong date here?", opts: ["that is Christmas Day — Los Reyes Magos is 6 January", "Los Reyes Magos does not actually have any fixed date at all", "25 December really is the correct date for this festival", "dates are never mentioned together with festival names"], ans: 0, explain: "25 December is Christmas Day (la Navidad); Los Reyes Magos is celebrated on 6 January." } },
+        { wrong: "Ayer, solemos reunirnos en casa de mi abuela.", correct: "Ayer, nos reunimos en casa de mi abuela.", readCheck: { q: "Why doesn't ‘solemos’ work with ‘ayer’ (yesterday)?", opts: ["‘ayer’ names one day, so it needs the preterite instead", "‘solemos’ is simply spelt incorrectly in this whole sentence", "‘ayer’ must always be placed at the very end of a sentence", "‘reunirnos’ is not actually a real Spanish verb at all"], ans: 0, explain: "soler + present describes a habit, but ‘ayer’ points to a single completed day — use the preterite instead." } }
+    ];
+
+    const examTips = [
+        { type: "tip", title: "Paper 1 — Listening for tense and dates", pills: ["Listening", "Tenses"], content: "Festival questions often hinge on a single tense marker or date. For -ar verbs like ‘celebramos’, present and preterite can look identical, so listen for time phrases like ‘el año pasado’ or ‘normalmente’ around the verb, and note exact dates (6 de enero vs 25 de diciembre).", readCheck: { q: "You hear ‘normalmente’ before a verb about a festival. What does that signal?", opts: ["a habitual action, not a one-off past event", "a completed action that only ever happened once", "a plan for something in the future", "a mistake accidentally made by the speaker"], ans: 0, explain: "‘normalmente’ signals a habitual/repeated action — pair it with soler or the present, not the preterite." } },
+        { type: "tip", title: "Paper 3 — Reading & translation into English", pills: ["Reading", "Translation"], content: "Watch for reflexive verbs (la familia se reúne) and false festival-date traps. Keep translations natural: ‘lo pasé genial’ = ‘I had a great time’, not a stiff word-for-word translation.", readCheck: { q: "How should you translate ‘Nos disfrazamos para el carnaval’?", opts: ["We dress up in costumes for the carnival", "We watch other people dress up for the carnival", "We used to dress up for the carnival every year", "We are going to dress up for the carnival"], ans: 0, explain: "‘nos disfrazamos’ is present tense: we dress up (ourselves)." } },
+        { type: "evaluate", title: "Paper 4 — Writing & translation into Spanish (Higher)", pills: ["Writing", "Higher"], content: "For the strongest answers, mix tenses: describe a past festival with the preterite for what happened (celebramos, fuimos, bailamos) and the imperfect for background description (era Navidad, hacía frío, toda la familia estaba en casa).", readCheck: { q: "Which sentence reaches the top band for describing a past festival?", opts: ["Era Navidad y toda la familia estaba en casa cuando mi abuela preparó una cena enorme", "Navidad es muy buena y me gusta mucho la Navidad todos los años", "Celebramos la Navidad y también nos gusta mucho el Año Nuevo", "Hay una fiesta muy grande, bonita y tradicional en mi ciudad todos los años sin falta"], ans: 0, explain: "It combines the imperfect (era, estaba) with the preterite (preparó) — the Higher-tier marker examiners reward, not just present-tense opinions." } }
+    ];
+
+    const flashcards = [
+        { term: "la fiesta", def: "the party / festival", say: "la fiesta" },
+        { term: "celebrar", def: "to celebrate", say: "celebrar" },
+        { term: "la Navidad", def: "Christmas", say: "la Navidad" },
+        { term: "la Nochebuena", def: "Christmas Eve", say: "la Nochebuena" },
+        { term: "el Año Nuevo", def: "New Year", say: "el Año Nuevo" },
+        { term: "los Reyes Magos", def: "the Three Kings (6 Jan)", say: "los Reyes Magos" },
+        { term: "la Semana Santa", def: "Holy Week", say: "la Semana Santa" },
+        { term: "el cumpleaños", def: "birthday", say: "el cumpleaños" },
+        { term: "la familia se reúne", def: "the family gets together", say: "la familia se reúne" },
+        { term: "los regalos · regalar", def: "presents · to give (a present)", say: "los regalos, regalar" },
+        { term: "los fuegos artificiales", def: "fireworks", say: "los fuegos artificiales" },
+        { term: "disfrazarse · el disfraz", def: "to dress up · the costume", say: "disfrazarse, el disfraz" },
+        { term: "la procesión", def: "the procession", say: "la procesión" },
+        { term: "lo pasé genial", def: "I had a great time", say: "lo pasé genial" },
+        { term: "solemos reunirnos", def: "we usually get together", say: "solemos reunirnos" },
+        { term: "solíamos ir (H)", def: "we used to go", say: "solíamos ir" },
+        { term: "La Tomatina · San Fermín", def: "tomato fight (Buñol) · running of the bulls (Pamplona)", say: "La Tomatina, San Fermín" },
+        { term: "Era Navidad… cuando… (H)", def: "combining imperfect + preterite for a past festival", say: "Era Navidad y toda la familia estaba en casa cuando mi abuela preparó una cena enorme" },
+        { term: "el siglo", def: "the century", say: "el siglo" },
+        { term: "la muerte", def: "death", say: "la muerte" },
+        { term: "el traje", def: "the outfit / the costume / the suit", say: "el traje" },
+        { term: "el santo / el día del santo", def: "the saint / one's saint's day", say: "el día del santo" },
+        { term: "participar", def: "to take part / to participate", say: "participar" },
+        { term: "cubano/a", def: "Cuban", say: "cubano" },
+        { term: "el rey", def: "the king", say: "el rey" },
+        { term: "cantar", def: "to sing", say: "cantar" },
+        { term: "la flor", def: "the flower", say: "la flor" },
+        { term: "invitar", def: "to invite", say: "invitar" },
+        { term: "religioso/a", def: "religious", say: "religioso" },
+        { term: "loco/a", def: "crazy / mad", say: "loco" },
+        { term: "mexicano/a", def: "Mexican", say: "mexicano" },
+        { term: "sorprender", def: "to surprise", say: "sorprender" },
+        { term: "cristiano/a", def: "Christian", say: "cristiano" },
+        { term: "argentino/a", def: "Argentine / Argentinian", say: "argentino" },
+        { term: "la tradición", def: "the tradition", say: "la tradición" },
+        { term: "la alegría", def: "joy / happiness", say: "la alegría" },
+        { term: "pintar · pintarse", def: "to paint · to paint oneself", say: "pintar, pintarse" },
+        { term: "la religión", def: "religion", say: "la religión" },
+        { term: "católico/a", def: "Catholic", say: "católico" },
+        { term: "el evento", def: "the event", say: "el evento" },
+        { term: "atraer", def: "to attract", say: "atraer" },
+        { term: "colombiano/a", def: "Colombian", say: "colombiano" },
+        { term: "judío/a", def: "Jewish", say: "judío" },
+        { term: "musulmán / musulmana", def: "Muslim", say: "musulmán" },
+        { term: "el templo", def: "the temple", say: "el templo" },
+        { term: "la mezquita", def: "the mosque", say: "la mezquita" },
+        { term: "la sinagoga", def: "the synagogue", say: "la sinagoga" },
+        { term: "el Día de Reyes", def: "Three Kings' Day (6 January)", say: "el Día de Reyes" },
+        { term: "el Día de Muertos", def: "the Day of the Dead (another name for el Día de los Muertos)", say: "el Día de Muertos" },
+        { term: "la plaza de toros", def: "the bullring", say: "la plaza de toros" },
+        { term: "los Sanfermines", def: "the San Fermín festival (running of the bulls)", say: "los Sanfermines" },
+        { term: "¡Perdón!", def: "Sorry!", say: "¡Perdón!" },
+        { term: "detrás (de)", def: "behind", say: "detrás de" },
+        { term: "roto/a", def: "broken", say: "roto" },
+        { term: "quemar · quemarse", def: "to burn · to get burnt", say: "quemar, quemarse" },
+        { term: "el vestido", def: "the dress", say: "el vestido" },
+        { term: "latino/a", def: "Latin American", say: "latino" },
+        { term: "la reina", def: "the queen", say: "la reina" },
+        { term: "la cola", def: "the queue / the tail", say: "la cola" },
+        { term: "chileno/a", def: "Chilean", say: "chileno" },
+        { term: "divertir · divertirse", def: "to entertain · to have fun", say: "divertir, divertirse" },
+        { term: "el toro", def: "the bull", say: "el toro" },
+        { term: "la boda", def: "the wedding", say: "la boda" },
+        { term: "la celebración", def: "the celebration", say: "la celebración" },
+        { term: "el juguete", def: "the toy", say: "el juguete" },
+        { term: "el desfile", def: "the parade", say: "el desfile" },
+        { term: "al aire libre", def: "outdoors / in the open air", say: "al aire libre" },
+        { term: "hispanohablante", def: "Spanish-speaking", say: "hispanohablante" },
+        { term: "¡Enhorabuena!", def: "Congratulations!", say: "¡Enhorabuena!" },
+        { term: "asqueroso/a", def: "disgusting", say: "asqueroso" },
+        { term: "finalmente", def: "finally", say: "finalmente" },
+        { term: "¿Cómo es?", def: "What is it like?", say: "¿Cómo es?" },
+        { term: "creer", def: "to believe", say: "creer" },
+        { term: "esperar", def: "to wait for / to hope", say: "esperar" },
+        { term: "contribuir", def: "to contribute", say: "contribuir" },
+        { term: "esconder", def: "to hide", say: "esconder" },
+        { term: "empujar", def: "to push", say: "empujar" },
+        { term: "alcanzar", def: "to reach / to achieve", say: "alcanzar" },
+        { term: "desaparecer", def: "to disappear", say: "desaparecer" },
+        { term: "acordar / acordarse", def: "to agree / to remember (reflexive)", say: "acordarse" }
+    ];
+
+    const EXAM_CASE_STUDIES = {
+        "pablo-fiesta": `<p><strong>Lee lo que dice Pablo.</strong></p>
+        <p><em>"Todos los años mi familia y yo solemos celebrar la Navidad juntos, pero el año pasado fue diferente porque fuimos a Sevilla para las fiestas de Semana Santa. Vimos las procesiones por las calles y comimos mucho turrón. Normalmente nos disfrazamos para el carnaval en febrero, pero ese año no pudimos porque estábamos de viaje. Lo pasé genial y el año que viene voy a volver a Sevilla para la Feria de Abril."</em></p>`
+    };
+
+    const examQuestions = [
+        {
+            num: 1, marks: 4, type: "written", caseId: "pablo-fiesta",
+            question: "Read what Pablo says. Answer <strong>in English</strong>.<br>(a) What does Pablo's family usually do at Christmas? (1)<br>(b) Where did he go last year, and for what festival? (1)<br>(c) Name <strong>one</strong> thing he saw or ate there. (1)<br>(d) What is he going to do next year? (1)",
+            hint: "Find the habit after ‘todos los años’, the place and festival after ‘fuimos a’, a detail after ‘vimos’ or ‘comimos’, and the plan after ‘voy a’.",
+            starter: "(a) They usually… (b) He went to… (c) He… (d) He is going to…",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 4 marks (AO3 Reading)</h5><ul>
+                <li><strong>(a)</strong> celebrate Christmas together (as a family) <em>(1)</em>.</li>
+                <li><strong>(b)</strong> Sevilla, for (the festivities of) Semana Santa / Holy Week <em>(1)</em>.</li>
+                <li><strong>(c)</strong> the processions in the streets / (he ate) a lot of turrón (ANY ONE) <em>(1)</em>.</li>
+                <li><strong>(d)</strong> go back to Sevilla for the Feria de Abril <em>(1)</em>.</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+                <li>Answers in English; do not penalise spelling if the meaning is clear.</li>
+            </ul></div>`,
+            modelAnswer: "(a) They usually celebrate Christmas together. (b) He went to Sevilla for Semana Santa (Holy Week). (c) He saw the processions in the streets (or: he ate a lot of turrón). (d) He is going to go back to Sevilla for the Feria de Abril.",
+            markPoints: { note: "One tick per correct detail; cap at 4.", groups: [
+                { label: "(a) Christmas habit — 1", max: 1, points: ["celebrate Christmas together as a family"] },
+                { label: "(b) place + festival — 1", max: 1, points: ["Sevilla, for Semana Santa / Holy Week"] },
+                { label: "(c) a detail — 1", max: 1, points: ["the processions in the streets OR he ate a lot of turrón"] },
+                { label: "(d) next year's plan — 1", max: 1, points: ["go back to Sevilla for the Feria de Abril"] }
+            ] }
+        },
+        {
+            num: 2, marks: 5, type: "written",
+            question: "Translate these sentences <strong>into Spanish</strong>.<br>(a) We celebrate Christmas with the family. <br>(b) Last year we danced all night. <br>(c) I am going to dress up as a superhero for the carnival.",
+            hint: "‘We celebrate’ = present tense (celebramos). ‘Last year we danced’ = preterite (bailamos). ‘I am going to dress up’ = voy a disfrazarme (reflexive).",
+            starter: "(a) Celebramos… (b) El año pasado… (c) Voy a…",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 5 marks (AO4 Writing: translation)</h5><ul>
+                <li><strong>(a)</strong> Celebramos la Navidad con la familia. <em>(1)</em></li>
+                <li><strong>(b)</strong> El año pasado bailamos toda la noche. <em>(1)</em></li>
+                <li><strong>(c)</strong> Voy a disfrazarme <em>(1)</em> de superhéroe <em>(1)</em> para el carnaval <em>(1)</em>.</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+                <li>Accept minor accent errors. Part (b) must use the preterite ‘bailamos’, not the present.</li>
+            </ul></div>`,
+            modelAnswer: "(a) Celebramos la Navidad con la familia. (b) El año pasado bailamos toda la noche. (c) Voy a disfrazarme de superhéroe para el carnaval.",
+            markPoints: { note: "One tick per scheme point; cap at 5.", groups: [
+                { label: "(a)", max: 1, points: ["Celebramos la Navidad con la familia"] },
+                { label: "(b)", max: 1, points: ["El año pasado bailamos toda la noche"] },
+                { label: "(c)", max: 3, points: ["Voy a disfrazarme", "de superhéroe", "para el carnaval"] }
+            ] }
+        }
+    ];
 </script>
+
+    <!-- Spanish voice capability (SPANISH-CONTENT-PLAN.md §8.1). Self-installs the 🔊
+         buttons + speed/voice panel + tab observer. Loads before /script.js. -->
     <script src="/speech.js"></script>
+    <!-- Exam self-marking: tick-the-mark-scheme panel (shared with CS / Additional Maths;
+         docs/SELF-MARK-POINTS-AUTHORING.md). -->
     <script src="/cs-lab/exam-widgets.js"></script>
     <script src="/script.js"></script>
-<script src="section-totals.js"></script>
-<script src="page-groups.js"></script>
-<script src="/progress-shared.js"></script>
-<script src="/gamification.js"></script>
-<script src="/topic-guard.js"></script>
-<script src="/notifications-shared.js"></script>
-<script src="/onboarding-tour.js"></script>
-<script src="/footer-legal.js"></script>
+    <script src="section-totals.js"></script>
+    <script src="page-groups.js"></script>
+    <script src="/progress-shared.js"></script>
+    <script src="/gamification.js"></script>
+    <script src="/topic-guard.js"></script>
+    <script src="/notifications-shared.js"></script>
+    <script src="/onboarding-tour.js"></script>
+    <script src="/footer-legal.js"></script>
 </body>
 
 </html>

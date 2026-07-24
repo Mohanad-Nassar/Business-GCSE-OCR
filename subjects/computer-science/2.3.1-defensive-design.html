@@ -16,7 +16,7 @@
         <div>
             <div class="badge">OCR GCSE Computer Science — Paper 2 · 2.3 Producing Robust Programs</div>
             <h1>2.3.1 Defensive Design</h1>
-            <p>Interactive revision guide · Content coming soon</p>
+            <p>Interactive revision guide</p>
         </div>
         <a href="/index.html" class="home-link">← 🏡 Home</a>
     </header>
@@ -256,7 +256,9 @@
 
 <script>
     // ══════════════════════════════════════
-    //  DATA: 2.3.1 Defensive Design — placeholder, content not yet written
+    //  DATA: 2.3.1 Defensive Design
+    //  Pseudocode shown in OCR Exam Reference Language (ERL) — the language
+    //  Paper 2 questions are set in — with Python alongside where it helps.
     // ══════════════════════════════════════
     const pageMeta = {
             id: '2-3-1-defensive-design',
@@ -268,21 +270,957 @@
 
     const topics = [
         {
-            title: "This topic is being written",
-            tag: "Coming soon",
-            content: `<p>🚧 <strong>Content for this topic is on its way.</strong> Key Learning notes, practice questions and exam-style questions for <strong>2.3.1 Defensive Design</strong> will appear here soon.</p>`
+            title: "What is defensive design?",
+            tag: "Key concept",
+            content: `<h4>Designing a program so it copes, rather than crashes</h4>
+<ul>
+<li><strong>Defensive design</strong> means writing a program so that it keeps behaving sensibly even when something unexpected happens — a user types the wrong kind of data, leaves a box empty, or even tries to misuse the program on purpose.</li>
+<li>A program that has <strong>not</strong> been designed defensively might <strong>crash</strong>, produce a <strong>meaningless result</strong>, or let someone access data or features they shouldn't.</li>
+<li>This page covers three defensive techniques: <strong>input validation</strong> (checking data before the program uses it), <strong>authentication</strong> (checking who the user is) and <strong>maintainability</strong> (writing code that other programmers can understand and safely change).</li>
+</ul>`,
+            readCheck: {
+                q: "What is the main aim of defensive design?",
+                opts: ["To make a program's source code as short as possible, since a shorter program is assumed to always run more quickly", "To write a program that keeps behaving sensibly even when a user enters unexpected, wrong or malicious data", "To translate a finished program from a high-level language into machine code so the processor can run it", "To make sure a program only ever needs to be tested once, before it is finally released to its actual users"],
+                ans: 1,
+                explain: "Defensive design is about anticipating things going wrong — unexpected, wrong or malicious input — and coping with it, rather than crashing or misbehaving."
+            }
+        },
+        {
+            title: "Anticipating misuse",
+            tag: "Key concept",
+            content: `<h4>Thinking ahead about what could go wrong</h4>
+<ul>
+<li><strong>Anticipating misuse</strong> means thinking, before the program is even finished, about all the ways a user might enter data that is <strong>unexpected</strong>, <strong>wrong</strong> or even <strong>malicious</strong> — and designing the program so it doesn't crash or behave badly when this happens.</li>
+<li>Examples a programmer should plan for: typing letters into a box that expects a number; leaving a required box empty; entering a number that is far too big or too small to make sense; or deliberately entering unusual data to try to break the program.</li>
+<li>A well-designed program <strong>expects</strong> these situations and responds calmly — for example by rejecting the input and asking again — instead of crashing or producing nonsense output.</li>
+</ul>`,
+            readCheck: {
+                q: "Which of these best describes 'anticipating misuse' in defensive design?",
+                opts: ["Fixing a program's bugs only after real users have already found them by using the finished program", "Thinking in advance about the unexpected, wrong or malicious data a user might enter, and designing the program to cope with it", "Writing a program so that it never needs to accept any input from a user at any point while it is running", "Testing a program exactly once, using only data that is already known to be completely correct and expected, before it is ever shown to a real user"],
+                ans: 1,
+                explain: "Anticipating misuse means planning for unexpected, wrong or malicious input BEFORE it happens, so the program can cope with it rather than crash."
+            }
+        },
+        {
+            title: "Input validation: checking before it's used",
+            tag: "Key concept",
+            content: `<h4>Catching bad data before the program uses it</h4>
+<ul>
+<li><strong>Input validation</strong> is an automatic check, built into the program, that tests whether data entered is <strong>sensible</strong> and follows a set of rules — <strong>before</strong> the program goes on to use that data.</li>
+<li>If the data fails the check, the program should <strong>reject it</strong> and ask the user to try again, rather than carrying on and risking a crash or a wrong result.</li>
+<li>There are several standard types of check, each suited to a different kind of problem: <strong>range</strong>, <strong>type</strong>, <strong>presence</strong>, <strong>length</strong> and <strong>format</strong> checks. Each is covered in its own card next.</li>
+</ul>`,
+            readCheck: {
+                q: "When should an input validation check be carried out?",
+                opts: ["After the program has already used the data to calculate and display a result to the user on the screen", "Before the program uses the data, so that unsuitable data can be rejected first", "Only once, the very first time the program is ever run on a brand new computer", "Only if the program's user specifically asks for their data to be checked before it is used"],
+                ans: 1,
+                explain: "Validation happens BEFORE the data is used, so unsuitable data can be caught and rejected before it causes a problem."
+            }
+        },
+        {
+            title: "Range check",
+            tag: "Validation check",
+            content: `<h4>Is the value between a minimum and a maximum?</h4>
+<ul>
+<li>A <strong>range check</strong> tests whether a numeric value entered lies between a stated <strong>minimum</strong> and <strong>maximum</strong>.</li>
+<li>Example: a percentage mark should be no less than 0 and no more than 100.</li>
+</ul>
+<div class="code-block">if mark &lt; 0 OR mark &gt; 100 then
+  print("Invalid mark")
+endif</div>
+<ul>
+<li>Range checks are used wherever a sensible value has natural upper and/or lower limits — a day of the month (1–31), an age (0–120), a quantity ordered (1 or more), and so on.</li>
+</ul>`,
+            readCheck: {
+                q: "Which of these is an example of a range check?",
+                opts: ["Checking that a username box has not been left completely empty by the user before it is submitted", "Checking that an entered day-of-the-month is no less than 1 and no more than 31", "Checking that an entered postcode matches the pattern of letters and digits used by real postcodes", "Checking that a password entered by the user is at least eight characters long before it is accepted"],
+                ans: 1,
+                explain: "A range check tests a value against a minimum and maximum — here, that a day is between 1 and 31. The others are presence, format and length checks."
+            }
+        },
+        {
+            title: "Type check",
+            tag: "Validation check",
+            content: `<h4>Is the value the correct kind of data?</h4>
+<ul>
+<li>A <strong>type check</strong> tests whether the data entered is of the <strong>correct data type</strong> — for example, that a value that should be a whole number is actually a whole number, and not text.</li>
+<li>Example: if a program asks for someone's age, entering "twelve" instead of 12 should be rejected by a type check.</li>
+</ul>
+<div class="code-block">age = input("Enter your age: ")
+// a type check confirms 'age' can be treated as a whole number
+// before it is used in any further calculation</div>
+<ul>
+<li>Type checks stop a program <strong>crashing</strong> when it tries to do maths with something that isn't actually a number.</li>
+</ul>`,
+            readCheck: {
+                q: "What does a type check test?",
+                opts: ["That the data entered lies between a stated minimum value and a stated maximum value", "That the data entered is of the correct data type, for example a whole number rather than text", "That the data entered has not been left blank by the user before the form is submitted", "That the data entered matches a required pattern, such as the exact layout of an email address"],
+                ans: 1,
+                explain: "A type check confirms the data is of the expected kind (e.g. a number, not text). Range, presence and format checks test other things."
+            }
+        },
+        {
+            title: "Presence check",
+            tag: "Validation check",
+            content: `<h4>Has something actually been entered?</h4>
+<ul>
+<li>A <strong>presence check</strong> tests whether a field has been <strong>left empty</strong>. If nothing has been entered, the data fails the check.</li>
+<li>Example: a compulsory "Name" box on a registration form should not be allowed to stay blank.</li>
+</ul>
+<div class="code-block">name = input("Enter your name: ")
+if name == "" then
+  print("Name cannot be blank")
+endif</div>
+<ul>
+<li>Presence checks are usually the <strong>simplest</strong> check to apply, and are often combined with other checks on the same field.</li>
+</ul>`,
+            readCheck: {
+                q: "A presence check on a 'Name' field would reject which of these?",
+                opts: ["The name 'Ali', because it is shorter than most other names that are typically entered into this kind of field", "An empty box, where the user submitted the form without typing anything into the Name field at all", "The name 'Priya', since it contains no numbers or unusual symbols that would normally cause a program to fail", "The name 'Jordan', because it happens to also be the name of a country as well as being a common first name"],
+                ans: 1,
+                explain: "A presence check only tests whether something was entered at all — it rejects an empty field, regardless of what a valid name might look like."
+            }
+        },
+        {
+            title: "Length check",
+            tag: "Validation check",
+            content: `<h4>Is it the right number of characters?</h4>
+<ul>
+<li>A <strong>length check</strong> tests whether the number of characters entered falls within an allowed range.</li>
+<li>Example: a password might be required to be between 8 and 16 characters long.</li>
+</ul>
+<div class="code-block">password = input("Enter a password (8-16 characters): ")
+if len(password) &lt; 8 OR len(password) &gt; 16 then
+  print("Invalid length")
+endif</div>
+<ul>
+<li>Length checks are common for passwords, PIN codes and reference numbers, where a valid value always has a fixed or bounded number of characters.</li>
+</ul>`,
+            readCheck: {
+                q: "A system requires passwords to be between 8 and 16 characters long. Which check tests this rule?",
+                opts: ["A range check, because 8 and 16 look like they could be the minimum and maximum values of an ordinary number", "A length check", "A presence check, because a password box must never be left empty by the user under any circumstance", "A type check, because a password is always stored by the computer as a sequence of individual text characters"],
+                ans: 1,
+                explain: "Counting characters and comparing to an allowed minimum/maximum number of characters is a length check, not a range check (which tests a numeric value's size)."
+            }
+        },
+        {
+            title: "Format check",
+            tag: "Validation check",
+            content: `<h4>Does it match the expected pattern?</h4>
+<ul>
+<li>A <strong>format check</strong> tests whether data matches a required <strong>pattern</strong> or layout.</li>
+<li>Example: a UK postcode follows a recognisable pattern of letters and digits; an email address must contain an "@" symbol with text on both sides.</li>
+</ul>
+<div class="code-block">// simplified idea: does the email contain an @ symbol?
+email = input("Enter your email: ")
+if NOT (email contains "@") then
+  print("Invalid format")
+endif</div>
+<ul>
+<li>Format checks are used whenever valid data has to look a particular way, even though its exact value can vary.</li>
+</ul>`,
+            readCheck: {
+                q: "Which of these is an example of a format check?",
+                opts: ["Checking that an entered exam mark is no less than 0 and no more than 100 before it is accepted by the program", "Checking that an entered email address contains an '@' symbol with text on both sides of it", "Checking that a 'Surname' field has not been submitted completely empty by the person filling in the form", "Checking that an entered PIN code is exactly four characters long before the program will accept it as valid"],
+                ans: 1,
+                explain: "A format check tests whether data follows a required pattern or layout — like an email address needing an '@' symbol. The others are range, presence and length checks."
+            }
+        },
+        {
+            title: "Validation loops: keep asking until it's valid",
+            tag: "Exam skill",
+            content: `<h4>Re-asking until a valid value is entered</h4>
+<ul>
+<li>In practice, validation is usually combined with a <strong>loop</strong>: the program keeps <strong>re-asking</strong> for input until the value entered actually passes the check.</li>
+<li>A <code>do … until</code> loop is a natural fit, because it always runs its body <strong>at least once</strong> (you need to ask at least once before there's anything to check).</li>
+</ul>
+<div class="code-block">do
+  age = input("Enter your age (0-120): ")
+until age &gt;= 0 AND age &lt;= 120
+print("Thank you")</div>
+<ul>
+<li>A <code>while</code> loop works too, as long as it tests the <strong>opposite</strong> (invalid) condition and asks for the very first input before the loop starts:</li>
+</ul>
+<div class="code-block">age = input("Enter your age (0-120): ")
+while age &lt; 0 OR age &gt; 120
+  age = input("Invalid. Enter your age (0-120): ")
+endwhile</div>`,
+            readCheck: {
+                q: "Why does a do…until loop suit a validation re-ask pattern well?",
+                opts: ["Because a do…until loop is the only kind of loop that is able to contain an if statement anywhere inside it", "It always runs its body at least once, matching the need to ask for input before there's anything to check", "Because a do…until loop automatically counts exactly how many attempts the user has made before it will finally stop", "Because a do…until loop can only ever be used with numeric data, never with text entered by a user into a box"],
+                ans: 1,
+                explain: "A do…until loop checks its condition AFTER the body, so it always runs at least once — matching the need to ask for input before checking it."
+            }
+        },
+        {
+            title: "Validation vs verification",
+            tag: "Key concept",
+            content: `<h4>Two different questions about data</h4>
+<ul>
+<li><strong>Validation</strong> asks: "Is this data <strong>sensible</strong>, and does it follow the rules I've set?" It is done automatically by the program (e.g. a range check).</li>
+<li><strong>Verification</strong> asks: "Was this data entered or copied <strong>correctly</strong>?" It checks for mistakes in typing or copying, not whether the value itself is sensible.</li>
+<li>Common verification methods: <strong>double-entry</strong> (typing a password twice and comparing the two entries) and <strong>proofreading</strong> (a human checking data against its original source).</li>
+</ul>
+<div class="code-block">password1 = input("Enter a password: ")
+password2 = input("Re-enter the password: ")
+if password1 != password2 then
+  print("Passwords do not match")
+endif</div>
+<ul>
+<li><strong>Key point:</strong> a value can pass validation (it's a sensible-looking value) and still be <strong>wrong</strong> — validation can't tell if a truthful value was typed. Verification is aimed at catching that kind of mistake.</li>
+</ul>`,
+            readCheck: {
+                q: "A user is asked to type their password twice, and the program checks the two entries match. What is this an example of?",
+                opts: ["A range check, because the program is comparing two values to see whether one lies inside the other", "Verification", "A format check, because the program is confirming that the password follows a required layout or pattern", "Authentication, because entering a password is always specifically an example of authenticating a user"],
+                ans: 1,
+                explain: "Comparing two entries to confirm data was typed correctly is verification (double-entry), not one of the validation checks."
+            }
+        },
+        {
+            title: "Authentication",
+            tag: "Key concept",
+            content: `<h4>Confirming who the user is</h4>
+<ul>
+<li><strong>Authentication</strong> is the process of confirming a user's <strong>identity</strong> before allowing them access to a system or its data.</li>
+<li>The most common method is a <strong>username and password</strong>. Good password rules — a minimum length, and a mix of letters, numbers and symbols — make a password harder to guess.</li>
+<li>Some systems add <strong>two-step verification</strong>: after the password, a one-time code (e.g. sent by text message) must also be entered. This means a stolen password alone isn't enough to get in.</li>
+</ul>
+<div class="code-block">username = input("Username: ")
+password = input("Password: ")
+if username == storedUsername AND password == storedPassword then
+  print("Access granted")
+else
+  print("Access denied")
+endif</div>`,
+            readCheck: {
+                q: "What is authentication?",
+                opts: ["Automatically checking that data entered into a form follows a set of sensible rules before it is used", "Confirming a user's identity before allowing them access to a system", "Writing program code in a way that makes it easy for another programmer to read and change later", "Checking that data has been typed or copied correctly, for example by entering it a second time"],
+                ans: 1,
+                explain: "Authentication confirms WHO the user is, most commonly with a username and password. The other options describe validation, maintainability and verification."
+            }
+        },
+        {
+            title: "Maintainability — sub-programs",
+            tag: "Key concept",
+            content: `<h4>Breaking a program into smaller pieces</h4>
+<ul>
+<li><strong>Maintainability</strong> means writing a program so that it is easy for a programmer — including one who didn't originally write it — to read, understand and safely change later.</li>
+<li>One key technique is using <strong>sub-programs</strong> (procedures and functions): splitting a program into smaller, named blocks that each do <strong>one clear job</strong>, instead of writing everything as one long block of code.</li>
+<li>Why it helps: each sub-program can be read, tested and fixed <strong>on its own</strong>; the same sub-program can be <strong>reused</strong> wherever that task is needed, instead of copying the code out again; and the overall structure of the program becomes clearer.</li>
+</ul>`,
+            readCheck: {
+                q: "How does breaking a program into sub-programs improve its maintainability?",
+                opts: ["It makes the finished program noticeably smaller in file size once it has been saved onto a storage device", "It splits the program into smaller, named blocks that can each be read, tested and reused on their own", "It automatically removes the need for the programmer to ever add any comments anywhere in their code", "It guarantees that the program will run faster, since sub-programs are always processed before any other code"],
+                ans: 1,
+                explain: "Sub-programs split code into smaller, reusable, individually-testable blocks — that's what makes the program easier to maintain."
+            }
+        },
+        {
+            title: "Maintainability — naming, indentation and comments",
+            tag: "Key concept",
+            content: `<h4>Making the code itself easy to follow</h4>
+<ul>
+<li><strong>Meaningful/descriptive naming</strong> — calling a variable <code>studentAge</code> instead of <code>x</code> tells the next reader what it is for, without them having to trace the whole program to find out.</li>
+<li><strong>Consistent indentation</strong> — lining up code inside loops, selection statements and sub-programs shows the <strong>structure</strong> of the program at a glance, making it far easier to see which lines belong together.</li>
+<li><strong>Comments</strong> — short notes (ignored by the computer when the program runs) that explain <strong>what</strong> a tricky section does or <strong>why</strong> it's written that way, saving a future reader from having to work it out from scratch.</li>
+</ul>
+<div class="code-block">// Calculate the average of three test scores
+average = (score1 + score2 + score3) / 3
+print(average)</div>`,
+            readCheck: {
+                q: "Why do programmers use meaningful variable names, such as studentAge instead of x?",
+                opts: ["Because a program will only run correctly if every single variable name used is at least four letters long", "A meaningful name tells another programmer what the variable is for, making the code easier to understand", "Because meaningful names are the only kind of name that a compiler or interpreter will ever actually accept", "Because using meaningful names is the only way to make sure a program never produces any errors while running"],
+                ans: 1,
+                explain: "Meaningful names make code easier for other programmers (or the same one, later) to read and understand — that's what maintainability is about."
+            }
         }
     ];
 
-    const mcqData = [];
-    const matchData = [];
-    const fibData = [];
-    const fibWords = [];
-    const tfData = [];
-    const miscData = [];
-    const examTips = [];
-    const flashcards = [];
-    const examQuestions = [];
+    const mcqData = [
+        {
+            q: "What is defensive design mainly concerned with?",
+            opts: ["Making a program's file size as small as possible so that it downloads and installs more quickly", "Anticipating misuse and designing a program so it copes with unexpected, wrong or malicious input", "Translating source code into machine code so that the processor is able to run the program without any errors", "Choosing which programming language a program should be written in before development begins"],
+            ans: 1,
+            explain: "Defensive design is about anticipating problems with input and coping with them, not about file size, translation or language choice."
+        },
+        {
+            q: "A form asks for a whole number between 1 and 5 (a star rating). Which check would reject the value 8?",
+            opts: ["A presence check, because the box was actually filled in and something was definitely typed into it", "A range check", "A format check, because 8 is a single digit and does not follow any particular pattern of characters", "A length check, because the number 8 is exactly one character long when it is typed into the box"],
+            ans: 1,
+            explain: "8 is a valid whole number that was entered and is one character long — it fails only because it's outside 1-5, which is what a range check tests."
+        },
+        {
+            q: "Which check would catch someone typing 'twelve' into a box that expects a whole number?",
+            opts: ["A range check, because the word 'twelve' is clearly not a value that lies between any sensible minimum and maximum", "A type check", "A presence check, because the box was left with something inside it rather than being submitted completely empty", "A format check, because the word twelve does not contain the letters and digits used in a typical postcode"],
+            ans: 1,
+            explain: "'twelve' is text, not the whole-number data type expected — this is exactly what a type check is designed to catch."
+        },
+        {
+            q: "A required 'Email address' box is submitted with nothing typed into it. Which check catches this?",
+            opts: ["A range check, since an empty box can be thought of as lying below the lowest value that the check allows", "A presence check", "A type check, because an empty box does not contain any data of a recognisable type such as a number", "A length check, because an empty box technically does contain zero characters, which is a valid length"],
+            ans: 1,
+            explain: "Testing whether a box was left blank is exactly what a presence check does."
+        },
+        {
+            q: "A PIN must be exactly 4 digits. Which check tests the number of characters entered?",
+            opts: ["A format check, because a PIN made only of digits does still follow a recognisable pattern of characters", "A length check", "A range check, because each individual digit in the PIN could be checked to see that it lies between 0 and 9", "An authentication check, because a PIN is often used together with a username to log a user into a system"],
+            ans: 1,
+            explain: "Counting how many characters were entered and comparing that to a required number is a length check."
+        },
+        {
+            q: "Which of these is an example of a format check?",
+            opts: ["Checking that a percentage mark entered is no less than 0 and no more than 100 before it is stored", "Checking that a National Insurance number matches its usual pattern of letters and digits", "Checking that a 'first name' box has not been submitted while still completely empty", "Checking that a password entered contains no fewer than eight individual characters in total"],
+            ans: 1,
+            explain: "A format check tests whether data matches a required pattern or layout, like a National Insurance number's usual arrangement of letters and digits."
+        },
+        {
+            q: "What is the difference between validation and verification?",
+            opts: ["There is no real difference; both terms simply describe exactly the same single process of checking data", "Validation checks data is sensible and follows set rules; verification checks it was entered or copied correctly", "Validation is carried out by a person, whereas verification is always carried out automatically by the program itself", "Validation only applies to numbers, whereas verification only ever applies to text typed in by a user"],
+            ans: 1,
+            explain: "Validation checks the data is sensible/follows rules; verification checks it was entered/copied correctly (e.g. matches the original)."
+        },
+        {
+            q: "Which of these is a method of verification?",
+            opts: ["Rejecting an age entered as -5, because a negative age falls outside of any sensible range of values", "Asking a user to type their password twice and checking that the two entries match", "Rejecting a mark of 150 out of 100, because it is clearly higher than the maximum mark that is possible", "Rejecting a username box that has been submitted by a user while it was still completely empty"],
+            ans: 1,
+            explain: "Double-entry (typing a value twice and comparing) is a verification method, checking data was entered correctly. The others are range and presence checks."
+        },
+        {
+            q: "What is authentication?",
+            opts: ["Automatically checking that data entered into a program follows a set of sensible, pre-defined rules", "Confirming a user's identity, most commonly with a username and password, before granting access", "Splitting a long program into smaller, named sub-programs that each carry out one clear task", "Adding comments to a program's code so that another programmer can understand what it does"],
+            ans: 1,
+            explain: "Authentication confirms WHO a user is before granting access — most commonly a username and password."
+        },
+        {
+            q: "Which of these would make two-step verification harder for an attacker to bypass than a password alone?",
+            opts: ["Making the password shorter, since a shorter password is naturally faster for the real user to type in", "Requiring a one-time code, such as one sent by text message, in addition to the password", "Removing the username requirement, so that only a password needs to be entered to gain access", "Allowing an unlimited number of password attempts, so the real user is never accidentally locked out"],
+            ans: 1,
+            explain: "Two-step verification adds a second, separate factor (like a one-time code) — a stolen password alone is then not enough to get in."
+        },
+        {
+            q: "How does splitting a program into sub-programs improve its maintainability?",
+            opts: ["It always makes the finished program run faster, since sub-programs are processed before any other code", "Each sub-program can be read, tested and reused separately, making the whole program easier to work with", "It removes the need to test the program at all, since each sub-program is assumed to already be correct", "It means variable names no longer need to be meaningful, since sub-programs replace the need for good naming"],
+            ans: 1,
+            explain: "Sub-programs let each task be read, tested and reused on its own — that's what improves maintainability, not speed or naming."
+        },
+        {
+            q: "Which of these improves a program's maintainability?",
+            opts: ["Writing the entire program as a single very long block of code with no separate named sections at all", "Using consistent indentation to show the structure of loops, selection statements and sub-programs", "Giving every variable in the program the shortest possible name, such as a, b and c, wherever possible", "Removing all comments from the finished code once the program has been fully tested and is working"],
+            ans: 1,
+            explain: "Consistent indentation shows the code's structure at a glance, making it easier for another programmer to follow — that's maintainability."
+        }
+    ];
+
+    const matchData = [
+        { term: "Defensive design", def: "Designing a program so it copes with unexpected, wrong or malicious input instead of crashing" },
+        { term: "Anticipating misuse", def: "Thinking in advance about how a user might enter unsuitable data, and coping with it" },
+        { term: "Input validation", def: "An automatic check that data is sensible and follows set rules, before it is used" },
+        { term: "Range check", def: "Confirms a value lies between a stated minimum and maximum" },
+        { term: "Type check", def: "Confirms data is of the correct data type, e.g. a whole number" },
+        { term: "Presence check", def: "Confirms that something has actually been entered into a field" },
+        { term: "Length check", def: "Confirms the number of characters entered is within an allowed range" },
+        { term: "Format check", def: "Confirms data matches a required pattern, such as a postcode" },
+        { term: "Verification", def: "Confirms data was entered or copied correctly, e.g. by entering it twice" },
+        { term: "Authentication", def: "Confirms a user's identity before granting them access to a system" },
+        { term: "Sub-program", def: "A named, reusable block of code that carries out one clear task" },
+        { term: "Maintainability", def: "Writing code that other programmers can easily read, understand and change" }
+    ];
+
+    const fibData = [
+        {
+            display: "A _____ check confirms that a value entered lies between a stated minimum and maximum.",
+            blanks: { B1: "range" }
+        },
+        {
+            display: "A _____ check confirms that data entered is of the correct data type, such as a whole number.",
+            blanks: { B1: "type" }
+        },
+        {
+            display: "A _____ check confirms that something has actually been entered into a field.",
+            blanks: { B1: "presence" }
+        },
+        {
+            display: "A _____ check confirms that the number of characters entered is within an allowed range.",
+            blanks: { B1: "length" }
+        },
+        {
+            display: "A _____ check confirms that data matches a required pattern, such as a postcode.",
+            blanks: { B1: "format" }
+        },
+        {
+            display: "_____ confirms a user's identity before they are allowed to access a system.",
+            blanks: { B1: "Authentication" }
+        },
+        {
+            display: "Breaking a program into smaller _____ makes it easier to read, test and reuse code.",
+            blanks: { B1: "sub-programs" }
+        },
+        {
+            display: "Adding _____ to code helps another programmer understand what it does and why.",
+            blanks: { B1: "comments" }
+        }
+    ];
+    const fibWords = ["range", "type", "presence", "length", "format", "Authentication", "sub-programs", "comments"];
+
+    const tfData = [
+        {
+            statement: "Input validation checks that data is sensible and follows set rules before the program uses it.",
+            answer: true,
+            explanation: "Correct — that is exactly what input validation does."
+        },
+        {
+            statement: "A range check confirms that data has been typed with the correct number of characters.",
+            answer: false,
+            explanation: "That describes a length check. A range check confirms a value lies between a stated minimum and maximum."
+        },
+        {
+            statement: "Verification checks that data has been entered or copied correctly, for example by asking a user to type it twice.",
+            answer: true,
+            explanation: "Correct — that is verification (double-entry checks whether the two entries match)."
+        },
+        {
+            statement: "Authentication is the process of checking that a numeric value lies between a minimum and maximum.",
+            answer: false,
+            explanation: "That describes a range check. Authentication confirms a user's identity, most commonly with a username and password."
+        },
+        {
+            statement: "Breaking a program into sub-programs can make it easier to test and reuse individual parts of the code.",
+            answer: true,
+            explanation: "Correct — each sub-program can be read, tested and reused on its own."
+        },
+        {
+            statement: "Using variable names such as x and y instead of studentAge makes a program more maintainable.",
+            answer: false,
+            explanation: "The opposite is true — meaningful names like studentAge make code easier to understand than short, unclear ones like x and y."
+        },
+        {
+            statement: "A validation check can guarantee that the data entered is actually true.",
+            answer: false,
+            explanation: "Validation only checks that data is sensible and follows set rules (e.g. in range) — it cannot know whether the value entered is truthful."
+        },
+        {
+            statement: "Comments and consistent indentation both help make a program's code more maintainable.",
+            answer: true,
+            explanation: "Correct — both make the code easier for another programmer to read and follow."
+        }
+    ];
+
+    const miscData = [
+        {
+            wrong: "Thinking a validation check proves the data entered is TRUE, not just sensible-looking.",
+            correct: "A validation check (like a range check) only tests whether data <strong>follows the rules</strong> that have been set — for example, that an age is between 0 and 120. It has <strong>no way of knowing</strong> whether the value is actually the truth. Someone could type a wrong-but-plausible age, and it would still pass.",
+            readCheck: {
+                q: "A range check accepts an age of 40 that a user typed in by mistake — their real age is 25. What does this show?",
+                opts: ["That the range check itself must contain a mistake, since it should have been able to detect the wrong value", "That validation checks whether data is sensible and follows the rules set — it cannot know if data is truthful", "That the age of 40 must actually be correct, since a range check would otherwise have rejected the value", "That a type check should have been used here instead of a range check to catch this particular kind of mistake"],
+                ans: 1,
+                explain: "Validation can only test whether data is sensible/in range — it has no way to know whether an entered value is actually true."
+            }
+        },
+        {
+            wrong: "Confusing validation and verification (treating them as the same thing).",
+            correct: "<strong>Validation</strong> asks whether data is <strong>sensible</strong> and follows set rules (e.g. a range check). <strong>Verification</strong> asks whether data was <strong>entered or copied correctly</strong> — for example, typing a password twice and checking the two entries match. A value can pass one and still fail the other.",
+            readCheck: {
+                q: "A user types their password twice, and the program checks that both entries match exactly. What is this?",
+                opts: ["A range check, because the program is comparing the sizes of the two password entries against each other", "Verification", "A format check, because the program is confirming that the password matches a required layout of characters", "A type check, because the program is confirming that both entries are made up of the same data type"],
+                ans: 1,
+                explain: "Comparing two entries to see if data was typed correctly is verification, not one of the validation checks."
+            }
+        },
+        {
+            wrong: "Thinking authentication and validation are the same thing.",
+            correct: "<strong>Authentication</strong> confirms <strong>who the user is</strong> — most commonly a username and password. <strong>Validation</strong> checks that <strong>data entered is sensible</strong>, such as a mark being in range. Logging in is authentication; checking a mark is 0-100 is validation.",
+            readCheck: {
+                q: "A website asks a returning customer to enter their username and password before showing their order history. What is this an example of?",
+                opts: ["A length check, because both the username and the password are made up of a particular number of characters", "Authentication", "A range check, because a username and password are both compared against a stored minimum and maximum", "A presence check, because the username and password boxes must not be left completely empty by the customer"],
+                ans: 1,
+                explain: "Confirming identity with a username and password before granting access is authentication, not one of the input validation checks."
+            }
+        },
+        {
+            wrong: "Assuming every check that rejects bad data must be a 'range check' — treating all checks as one thing.",
+            correct: "There are <strong>several distinct check types</strong>, each suited to a different problem: <strong>range</strong> (min/max), <strong>type</strong> (correct kind of data), <strong>presence</strong> (something was entered), <strong>length</strong> (number of characters) and <strong>format</strong> (matches a pattern). Match the check to what's actually wrong with the data.",
+            readCheck: {
+                q: "A 'Surname' box is submitted while still completely empty. Which check is designed to catch this?",
+                opts: ["A range check, because an empty box can be thought of as a value that is lower than any allowed minimum", "A presence check", "A format check, because an empty box does not match the usual pattern expected for a surname", "A type check, because an empty box does not contain any data of a specific, recognisable data type"],
+                ans: 1,
+                explain: "An empty box is caught by a presence check specifically — the other checks test different things entirely (range, pattern, data type)."
+            }
+        },
+        {
+            wrong: "Thinking short, unclear variable names (like a, b, x) save time and don't really matter.",
+            correct: "Short names might be quicker to type, but they make code <strong>much harder for another programmer</strong> (or the same one, months later) to understand and safely change. <strong>Meaningful names</strong> — like <code>studentAge</code> instead of <code>x</code> — cost almost nothing extra to write but save real time when the code has to be maintained.",
+            readCheck: {
+                q: "Why might using the variable name x instead of studentAge cause a problem later on?",
+                opts: ["Because a program containing the name x will always run more slowly than one using the name studentAge", "It makes the code harder for another programmer to understand and safely change later", "Because the name x is not allowed by most programming languages when naming a variable that holds an age", "Because a program is not able to store more than a single variable if any of its names are only one letter long"],
+                ans: 1,
+                explain: "Unclear names like x don't stop a program running, but they make the code much harder for anyone (including the original author, later) to read and maintain."
+            }
+        },
+        {
+            wrong: "Thinking defensive design is only about stopping a program from crashing.",
+            correct: "Crash-prevention is only <strong>part</strong> of it. Defensive design also covers <strong>coping gracefully</strong> with wrong or malicious input (not just avoiding a crash), <strong>authentication</strong> (controlling who can access the system) and <strong>maintainability</strong> (so the program can be safely fixed and improved over time).",
+            readCheck: {
+                q: "Besides stopping a program from crashing, what else does defensive design cover?",
+                opts: ["Nothing else — defensive design is entirely and only about preventing a program from crashing while it runs", "Controlling who can access a system (authentication) and writing code that is easy to maintain and update", "Making sure a program's user interface uses bright colours so that it is easier for users to look at", "Reducing the total number of lines of code in a program so that it takes up less storage space overall"],
+                ans: 1,
+                explain: "Defensive design is broader than crash-prevention — it also covers controlling access (authentication) and writing maintainable code."
+            }
+        }
+    ];
+
+    const examTips = [
+        {
+            type: "tip",
+            title: "Naming and describing a validation check",
+            pills: ["AO1", "Definitions", "Common question"],
+            content: `<p>A very common question gives you a scenario and asks you to <strong>name</strong> a suitable validation check, then <strong>describe</strong> how it works for that specific scenario — not just give a generic definition.</p>
+<ul>
+<li>Step 1 — <strong>name</strong> the check: range / type / presence / length / format.</li>
+<li>Step 2 — <strong>describe</strong> it using the actual numbers or example from the question, not a vague general statement.</li>
+</ul>
+<p><strong>Example:</strong> "A day-of-the-month field must be between 1 and 31." Weak answer: "It checks the number is in range." Strong answer: "A <strong>range check</strong>, which would reject any value entered that is <strong>less than 1 or greater than 31</strong>."</p>`,
+            readCheck: {
+                q: "A mark scheme asks you to 'name and describe' a validation check for a percentage field (0-100). What makes the strongest answer?",
+                opts: ["Simply writing the single word 'validation' without naming a specific check or describing how it works at all", "Naming the specific check (range check) and describing it using the actual 0-100 limits given in the question", "Describing every possible validation check type in turn, in case the examiner is looking for a different one", "Naming the check but describing what a completely different check, such as a presence check, would do instead"],
+                ans: 1,
+                explain: "Full marks need the specific check named AND described using the scenario's own numbers/example — not a vague general answer."
+            }
+        },
+        {
+            type: "explain",
+            title: "Writing a validation loop",
+            pills: ["AO2", "Algorithms", "Code writing"],
+            content: `<p>When you're asked to write an algorithm that validates input, examiners want to see the input, the loop, and the correct condition — not just the check on its own.</p>
+<ul>
+<li>Use a <code>do … until</code> loop testing the <strong>valid</strong> condition, or a <code>while</code> loop testing the <strong>invalid (opposite)</strong> condition — either is accepted if the logic is correct.</li>
+<li>Re-ask for input <strong>inside</strong> the loop, using the same variable, so the new value actually gets checked.</li>
+</ul>
+<div class="code-block">do
+  mark = input("Enter a mark (0-100): ")
+until mark &gt;= 0 AND mark &lt;= 100</div>
+<p>A common slip is writing the loop but forgetting to re-read the input inside it — this leaves the program stuck repeating forever on the same invalid value.</p>`,
+            readCheck: {
+                q: "What is a common mistake when writing a validation loop?",
+                opts: ["Using a do…until loop instead of a for loop, since a do…until loop is never an acceptable choice here", "Forgetting to re-read the input inside the loop, so an invalid value never actually gets replaced", "Using AND instead of OR anywhere in the loop's condition, since AND can never be used in a validation loop", "Asking the user for input before the loop begins, since input must only ever be requested inside a loop"],
+                ans: 1,
+                explain: "If the loop doesn't re-read input inside its body, the same invalid value is tested forever and the loop never ends."
+            }
+        },
+        {
+            type: "tip",
+            title: "Justifying maintainability improvements",
+            pills: ["AO1", "Justify", "Exam skill"],
+            content: `<p>"Suggest ways to improve maintainability" questions want more than a bare list — pair each technique with a brief <strong>reason</strong>.</p>
+<ul>
+<li>Sub-programs → because each part can be tested and reused on its own.</li>
+<li>Meaningful names → because another programmer can tell what a variable is for without tracing the whole program.</li>
+<li>Consistent indentation → because it shows the structure (which lines belong to which loop/selection) at a glance.</li>
+<li>Comments → because they explain what a section does or why, saving time for whoever reads the code next.</li>
+</ul>
+<p>Marks are usually split: <strong>1 for naming</strong> the technique, <strong>1 for the reason</strong> — so always add the "because…".</p>`,
+            readCheck: {
+                q: "A question asks you to 'suggest and justify' a way to improve a program's maintainability. What must a full-mark answer include?",
+                opts: ["Only the name of a maintainability technique, since a mark scheme never awards marks for giving a reason", "The technique named, plus a reason explaining why it makes the code easier to read, test or change", "A full rewrite of the entire program using every possible maintainability technique available at once", "A description of what the program's output looks like once the maintainability technique has been applied"],
+                ans: 1,
+                explain: "'Suggest and justify' questions need the technique AND a reason linking it to easier reading, testing or changing — naming it alone is not enough."
+            }
+        }
+    ];
+
+    const flashcards = [
+        { term: "Defensive design", def: "Designing a program to cope with unexpected, wrong or malicious input, instead of crashing" },
+        { term: "Anticipating misuse", def: "Planning for how a user might enter unsuitable data, before it happens" },
+        { term: "Input validation", def: "An automatic check that data is sensible and follows set rules, before it is used" },
+        { term: "Range check", def: "Value must lie between a stated minimum and maximum" },
+        { term: "Type check", def: "Value must be of the correct data type, e.g. a whole number" },
+        { term: "Presence check", def: "Something must actually have been entered into the field" },
+        { term: "Length check", def: "Number of characters entered must be within an allowed range" },
+        { term: "Format check", def: "Data must match a required pattern, e.g. a postcode" },
+        { term: "Verification", def: "Confirms data was entered or copied correctly, e.g. by entering it twice" },
+        { term: "Authentication", def: "Confirms a user's identity before granting them access to a system" },
+        { term: "Two-step verification", def: "A second factor (e.g. a one-time code) is needed alongside a password" },
+        { term: "Maintainability", def: "Writing code that is easy for other programmers to read, understand and change" },
+        { term: "Sub-program", def: "A named, reusable block of code that carries out one clear task" },
+        { term: "Meaningful naming", def: "Giving variables and sub-programs names that describe what they are for" },
+        { term: "Indentation", def: "Consistently lining up code to show its structure (loops, selection, sub-programs)" },
+        { term: "Comments", def: "Notes in the code (ignored when it runs) explaining what it does or why" }
+    ];
+
+    // ── Original clean-room exam questions (2026-07-24) ──
+    // Written from scratch against the §2.3.1 spec scope (anticipating misuse,
+    // input validation — range/type/presence/length/format checks — validation
+    // vs verification, authentication, maintainability) — NOT transcribed from
+    // any OCR paper. No exam PDF was supplied for this topic, so the tariff
+    // spread and format mix are authored from the standard J277 Paper 2
+    // assessment style (identify/name-and-describe, classify, match, complete
+    // pseudocode, write a validation loop, justify a design choice), NOT
+    // profiled from a real paper — treat the ceiling as a best estimate.
+    // Spread: 2x1, 2x2, 3x3, 5x4 = 12 questions / 35 marks (mcq/written/
+    // tickGrid/matchLine/bankCloze/codeGaps/codeWrite).
+    const EXAM_CASE_STUDIES = {};
+
+    const examQuestions = [
+        {
+            num: "Q1",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: `<p>Tick <strong>one</strong> box to identify the validation check that confirms a value lies between a stated minimum and a stated maximum.</p>`,
+            options: ["Format check, since this confirms that data follows a required pattern such as a specific arrangement of letters and digits", "Range check", "Presence check, since this simply confirms that something has actually been entered into the field", "Length check, since this confirms that the correct number of characters have been typed by the user"],
+            answer: 1,
+            hint: "Which check uses a minimum and a maximum value?",
+            starter: "",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<ul><li><strong>Range check</strong></li></ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul><li>Only the correct option scores; 2 or more ticks scores 0.</li></ul>
+</div>`,
+            modelAnswer: "Range check."
+        },
+        {
+            num: "Q2",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: `<p>Tick <strong>one</strong> box to identify the technique that confirms a user is who they claim to be before letting them use a system.</p>`,
+            options: ["Verification, since this simply confirms that data was typed or copied correctly by the user", "Authentication", "Validation, since this confirms that data entered is sensible before the program goes on to use it", "Maintainability, since this is about writing code that other programmers can read and change easily"],
+            answer: 1,
+            hint: "Think of logging in with a username and password.",
+            starter: "",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<ul><li><strong>Authentication</strong></li></ul>
+</div>`,
+            modelAnswer: "Authentication."
+        },
+        {
+            num: "Q3",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            stubs: ["Validation", "Verification"],
+            question: `<p>State <strong>one</strong> difference between validation and verification.</p>`,
+            hint: "One checks that data is sensible; the other checks that data was entered or copied correctly.",
+            starter: "Validation checks…, whereas verification checks…",
+            markPoints: {
+                note: "Up to 2 marks: both sides of the difference (the validation side AND the verification side).",
+                groups: [
+                    {
+                        label: "The difference (both sides)", max: 2, points: [
+                            { text: "Says validation checks that data is sensible / follows set rules before the program uses it", marks: 1 },
+                            { text: "Contrasts this with verification, which checks that data was entered or copied correctly (e.g. by entering it twice)", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks</h5>
+<ul>
+<li>Award 1 mark for: validation checks that data is sensible / follows set rules.</li>
+<li>Award 1 mark for: verification checks that data was entered or copied correctly, e.g. by entering it twice.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul><li>Both sides of the contrast are needed for full marks.</li></ul>
+</div>`,
+            modelAnswer: "Validation checks that data entered is sensible and follows set rules (e.g. it is within a valid range), whereas verification checks that the data was entered or copied correctly, for example by asking the user to type it twice."
+        },
+        {
+            num: "Q4",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: `<p>A form has a box for a user's date of birth.</p><p>(a) Name the validation check that would reject the box being left empty.  <strong>[1]</strong><br>(b) Name the validation check that would reject a birth year such as 3025.  <strong>[1]</strong></p>`,
+            hint: "(a) Think about what's missing. (b) Think about a sensible minimum and maximum year.",
+            starter: "(a) …  (b) …",
+            markPoints: {
+                note: "1 mark for each correct check named.",
+                groups: [
+                    { label: "(a) Empty box", max: 1, points: [{ text: "Presence check", marks: 1 }] },
+                    { label: "(b) Year 3025", max: 1, points: [{ text: "Range check", marks: 1 }] }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks</h5>
+<ul>
+<li>(a) <strong>Presence check</strong> — the box has nothing entered into it.</li>
+<li>(b) <strong>Range check</strong> — 3025 falls outside a sensible minimum/maximum year.</li>
+</ul>
+</div>`,
+            modelAnswer: "(a) Presence check\n(b) Range check"
+        },
+        {
+            num: "Q5",
+            marks: 4,
+            type: "written",
+            format: "tickGrid",
+            caseStudy: "",
+            question: `<p>Tick <strong>one</strong> box in each row to classify the technique.</p>`,
+            grid: {
+                cols: ["Validation", "Authentication", "Maintainability"],
+                rows: [
+                    { label: "Checking a password is between 8 and 16 characters long", correct: [0] },
+                    { label: "Logging in with a username and password", correct: [1] },
+                    { label: "Using meaningful variable names such as studentAge instead of x", correct: [2] },
+                    { label: "Checking an entered mark is no less than 0 and no more than 100", correct: [0] }
+                ]
+            },
+            hint: "Ask: is this checking DATA before use, checking IDENTITY, or making CODE easier to read?",
+            starter: "Row 1: … Row 2: … Row 3: … Row 4: …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (1 mark for each row)</h5>
+<ul>
+<li>Password length 8-16 → <strong>Validation</strong> (a length check)</li>
+<li>Username and password login → <strong>Authentication</strong></li>
+<li>Meaningful variable names → <strong>Maintainability</strong></li>
+<li>Mark within 0-100 → <strong>Validation</strong> (a range check)</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul><li>Each row is marked independently; 2+ ticks in a row scores 0 for that row.</li></ul>
+</div>`,
+            modelAnswer: "Row 1: Validation. Row 2: Authentication. Row 3: Maintainability. Row 4: Validation."
+        },
+        {
+            num: "Q6",
+            marks: 4,
+            type: "written",
+            format: "matchLine",
+            caseStudy: "",
+            question: `<p>Draw <strong>one</strong> line from each validation check to what it checks.</p><p>(There are more descriptions than checks — one description is not used.)</p>`,
+            match: {
+                left: ["Range check", "Type check", "Presence check", "Format check"],
+                right: ["Checks a value lies between a stated minimum and maximum", "Checks data is of the correct kind, e.g. a whole number", "Checks that something has been entered into a field", "Checks data matches a required pattern, e.g. a postcode", "Checks data was entered or copied correctly, e.g. by entering it twice"],
+                answer: { "0": 0, "1": 1, "2": 2, "3": 3 },
+                decoys: [4]
+            },
+            hint: "Watch the decoy — 'entered or copied correctly' describes verification, not one of these four checks.",
+            starter: "Range check → …, Type check → …, Presence check → …, Format check → …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (1 mark per correct line)</h5>
+<ul>
+<li>Range check → <strong>A</strong> (lies between a stated minimum and maximum)</li>
+<li>Type check → <strong>B</strong> (correct kind of data, e.g. a whole number)</li>
+<li>Presence check → <strong>C</strong> (something has been entered)</li>
+<li>Format check → <strong>D</strong> (matches a required pattern)</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul><li>1 mark per correct line. Description E ('entered or copied correctly') is a decoy describing verification, and is not used.</li></ul>
+</div>`,
+            modelAnswer: "Range check → lies between a stated minimum and maximum. Type check → correct kind of data. Presence check → something has been entered. Format check → matches a required pattern."
+        },
+        {
+            num: "Q7",
+            marks: 3,
+            type: "written",
+            format: "bankCloze",
+            caseStudy: "",
+            question: `<p>Complete the paragraph by selecting terms from the list. <strong>Not all terms are used.</strong></p>`,
+            cloze: `<p>Input ___1___ automatically checks that data is sensible and follows set rules before a program uses it — for example, that a mark lies within a valid range. This is different from ___2___, which checks that data has been entered or copied correctly, such as asking a user to type a password twice. A program that copes with unexpected, wrong or malicious input without crashing is said to have anticipated ___3___.</p>`,
+            bank: ["validation", "verification", "misuse", "authentication", "maintainability", "iteration"],
+            answers: {
+                "1": ["validation"],
+                "2": ["verification"],
+                "3": ["misuse"]
+            },
+            hint: "Which term checks data is sensible; which checks it was entered correctly; and which is about coping with unexpected input?",
+            starter: "(1) … (2) … (3) …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 3 marks (1 mark for each completed term)</h5>
+<p>Input <strong>validation</strong> automatically checks that data is sensible and follows set rules before a program uses it. This is different from <strong>verification</strong>, which checks that data has been entered or copied correctly. A program that copes with unexpected, wrong or malicious input without crashing is said to have anticipated <strong>misuse</strong>.</p>
+</div>`,
+            modelAnswer: "(1) validation (2) verification (3) misuse"
+        },
+        {
+            num: "Q8",
+            marks: 3,
+            type: "written",
+            format: "codeGaps",
+            caseStudy: "",
+            question: `<p>The algorithm below should keep asking the user for a mark until a value between 0 and 100 (inclusive) is entered.</p><p>Complete the three gaps in the condition of the loop.</p>`,
+            gaps: {
+                lines: [
+                    "mark = input(\"Enter a mark (0-100): \")",
+                    "while mark {1} 0 {2} mark {3} 100",
+                    "  mark = input(\"Invalid. Enter a mark (0-100): \")",
+                    "endwhile"
+                ],
+                answers: {
+                    "1": ["<"],
+                    "2": ["OR"],
+                    "3": [">"]
+                }
+            },
+            hint: "The loop should keep repeating WHILE the mark is out of range — below 0, OR above 100.",
+            starter: "Gap 1: … Gap 2: … Gap 3: …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 3 marks (1 mark per gap)</h5>
+<ul>
+<li>Gap 1: <strong>&lt;</strong></li>
+<li>Gap 2: <strong>OR</strong></li>
+<li>Gap 3: <strong>&gt;</strong></li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul><li>The completed condition must repeat the loop while the mark is BELOW 0 or ABOVE 100 (an OR, not an AND, since either one alone makes the mark invalid).</li></ul>
+</div>`,
+            modelAnswer: "while mark < 0 OR mark > 100"
+        },
+        {
+            num: "Q9",
+            marks: 3,
+            type: "written",
+            caseStudy: "",
+            question: `<p>A programmer wants to check that a username entered is between 5 and 12 characters long.</p><p>(a) Name the type of validation check this is.  <strong>[1]</strong><br>(b) Describe how this check would work, using the numbers given in the question.  <strong>[2]</strong></p>`,
+            hint: "(a) Think about what is being counted. (b) State what happens for a username that is too short, and one that is too long.",
+            starter: "(a) … (b) …",
+            markPoints: {
+                note: "1 mark for (a); up to 2 marks for (b).",
+                groups: [
+                    { label: "(a) Type of check", max: 1, points: [{ text: "Length check", marks: 1 }] },
+                    {
+                        label: "(b) How it works", max: 2, points: [
+                            { text: "A username with fewer than 5 characters is rejected", marks: 1 },
+                            { text: "A username with more than 12 characters is rejected (accepts 5-12 characters)", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 3 marks</h5>
+<ul>
+<li>(a) <strong>Length check</strong></li>
+<li>(b) 1 mark: rejects a username with fewer than 5 characters. 1 mark: rejects a username with more than 12 characters (only 5-12 characters is accepted).</li>
+</ul>
+</div>`,
+            modelAnswer: "(a) Length check\n(b) The check counts the number of characters entered. If there are fewer than 5 characters, or more than 12 characters, the username is rejected; only usernames between 5 and 12 characters long are accepted."
+        },
+        {
+            num: "Q10",
+            marks: 4,
+            type: "written",
+            caseStudy: "",
+            question: `<p>A student has written a long, working program as a single block of code, with no comments, using variable names such as a, b and c.</p><p>Suggest <strong>four</strong> ways the student could improve the maintainability of their code.</p>`,
+            hint: "Think about how the code is split up, what things are called, how it is laid out, and what notes are added.",
+            starter: "1) … 2) … 3) … 4) …",
+            markPoints: {
+                note: "1 mark for each distinct, correctly-explained improvement, up to 4.",
+                groups: [
+                    {
+                        label: "Four maintainability improvements", max: 4, points: [
+                            { text: "Break the code into sub-programs (procedures/functions), each carrying out one task", marks: 1 },
+                            { text: "Use meaningful/descriptive variable and sub-program names instead of a, b, c", marks: 1 },
+                            { text: "Use consistent indentation to show the structure of the code", marks: 1 },
+                            { text: "Add comments to explain what sections of the code do, and why", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (1 mark per valid improvement, up to 4)</h5>
+<ul>
+<li>Split the code into sub-programs, each doing one clear job</li>
+<li>Use meaningful variable/sub-program names instead of a, b, c</li>
+<li>Use consistent indentation to show the code's structure</li>
+<li>Add comments explaining what sections do / why they are there</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul><li>Award 1 mark for each of up to four distinct, valid improvements. A bare list with no explanation of what to change can still score, but naming the technique clearly is required.</li></ul>
+</div>`,
+            modelAnswer: "1) Split the code into sub-programs so each task is in its own named block. 2) Rename a, b and c to meaningful names, e.g. studentName, testScore. 3) Use consistent indentation to show loops and selection clearly. 4) Add comments explaining what each section does."
+        },
+        {
+            num: "Q11",
+            marks: 4,
+            type: "written",
+            caseStudy: "",
+            question: `<p>A program asks a user to enter their age as a whole number, which is then used to work out whether they qualify for a discount.</p><p>Describe <strong>two</strong> ways the program could be made more defensive against a user entering unsuitable data. For each, name the check and explain what it would do.</p>`,
+            hint: "Think about what could go wrong with the value typed in — is it the right kind of data, and is it a sensible size?",
+            starter: "Check 1: … . Check 2: … .",
+            markPoints: {
+                note: "2 marks per check: 1 for naming it, 1 for a correct explanation of what it does for this scenario.",
+                groups: [
+                    {
+                        label: "Check 1", max: 2, points: [
+                            { text: "Names a valid check (e.g. type check)", marks: 1 },
+                            { text: "Explains what it would do for this scenario (e.g. rejects the input if it is not a whole number)", marks: 1 }
+                        ]
+                    },
+                    {
+                        label: "Check 2", max: 2, points: [
+                            { text: "Names a different valid check (e.g. range check)", marks: 1 },
+                            { text: "Explains what it would do for this scenario (e.g. rejects an age below 0 or above a sensible maximum)", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (2 checks, up to 2 marks each: 1 for naming, 1 for explaining)</h5>
+<ul>
+<li><strong>Type check</strong> — rejects the input if it is not a whole number (e.g. text was typed instead of a number).</li>
+<li><strong>Range check</strong> — rejects an age that is below 0 or above a sensible maximum (e.g. 120).</li>
+<li>A presence check (rejecting an empty box) is also acceptable as one of the two checks.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul><li>Any two DIFFERENT, correctly-explained checks that suit an age input score full marks — the checks named above are examples, not the only accepted answer.</li></ul>
+</div>`,
+            modelAnswer: "A type check would reject the input if it is not a whole number, for example if the user typed text instead of a number. A range check would reject an age that is below 0 or above a sensible maximum, such as 120, since an age outside that range cannot be real."
+        },
+        {
+            num: "Q12",
+            marks: 4,
+            type: "written",
+            format: "codeWrite",
+            caseStudy: "",
+            question: `<p>Write an algorithm, using pseudocode, that repeatedly asks the user to enter a password until a non-empty value is entered (a presence check).</p><p>You may answer in OCR Exam Reference Language or in a high-level language you know.</p>`,
+            hint: "Read the password in first, then use a condition-controlled loop that keeps re-asking while the value entered is empty.",
+            starter: "password = input(...)",
+            markPoints: {
+                note: "Mark the LOGIC (any equivalent, correct algorithm earns full marks — exact wording/language may vary).",
+                groups: [
+                    {
+                        label: "A correct presence-check validation loop", max: 4, points: [
+                            { text: "Reads a password as input (e.g. password = input(...))", marks: 1 },
+                            { text: "Uses a condition-controlled loop (while or do-until)", marks: 1 },
+                            { text: "The condition correctly tests whether the password is empty (or its opposite, for a do-until)", marks: 1 },
+                            { text: "Re-reads the input inside the loop, so it repeats until a non-empty value is entered", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks — mark the logic (accept any equivalent code)</h5>
+<ul>
+<li>1 mark: reads a password as input</li>
+<li>1 mark: uses a condition-controlled loop (while or do-until)</li>
+<li>1 mark: correct condition testing whether the password is empty</li>
+<li>1 mark: re-reads the input inside the loop, so it repeats until a non-empty value is entered</li>
+</ul>
+<p>Example (ERL):</p>
+<div class="code-block">password = input("Enter a password: ")
+while password == ""
+  password = input("Password cannot be blank. Enter a password: ")
+endwhile</div>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul><li>Any logically correct answer scores full marks — mark the logic, not the exact wording or choice of language.</li></ul>
+</div>`,
+            modelAnswer: "password = input(\"Enter a password: \")\nwhile password == \"\"\n  password = input(\"Password cannot be blank. Enter a password: \")\nendwhile"
+        }
+    ];
 </script>
     <script src="/script.js"></script>
 <script src="section-totals.js"></script>

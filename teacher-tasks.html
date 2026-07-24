@@ -101,7 +101,18 @@
   }
   .step-num { display:inline-flex; align-items:center; justify-content:center; width:22px; height:22px; border-radius:50%; background:var(--accent); color:#fff; font-family:'DM Mono',monospace; font-size:11px; margin-right:8px; flex-shrink:0; }
   .editor-steps { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:16px; }
-  .reading-preview { font-size:12px; background:var(--cream); border-left:3px solid var(--accent); padding:8px 12px; border-radius:0 6px 6px 0; margin:6px 0; max-height:180px; overflow-y:auto; }
+  .reading-preview { font-size:12px; background:var(--cream); border-left:3px solid var(--accent); padding:8px 12px; border-radius:0 6px 6px 0; margin:6px 0; max-height:180px; overflow-y:auto; container-type:inline-size; }
+  /* Spanish `reading` fields carry their own vocab-table/tier markup (same classes as the topic pages) — style them here too, since this page never loads a topic page's own inline <style>. */
+  .reading-preview .vocab-tbl { width:100%; border-collapse:collapse; margin:8px 0; }
+  .reading-preview .vocab-tbl td { border-bottom:1px solid var(--border); padding:6px 8px; vertical-align:top; }
+  .reading-preview .vocab-tbl td:first-child { font-weight:600; white-space:nowrap; }
+  .reading-preview .tier-h { display:inline-block; font-size:.72em; font-weight:700; color:#8a5a00; background:#fff3d6; border-radius:5px; padding:1px 5px; margin-left:5px; vertical-align:middle; white-space:nowrap; }
+  /* container-type keys off the preview box's own rendered width, not the viewport. */
+  @container (max-width:640px) {
+    .reading-preview .vocab-tbl, .reading-preview .vocab-tbl tbody, .reading-preview .vocab-tbl tr, .reading-preview .vocab-tbl td { display:block; width:100%; }
+    .reading-preview .vocab-tbl td { border-bottom:none; padding:4px 0; }
+    .reading-preview .vocab-tbl td:nth-child(2n) { padding-bottom:10px; border-bottom:1px solid var(--border); margin-bottom:6px; }
+  }
   .picker-group { border:1px solid var(--border); border-radius:8px; margin-bottom:10px; overflow:hidden; }
   .picker-group-header { display:flex; align-items:center; gap:10px; padding:10px 14px; background:var(--cream); cursor:pointer; -webkit-user-select:none; user-select:none; border:none; width:100%; text-align:left; font-family:inherit; border-left:4px solid var(--accent); }
   .picker-group-header .t { font-family:'Playfair Display',serif; font-size:13.5px; font-weight:700; flex:1; }
@@ -496,6 +507,7 @@
 <script src="tasks-shared.js"></script>
 <script src="/math-render.js"></script>
 <script src="/rich-editor.js"></script>
+<script src="/speech.js"></script>
 <script src="/subjects-index.js"></script>
 <script src="/page-groups-all.js"></script>
 <script src="/section-totals-all.js"></script>
@@ -2247,10 +2259,15 @@ $('suggestMarksBtn').addEventListener('click', async () => {
     const parts = [`✨ ${result.suggested} suggestion${result.suggested === 1 ? '' : 's'} added`];
     if (result.failed) parts.push(`${result.failed} failed`);
     if (result.remaining) parts.push(`${result.remaining} left — click again`);
-    showMsg(msgEl, parts.join(' · '), true);
+    let msg = parts.join(' · ');
+    if (result.failed && result.failures && result.failures.length) {
+      console.error('suggest-marks failures', result.failures);
+      msg += ` (${result.failures[0].error})`;
+    }
+    showMsg(msgEl, msg, result.suggested > 0 || !result.failed);
   } catch (err) {
     if (err.code === 'missing_api_key') {
-      showMsg(msgEl, 'Add GEMINI_API_KEY in Netlify (see SETUP.md) to turn this on.', false);
+      showMsg(msgEl, 'Add MARKING_GEMINI_API_KEY in Netlify (see SETUP.md) to turn this on.', false);
     } else {
       showMsg(msgEl, err.message, false);
     }

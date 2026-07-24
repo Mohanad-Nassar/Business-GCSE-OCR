@@ -1,0 +1,676 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2.3 Initiatives and Campaigns – Interactive Study Guide</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+    <header>
+        <div>
+            <div class="badge">OCR Level 1/Level 2 Sport Studies — R184 · 2. The Role of Sport in Promoting Values</div>
+            <h1>2.3 Initiatives and Campaigns</h1>
+            <p>Interactive revision guide · Content coming soon</p>
+        </div>
+        <a href="/index.html" class="home-link">← 🏡 Home</a>
+    </header>
+
+    <nav class="tab-bar" id="tabBar">
+        <button class="tab-btn active" onclick="switchTab('learn', this)">
+            📚 Key Learning
+        </button>
+        <button class="tab-btn" onclick="switchTab('mcq', this)">
+            ❓ MCQ Quiz
+        </button>
+        <button class="tab-btn" onclick="switchTab('matching', this)">
+            🔗 Matching
+        </button>
+        <button class="tab-btn" onclick="switchTab('fib', this)">
+            ✏️ Fill the Blanks
+        </button>
+        <button class="tab-btn" onclick="switchTab('misconceptions', this)">
+            ⚠️ Misconceptions
+        </button>
+        <button class="tab-btn" onclick="switchTab('examtips', this)">
+            🎯 Exam Tips
+        </button>
+        <button class="tab-btn" onclick="switchTab('flashcards', this)">
+            🃏 Flashcards
+        </button>
+        <button class="tab-btn" onclick="switchTab('truefalse', this)">
+            ✅ True / False
+        </button>
+        <button class="tab-btn" onclick="switchTab('exampractice', this)">
+            📝 Exam Practice
+        </button>
+    </nav>
+
+    <main>
+        <div class="tab-panel active" id="tab-learn">
+            <h2 class="section-title">Key Learning Topics</h2>
+            <p class="section-sub">Click any card to expand detailed notes.</p>
+            <div class="topic-grid" id="topicGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-mcq">
+            <h2 class="section-title">Multiple Choice Questions</h2>
+            <p class="section-sub">Select an answer to reveal instant feedback.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="mcqScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">
+                        correct answers
+                    </div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    out of <strong id="mcqTotal">0</strong> attempted
+                </div>
+                <button class="reset-btn" onclick="resetMCQ()">RESET</button>
+            </div>
+            <div class="quiz-wrap" id="mcqWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-matching">
+            <h2 class="section-title">Matching Activity</h2>
+            <p class="section-sub">
+                Click a term on the left, then click the matching definition on the
+                right.
+            </p>
+            <div style="margin-bottom: 16px">
+                <div class="score-bar">
+                    <div>
+                        <div class="score-num" id="matchScore">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">matched</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="matchTotal">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetMatch()">RESET</button>
+                </div>
+            </div>
+            <div class="match-grid">
+                <div>
+                    <div class="match-label">TERMS</div>
+                    <div class="match-col" id="matchLeft"></div>
+                </div>
+                <div>
+                    <div class="match-label">DEFINITIONS</div>
+                    <div class="match-col" id="matchRight"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-fib">
+            <h2 class="section-title">Fill in the Blanks</h2>
+            <p class="section-sub">
+                Click each dropdown and choose the correct word. Wrong answers reset —
+                try again!
+            </p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="fibScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="fibTotal">0</strong> blanks
+                </div>
+                <button class="reset-btn" onclick="resetFIB()">RESET</button>
+            </div>
+            <div class="fib-wrap" id="fibWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-misconceptions">
+            <h2 class="section-title">Common Misconceptions</h2>
+            <p class="section-sub">
+                What students often think — and what examiners actually want.
+            </p>
+            <div class="misc-list" id="miscList"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-examtips">
+            <h2 class="section-title">Exam Questions &amp; Tips</h2>
+            <p class="section-sub">
+                Most repeated question types and mark-scheme structures from real OCR
+                papers.
+            </p>
+            <div class="tips-grid" id="tipsGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-flashcards">
+            <h2 class="section-title">Flashcards</h2>
+            <p class="section-sub">
+                Test yourself! Flip the card and rate your knowledge. Review your weak
+                areas at the end.
+            </p>
+
+            <div class="fc-container">
+                <div class="score-bar" id="fcScoreBar" style="display: none; margin-bottom: 20px">
+                    <div>
+                        <div class="score-num" id="fcKnown" style="color: #2d7a4f">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">known</div>
+                    </div>
+                    <div>
+                        <div class="score-num" id="fcUnknown" style="color: #c84b31">
+                            0
+                        </div>
+                        <div style="font-size: 12px; color: var(--mid)">learning</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="fcTotalTrack">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
+                </div>
+
+                <div id="fcActiveArea">
+                    <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
+                    <div class="flashcard" id="flashcard" onclick="flipCard()">
+                        <div class="fc-inner">
+                            <div class="fc-front">
+                                <div class="fc-label">KEY TERM</div>
+                                <div class="fc-term" id="fcTerm"></div>
+                            </div>
+                            <div class="fc-back">
+                                <div class="fc-def" id="fcDef"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="fc-hint">👆 Click card to flip</p>
+
+                    <div class="fc-nav" id="fcNavDefault">
+                        <button class="fc-btn outline" onclick="prevCard()">
+                            ← Prev
+                        </button>
+                        <button class="fc-btn outline" onclick="flipCard()">Flip</button>
+                        <button class="fc-btn" onclick="nextCard()">Next →</button>
+                    </div>
+
+                    <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px">
+                        <button class="fc-btn outline" style="border-color: #c84b31; color: #c84b31; flex: 1"
+                            onclick="markCard(false)">
+                            ❌ Still Learning
+                        </button>
+                        <button class="fc-btn" style="background: #2d7a4f; border-color: #2d7a4f; flex: 1"
+                            onclick="markCard(true)">
+                            ✅ Got It
+                        </button>
+                    </div>
+                </div>
+
+                <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px">
+                    <h3>Session Complete! 🎉</h3>
+                    <p style="margin: 15px 0">
+                        You knew <strong id="fcSummaryKnown">0</strong> out of
+                        <strong id="fcSummaryTotal">0</strong> cards.
+                    </p>
+                    <div style="
+                margin-top: 25px;
+                display: flex;
+                gap: 15px;
+                justify-content: center;
+                flex-wrap: wrap;
+              ">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
+                            style="background: #c84b31; border-color: #c84b31">
+                            Review Incorrect
+                        </button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">
+                            Practice All Again
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-truefalse">
+            <h2 class="section-title">True or False?</h2>
+            <p class="section-sub">Test your knowledge with these statements.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="tfScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="tfTotal">0</strong> answered
+                </div>
+                <button class="reset-btn" onclick="resetTF()">RESET</button>
+            </div>
+            <div class="tf-wrap" id="tfWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-exampractice">
+            <h2 class="section-title">Exam Practice Questions</h2>
+            <p class="section-sub">
+                Full exam questions with case studies. Use <strong>Hint</strong>,
+                <strong>Sentence Starter</strong> and
+                <strong>Submit &amp; See Mark Scheme</strong> for each question.
+            </p>
+            <div class="ep-list" id="epList"></div>
+        </div>
+    </main>
+
+<script>
+    // ══════════════════════════════════════
+    //  DATA: 2.3 Initiatives and Campaigns — placeholder, content not yet written
+    // ══════════════════════════════════════
+    const pageMeta = {
+            id: '2-3-initiatives-and-campaigns',
+            badge: 'OCR Level 1/Level 2 Sport Studies — R184 · 2. The Role of Sport in Promoting Values',
+            title: '2.3 Initiatives and Campaigns',
+            subtitle: 'Interactive revision guide',
+            subject: 'sport-studies',
+        };
+
+    const topics = [
+        {
+            title: "What is an initiative, campaign or event?",
+            tag: "Key concept",
+            content: `<h4>Three different tools, one job</h4>
+<ul>
+<li>An <strong>initiative</strong> is a planned scheme, set up by an organisation, that works towards a goal — such as getting more people from a particular group taking part in sport.</li>
+<li>A <strong>campaign</strong> is an organised effort, usually with a clear message, that runs over a period of time to raise awareness of an issue or change attitudes — for example, encouraging more respectful behaviour towards officials.</li>
+<li>An <strong>event</strong> is a specific, staged occasion — a festival, a tournament, an open day — that brings people together on the day itself to promote a value or attract new participants.</li>
+<li>All three exist to promote one or more of the <strong>sporting values</strong> from 2.1: team spirit, fair play, citizenship, tolerance and respect, inclusion, national pride and excellence.</li>
+</ul>
+<h4>Why organisations bother</h4>
+<ul>
+<li>Initiatives, campaigns and events give sport a way to <strong>put a value into action</strong>, rather than just naming it. A club can say it values inclusion, but an open day for newcomers of any ability actually demonstrates it.</li>
+<li>The exam rarely tests whether you can just name one — it tests whether you can say <strong>which value</strong> it promotes and <strong>how</strong> it does that.</li>
+</ul>`,
+            readCheck: {
+                q: "Which of these best describes a 'campaign'?",
+                opts: ["An organised effort with a clear message, run over time to raise awareness or change attitudes", "A single one-off training session that only professional, full-time athletes are permitted to attend", "A permanent change to the official written rules of how a sport is played", "A private members-only social event with no wider promotional purpose"],
+                ans: 0,
+                explain: "A campaign is an organised effort with a message that runs over time. A one-off elite session, a rule change, or a private social event are not campaigns."
+            }
+        },
+        {
+            title: "Local, regional and national — same values, different reach",
+            tag: "Core knowledge",
+            content: `<h4>Three levels of reach</h4>
+<ul>
+<li><strong>Local</strong> — run by one club, school or leisure centre for its own community. Example: a local football club holds an open day where new players of any ability are paired with an experienced member for their first session, promoting <strong>inclusion</strong>.</li>
+<li><strong>Regional</strong> — run across a county or area, often by several clubs or a regional partnership working together. Example: a regional schools' festival gives an award to the side that supports its opponents best after a defeat, not only to the winners, promoting <strong>fair play</strong> and <strong>team spirit</strong>.</li>
+<li><strong>National</strong> — run by a national governing body, or across the whole country, often timed around a major competition. Example: a national campaign asks players and spectators at every level of the game to show more respect towards match officials, promoting <strong>tolerance and respect</strong>.</li>
+</ul>
+<h4>The level does not decide the value</h4>
+<ul>
+<li>Any value can be promoted at any level — a local club can promote national pride just as easily as a national campaign can promote inclusion.</li>
+<li>What changes between the levels is <strong>the size of the audience and who organises it</strong>, not the value itself.</li>
+</ul>`,
+            readCheck: {
+                q: "A scheme run across one county by several schools working together, encouraging good sporting conduct, is operating at which level?",
+                opts: ["Local, because it only ever involves students from a single school site", "Regional", "National, because a governing body must personally organise every single entry", "International, because it copies an idea first used in another country"],
+                ans: 1,
+                explain: "Several schools working together across a county is a regional scheme — bigger than one club or school, smaller than a nationwide one."
+            }
+        },
+        {
+            title: "Awareness and take-up — how initiatives actually change behaviour",
+            tag: "Exam skill",
+            content: `<h4>Two jobs, in order</h4>
+<ul>
+<li><strong>Raising awareness</strong> comes first — getting people to notice and think about a value or issue, often through publicity, a launch event or media coverage.</li>
+<li><strong>Encouraging take-up</strong> comes next — turning that awareness into action, by making it easy for new or lapsed participants to actually start (free taster sessions, discounted membership, a buddy to go with).</li>
+<li>A strong initiative usually does both: for example, a national campaign about inclusion might use adverts to raise awareness, while local clubs run free taster sessions in the same week so people who noticed the campaign can immediately try something.</li>
+</ul>
+<h4>Building an exam answer</h4>
+<ul>
+<li>Weak answer: <em>"There is a campaign about respect."</em> — names something but shows no understanding.</li>
+<li>Strong answer: <em>"A national campaign encourages respect for match officials by asking players and fans to applaud decisions rather than argue with them. This raises awareness of the value of respect and, alongside training for new referees, encourages more people to take up officiating."</em></li>
+<li>The mark almost always comes from linking the initiative to the <strong>value</strong> it promotes, the <strong>level</strong> it operates at, and <strong>how</strong> it raises awareness or encourages take-up.</li>
+</ul>`,
+            readCheck: {
+                q: "An initiative gives out free taster sessions straight after a media campaign about a value. The taster sessions are mainly intended to...",
+                opts: ["guarantee that every single attendee eventually becomes a full-time professional performer", "encourage take-up by making it easy for people to actually start", "replace the campaign's job of raising any awareness at all", "reduce the total number of people who are allowed to try the sport"],
+                ans: 1,
+                explain: "Taster sessions turn awareness into action — they encourage take-up. They do not guarantee professional careers, replace the awareness stage, or limit numbers."
+            }
+        }
+    ];
+
+    const mcqData = [
+        {
+            q: "Which of these is the best definition of an 'initiative' in sport?",
+            opts: ["A single, one-off training session that is only ever open to elite, full-time professional performers", "A permanent change to the official laws of how a sport is refereed", "A planned scheme, set up by an organisation, that works towards a participation or values goal", "A private club social evening with no wider promotional aim"],
+            ans: 2,
+            explain: "An initiative is a planned scheme working towards a goal, such as more people taking part. A one-off elite session, a law change, or a private social evening are not initiatives."
+        },
+        {
+            q: "A sporting campaign is best described as...",
+            opts: ["An organised effort with a message, run over time, to raise awareness or change attitudes", "A single trophy presented once a year to the most successful full-time professional team in the country", "A new law passed by a national government that has nothing to do with sport", "A one-off friendly match with no promotional message attached to it at all"],
+            ans: 0,
+            explain: "A campaign is an organised effort with a message, run over time. A trophy, a law, or a plain friendly match are not campaigns."
+        },
+        {
+            q: "A national governing body runs a scheme across the whole country, timed around a major tournament, encouraging respect for officials. This is operating at which level?",
+            opts: ["Local, because the idea was first suggested by one grassroots club committee", "Regional", "International, because it copies an idea used somewhere else in the world", "National"],
+            ans: 3,
+            explain: "A scheme run by a governing body across the whole country is national — bigger than one club (local) or one area (regional)."
+        },
+        {
+            q: "A local club's open day pairs every new member with an experienced player for their first session, whatever their ability. This mainly promotes...",
+            opts: ["Excellence, because it is designed to identify future full-time professional performers", "National pride", "Citizenship, and nothing about welcoming new members at all", "Inclusion"],
+            ans: 3,
+            explain: "Welcoming and supporting newcomers of any ability is inclusion. It is not about spotting elite talent, national pride, or citizenship."
+        },
+        {
+            q: "Which of these best shows a campaign 'raising awareness', rather than 'encouraging take-up'?",
+            opts: ["A free, six-week taster course that is fully funded and open to any new participant who wants to join", "A television and social media advert explaining why respecting match officials matters", "A discounted membership price offered only during the very first month of joining", "A qualified buddy assigned to every single beginner who attends a session"],
+            ans: 1,
+            explain: "An advert that explains why a value matters raises awareness. Taster courses, discounted prices and buddies are all ways of encouraging take-up instead."
+        },
+        {
+            q: "A regional schools' festival gives its award to the side that supports its opponents best after losing, not only to the winners. Which values does this mainly promote?",
+            opts: ["Excellence only, because just the single best-performing team can ever win it", "National pride, and nothing connected to how teams treat each other", "Tolerance and respect only, with no connection to teamwork", "Fair play and team spirit"],
+            ans: 3,
+            explain: "Rewarding good conduct towards opponents, win or lose, promotes fair play and team spirit — not simply rewarding the best performance or national pride."
+        }
+    ];
+
+    const matchData = [
+        { term: "Initiative", def: "A planned scheme set up by an organisation to work towards a goal, such as more people from a group taking part" },
+        { term: "Campaign", def: "An organised effort with a message, run over time, to raise awareness or change attitudes" },
+        { term: "Event", def: "A specific, staged occasion, such as a festival or open day, that promotes a value on the day itself" },
+        { term: "Local level", def: "Run by one club, school or leisure centre for its own community" },
+        { term: "Regional level", def: "Run across a county or area, often by several clubs or a regional partnership together" },
+        { term: "National level", def: "Run by a national governing body, or across the whole country, often around a major competition" },
+        { term: "Raising awareness", def: "Getting people to notice and think about a value or issue, often through publicity or media coverage" },
+        { term: "Encouraging take-up", def: "Turning awareness into action by making it easy for new or lapsed participants to actually start" }
+    ];
+
+    const fibData = [
+        {
+            display: "An _____ is a planned scheme set up by an organisation to work towards a goal.",
+            blanks: { B1: "initiative" }
+        },
+        {
+            display: "A campaign is an organised effort with a message, run over _____, to change attitudes.",
+            blanks: { B1: "time" }
+        },
+        {
+            display: "An event is a specific, _____ occasion, such as a festival or open day.",
+            blanks: { B1: "staged" }
+        },
+        {
+            display: "A scheme run by one club for its own community is operating at _____ level.",
+            blanks: { B1: "local" }
+        },
+        {
+            display: "A scheme run by a governing body across the whole country is operating at _____ level.",
+            blanks: { B1: "national" }
+        },
+        {
+            display: "Free taster sessions mainly encourage _____-up rather than raise awareness.",
+            blanks: { B1: "take" }
+        }
+    ];
+    const fibWords = ["initiative", "time", "staged", "local", "national", "take"];
+
+    const tfData = [
+        {
+            statement: "An initiative is a planned scheme set up by an organisation to work towards a goal.",
+            answer: true,
+            explanation: "That's the definition — a planned scheme aimed at something like increasing participation or promoting a value."
+        },
+        {
+            statement: "A campaign and an event are exactly the same thing.",
+            answer: false,
+            explanation: "A campaign is an organised effort with a message, run over time. An event is one staged occasion. An initiative can include both."
+        },
+        {
+            statement: "Initiatives, campaigns and events can only ever operate at national level.",
+            answer: false,
+            explanation: "They can operate at local, regional or national level — a single club's open day is just as valid an example as a nationwide campaign."
+        },
+        {
+            statement: "Raising awareness and encouraging take-up are the same single step.",
+            answer: false,
+            explanation: "Raising awareness gets people to notice a value or issue. Encouraging take-up turns that awareness into people actually starting. They are two separate jobs."
+        },
+        {
+            statement: "A local club open day that welcomes new members of any ability can promote inclusion.",
+            answer: true,
+            explanation: "Yes — welcoming and supporting newcomers regardless of ability is a clear, everyday example of promoting inclusion at local level."
+        },
+        {
+            statement: "The level an initiative runs at (local, regional or national) decides which value it is allowed to promote.",
+            answer: false,
+            explanation: "Any value can be promoted at any level. The level is about the size of the audience and who organises it, not which value is allowed."
+        }
+    ];
+
+    const miscData = [
+        {
+            wrong: "As long as I can name an initiative or campaign, I'll get the marks.",
+            correct: "Naming is only the first mark at most. The examiner wants you to link the initiative to the VALUE it promotes, the LEVEL it operates at, and HOW it raises awareness or encourages take-up. Weak answer: \"There is a campaign about respect.\" Strong answer: \"A national campaign encourages respect for officials by asking fans to applaud decisions rather than argue, raising awareness of respect and encouraging more people to take up officiating.\"",
+            readCheck: {
+                q: "A question asks you to explain how an initiative promotes a sporting value. What earns the marks?",
+                opts: ["Naming as many different initiatives as you can remember", "Writing the initiative's name in capital letters for emphasis", "Naming the initiative, its value, and how it works", "Describing a sporting event you personally attended"],
+                ans: 2,
+                explain: "Explain = name it, then the value it promotes, then how it works. Naming alone, or listing several, does not show that understanding."
+            }
+        },
+        {
+            wrong: "A campaign and an event are the same thing — anything promoting sport counts as both.",
+            correct: "They are related but different. An EVENT is one staged occasion on a specific day, like a festival or open day. A CAMPAIGN is an organised effort with a message that runs over a longer period, often using adverts or media. An initiative can use an event as part of a wider campaign, but the words are not interchangeable.",
+            readCheck: {
+                q: "Which of these is an example of an event, rather than a campaign?",
+                opts: ["A six-month advertising effort encouraging respect for officials", "A one-day regional schools' sports festival", "A national media message repeated across an entire year", "A rolling programme of adverts about inclusion shown all season"],
+                ans: 1,
+                explain: "A one-day festival is a staged occasion — an event. The others run over a longer period with a message, which makes them campaigns."
+            }
+        },
+        {
+            wrong: "'Raising awareness' and 'encouraging take-up' mean the same thing.",
+            correct: "They are two separate jobs that often work together. RAISING AWARENESS means getting people to notice and think about a value or issue, often through adverts or media. ENCOURAGING TAKE-UP means making it easy for people to actually start or return, for example through free taster sessions. A campaign can raise awareness without a single new participant turning up unless take-up is also encouraged.",
+            readCheck: {
+                q: "A national advert explains why fair play matters, but no local sessions are ever offered afterwards. This campaign has...",
+                opts: ["encouraged take-up through free local sessions but not really raised any awareness", "raised awareness but done little to encourage take-up", "done neither job at all, despite the advert being shown nationally", "done exactly the same job twice over, both raising awareness and encouraging take-up"],
+                ans: 1,
+                explain: "An advert alone raises awareness. Without taster sessions, discounts or another route in, it has done little to encourage take-up."
+            }
+        },
+        {
+            wrong: "Only national campaigns count for this topic — a local club's small open day doesn't really count as an 'initiative'.",
+            correct: "A local scheme is just as valid an example as a national one. The specification expects you to recognise initiatives, campaigns and events at LOCAL, REGIONAL and NATIONAL level. A local club open day that welcomes new members is a perfectly good example — you just need to say which level it operates at and which value it promotes.",
+            readCheck: {
+                q: "Which of these could be used as a valid exam example of an initiative promoting a sporting value?",
+                opts: ["Only a scheme that has been personally organised by a national governing body itself", "A local club's open day for new members of any ability", "Only a scheme that has been shown at some point on national television", "Only a scheme that is directly linked to an international competition"],
+                ans: 1,
+                explain: "Local examples are just as valid as national ones — you simply need to identify the correct level and the value it promotes."
+            }
+        }
+    ];
+
+    const examTips = [
+        {
+            type: "tip",
+            title: "Command words for this topic — what each one wants",
+            pills: ["Identify", "State", "Describe", "Explain"],
+            content: `<p>Initiative and campaign questions are usually short. Match your answer length to the command word:</p>
+<ul>
+<li><strong>Identify / State</strong> — just name it. "Identify two levels at which an initiative can operate" = write two levels, nothing more. 1 mark each.</li>
+<li><strong>Describe</strong> — say what the initiative looks like or does. "Describe an initiative that promotes inclusion" = give its features.</li>
+<li><strong>Explain</strong> — give a reason or a mechanism. Use the word <em>because</em> or <em>by</em>. "Explain how a campaign encourages take-up" = what it does, and how that leads to people starting.</li>
+</ul>
+<p><strong>Read the mark tariff:</strong> [1] wants one point; [2] usually wants two points, or one point developed; [4] in Section B wants points applied to the scenario.</p>`,
+            readCheck: {
+                q: "A question says: 'Identify two levels at which an initiative can operate [2]'. What is the safest answer?",
+                opts: ["A long paragraph describing one national campaign in detail", "Two level names, such as local and national", "One level explained at great length", "A list of every value from 2.1"],
+                ans: 1,
+                explain: "'Identify' + [2] = two names, one mark each. A long paragraph, or an unrelated list of values, wastes time and does not answer the question."
+            }
+        },
+        {
+            type: "tip",
+            title: "The golden rule: value, level, and how",
+            pills: ["Section A", "Section B", "AO2"],
+            content: `<p>The single most common way to lose marks here is naming an initiative with nothing else. Build every answer as <strong>initiative → value → level → how it works</strong>:</p>
+<ul>
+<li><strong>❌ 0–1 marks:</strong> "There is a campaign about respect."</li>
+<li><strong>✅ full marks:</strong> "A national campaign promotes respect by asking fans to applaud officials' decisions rather than argue, raising awareness of the value and encouraging more people to take up officiating."</li>
+</ul>
+<p>In <strong>Section B</strong> the question gives you a scenario (a named club or trust). Then you must use a detail <em>from that scenario</em>, not a general example.</p>`,
+            readCheck: {
+                q: "In a Section B scenario question about a named sports trust, your example should be built around...",
+                opts: ["absolutely any campaign you happen to have seen on television", "the scenario you are given", "a famous athlete you personally admire", "your own school's sports day only"],
+                ans: 1,
+                explain: "Section B is applied — the marks are for using the scenario in front of you. A general example that ignores the scenario is capped."
+            }
+        },
+        {
+            type: "tip",
+            title: "Where this topic appears + sentence starters",
+            pills: ["Section A", "Section B", "Section C"],
+            content: `<p><strong>Where it shows up:</strong> initiatives and campaigns appear as quick recall in <strong>Section A</strong> (identify a level, identify a value), and as applied points in <strong>Section B</strong> scenarios about a named club or trust. They also feed <strong>Section C</strong> 8-mark answers about how a range of initiatives could work together to promote values.</p>
+<p><strong>Three punchy tips:</strong></p>
+<ul>
+<li>Learn one clear example at each level (local, regional, national) so you can always recall one.</li>
+<li>For every example, memorise the value it promotes AND how it raises awareness or encourages take-up.</li>
+<li>Watch for overlap: one initiative can promote more than one value, and can raise awareness while also encouraging take-up.</li>
+</ul>
+<p><strong>Sentence starters for a longer answer:</strong></p>
+<ul>
+<li>"One initiative that promotes this value is… run at… level, which works by…"</li>
+<li>"This raises awareness by… and encourages take-up by…"</li>
+<li>"However, the same initiative might not reach… because…"</li>
+</ul>`,
+            readCheck: {
+                q: "Why is it useful to know that one initiative can raise awareness AND encourage take-up?",
+                opts: ["It simply fills space in a longer answer without adding any real understanding", "It shows understanding of both jobs an initiative can do", "It means the initiative has no value attached to it whatsoever", "It completely replaces the need to ever name a level or a value"],
+                ans: 1,
+                explain: "Showing that an initiative does both jobs — raising awareness and encouraging take-up — demonstrates the deeper understanding a longer answer rewards."
+            }
+        }
+    ];
+
+    const flashcards = [
+        { term: "Initiative", def: "A planned scheme set up by an organisation to work towards a goal" },
+        { term: "Campaign", def: "An organised effort with a message, run over time, to raise awareness or change attitudes" },
+        { term: "Event", def: "A specific, staged occasion, such as a festival or open day" },
+        { term: "Local level", def: "Run by one club, school or leisure centre for its own community" },
+        { term: "Regional level", def: "Run across a county or area by several clubs or a partnership" },
+        { term: "National level", def: "Run by a governing body, or across the whole country, often around a major event" },
+        { term: "Raising awareness", def: "Getting people to notice and think about a value or issue" },
+        { term: "Encouraging take-up", def: "Making it easy for new or lapsed participants to actually start" }
+    ];
+
+    const examQuestions = [
+        {
+            num: "1",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: "Identify <strong>two</strong> levels at which an initiative, campaign or event promoting a sporting value can operate.",
+            hint: "Just name two — pick from local, regional or national.",
+            starter: "One level is… Another level is…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1)</h5>
+<p><strong>1 mark for each correct level named, to a maximum of two. Accept any two different levels:</strong></p>
+<ul>
+<li>Local</li>
+<li>Regional</li>
+<li>National</li>
+</ul>
+<p>Do not credit the same level written twice.</p>
+</div>`,
+            modelAnswer: "One level is local.\n\nAnother level is national.",
+            markPoints: { note: "One tick per correct, DIFFERENT level; cap at 2.", groups: [
+                { label: "Your first level", max: 1, points: ["Names a valid level (local, regional or national)"] },
+                { label: "Your second level", max: 1, points: ["Names a DIFFERENT valid level (not a repeat of the first)"] }
+            ] }
+        },
+        {
+            num: "2",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Which of these best describes a sporting 'campaign'?",
+            options: ["A single trophy presented once a year to the most successful full-time professional team in the country", "An organised effort with a message, run over time, to raise awareness or change attitudes", "A permanent change to the official written rules of a sport", "A one-off friendly match with no promotional message attached"],
+            answer: 1,
+            hint: "Think about what runs over TIME and carries a MESSAGE.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO2)</h5>
+<p><strong>Answer: B — An organised effort with a message, run over time, to raise awareness or change attitudes.</strong></p>
+<ul>
+<li>A campaign runs over a period and carries a clear message.</li>
+<li>A trophy, a rule change, or a plain friendly match are not campaigns.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "3",
+            marks: 4,
+            type: "written",
+            caseStudy: `<p><strong>Scenario — Ashford Community Sports Trust</strong></p><p>Ashford Community Sports Trust runs several clubs across one town. A major international athletics event is about to be held in a nearby city. The Trust wants to launch <strong>one scheme that reaches only its own members</strong>, and separately supports the idea of <strong>one scheme that could run across the whole country</strong> to make the most of the interest the event will create.</p>`,
+            question: "Explain how a <strong>local</strong> initiative and a <strong>national</strong> initiative could each promote a sporting value in this scenario.",
+            hint: "Take each level in turn. Name a value, then say how a scheme at that level (using details from the scenario) could promote it.",
+            starter: "At local level, Ashford's own scheme could promote… by…\n\nAt national level, a scheme could promote… by…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (AO2: application)</h5>
+<p><strong>Up to 2 marks per level: 1 for identifying a relevant value, 1 for how a scheme at that level (using the scenario) promotes it. Answers may include:</strong></p>
+<ul>
+<li><strong>Local (Ashford's own members):</strong> could promote inclusion or team spirit — for example, a welcome session pairing new members with experienced ones, run only within the Trust's own clubs.</li>
+<li><strong>National (using the international event's interest):</strong> could promote national pride or excellence — for example, a country-wide scheme encouraging people to try the athletics event's sport while public interest is high, run by a national governing body rather than one Trust.</li>
+</ul>
+<p>Accept any other reasonable, applied answer. A value with no explanation of how it is promoted, or an example not linked to the scenario's level, earns 1 of the 2 marks for that level.</p>
+</div>`,
+            modelAnswer: "At local level, Ashford's own scheme could promote inclusion by running a welcome session where new members of any ability are paired with an experienced club member, reaching only its own community of members.\n\nAt national level, a scheme could use the interest created by the nearby international event to promote national pride, by encouraging people right across the country to try the event's sport while public attention is high, organised by a national body rather than a single Trust.",
+            markPoints: { note: "Mark each level out of 2: one tick for the value, one for how it is promoted, using the scenario.", groups: [
+                { label: "Local initiative", max: 2, points: ["Identifies a relevant value (e.g. inclusion, team spirit)", "Explains how a scheme reaching only the Trust's own members promotes it (e.g. a welcome/buddy session)"] },
+                { label: "National initiative", max: 2, points: ["Identifies a relevant value (e.g. national pride, excellence)", "Explains how a country-wide scheme, linked to the nearby international event, promotes it"] }
+            ] }
+        },
+        {
+            num: "4",
+            marks: 8,
+            type: "written",
+            format: "banded",
+            caseStudy: `<p><strong>Scenario — Ashford Community Sports Trust</strong></p><p>Ashford Community Sports Trust wants to use the excitement of the nearby international athletics event to promote sporting values across the town and beyond. The Trust's manager believes that combining initiatives at different levels, rather than relying on just one, would have the biggest impact.</p>`,
+            question: "Discuss how initiatives at local, regional and national level could work together to promote sporting values and increase participation around this event.",
+            hint: "Choose one example at each level. For each, name the value and explain how it raises awareness or encourages take-up. Then weigh it up — what limits how well they work together? Finish with a judgement.",
+            starter: "At local level, Ashford could… which promotes…\n\nAt regional level…\n\nAt national level…\n\nHowever, the extent to which these work together depends on…\n\nOverall, …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 8 marks (level-of-response). Read the band you fit, then pick a mark.</h5>
+<ul>
+<li><strong>Band 3 (thorough), 6–8:</strong> a balanced, well-applied discussion covering local, regional AND national initiatives, clearly showing how each raises awareness or encourages take-up, AND weighing the limits (cost, coordination, one level not reaching everyone), ending in a justified judgement.</li>
+<li><strong>Band 2 (reasonable), 3–5:</strong> sound understanding applied to more than one level with some analysis, but the discussion may be one-sided, miss a level, or the judgement may be unsupported.</li>
+<li><strong>Band 1 (basic), 1–2:</strong> names initiatives and/or levels with little application and no real evaluation; largely a list.</li>
+<li><strong>0 marks:</strong> nothing creditworthy.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Indicative content (indicative, not a checklist — reward valid alternatives)</h5>
+<ul>
+<li><strong>Local:</strong> Ashford's own clubs could run welcome sessions or open days pairing newcomers with experienced members, promoting inclusion and encouraging take-up directly within the town.</li>
+<li><strong>Regional:</strong> a partnership of clubs across the area could run a festival rewarding good conduct as well as results, promoting fair play and team spirit and raising awareness across a wider audience than one club alone.</li>
+<li><strong>National:</strong> a governing body could run a media campaign timed around the international event, promoting national pride and excellence and raising awareness across the whole country, encouraging people everywhere to try the sport.</li>
+<li><strong>Evaluation:</strong> working together only helps if the levels are coordinated — a national advert raising awareness is wasted if no local taster sessions exist to convert it into take-up; regional and national schemes cost more to run and need staff/funding; a single level acting alone reaches a narrower audience and may raise awareness without offering anywhere nearby to actually start.</li>
+<li><strong>Judgement:</strong> combining levels is powerful because national awareness and local take-up routes reinforce each other — but it only increases participation if the levels are properly linked and resourced, rather than running as separate, uncoordinated efforts.</li>
+</ul>
+</div>`,
+            modelAnswer: "Ashford could combine levels to reinforce each other. Locally, its clubs could run welcome sessions pairing newcomers with experienced members, promoting inclusion and directly encouraging take-up. Regionally, a partnership of area clubs could run a festival rewarding good conduct, promoting fair play and team spirit to a wider audience. Nationally, a governing body could run a media campaign timed around the international event, promoting national pride and raising awareness country-wide.\n\nHowever, this only works if the levels are coordinated — national awareness is wasted without local sessions to convert it, and regional or national schemes need funding and staff that a single Trust may not have.\n\nOverall, combining levels is effective because national awareness and local take-up reinforce each other, but only if Ashford links them deliberately rather than letting each level act alone."
+        }
+    ];
+</script>
+    <script src="/cs-lab/exam-widgets.js"></script>
+    <script src="/script.js"></script>
+<script src="section-totals.js"></script>
+<script src="page-groups.js"></script>
+<script src="/progress-shared.js"></script>
+<script src="/gamification.js"></script>
+<script src="/topic-guard.js"></script>
+<script src="/notifications-shared.js"></script>
+<script src="/onboarding-tour.js"></script>
+<script src="/footer-legal.js"></script>
+</body>
+
+</html>

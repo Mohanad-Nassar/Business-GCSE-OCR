@@ -15,6 +15,7 @@
       .vocab-tbl{width:100%;border-collapse:collapse;margin:8px 0}
       .vocab-tbl td{border-bottom:1px solid var(--line,#e4e8f0);padding:6px 8px;vertical-align:top}
       .vocab-tbl td:first-child{font-weight:600;white-space:nowrap}
+      @container (max-width:640px){.vocab-tbl,.vocab-tbl tbody,.vocab-tbl tr,.vocab-tbl td{display:block;width:100%}.vocab-tbl td{border-bottom:none;padding:4px 0;white-space:normal}.vocab-tbl td:nth-child(2n){padding-bottom:10px;border-bottom:1px solid var(--line,#e4e8f0);margin-bottom:6px}}
       .tier-h{display:inline-block;font-size:.72em;font-weight:700;color:#8a5a00;
         background:#fff3d6;border-radius:5px;padding:1px 5px;margin-left:5px;vertical-align:middle}
     </style>
@@ -208,7 +209,8 @@
               <tr><td><span data-say="el hermano mayor">el hermano mayor</span></td><td>older brother</td><td><span data-say="la hermana menor">la hermana menor</span></td><td>younger sister</td></tr>
               <tr><td><span data-say="el tío">el tío / la tía</span></td><td>uncle / aunt</td><td><span data-say="el primo">el primo / la prima</span></td><td>cousin</td></tr>
             </table>
-            <p><span data-say="Soy hijo único.">Soy hijo único.</span> = I’m an only child. <span data-say="En mi familia hay cuatro personas.">En mi familia hay cuatro personas.</span></p>`,
+            <p><span data-say="Soy hijo único.">Soy hijo único.</span> = I’m an only child. <span data-say="En mi familia hay cuatro personas.">En mi familia hay cuatro personas.</span></p>
+            <p><span data-say="Mis primos forman parte de mi familia numerosa.">Mis primos forman parte de mi familia numerosa.</span> = My cousins are part of my large family. <span data-say="A veces oigo a mi hermano cantar en su cuarto.">A veces oigo a mi hermano cantar en su cuarto.</span> = Sometimes I hear my brother singing in his room. <span data-say="Recibo muchos mensajes de mi familia cuando viajo.">Recibo muchos mensajes de mi familia cuando viajo.</span> = I receive lots of messages from my family when I travel.</p>`,
             readCheck: { q: "What does ‘mi hermana menor’ mean?", opts: ["my younger sister", "my older sister", "my younger brother", "my cousin"], ans: 0, explain: "hermana = sister; menor = younger. mayor = older." }
         },
         {
@@ -232,8 +234,42 @@
               <li>Quantifiers: <span data-say="bastante alto">bastante alto</span> (quite tall), <span data-say="un poco tímido">un poco tímido</span> (a bit shy). <span class="tier-h">H</span></li>
               <li>Relative ‘que’: <span data-say="Tengo un hermano que se llama Luis.">Tengo un hermano que se llama Luis.</span> <span class="tier-h">H</span></li>
               <li>Combine appearance + who: <span data-say="Mi hermana mayor, que es muy alta, tiene el pelo largo y rizado.">Mi hermana mayor, que es muy alta, tiene el pelo largo y rizado.</span> <span class="tier-h">H</span></li>
+              <li>Perfect tense (‘has/have’): <span data-say="Mi madre siempre me ha dicho que soy parecido a mi abuelo.">Mi madre siempre me ha dicho que soy parecido a mi abuelo.</span> — My mother has always told me I look like my grandfather. <span class="tier-h">H</span></li>
             </ul>`,
             readCheck: { q: "‘Tengo un hermano que se llama Luis’ — what does ‘que’ do here?", opts: ["it links two ideas (‘who’ / ‘that’)", "it is used to ask a question meaning ‘what?’", "it means ‘because’", "it makes the sentence a plan"], ans: 0, explain: "Relative ‘que’ = who/that; it joins ‘I have a brother’ + ‘he is called Luis’." }
+        },
+        {
+            title: "Who else is in my family? Stepfamily, ages and names",
+            tag: "Key concept",
+            content: `<p>Family isn't just parents and siblings — here's more people, and how Spanish names work:</p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="la madrastra">la madrastra</span></td><td>stepmother</td><td><span data-say="el padrastro">el padrastro</span></td><td>stepfather</td></tr>
+              <tr><td><span data-say="mamá">mamá</span></td><td>mum (informal)</td><td><span data-say="papá">papá</span></td><td>dad (informal)</td></tr>
+              <tr><td><span data-say="una niña">una niña</span></td><td>a (young) girl</td><td><span data-say="un bebé">un bebé</span></td><td>a baby</td></tr>
+              <tr><td><span data-say="un anciano">un anciano</span></td><td>an elderly man</td><td><span data-say="un adulto">un adulto</span></td><td>an adult</td></tr>
+              <tr><td><span data-say="el nacimiento">el nacimiento</span></td><td>birth</td><td><span data-say="el apellido">el apellido</span></td><td>surname</td></tr>
+            </table>
+            <p>Spanish speakers often use <strong>two</strong> surnames — father's then mother's: <span data-say="Mi apellido es González Pérez.">Mi apellido es González Pérez.</span> And to say ‘the youngest’ of a group, use <span data-say="el menor">el menor / la menor</span>: <span class="tier-h">H</span> <span data-say="Soy la menor de mis hermanos.">Soy la menor de mis hermanos.</span></p>`,
+            readCheck: { q: "What does ‘mi padrastro’ mean?", opts: ["my stepfather", "my stepmother", "my grandfather", "my father-in-law, my wife's dad"], ans: 0, explain: "padrastro = stepfather; madrastra = stepmother." }
+        },
+        {
+            title: "Where is my family from? Nationalities and more appearance",
+            tag: "Exam skill",
+            content: `<p>Nationality adjectives change for a female (add ‑a) — note the accent often disappears:</p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="europeo">europeo / europea</span></td><td>European</td><td><span data-say="alemán">alemán / alemana</span></td><td>German</td></tr>
+              <tr><td><span data-say="italiano">italiano / italiana</span></td><td>Italian</td><td><span data-say="británico">británico / británica</span></td><td>British</td></tr>
+              <tr><td><span data-say="chino">chino / china</span></td><td>Chinese</td><td><span data-say="blanco">blanco / blanca</span></td><td>white</td></tr>
+            </table>
+            <p>More words for describing people:</p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="el pelo gris">el pelo gris</span></td><td>grey hair</td><td><span data-say="un poco gordo">un poco gordo / gorda</span></td><td>a bit overweight</td></tr>
+              <tr><td><span data-say="hermoso">hermoso / hermosa</span></td><td>beautiful</td><td><span data-say="precioso">precioso / preciosa</span></td><td>beautiful, gorgeous</td></tr>
+              <tr><td><span data-say="un tatuaje">un tatuaje</span></td><td>a tattoo</td><td><span data-say="parecerse a">parecerse a</span></td><td>to look like, resemble</td></tr>
+            </table>
+            <p>Family resemblance: <span data-say="Me parezco mucho a mi madre; somos muy semejantes.">Me parezco mucho a mi madre; somos muy semejantes.</span> = I look a lot like my mother; we are very similar. Forms often ask your <span data-say="sexo">sexo</span> (sex/gender) as well as your name and age.</p>
+            <p><span data-say="Puedo identificar a mi padre en cualquier foto por su pelo moreno.">Puedo identificar a mi padre en cualquier foto por su pelo moreno.</span> = I can identify my father in any photo by his dark hair. <span data-say="Me sorprende lo mucho que me parezco a mi padre.">Me sorprende lo mucho que me parezco a mi padre.</span> = It surprises me how much I look like my father. <span data-say="Le agradezco a mi abuela cada recuerdo que tengo.">Le agradezco a mi abuela cada recuerdo que tengo.</span> = I'm grateful to my grandmother for every memory I have.</p>`,
+            readCheck: { q: "What does ‘me parezco a mi padre’ mean?", opts: ["I look like my father", "I disagree with my father", "I live apart from my father", "I get on badly with my father, not well at all"], ans: 0, explain: "parecerse a = to look like/resemble. Don't confuse it with ‘discutir’ (to argue) or ‘llevarse mal’ (get on badly)." }
         }
     ];
 
@@ -247,7 +283,17 @@
         { q: "‘Soy hijo único’ means…", opts: ["I am an only child", "I am a unique person", "I am the eldest son", "I am someone's only true friend"], ans: 0, explain: "hijo único = only child. (‘único’ here is ‘only’, not ‘unique’.)" },
         { q: "Complete: ‘___ el pelo rubio.’ (I have)", opts: ["Tengo", "Soy", "Está", "Llevo"], ans: 0, explain: "Hair uses tener → Tengo el pelo rubio." },
         { q: "Why ‘Tengo 15 años’, not ‘Soy 15 años’?", opts: ["Spanish uses ‘tener’ (to have) for age", "‘ser’ can only describe your job", "you must always use ‘estar’ with numbers", "‘años’ has to follow the verb ‘ser’"], ans: 0, explain: "Age is expressed with tener in Spanish: you ‘have’ years." },
-        { q: "‘Mi hermana, que es alta, tiene el pelo rizado’ — what does ‘que’ do?", opts: ["links two ideas (‘who / that’)", "shows that it is a plan for the future", "turns it into a question", "means ‘because’"], ans: 0, explain: "Relative ‘que’ = who/that, joining ‘my sister’ + ‘she is tall’." }
+        { q: "‘Mi hermana, que es alta, tiene el pelo rizado’ — what does ‘que’ do?", opts: ["links two ideas (‘who / that’)", "shows that it is a plan for the future", "turns it into a question", "means ‘because’"], ans: 0, explain: "Relative ‘que’ = who/that, joining ‘my sister’ + ‘she is tall’." },
+        { q: "‘Vamos juntos al cine esta noche.’ — what does ‘juntos’ mean here?", opts: ["together", "separately, each in a different car", "late, after the film starts", "for free, without paying"], ans: 0, explain: "juntos = together. The distractors describe how or when, not togetherness." },
+        { q: "‘El señor García es mi profesor de español.’ — what does ‘señor’ mean here?", opts: ["Mr / gentleman", "sir, only used for royalty", "señora's husband, nothing more", "an old-fashioned word for teacher"], ans: 0, explain: "señor = Mr / man, a polite title before a surname." },
+        { q: `<span data-say="Mi padre trabaja fuera de la ciudad." data-listen></span><br>Listen. What is being said about the father?`, opts: ["He works outside/away from the city", "He never leaves the house at all", "He works very hard inside the city", "He is currently out of work, unemployed"], ans: 0, explain: "fuera (de) = outside/away from. Distractors invert or change the meaning." },
+        { q: "How do you say ‘I am the third child’?", opts: ["Soy el tercer hijo", "Soy el tercero hijo", "Soy el hijo tercer", "Soy tercer de hijo"], ans: 0, explain: "‘tercer’ shortens before a masculine singular noun: el tercer hijo (like ‘primer’, ‘buen’)." },
+        { q: "‘Aquí tienes mis datos personales: nombre, edad y sexo.’ — what are ‘datos personales’?", opts: ["personal details/data", "personal opinions and beliefs", "personal belongings, like a bag", "a personal diary or journal"], ans: 0, explain: "datos personales = personal details/data (name, age, etc.), not opinions or objects." },
+        { q: `<span data-say="Mi amigo Hans es alemán." data-listen></span><br>Listen. Where is Hans from?`, opts: ["Germany", "Italy", "Britain", "China"], ans: 0, explain: "alemán = German. The other options are the other nationalities on this page." },
+        { q: "‘Tengo un recuerdo precioso de mi abuela.’ — what is ‘un recuerdo’?", opts: ["a memory", "a present, a gift", "a photograph, nothing more", "a letter or postcard"], ans: 0, explain: "un recuerdo = a memory (also can mean souvenir), not simply a gift or photo." },
+        { q: "Which word means ‘Chinese’?", opts: ["chino", "chico", "china (the country only)", "checo"], ans: 0, explain: "chino = Chinese. ‘chico’ = boy; ‘checo’ = Czech — classic mix-ups." },
+        { q: `<span data-say="Oigo a mi hermano cantar en su cuarto." data-listen></span><br>Listen. What is being said?`, opts: ["I can hear my brother singing in his room", "I can see my brother dancing in the garden", "I can hear my sister singing in the kitchen", "I want my brother to stop singing right now"], ans: 0, explain: "oigo = I hear/can hear. Distractors swap the sense verb, the sibling or the place." },
+        { q: "‘Mi madre siempre me ha dicho que soy parecido a mi abuelo.’ — what does ‘ha dicho’ mean here?", opts: ["has said / has told", "is going to say tomorrow", "used to say a long time ago", "never said anything at all"], ans: 0, explain: "‘ha dicho’ is the perfect tense of decir (to say/tell) = has said/told." }
     ];
 
     const matchData = [
@@ -262,7 +308,18 @@
         { term: "la hermana menor", def: "younger sister" },
         { term: "hijo único", def: "only child" },
         { term: "mi / mis", def: "my (one / more than one)" },
-        { term: "el primo / la prima", def: "cousin" }
+        { term: "el primo / la prima", def: "cousin" },
+        { term: "entonces", def: "then, so" },
+        { term: "deseo", def: "wish, desire" },
+        { term: "noticia", def: "(piece of) news" },
+        { term: "aparte (de)", def: "apart from, besides" },
+        { term: "imposible", def: "impossible" },
+        { term: "adiós", def: "goodbye" },
+        { term: "¡Enhorabuena!", def: "Congratulations!" },
+        { term: "ocupado", def: "busy" },
+        { term: "recibir", def: "to receive" },
+        { term: "identificar", def: "to identify" },
+        { term: "sorprender", def: "to surprise" }
     ];
 
     const fibData = [
@@ -272,9 +329,14 @@
         { display: `Tengo los ojos _____. (brown — plural agreement!)`, blanks: { B1: "marrones" } },
         { display: `_____ hermanos son altos. (my — more than one)`, blanks: { B1: "Mis" } },
         { display: `Soy hijo _____. (only child)`, blanks: { B1: "único" } },
-        { display: `Me _____ Ana y vivo en Madrid. (my name is)`, blanks: { B1: "llamo" } }
+        { display: `Me _____ Ana y vivo en Madrid. (my name is)`, blanks: { B1: "llamo" } },
+        { display: `Me _____ mucho a mi madre. <span data-say="Me parezco mucho a mi madre." data-listen>Me parezco mucho a mi madre.</span>`, blanks: { B1: "parezco" } },
+        { display: `Soy el _____ hijo de mi familia. (third)`, blanks: { B1: "tercer" } },
+        { display: `Mi abuelo es _____ y tiene el pelo gris. (elderly man)`, blanks: { B1: "anciano" } },
+        { display: `Mis primos _____ parte de mi familia numerosa. <span data-say="Mis primos forman parte de mi familia numerosa." data-listen>Mis primos forman parte de mi familia numerosa.</span>`, blanks: { B1: "forman" } },
+        { display: `Le _____ a mi abuela todo su cariño. (I thank/am grateful — yo form)`, blanks: { B1: "agradezco" } }
     ];
-    const fibWords = ["Tengo", "castaño", "lleva", "marrones", "Mis", "único", "llamo"];
+    const fibWords = ["Tengo", "castaño", "lleva", "marrones", "Mis", "único", "llamo", "parezco", "tercer", "anciano", "forman", "agradezco"];
 
     const tfData = [
         { statement: "For age, Spanish uses ‘tener’ — ‘tengo quince años’.", answer: true, explanation: "You literally ‘have’ years: tengo… años. ‘Soy… años’ is wrong." },
@@ -284,7 +346,10 @@
         { statement: "‘mayor’ means ‘younger’.", answer: false, explanation: "mayor = older; menor = younger." },
         { statement: "‘Tengo los ojos marrón’ is correct.", answer: false, explanation: "Eyes are plural, so the colour must agree: los ojos marrones." },
         { statement: "‘llevar’ is used for glasses: ‘llevo gafas’.", answer: true, explanation: "llevar = to wear (glasses, clothes)." },
-        { statement: "Build/height uses ‘ser’: ‘soy alto’.", answer: true, explanation: "ser describes what you are like: soy alto/alta." }
+        { statement: "Build/height uses ‘ser’: ‘soy alto’.", answer: true, explanation: "ser describes what you are like: soy alto/alta." },
+        { statement: "‘tercer’ becomes ‘tercero’ before a masculine singular noun.", answer: false, explanation: "It's the opposite: ‘tercero’ shortens to ‘tercer’ before a masculine singular noun (el tercer hijo)." },
+        { statement: "‘madrastra’ means ‘stepmother’.", answer: true, explanation: "madrastra = stepmother; padrastro = stepfather." },
+        { statement: "Spanish speakers usually only use one surname, never two.", answer: false, explanation: "It's common to use two surnames — father's then mother's, e.g. González Pérez." }
     ];
 
     const miscData = [
@@ -319,7 +384,53 @@
         { term: "mi / mis", def: "my (one / more than one)", say: "mi hermano, mis hermanos" },
         { term: "tu / tus · su / sus", def: "your · his/her/their", say: "tu, tus, su, sus" },
         { term: "bastante · un poco (H)", def: "quite · a bit (quantifiers)", say: "bastante, un poco" },
-        { term: "que (H)", def: "who / that (relative pronoun)", say: "que" }
+        { term: "que (H)", def: "who / that (relative pronoun)", say: "que" },
+        { term: "parecer(se) a", def: "to seem · to look like / resemble", say: "me parezco a mi madre" },
+        { term: "entonces", def: "then, so", say: "entonces" },
+        { term: "junto / juntos", def: "together", say: "juntos" },
+        { term: "señor", def: "Mr, sir, gentleman", say: "el señor" },
+        { term: "fuera", def: "outside, away", say: "fuera de la ciudad" },
+        { term: "blanco / blanca", def: "white", say: "blanco, blanca" },
+        { term: "tercer / tercero", def: "third", say: "el tercer hijo" },
+        { term: "el menor / la menor", def: "the youngest", say: "soy la menor" },
+        { term: "dato", def: "fact, piece of data", say: "datos personales" },
+        { term: "niña", def: "girl (young)", say: "una niña" },
+        { term: "mamá", def: "mum (informal)", say: "mamá" },
+        { term: "europeo / europea", def: "European", say: "europeo, europea" },
+        { term: "alemán / alemana", def: "German", say: "alemán, alemana" },
+        { term: "recuerdo", def: "memory, souvenir", say: "un recuerdo" },
+        { term: "deseo", def: "wish, desire", say: "un deseo" },
+        { term: "noticia", def: "(piece of) news", say: "una noticia" },
+        { term: "papá", def: "dad (informal)", say: "papá" },
+        { term: "hermoso / hermosa", def: "beautiful", say: "hermoso, hermosa" },
+        { term: "italiano / italiana", def: "Italian", say: "italiano, italiana" },
+        { term: "británico / británica", def: "British", say: "británico, británica" },
+        { term: "aparte (de)", def: "apart from, besides", say: "aparte de eso" },
+        { term: "chino / china", def: "Chinese", say: "chino, china" },
+        { term: "imposible", def: "impossible", say: "imposible" },
+        { term: "sexo", def: "sex, gender", say: "sexo" },
+        { term: "adulto", def: "adult", say: "un adulto" },
+        { term: "anciano", def: "elderly man", say: "un anciano" },
+        { term: "gordo / gorda", def: "fat, overweight", say: "un poco gordo" },
+        { term: "nacimiento", def: "birth", say: "el nacimiento" },
+        { term: "gris", def: "grey", say: "el pelo gris" },
+        { term: "precioso / preciosa", def: "beautiful, gorgeous", say: "precioso, preciosa" },
+        { term: "semejante", def: "similar, such", say: "semejante" },
+        { term: "bebé", def: "baby", say: "un bebé" },
+        { term: "adiós", def: "goodbye", say: "adiós" },
+        { term: "apellido", def: "surname", say: "mi apellido" },
+        { term: "madrastra", def: "stepmother", say: "la madrastra" },
+        { term: "padrastro", def: "stepfather", say: "el padrastro" },
+        { term: "tatuaje", def: "tattoo", say: "un tatuaje" },
+        { term: "¡Enhorabuena!", def: "Congratulations!", say: "¡Enhorabuena!" },
+        { term: "ocupado / ocupada", def: "busy", say: "ocupado" },
+        { term: "recibir", def: "to receive", say: "recibo muchos mensajes de mi familia" },
+        { term: "formar (parte de)", def: "to form (to be part of)", say: "mis primos forman parte de mi familia" },
+        { term: "identificar", def: "to identify", say: "puedo identificar a mi padre" },
+        { term: "agradecer", def: "to thank, be grateful for", say: "le agradezco a mi abuela" },
+        { term: "sorprender", def: "to surprise", say: "me sorprende" },
+        { term: "oír", def: "to hear", say: "oigo a mi hermano cantar" },
+        { term: "dicho (past participle of decir)", def: "said, told", say: "mi madre me ha dicho" }
     ];
 
     const EXAM_CASE_STUDIES = {

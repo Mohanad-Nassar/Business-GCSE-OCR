@@ -1,0 +1,715 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>6.1 Command Words and Exam Sections – Interactive Study Guide</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+    <header>
+        <div>
+            <div class="badge">OCR Level 1/Level 2 Sport Studies — R184 · 6. Exam Preparation</div>
+            <h1>6.1 Command Words and Exam Sections</h1>
+            <p>Interactive revision guide · Content coming soon</p>
+        </div>
+        <a href="/index.html" class="home-link">← 🏡 Home</a>
+    </header>
+
+    <nav class="tab-bar" id="tabBar">
+        <button class="tab-btn active" onclick="switchTab('learn', this)">
+            📚 Key Learning
+        </button>
+        <button class="tab-btn" onclick="switchTab('mcq', this)">
+            ❓ MCQ Quiz
+        </button>
+        <button class="tab-btn" onclick="switchTab('matching', this)">
+            🔗 Matching
+        </button>
+        <button class="tab-btn" onclick="switchTab('fib', this)">
+            ✏️ Fill the Blanks
+        </button>
+        <button class="tab-btn" onclick="switchTab('misconceptions', this)">
+            ⚠️ Misconceptions
+        </button>
+        <button class="tab-btn" onclick="switchTab('examtips', this)">
+            🎯 Exam Tips
+        </button>
+        <button class="tab-btn" onclick="switchTab('flashcards', this)">
+            🃏 Flashcards
+        </button>
+        <button class="tab-btn" onclick="switchTab('truefalse', this)">
+            ✅ True / False
+        </button>
+        <button class="tab-btn" onclick="switchTab('exampractice', this)">
+            📝 Exam Practice
+        </button>
+    </nav>
+
+    <main>
+        <div class="tab-panel active" id="tab-learn">
+            <h2 class="section-title">Key Learning Topics</h2>
+            <p class="section-sub">Click any card to expand detailed notes.</p>
+            <div class="topic-grid" id="topicGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-mcq">
+            <h2 class="section-title">Multiple Choice Questions</h2>
+            <p class="section-sub">Select an answer to reveal instant feedback.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="mcqScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">
+                        correct answers
+                    </div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    out of <strong id="mcqTotal">0</strong> attempted
+                </div>
+                <button class="reset-btn" onclick="resetMCQ()">RESET</button>
+            </div>
+            <div class="quiz-wrap" id="mcqWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-matching">
+            <h2 class="section-title">Matching Activity</h2>
+            <p class="section-sub">
+                Click a term on the left, then click the matching definition on the
+                right.
+            </p>
+            <div style="margin-bottom: 16px">
+                <div class="score-bar">
+                    <div>
+                        <div class="score-num" id="matchScore">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">matched</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="matchTotal">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetMatch()">RESET</button>
+                </div>
+            </div>
+            <div class="match-grid">
+                <div>
+                    <div class="match-label">TERMS</div>
+                    <div class="match-col" id="matchLeft"></div>
+                </div>
+                <div>
+                    <div class="match-label">DEFINITIONS</div>
+                    <div class="match-col" id="matchRight"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-fib">
+            <h2 class="section-title">Fill in the Blanks</h2>
+            <p class="section-sub">
+                Click each dropdown and choose the correct word. Wrong answers reset —
+                try again!
+            </p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="fibScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="fibTotal">0</strong> blanks
+                </div>
+                <button class="reset-btn" onclick="resetFIB()">RESET</button>
+            </div>
+            <div class="fib-wrap" id="fibWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-misconceptions">
+            <h2 class="section-title">Common Misconceptions</h2>
+            <p class="section-sub">
+                What students often think — and what examiners actually want.
+            </p>
+            <div class="misc-list" id="miscList"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-examtips">
+            <h2 class="section-title">Exam Questions &amp; Tips</h2>
+            <p class="section-sub">
+                Most repeated question types and mark-scheme structures from real OCR
+                papers.
+            </p>
+            <div class="tips-grid" id="tipsGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-flashcards">
+            <h2 class="section-title">Flashcards</h2>
+            <p class="section-sub">
+                Test yourself! Flip the card and rate your knowledge. Review your weak
+                areas at the end.
+            </p>
+
+            <div class="fc-container">
+                <div class="score-bar" id="fcScoreBar" style="display: none; margin-bottom: 20px">
+                    <div>
+                        <div class="score-num" id="fcKnown" style="color: #2d7a4f">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">known</div>
+                    </div>
+                    <div>
+                        <div class="score-num" id="fcUnknown" style="color: #c84b31">
+                            0
+                        </div>
+                        <div style="font-size: 12px; color: var(--mid)">learning</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="fcTotalTrack">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
+                </div>
+
+                <div id="fcActiveArea">
+                    <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
+                    <div class="flashcard" id="flashcard" onclick="flipCard()">
+                        <div class="fc-inner">
+                            <div class="fc-front">
+                                <div class="fc-label">KEY TERM</div>
+                                <div class="fc-term" id="fcTerm"></div>
+                            </div>
+                            <div class="fc-back">
+                                <div class="fc-def" id="fcDef"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="fc-hint">👆 Click card to flip</p>
+
+                    <div class="fc-nav" id="fcNavDefault">
+                        <button class="fc-btn outline" onclick="prevCard()">
+                            ← Prev
+                        </button>
+                        <button class="fc-btn outline" onclick="flipCard()">Flip</button>
+                        <button class="fc-btn" onclick="nextCard()">Next →</button>
+                    </div>
+
+                    <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px">
+                        <button class="fc-btn outline" style="border-color: #c84b31; color: #c84b31; flex: 1"
+                            onclick="markCard(false)">
+                            ❌ Still Learning
+                        </button>
+                        <button class="fc-btn" style="background: #2d7a4f; border-color: #2d7a4f; flex: 1"
+                            onclick="markCard(true)">
+                            ✅ Got It
+                        </button>
+                    </div>
+                </div>
+
+                <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px">
+                    <h3>Session Complete! 🎉</h3>
+                    <p style="margin: 15px 0">
+                        You knew <strong id="fcSummaryKnown">0</strong> out of
+                        <strong id="fcSummaryTotal">0</strong> cards.
+                    </p>
+                    <div style="
+                margin-top: 25px;
+                display: flex;
+                gap: 15px;
+                justify-content: center;
+                flex-wrap: wrap;
+              ">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
+                            style="background: #c84b31; border-color: #c84b31">
+                            Review Incorrect
+                        </button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">
+                            Practice All Again
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-truefalse">
+            <h2 class="section-title">True or False?</h2>
+            <p class="section-sub">Test your knowledge with these statements.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="tfScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="tfTotal">0</strong> answered
+                </div>
+                <button class="reset-btn" onclick="resetTF()">RESET</button>
+            </div>
+            <div class="tf-wrap" id="tfWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-exampractice">
+            <h2 class="section-title">Exam Practice Questions</h2>
+            <p class="section-sub">
+                Full exam questions with case studies. Use <strong>Hint</strong>,
+                <strong>Sentence Starter</strong> and
+                <strong>Submit &amp; See Mark Scheme</strong> for each question.
+            </p>
+            <div class="ep-list" id="epList"></div>
+        </div>
+    </main>
+
+<script>
+    // ══════════════════════════════════════
+    //  DATA: 6.1 Command Words and Exam Sections — placeholder, content not yet written
+    // ══════════════════════════════════════
+    const pageMeta = {
+            id: '6-1-command-words-and-exam-sections',
+            badge: 'OCR Level 1/Level 2 Sport Studies — R184 · 6. Exam Preparation',
+            title: '6.1 Command Words and Exam Sections',
+            subtitle: 'Interactive revision guide',
+            subject: 'sport-studies',
+        };
+
+    const topics = [
+        {
+            title: "The R184 paper: three sections, one clock",
+            tag: "Key concept",
+            content: `<h4>The shape of the exam</h4>
+<ul>
+<li>Unit R184 "Contemporary issues in sport" is assessed by a single <strong>written exam paper</strong>, worth <strong>70 marks</strong> in total, to be completed in <strong>1 hour 15 minutes</strong>.</li>
+<li>It is a <strong>terminal</strong> assessment — it must be sat in your final exam series, unlike the coursework units.</li>
+<li>The paper is split into <strong>three sections</strong>. Whatever the topic area, every section keeps testing the same skill: applying your knowledge and weighing things up, not just reciting facts.</li>
+</ul>
+<h4>Section A — 30 marks</h4>
+<ul>
+<li>Mostly short recall: multiple-choice questions and shorter written answers (1–4 marks each).</li>
+<li>Section A also contains <strong>one longer, levelled question</strong> (worth 8 marks) that still needs a balanced, judged answer.</li>
+</ul>
+<h4>Section B — 28 marks</h4>
+<ul>
+<li>Built around a <strong>context or scenario</strong> you are given — a named leisure centre, event, sport or performer that your answer must use.</li>
+<li>Mostly short-and-medium written answers, including <strong>levelled 6-mark questions</strong>.</li>
+</ul>
+<h4>Section C — 12 marks</h4>
+<ul>
+<li>Also scenario-based, and built mainly around an <strong>extended response</strong>, including an <strong>8-mark "Discuss" or "Evaluate"</strong> question.</li>
+<li>Sections B and C always require analysis and evaluation — you cannot pass them by listing facts alone.</li>
+</ul>`,
+            readCheck: {
+                q: "Which of these correctly describes the R184 exam paper?",
+                opts: ["70 marks in total, completed in 1 hour 15 minutes, split into three sections", "100 marks in total, completed in 2 hours, split into two sections", "50 marks in total, completed in 45 minutes, with no written answers at all", "70 marks in total, completed in 1 hour 15 minutes, made up only of multiple-choice questions"],
+                ans: 0,
+                explain: "The paper is 70 marks in 1 hour 15 minutes, across three sections (A/B/C) — not two, and not multiple-choice only."
+            }
+        },
+        {
+            title: "Command words: what the exam is really asking for",
+            tag: "Core knowledge",
+            content: `<h4>Same-looking questions, very different demands</h4>
+<ul>
+<li><strong>Identify / State</strong> — just name it. No explanation, no reason, no extra detail. One clear point usually earns one mark.</li>
+<li><strong>Describe</strong> — say what something is or what happens. More than naming it, but you are not yet giving a reason <em>why</em>.</li>
+<li><strong>Explain</strong> — give a reason. A safe habit is using the word <em>"because"</em> somewhere, linking a point to its cause or effect.</li>
+<li><strong>Discuss</strong> — present <strong>both sides</strong> of an issue. You do not have to pick a winner, but you must show understanding of more than one side.</li>
+<li><strong>Evaluate</strong> — go one step further than Discuss: weigh up both sides <em>and</em> reach a <strong>justified judgement</strong> about which matters most, or whether something is worth it overall.</li>
+</ul>
+<h4>Why the difference matters</h4>
+<ul>
+<li>Writing an "Explain" style answer when the command word is "State" wastes time you need elsewhere on the paper.</li>
+<li>Writing a one-sided answer when the command word is "Discuss" or "Evaluate" caps your mark in a lower band, however well written that one side is.</li>
+</ul>`,
+            readCheck: {
+                q: "Which command word specifically asks you to reach a justified judgement, not just present both sides?",
+                opts: ["Describe", "Evaluate", "Identify", "State"],
+                ans: 1,
+                explain: "Evaluate is the command word that demands a justified judgement; Discuss stops at weighing both sides; Identify/State/Describe don't ask for any judgement."
+            }
+        },
+        {
+            title: "Reading the mark tariff to size your answer",
+            tag: "Exam skill",
+            content: `<h4>The number in the brackets is an instruction</h4>
+<ul>
+<li><strong>[1]</strong> — one point is enough. Writing three sentences to earn one mark steals time from later questions.</li>
+<li><strong>[2]</strong> — usually two separate points, or one point that is properly developed.</li>
+<li><strong>[4]</strong> — in Section B, this is usually points <strong>applied</strong> to the scenario you are given, not generic knowledge recited from memory. Two applied points, each worth two marks, is a common shape.</li>
+<li><strong>[6] / [8]</strong> — a <strong>levelled</strong> question. The mark scheme is banded, not a checklist: reaching the top band needs both sides of the issue <strong>and</strong> a justified judgement, applied to any scenario given.</li>
+</ul>
+<h4>Tariff mismatches are the easiest marks to lose</h4>
+<ul>
+<li>A single unexplained word for an 8-mark question loses almost all the marks available, however correct that word is.</li>
+<li>A three-page answer to a 1-mark question still earns exactly one mark — the extra time spent writing it is wasted.</li>
+<li>Before you write, glance at the command word and the mark tariff together — they tell you the shape of answer the examiner expects.</li>
+</ul>`,
+            readCheck: {
+                q: "A question is worth [4] marks and is set in Section B, using a named scenario. What does this tariff most likely require?",
+                opts: ["One single fact, stated with no further detail at all", "Points that are applied to the given scenario, not just generic knowledge", "Both sides of the argument fully weighed, ending in a justified judgement", "A single multiple-choice letter chosen with no working shown at all"],
+                ans: 1,
+                explain: "A [4]-mark Section B question usually wants points applied to the scenario — the full both-sides-plus-judgement shape belongs to a [6]/[8] levelled question instead."
+            }
+        },
+        {
+            title: "Putting it together across the whole R184 spec",
+            tag: "Exam skill",
+            content: `<h4>The skill is the same wherever the content changes</h4>
+<ul>
+<li>Command words and tariffs work exactly the same way whichever topic area a question is drawn from — participation, values, PEDs, hosting events, NGBs or technology.</li>
+<li><strong>"Identify two user groups" [2]</strong> — two names, nothing more.</li>
+<li><strong>"Explain why a performer might use a PED" [2]</strong> — a reason, using "because", not just naming a PED.</li>
+<li><strong>"Describe how technology can support match officials" [2]</strong> — say what the technology does (for example, checking a close decision), not why it matters.</li>
+</ul>
+<h4>Two more examples: a Governing Body, and technology for spectators</h4>
+<ul>
+<li><strong>"State two responsibilities of a named National Governing Body" [2]</strong> — just name two, from rules and discipline, coaching, safety or funding. No explanation needed.</li>
+<li><strong>"Evaluate whether increased use of technology has been good for spectators" [8]</strong> — this needs both the positives (big screens, instant replays) and the negatives (cost, a slower flow of the game), ending in a justified overall view.</li>
+<li>Whatever the topic, ask yourself the same two questions before you write: <em>What does this command word want? What does this mark tariff give me time for?</em></li>
+</ul>`,
+            readCheck: {
+                q: "A question reads: 'Evaluate whether increased use of technology has been good for spectators.' [8] What must a top-band answer include?",
+                opts: ["Only the positive effects of technology on spectators, described in full detail with no negatives mentioned at all", "Both positive and negative effects on spectators, ending in a justified judgement", "A single named piece of technology, identified with no further comment", "Two separate user groups who might attend the event, simply named"],
+                ans: 1,
+                explain: "An 8-mark Evaluate question needs balance (both sides) plus a justified judgement — one-sided detail, a bare name, or an unrelated user-group list all miss what the command word demands."
+            }
+        }
+    ];
+
+    const mcqData = [
+        {
+            q: "How many marks is the whole R184 exam paper worth, and how long do you have to complete it?",
+            opts: ["70 marks, to be completed in 1 hour and 15 minutes", "100 marks, to be completed in 2 hours and 30 minutes", "50 marks, to be completed in 45 minutes flat", "60 marks, to be completed in 1 hour and 30 minutes"],
+            ans: 0,
+            explain: "R184 is 70 marks in 1 hour 15 minutes. The other totals and times do not match the real paper."
+        },
+        {
+            q: "Which of these correctly matches a section of the R184 paper to its marks and features?",
+            opts: ["Section B is worth 28 marks and is always built around a scenario", "Section A is worth 30 marks and is always built around a scenario", "Section C is worth 12 marks and is entirely multiple choice with no writing", "Section A is worth 12 marks and is always built around a scenario"],
+            ans: 0,
+            explain: "Section B is 28 marks and scenario-based. Section A is 30 marks but is mostly short recall, not scenario-based; Section C is not entirely multiple choice."
+        },
+        {
+            q: "A Section C question says: 'Evaluate whether the legacy of hosting a major event outweighs its cost.' Which command word tells you to reach a justified judgement?",
+            opts: ["Evaluate — because it specifically asks for a weighed, justified judgement", "Discuss — because it specifically asks for a weighed, justified judgement instead", "Identify — because naming the legacy is all that is required here", "Describe — because explaining what a legacy means is all that is required"],
+            ans: 0,
+            explain: "Evaluate demands a justified judgement. Discuss only asks you to weigh both sides without necessarily reaching one; Identify and Describe don't ask for judgement at all."
+        },
+        {
+            q: "A Section A question is worth [1] mark. What is the safest way to answer it?",
+            opts: ["Give one short point, with no further explanation needed", "Write a fully developed paragraph explaining every possible reason", "Present both sides of the issue before reaching a judgement", "Leave the answer blank until you reach the higher-mark questions"],
+            ans: 0,
+            explain: "A [1]-mark question wants one clear point. A full paragraph, a both-sides discussion, or leaving it blank all waste marks or time."
+        },
+        {
+            q: "Which pair correctly matches a command word to what it demands?",
+            opts: ["Describe: say what something is or what happens", "State: weigh up both sides and reach a justified conclusion", "Explain: give a reason, often using the word because", "Discuss: simply name something with no further detail at all"],
+            ans: 2,
+            explain: "Explain = point plus reason (because). State actually means 'just name it'; Discuss actually means 'weigh both sides' — this option has swapped their real meanings."
+        },
+        {
+            q: "A Section B question is worth [4] marks and gives you a named scenario. What does this tariff most likely require?",
+            opts: ["One single unexplained fact, worth all four marks alone", "Points applied to the given scenario, not just generic knowledge", "Both sides of an argument, fully weighed, ending in an overall judgement", "A multiple-choice letter chosen with no further working shown"],
+            ans: 1,
+            explain: "A [4]-mark Section B question wants points applied to the scenario. The full both-sides-plus-judgement shape belongs to a [6]/[8] levelled question, not a [4]-marker."
+        }
+    ];
+
+    const matchData = [
+        { term: "Section A", def: "Worth 30 marks; mostly short recall including MCQs, plus one longer levelled question" },
+        { term: "Section B", def: "Worth 28 marks; scenario-based short and medium answers, including levelled 6-mark questions" },
+        { term: "Section C", def: "Worth 12 marks; scenario-based extended response, including an 8-mark Discuss or Evaluate question" },
+        { term: "Identify / State", def: "Command word asking you to simply name something, with no explanation needed" },
+        { term: "Describe", def: "Command word asking you to say what something is or what happens" },
+        { term: "Explain", def: "Command word asking you to give a reason, often using the word because" },
+        { term: "Discuss", def: "Command word asking you to present and weigh up both sides of an issue" },
+        { term: "Evaluate", def: "Command word asking you to weigh up both sides and reach a justified judgement" }
+    ];
+
+    const fibData = [
+        {
+            display: "The whole R184 exam paper is worth _____ marks in total.",
+            blanks: { B1: "70" }
+        },
+        {
+            display: "You have _____ minutes in total to complete the R184 exam paper.",
+            blanks: { B1: "75" }
+        },
+        {
+            display: "Section _____ is worth 28 marks and is always built around a scenario.",
+            blanks: { B1: "B" }
+        },
+        {
+            display: "Section _____ is worth 12 marks and includes an 8-mark Discuss or Evaluate question.",
+            blanks: { B1: "C" }
+        },
+        {
+            display: "The command word that asks you to just name something, with no explanation, is _____ (or State).",
+            blanks: { B1: "Identify" }
+        },
+        {
+            display: "The command word that asks you to weigh up both sides AND reach a justified judgement is _____.",
+            blanks: { B1: "Evaluate" }
+        }
+    ];
+    const fibWords = ["70", "75", "B", "C", "Identify", "Evaluate"];
+
+    const tfData = [
+        {
+            statement: "The R184 exam paper is worth 70 marks and lasts 1 hour 15 minutes.",
+            answer: true,
+            explanation: "That's the real total — 70 marks in 1 hour 15 minutes, across three sections."
+        },
+        {
+            statement: "Section A contains only multiple-choice questions and nothing else.",
+            answer: false,
+            explanation: "Section A also has shorter written answers and one longer, levelled 8-mark question — it isn't all MCQ."
+        },
+        {
+            statement: "Sections B and C are both built around a scenario or context you are given.",
+            answer: true,
+            explanation: "Both sections give you a named scenario your answer must use, and both require analysis and evaluation."
+        },
+        {
+            statement: "'Identify' and 'Evaluate' ask you for exactly the same kind of answer.",
+            answer: false,
+            explanation: "Identify wants a bare name; Evaluate wants both sides weighed plus a justified judgement — very different demands."
+        },
+        {
+            statement: "A [1]-mark question is best answered with a single, short point.",
+            answer: true,
+            explanation: "One clear point secures the one available mark; anything longer just spends time you need elsewhere."
+        },
+        {
+            statement: "Writing far more than a question's mark tariff calls for always earns extra credit.",
+            answer: false,
+            explanation: "Marks are capped at the tariff, so extra length beyond what is needed earns nothing extra and wastes time."
+        }
+    ];
+
+    const miscData = [
+        {
+            wrong: "If I write more for a 1-mark question, I can't lose marks, so it's safer to explain fully.",
+            correct: "Marks are capped at the tariff — a 1-mark question gives exactly 1 mark for a correct point, however much you write around it. The real cost is TIME: minutes spent over-explaining a 1-mark answer are minutes you don't have left for a 6- or 8-mark question later in the paper.",
+            readCheck: {
+                q: "Why is writing a long explanation for a 1-mark question a mistake?",
+                opts: ["Because it cannot earn more than the 1 mark available, and wastes time needed elsewhere", "Because examiners deduct marks for writing any extra detail beyond what a question specifically asks for", "Because 1-mark questions never actually appear on the real R184 paper", "Because long answers are always factually incorrect by definition"],
+                ans: 0,
+                explain: "A 1-mark question is capped at 1 mark regardless of length — the real loss is the time taken away from higher-mark questions."
+            }
+        },
+        {
+            wrong: "'Discuss' means giving only the side of the argument I personally agree with, as long as I explain it well.",
+            correct: "'Discuss' specifically means presenting BOTH sides, even if you personally think one is stronger. A brilliantly explained one-sided answer is capped in a lower band, because the mark scheme rewards balance before it rewards depth.",
+            readCheck: {
+                q: "A student writes only the positive effects of hosting a major event for a 'Discuss' question. What happens to their mark?",
+                opts: ["It automatically scores full marks if the writing quality is excellent", "It is capped in a lower band, because Discuss requires both sides", "It scores zero, because one-sided answers are never credited at all", "It is marked the same as a 1-mark 'State' question regardless of length"],
+                ans: 1,
+                explain: "A one-sided Discuss answer still earns some credit but is capped in a lower band — full marks need balance, not just polish."
+            }
+        },
+        {
+            wrong: "Section B and Section C are basically the same, so it doesn't matter which one I'm answering.",
+            correct: "They share the 'scenario-based' feature, but carry different marks and demands: Section B is 28 marks of short-and-medium answers including 6-mark levelled questions; Section C is 12 marks built mainly around one 8-mark Discuss/Evaluate extended response. Knowing which section you are in helps you judge how much to write.",
+            readCheck: {
+                q: "What is a genuine difference between Section B and Section C?",
+                opts: ["Section B is 28 marks of short/medium answers; Section C is 12 marks centred on one extended response", "Section B never uses a scenario, but Section C always does", "Section C is worth more marks overall than both Section A and Section B combined, according to this claim", "Section B contains no written answers of any kind, only multiple choice"],
+                ans: 0,
+                explain: "Section B (28 marks, short/medium) and Section C (12 marks, one extended response) both use a scenario but differ in marks and shape."
+            }
+        },
+        {
+            wrong: "The number of marks tells me how many separate facts to list — 8 marks means I should list 8 facts.",
+            correct: "A high tariff on a levelled question (6 or 8 marks) is NOT 'one mark per fact'. It is marked in bands: a thorough, balanced, judged answer can reach the top band with far fewer than 8 separate facts, while 8 disconnected facts with no balance or judgement stays stuck in a low band.",
+            readCheck: {
+                q: "For an 8-mark 'Evaluate' question, what actually reaches the top band?",
+                opts: ["Listing exactly eight separate facts, regardless of whether they connect to each other", "A balanced answer covering both sides plus a justified judgement", "Naming eight different named examples with no further comment at all", "Repeating the same single point in eight slightly different sentences"],
+                ans: 1,
+                explain: "Levelled questions are marked by band, not by fact-count — balance plus a justified judgement is what reaches the top band."
+            }
+        }
+    ];
+
+    const examTips = [
+        {
+            type: "tip",
+            title: "Command words for this page — matching length to demand",
+            pills: ["Identify", "Explain", "Discuss", "Evaluate"],
+            content: `<p>Every R184 question opens with a command word. Match your answer's length and shape to it, not to the space left on the page:</p>
+<ul>
+<li><strong>Identify / State</strong> — one short point. Nothing more, however tempting.</li>
+<li><strong>Describe</strong> — say what it is or what happens; still no reason needed yet.</li>
+<li><strong>Explain</strong> — give a reason. A safe habit: use the word "because" somewhere.</li>
+<li><strong>Discuss / Evaluate</strong> — both sides, and for Evaluate, a justified judgement too.</li>
+</ul>
+<p><strong>Check the tariff too:</strong> [1] = one point; [4] = applied points; [6]/[8] = levelled and banded — never a simple checklist.</p>`,
+            readCheck: {
+                q: "A question says: 'Describe two ways technology supports match officials [2]'. What does 'Describe' need here?",
+                opts: ["Simply naming two pieces of technology, with no further detail at all", "Saying what each piece of technology does, not just naming it", "Explaining why officials need this kind of support in the first place", "Weighing up whether technology is good or bad for officiating overall"],
+                ans: 1,
+                explain: "Describe wants what the technology does — naming it alone (Identify) or explaining why/weighing it up (Explain/Evaluate) are different command words."
+            }
+        },
+        {
+            type: "tip",
+            title: "The golden rule for Section B and C: use the scenario",
+            pills: ["Section B", "Section C", "Application"],
+            content: `<p>Sections B and C always give you a scenario — a named leisure centre, event, sport or performer. The most common way to lose marks here is writing a generally-true answer that ignores it.</p>
+<ul>
+<li><strong>❌ generic:</strong> "Hosting events can bring investment."</li>
+<li><strong>✅ applied:</strong> "Hosting the event described brings investment, because the scenario mentions new transport links being built for it."</li>
+</ul>
+<p>Build applied answers as <strong>point → scenario detail → effect</strong>, whichever topic area the scenario is drawn from.</p>`,
+            readCheck: {
+                q: "In a Section B or C scenario question, where should your example come from?",
+                opts: ["Any sport you personally follow, regardless of the scenario given", "The scenario you have actually been given in the question", "A generic textbook example that could apply to any scenario", "The mark scheme from a completely different exam paper"],
+                ans: 1,
+                explain: "Sections B and C are applied — marks are for using the given scenario. A generic example that ignores it is capped."
+            }
+        },
+        {
+            type: "tip",
+            title: "Where this shows up + sentence starters for the levelled questions",
+            pills: ["Section A", "Section B", "Section C"],
+            content: `<p><strong>Where the skill is tested:</strong> command-word discipline matters in every section, but the biggest marks ride on the levelled questions — one 8-marker in Section A, 6-markers in Section B, and the 8-mark Discuss/Evaluate that anchors Section C.</p>
+<p><strong>Three punchy tips:</strong></p>
+<ul>
+<li>Before writing anything, underline the command word and circle the mark tariff.</li>
+<li>For a levelled question, jot down both sides first — it stops your answer drifting one-sided.</li>
+<li>Finish every Discuss/Evaluate with one judgement sentence, even a short one — it is often worth real marks.</li>
+</ul>
+<p><strong>Sentence starters:</strong></p>
+<ul>
+<li>"One argument in favour is… because…"</li>
+<li>"On the other hand… because…"</li>
+<li>"Overall, the most significant point is… because…"</li>
+</ul>`,
+            readCheck: {
+                q: "Why is finishing a Discuss/Evaluate answer with a judgement sentence worthwhile?",
+                opts: ["It fills space at the end of the answer with no real benefit at all", "It is often where real marks sit, especially for Evaluate questions", "It replaces the need to give both sides of the argument beforehand", "It is only ever relevant for a 1-mark 'State' question"],
+                ans: 1,
+                explain: "A justified concluding judgement is often exactly what separates a mid-band answer from a top-band one, especially for Evaluate."
+            }
+        }
+    ];
+
+    const flashcards = [
+        { term: "R184 paper", def: "70 marks, 1 hour 15 minutes, three sections (A/B/C), a terminal assessment" },
+        { term: "Section A", def: "30 marks — short recall incl. MCQ, plus one 8-mark levelled question" },
+        { term: "Section B", def: "28 marks — scenario-based short/medium answers, incl. levelled 6-mark questions" },
+        { term: "Section C", def: "12 marks — scenario-based extended response, incl. an 8-mark Discuss/Evaluate" },
+        { term: "Identify / State", def: "Just name it — no explanation needed" },
+        { term: "Explain", def: "Give a reason — try using the word because" },
+        { term: "Discuss", def: "Present and weigh up both sides of an issue" },
+        { term: "Evaluate", def: "Weigh up both sides and reach a justified judgement" }
+    ];
+
+    const examQuestions = [
+        {
+            num: "1",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: "State the total number of marks available on the R184 exam paper, and state the total time allowed to complete it.",
+            hint: "Two separate facts — a number of marks, and an amount of time. No explanation is needed for either.",
+            starter: "The R184 paper is worth… marks.\n\nCandidates have… to complete it.",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1)</h5>
+<p><strong>1 mark for the correct total marks; 1 mark for the correct total time:</strong></p>
+<ul>
+<li>70 marks</li>
+<li>1 hour 15 minutes</li>
+</ul>
+</div>`,
+            modelAnswer: "The R184 paper is worth 70 marks.\n\nCandidates have 1 hour 15 minutes to complete it.",
+            markPoints: { note: "One tick for the correct marks total, one tick for the correct time — award independently.", groups: [
+                { label: "Total marks", max: 1, points: ["States 70 marks"] },
+                { label: "Total time", max: 1, points: ["States 1 hour 15 minutes"] }
+            ] }
+        },
+        {
+            num: "2",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Which command word asks you to simply name something, with no explanation required?",
+            options: ["Explain — you must give a reason for the point", "Identify or State — you name it, with no reason needed", "Discuss — you must weigh up both sides of an issue", "Evaluate — you must reach a justified overall judgement"],
+            answer: 1,
+            hint: "Think about which word needs no reason and no judgement at all — just a name.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO2)</h5>
+<p><strong>Answer: B — Identify or State.</strong></p>
+<ul>
+<li>Identify/State only requires naming something — no reason (Explain) and no judgement (Discuss/Evaluate).</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "3",
+            marks: 4,
+            type: "written",
+            caseStudy: `<p><strong>Scenario — Priya's mock exam feedback</strong></p><p>In a recent mock R184 paper, Priya answered a <strong>1-mark 'State' question</strong> with a full paragraph explaining her reasoning, and answered a <strong>6-mark 'Discuss' question</strong> with a single sentence supporting only one side of the argument.</p>`,
+            question: "Explain how Priya should change her approach to each of these two questions so that her answers match what the command word and mark tariff actually require.",
+            hint: "Take each question in turn. Say what she should do differently, and give a reason linked to the command word or the tariff.",
+            starter: "For the 1-mark 'State' question, Priya should… because…\n\nFor the 6-mark 'Discuss' question, Priya should… because…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (AO2: application)</h5>
+<p><strong>Up to 2 marks per question: 1 for saying what Priya should do differently, 1 for a reason linked to the command word or tariff. Answers may include:</strong></p>
+<ul>
+<li><strong>The 1-mark 'State' question</strong> — Priya should give one short, unexplained point instead of a paragraph, because a 1-mark question is capped at one mark and the extra writing wastes time needed for later questions.</li>
+<li><strong>The 6-mark 'Discuss' question</strong> — Priya should cover both the side she wrote and the opposing side, because Discuss requires balance, and a one-sided answer is capped in a lower band however well argued.</li>
+</ul>
+<p>Accept any other reasonable, applied answer. A change with no reason, or a reason not linked to the command word/tariff, earns 1 of the 2 marks for that question.</p>
+</div>`,
+            modelAnswer: "For the 1-mark 'State' question, Priya should give one short, unexplained point instead of a full paragraph — anything beyond one mark's worth wastes time she needs for the harder questions later on.\n\nFor the 6-mark 'Discuss' question, she should cover both the positive and negative sides, not only the one she agrees with, and add a short concluding judgement so her answer can reach the higher bands.",
+            markPoints: { note: "Mark each question out of 2: one tick for the change, one for a reason linked to the command word or tariff.", groups: [
+                { label: "The 1-mark 'State' question", max: 2, points: [
+                    { text: "Says Priya should give one short point/phrase instead of a full paragraph", marks: 1 },
+                    { text: "Gives a reason — e.g. writing more than a 1-mark answer wastes time needed for higher-mark questions", marks: 1 }
+                ] },
+                { label: "The 6-mark 'Discuss' question", max: 2, points: [
+                    { text: "Says Priya should cover BOTH sides of the issue, not only the one she supports", marks: 1 },
+                    { text: "Says she should add a justified concluding judgement rather than stopping after one sentence", marks: 1 }
+                ] }
+            ] }
+        },
+        {
+            num: "4",
+            marks: 8,
+            type: "written",
+            format: "banded",
+            caseStudy: "",
+            question: "Discuss how understanding command words and mark tariffs can help a candidate score more marks in the R184 exam.",
+            hint: "Cover more than one command word or tariff, drawing examples from across the spec. Show a benefit AND a limit, then finish with an overall judgement.",
+            starter: "Understanding command words helps because…\n\nUnderstanding the mark tariff also helps because…\n\nHowever, this only helps if…\n\nOverall, …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 8 marks (level-of-response). Read the band you fit, then pick a mark.</h5>
+<ul>
+<li><strong>Band 3 (thorough), 6–8:</strong> a balanced discussion covering more than one command word and tariff, with examples drawn from across the R184 spec, clearly showing how correct technique secures marks AND weighing its limits, ending in a justified judgement.</li>
+<li><strong>Band 2 (reasonable), 3–5:</strong> sound understanding applied with some analysis, but the discussion may be one-sided or the judgement unsupported.</li>
+<li><strong>Band 1 (basic), 1–2:</strong> names command words and/or tariffs with little application and no real evaluation; largely a list.</li>
+<li><strong>0 marks:</strong> nothing creditworthy.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Indicative content (indicative, not a checklist — reward valid alternatives)</h5>
+<ul>
+<li><strong>Recall questions:</strong> knowing that Identify/State needs only a bare point (e.g. naming user groups) stops candidates over-writing 1–2 mark answers and losing time.</li>
+<li><strong>Applied questions:</strong> knowing a [4]-mark Section B question wants points applied to the scenario, not generic knowledge (e.g. a named NGB's specific responsibilities), earns marks that a generic answer would miss.</li>
+<li><strong>Levelled questions:</strong> recognising that a [6]/[8] question (e.g. an Evaluate on hosting a major event, or on PED sanctions) needs both sides plus a justified judgement, not a one-sided or list-like answer.</li>
+<li><strong>Evaluation:</strong> command-word technique only helps if the candidate has also learned the content — it cannot invent facts about WADA, technology or emerging sports that were never revised; technique amplifies knowledge, it does not replace it.</li>
+<li><strong>Judgement:</strong> understanding command words and tariffs is powerful because it converts existing knowledge into the marks actually available — but its benefit is capped by how much content the candidate has genuinely learned.</li>
+</ul>
+</div>`,
+            modelAnswer: "Understanding command words stops candidates wasting time or missing easy marks. A question asking candidates to 'Identify two barriers to participation' [2] only needs two named barriers — writing paragraphs about each wastes time needed for harder questions. Recognising the mark tariff matters just as much: an 8-mark 'Evaluate' question on hosting a major event needs both the pre-event positives, such as new infrastructure and investment, and the negatives, such as cost and local objections, ending in a justified judgement on which outweighs the other. A one-sided answer about, say, an NGB's funding role or PED sanctions caps in a lower band however detailed it is.\n\nHowever, this skill only helps if a candidate has also revised the content itself — command-word technique cannot invent facts about WADA, technology or emerging sports that were never learned.\n\nOverall, matching answer length and structure to the command word and tariff converts existing knowledge into the marks genuinely available."
+        }
+    ];
+</script>
+    <script src="/cs-lab/exam-widgets.js"></script>
+    <script src="/script.js"></script>
+<script src="section-totals.js"></script>
+<script src="page-groups.js"></script>
+<script src="/progress-shared.js"></script>
+<script src="/gamification.js"></script>
+<script src="/topic-guard.js"></script>
+<script src="/notifications-shared.js"></script>
+<script src="/onboarding-tour.js"></script>
+<script src="/footer-legal.js"></script>
+</body>
+
+</html>

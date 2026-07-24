@@ -373,7 +373,7 @@ begin
         if (v_row->>'source') not in ('exam','mcq','tf','learn','misc','tips','fib','match') then
             raise exception 'Bad source %', v_row->>'source';
         end if;
-        if (v_row->>'qtype') not in ('mcq','tf','fib') then
+        if (v_row->>'qtype') not in ('mcq','tf','fib','numeric') then
             raise exception 'Bad qtype %', v_row->>'qtype';
         end if;
         if jsonb_typeof(v_row->'snapshot') <> 'object' or jsonb_typeof(v_row->'answer_key') <> 'object' then

@@ -15,6 +15,7 @@
       .vocab-tbl{width:100%;border-collapse:collapse;margin:8px 0}
       .vocab-tbl td{border-bottom:1px solid var(--line,#e4e8f0);padding:6px 8px;vertical-align:top}
       .vocab-tbl td:first-child{font-weight:600;white-space:nowrap}
+      @container (max-width:640px){.vocab-tbl,.vocab-tbl tbody,.vocab-tbl tr,.vocab-tbl td{display:block;width:100%}.vocab-tbl td{border-bottom:none;padding:4px 0;white-space:normal}.vocab-tbl td:nth-child(2n){padding-bottom:10px;border-bottom:1px solid var(--line,#e4e8f0);margin-bottom:6px}}
       .tier-h{display:inline-block;font-size:.72em;font-weight:700;color:#8a5a00;
         background:#fff3d6;border-radius:5px;padding:1px 5px;margin-left:5px;vertical-align:middle}
     </style>
@@ -174,7 +175,12 @@
               <tr><td><span data-say="el gimnasio">el gimnasio</span></td><td>the gym</td><td><span data-say="entrenar">entrenar</span></td><td>to train</td></tr>
               <tr><td><span data-say="estar en forma">estar en forma</span></td><td>to be fit</td><td><span data-say="activo">activo / activa</span></td><td>active</td></tr>
             </table>
-            <p>Model sentence: <span data-say="Para estar en forma, hago ejercicio tres veces por semana.">Para estar en forma, hago ejercicio tres veces por semana.</span> — <em>To be fit, I exercise three times a week.</em></p>`,
+            <p>Model sentence: <span data-say="Para estar en forma, hago ejercicio tres veces por semana.">Para estar en forma, hago ejercicio tres veces por semana.</span> — <em>To be fit, I exercise three times a week.</em></p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="fuerte">fuerte</span></td><td>strong</td><td><span data-say="débil">débil</span></td><td>weak</td></tr>
+            </table>
+            <p>Walking counts too: <span data-say="pasear">pasear</span> (to walk / stroll) — <span data-say="Los fines de semana, paseo con mi perro para hacer ejercicio sin ir al gimnasio.">Los fines de semana, paseo con mi perro para hacer ejercicio sin ir al gimnasio.</span> — <em>At weekends, I walk with my dog to exercise without going to the gym.</em> Some people check <span data-say="el reloj">el reloj</span> (the clock/watch) to time their run — no importa si corres <span data-say="lento">lento</span> (slowly) al principio.</p>
+            <p>It's hard at first, but you <span data-say="te acostumbras a hacer ejercicio">te acostumbras a hacer ejercicio</span> — <em>get used to exercising</em> — if you do it every week. <span data-say="Imagina un día sin estrés, lleno de deporte y aire libre.">Imagina un día sin estrés, lleno de deporte y aire libre.</span> — <em>Imagine a day without stress, full of sport and fresh air.</em></p>`,
             readCheck: { q: "What does ‘estar en forma’ mean?", opts: ["to be fit", "to run a race", "to go to the gym building", "to fill in a paper form"], ans: 0, explain: "estar en forma = to be fit / in shape. It is a false friend — ‘forma’ here is not a paper ‘form’." }
         },
         {
@@ -190,7 +196,11 @@
               <tr><td><span data-say="la cabeza">la cabeza</span></td><td>head</td><td><span data-say="el estómago">el estómago</span></td><td>stomach</td></tr>
               <tr><td><span data-say="la garganta">la garganta</span></td><td>throat</td><td><span data-say="la espalda">la espalda</span></td><td>back</td></tr>
               <tr><td><span data-say="las piernas">las piernas</span></td><td>legs</td><td><span data-say="los ojos">los ojos</span></td><td>eyes</td></tr>
-            </table>`,
+              <tr><td><span data-say="la boca">la boca</span></td><td>mouth</td><td><span data-say="el brazo">el brazo</span></td><td>arm</td></tr>
+              <tr><td><span data-say="el corazón">el corazón</span></td><td>heart</td><td><span data-say="la pierna">la pierna</span></td><td>leg (singular)</td></tr>
+              <tr><td><span data-say="la piel">la piel</span></td><td>skin</td><td><span data-say="el cerebro">el cerebro</span></td><td>brain</td></tr>
+            </table>
+            <p><span data-say="el dolor">el dolor</span> (pain) is the noun behind ‘doler’: <span data-say="Tengo un dolor de cabeza terrible.">Tengo un dolor de cabeza terrible.</span> — <em>I have a terrible headache.</em></p>`,
             readCheck: { q: "Why is it ‘Me duelen los pies’ and not ‘Me duele los pies’?", opts: ["‘los pies’ is plural, so the verb is plural", "‘doler’ is a verb that is always plural in Spanish", "‘pies’ is a masculine noun", "it describes a future plan"], ans: 0, explain: "Like gustar, doler agrees with the body part; ‘los pies’ is plural → duelen (doler is NOT always plural)." }
         },
         {
@@ -203,7 +213,9 @@
               <li><span data-say="estar resfriado">estar resfriado / resfriada</span> — to have a cold</li>
               <li><span data-say="el estrés">el estrés</span> — stress; <span data-say="estar estresado">estar estresado</span> — to be stressed</li>
             </ul>
-            <p>Example: <span data-say="Estoy muy cansado porque no duermo bien.">Estoy muy cansado porque no duermo bien.</span> — <em>I am very tired because I don’t sleep well.</em></p>`,
+            <p>Example: <span data-say="Estoy muy cansado porque no duermo bien.">Estoy muy cansado porque no duermo bien.</span> — <em>I am very tired because I don’t sleep well.</em></p>
+            <p><span data-say="una enfermedad">una enfermedad</span> (an illness) can be <span data-say="serio">serio / seria</span> (serious) — for example <span data-say="el cáncer">el cáncer</span> (cancer), which is often linked to smoking <span data-say="un cigarrillo">un cigarrillo</span> (a cigarette). Doctors also check <span data-say="la sangre">la sangre</span> (blood): <span data-say="El médico me hizo un análisis de sangre porque estaba muy débil.">El médico me hizo un análisis de sangre porque estaba muy débil.</span> — <em>The doctor did a blood test because I was very weak.</em></p>
+            <p>It's important to <span data-say="saber reconocer los síntomas">saber reconocer los síntomas</span> — <em>to know how to recognise the symptoms</em> — and to <span data-say="mencionar cualquier dolor al médico">mencionar cualquier dolor al médico</span> — <em>to mention any pain to the doctor</em>.</p>`,
             readCheck: { q: "Which verb do you use for ‘I am tired’ — a temporary state?", opts: ["estar → estoy cansado", "ser → soy cansado", "tener → tengo cansado", "hacer → hago cansado"], ans: 0, explain: "Temporary states and feelings use estar: estoy cansado. ‘ser’ would describe a permanent trait." }
         },
         {
@@ -216,7 +228,9 @@
               <tr><td><span data-say="hay que dormir ocho horas">hay que dormir ocho horas</span></td><td>you have to sleep eight hours</td></tr>
               <tr><td><span data-say="deberías relajarte">deberías relajarte</span> <span class="tier-h">H</span></td><td>you should relax</td></tr>
             </table>
-            <p>Example: <span data-say="Para evitar el estrés, se debe descansar y hacer ejercicio.">Para evitar el estrés, se debe descansar y hacer ejercicio.</span></p>`,
+            <p>Example: <span data-say="Para evitar el estrés, se debe descansar y hacer ejercicio.">Para evitar el estrés, se debe descansar y hacer ejercicio.</span></p>
+            <p>The verb <span data-say="cuidar">cuidar</span> (to look after / take care of) is essential: <span data-say="Hay que cuidar tu salud y dormir suficiente.">Hay que cuidar tu salud y dormir suficiente.</span> — <em>You have to look after your health and sleep enough.</em> A good night’s sleep is often the most <span data-say="efectivo">efectivo</span> (effective) remedy, and it helps reduce <span data-say="el efecto">el efecto</span> (the effect) of stress on the body.</p>
+            <p>A doctor might <span data-say="sugerir descansar más">sugerir descansar más</span> — <em>suggest resting more</em> — and it's a good idea to <span data-say="considerar hacer más ejercicio">considerar hacer más ejercicio</span> — <em>consider doing more exercise</em>.</p>`,
             readCheck: { q: "What follows ‘se debe’, ‘hay que’ and ‘deberías’?", opts: ["an infinitive (descansar, dormir…)", "a verb conjugated in the preterite past tense", "an adjective that agrees", "a noun on its own"], ans: 0, explain: "All the advice structures take an infinitive." }
         },
         {
@@ -228,7 +242,9 @@
               <li><span data-say="beber alcohol">beber alcohol</span> — to drink alcohol; <span data-say="las drogas">las drogas</span> — drugs</li>
               <li><span data-say="dejar de fumar">dejar de + infinitive</span> — to stop doing something: <span data-say="dejar de fumar">dejar de fumar</span> (to stop smoking)</li>
             </ul>
-            <p><span data-say="No se debe fumar porque es muy malo para la salud.">No se debe fumar porque es muy malo para la salud.</span></p>`,
+            <p><span data-say="No se debe fumar porque es muy malo para la salud.">No se debe fumar porque es muy malo para la salud.</span></p>
+            <p>Good habits matter too: <span data-say="lavarse los dientes">lavarse los dientes</span> (to brush/wash your teeth) after meals, and <span data-say="la risa">la risa</span> (laughter) — <span data-say="Dicen que la risa es la mejor medicina.">Dicen que la risa es la mejor medicina.</span> — <em>They say laughter is the best medicine.</em> Taking care of your <span data-say="la imagen">la imagen</span> (image) shouldn’t mean unhealthy habits, and the local health centre is normally <span data-say="abierto">abierto</span> (open) every day if you need advice.</p>
+            <p>Some people <span data-say="se niegan a dejar de fumar">se niegan a dejar de fumar</span> — <em>refuse to stop smoking</em> — even though they know it is bad for their health.</p>`,
             readCheck: { q: "‘dejar de fumar’ means…", opts: ["to stop smoking", "to let others smoke", "to smoke a little more", "to enjoy smoking outside"], ans: 0, explain: "dejar de + infinitive = to stop doing something; dejar de fumar = to stop smoking." }
         },
         {
@@ -243,7 +259,8 @@
             <ul>
               <li><span data-say="Voy a dejar de fumar y acostarme más temprano.">Voy a dejar de fumar y acostarme más temprano.</span> <span class="tier-h">H</span></li>
               <li><span data-say="Se debería evitar el estrés para mantenerse sano.">Se debería evitar el estrés para mantenerse sano.</span> <span class="tier-h">H</span></li>
-            </ul>`,
+            </ul>
+            <p><span class="tier-h">H</span> Other useful reflexive/health verbs: <span data-say="caerse">caerse</span> (to fall over) — <span data-say="Mi abuelo se cayó y le duele la pierna desde hace una semana.">Mi abuelo se cayó y le duele la pierna desde hace una semana.</span> — <em>My grandad fell over and his leg has hurt for a week.</em> Don’t forget to <span data-say="respirar">respirar</span> (breathe) deeply to relax. <span data-say="la salud mental">la salud mental</span> (mental health) matters as much as physical health — being <span data-say="optimista">optimista</span> (optimistic) helps, and a <span data-say="paciente">paciente</span> (patient) who stays positive often recovers faster. <span class="tier-h">H</span></p>`,
             readCheck: { q: "Which sentence correctly uses a reflexive verb?", opts: ["Me acuesto temprano", "Acuesto temprano cada noche", "Yo acuesto muy temprano", "Se acuesto temprano"], ans: 0, explain: "acostarse is reflexive: (yo) me acuesto. Dropping ‘me’ or using the wrong pronoun is wrong." }
         }
     ];
@@ -258,7 +275,12 @@
         { q: "Which sentence gives POSITIVE health advice?", opts: ["Se debe descansar más", "No se debe descansar nunca", "No se debe hacer ejercicio", "Se debe fumar a menudo"], ans: 0, explain: "‘se debe descansar más’ = one should rest more (good advice). The others are negatives or bad advice." },
         { q: "Complete: ‘Para estar en forma, hay que ___ ejercicio.’", opts: ["hacer", "hago", "haciendo", "hecho"], ans: 0, explain: "‘hay que’ takes an infinitive → hacer. The others are conjugated / non-finite forms." },
         { q: "‘Me duele la garganta’ — where does it hurt?", opts: ["throat", "stomach", "back", "head"], ans: 0, explain: "la garganta = throat. estómago = stomach, espalda = back, cabeza = head." },
-        { q: "‘Se debería evitar el estrés’ uses which verb form?", opts: ["the conditional (should)", "a completed past-tense action", "the ordinary present tense", "a direct command"], ans: 0, explain: "‘se debería’ = one should → conditional, a strong Higher-tier feature." }
+        { q: "‘Se debería evitar el estrés’ uses which verb form?", opts: ["the conditional (should)", "a completed past-tense action", "the ordinary present tense", "a direct command"], ans: 0, explain: "‘se debería’ = one should → conditional, a strong Higher-tier feature." },
+        { q: "Which is TRUE about smoking?", opts: ["Smoking cigarettes increases the risk of cancer", "Smoking cigarettes has no effect on your health at all", "Doctors recommend smoking to relax", "Cigarettes make you stronger and fitter"], ans: 0, explain: "un cigarrillo / fumar is linked to el cáncer. The traps deny any effect, or claim doctors recommend it, or that it helps fitness." },
+        { q: "‘Hay que cuidar tu salud’ means…", opts: ["You have to look after your health", "You have to ignore your health completely", "You have to visit the doctor every single day", "You have to stop exercising for a while"], ans: 0, explain: "cuidar = to look after / take care of. The traps invert the meaning or add detail never said." },
+        { q: "What is the noun that goes with the verb ‘doler’ (to hurt)?", opts: ["el dolor", "el dolido", "el duelo", "el dolorido"], ans: 0, explain: "el dolor = pain. ‘el duelo’ (duel/mourning) and ‘dolorido’ (sore, an adjective) are real but different words — classic look-alike traps." },
+        { q: "‘Mi abuelo se cayó’ means…", opts: ["My grandad fell over", "My grandad is going to fall over", "My grandad never falls over", "My grandad falls over often"], ans: 0, explain: "se cayó is the preterite (past) of caerse. The traps change it to future, or add ‘never’/‘often’ that was never said." },
+        { q: "Which is the best advice to relax?", opts: ["Hay que respirar profundamente", "Hay que respirar lo menos posible", "No se debe respirar durante el ejercicio", "Se debe dejar de respirar un momento"], ans: 0, explain: "Good advice: breathe deeply. The traps tell you to breathe as little as possible, not breathe while exercising, or stop breathing." }
     ];
 
     const matchData = [
@@ -273,7 +295,26 @@
         { term: "se debe descansar", def: "one should rest" },
         { term: "acostarse", def: "to go to bed" },
         { term: "relajarse", def: "to relax" },
-        { term: "malo para la salud", def: "bad for your health" }
+        { term: "malo para la salud", def: "bad for your health" },
+        { term: "la boca", def: "mouth" },
+        { term: "el brazo", def: "arm" },
+        { term: "el corazón", def: "heart" },
+        { term: "la sangre", def: "blood" },
+        { term: "el dolor", def: "pain" },
+        { term: "una enfermedad", def: "an illness" },
+        { term: "la piel", def: "skin" },
+        { term: "cuidar", def: "to look after / take care of" },
+        { term: "el cáncer", def: "cancer" },
+        { term: "un cigarrillo", def: "a cigarette" },
+        { term: "pasear", def: "to walk / stroll" },
+        { term: "respirar", def: "to breathe" },
+        { term: "acostumbrarse a", def: "to get used to" },
+        { term: "imaginar", def: "to imagine" },
+        { term: "saber", def: "to know (a fact / how to)" },
+        { term: "mencionar", def: "to mention" },
+        { term: "sugerir", def: "to suggest" },
+        { term: "considerar", def: "to consider" },
+        { term: "negarse a", def: "to refuse to" }
     ];
 
     const fibData = [
@@ -283,9 +324,14 @@
         { display: `Me _____ los pies. (my feet hurt — plural!)`, blanks: { B1: "duelen" } },
         { display: `Estoy muy _____ porque no duermo bien. (tired)`, blanks: { B1: "cansado" } },
         { display: `Voy a _____ de fumar. (to stop)`, blanks: { B1: "dejar" } },
-        { display: `Me _____ temprano para dormir ocho horas. (I go to bed — reflexive)`, blanks: { B1: "acuesto" } }
+        { display: `Me _____ temprano para dormir ocho horas. (I go to bed — reflexive)`, blanks: { B1: "acuesto" } },
+        { display: `Me duele mucho la _____ después de correr. <span data-say="Me duele mucho la pierna después de correr." data-listen>Me duele mucho la pierna después de correr.</span>`, blanks: { B1: "pierna" } },
+        { display: `Hay que _____ profundamente para relajarse. (to breathe)`, blanks: { B1: "respirar" } },
+        { display: `El médico puede _____ descansar más. (to suggest)`, blanks: { B1: "sugerir" } },
+        { display: `Es importante _____ reconocer los síntomas. (to know how to)`, blanks: { B1: "saber" } },
+        { display: `Hay que _____ cualquier dolor al médico. <span data-say="Hay que mencionar cualquier dolor al médico." data-listen>Hay que mencionar cualquier dolor al médico.</span>`, blanks: { B1: "mencionar" } }
     ];
-    const fibWords = ["duele", "fumar", "ejercicio", "duelen", "cansado", "dejar", "acuesto"];
+    const fibWords = ["duele", "fumar", "ejercicio", "duelen", "cansado", "dejar", "acuesto", "pierna", "respirar", "sugerir", "saber", "mencionar"];
 
     const tfData = [
         { statement: "‘doler’ works like ‘gustar’ — it agrees with the body part, not the person.", answer: true, explanation: "Me duele la cabeza / me duelen los pies — the verb matches the body part." },
@@ -295,7 +341,14 @@
         { statement: "For temporary feelings like ‘tired’ you use ‘estar’ (estoy cansado).", answer: true, explanation: "Temporary states use estar, not ser." },
         { statement: "‘la garganta’ means ‘the stomach’.", answer: false, explanation: "la garganta = throat; el estómago = stomach." },
         { statement: "‘acostarse’ is a reflexive verb, so ‘I go to bed’ is ‘me acuesto’.", answer: true, explanation: "Reflexive: me acuesto, te acuestas, se acuesta." },
-        { statement: "‘Se debería evitar el estrés’ uses the conditional and suits Higher tier.", answer: true, explanation: "se debería = one should (conditional)." }
+        { statement: "‘Se debería evitar el estrés’ uses the conditional and suits Higher tier.", answer: true, explanation: "se debería = one should (conditional)." },
+        { statement: "‘cuidar’ means ‘to take care of’.", answer: true, explanation: "cuidar = to look after / take care of." },
+        { statement: "‘la piel’ means ‘the leg’.", answer: false, explanation: "la piel = skin; la pierna = leg." },
+        { statement: "‘optimista’ describes someone with a negative attitude.", answer: false, explanation: "optimista = optimistic — a positive attitude." },
+        { statement: "‘considerar hacer más ejercicio’ means to refuse to exercise.", answer: false, explanation: "considerar = to consider; it means considering doing more exercise, not refusing." },
+        { statement: "‘negarse a dejar de fumar’ means to refuse to stop smoking.", answer: true, explanation: "negarse a + infinitive = to refuse to do something." },
+        { statement: "‘acostumbrarse a hacer ejercicio’ means to get used to exercising.", answer: true, explanation: "acostumbrarse a = to get used to." },
+        { statement: "‘Imagina un día sin estrés’ is an example of the past tense.", answer: false, explanation: "‘imagina’ here is a present/imperative form (imagine!), not a past tense." }
     ];
 
     const miscData = [
@@ -303,7 +356,8 @@
         { wrong: "Estoy constipado. (= I am constipated)", correct: "Estoy constipado. (= I have a cold)", readCheck: { q: "What does ‘constipado’ really mean?", opts: ["having a cold", "being constipated as you would guess", "feeling completely healthy", "being extremely tired"], ans: 0, explain: "Classic false friend: constipado = having a cold." } },
         { wrong: "Soy cansado.", correct: "Estoy cansado.", readCheck: { q: "Why ‘Estoy cansado’, not ‘Soy cansado’?", opts: ["tiredness is a temporary state → estar", "you should always use ‘tener’ with any feeling", "‘cansado’ is a plural adjective", "‘ser’ is only for the past"], ans: 0, explain: "Temporary states and moods take estar; ser would mean it is a permanent trait." } },
         { wrong: "Acuesto temprano.", correct: "Me acuesto temprano.", readCheck: { q: "What is missing in ‘Acuesto temprano’?", opts: ["the reflexive pronoun ‘me’ (me acuesto)", "an accent on the final letter of the verb form", "the linking word ‘a’", "the article ‘la’"], ans: 0, explain: "acostarse is reflexive: you need me/te/se — ‘me acuesto’." } },
-        { wrong: "Se debe fumar para relajarse.", correct: "No se debe fumar; se debe descansar para relajarse.", readCheck: { q: "Why is the ‘wrong’ sentence a problem?", opts: ["it recommends smoking, which is bad advice", "it is missing an infinitive after ‘se debe’", "‘relajarse’ is spelt incorrectly", "it uses the past tense by mistake"], ans: 0, explain: "The grammar is fine, but the ADVICE is wrong — smoking is malo para la salud." } }
+        { wrong: "Se debe fumar para relajarse.", correct: "No se debe fumar; se debe descansar para relajarse.", readCheck: { q: "Why is the ‘wrong’ sentence a problem?", opts: ["it recommends smoking, which is bad advice", "it is missing an infinitive after ‘se debe’", "‘relajarse’ is spelt incorrectly", "it uses the past tense by mistake"], ans: 0, explain: "The grammar is fine, but the ADVICE is wrong — smoking is malo para la salud." } },
+        { wrong: "Me duele el pie.", correct: "Me duele la pierna. (el pie = foot; la pierna = leg — different body parts!)", readCheck: { q: "What’s the difference between ‘el pie’ and ‘la pierna’?", opts: ["el pie = foot, la pierna = leg — they are different body parts", "they are simply two different spellings of the exact same Spanish word for foot", "‘pie’ is only ever used in the plural", "‘pierna’ means ‘shoe’"], ans: 0, explain: "el pie = foot; la pierna = leg. Mixing them up is a common GCSE slip." } }
     ];
 
     const examTips = [
@@ -330,7 +384,45 @@
         { term: "relajarse (H)", def: "to relax (reflexive)", say: "relajarse, me relajo" },
         { term: "acostarse (H)", def: "to go to bed (reflexive)", say: "acostarse, me acuesto" },
         { term: "deberías / se debería (H)", def: "you should / one should (conditional)", say: "deberías, se debería" },
-        { term: "para mantenerse sano (H)", def: "to stay healthy", say: "para mantenerse sano" }
+        { term: "para mantenerse sano (H)", def: "to stay healthy", say: "para mantenerse sano" },
+        { term: "caer / caerse", def: "to fall / to fall over", say: "caerse" },
+        { term: "fuerte", def: "strong", say: "fuerte" },
+        { term: "la boca", def: "mouth", say: "la boca" },
+        { term: "el brazo", def: "arm", say: "el brazo" },
+        { term: "el corazón", def: "heart", say: "el corazón" },
+        { term: "la sangre", def: "blood", say: "la sangre" },
+        { term: "el dolor", def: "pain", say: "el dolor" },
+        { term: "una enfermedad", def: "an illness", say: "una enfermedad" },
+        { term: "la piel", def: "skin", say: "la piel" },
+        { term: "cuidar", def: "to look after, take care of", say: "cuidar" },
+        { term: "la pierna", def: "leg", say: "la pierna" },
+        { term: "serio / seria", def: "serious", say: "serio" },
+        { term: "optimista", def: "optimistic", say: "optimista" },
+        { term: "un/a paciente", def: "a patient", say: "un paciente" },
+        { term: "el cerebro", def: "brain", say: "el cerebro" },
+        { term: "lavar(se)", def: "to wash (oneself)", say: "lavarse los dientes" },
+        { term: "pasear", def: "to walk, stroll", say: "pasear" },
+        { term: "respirar", def: "to breathe", say: "respirar" },
+        { term: "mental", def: "mental", say: "la salud mental" },
+        { term: "débil", def: "weak", say: "débil" },
+        { term: "el cáncer", def: "cancer", say: "el cáncer" },
+        { term: "un cigarrillo", def: "a cigarette", say: "un cigarrillo" },
+        { term: "el efecto", def: "effect", say: "el efecto" },
+        { term: "la imagen", def: "image", say: "la imagen" },
+        { term: "suficiente", def: "enough, sufficient", say: "suficiente" },
+        { term: "la risa", def: "laughter", say: "la risa" },
+        { term: "lento", def: "slow", say: "lento" },
+        { term: "el reloj", def: "clock, watch", say: "el reloj" },
+        { term: "efectivo", def: "effective", say: "efectivo" },
+        { term: "abierto", def: "open", say: "abierto" },
+        { term: "desde hace + present tense", def: "for / since (a period of time)", say: "desde hace una semana" },
+        { term: "acostumbrarse (a)", def: "to get used to", say: "acostumbrarse" },
+        { term: "imaginar", def: "to imagine", say: "imaginar" },
+        { term: "saber", def: "to know (a fact / how to)", say: "saber" },
+        { term: "mencionar", def: "to mention", say: "mencionar" },
+        { term: "sugerir", def: "to suggest", say: "sugerir" },
+        { term: "considerar", def: "to consider", say: "considerar" },
+        { term: "negar; negarse a", def: "to deny; to refuse to", say: "negarse a" }
     ];
 
     const EXAM_CASE_STUDIES = {

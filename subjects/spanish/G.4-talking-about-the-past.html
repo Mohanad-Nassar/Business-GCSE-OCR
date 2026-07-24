@@ -15,6 +15,7 @@
       .vocab-tbl{width:100%;border-collapse:collapse;margin:8px 0}
       .vocab-tbl td{border-bottom:1px solid var(--line,#e4e8f0);padding:6px 8px;vertical-align:top}
       .vocab-tbl td:first-child{font-weight:600;white-space:nowrap}
+      @container (max-width:640px){.vocab-tbl,.vocab-tbl tbody,.vocab-tbl tr,.vocab-tbl td{display:block;width:100%}.vocab-tbl td{border-bottom:none;padding:4px 0;white-space:normal}.vocab-tbl td:nth-child(2n){padding-bottom:10px;border-bottom:1px solid var(--line,#e4e8f0);margin-bottom:6px}}
       .tier-h{display:inline-block;font-size:.72em;font-weight:700;color:#8a5a00;
         background:#fff3d6;border-radius:5px;padding:1px 5px;margin-left:5px;vertical-align:middle}
     </style>
@@ -196,7 +197,9 @@
               <tr><td><span data-say="tener">tener</span></td><td><span data-say="tuve">tuve</span>, tuviste, tuvo, tuvimos</td></tr>
               <tr><td><span data-say="estar">estar</span></td><td><span data-say="estuve">estuve</span>, estuviste, estuvo, estuvimos</td></tr>
             </table>
-            <p><strong>ser and ir share IDENTICAL forms</strong> in the preterite — only context tells you which one is meant: <span data-say="Fui al cine.">Fui al cine.</span> (I went) vs <span data-say="Fue muy interesante.">Fue muy interesante.</span> (It was).</p>`,
+            <p><strong>ser and ir share IDENTICAL forms</strong> in the preterite — only context tells you which one is meant: <span data-say="Fui al cine.">Fui al cine.</span> (I went) vs <span data-say="Fue muy interesante.">Fue muy interesante.</span> (It was).</p>
+            <p>More irregular preterite stems worth learning: <span data-say="decir">decir</span> → <span data-say="dije">dije</span>, dijiste, dijo, dijimos, dijisteis, dijeron; <span data-say="poder">poder</span> → <span data-say="pude">pude</span>, pudiste, pudo, pudimos; <span data-say="saber">saber</span> → <span data-say="supe">supe</span>, supiste, supo, supimos; <span data-say="querer">querer</span> → <span data-say="quise">quise</span>, quisiste, quiso, quisimos; <span data-say="venir">venir</span> → <span data-say="vine">vine</span>, viniste, vino, vinimos; <span data-say="traer">traer</span> → <span data-say="traje">traje</span>, trajiste, trajo, trajimos, trajisteis, trajeron.</p>
+            <p>Watch the spelling: verbs with a <strong>-j-</strong> stem (decir, traer, and similar verbs) DROP the <strong>i</strong> in the ellos/ellas ending — <span data-say="dijeron">dijeron</span> and <span data-say="trajeron">trajeron</span>, never "dijieron"/"trajieron".</p>`,
             readCheck: { q: "'fui' can mean 'I went' OR 'I was', because…", opts: ["ser and ir share identical preterite forms", "the word changes its spelling with meaning", "'fui' only ever means 'I was' in context", "'fui' is a completely regular -IR verb"], ans: 0, explain: "ser (to be) and ir (to go) have exactly the same irregular preterite forms — fui, fuiste, fue… Context tells you which verb is meant." }
         },
         {
@@ -237,6 +240,33 @@
             <p>Irregular participles: <span data-say="hecho">hecho</span> (hacer), visto (ver), escrito (escribir).</p>
             <p>Example: <span data-say="Nunca he comido paella.">Nunca he comido paella.</span> — <em>I have never eaten paella.</em></p>`,
             readCheck: { q: "How is the perfect tense formed?", opts: ["haber (he/has/ha…) + past participle", "the preterite stem plus the ending -aba", "estar + a gerund ending in -ando/-iendo", "the plain infinitive with no changes"], ans: 0, explain: "Perfect = present of haber + past participle: he comido, ha hecho. estar+gerund is the continuous; -aba builds the imperfect." }
+        },
+        {
+            title: "What about the 'tú' and other imperfect forms of tricky verbs?",
+            tag: "Exam skill",
+            content: `<p>So far you've mostly seen <strong>yo/él</strong> imperfect forms. Listening and speaking tasks often need <strong>tú</strong> too — asking or telling someone what THEY used to do.</p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="ser">ser</span></td><td><span data-say="era">era</span> (yo/él)</td><td><span data-say="eras">eras</span> (tú)</td></tr>
+              <tr><td><span data-say="ir">ir</span></td><td><span data-say="iba">iba</span> (yo/él)</td><td><span data-say="ibas">ibas</span> (tú)</td></tr>
+              <tr><td><span data-say="ver">ver</span></td><td><span data-say="veía">veía</span> (yo/él)</td><td><span data-say="veías">veías</span> (tú)</td></tr>
+              <tr><td><span data-say="tener">tener</span></td><td><span data-say="tenía">tenía</span> (yo/él)</td><td><span data-say="tenías">tenías</span> (tú)</td></tr>
+              <tr><td><span data-say="estar">estar</span></td><td>estaba (yo/él)</td><td><span data-say="estabas">estabas</span> (tú)</td></tr>
+            </table>
+            <p><strong>tener</strong> and <strong>estar</strong> are regular in the imperfect — they just add -ía/-ías or -aba/-abas to the stem, unlike ser/ir/ver which change their stem. Example: <span data-say="Cuando eras pequeño, ¿tenías miedo de la oscuridad?">Cuando eras pequeño, ¿tenías miedo de la oscuridad?</span> — <em>When you were little, were you afraid of the dark?</em></p>
+            <p>Another: <span data-say="Yo estaba en casa, pero tú estabas en el colegio.">Yo estaba en casa, pero tú estabas en el colegio.</span> — <em>I was at home, but you were at school.</em></p>`,
+            readCheck: { q: "What is the 'tú' imperfect form of 'tener'?", opts: ["tenías", "tuviste", "tenía", "tienes"], ans: 0, explain: "tener is regular in the imperfect: tenía (yo/él), tenías (tú). 'tuviste' is the preterite tú form; 'tienes' is present." }
+        },
+        {
+            title: "How does 'dar' behave in the preterite?",
+            tag: "Exam skill",
+            content: `<p><span data-say="dar">dar</span> looks like a regular -AR verb, but in the preterite it borrows the -ER/-IR endings — and with NO written accents at all.</p>
+            <table class="vocab-tbl">
+              <tr><td>yo</td><td>di</td><td>nosotros/as</td><td><span data-say="dimos">dimos</span></td></tr>
+              <tr><td>tú</td><td><span data-say="diste">diste</span></td><td>vosotros/as</td><td><span data-say="disteis">disteis</span></td></tr>
+              <tr><td>él/ella/usted</td><td><span data-say="dio">dio</span></td><td>ellos/ellas/ustedes</td><td><span data-say="dieron">dieron</span></td></tr>
+            </table>
+            <p>Example: <span data-say="Mi madre me dio un regalo y mis amigos me dieron una tarjeta.">Mi madre me dio un regalo y mis amigos me dieron una tarjeta.</span> — <em>My mum gave me a present and my friends gave me a card.</em></p>`,
+            readCheck: { q: "Which preterite ending pattern does 'dar' follow?", opts: ["the -ER/-IR endings, but with no written accents", "the regular -AR endings, with accents on yo and él", "the same imperfect endings as hablar (-aba)", "no ending at all — dar stays the same in the past"], ans: 0, explain: "dar is -AR but takes -ER/-IR preterite endings without accents: di, diste, dio, dimos, disteis, dieron." }
         }
     ];
 
@@ -250,7 +280,12 @@
         { q: `Complete: "De pequeño, normalmente mi madre se ___ (levantarse) a las seis."`, opts: ["levantaba", "levantó", "levanta", "ha levantado"], ans: 0, explain: "'normalmente' plus a repeated childhood habit = imperfect: se levantaba. 'levantó' is a single occasion, 'levanta' present, 'ha levantado' perfect." },
         { q: `Higher: which sentence correctly uses the perfect tense for 'I have never eaten paella'?`, opts: ["Nunca he comido paella", "Nunca comí paella el sábado", "Nunca como paella los domingos", "Nunca comía paella de pequeño"], ans: 0, explain: "The perfect (haber + participle) links past experience to now with no definite time marker: Nunca he comido paella. The others add a preterite, present or imperfect time frame." },
         { q: `Complete: "Mientras yo ___ (cocinar), mi hermano llegó a casa."`, opts: ["cocinaba", "cociné", "cocino", "he cocinado"], ans: 0, explain: "'mientras' introduces the ongoing background action → imperfect: cocinaba, interrupted by the preterite 'llegó'." },
-        { q: `<span data-say="El año pasado, viajé a España con mi familia." data-listen></span><br>Listen. What is being said?`, opts: ["Last year, I travelled to Spain with my family", "Every year, I travel to Spain with my family", "I used to travel to Spain with my family", "Next year, I will travel to Spain with my family"], ans: 0, explain: "'El año pasado, viajé' = Last year, I travelled (preterite, a single trip). The others swap the time frame to present, habitual or future." }
+        { q: `<span data-say="El año pasado, viajé a España con mi familia." data-listen></span><br>Listen. What is being said?`, opts: ["Last year, I travelled to Spain with my family", "Every year, I travel to Spain with my family", "I used to travel to Spain with my family", "Next year, I will travel to Spain with my family"], ans: 0, explain: "'El año pasado, viajé' = Last year, I travelled (preterite, a single trip). The others swap the time frame to present, habitual or future." },
+        { q: `Complete: "Cuando yo era pequeño, ___ (tener) un perro llamado Rex."`, opts: ["tenía", "tuve", "tengo", "he tenido"], ans: 0, explain: "'Cuando era pequeño' sets up a description of a past state → imperfect: tenía. 'tuve' is preterite (a single moment of having/receiving), 'tengo' present, 'he tenido' perfect." },
+        { q: `Complete: "Cuando ___ (estar) en Madrid, tú visitabas el museo del Prado a menudo."`, opts: ["estabas", "estuviste", "estás", "has estado"], ans: 0, explain: "estar is regular in the imperfect: estaba (yo/él), estabas (tú) — an ongoing state. 'estuviste' is the preterite tú form (a finished moment), 'estás' present, 'has estado' perfect." },
+        { q: `<span data-say="Mi madre me dio un regalo y mis amigos me dieron una tarjeta." data-listen></span><br>Listen. What happened?`, opts: ["My mum gave me a present and my friends gave me a card", "My mum gives me a present every single birthday each year", "My mum will give me a present next Tuesday for my birthday", "My mum used to give me a present every single year"], ans: 0, explain: "'dio' and 'dieron' are the él/ella and ellos preterite forms of dar (no accents). The others swap it into present, future or habitual imperfect." },
+        { q: `Complete: "Ayer, yo no ___ (poder) terminar los deberes a tiempo."`, opts: ["pude", "podía", "puedo", "he podido"], ans: 0, explain: "'Ayer' + a single completed action → preterite: pude (I managed to / succeeded in). 'podía' is imperfect (was able to, ongoing), 'puedo' present, 'he podido' perfect." },
+        { q: `Which sentence means "I found out the truth yesterday"?`, opts: ["Ayer supe la verdad", "Ayer sabía la verdad", "Ayer sé la verdad", "Ayer he sabido la verdad"], ans: 0, explain: "supe (preterite of saber) = 'found out' at a specific moment. 'sabía' (imperfect) = 'knew' as an ongoing state; 'sé' present; 'he sabido' perfect." }
     ];
 
     const matchData = [
@@ -265,7 +300,24 @@
         { term: "comía", def: "I used to eat / was eating" },
         { term: "era", def: "I was (description)" },
         { term: "iba", def: "I used to go" },
-        { term: "he comido", def: "I have eaten" }
+        { term: "he comido", def: "I have eaten" },
+        { term: "eras", def: "you were (tú, description)" },
+        { term: "tenía", def: "I/he/she had (imperfect)" },
+        { term: "tenías", def: "you had / used to have" },
+        { term: "estabas", def: "you were (tú, place/state)" },
+        { term: "ibas", def: "you used to go" },
+        { term: "veías", def: "you used to see / watch" },
+        { term: "dije", def: "I said" },
+        { term: "pude", def: "I could / managed to" },
+        { term: "supe", def: "I found out / knew" },
+        { term: "quise", def: "I wanted / tried to" },
+        { term: "vine", def: "I came" },
+        { term: "traje", def: "I brought" },
+        { term: "dio", def: "he/she gave" },
+        { term: "diste", def: "you gave" },
+        { term: "dieron", def: "they gave" },
+        { term: "dimos", def: "we gave" },
+        { term: "disteis", def: "you all gave" }
     ];
 
     const fibData = [
@@ -275,9 +327,14 @@
         { display: `Normalmente, mi madre se _____ (levantarse) a las seis. (imperfect — a repeated habit)`, blanks: { B1: "levantaba" } },
         { display: `Mientras yo cocinaba, mi hermano _____ (llegar) a casa. (the interrupting single event — preterite)`, blanks: { B1: "llegó" } },
         { display: `Escucha y completa: Ayer _____ en el parque toda la tarde. <span data-say="Ayer estuve en el parque toda la tarde." data-listen></span>`, blanks: { B1: "estuve" } },
-        { display: `Higher: Nunca _____ (comer) paella antes. (perfect tense — haber + participle)`, blanks: { B1: "he comido" } }
+        { display: `Higher: Nunca _____ (comer) paella antes. (perfect tense — haber + participle)`, blanks: { B1: "he comido" } },
+        { display: `Cuando eras pequeño, ¿tú _____ (tener) miedo de la oscuridad? (imperfect — tú form)`, blanks: { B1: "tenías" } },
+        { display: `Escucha y completa: Mis amigos me _____ una sorpresa para mi cumpleaños. <span data-say="Mis amigos me dieron una sorpresa para mi cumpleaños." data-listen></span>`, blanks: { B1: "dieron" } },
+        { display: `Anoche, yo _____ (venir) tarde a casa después de la fiesta.`, blanks: { B1: "vine" } },
+        { display: `Ayer, le _____ (decir) toda la verdad a mi mejor amiga.`, blanks: { B1: "dije" } },
+        { display: `Para el picnic, yo _____ (traer) mi propia comida y bebida.`, blanks: { B1: "traje" } }
     ];
-    const fibWords = ["hablé", "fuimos", "vivía", "levantaba", "llegó", "estuve", "he comido"];
+    const fibWords = ["hablé", "fuimos", "vivía", "levantaba", "llegó", "estuve", "he comido", "tenías", "dieron", "vine", "dije", "traje"];
 
     const tfData = [
         { statement: "The preterite describes a completed action in the past.", answer: true, explanation: "hablé, comí, fui — all describe an action that finished at a specific point in time." },
@@ -287,7 +344,9 @@
         { statement: "'era', 'iba' and 'veía' are the only three irregular imperfect verbs.", answer: true, explanation: "ser (era), ir (iba) and ver (veía) are the sole imperfect irregulars — every other verb is regular." },
         { statement: "'ayer' is a time marker usually paired with the preterite.", answer: true, explanation: "ayer, el año pasado, anoche all point to a finished one-off action → preterite." },
         { statement: "'normalmente' usually signals the imperfect tense.", answer: true, explanation: "normalmente, todos los días, de pequeño all point to a habit → imperfect." },
-        { statement: "The perfect tense is formed with estar plus a gerund.", answer: false, explanation: "The perfect is haber + past participle (he comido); estar + gerund (-ando/-iendo) builds the continuous instead." }
+        { statement: "The perfect tense is formed with estar plus a gerund.", answer: false, explanation: "The perfect is haber + past participle (he comido); estar + gerund (-ando/-iendo) builds the continuous instead." },
+        { statement: "'tenía' can mean both 'I had' and 'he/she had' in the imperfect.", answer: true, explanation: "yo and él/ella share identical -ER/-IR imperfect endings: tenía serves both — only context (or a subject pronoun) tells you which." },
+        { statement: "'dar' takes accented endings in the preterite, just like 'hablar' does.", answer: false, explanation: "dar borrows the -ER/-IR preterite endings with NO written accents: di, diste, dio, dimos, disteis, dieron." }
     ];
 
     const miscData = [
@@ -322,7 +381,24 @@
         { term: "era", def: "I was (description)", say: "era" },
         { term: "iba", def: "I used to go", say: "iba" },
         { term: "veía", def: "I used to see / watch", say: "veía" },
-        { term: "he comido (H)", def: "I have eaten", say: "he comido" }
+        { term: "he comido (H)", def: "I have eaten", say: "he comido" },
+        { term: "eras", def: "you were (tú, description)", say: "eras" },
+        { term: "tenía", def: "I/he/she had (imperfect)", say: "tenía" },
+        { term: "tenías", def: "you had / used to have", say: "tenías" },
+        { term: "estabas", def: "you were (tú, place/state)", say: "estabas" },
+        { term: "ibas", def: "you used to go", say: "ibas" },
+        { term: "veías", def: "you used to see / watch", say: "veías" },
+        { term: "dije (decir)", def: "I said", say: "dije" },
+        { term: "pude (poder)", def: "I could / managed to", say: "pude" },
+        { term: "supe (saber)", def: "I found out / knew", say: "supe" },
+        { term: "quise (querer)", def: "I wanted / tried to", say: "quise" },
+        { term: "vine (venir)", def: "I came", say: "vine" },
+        { term: "traje (traer)", def: "I brought", say: "traje" },
+        { term: "dio (dar)", def: "he/she gave", say: "dio" },
+        { term: "diste (dar)", def: "you gave", say: "diste" },
+        { term: "dieron (dar)", def: "they gave", say: "dieron" },
+        { term: "dimos (dar)", def: "we gave", say: "dimos" },
+        { term: "disteis (dar)", def: "you all gave", say: "disteis" }
     ];
 
     const EXAM_CASE_STUDIES = {};

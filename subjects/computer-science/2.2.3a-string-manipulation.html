@@ -1,0 +1,1147 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2.2.3a String Manipulation – Interactive Study Guide</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+    <header>
+        <div>
+            <div class="badge">OCR GCSE Computer Science — Paper 2 · 2.2 Programming Fundamentals</div>
+            <h1>2.2.3a String Manipulation</h1>
+            <p>Interactive revision guide</p>
+        </div>
+        <a href="/index.html" class="home-link">← 🏡 Home</a>
+    </header>
+
+    <nav class="tab-bar" id="tabBar">
+        <button class="tab-btn active" onclick="switchTab('learn', this)">
+            📚 Key Learning
+        </button>
+        <button class="tab-btn" onclick="switchTab('mcq', this)">
+            ❓ MCQ Quiz
+        </button>
+        <button class="tab-btn" onclick="switchTab('matching', this)">
+            🔗 Matching
+        </button>
+        <button class="tab-btn" onclick="switchTab('fib', this)">
+            ✏️ Fill the Blanks
+        </button>
+        <button class="tab-btn" onclick="switchTab('misconceptions', this)">
+            ⚠️ Misconceptions
+        </button>
+        <button class="tab-btn" onclick="switchTab('examtips', this)">
+            🎯 Exam Tips
+        </button>
+        <button class="tab-btn" onclick="switchTab('flashcards', this)">
+            🃏 Flashcards
+        </button>
+        <button class="tab-btn" onclick="switchTab('truefalse', this)">
+            ✅ True / False
+        </button>
+        <button class="tab-btn" onclick="switchTab('exampractice', this)">
+            📝 Exam Practice
+        </button>
+    </nav>
+
+    <main>
+        <div class="tab-panel active" id="tab-learn">
+            <h2 class="section-title">Key Learning Topics</h2>
+            <p class="section-sub">Click any card to expand detailed notes.</p>
+            <div class="topic-grid" id="topicGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-mcq">
+            <h2 class="section-title">Multiple Choice Questions</h2>
+            <p class="section-sub">Select an answer to reveal instant feedback.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="mcqScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">
+                        correct answers
+                    </div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    out of <strong id="mcqTotal">0</strong> attempted
+                </div>
+                <button class="reset-btn" onclick="resetMCQ()">RESET</button>
+            </div>
+            <div class="quiz-wrap" id="mcqWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-matching">
+            <h2 class="section-title">Matching Activity</h2>
+            <p class="section-sub">
+                Click a term on the left, then click the matching definition on the
+                right.
+            </p>
+            <div style="margin-bottom: 16px">
+                <div class="score-bar">
+                    <div>
+                        <div class="score-num" id="matchScore">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">matched</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="matchTotal">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetMatch()">RESET</button>
+                </div>
+            </div>
+            <div class="match-grid">
+                <div>
+                    <div class="match-label">TERMS</div>
+                    <div class="match-col" id="matchLeft"></div>
+                </div>
+                <div>
+                    <div class="match-label">DEFINITIONS</div>
+                    <div class="match-col" id="matchRight"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-fib">
+            <h2 class="section-title">Fill in the Blanks</h2>
+            <p class="section-sub">
+                Click each dropdown and choose the correct word. Wrong answers reset —
+                try again!
+            </p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="fibScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="fibTotal">0</strong> blanks
+                </div>
+                <button class="reset-btn" onclick="resetFIB()">RESET</button>
+            </div>
+            <div class="fib-wrap" id="fibWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-misconceptions">
+            <h2 class="section-title">Common Misconceptions</h2>
+            <p class="section-sub">
+                What students often think — and what examiners actually want.
+            </p>
+            <div class="misc-list" id="miscList"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-examtips">
+            <h2 class="section-title">Exam Questions &amp; Tips</h2>
+            <p class="section-sub">
+                Most repeated question types and mark-scheme structures from real OCR
+                papers.
+            </p>
+            <div class="tips-grid" id="tipsGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-flashcards">
+            <h2 class="section-title">Flashcards</h2>
+            <p class="section-sub">
+                Test yourself! Flip the card and rate your knowledge. Review your weak
+                areas at the end.
+            </p>
+
+            <div class="fc-container">
+                <div class="score-bar" id="fcScoreBar" style="display: none; margin-bottom: 20px">
+                    <div>
+                        <div class="score-num" id="fcKnown" style="color: #2d7a4f">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">known</div>
+                    </div>
+                    <div>
+                        <div class="score-num" id="fcUnknown" style="color: #c84b31">
+                            0
+                        </div>
+                        <div style="font-size: 12px; color: var(--mid)">learning</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="fcTotalTrack">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
+                </div>
+
+                <div id="fcActiveArea">
+                    <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
+                    <div class="flashcard" id="flashcard" onclick="flipCard()">
+                        <div class="fc-inner">
+                            <div class="fc-front">
+                                <div class="fc-label">KEY TERM</div>
+                                <div class="fc-term" id="fcTerm"></div>
+                            </div>
+                            <div class="fc-back">
+                                <div class="fc-def" id="fcDef"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="fc-hint">👆 Click card to flip</p>
+
+                    <div class="fc-nav" id="fcNavDefault">
+                        <button class="fc-btn outline" onclick="prevCard()">
+                            ← Prev
+                        </button>
+                        <button class="fc-btn outline" onclick="flipCard()">Flip</button>
+                        <button class="fc-btn" onclick="nextCard()">Next →</button>
+                    </div>
+
+                    <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px">
+                        <button class="fc-btn outline" style="border-color: #c84b31; color: #c84b31; flex: 1"
+                            onclick="markCard(false)">
+                            ❌ Still Learning
+                        </button>
+                        <button class="fc-btn" style="background: #2d7a4f; border-color: #2d7a4f; flex: 1"
+                            onclick="markCard(true)">
+                            ✅ Got It
+                        </button>
+                    </div>
+                </div>
+
+                <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px">
+                    <h3>Session Complete! 🎉</h3>
+                    <p style="margin: 15px 0">
+                        You knew <strong id="fcSummaryKnown">0</strong> out of
+                        <strong id="fcSummaryTotal">0</strong> cards.
+                    </p>
+                    <div style="
+                margin-top: 25px;
+                display: flex;
+                gap: 15px;
+                justify-content: center;
+                flex-wrap: wrap;
+              ">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
+                            style="background: #c84b31; border-color: #c84b31">
+                            Review Incorrect
+                        </button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">
+                            Practice All Again
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-truefalse">
+            <h2 class="section-title">True or False?</h2>
+            <p class="section-sub">Test your knowledge with these statements.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="tfScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="tfTotal">0</strong> answered
+                </div>
+                <button class="reset-btn" onclick="resetTF()">RESET</button>
+            </div>
+            <div class="tf-wrap" id="tfWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-exampractice">
+            <h2 class="section-title">Exam Practice Questions</h2>
+            <p class="section-sub">
+                Full exam questions with case studies. Use <strong>Hint</strong>,
+                <strong>Sentence Starter</strong> and
+                <strong>Submit &amp; See Mark Scheme</strong> for each question.
+            </p>
+            <div class="ep-list" id="epList"></div>
+        </div>
+    </main>
+
+<script>
+    // ══════════════════════════════════════
+    //  DATA: 2.2.3a String Manipulation
+    //  Pseudocode shown in OCR Exam Reference Language (ERL) — the language
+    //  Paper 2 questions are set in.
+    // ══════════════════════════════════════
+    const pageMeta = {
+            id: '2-2-3a-string-manipulation',
+            badge: 'OCR GCSE Computer Science — Paper 2 · 2.2 Programming Fundamentals',
+            title: '2.2.3a String Manipulation',
+            subtitle: 'Interactive revision guide',
+            subject: 'computer-science',
+        };
+
+    const topics = [
+        {
+            title: "Strings as a list of characters",
+            tag: "String handling",
+            content: `<h4>Every character has a position</h4>
+<ul>
+<li>OCR's Exam Reference Language treats a string as an ordered list of characters, each with a position called its <strong>index</strong>. Indexing starts at <strong>0</strong> — the first character is at index 0, not index 1.</li>
+<li><code>str.length</code> returns the <strong>number of characters</strong> in a string — this includes spaces and punctuation, not just letters.</li>
+</ul>
+<div class="code-block">word = "Pencil"
+print(word.length)      // 6
+
+// index:   0    1    2    3    4    5
+// char:    P    e    n    c    i    l</div>
+<ul>
+<li>Knowing the index of each character is the foundation for every other string operation on this page — you will use it constantly with <code>substring</code>, <code>left</code> and <code>right</code>.</li>
+</ul>`,
+            readCheck: {
+                q: "A string is stored as  city = \"Leeds\" . What index does the letter L sit at?",
+                opts: ["0", "1", "5, because that is the total number of characters city contains in total", "The letter L does not have an index, because only whole strings can be indexed, never individual characters"],
+                ans: 0,
+                explain: "ERL strings are 0-indexed, so the very first character — here, L — is always at index 0."
+            }
+        },
+        {
+            title: "substring(startIndex, numberOfChars) — the length trap",
+            tag: "String handling",
+            content: `<h4>The single most common string mistake</h4>
+<ul>
+<li><code>str.substring(startIndex, numberOfChars)</code> extracts part of a string. <strong>startIndex</strong> is where to begin (0-indexed). <strong>numberOfChars</strong> is <strong>how many characters to take</strong> from that point — it is a <strong>length</strong>, <strong>NOT</strong> the index where extraction should stop.</li>
+</ul>
+<div class="code-block">name = "Computer"
+print(name.substring(0, 3))   // "Com"    — start at index 0, take 3 characters
+print(name.substring(3, 5))   // "puter"  — start at index 3, take 5 characters</div>
+<ul>
+<li>Many students wrongly read the second value as an end position (the way some other languages work). In ERL it never is — always count forwards <strong>from</strong> the start index for however many characters are asked for.</li>
+</ul>`,
+            readCheck: {
+                q: "For  name = \"Computer\" , what does  name.substring(3, 5)  return?",
+                opts: ["puter", "Comp", "ute", "Computer, because the second argument is sometimes wrongly read as meaning 'return everything from here to the end'"],
+                ans: 0,
+                explain: "Starting at index 3 and taking 5 characters covers indices 3, 4, 5, 6 and 7 — \"p\", \"u\", \"t\", \"e\", \"r\" — giving \"puter\"."
+            }
+        },
+        {
+            title: "left(n) and right(n) — quick ends",
+            tag: "String handling",
+            content: `<h4>Shortcuts for the start and end of a string</h4>
+<ul>
+<li><code>str.left(n)</code> — returns the first <strong>n</strong> characters of the string.</li>
+<li><code>str.right(n)</code> — returns the last <strong>n</strong> characters of the string.</li>
+</ul>
+<div class="code-block">word = "Keyboard"
+print(word.left(3))     // "Key"
+print(word.right(4))    // "oard"</div>
+<ul>
+<li>Both could be written using <code>substring</code> instead — <code>word.left(3)</code> is the same as <code>word.substring(0, 3)</code> — but <code>left</code> and <code>right</code> are quicker to write when you only need one end of the string.</li>
+</ul>`,
+            readCheck: {
+                q: "What does  word.right(4)  return, for  word = \"Notebook\" ?",
+                opts: ["book", "Note", "The first four characters, because right(n) is sometimes wrongly assumed to count n characters in from the very start", "ebook"],
+                ans: 0,
+                explain: "right(n) takes the LAST n characters. \"Notebook\" has 8 characters, so the last 4 are \"book\". left(4) would instead give \"Note\"."
+            }
+        },
+        {
+            title: "upper and lower — changing case",
+            tag: "String handling",
+            content: `<h4>Converting between capital and lower-case letters</h4>
+<ul>
+<li><code>str.upper</code> — returns the string converted to <strong>UPPER CASE</strong>.</li>
+<li><code>str.lower</code> — returns the string converted to <strong>lower case</strong>.</li>
+</ul>
+<div class="code-block">shout = "Warning"
+print(shout.upper)     // "WARNING"
+print(shout.lower)     // "warning"</div>
+<ul>
+<li>Like every string operation on this page, <code>upper</code> and <code>lower</code> <strong>return a new string</strong> — they do <strong>not</strong> change the original variable. If you want to keep the result, you must store it: <code>shout = shout.upper</code>.</li>
+</ul>`,
+            readCheck: {
+                q: "s = \"team\"  is set, then the line  s.upper  runs on its own (its result is not stored anywhere). What is  s  afterwards?",
+                opts: ["\"team\" — unchanged, because .upper returns a new string rather than changing the original variable", "\"TEAM\"", "\"Team\", with only the first letter capitalised as a compromise", "An error, because a string method's result must always be stored in a variable before the program can continue"],
+                ans: 0,
+                explain: "String methods like .upper return a NEW string; they don't modify the original variable. Since the result here isn't stored anywhere, s stays \"team\"."
+            }
+        },
+        {
+            title: "ASC and CHR — characters and codes",
+            tag: "String handling",
+            content: `<h4>Converting between a character and its code</h4>
+<ul>
+<li>Every character a computer stores has a numeric <strong>character code</strong> (its position in the character set, e.g. ASCII).</li>
+<li><code>ASC(char)</code> — takes a single character and returns its <strong>character code</strong> (a number).</li>
+<li><code>CHR(code)</code> — takes a code (a number) and returns the <strong>character</strong> it represents. CHR is the opposite of ASC.</li>
+</ul>
+<div class="code-block">print(ASC("A"))     // 65
+print(CHR(65))      // "A"
+print(ASC("a"))     // 97
+print(CHR(97))      // "a"</div>
+<ul>
+<li>ASC and CHR always undo each other: <code>CHR(ASC(letter))</code> always gives back <code>letter</code> unchanged.</li>
+</ul>`,
+            readCheck: {
+                q: "What does  CHR(65)  return?",
+                opts: ["A", "65", "a", "ASC(65), since CHR is sometimes wrongly assumed to need combining with ASC before it can return anything at all"],
+                ans: 0,
+                explain: "CHR(code) converts a code number into its character. 65 is the character code for the capital letter A."
+            }
+        },
+        {
+            title: "ASCII blocks — the four anchor points",
+            tag: "String handling",
+            content: `<h4>You don't need the whole table — just four anchors</h4>
+<ul>
+<li>Capital letters, lower-case letters and digits each sit in their own <strong>consecutive block</strong> of character codes. For GCSE, you should know four anchor points:</li>
+<li><code>ASC("A") = 65</code>  and  <code>ASC("Z") = 90</code></li>
+<li><code>ASC("a") = 97</code>  and  <code>ASC("0") = 48</code></li>
+</ul>
+<div class="code-block">// Because each block is consecutive, adding 1 to a code moves to the NEXT character:
+letter = "B"
+nextLetter = CHR(ASC(letter) + 1)
+print(nextLetter)          // "C"</div>
+<ul>
+<li>This "add to the code, then convert back" pattern is the basis of exam questions that ask you to shift a letter forwards or backwards through the alphabet.</li>
+</ul>`,
+            readCheck: {
+                q: "Using the anchor points  ASC(\"A\") = 65  and  ASC(\"a\") = 97 , what is  ASC(\"b\") ?",
+                opts: ["98", "66, since capital and lower-case letters are sometimes wrongly assumed to always share exactly the same code", "97", "2, because b is sometimes wrongly assumed to give its position in the alphabet rather than its character code"],
+                ans: 0,
+                explain: "Lower-case letters run consecutively from a = 97, so b (the next letter) is 97 + 1 = 98."
+            }
+        },
+        {
+            title: "Concatenation",
+            tag: "String handling",
+            content: `<h4>Joining strings end to end</h4>
+<ul>
+<li><strong>Concatenation</strong> joins strings together using <code>+</code>. The strings are joined exactly as they are — <strong>nothing extra is added</strong>, so include any spaces or punctuation yourself.</li>
+<li>Both sides of <code>+</code> must be strings — joining a string with a number usually needs the number converted first (see casting in 2.2.2).</li>
+</ul>
+<div class="code-block">first = "Hello"
+second = "World"
+message = first + " " + second
+print(message)          // "Hello World"
+print(message.length)   // 11</div>
+<ul>
+<li>Forgetting the <code>" "</code> in the middle is a common slip — <code>first + second</code> alone would give <code>"HelloWorld"</code> with no space at all.</li>
+</ul>`,
+            readCheck: {
+                q: "s1 = \"Data\" and s2 = \"base\" . What does  print(s1 + s2)  output?",
+                opts: ["Database", "Data base, with a single space automatically inserted between the two words by the plus operator", "base Data", "DataBase"],
+                ans: 0,
+                explain: "+ joins the strings with nothing extra added. \"Data\" + \"base\" gives \"Database\" — no space is inserted automatically."
+            }
+        },
+        {
+            title: "Combining string operations",
+            tag: "Exam skill",
+            content: `<h4>Building up a result from several small steps</h4>
+<ul>
+<li>Exam questions often chain two or three string operations together. Work out each step <strong>separately</strong>, in the order they happen, before combining the results.</li>
+</ul>
+<div class="code-block">first = "Amara"
+last = "Diallo"
+initials = first.left(1) + last.left(1)
+print(initials.upper)      // "AD"</div>
+<ul>
+<li>Step by step: <code>first.left(1)</code> is <code>"A"</code>; <code>last.left(1)</code> is <code>"D"</code>; concatenating gives <code>"AD"</code>; then <code>.upper</code> is applied to the <strong>whole</strong> result — which is already upper case here, so it makes no visible difference.</li>
+</ul>`,
+            readCheck: {
+                q: "s = \"Bridge\" . What does  s.substring(1, 3).upper  return?",
+                opts: ["RID", "BRI, since .upper is sometimes wrongly assumed to apply only to the very first character extracted by substring", "rid", "ridge"],
+                ans: 0,
+                explain: "substring(1, 3) takes 3 characters from index 1: \"r\", \"i\", \"d\" → \"rid\". .upper is then applied to that whole result, giving \"RID\"."
+            }
+        },
+        {
+            title: "Tracing \"what does this output?\" questions",
+            tag: "Exam skill",
+            content: `<h4>Working through combined string code, one line at a time</h4>
+<ul>
+<li>The safest way to answer a string-tracing question is <strong>slow and mechanical</strong>: work out the value of each line in order, substituting the current value of any variable as you reach it — exactly like tracing any other code.</li>
+</ul>
+<div class="code-block">s = "Journey"
+a = s.substring(0, 4)     // a = "Jour"
+b = s.right(3)             // b = "ney"
+result = a.upper + b       // result = "JOUR" + "ney"
+print(result)               // "JOURney"</div>
+<ul>
+<li>Notice that <code>.upper</code> only applies to <code>a</code>, not to <code>b</code> — each variable keeps whatever case it had until an operation is applied to it directly.</li>
+</ul>`,
+            readCheck: {
+                q: "s = \"Garden\" ,  a = s.left(3) ,  b = s.right(3).upper . What does  print(a + b)  output?",
+                opts: ["GarDEN", "GARDEN, because concatenating two parts of the same string always converts the whole result to upper case", "gardEN", "garden"],
+                ans: 0,
+                explain: "a = s.left(3) = \"Gar\" (unchanged case). b = s.right(3).upper = \"DEN\" (upper-cased). a + b = \"Gar\" + \"DEN\" = \"GarDEN\"."
+            }
+        },
+        {
+            title: "Common exam patterns",
+            tag: "Exam skill",
+            content: `<h4>String tasks that come up again and again</h4>
+<ul>
+<li><strong>Check the first or last character</strong>: <code>str.left(1)</code> or <code>str.right(1)</code> — useful for checking a currency symbol, or whether a filename ends in a particular letter.</li>
+<li><strong>Check the length before extracting</strong>: it's good practice to check <code>str.length</code> is big enough before calling <code>substring</code>, so the program doesn't try to take more characters than the string actually has.</li>
+<li><strong>Pull out a file extension</strong>: for a filename like <code>"photo.jpg"</code>, <code>str.right(3)</code> gives <code>"jpg"</code> — as long as you already know the extension is 3 characters long.</li>
+</ul>
+<div class="code-block">filename = "report.pdf"
+extension = filename.right(3)
+print(extension)          // "pdf"</div>
+<ul>
+<li>These aren't new ERL commands — they're just <code>substring</code>, <code>left</code>, <code>right</code> and <code>length</code> applied to a realistic problem, which is exactly how they appear in exam questions.</li>
+</ul>`,
+            readCheck: {
+                q: "A program needs to check whether the string  code  starts with the letter \"A\". Which expression tests this correctly?",
+                opts: ["code.left(1) == \"A\"", "code.right(1) == \"A\", since right(1) is sometimes wrongly assumed to return the very first character of a string", "code.length == \"A\"", "code.upper == \"A\""],
+                ans: 0,
+                explain: "code.left(1) returns the first character. Comparing it to \"A\" checks whether the string starts with A. right(1) would instead check the LAST character."
+            }
+        }
+    ];
+
+    const mcqData = [
+        {
+            q: "For  name = \"Home\" , what does  name.length  return?",
+            opts: ["4", "3", "5", "H, because .length is sometimes wrongly assumed to return the first character of the string rather than a count"],
+            ans: 0,
+            explain: "\"Home\" has 4 characters (H, o, m, e), so name.length returns 4."
+        },
+        {
+            q: "For  name = \"Computer\" , what does  name.substring(0, 3)  return?",
+            opts: ["Com", "Comp", "omp", "Compute, because the second argument is sometimes wrongly read as the index where the whole rest of the string should stop"],
+            ans: 0,
+            explain: "Starting at index 0 and taking 3 characters gives \"C\", \"o\", \"m\" — so \"Com\"."
+        },
+        {
+            q: "For  name = \"Computer\" , what does  name.substring(3, 5)  return?",
+            opts: ["puter", "Comp", "uter", "Compute, because the second argument is sometimes wrongly treated as an end position rather than a length"],
+            ans: 0,
+            explain: "Starting at index 3 and taking 5 characters covers indices 3–7: \"p\", \"u\", \"t\", \"e\", \"r\" — giving \"puter\"."
+        },
+        {
+            q: "Which ERL expression gives the LAST 4 characters of the string  code ?",
+            opts: ["code.right(4)", "code.left(4)", "code.substring(4, code.length)", "code.upper, since converting to upper case is sometimes wrongly thought to be the only safe way to reach a string's final characters"],
+            ans: 0,
+            explain: "right(n) returns the last n characters. left(n) would instead give the FIRST 4."
+        },
+        {
+            q: "What is  ASC(\"Z\") ?",
+            opts: ["90", "26", "122", "65, since that is the code for A and every capital letter is sometimes wrongly assumed to share the same code"],
+            ans: 0,
+            explain: "Z is the code 90 (A = 65, so Z = 65 + 25 = 90) — not the same as Z's position in the alphabet, which is 26."
+        },
+        {
+            q: "What does  CHR(97)  return?",
+            opts: ["a", "A", "z", "97, since CHR is sometimes wrongly assumed to simply return the number it was given back unchanged"],
+            ans: 0,
+            explain: "97 is the character code for lower-case \"a\". (65 is \"A\"; lower case starts 32 codes after upper case.)"
+        },
+        {
+            q: "What is  ASC(\"0\") ?",
+            opts: ["48", "0", "49", "zero, since ASC is sometimes wrongly assumed to return a character's name rather than its numeric code"],
+            ans: 0,
+            explain: "The digit character \"0\" has the character code 48 — not the integer value 0."
+        },
+        {
+            q: "s1 = \"Green\"  and  s2 = \"house\" . What does  print(s1 + s2)  output?",
+            opts: ["Greenhouse", "Green house, because the plus operator is sometimes wrongly assumed to automatically insert a space between two strings", "houseGreen", "GREENHOUSE"],
+            ans: 0,
+            explain: "+ concatenates with nothing extra added: \"Green\" + \"house\" = \"Greenhouse\"."
+        },
+        {
+            q: "What does  CHR(ASC(\"m\") + 1)  return?",
+            opts: ["n", "M", "l", "N, since CHR is sometimes wrongly assumed to always return an upper-case letter regardless of the case of the original character"],
+            ans: 0,
+            explain: "ASC(\"m\") = 109. 109 + 1 = 110, and CHR(110) is \"n\" — the next letter after m."
+        },
+        {
+            q: "s = \"Robot\" . What does  print(s.left(2) + s.right(2))  output?",
+            opts: ["Root", "RoBot", "obot", "Robot, because concatenating the start and end of a string is sometimes wrongly assumed to just return the original string unchanged"],
+            ans: 0,
+            explain: "s.left(2) = \"Ro\". s.right(2) = \"ot\" (the last 2 characters of \"Robot\"). Concatenating gives \"Ro\" + \"ot\" = \"Root\"."
+        },
+        {
+            q: "Which index does the FIRST character of any ERL string have?",
+            opts: ["0", "1", "-1", "The string's length, since indexing is sometimes wrongly assumed to start counting from the end of a string"],
+            ans: 0,
+            explain: "ERL strings are 0-indexed, so the first character is always at index 0."
+        },
+        {
+            q: "s = \"Silver\" . What does  s.substring(2, 3)  return?",
+            opts: ["lve", "Sil", "ilv", "ver, because the second argument is sometimes wrongly treated as the index where extraction should stop rather than a length"],
+            ans: 0,
+            explain: "Starting at index 2 and taking 3 characters covers indices 2, 3 and 4: \"l\", \"v\", \"e\" — giving \"lve\"."
+        }
+    ];
+
+    const matchData = [
+        { term: "str.length", def: "Returns the number of characters in a string" },
+        { term: "str.substring(start, len)", def: "Returns len characters starting at index start (0-indexed)" },
+        { term: "str.left(n)", def: "Returns the first n characters of a string" },
+        { term: "str.right(n)", def: "Returns the last n characters of a string" },
+        { term: "str.upper", def: "Returns the string converted to UPPER CASE" },
+        { term: "str.lower", def: "Returns the string converted to lower case" },
+        { term: "ASC(char)", def: "Returns the character code of a single character" },
+        { term: "CHR(code)", def: "Returns the character for a given character code" },
+        { term: "Concatenation (+)", def: "Joins two strings together end to end, with nothing added" },
+        { term: "0-indexed", def: "Counting character positions in a string starting from 0, not 1" },
+        { term: "Character code block", def: "Capital letters, lower-case letters and digits each sit in their own consecutive block of codes" },
+        { term: "str.substring(0, str.length)", def: "Returns the whole string unchanged" }
+    ];
+
+    const fibData = [
+        {
+            display: "A string's characters are numbered starting from _____, not from 1.",
+            blanks: { B1: "0" }
+        },
+        {
+            display: "In str.substring(startIndex, numberOfChars), the second value is a _____ of characters to take, not an end index.",
+            blanks: { B1: "count" }
+        },
+        {
+            display: "str.left(n) returns the first n characters; str.right(n) returns the _____ n characters.",
+            blanks: { B1: "last" }
+        },
+        {
+            display: "str.upper converts every letter in a string to _____ case.",
+            blanks: { B1: "upper" }
+        },
+        {
+            display: "ASC(char) takes a single character and returns its character _____.",
+            blanks: { B1: "code" }
+        },
+        {
+            display: "CHR(code) takes a number and returns the _____ it represents.",
+            blanks: { B1: "character" }
+        },
+        {
+            display: "_____ joins two strings together using the + operator, with nothing extra added.",
+            blanks: { B1: "Concatenation" }
+        },
+        {
+            display: "ASC(\"A\") returns _____, the character code for the capital letter A.",
+            blanks: { B1: "65" }
+        }
+    ];
+    const fibWords = ["0", "count", "last", "upper", "code", "character", "Concatenation", "65"];
+
+    const tfData = [
+        {
+            statement: "str.substring(startIndex, numberOfChars) begins counting characters from index 0.",
+            answer: true,
+            explanation: "Correct — ERL strings are 0-indexed, so index 0 is the first character."
+        },
+        {
+            statement: "The second value passed into substring tells the computer which index to stop at.",
+            answer: false,
+            explanation: "The second value is a COUNT of characters to take (a length), not an index to stop at."
+        },
+        {
+            statement: "str.left(3) and str.right(3) always return the same characters, for any string.",
+            answer: false,
+            explanation: "left(n) takes characters from the START of the string; right(n) takes them from the END. For most strings these give different results."
+        },
+        {
+            statement: "ASC(\"a\") returns a different value from ASC(\"A\").",
+            answer: true,
+            explanation: "Correct — lower-case and capital letters have different character codes: ASC(\"a\") is 97, ASC(\"A\") is 65."
+        },
+        {
+            statement: "CHR is the opposite operation to ASC.",
+            answer: true,
+            explanation: "Correct — ASC converts a character to its code; CHR converts a code back to its character. CHR(ASC(x)) always gives back x."
+        },
+        {
+            statement: "Concatenating two strings with + automatically inserts a space between them.",
+            answer: false,
+            explanation: "+ joins strings exactly as they are, with nothing extra added — any space needed must be included in the strings being joined."
+        },
+        {
+            statement: "\"Cat\".upper returns \"CAT\".",
+            answer: true,
+            explanation: "Correct — .upper converts every letter in the string to upper case."
+        },
+        {
+            statement: "str.length counts spaces as characters too.",
+            answer: true,
+            explanation: "Correct — .length counts every character in the string, including spaces and punctuation, not just letters."
+        }
+    ];
+
+    const miscData = [
+        {
+            wrong: "Thinking the second value in substring(start, n) is the index where extraction stops.",
+            correct: "The second value is a <strong>length</strong> — how many characters to take — not an end index. For <code>s.substring(2, 4)</code>, the extraction takes <strong>4 characters</strong> starting at index 2 (indices 2, 3, 4 and 5), not everything up to index 4.",
+            readCheck: {
+                q: "For  s = \"Elephant\" , what does  s.substring(1, 3)  return?",
+                opts: ["lep, because it starts at index 1 and takes 3 characters (indices 1, 2 and 3)", "le, because it starts at index 1 and stops just before index 3", "Ele, since the first argument is sometimes wrongly read as 'from the start, up to this many characters'", "hant, since substring is sometimes wrongly assumed to count backward from the end of the string by default"],
+                ans: 0,
+                explain: "substring(1, 3) starts at index 1 and takes 3 characters: indices 1, 2, 3 are \"l\", \"e\", \"p\" — giving \"lep\"."
+            }
+        },
+        {
+            wrong: "Mixing up left(n) and right(n) — using one when the other is needed.",
+            correct: "<strong>left(n)</strong> counts from the <strong>start</strong> of the string. <strong>right(n)</strong> counts from the <strong>end</strong>. A quick way to remember: reading left to right, <code>left</code> is what you meet <strong>first</strong>.",
+            readCheck: {
+                q: "A filename is stored as  file = \"holiday.png\" . Which expression correctly returns the file extension  \"png\" ?",
+                opts: ["file.right(3)", "file.left(3), since left(n) is sometimes wrongly assumed to count characters in from whichever end is needed for the task", "file.length", "file.upper"],
+                ans: 0,
+                explain: "The extension sits at the END of the filename, so right(3) is needed. left(3) would instead give \"hol\", the first 3 characters."
+            }
+        },
+        {
+            wrong: "Thinking ASC(letter) returns the letter's position in the alphabet (e.g. ASC(\"Z\") = 26).",
+            correct: "ASC returns the character's numeric <strong>code</strong> in the character set (e.g. ASCII), which is <strong>not</strong> the same as its position in the alphabet. <code>ASC(\"Z\") = 90</code>, even though Z is the 26th letter.",
+            readCheck: {
+                q: "What is  ASC(\"C\") ?",
+                opts: ["67", "3, since C is the third letter of the alphabet and ASC is sometimes wrongly assumed to return this alphabet position", "99", "68"],
+                ans: 0,
+                explain: "ASC(\"C\") returns C's character code, 67 (A = 65, B = 66, C = 67) — not its alphabet position, 3."
+            }
+        },
+        {
+            wrong: "Thinking concatenation with + automatically inserts a space, or converts a number to a string automatically.",
+            correct: "<code>+</code> joins strings <strong>exactly as they are</strong> — you must add any spaces yourself, using <code>\" \"</code>. Joining a string with a number often needs the number <strong>converted to a string first</strong>, or the program may cause an error.",
+            readCheck: {
+                q: "name = \"Sam\"  and  age = 12 . Which line correctly prints  \"Sam is 12\" ?",
+                opts: ["print(name + \" is \" + str(age))", "print(name + \" is \" + age), since + is sometimes wrongly assumed to join a string and a number without needing any conversion", "print(name + is + age)", "print(name age)"],
+                ans: 0,
+                explain: "Concatenation needs both sides to be strings, so the number age must be converted first — here using str(age) — with the space added explicitly."
+            }
+        },
+        {
+            wrong: "Thinking .upper or .lower permanently changes the original string in place.",
+            correct: "<code>str.upper</code> and <code>str.lower</code> each <strong>return a new string</strong> — they do <strong>not</strong> change the variable they were called on. To keep the result, you must store it back: <code>str = str.upper</code>.",
+            readCheck: {
+                q: "word = \"Cabin\"  is set, then  word.upper  runs on its own (its result is not stored anywhere). What does  print(word)  show straight after?",
+                opts: ["Cabin, unchanged, because .upper returns a new string rather than modifying word itself", "CABIN", "cabin", "An error, because .upper must always be assigned to a variable before the program can carry on running"],
+                ans: 0,
+                explain: ".upper returns a NEW string; it doesn't modify word. Since the result wasn't stored anywhere, word is still \"Cabin\"."
+            }
+        },
+        {
+            wrong: "Thinking string indexing starts at 1, the way people usually count things.",
+            correct: "ERL strings are <strong>0-indexed</strong>, exactly like arrays: the first character is always at index <strong>0</strong>. For <code>word = \"Cat\"</code>, the valid indices are <code>0, 1, 2</code> — there is no index 3.",
+            readCheck: {
+                q: "word = \"Frog\"  (4 characters). Which of these is NOT a valid index into this string?",
+                opts: ["4", "0", "2", "3, because the last valid index of a 4-character string is sometimes wrongly assumed to always equal its length minus one, giving 3"],
+                ans: 0,
+                explain: "A 4-character string has indices 0, 1, 2 and 3 (0-indexed) — index 4 does not exist, since the last valid index is always one less than the string's length."
+            }
+        }
+    ];
+
+    const examTips = [
+        {
+            type: "tip",
+            title: "Tracing combined string operations carefully",
+            pills: ["AO2", "Key skill", "Trace tables"],
+            content: `<p>"What does this output?" questions on strings are worth a lot of marks, and the safest approach is <strong>slow and mechanical</strong>:</p>
+<ul>
+<li>Work out each string method <strong>separately</strong>, in the order the lines run — don't try to do several steps in your head at once.</li>
+<li>For <code>substring</code>, write out the indices involved first, if it helps, before working out the characters.</li>
+<li>Remember <code>substring(start, len)</code> — the second value is <strong>how many</strong> characters, not where to stop.</li>
+</ul>
+<p><strong>Example:</strong> for <code>s = "Window"</code>, <code>a = s.substring(0, 4)</code>, <code>b = s.right(2).upper</code>, <code>print(a + b)</code>: work out <code>a</code> first ("Wind"), then <code>b</code> ("ow" → "OW"), then combine: "Wind" + "OW" = "WindOW". Slow beats clever.</p>`,
+            readCheck: {
+                q: "What is the safest way to answer a 'what does this string code output?' question?",
+                opts: ["Work through it mechanically, one operation at a time, writing down each new value as it changes", "Read the code once quickly and write down whichever answer looks the most likely based on the variable names used", "Only check the very last line of the code, since earlier lines rarely affect what actually gets printed at the end", "Count how many string methods are used, since the output length usually matches that number"],
+                ans: 0,
+                explain: "Working through the code mechanically — one operation at a time — is reliable. Guessing from names or skipping lines is not."
+            }
+        },
+        {
+            type: "explain",
+            title: "The substring(start, len) trap",
+            pills: ["AO1", "Common mistake", "High value"],
+            content: `<p>The single most repeated string mistake at GCSE is misreading the second argument of <code>substring</code>. Fix it with one rule:</p>
+<ul>
+<li><strong>startIndex</strong> — where to begin (0-indexed).</li>
+<li><strong>numberOfChars</strong> — how MANY characters to take from there. It is a count, never an end position.</li>
+</ul>
+<p><strong>Worked example:</strong> for <code>s = "Marathon"</code>, <code>s.substring(2, 3)</code> starts at index 2 and takes 3 characters: indices 2, 3, 4 are "r", "a", "t" — giving "rat", <strong>not</strong> "ratho" (which is what you'd get if you (incorrectly) treated 3 as an end index).</p>`,
+            readCheck: {
+                q: "For  s = \"Marathon\" , what does  s.substring(2, 3)  correctly return?",
+                opts: ["rat", "ara", "rathon, from treating 3 as the index the extraction should continue up to and including", "Mar"],
+                ans: 0,
+                explain: "Starting at index 2 and taking 3 characters gives indices 2, 3, 4: \"r\", \"a\", \"t\" — \"rat\"."
+            }
+        },
+        {
+            type: "tip",
+            title: "ASC/CHR shifting questions",
+            pills: ["AO2", "ASCII", "Applied"],
+            content: `<p>Some questions ask you to shift a character forwards or backwards through the alphabet — for example a simple cipher. The pattern is always the same three steps:</p>
+<ul>
+<li>Convert the character to its code with <code>ASC</code>.</li>
+<li>Add or subtract the shift amount.</li>
+<li>Convert the new code back to a character with <code>CHR</code>.</li>
+</ul>
+<p><strong>Example:</strong> shift <code>"K"</code> forward by 2 letters: <code>ASC("K") = 75</code>; <code>75 + 2 = 77</code>; <code>CHR(77) = "M"</code>. Watch out for a shift that would push the code past <code>Z</code> (90) or <code>z</code> (122) — GCSE questions usually keep the shift small enough that this doesn't happen.</p>`,
+            readCheck: {
+                q: "Using ASC and CHR, what letter do you get by shifting  \"F\"  forward by 3 places?",
+                opts: ["I", "G, from adding only 1 instead of the full shift amount given in the question", "C, from subtracting the shift instead of adding it", "F3, from joining the letter and the shift amount together as if by concatenation"],
+                ans: 0,
+                explain: "ASC(\"F\") = 70. 70 + 3 = 73. CHR(73) = \"I\" — the letter 3 places after F in the alphabet."
+            }
+        }
+    ];
+
+    const flashcards = [
+        { term: "str.length", def: "Returns the number of characters in a string" },
+        { term: "str.substring(start, len)", def: "Returns len characters starting at index start (0-indexed)" },
+        { term: "str.left(n)", def: "Returns the first n characters of a string" },
+        { term: "str.right(n)", def: "Returns the last n characters of a string" },
+        { term: "str.upper", def: "Returns the string converted to UPPER CASE" },
+        { term: "str.lower", def: "Returns the string converted to lower case" },
+        { term: "ASC(char)", def: "Returns the character code of a single character" },
+        { term: "CHR(code)", def: "Returns the character for a given character code" },
+        { term: "Concatenation (+)", def: "Joins two strings together end to end, with nothing added" },
+        { term: "0-indexed", def: "Counting character positions in a string starting from 0, not 1" },
+        { term: "ASC(\"A\")", def: "Equal to 65" },
+        { term: "ASC(\"a\")", def: "Equal to 97" },
+        { term: "ASC(\"0\")", def: "Equal to 48" },
+        { term: "CHR(90)", def: "Equal to \"Z\"" },
+        { term: "Character code block", def: "Capitals, lower-case letters and digits each sit in their own consecutive block of codes" },
+        { term: "str.substring(0, str.length)", def: "Returns the whole string, unchanged" }
+    ];
+
+    // ── Original clean-room exam questions (2026-07-24) ──
+    // Written from scratch against the §2.2.3a spec scope (CS-CONTENT-PLAN.md
+    // §6.2 clean-room rule) — NOT transcribed from any OCR paper. No exam PDF
+    // was supplied for this sub-page, so the tariff spread and format mix are
+    // authored from the standard J277 Paper 2 assessment style for string
+    // manipulation (length/substring/left/right/upper/lower value recall,
+    // ASC/CHR conversion chains, concatenation, combined-operation tracing),
+    // NOT profiled from a real paper — treat the ceiling as a best estimate.
+    // Spread: 3x1, 2x2, 5x3, 2x4 = 12 questions / 30 marks (mcq/written/
+    // tableFill/traceTable/codeGaps/tickGrid/matchLine/bankCloze).
+    const EXAM_CASE_STUDIES = {};
+
+    const examQuestions = [
+        {
+            num: "Q1",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: `<p>Tick <strong>one</strong> box to identify which ERL function takes a single character and returns its character code.</p>`,
+            options: ["ASC(char)", "CHR(code) — this instead converts a code number back into the character it represents, which is the opposite operation", "char.length", "char.upper"],
+            answer: 0,
+            hint: "ASC goes from character → code. CHR goes the opposite way, from code → character.",
+            starter: "",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<ul><li><strong>ASC(char)</strong></li></ul>
+</div>`,
+            modelAnswer: "ASC(char)."
+        },
+        {
+            num: "Q2",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: `<p>name = "Home" . Tick <strong>one</strong> box to identify the value returned by  <strong>name.length</strong> .</p>`,
+            options: ["4", "3", "5", "H, because .length is sometimes wrongly assumed to return the first character of the string rather than a count"],
+            answer: 0,
+            hint: "Count every character in \"Home\", including all four letters.",
+            starter: "",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<ul><li><strong>4</strong> ("Home" has 4 characters)</li></ul>
+</div>`,
+            modelAnswer: "4."
+        },
+        {
+            num: "Q3",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: `<p>The following code runs.</p><pre>s = "Notebook"
+a = s.substring(0, 4)
+b = s.substring(4, 4)</pre><p>State the string stored in <strong>a</strong>, and the string stored in <strong>b</strong>.</p>`,
+            hint: "substring(startIndex, numberOfChars) counts from 0. The second value is HOW MANY characters to take, not where to stop.",
+            starter: "a = … , b = …",
+            markPoints: {
+                note: "1 mark for each correct string.",
+                groups: [
+                    { label: "a", max: 1, points: [{ text: "\"Note\"", marks: 1 }] },
+                    { label: "b", max: 1, points: [{ text: "\"book\"", marks: 1 }] }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks</h5>
+<ul>
+<li>a = <strong>"Note"</strong> (starts at index 0, takes 4 characters: N, o, t, e)</li>
+<li>b = <strong>"book"</strong> (starts at index 4, takes 4 characters: b, o, o, k)</li>
+</ul>
+</div>`,
+            modelAnswer: "a = \"Note\"\nb = \"book\""
+        },
+        {
+            num: "Q4",
+            marks: 3,
+            type: "written",
+            caseStudy: "",
+            question: `<p>The following code runs.</p><pre>code = ASC("G")
+code = code - 2
+letter = CHR(code)
+print(letter)</pre><p>State the value of <strong>ASC("G")</strong>, the value stored in <strong>code</strong> after the second line runs, and the character printed by the final line.</p>`,
+            hint: "Capital letters run in order from A = 65. Work out ASC(\"G\") first, then subtract 2, then convert that number back to a character.",
+            starter: "ASC(\"G\") = … , code becomes … , printed letter = …",
+            markPoints: {
+                note: "1 mark for each correct value, in order.",
+                groups: [
+                    {
+                        label: "Values", max: 3, points: [
+                            { text: "ASC(\"G\") = 71", marks: 1 },
+                            { text: "code becomes 69 (71 - 2)", marks: 1 },
+                            { text: "The letter printed is \"E\"", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 3 marks</h5>
+<ul>
+<li>ASC("G") = <strong>71</strong></li>
+<li>code becomes <strong>69</strong> (71 − 2)</li>
+<li>CHR(69) = <strong>"E"</strong></li>
+</ul>
+</div>`,
+            modelAnswer: "ASC(\"G\") = 71. code becomes 69. The letter printed is \"E\"."
+        },
+        {
+            num: "Q5",
+            marks: 3,
+            type: "written",
+            format: "tableFill",
+            caseStudy: "",
+            question: `<p>A variable is set up as <strong>word = "Pencil"</strong>.</p><p>Complete the table to show the output of each statement.</p>`,
+            table: {
+                headers: ["Statement", "Output"],
+                rows: [
+                    ["print(word.length)", "6"],
+                    ["print(word.upper)", null],
+                    ["print(word.right(4))", null],
+                    ["print(word.lower)", null]
+                ]
+            },
+            answers: {
+                "1,1": ["PENCIL"],
+                "2,1": ["ncil"],
+                "3,1": ["pencil"]
+            },
+            hint: "word.length has been done for you. Work out .upper, .right(4) and .lower using the same word, \"Pencil\".",
+            starter: "print(word.upper) → … , print(word.right(4)) → … , print(word.lower) → …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 3 marks (1 mark for each correct output)</h5>
+<ul>
+<li>print(word.upper) → <strong>PENCIL</strong></li>
+<li>print(word.right(4)) → <strong>ncil</strong></li>
+<li>print(word.lower) → <strong>pencil</strong></li>
+</ul>
+</div>`,
+            modelAnswer: "print(word.upper) = PENCIL. print(word.right(4)) = ncil. print(word.lower) = pencil."
+        },
+        {
+            num: "Q6",
+            marks: 4,
+            type: "written",
+            format: "traceTable",
+            caseStudy: "",
+            question: `<p>The following algorithm builds up a string inside a loop.</p><pre>result = ""
+for i = 0 to 3
+  result = result + CHR(65 + i)
+next i
+print(result)</pre><p>Complete the trace table to show the value of <strong>i</strong> and <strong>result</strong> at the end of each pass of the loop.</p>`,
+            trace: {
+                columns: ["i", "result"],
+                rows: [
+                    ["0", "A"],
+                    ["1", "AB"],
+                    ["2", "ABC"],
+                    ["3", "ABCD"]
+                ]
+            },
+            hint: "Start with result = \"\". Each pass adds one more character: CHR(65) is \"A\", CHR(66) is \"B\", and so on.",
+            starter: "Pass 1: i=0, result=\"A\" …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (1 mark per correct row of the trace)</h5>
+<ul>
+<li>Pass 1 → i = 0, result = "A"</li>
+<li>Pass 2 → i = 1, result = "AB"</li>
+<li>Pass 3 → i = 2, result = "ABC"</li>
+<li>Pass 4 → i = 3, result = "ABCD"</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul><li>1 mark for each fully-correct row of the trace (both columns right). The program finally outputs "ABCD".</li></ul>
+</div>`,
+            modelAnswer: "Pass 1: i=0, result=\"A\". Pass 2: i=1, result=\"AB\". Pass 3: i=2, result=\"ABC\". Pass 4: i=3, result=\"ABCD\". Output: \"ABCD\"."
+        },
+        {
+            num: "Q7",
+            marks: 3,
+            type: "written",
+            format: "codeGaps",
+            caseStudy: "",
+            question: `<p>The algorithm below should build a 2-letter, upper-case set of initials from a forename and a surname, then print them.</p><p>Complete the three gaps.</p>`,
+            gaps: {
+                lines: [
+                    "initials = firstName.left({1}) + lastName.left({2})",
+                    "print(initials.{3})"
+                ],
+                answers: {
+                    "1": ["1"],
+                    "2": ["1"],
+                    "3": ["upper"]
+                }
+            },
+            hint: "Initials means one letter from each name. The final print statement needs to make the result upper case.",
+            starter: "Gap 1: … Gap 2: … Gap 3: …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 3 marks (1 mark per gap)</h5>
+<ul>
+<li>Gap 1: <strong>1</strong></li>
+<li>Gap 2: <strong>1</strong></li>
+<li>Gap 3: <strong>upper</strong></li>
+</ul>
+</div>`,
+            modelAnswer: "initials = firstName.left(1) + lastName.left(1) ; print(initials.upper)"
+        },
+        {
+            num: "Q8",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: `<p>The following code runs.</p><pre>name = "abc"
+name.upper
+print(name)</pre><p>Tick <strong>one</strong> box for what is printed.</p>`,
+            options: ["abc", "ABC", "Error — a string method's return value must always be stored in a variable before the program can carry on running", "AbC"],
+            answer: 0,
+            hint: ".upper returns a new string — it doesn't change name unless the result is stored back into it.",
+            starter: "",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<ul><li><strong>abc</strong> (unchanged — the result of .upper was never stored back into name)</li></ul>
+</div>`,
+            modelAnswer: "abc."
+        },
+        {
+            num: "Q9",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: `<p>A student writes the line  <strong>name.upper</strong>  on its own, expecting it to permanently convert  <strong>name</strong>  to upper case. It does not.</p><p>Explain why the value of <strong>name</strong> is unchanged, and state what the student should write instead.</p>`,
+            hint: "Think about what .upper actually does with the string it is called on, versus what happens to that result.",
+            starter: ".upper returns…, so to actually change name the student should write…",
+            markPoints: {
+                note: "1 mark for the explanation, 1 mark for the correct fix.",
+                groups: [
+                    { label: "Explanation", max: 1, points: [{ text: ".upper returns a new string rather than modifying the original string it was called on", marks: 1 }] },
+                    { label: "Fix", max: 1, points: [{ text: "The result must be stored back into name, e.g. name = name.upper", marks: 1 }] }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks</h5>
+<ul>
+<li>1 mark: .upper returns a new string — it does not modify the original string in place</li>
+<li>1 mark: the student should write <strong>name = name.upper</strong> to store the result back into name</li>
+</ul>
+</div>`,
+            modelAnswer: ".upper returns a new string rather than changing name itself, so the original value is unaffected. To actually change name, the result must be assigned back to it: name = name.upper."
+        },
+        {
+            num: "Q10",
+            marks: 4,
+            type: "written",
+            format: "tickGrid",
+            caseStudy: "",
+            question: `<p>Tick <strong>one</strong> box in each row to identify the data type each expression returns.</p>`,
+            grid: {
+                cols: ["Returns a whole number", "Returns a string"],
+                rows: [
+                    { label: "ASC(char)", correct: [0] },
+                    { label: "str.length", correct: [0] },
+                    { label: "CHR(code)", correct: [1] },
+                    { label: "str.upper", correct: [1] }
+                ]
+            },
+            hint: "ASC and length always give back a number. CHR always builds a character; upper always returns a string.",
+            starter: "ASC(char): … | str.length: … | CHR(code): … | str.upper: …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (1 mark for each row)</h5>
+<ul>
+<li>ASC(char) → <strong>Returns a whole number</strong></li>
+<li>str.length → <strong>Returns a whole number</strong></li>
+<li>CHR(code) → <strong>Returns a string</strong></li>
+<li>str.upper → <strong>Returns a string</strong></li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul><li>Each row is marked independently; 2+ ticks in a row scores 0 for that row.</li></ul>
+</div>`,
+            modelAnswer: "ASC(char): whole number. str.length: whole number. CHR(code): string. str.upper: string."
+        },
+        {
+            num: "Q11",
+            marks: 3,
+            type: "written",
+            format: "matchLine",
+            caseStudy: "",
+            question: `<p>Draw <strong>one</strong> line from each ERL expression to what it does.</p><p>(There are more descriptions than expressions — one description is not used.)</p>`,
+            match: {
+                left: ["str.length", "str.left(n)", "ASC(char)"],
+                right: ["Returns the number of characters in a string", "Returns the first n characters of a string", "Returns the character code of a character", "Returns the character for a given character code"],
+                answer: { "0": 0, "1": 1, "2": 2 },
+                decoys: [3]
+            },
+            hint: "Watch the decoy: 'returns the character for a given code' describes CHR, which is not one of the three expressions listed.",
+            starter: "str.length → …, str.left(n) → …, ASC(char) → …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 3 marks (1 mark per correct line)</h5>
+<ul>
+<li>str.length → <strong>A</strong> (number of characters in a string)</li>
+<li>str.left(n) → <strong>B</strong> (first n characters of a string)</li>
+<li>ASC(char) → <strong>C</strong> (character code of a character)</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul><li>1 mark per correct line. Description D ('returns the character for a given code') describes CHR, and is a decoy that is not used.</li></ul>
+</div>`,
+            modelAnswer: "str.length → number of characters in a string. str.left(n) → first n characters of a string. ASC(char) → character code of a character."
+        },
+        {
+            num: "Q12",
+            marks: 3,
+            type: "written",
+            format: "bankCloze",
+            caseStudy: "",
+            question: `<p>Complete the paragraph about substring, left and right by selecting terms from the list. <strong>Not all terms are used.</strong></p>`,
+            cloze: `<p>str.substring(startIndex, numberOfChars) begins counting characters from index ___1___. The value passed as the second argument is a ___2___ of characters to take, not an end position. str.right(n) returns the last n characters, while str.___3___(n) returns the first n characters.</p>`,
+            bank: ["0", "1", "length", "count", "left", "right"],
+            answers: {
+                "1": ["0"],
+                "2": ["count", "length"],
+                "3": ["left"]
+            },
+            hint: "Where does indexing start? What does the second value of substring actually measure? Which of left/right gives the FIRST characters?",
+            starter: "(1) … (2) … (3) …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 3 marks (1 mark for each completed term)</h5>
+<p>str.substring(startIndex, numberOfChars) begins counting characters from index <strong>0</strong>. The value passed as the second argument is a <strong>count</strong> (length) of characters to take, not an end position. str.right(n) returns the last n characters, while str.<strong>left</strong>(n) returns the first n characters.</p>
+</div>`,
+            modelAnswer: "(1) 0 (2) count (3) left"
+        }
+    ];
+</script>
+    <script src="/script.js"></script>
+<script src="section-totals.js"></script>
+<script src="page-groups.js"></script>
+<script src="/progress-shared.js"></script>
+<script src="/gamification.js"></script>
+<script src="/topic-guard.js"></script>
+<script src="/notifications-shared.js"></script>
+<script src="/onboarding-tour.js"></script>
+<script src="/footer-legal.js"></script>
+<script src="/cs-lab/exam-widgets.js"></script>
+<script src="/cs-lab/exam-widgets-grids.js"></script>
+<script src="/cs-lab/exam-widgets-code.js"></script>
+<script src="/cs-lab/cs-lab.js" defer></script>
+</body>
+
+</html>

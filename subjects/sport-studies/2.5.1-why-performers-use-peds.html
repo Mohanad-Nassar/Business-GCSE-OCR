@@ -1,0 +1,666 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2.5.1 Why Performers Use PEDs – Interactive Study Guide</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+    <header>
+        <div>
+            <div class="badge">OCR Level 1/Level 2 Sport Studies — R184 · 2. The Role of Sport in Promoting Values</div>
+            <h1>2.5.1 Why Performers Use PEDs</h1>
+            <p>Interactive revision guide · Content coming soon</p>
+        </div>
+        <a href="/index.html" class="home-link">← 🏡 Home</a>
+    </header>
+
+    <nav class="tab-bar" id="tabBar">
+        <button class="tab-btn active" onclick="switchTab('learn', this)">
+            📚 Key Learning
+        </button>
+        <button class="tab-btn" onclick="switchTab('mcq', this)">
+            ❓ MCQ Quiz
+        </button>
+        <button class="tab-btn" onclick="switchTab('matching', this)">
+            🔗 Matching
+        </button>
+        <button class="tab-btn" onclick="switchTab('fib', this)">
+            ✏️ Fill the Blanks
+        </button>
+        <button class="tab-btn" onclick="switchTab('misconceptions', this)">
+            ⚠️ Misconceptions
+        </button>
+        <button class="tab-btn" onclick="switchTab('examtips', this)">
+            🎯 Exam Tips
+        </button>
+        <button class="tab-btn" onclick="switchTab('flashcards', this)">
+            🃏 Flashcards
+        </button>
+        <button class="tab-btn" onclick="switchTab('truefalse', this)">
+            ✅ True / False
+        </button>
+        <button class="tab-btn" onclick="switchTab('exampractice', this)">
+            📝 Exam Practice
+        </button>
+    </nav>
+
+    <main>
+        <div class="tab-panel active" id="tab-learn">
+            <h2 class="section-title">Key Learning Topics</h2>
+            <p class="section-sub">Click any card to expand detailed notes.</p>
+            <div class="topic-grid" id="topicGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-mcq">
+            <h2 class="section-title">Multiple Choice Questions</h2>
+            <p class="section-sub">Select an answer to reveal instant feedback.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="mcqScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">
+                        correct answers
+                    </div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    out of <strong id="mcqTotal">0</strong> attempted
+                </div>
+                <button class="reset-btn" onclick="resetMCQ()">RESET</button>
+            </div>
+            <div class="quiz-wrap" id="mcqWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-matching">
+            <h2 class="section-title">Matching Activity</h2>
+            <p class="section-sub">
+                Click a term on the left, then click the matching definition on the
+                right.
+            </p>
+            <div style="margin-bottom: 16px">
+                <div class="score-bar">
+                    <div>
+                        <div class="score-num" id="matchScore">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">matched</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="matchTotal">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetMatch()">RESET</button>
+                </div>
+            </div>
+            <div class="match-grid">
+                <div>
+                    <div class="match-label">TERMS</div>
+                    <div class="match-col" id="matchLeft"></div>
+                </div>
+                <div>
+                    <div class="match-label">DEFINITIONS</div>
+                    <div class="match-col" id="matchRight"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-fib">
+            <h2 class="section-title">Fill in the Blanks</h2>
+            <p class="section-sub">
+                Click each dropdown and choose the correct word. Wrong answers reset —
+                try again!
+            </p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="fibScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="fibTotal">0</strong> blanks
+                </div>
+                <button class="reset-btn" onclick="resetFIB()">RESET</button>
+            </div>
+            <div class="fib-wrap" id="fibWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-misconceptions">
+            <h2 class="section-title">Common Misconceptions</h2>
+            <p class="section-sub">
+                What students often think — and what examiners actually want.
+            </p>
+            <div class="misc-list" id="miscList"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-examtips">
+            <h2 class="section-title">Exam Questions &amp; Tips</h2>
+            <p class="section-sub">
+                Most repeated question types and mark-scheme structures from real OCR
+                papers.
+            </p>
+            <div class="tips-grid" id="tipsGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-flashcards">
+            <h2 class="section-title">Flashcards</h2>
+            <p class="section-sub">
+                Test yourself! Flip the card and rate your knowledge. Review your weak
+                areas at the end.
+            </p>
+
+            <div class="fc-container">
+                <div class="score-bar" id="fcScoreBar" style="display: none; margin-bottom: 20px">
+                    <div>
+                        <div class="score-num" id="fcKnown" style="color: #2d7a4f">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">known</div>
+                    </div>
+                    <div>
+                        <div class="score-num" id="fcUnknown" style="color: #c84b31">
+                            0
+                        </div>
+                        <div style="font-size: 12px; color: var(--mid)">learning</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="fcTotalTrack">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
+                </div>
+
+                <div id="fcActiveArea">
+                    <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
+                    <div class="flashcard" id="flashcard" onclick="flipCard()">
+                        <div class="fc-inner">
+                            <div class="fc-front">
+                                <div class="fc-label">KEY TERM</div>
+                                <div class="fc-term" id="fcTerm"></div>
+                            </div>
+                            <div class="fc-back">
+                                <div class="fc-def" id="fcDef"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="fc-hint">👆 Click card to flip</p>
+
+                    <div class="fc-nav" id="fcNavDefault">
+                        <button class="fc-btn outline" onclick="prevCard()">
+                            ← Prev
+                        </button>
+                        <button class="fc-btn outline" onclick="flipCard()">Flip</button>
+                        <button class="fc-btn" onclick="nextCard()">Next →</button>
+                    </div>
+
+                    <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px">
+                        <button class="fc-btn outline" style="border-color: #c84b31; color: #c84b31; flex: 1"
+                            onclick="markCard(false)">
+                            ❌ Still Learning
+                        </button>
+                        <button class="fc-btn" style="background: #2d7a4f; border-color: #2d7a4f; flex: 1"
+                            onclick="markCard(true)">
+                            ✅ Got It
+                        </button>
+                    </div>
+                </div>
+
+                <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px">
+                    <h3>Session Complete! 🎉</h3>
+                    <p style="margin: 15px 0">
+                        You knew <strong id="fcSummaryKnown">0</strong> out of
+                        <strong id="fcSummaryTotal">0</strong> cards.
+                    </p>
+                    <div style="
+                margin-top: 25px;
+                display: flex;
+                gap: 15px;
+                justify-content: center;
+                flex-wrap: wrap;
+              ">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
+                            style="background: #c84b31; border-color: #c84b31">
+                            Review Incorrect
+                        </button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">
+                            Practice All Again
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-truefalse">
+            <h2 class="section-title">True or False?</h2>
+            <p class="section-sub">Test your knowledge with these statements.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="tfScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="tfTotal">0</strong> answered
+                </div>
+                <button class="reset-btn" onclick="resetTF()">RESET</button>
+            </div>
+            <div class="tf-wrap" id="tfWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-exampractice">
+            <h2 class="section-title">Exam Practice Questions</h2>
+            <p class="section-sub">
+                Full exam questions with case studies. Use <strong>Hint</strong>,
+                <strong>Sentence Starter</strong> and
+                <strong>Submit &amp; See Mark Scheme</strong> for each question.
+            </p>
+            <div class="ep-list" id="epList"></div>
+        </div>
+    </main>
+
+<script>
+    // ══════════════════════════════════════
+    //  DATA: 2.5.1 Why Performers Use PEDs
+    // ══════════════════════════════════════
+    const pageMeta = {
+            id: '2-5-1-why-performers-use-peds',
+            badge: 'OCR Level 1/Level 2 Sport Studies — R184 · 2. The Role of Sport in Promoting Values',
+            title: '2.5.1 Why Performers Use PEDs',
+            subtitle: 'Interactive revision guide',
+            subject: 'sport-studies',
+        };
+
+    const topics = [
+        {
+            title: "What is a PED, and why do performers use one?",
+            tag: "Key concept",
+            content: `<h4>Defining a PED</h4>
+<ul>
+<li>A <strong>performance-enhancing drug (PED)</strong> is a banned substance that a performer takes to make their body perform better than training, diet and natural ability alone could achieve.</li>
+<li>A PED is not the same as a legal supplement. A vitamin tablet or a protein shake is allowed; what makes something a PED is that it is <strong>banned</strong> because it gives an artificial edge other performers do not have.</li>
+</ul>
+<h4>Why "why" matters</h4>
+<ul>
+<li>This page looks only at the <strong>reasons performers give for using PEDs</strong> — not whether those reasons are acceptable. The health, ethical, legal and career case AGAINST using PEDs is covered on a separate page.</li>
+<li>Very few performers dope for a single reason. Usually several pressures — competitive, financial, physical and psychological — build up together.</li>
+</ul>`,
+            readCheck: {
+                q: "Which of these best describes what makes a substance a PED?",
+                opts: ["A drink or snack an athlete happens to have shortly before any competition", "A banned substance used to make the body perform better than training alone could", "A legal vitamin supplement that all professional athletes are encouraged to take daily", "A specialist training programme only available to full-time professional athletes"],
+                ans: 1,
+                explain: "A PED is defined by being BANNED and giving an artificial edge — legal supplements, pre-match snacks and training programmes are not PEDs."
+            }
+        },
+        {
+            title: "Winning, money and the fear that rivals are already doping",
+            tag: "Core knowledge",
+            content: `<h4>Pressure to win and succeed</h4>
+<ul>
+<li>Top-level sport can feel like it only rewards first place. Some performers feel intense <strong>pressure to win or succeed</strong> — from themselves, a coach, a country, or years of sacrifice — and see a PED as a shortcut to that success.</li>
+<li>The closer a performer gets to elite level, the smaller the gaps between rivals become, so even a small artificial advantage can feel decisive.</li>
+</ul>
+<h4>Financial reward, fame and sponsorship</h4>
+<ul>
+<li>Winning at the highest level can bring <strong>financial rewards</strong>, media <strong>fame</strong>, and valuable <strong>sponsorship deals</strong>. For some performers, their income and career depend on staying near the top.</li>
+<li>A performer worried about losing funding, a team place, or a sponsor's support may see doping as protecting their livelihood, not only their pride.</li>
+</ul>
+<h4>"Everyone else is doing it"</h4>
+<ul>
+<li>Some performers use PEDs because they <strong>believe their rivals are already doping</strong>. They convince themselves that using one too is the only way to compete on equal terms — even though that belief may be wrong, and it never actually makes doping fair or legal.</li>
+</ul>`,
+            readCheck: {
+                q: "Why might a performer's belief about their rivals lead them to use a PED?",
+                opts: ["An official has personally confirmed that doping is now permitted at every level", "They simply want to copy a rival's kit sponsor because they like the new design", "They believe rivals are already doping, so they feel they must too to keep up", "Their national governing body offers a cash reward for reporting a rival who cheats"],
+                ans: 2,
+                explain: "The belief that rivals are already doping — right or wrong — is a genuine reason some performers give, distinct from an official ruling or a kit preference."
+            }
+        },
+        {
+            title: "Training harder, recovering faster — and the physical and mental pull",
+            tag: "Core knowledge",
+            content: `<h4>Training harder and recovering faster</h4>
+<ul>
+<li>Some PEDs let a performer <strong>train harder and for longer</strong> than their body would naturally allow, and <strong>recover more quickly</strong> from intense training or from an injury.</li>
+<li>A performer under pressure to return from injury quickly — for example before a major competition — may see a PED as a way to speed that recovery up.</li>
+</ul>
+<h4>Physical gains</h4>
+<ul>
+<li>PEDs can produce real physical changes: extra <strong>strength</strong>, extra <strong>speed</strong>, or greater <strong>endurance</strong> — often exactly the gains that separate a good performance from a winning one.</li>
+</ul>
+<h4>Psychological effects</h4>
+<ul>
+<li>Some PEDs affect the mind as well as the body — for example reducing anxiety, raising confidence, or dulling the perception of pain and fatigue during competition. A performer may use a PED partly for this mental lift, not only for a physical gain.</li>
+</ul>`,
+            readCheck: {
+                q: "Which of these is a PSYCHOLOGICAL reason a performer might give for using a PED, rather than a purely physical one?",
+                opts: ["It can noticeably increase a performer's muscle size and top running speed", "It can make a performer feel calmer, more confident or less aware of pain", "It can shorten the time a performer needs to recover from a hard session", "It can be bought at a lower price than most legal supplements in a shop"],
+                ans: 1,
+                explain: "Feeling calmer or more confident is a mental (psychological) effect. Muscle size, speed and recovery time are physical effects, and price is unrelated to either."
+            }
+        }
+    ];
+
+    const mcqData = [
+        {
+            q: "A performer takes a banned substance so their body performs better than training alone could. What is this substance called?",
+            opts: ["A performance-enhancing drug (PED)", "A licensed supplement approved for use by the athlete's national governing body", "A recovery drink that is sold openly in any supermarket or high-street pharmacy", "A type of monitoring equipment used to record an athlete's heart rate in training"],
+            ans: 0,
+            explain: "This is the definition of a PED. A governing-body-approved supplement, a supermarket drink and monitoring equipment are all legal and are not PEDs."
+        },
+        {
+            q: "Which of these best shows 'pressure to win or succeed' as a reason for using a PED?",
+            opts: ["A performer enjoys watching highlights of other athletes competing at major international events", "A performer feels that only finishing first can justify the sacrifices they have already made", "A performer prefers early morning training sessions rather than joining a full squad session", "A performer changes clubs because the new club happens to train closer to their family home"],
+            ans: 1,
+            explain: "Feeling that only winning justifies years of sacrifice is pressure to succeed. Enjoying highlights, a training-time preference and changing clubs for convenience are not this pressure."
+        },
+        {
+            q: "How can fame and sponsorship push a performer towards using a PED?",
+            opts: ["Sponsors often ask performers to wear a particular brand of training shoe", "Being well known makes it slightly easier to book a table at a busy restaurant", "Media appearances usually take place on the morning after a big competition", "Losing form could cost them their sponsorship income and their public profile"],
+            ans: 3,
+            explain: "The risk of losing income and profile is the real pressure. Wearing sponsored kit, restaurant bookings and appearance timing are unrelated details, not pressures to dope."
+        },
+        {
+            q: "A performer suspects several rivals are secretly using banned substances. Why might this push them towards doping too?",
+            opts: ["They plan to publicly accuse those rivals of doping at the next major press conference they attend", "They feel doping is the only way left to compete on what feels like equal terms", "They decide to switch permanently to a completely different sporting event entirely", "They ask their coach to file a formal complaint with the event organisers instead"],
+            ans: 1,
+            explain: "Believing rivals already dope can make a performer feel they must do the same to keep up — even though that belief doesn't make doping fair or legal."
+        },
+        {
+            q: "A performer is racing to recover from injury before a major competition. Which reason for using a PED does this describe?",
+            opts: ["Wanting a PED purely because a teammate has recommended trying it out first", "Wanting a PED purely so they can skip the qualifying rounds required before the next major competition", "Wanting a PED to speed up recovery and allow much harder training in the meantime", "Wanting a PED to change which weight category they are allowed to compete in"],
+            ans: 2,
+            explain: "Speeding up recovery from injury and enabling harder training is the reason described. Skipping qualifiers, changing categories and peer suggestion are different issues."
+        },
+        {
+            q: "Which of these describes a physical, rather than psychological, gain some PEDs are used for?",
+            opts: ["A reduced feeling of anxiety before stepping out in front of a large home crowd", "Increased confidence during the final, most pressured stage of a long and closely fought competition", "A dulled awareness of pain and fatigue while competing near the end of a race", "Extra strength, speed or endurance that can turn a good performance into a winning one"],
+            ans: 3,
+            explain: "Strength, speed and endurance are physical gains. Reduced anxiety, increased confidence and dulled pain awareness are all psychological (mental) effects, not physical ones."
+        }
+    ];
+
+    const matchData = [
+        { term: "Performance-enhancing drug (PED)", def: "A banned substance taken to make the body perform better than training alone could" },
+        { term: "Pressure to win or succeed", def: "Feeling that only finishing first justifies the sacrifice already made" },
+        { term: "Sponsorship pressure", def: "Fear of losing income and profile if form or results start to slip" },
+        { term: "Belief rivals are already doping", def: "Thinking a PED is the only way left to compete on equal terms" },
+        { term: "Faster recovery from injury", def: "Wanting to return to full training sooner than the body would naturally allow" },
+        { term: "Psychological effect", def: "A PED changing how a performer feels, such as calmer or more confident" }
+    ];
+
+    const fibData = [
+        {
+            display: "A PED is a _____ substance taken to make the body perform better than training alone could.",
+            blanks: { B1: "banned" }
+        },
+        {
+            display: "Some performers feel intense pressure to _____, which can push them towards doping.",
+            blanks: { B1: "succeed" }
+        },
+        {
+            display: "Losing form could cost a performer their income and their _____ deals.",
+            blanks: { B1: "sponsorship" }
+        },
+        {
+            display: "Believing that rivals are already doping can make a performer feel they must too, to compete on equal _____.",
+            blanks: { B1: "terms" }
+        },
+        {
+            display: "Some PEDs can dull the perception of pain, which is a _____ rather than physical effect.",
+            blanks: { B1: "psychological" }
+        }
+    ];
+    const fibWords = ["banned", "succeed", "sponsorship", "terms", "psychological"];
+
+    const tfData = [
+        {
+            statement: "A PED is defined as a banned substance that boosts performance beyond what training alone could achieve.",
+            answer: true,
+            explanation: "That is the definition — being BANNED and giving an artificial edge is what makes a substance a PED, not simply that it affects performance."
+        },
+        {
+            statement: "A legal vitamin tablet or protein shake counts as a PED.",
+            answer: false,
+            explanation: "Legal supplements are not banned, so they are not PEDs — even though they may support training and recovery."
+        },
+        {
+            statement: "Performers only ever dope for one single reason at a time.",
+            answer: false,
+            explanation: "Reasons usually combine — competitive pressure, money, injury recovery and psychological effects can all be present together."
+        },
+        {
+            statement: "Believing that rivals are already doping makes it fair and legal for a performer to dope too.",
+            answer: false,
+            explanation: "That belief is a reason performers GIVE — it never actually makes doping fair or legal, even if the belief is genuinely held."
+        },
+        {
+            statement: "PEDs can only ever affect the body, never the mind.",
+            answer: false,
+            explanation: "Some PEDs also produce psychological effects, such as reduced anxiety or increased confidence, alongside any physical change."
+        },
+        {
+            statement: "Wanting to recover more quickly from an injury before a major competition can be a reason for using a PED.",
+            answer: true,
+            explanation: "Faster recovery from injury (and the chance to return to harder training sooner) is one of the recognised reasons performers give."
+        }
+    ];
+
+    const miscData = [
+        {
+            wrong: "Doping is always just about wanting to win — there's no other reason involved.",
+            correct: "Winning is a common reason, but it is rarely the only one. Financial pressure (sponsorship and income), the belief that rivals already dope, faster injury recovery, and psychological effects like reduced anxiety can all combine with the wish to win. A strong answer names more than one pressure, not just 'winning'.",
+            readCheck: {
+                q: "Which statement best reflects why performers actually give for using PEDs?",
+                opts: ["Winning is genuinely and completely the only reason any performer would ever consider", "Performers only ever dope because a coach personally orders it", "Several different pressures can combine, not just the wish to win", "There is no real pattern to why any performer chooses to dope"],
+                ans: 2,
+                explain: "The reasons stack up together — competitive, financial, physical and psychological — so 'just winning' undersells the topic and loses marks."
+            }
+        },
+        {
+            wrong: "If a performer believes their rivals are doping, that belief makes it fair for them to dope too.",
+            correct: "This is a REASON some performers give, not a justification. Believing rivals are already using PEDs does not make doping legal or fair — it is still banned and still against the rules, whatever a performer privately believes about their competition.",
+            readCheck: {
+                q: "A performer says: 'Everyone else is doing it, so it's fine if I do it too.' What is the accurate view of this?",
+                opts: ["It is a genuine reason some performers give, but it does not make doping fair or legal", "It is completely correct, because doping only becomes banned once a majority stop using it", "It means the performer will automatically be cleared if they are later tested", "It proves that every single one of their rivals must already be using a PED"],
+                ans: 0,
+                explain: "The belief explains WHY a performer might dope, but explaining a reason is not the same as the reason making the act fair or legal."
+            }
+        },
+        {
+            wrong: "PEDs only ever change how strong, fast or fit a performer's body is.",
+            correct: "PEDs can also change how a performer FEELS. Alongside physical gains like strength, speed or endurance, some PEDs reduce anxiety, raise confidence, or dull the sense of pain and fatigue — a psychological effect as well as a physical one.",
+            readCheck: {
+                q: "What is missing from the claim that PEDs 'only ever affect the body'?",
+                opts: ["It ignores the price that a performer would have to pay to obtain a PED", "It ignores possible psychological effects, such as reduced anxiety or greater confidence", "It ignores the fact that PEDs are always completely undetectable in every single drug test", "It ignores the length of ban an athlete would receive if they were caught"],
+                ans: 1,
+                explain: "Physical change is only half the picture — psychological effects (calmer, more confident, less aware of pain) are part of why some performers use PEDs."
+            }
+        }
+    ];
+
+    const examTips = [
+        {
+            type: "tip",
+            title: "Command words for this topic — what each one wants",
+            pills: ["Identify", "State", "Describe", "Explain"],
+            content: `<p>Questions on why performers use PEDs are usually short recall or short application. Match your answer length to the command word:</p>
+<ul>
+<li><strong>Identify / State</strong> — just name the reason. "State one reason a performer might use a PED [1]" = one named reason, nothing more.</li>
+<li><strong>Describe</strong> — say what the reason involves. "Describe one reason..." = give the features of that pressure.</li>
+<li><strong>Explain</strong> — add why it pushes a performer towards doping. Use the word <em>because</em> and link the reason to the effect it has on the performer.</li>
+</ul>
+<p><strong>Read the mark tariff:</strong> [1] wants one point; [2] usually wants two named reasons, or one point developed; [4] in Section B wants reasons applied to the scenario you are given.</p>`,
+            readCheck: {
+                q: "A question says: 'Identify two reasons why a performer might use a PED [2]'. What is the safest answer?",
+                opts: ["Two named reasons, nothing more", "One long paragraph exploring a single reason in depth", "A full page listing every reason you can possibly remember", "A description of a famous doping case you once read about"],
+                ans: 0,
+                explain: "'Identify' + [2] = two names, one mark each. A long paragraph on one reason, or a long list, wastes time without earning extra marks."
+            }
+        },
+        {
+            type: "tip",
+            title: "The golden rule: name the reason AND link it to the performer",
+            pills: ["Section A", "Section B", "AO2"],
+            content: `<p>The most common way to lose marks here is stopping at a bare label. Build every answer as <strong>reason → link to the performer</strong>:</p>
+<ul>
+<li><strong>❌ 0–1 marks:</strong> "Sponsorship."</li>
+<li><strong>✅ full marks:</strong> "A performer might use a PED because losing form could cost them their sponsorship income, which they may depend on for their career."</li>
+</ul>
+<p>In <strong>Section B</strong> the question gives you a scenario (a named performer, a named pressure). You must then use a detail <em>from that scenario</em>, not a generic example.</p>`,
+            readCheck: {
+                q: "In a Section B scenario about a named performer under pressure, your explanation should come from...",
+                opts: ["any doping story you happen to already know", "your own opinion about whether doping should be legal", "the scenario you are given", "a completely different sport to the one in the scenario"],
+                ans: 2,
+                explain: "Section B is applied — the marks are for using the scenario in front of you. A generic reason that ignores the scenario is capped."
+            }
+        },
+        {
+            type: "tip",
+            title: "Where this topic appears + sentence starters",
+            pills: ["Section A", "Section B", "Section C"],
+            content: `<p><strong>Where it shows up:</strong> reasons for using PEDs appear as quick recall in <strong>Section A</strong> (identify/state/explain), as applied points in a <strong>Section B</strong> scenario about a named performer, and can feed a <strong>Section C</strong> 8-mark Discuss question about doping more broadly.</p>
+<p><strong>Three punchy tips:</strong></p>
+<ul>
+<li>Learn the reasons in groups (competitive, financial, physical, psychological) so you can always recall several.</li>
+<li>For every reason, memorise <em>one</em> way it links to the performer — that link is usually where the mark is.</li>
+<li>Remember that reasons combine — a strong answer rarely relies on just one pressure.</li>
+</ul>
+<p><strong>Sentence starters for a longer answer:</strong></p>
+<ul>
+<li>"One reason performers may use PEDs is… because…"</li>
+<li>"This pressure matters because…"</li>
+<li>"However, this reason does not make doping…"</li>
+</ul>`,
+            readCheck: {
+                q: "Why is it useful to remember that reasons for doping usually combine, rather than acting alone?",
+                opts: ["It means only one single reason is ever tested in the exam", "It proves that doping should be made completely legal for everyone", "It replaces the need to give any reason at all in your answer", "It shows deeper understanding than naming just one pressure"],
+                ans: 3,
+                explain: "Showing that pressures stack up (competitive, financial, physical, psychological) demonstrates the depth of understanding a Section B or C answer rewards."
+            }
+        }
+    ];
+
+    const flashcards = [
+        { term: "PED", def: "A banned substance taken to make the body perform better than training alone could" },
+        { term: "Pressure to win/succeed", def: "Feeling that only finishing first justifies the sacrifice already made" },
+        { term: "Financial reward / sponsorship", def: "Income and profile a performer may fear losing if results slip" },
+        { term: "Belief rivals are doping", def: "Thinking a PED is the only way left to compete on equal terms" },
+        { term: "Faster injury recovery", def: "Wanting to return to full training sooner than the body naturally allows" },
+        { term: "Psychological effect", def: "A PED changing how a performer feels, e.g. calmer or more confident" }
+    ];
+
+    const examQuestions = [
+        {
+            num: "1",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: "Identify <strong>two</strong> reasons why a sports performer might choose to use a PED.",
+            hint: "Pick from the reasons on this page — pressure to win, money/fame/sponsorship, the belief that rivals are doping, faster recovery from injury, physical gains, or psychological effects.",
+            starter: "One reason is… Another reason is…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1)</h5>
+<p><strong>1 mark for each correct, DIFFERENT reason named, to a maximum of two. Accept any two from:</strong></p>
+<ul>
+<li>Pressure to win or succeed</li>
+<li>Financial reward / fame / sponsorship</li>
+<li>Belief that rivals are already doping</li>
+<li>To train harder and recover faster from injury</li>
+<li>Physical gains (strength, speed, endurance)</li>
+<li>Psychological effects (e.g. reduced anxiety, increased confidence)</li>
+</ul>
+<p>Do not credit the same reason written twice, even in different words.</p>
+</div>`,
+            modelAnswer: "One reason is the pressure to win or succeed.\n\nAnother reason is the belief that rivals are already using PEDs.",
+            markPoints: { note: "One tick per correct, DIFFERENT reason; cap at 2.", groups: [
+                { label: "Your first reason", max: 1, points: ["Names a valid reason from the specification"] },
+                { label: "Your second reason", max: 1, points: ["Names a DIFFERENT valid reason (not a repeat of the first)"] }
+            ] }
+        },
+        {
+            num: "2",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Which of these is a genuine reason some sports performers give for using a PED?",
+            options: ["Their national governing body has officially approved its use for every athlete", "It is freely available from any high-street supermarket without restriction", "They believe it will help them recover faster from an injury and train harder", "A referee has personally recommended it before an important fixture"],
+            answer: 2,
+            hint: "Think about which option matches a reason actually taught on this page.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO2)</h5>
+<p><strong>Answer: C — They believe it will help them recover faster from an injury and train harder.</strong></p>
+<ul>
+<li>Faster recovery and harder training is one of the recognised reasons performers give.</li>
+<li>The other options describe things that are not true of a banned PED (official approval, free availability, referee recommendation).</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "3",
+            marks: 4,
+            type: "written",
+            caseStudy: `<p><strong>Scenario — Ellie Marchetti</strong></p><p>Ellie Marchetti, 23, is a semi-professional triathlete who has just signed her first sponsorship deal. The sponsor will only renew the contract if Ellie finishes in the top three at the next national championship. Ellie is also carrying a hamstring injury that has kept her out of full training for six weeks, and she has heard rumours that a rival may already be using banned substances.</p>`,
+            question: "Using the scenario, explain <strong>two</strong> reasons why Ellie might be tempted to use a PED.",
+            hint: "Take each reason in turn. Name the reason, then link it to a detail from the scenario (the sponsorship deadline, the hamstring injury, or the rumour about a rival).",
+            starter: "One reason is… because the scenario shows…\n\nAnother reason is… because the scenario shows…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (AO2: application)</h5>
+<p><strong>Up to 2 marks per reason: 1 for identifying a relevant reason, 1 for linking it to the scenario. Answers may include:</strong></p>
+<ul>
+<li><strong>Financial / sponsorship pressure</strong> — Ellie's contract depends on a top-three finish, so she may feel she needs an artificial edge to keep her income.</li>
+<li><strong>Faster recovery from injury</strong> — the six-week hamstring injury has cost her training time, so she may see a PED as a way to catch up before the championship.</li>
+<li><strong>Belief a rival is doping</strong> — the rumour about a rival may make Ellie feel she needs to do the same to compete on equal terms.</li>
+</ul>
+<p>Accept any two different, scenario-linked reasons. A reason with no link to the scenario earns 1 of the 2 marks for that reason.</p>
+</div>`,
+            modelAnswer: "One reason is financial pressure: Ellie's sponsor will only renew her contract if she finishes top three, so she may feel a PED is needed to protect her income.\n\nAnother reason is faster recovery: her six-week hamstring injury has cost her training time, so she may see a PED as a way to catch up before the championship.",
+            markPoints: { note: "Mark each reason out of 2: one tick for naming it, one for linking it to the scenario.", groups: [
+                { label: "Your first reason", max: 2, points: ["Names a relevant reason (e.g. sponsorship/financial pressure, injury recovery, or belief a rival is doping)", "Links it to a specific detail from the scenario (the contract deadline, the hamstring injury, or the rumour)"] },
+                { label: "Your second reason", max: 2, points: ["Names a DIFFERENT relevant reason from the first", "Links it to a specific, DIFFERENT detail from the scenario"] }
+            ] }
+        },
+        {
+            num: "4",
+            marks: 8,
+            type: "written",
+            format: "banded",
+            caseStudy: "",
+            question: "Discuss why some athletes turn to PEDs despite the risks involved.",
+            hint: "Cover two or three different reasons (competitive, financial, physical, psychological). For each, explain why it pushes an athlete towards doping. Then weigh it up against the risks, and finish with a justified judgement.",
+            starter: "One reason athletes turn to PEDs is… because…\n\nAnother reason is…\n\nHowever, despite these pressures, the risks include…\n\nOverall, …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 8 marks (level-of-response). Read the band you fit, then pick a mark.</h5>
+<ul>
+<li><strong>Band 3 (thorough), 6–8:</strong> a balanced, well-applied discussion of several reasons for using PEDs, showing clearly why they push an athlete towards doping AND weighing this against the risks involved, ending in a justified judgement.</li>
+<li><strong>Band 2 (reasonable), 3–5:</strong> sound understanding of more than one reason with some analysis, but the discussion may be one-sided (reasons only, no risks) or the judgement unsupported.</li>
+<li><strong>Band 1 (basic), 1–2:</strong> names reasons with little explanation and no real evaluation; largely a list.</li>
+<li><strong>0 marks:</strong> nothing creditworthy.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Indicative content (indicative, not a checklist — reward valid alternatives)</h5>
+<ul>
+<li><strong>Competitive pressure:</strong> the pressure to win or succeed, especially where career or funding depends on results.</li>
+<li><strong>Financial pressure:</strong> fame, sponsorship and income can depend on staying near the top.</li>
+<li><strong>Belief rivals are doping:</strong> athletes may feel they must dope to compete on equal terms, even though this belief does not make it fair or legal.</li>
+<li><strong>Physical / recovery gains:</strong> training harder, recovering faster from injury, and gains in strength, speed or endurance.</li>
+<li><strong>Psychological effects:</strong> reduced anxiety, increased confidence, or a dulled sense of pain.</li>
+<li><strong>Evaluation:</strong> these pressures are real and can feel overwhelming, but they must be weighed against the risks (health harm, bans, loss of reputation and results); the pressures explain the behaviour without justifying it.</li>
+<li><strong>Judgement:</strong> the pressures on athletes are genuine and can combine to feel inescapable, but because the risks (health, career, reputation) are so serious, understanding "why" should lead to better support and education rather than being treated as an excuse.</li>
+</ul>
+</div>`,
+            modelAnswer: "Some athletes turn to PEDs because of the pressure to win, especially where their career or funding depends on results. Financial pressure also plays a part: sponsorship and income can depend on staying near the top, so losing form feels costly. Some athletes believe rivals are already doping and feel they must do the same to compete on equal terms, while others want faster recovery from injury or the physical and psychological lift a PED can bring.\n\nHowever, these pressures do not remove the risks — serious health harm, long bans and lasting reputational damage.\n\nOverall, the pressures are genuine and often combine, but because the risks are so severe, they should be addressed through support and education rather than accepted as a justification for doping."
+        }
+    ];
+</script>
+    <script src="/cs-lab/exam-widgets.js"></script>
+    <script src="/script.js"></script>
+<script src="section-totals.js"></script>
+<script src="page-groups.js"></script>
+<script src="/progress-shared.js"></script>
+<script src="/gamification.js"></script>
+<script src="/topic-guard.js"></script>
+<script src="/notifications-shared.js"></script>
+<script src="/onboarding-tour.js"></script>
+<script src="/footer-legal.js"></script>
+</body>
+
+</html>

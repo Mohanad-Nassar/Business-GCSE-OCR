@@ -16,7 +16,7 @@
         <div>
             <div class="badge">OCR GCSE Computer Science — Paper 2 · 2.2 Programming Fundamentals</div>
             <h1>2.2.2 Data Types</h1>
-            <p>Interactive revision guide · Content coming soon</p>
+            <p>Interactive revision guide</p>
         </div>
         <a href="/index.html" class="home-link">← 🏡 Home</a>
     </header>
@@ -256,7 +256,8 @@
 
 <script>
     // ══════════════════════════════════════
-    //  DATA: 2.2.2 Data Types — placeholder, content not yet written
+    //  DATA: 2.2.2 Data Types
+    //  Pseudocode shown in OCR Exam Reference Language (ERL), matching 2.2.1.
     // ══════════════════════════════════════
     const pageMeta = {
             id: '2-2-2-data-types',
@@ -268,21 +269,861 @@
 
     const topics = [
         {
-            title: "This topic is being written",
-            tag: "Coming soon",
-            content: `<p>🚧 <strong>Content for this topic is on its way.</strong> Key Learning notes, practice questions and exam-style questions for <strong>2.2.2 Data Types</strong> will appear here soon.</p>`
+            title: "The five data types",
+            tag: "Key concept",
+            content: `<h4>Every value in a program has a data type</h4>
+<ul>
+<li>A <strong>data type</strong> tells the computer what <strong>kind</strong> of value is being stored, and what can be done with it. The OCR specification names <strong>five</strong> data types you must know.</li>
+<li><strong>Integer</strong> — a whole number, with no decimal part (e.g. <code>17</code>, <code>-4</code>).</li>
+<li><strong>Real</strong> (also called <strong>float</strong>) — a number that has a decimal part (e.g. <code>3.14</code>, <code>0.5</code>).</li>
+<li><strong>Boolean</strong> — one of only two values: <code>true</code> or <code>false</code>.</li>
+<li><strong>Character</strong> — a <strong>single</strong> letter, digit or symbol (e.g. <code>'A'</code>, <code>'7'</code>, <code>'!'</code>).</li>
+<li><strong>String</strong> — a <strong>sequence</strong> of characters, i.e. text of any length (e.g. <code>"Hello"</code>, <code>"GCSE"</code>).</li>
+</ul>`,
+            readCheck: {
+                q: "Which data type stores one whole number, such as 42, with no decimal part?",
+                opts: ["Real, because a real number is simply any ordinary number that a program is able to store and work with", "Integer", "Boolean", "Character"],
+                ans: 1,
+                explain: "Integer stores a whole number with no decimal part. Real (float) is for numbers that DO have a decimal part."
+            }
+        },
+        {
+            title: "Integer",
+            tag: "Key concept",
+            content: `<h4>Whole numbers, positive or negative</h4>
+<ul>
+<li>An <strong>integer</strong> stores a <strong>whole number</strong> — it never has a decimal part.</li>
+<li>Use it for things that are naturally counted in whole units: someone's <strong>age in complete years</strong>, a <strong>score</strong>, the <strong>number of items</strong>, a <strong>year</strong>.</li>
+</ul>
+<div class="code-block">age = 15
+lives = 3
+year = 2026</div>
+<ul>
+<li>An integer can be negative (e.g. a temperature of <code>-4</code>), but it can never store a fractional value like <code>15.5</code>.</li>
+</ul>`,
+            readCheck: {
+                q: "Which of these is most suitable for storing as an integer?",
+                opts: ["The average height of a class of students in metres, worked out to two decimal places such as 1.63", "The number of students in a class", "The exact amount of rainfall recorded in millimetres, such as 12.7", "A single character representing a student's exam grade, such as 'B'"],
+                ans: 1,
+                explain: "The number of students is always a whole number, so it suits an integer. Height and rainfall need decimal places (real), and a grade letter is a character."
+            }
+        },
+        {
+            title: "Real (float)",
+            tag: "Key concept",
+            content: `<h4>Numbers with a decimal part</h4>
+<ul>
+<li>A <strong>real</strong> number (also called a <strong>float</strong>) can store a value <strong>with a decimal part</strong>.</li>
+<li>Use it whenever a value could reasonably need decimal places: a <strong>height</strong>, a <strong>weight</strong>, an <strong>average</strong>, a <strong>price</strong>.</li>
+</ul>
+<div class="code-block">height = 1.72
+average = 68.5
+price = 4.99</div>
+<ul>
+<li>Even if a real value happens to be a whole number right now (e.g. an average of <code>70.0</code>), it should still be stored as real if it might need decimal places later.</li>
+</ul>`,
+            readCheck: {
+                q: "Which of these values is a real (float) value?",
+                opts: ["7, because seven is a perfectly ordinary number and every ordinary number counts as a real value", "3.5", "true", "'X'"],
+                ans: 1,
+                explain: "3.5 has a decimal part, so it is a real (float) value. 7 alone is a whole number (integer); true is Boolean; 'X' is a character."
+            }
+        },
+        {
+            title: "Boolean",
+            tag: "Key concept",
+            content: `<h4>Only ever true or false</h4>
+<ul>
+<li>A <strong>Boolean</strong> stores exactly <strong>one of two values</strong>: <code>true</code> or <code>false</code>. Nothing else can be stored in it.</li>
+<li>Use it for a <strong>yes/no</strong> or <strong>on/off</strong> fact: is the player still alive, is a customer a member, has the form been filled in.</li>
+</ul>
+<div class="code-block">isMember = true
+gameOver = false
+isRaining = false</div>
+<ul>
+<li>A comparison such as <code>score &gt; 50</code> also produces a Boolean result (true or false) — that is why Boolean values are what conditions in <code>if</code> and <code>while</code> are built from.</li>
+</ul>`,
+            readCheck: {
+                q: "Which data type is most suitable for storing whether a light switch is currently on?",
+                opts: ["String, because the words 'on' and 'off' are pieces of text and text always has to be stored as a string", "Boolean", "Character", "Integer"],
+                ans: 1,
+                explain: "A switch has exactly two states, so it suits a Boolean (true/false) — not a string, which would need to be compared as text."
+            }
+        },
+        {
+            title: "Character",
+            tag: "Key concept",
+            content: `<h4>Exactly one letter, digit or symbol</h4>
+<ul>
+<li>A <strong>character</strong> stores <strong>a single</strong> letter, digit or symbol — never more than one.</li>
+<li>Use it for a value that can <strong>never be more than one symbol</strong>: an <strong>initial</strong>, a <strong>grade letter</strong>, a single key the user has pressed.</li>
+</ul>
+<div class="code-block">initial = 'M'
+grade = 'B'
+key = '!'</div>
+<ul>
+<li>Character is <strong>not</strong> the same as a short string. <code>'A'</code> is a character; <code>"AB"</code> or even <code>"A"</code> written with double quotes as text of any length is a string.</li>
+</ul>`,
+            readCheck: {
+                q: "A program stores a single letter representing a student's exam grade (e.g. 'B'). Which data type is most suitable?",
+                opts: ["String, because a string is able to hold letters and a single letter is nothing more than very short text", "Character", "Integer", "Boolean"],
+                ans: 1,
+                explain: "A value that is always exactly one letter, digit or symbol is a character. A string would suit text that could be more than one character."
+            }
+        },
+        {
+            title: "String",
+            tag: "Key concept",
+            content: `<h4>A sequence of characters — text of any length</h4>
+<ul>
+<li>A <strong>string</strong> stores a <strong>sequence of characters</strong> — that is, text made up of any number of characters, including none at all (an <strong>empty string</strong>, <code>""</code>).</li>
+<li>Use it for <strong>names</strong>, <strong>addresses</strong>, <strong>sentences</strong> — any text that could be more than one character.</li>
+</ul>
+<div class="code-block">name = "Priya Kaur"
+address = "12 Elm Road"
+message = "Well done!"</div>
+<ul>
+<li>Strings are written in <strong>quote marks</strong> in code. Even a string of digits, such as <code>"2026"</code>, is text — it cannot be used in a calculation until it is cast to a number.</li>
+</ul>`,
+            readCheck: {
+                q: "Which data type is most suitable for storing a customer's full postal address?",
+                opts: ["Character, because character is the data type used for any piece of text that a program needs to store", "String", "Real", "Boolean"],
+                ans: 1,
+                explain: "An address is a sequence of characters of varying length, so it needs a string. Character can only hold a single symbol."
+            }
+        },
+        {
+            title: "Why casting is needed",
+            tag: "Key concept",
+            content: `<h4>Converting a value from one data type to another</h4>
+<ul>
+<li><strong>Casting</strong> means converting a value from one data type to another.</li>
+<li>The most common reason it is needed: the function <code>input(...)</code> <strong>always returns a string</strong>, even if the user types digits. To do maths with that value, it must first be cast to a number.</li>
+</ul>
+<div class="code-block">age = input("How old are you? ")   // age is the STRING "15", not the number 15
+nextYear = age + 1                 // ERROR — a string cannot be added to a number</div>
+<ul>
+<li>Casting is also needed when <strong>joining a number onto text</strong> with <code>+</code> — the number must first be cast to a string, or the same error occurs.</li>
+</ul>`,
+            readCheck: {
+                q: "Why does the line  nextYear = age + 1  cause an error if age was set using input()?",
+                opts: ["It does not cause an error, because input() always returns a whole number that is ready to be used in a calculation", "input() returns age as a string, and a string cannot be added directly to an integer without casting", "The variable age has not been given a name yet, so the computer has nowhere to store the result of the sum", "The + symbol can only be used with Boolean values, never with numbers of any kind at all"],
+                ans: 1,
+                explain: "input() always returns a string, so age holds text, not a number. It must be cast (e.g. with int()) before 1 can be added to it."
+            }
+        },
+        {
+            title: "The casting functions",
+            tag: "Key concept",
+            content: `<h4>str(), int(), float() and bool()</h4>
+<ul>
+<li><code>str(x)</code> — casts <code>x</code> to a <strong>string</strong>. Needed before joining a number onto text with <code>+</code>.</li>
+<li><code>int(x)</code> — casts <code>x</code> to an <strong>integer</strong>. If <code>x</code> has a decimal part, it is <strong>dropped</strong> (not rounded).</li>
+<li><code>float(x)</code> (sometimes written <code>real(x)</code>) — casts <code>x</code> to a <strong>real</strong> number.</li>
+<li><code>bool(x)</code> — casts <code>x</code> to a <strong>Boolean</strong>.</li>
+</ul>
+<div class="code-block">age = int(input("Enter your age: "))
+print("Next year you will be " + str(age + 1))</div>
+<ul>
+<li>Here <code>input()</code> gives a string, <code>int(...)</code> converts it to a whole number so <code>+ 1</code> works, and <code>str(...)</code> converts the result back to a string so it can be joined onto the message.</li>
+</ul>`,
+            readCheck: {
+                q: "What does int(8.9) evaluate to?",
+                opts: ["9, because int() rounds a real number up or down to whichever whole number is closest to it", "8", "8.9", "0"],
+                ans: 1,
+                explain: "int() drops (truncates) the decimal part rather than rounding, so int(8.9) gives 8, not 9."
+            }
+        },
+        {
+            title: "Casting: reading the code",
+            tag: "Exam skill",
+            content: `<h4>Tracing a value's type through a program</h4>
+<ul>
+<li>Exam questions often show a short program and ask what it outputs, or why a line causes an error. Track the <strong>data type</strong> of each variable as you read, not just its value.</li>
+</ul>
+<div class="code-block">price = input("Enter the price: ")   // price is a STRING, e.g. "4.99"
+price = float(price)                // price is now a REAL, 4.99
+total = price * 3                   // total is a REAL, 14.97
+print("Total: £" + str(total))      // total is cast to a STRING to join it on</div>
+<ul>
+<li>If the <code>float(price)</code> line was missing, <code>price * 3</code> would try to multiply a string by a number — which fails, because <code>price</code> is still text.</li>
+</ul>`,
+            readCheck: {
+                q: "In the example above, what would happen if the line  price = float(price)  was removed?",
+                opts: ["Nothing would change — price would still work perfectly in the calculation on the line below it", "The line total = price * 3 would fail, because price would still be a string, not a number", "The program would automatically cast price to a real number anyway, without needing that line", "The final print statement would no longer work, even though the calculation above it would be fine"],
+                ans: 1,
+                explain: "Without the cast, price stays a string, so price * 3 fails — a string cannot be used in a numeric calculation."
+            }
+        },
+        {
+            title: "Choosing a suitable data type",
+            tag: "Exam skill",
+            content: `<h4>Match the data to the type</h4>
+<ul>
+<li>To choose a data type, ask: <strong>what kind of value is it, and what will be done with it?</strong></li>
+<li><strong>Age</strong> (whole years, used in maths) → <strong>integer</strong>.</li>
+<li><strong>Price</strong> (needs pence) → <strong>real</strong>.</li>
+<li><strong>"Is a member?"</strong> (yes/no) → <strong>Boolean</strong>.</li>
+<li><strong>Initial</strong> (always one letter) → <strong>character</strong>.</li>
+<li><strong>Name</strong> (text of any length) → <strong>string</strong>.</li>
+</ul>
+<p>When justifying a choice, always <strong>name the type</strong> and give the <strong>reason it fits this exact data</strong> — not just a general definition of the type.</p>`,
+            readCheck: {
+                q: "A program stores the number of pets a student owns. Which data type is most suitable, and why?",
+                opts: ["Real, because a decimal point makes any number look more precise and therefore more accurate to work with", "Integer, because the number of pets is always a whole number", "String, because numbers can always be stored as text just as easily as they can be stored as numbers", "Boolean, because owning pets is something that is either completely true or completely false for a student"],
+                ans: 1,
+                explain: "The number of pets is counted in whole units, so integer is the suitable type — real and string add nothing needed here."
+            }
+        },
+        {
+            title: "Consequences of a poor choice",
+            tag: "Exam skill",
+            content: `<h4>Picking the wrong type causes real problems</h4>
+<ul>
+<li><strong>Price stored as an integer</strong> — the pennies are lost. <code>£4.99</code> can only be stored as <code>4</code>, so totals become inaccurate.</li>
+<li><strong>Age stored as a string</strong> — it cannot be used directly in a calculation without casting first, and nothing stops invalid text such as <code>"twelve"</code> being stored.</li>
+<li><strong>Yes/no fact stored as a string</strong> (e.g. <code>"yes"</code>) — it cannot be combined with <code>AND</code>/<code>OR</code>/<code>NOT</code> like a real Boolean can, and has to be compared as exact text instead.</li>
+</ul>
+<p>The exam may ask you to <strong>identify the problem</strong> caused by a poor choice, or to <strong>suggest a better type</strong> and explain the improvement.</p>`,
+            readCheck: {
+                q: "A shop stores each item's price as an integer instead of a real number. What is the most likely consequence?",
+                opts: ["No consequence, because an integer can store exactly the same values as a real number can", "Amounts with pence, such as £3.49, cannot be stored accurately — the pennies are lost", "The program will crash immediately every single time a price is entered by the user", "Prices will be automatically converted into a string so that they can be displayed on screen"],
+                ans: 1,
+                explain: "An integer cannot hold a decimal part, so a price like £3.49 loses its pennies — this causes inaccurate totals."
+            }
         }
     ];
 
-    const mcqData = [];
-    const matchData = [];
-    const fibData = [];
-    const fibWords = [];
-    const tfData = [];
-    const miscData = [];
-    const examTips = [];
-    const flashcards = [];
-    const examQuestions = [];
+    const mcqData = [
+        {
+            q: "Which data type stores a value that has a decimal part, such as 3.75?",
+            opts: ["Integer, because integer values are perfectly able to include a decimal point somewhere within them", "Real (float)", "Boolean", "Character"],
+            ans: 1,
+            explain: "Real (or float) stores numbers with a decimal part. Integer stores only whole numbers."
+        },
+        {
+            q: "Which data type stores only one of two values, true or false?",
+            opts: ["String, because the words true and false are pieces of text and so must be stored as a string", "Boolean", "Character", "Integer"],
+            ans: 1,
+            explain: "Boolean stores exactly one of two values: true or false."
+        },
+        {
+            q: "A program stores a single letter grade such as 'A'. Which data type is most suitable?",
+            opts: ["String, because a string is the data type that is used for holding any letters of the alphabet at all", "Character", "Integer", "Real"],
+            ans: 1,
+            explain: "A single letter, digit or symbol is stored as a character. A string is used for a sequence of more than one character."
+        },
+        {
+            q: "What is the purpose of casting in a program?",
+            opts: ["Rounding a real number to the nearest whole number so it can be displayed more neatly on screen", "Converting a value from one data type to another", "Comparing two values to see whether they are equal to each other", "Joining two or more separate strings together into one longer string"],
+            ans: 1,
+            explain: "Casting converts a value from one data type to another, e.g. from a string to an integer."
+        },
+        {
+            q: "In pseudocode/Python, input() always returns a value of which data type?",
+            opts: ["Integer, because any value the user types on the keyboard is treated as a whole number automatically", "String", "Boolean", "Real"],
+            ans: 1,
+            explain: "input() always returns a string, even if the user types digits — it must be cast before being used in maths."
+        },
+        {
+            q: "Which function is used to convert a value into a whole number?",
+            opts: ["str()", "int()", "bool()", "float()"],
+            ans: 1,
+            explain: "int() casts a value to an integer. str() converts to string, bool() to Boolean, float() to real."
+        },
+        {
+            q: "What does int(7.9) evaluate to?",
+            opts: ["8, because int() rounds a real number up or down to the nearest whole number automatically", "7", "7.9", "0"],
+            ans: 1,
+            explain: "int() drops (truncates) the decimal part rather than rounding, so int(7.9) gives 7, not 8."
+        },
+        {
+            q: "Which function converts a number into a string, so it can be joined onto other text with +?",
+            opts: ["int()", "str()", "float()", "bool()"],
+            ans: 1,
+            explain: "str() converts a value to a string. Joining a number directly onto text with + causes an error unless it is first cast."
+        },
+        {
+            q: "A program stores whether a customer is a member (yes or no). Which data type is most suitable?",
+            opts: ["String, because storing the actual words 'yes' and 'no' is the clearest way of recording this fact", "Boolean", "Character", "Integer"],
+            ans: 1,
+            explain: "A yes/no fact is best stored as a Boolean (true/false) — it can be used directly in a condition, unlike a string."
+        },
+        {
+            q: "A shop's prices are stored as integers instead of real numbers. What is the most likely consequence?",
+            opts: ["No consequence, because an integer can store exactly the same range and precision as a real number", "Pence are lost — a price like £4.99 can only be stored as 4, losing the .99", "The program will refuse to run, since prices must always be stored as strings", "Prices will automatically be rounded to the nearest ten pounds"],
+            ans: 1,
+            explain: "Storing money as an integer discards the decimal part, so £4.99 loses its pennies — this causes inaccurate totals."
+        },
+        {
+            q: "Which data type would be most suitable for storing a customer's full name?",
+            opts: ["Character, because a name is usually short and character is the type reserved for short pieces of text", "String", "Integer", "Boolean"],
+            ans: 1,
+            explain: "A name is a sequence of characters of varying length, so it needs a string. Character holds only a single symbol."
+        },
+        {
+            q: "Which of the following is a real (float) value?",
+            opts: ["12", "12.5", "true", "'A'"],
+            ans: 1,
+            explain: "12.5 has a decimal part, so it is a real (float) value. 12 is an integer, true is Boolean, and 'A' is a character."
+        }
+    ];
+
+    const matchData = [
+        { term: "Integer", def: "A whole number, with no decimal part" },
+        { term: "Real (float)", def: "A number with a decimal part" },
+        { term: "Boolean", def: "One of only two values — true or false" },
+        { term: "Character", def: "A single letter, digit or symbol" },
+        { term: "String", def: "A sequence of characters — text of any length" },
+        { term: "Casting", def: "Converting a value from one data type to another" },
+        { term: "int()", def: "Casts a value to an integer, dropping any decimal part" },
+        { term: "float()", def: "Casts a value to a real number" },
+        { term: "str()", def: "Casts a value to a string" },
+        { term: "bool()", def: "Casts a value to a Boolean" },
+        { term: "input()", def: "Always returns a string, even if the user types digits" },
+        { term: "Poor data type choice", def: "Can lose accuracy, e.g. storing a price as an integer loses the pennies" }
+    ];
+
+    const fibData = [
+        {
+            display: "A(n) _____ data type stores a whole number, such as 17 or -4.",
+            blanks: { B1: "integer" }
+        },
+        {
+            display: "A _____ (float) data type stores a number with a decimal part, such as 3.14.",
+            blanks: { B1: "real" }
+        },
+        {
+            display: "A _____ data type stores only one of two values, true or false.",
+            blanks: { B1: "Boolean" }
+        },
+        {
+            display: "A _____ data type stores a single letter, digit or symbol.",
+            blanks: { B1: "character" }
+        },
+        {
+            display: "A string is a _____ of characters, i.e. text of any length.",
+            blanks: { B1: "sequence" }
+        },
+        {
+            display: "Converting a value from one data type to another is called _____.",
+            blanks: { B1: "casting" }
+        },
+        {
+            display: "The function _____ converts a value into a whole number, dropping any decimal part.",
+            blanks: { B1: "int()" }
+        },
+        {
+            display: "The input() function always returns a value of type _____.",
+            blanks: { B1: "string" }
+        }
+    ];
+    const fibWords = ["integer", "real", "Boolean", "character", "sequence", "casting", "int()", "string"];
+
+    const tfData = [
+        {
+            statement: "An integer can store a number with a decimal part, such as 3.5.",
+            answer: false,
+            explanation: "An integer stores whole numbers only. A number with a decimal part needs a real (float) data type."
+        },
+        {
+            statement: "A Boolean value can only ever be true or false.",
+            answer: true,
+            explanation: "Correct — Boolean is limited to exactly two values, true and false."
+        },
+        {
+            statement: "A character can store more than one letter, such as 'Hi'.",
+            answer: false,
+            explanation: "A character holds exactly one letter, digit or symbol. A sequence of letters like 'Hi' needs a string."
+        },
+        {
+            statement: "input() always returns a value as a string, even if the user types a number.",
+            answer: true,
+            explanation: "Correct — input() always returns a string, which is why it often needs to be cast before use in maths."
+        },
+        {
+            statement: "int(7.8) rounds the value to give 8.",
+            answer: false,
+            explanation: "int() does not round — it truncates (drops the decimal part), so int(7.8) gives 7, not 8."
+        },
+        {
+            statement: "str() is used to convert a number into a string so it can be joined onto text with +.",
+            answer: true,
+            explanation: "Correct — a number must be cast to a string with str() before it can be joined onto text with +."
+        },
+        {
+            statement: "Storing a price such as £4.99 as an integer keeps the value fully accurate.",
+            answer: false,
+            explanation: "An integer cannot store the decimal part, so £4.99 loses its pennies and becomes inaccurate."
+        },
+        {
+            statement: "Choosing a suitable data type for each piece of data helps keep a program's values accurate and easy to use correctly.",
+            answer: true,
+            explanation: "Correct — the right data type avoids lost accuracy (like price as integer) and avoids needing extra casting."
+        }
+    ];
+
+    const miscData = [
+        {
+            wrong: "Thinking int() rounds a decimal number to the nearest whole number.",
+            correct: "<strong>int()</strong> does not round — it <strong>truncates</strong> (drops) the decimal part, always cutting towards zero. So <code>int(7.9)</code> gives <strong>7</strong>, not 8, and <code>int(-7.9)</code> gives <strong>-7</strong>, not -8.",
+            readCheck: {
+                q: "What does int(4.7) give?",
+                opts: ["5, because int() always rounds a decimal number up or down to the nearest whole number", "4", "4.7", "0"],
+                ans: 1,
+                explain: "int() truncates (drops) the decimal part rather than rounding, so int(4.7) gives 4."
+            }
+        },
+        {
+            wrong: "Thinking a character and a string of one letter are exactly the same thing.",
+            correct: "A <strong>character</strong> can hold only <strong>one</strong> single letter, digit or symbol. A <strong>string</strong> is a <strong>sequence</strong> of characters — it can hold one character, many characters, or even none at all. Choose character only when the data can never be more than a single symbol (e.g. a grade letter).",
+            readCheck: {
+                q: "Which statement correctly describes the difference between character and string?",
+                opts: ["There is no real difference between them at all; both data types are always limited to holding exactly one single letter or symbol", "Character holds exactly one symbol; string holds a sequence of any number of characters, including none", "Character is used only for storing numbers, and string is used only for storing letters of the alphabet", "String can only ever hold a single symbol, while character can hold any amount of text"],
+                ans: 1,
+                explain: "Character is limited to a single symbol; string can hold any length of text, including an empty string."
+            }
+        },
+        {
+            wrong: "Forgetting that input() always returns a string, even when the user types digits.",
+            correct: "Whatever the user types into <code>input(...)</code> is stored as a <strong>string</strong> — typing 15 gives the string <code>\"15\"</code>, not the integer 15. To use it in maths it must first be <strong>cast</strong> with <code>int()</code> or <code>float()</code>.",
+            readCheck: {
+                q: "A student types 20 in response to  input(\"Enter a number: \") . What is stored, before any casting takes place?",
+                opts: ["The integer 20, ready to be used straight away in any calculation the program needs to do", "The string \"20\"", "The real number 20.0, because input() always adds a decimal point automatically", "Nothing is stored, because input() cannot accept numbers typed by the user at all"],
+                ans: 1,
+                explain: "input() always returns a string, so \"20\" is stored as text, not as the number 20, until it is cast."
+            }
+        },
+        {
+            wrong: "Believing a data type choice makes no real difference as long as the value 'looks right' when printed.",
+            correct: "A poor choice can quietly cause errors or lost accuracy — e.g. storing a <strong>price</strong> as an <strong>integer</strong> loses the pennies, and storing an <strong>age</strong> as a <strong>string</strong> means it cannot be used directly in a calculation without casting first.",
+            readCheck: {
+                q: "Why does storing a price as an integer rather than a real cause a problem, even if it looks fine on screen at first?",
+                opts: ["It does not cause any problem, since the digits displayed on screen will always still look correct", "It loses the pence, e.g. £4.99 can only be stored as 4, so totals built from it become inaccurate", "The program will refuse to display the price on screen at all if it is stored as an integer", "An integer automatically converts itself into a string the moment it is printed to the screen"],
+                ans: 1,
+                explain: "An integer cannot hold a decimal part, so a price such as £4.99 loses its pence — this makes totals inaccurate."
+            }
+        },
+        {
+            wrong: "Thinking + always adds numbers together, even when the values are strings.",
+            correct: "When both values are <strong>strings</strong>, <code>+</code> <strong>joins them together</strong> rather than adding numbers. Mixing a string and a number with <code>+</code> (e.g. <code>\"Score: \" + 10</code>) causes an error unless the number is first cast to a string with <code>str()</code>.",
+            readCheck: {
+                q: "What does \"Score: \" + str(10) produce?",
+                opts: ["An error, because a string and a number can never be joined together no matter how it is written", "The string \"Score: 10\"", "The number 10, with the text \"Score: \" simply thrown away and ignored", "The Boolean value true, because + is used to compare two values for equality"],
+                ans: 1,
+                explain: "str(10) casts 10 to the string \"10\" first, so + can join it onto \"Score: \", giving \"Score: 10\"."
+            }
+        },
+        {
+            wrong: "Thinking Boolean values must be typed as the words 'true' and 'false' in quotes, like a string.",
+            correct: "A real <strong>Boolean</strong> value is not text — it is not written in quote marks. <code>true</code> is a Boolean; <code>\"true\"</code> is a <strong>string</strong> that merely contains the letters t-r-u-e, and behaves completely differently in a condition.",
+            readCheck: {
+                q: "What data type is  \"true\"  (written with quote marks), as opposed to  true  (written without)?",
+                opts: ["It is still a Boolean value, because the word true always means the same thing no matter how it is written", "A string — quote marks always create a string, even if the text inside looks like a Boolean value", "An integer, because quote marks are used in programming to represent the number 1", "A character, because \"true\" is exactly four letters long and characters can be up to four letters"],
+                ans: 1,
+                explain: "Quote marks create a string. \"true\" is text containing the letters t-r-u-e — it is not the Boolean value true."
+            }
+        }
+    ];
+
+    const examTips = [
+        {
+            type: "tip",
+            title: "Choosing a data type: ask two questions",
+            pills: ["AO1", "Key skill", "Justify"],
+            content: `<p>"Choose a suitable data type" and "justify your choice" questions come up often. Answer them by asking two questions about the data:</p>
+<ul>
+<li><strong>What kind of value is it?</strong> A whole number → integer. A number that could need decimal places → real. A yes/no fact → Boolean. Always exactly one symbol → character. Any other text → string.</li>
+<li><strong>What will be done with it?</strong> If it needs to be used in a calculation, it must not be a string. If it is compared with AND/OR/NOT, it should be a Boolean, not text like "yes".</li>
+</ul>
+<p>When justifying, name the <strong>type</strong> and give the <strong>reason specific to this data</strong> — "integer, because the number of items is always a whole number" scores; "integer, because integers are a data type" does not.</p>`,
+            readCheck: {
+                q: "A question asks you to justify storing a student's age as an integer. Which answer is best?",
+                opts: ["Integer, because integer is one of the five data types listed in the specification", "Integer, because age in complete years is always a whole number", "Integer, because integers can be used in any program for any kind of data at all", "Integer, because it is the first data type that most programmers usually think of"],
+                ans: 1,
+                explain: "A good justification links the TYPE to a reason specific to THIS data — age in whole years is naturally a whole number."
+            }
+        },
+        {
+            type: "explain",
+            title: "Casting: match the function to the target type",
+            pills: ["AO2", "Calculation", "Common question"],
+            content: `<p>Questions may show a line of code with a cast missing, or ask you to trace a program's data types line by line. Keep the four functions straight:</p>
+<ul>
+<li><code>int(x)</code> → integer (decimal part <strong>dropped</strong>, not rounded).</li>
+<li><code>float(x)</code> → real (decimal part kept).</li>
+<li><code>str(x)</code> → string (needed before joining a number onto text with +).</li>
+<li><code>bool(x)</code> → Boolean.</li>
+</ul>
+<p><strong>Worked trace:</strong> <code>n = input("Enter a number: ")</code> makes <code>n</code> a string. <code>n = int(n)</code> makes it an integer. <code>print("Value: " + str(n))</code> then casts it back to a string so it can join onto the text — without that last cast, the line would fail.</p>`,
+            readCheck: {
+                q: "In the worked trace above, why is str(n) needed in the final print line?",
+                opts: ["It is not actually needed at all — the line would carry on working in exactly the same way whether it was included or left out", "Because n is an integer by that point, and a number cannot be joined onto text with + without being cast to a string first", "Because print() is only able to display values that have already been stored using the string data type in the first place", "Because str() is required every single time any variable of any kind is used anywhere at all inside a print statement"],
+                ans: 1,
+                explain: "By that point n has been cast to an integer, so it must be cast to a string with str() before + can join it onto text."
+            }
+        },
+        {
+            type: "tip",
+            title: "Spotting the consequence of a poor data type choice",
+            pills: ["AO1", "Analysis", "Common question"],
+            content: `<p>"Explain the problem caused by storing X as Y" questions want a <strong>specific</strong> consequence, not just "it is wrong". Common patterns:</p>
+<ul>
+<li><strong>Money as integer</strong> → pence are lost, so totals become inaccurate.</li>
+<li><strong>Number as string</strong> → cannot be used in a calculation without casting, and invalid values (like "twelve") are not prevented.</li>
+<li><strong>Yes/no fact as string</strong> → cannot be combined with AND/OR/NOT the way a real Boolean can, and must be compared as exact text.</li>
+</ul>
+<p>Always link your answer back to <strong>what the program actually needs to do</strong> with the value.</p>`,
+            readCheck: {
+                q: "A program stores whether a customer has paid as the string \"yes\" or \"no\", instead of a Boolean. What is a valid consequence to give in an exam answer?",
+                opts: ["There is no real consequence at all, because the strings \"yes\" and \"no\" behave in exactly the same way as the Boolean values true and false", "It cannot be combined directly with AND/OR/NOT like a Boolean, and must instead be compared as exact text", "The program will not be able to store the value \"no\" at all, only ever the value \"yes\"", "Storing it as a string will make the whole program run considerably faster than storing it as a Boolean"],
+                ans: 1,
+                explain: "A string like \"yes\" cannot be used directly in a Boolean condition the way true/false can — it needs an exact text comparison."
+            }
+        }
+    ];
+
+    const flashcards = [
+        { term: "Integer", def: "A whole number, with no decimal part" },
+        { term: "Real (float)", def: "A number with a decimal part" },
+        { term: "Boolean", def: "One of only two values — true or false" },
+        { term: "Character", def: "A single letter, digit or symbol" },
+        { term: "String", def: "A sequence of characters — text of any length" },
+        { term: "Casting", def: "Converting a value from one data type to another" },
+        { term: "Why casting is needed", def: "input() always returns a string, so it must be cast before use in maths" },
+        { term: "int()", def: "Casts a value to an integer, dropping any decimal part (not rounding)" },
+        { term: "float()", def: "Casts a value to a real number" },
+        { term: "str()", def: "Casts a value to a string" },
+        { term: "bool()", def: "Casts a value to a Boolean" },
+        { term: "int(7.9)", def: "Gives 7 — the decimal part is dropped, not rounded, to give 7" },
+        { term: "Age → data type", def: "Integer — a whole number of complete years, used in calculations" },
+        { term: "Price → data type", def: "Real — needs decimal places (pence)" },
+        { term: "\"Is a member?\" → data type", def: "Boolean — a yes/no fact" },
+        { term: "Price stored as integer", def: "A poor choice — the pence are lost, e.g. £4.99 becomes 4" }
+    ];
+
+    // ── Original clean-room exam questions (2026-07-24) ──
+    // Written from scratch against the §2.2.2 spec scope (CS-CONTENT-PLAN.md
+    // §6.2 clean-room rule) — NOT transcribed from any OCR paper. No exam PDF
+    // was supplied for this topic, so the tariff spread and format mix are
+    // authored from the standard J277 Paper 2 assessment style for data types
+    // (identify/state a type, casting calculations, choose-and-justify a type,
+    // complete code with the correct casts, explain a consequence), NOT
+    // profiled from a real paper — treat the ceiling as a best estimate.
+    // Spread: 2x1, 3x2, 2x3, 4x4 = 11 questions / 30 marks (mcq/written/
+    // tickGrid/matchLine/bankCloze/tableFill/codeGaps).
+    const EXAM_CASE_STUDIES = {};
+
+    const examQuestions = [
+        {
+            num: "Q1",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: `<p>Tick <strong>one</strong> box to identify the data type of the value <strong>true</strong>.</p>`,
+            options: ["Integer", "Boolean", "Character", "String"],
+            answer: 1,
+            hint: "true and false — which data type stores exactly these two values?",
+            starter: "",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<ul><li><strong>Boolean</strong></li></ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul><li>Only the correct option scores; 2 or more ticks scores 0.</li></ul>
+</div>`,
+            modelAnswer: "Boolean."
+        },
+        {
+            num: "Q2",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: `<p>Tick <strong>one</strong> box to give the value of  <strong>int(9.6)</strong>.</p>`,
+            options: ["10", "9", "9.6", "0"],
+            answer: 1,
+            hint: "int() truncates (drops) the decimal part; it does not round.",
+            starter: "",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<ul><li><strong>9</strong> — int() drops the decimal part rather than rounding, so int(9.6) gives 9, not 10.</li></ul>
+</div>`,
+            modelAnswer: "9"
+        },
+        {
+            num: "Q3",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            stubs: ["Shoe size", "Average speed"],
+            question: `<p>State the most suitable data type for each of the following pieces of data.</p><p>(a) A person's shoe size, e.g. 8  <strong>[1]</strong><br>(b) The average speed of a car in mph, e.g. 62.4  <strong>[1]</strong></p>`,
+            hint: "Does the value ever need a decimal part, or is it always a whole number?",
+            starter: "(a) …  (b) …",
+            markPoints: {
+                note: "1 mark for each correct data type.",
+                groups: [
+                    { label: "(a) Shoe size", max: 1, points: [{ text: "Integer", marks: 1 }] },
+                    { label: "(b) Average speed", max: 1, points: [{ text: "Real (float)", marks: 1 }] }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks</h5>
+<ul>
+<li>(a) <strong>Integer</strong> — a shoe size is a whole number</li>
+<li>(b) <strong>Real (float)</strong> — an average speed can need a decimal part</li>
+</ul>
+</div>`,
+            modelAnswer: "(a) Integer\n(b) Real (float)"
+        },
+        {
+            num: "Q4",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: `<p>A programmer writes the following code.</p><pre>age = input("Enter your age: ")
+print(age + 5)</pre><p>Explain why this code produces an error.</p>`,
+            hint: "What data type does input() always return, and can that be added to a number directly?",
+            starter: "The code produces an error because…",
+            markPoints: {
+                note: "Up to 2 marks: identifies the string data type AND explains why it fails without casting.",
+                groups: [
+                    {
+                        label: "Explanation", max: 2, points: [
+                            { text: "States that input() always returns a string, so age is stored as a string, not a number", marks: 1 },
+                            { text: "Explains that a string cannot be added directly to an integer without first being cast (e.g. with int())", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks</h5>
+<ul>
+<li>Award 1 mark for: input() always returns a string, so age holds a string, not a number.</li>
+<li>Award 1 mark for: a string cannot be added directly to an integer — age would need to be cast with int() first.</li>
+</ul>
+</div>`,
+            modelAnswer: "input() always returns a string, so age is stored as the string \"...\" rather than a number. A string cannot be added directly to an integer, so age would need to be cast with int() before 5 could be added to it."
+        },
+        {
+            num: "Q5",
+            marks: 4,
+            type: "written",
+            format: "tickGrid",
+            caseStudy: "",
+            question: `<p>Tick <strong>one</strong> box in each row to identify the most suitable data type for each variable.</p>`,
+            grid: {
+                cols: ["Integer", "Real", "Boolean", "String"],
+                rows: [
+                    { label: "Number of pets a student owns", correct: [0] },
+                    { label: "Average rainfall in a month (mm), e.g. 84.6", correct: [1] },
+                    { label: "Whether a student has a bus pass (yes/no)", correct: [2] },
+                    { label: "A student's home address", correct: [3] }
+                ]
+            },
+            hint: "For each row, ask: is it always a whole number, does it need decimal places, is it a yes/no fact, or is it text?",
+            starter: "Pets: … | Rainfall: … | Bus pass: … | Address: …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (1 mark for each row)</h5>
+<ul>
+<li>Number of pets → <strong>Integer</strong></li>
+<li>Average rainfall → <strong>Real</strong></li>
+<li>Has a bus pass → <strong>Boolean</strong></li>
+<li>Home address → <strong>String</strong></li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul><li>Each row is marked independently; 2+ ticks in a row scores 0 for that row.</li></ul>
+</div>`,
+            modelAnswer: "Number of pets: Integer. Average rainfall: Real. Has a bus pass: Boolean. Home address: String."
+        },
+        {
+            num: "Q6",
+            marks: 4,
+            type: "written",
+            format: "matchLine",
+            caseStudy: "",
+            question: `<p>Draw <strong>one</strong> line from each casting function to what it does.</p><p>(There are more descriptions than functions — one description is not used.)</p>`,
+            match: {
+                left: ["int()", "float()", "str()", "bool()"],
+                right: ["Converts a value to a whole number, dropping any decimal part", "Converts a value to a real (decimal) number", "Converts a value to a string", "Converts a value to a Boolean (true/false)", "Converts a value to a single character"],
+                answer: { "0": 0, "1": 1, "2": 2, "3": 3 },
+                decoys: [4]
+            },
+            hint: "Watch the decoy: 'converts to a single character' does not match any of the four functions listed.",
+            starter: "int() → …, float() → …, str() → …, bool() → …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (1 mark per correct line)</h5>
+<ul>
+<li>int() → <strong>A</strong> (whole number, decimal part dropped)</li>
+<li>float() → <strong>B</strong> (real/decimal number)</li>
+<li>str() → <strong>C</strong> (string)</li>
+<li>bool() → <strong>D</strong> (Boolean, true/false)</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul><li>1 mark per correct line. Description E ('converts to a single character') is a decoy, and is not used.</li></ul>
+</div>`,
+            modelAnswer: "int() → whole number, decimal part dropped. float() → real (decimal) number. str() → string. bool() → Boolean (true/false)."
+        },
+        {
+            num: "Q7",
+            marks: 3,
+            type: "written",
+            format: "bankCloze",
+            caseStudy: "",
+            question: `<p>Complete the paragraph about casting by selecting terms from the list. <strong>Not all terms are used.</strong></p>`,
+            cloze: `<p>The function <code>input()</code> always returns a value of type ___1___, even if the user types a number. Converting a value from one data type to another is called ___2___. To join a number onto a piece of text using +, the number must first be converted to a string using the function ___3___.</p>`,
+            bank: ["string", "casting", "str()", "integer", "Boolean", "int()"],
+            answers: {
+                "1": ["string"],
+                "2": ["casting"],
+                "3": ["str()"]
+            },
+            hint: "What does input() return? What is the general name for converting between types? Which function turns a value into a string?",
+            starter: "(1) … (2) … (3) …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 3 marks (1 mark for each completed term)</h5>
+<p>The function <code>input()</code> always returns a value of type <strong>string</strong>. Converting a value from one data type to another is called <strong>casting</strong>. To join a number onto text using +, the number must first be converted using <strong>str()</strong>.</p>
+</div>`,
+            modelAnswer: "(1) string (2) casting (3) str()"
+        },
+        {
+            num: "Q8",
+            marks: 4,
+            type: "written",
+            format: "tableFill",
+            caseStudy: "",
+            question: `<p>Complete the table by giving the most suitable data type for each data item.</p>`,
+            table: {
+                headers: ["Data item", "Suitable data type"],
+                rows: [
+                    ["Number of goals scored in a match", null],
+                    ["A student's exam grade letter, e.g. 'B'", null],
+                    ["Whether an item is currently in stock (yes/no)", null],
+                    ["The price of an item in pounds, e.g. 2.49", null]
+                ]
+            },
+            answers: {
+                "0,1": ["integer"],
+                "1,1": ["character"],
+                "2,1": ["Boolean"],
+                "3,1": ["real", "float"]
+            },
+            hint: "Whole number? Single symbol? Yes/no fact? Needs decimal places?",
+            starter: "Goals: … | Grade: … | In stock: … | Price: …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (1 mark each)</h5>
+<ul>
+<li>Number of goals → <strong>Integer</strong></li>
+<li>Exam grade letter → <strong>Character</strong></li>
+<li>In stock (yes/no) → <strong>Boolean</strong></li>
+<li>Price in pounds → <strong>Real (float)</strong></li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul><li>Each row is marked independently.</li></ul>
+</div>`,
+            modelAnswer: "Goals: Integer. Grade letter: Character. In stock: Boolean. Price: Real (float)."
+        },
+        {
+            num: "Q9",
+            marks: 3,
+            type: "written",
+            format: "codeGaps",
+            caseStudy: "",
+            question: `<p>The algorithm below asks for the price and quantity of an item, then works out and displays the total cost.</p><p>Complete the three gaps.</p>`,
+            gaps: {
+                lines: [
+                    'price = input("Enter the price: ")',
+                    'price = {1}(price)',
+                    'quantity = input("Enter the quantity: ")',
+                    'quantity = {2}(quantity)',
+                    'total = price * quantity',
+                    'print("Total cost: " + {3}(total))'
+                ],
+                answers: {
+                    "1": ["float", "real"],
+                    "2": ["int"],
+                    "3": ["str"]
+                }
+            },
+            hint: "Price needs decimal places, quantity is always a whole number, and the final total must become a string before it can be joined onto text with +.",
+            starter: "Gap 1: … Gap 2: … Gap 3: …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 3 marks (1 mark per gap)</h5>
+<ul>
+<li>Gap 1: <strong>float</strong> (casts price to a real number)</li>
+<li>Gap 2: <strong>int</strong> (casts quantity to an integer)</li>
+<li>Gap 3: <strong>str</strong> (casts total to a string so it can join onto the text)</li>
+</ul>
+</div>`,
+            modelAnswer: "price = float(price) ; quantity = int(quantity) ; print(\"Total cost: \" + str(total))"
+        },
+        {
+            num: "Q10",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: `<p>A program stores a customer's age as a string instead of an integer.</p><p>State <strong>two</strong> problems this could cause.</p>`,
+            hint: "Think about what you can and cannot do with a string that you could do with an integer.",
+            starter: "One problem is…, and another problem is…",
+            markPoints: {
+                note: "1 mark for each valid, distinct problem (up to 2).",
+                groups: [
+                    {
+                        label: "Two problems", max: 2, points: [
+                            { text: "The age cannot be used directly in a calculation without first being cast to an integer", marks: 1 },
+                            { text: "A string does not restrict the value to a sensible whole number — it could hold invalid data such as \"twelve\"", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (1 mark for each valid problem, up to 2)</h5>
+<ul>
+<li>The age cannot be used directly in a calculation (e.g. adding 1 to find next year's age) without casting it to an integer first.</li>
+<li>A string does not stop invalid, non-numeric data being stored, such as "twelve" or "old".</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul><li>Accept any two distinct, valid problems linked to storing age as a string.</li></ul>
+</div>`,
+            modelAnswer: "The age cannot be used directly in a calculation (such as working out next year's age) without first being cast to an integer. It also does not stop invalid, non-numeric text such as \"twelve\" being stored."
+        },
+        {
+            num: "Q11",
+            marks: 4,
+            type: "written",
+            caseStudy: "",
+            question: `<p>A program stores data about a library book: its <strong>title</strong>, the <strong>number of pages</strong>, whether it is <strong>currently on loan</strong>, and its <strong>average star rating</strong> (e.g. 4.3).</p><p>State the most suitable data type for each piece of data.</p>`,
+            hint: "Text of any length? Always a whole number? A yes/no fact? Could need a decimal part?",
+            starter: "Title: … | Number of pages: … | On loan: … | Average rating: …",
+            markPoints: {
+                note: "1 mark for each correct data type.",
+                groups: [
+                    { label: "Title", max: 1, points: [{ text: "String", marks: 1 }] },
+                    { label: "Number of pages", max: 1, points: [{ text: "Integer", marks: 1 }] },
+                    { label: "Currently on loan", max: 1, points: [{ text: "Boolean", marks: 1 }] },
+                    { label: "Average star rating", max: 1, points: [{ text: "Real (float)", marks: 1 }] }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (1 mark each)</h5>
+<ul>
+<li>Title → <strong>String</strong></li>
+<li>Number of pages → <strong>Integer</strong></li>
+<li>Currently on loan → <strong>Boolean</strong></li>
+<li>Average star rating → <strong>Real (float)</strong></li>
+</ul>
+</div>`,
+            modelAnswer: "Title: String. Number of pages: Integer. Currently on loan: Boolean. Average star rating: Real (float)."
+        }
+    ];
 </script>
     <script src="/script.js"></script>
 <script src="section-totals.js"></script>

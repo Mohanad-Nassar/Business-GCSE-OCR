@@ -1,0 +1,1246 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2.2.3e Sub Programs and Random Numbers – Interactive Study Guide</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+    <header>
+        <div>
+            <div class="badge">OCR GCSE Computer Science — Paper 2 · 2.2 Programming Fundamentals</div>
+            <h1>2.2.3e Sub Programs and Random Numbers</h1>
+            <p>Interactive revision guide</p>
+        </div>
+        <a href="/index.html" class="home-link">← 🏡 Home</a>
+    </header>
+
+    <nav class="tab-bar" id="tabBar">
+        <button class="tab-btn active" onclick="switchTab('learn', this)">
+            📚 Key Learning
+        </button>
+        <button class="tab-btn" onclick="switchTab('mcq', this)">
+            ❓ MCQ Quiz
+        </button>
+        <button class="tab-btn" onclick="switchTab('matching', this)">
+            🔗 Matching
+        </button>
+        <button class="tab-btn" onclick="switchTab('fib', this)">
+            ✏️ Fill the Blanks
+        </button>
+        <button class="tab-btn" onclick="switchTab('misconceptions', this)">
+            ⚠️ Misconceptions
+        </button>
+        <button class="tab-btn" onclick="switchTab('examtips', this)">
+            🎯 Exam Tips
+        </button>
+        <button class="tab-btn" onclick="switchTab('flashcards', this)">
+            🃏 Flashcards
+        </button>
+        <button class="tab-btn" onclick="switchTab('truefalse', this)">
+            ✅ True / False
+        </button>
+        <button class="tab-btn" onclick="switchTab('exampractice', this)">
+            📝 Exam Practice
+        </button>
+    </nav>
+
+    <main>
+        <div class="tab-panel active" id="tab-learn">
+            <h2 class="section-title">Key Learning Topics</h2>
+            <p class="section-sub">Click any card to expand detailed notes.</p>
+            <div class="topic-grid" id="topicGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-mcq">
+            <h2 class="section-title">Multiple Choice Questions</h2>
+            <p class="section-sub">Select an answer to reveal instant feedback.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="mcqScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">
+                        correct answers
+                    </div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    out of <strong id="mcqTotal">0</strong> attempted
+                </div>
+                <button class="reset-btn" onclick="resetMCQ()">RESET</button>
+            </div>
+            <div class="quiz-wrap" id="mcqWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-matching">
+            <h2 class="section-title">Matching Activity</h2>
+            <p class="section-sub">
+                Click a term on the left, then click the matching definition on the
+                right.
+            </p>
+            <div style="margin-bottom: 16px">
+                <div class="score-bar">
+                    <div>
+                        <div class="score-num" id="matchScore">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">matched</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="matchTotal">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetMatch()">RESET</button>
+                </div>
+            </div>
+            <div class="match-grid">
+                <div>
+                    <div class="match-label">TERMS</div>
+                    <div class="match-col" id="matchLeft"></div>
+                </div>
+                <div>
+                    <div class="match-label">DEFINITIONS</div>
+                    <div class="match-col" id="matchRight"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-fib">
+            <h2 class="section-title">Fill in the Blanks</h2>
+            <p class="section-sub">
+                Click each dropdown and choose the correct word. Wrong answers reset —
+                try again!
+            </p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="fibScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="fibTotal">0</strong> blanks
+                </div>
+                <button class="reset-btn" onclick="resetFIB()">RESET</button>
+            </div>
+            <div class="fib-wrap" id="fibWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-misconceptions">
+            <h2 class="section-title">Common Misconceptions</h2>
+            <p class="section-sub">
+                What students often think — and what examiners actually want.
+            </p>
+            <div class="misc-list" id="miscList"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-examtips">
+            <h2 class="section-title">Exam Questions &amp; Tips</h2>
+            <p class="section-sub">
+                Most repeated question types and mark-scheme structures from real OCR
+                papers.
+            </p>
+            <div class="tips-grid" id="tipsGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-flashcards">
+            <h2 class="section-title">Flashcards</h2>
+            <p class="section-sub">
+                Test yourself! Flip the card and rate your knowledge. Review your weak
+                areas at the end.
+            </p>
+
+            <div class="fc-container">
+                <div class="score-bar" id="fcScoreBar" style="display: none; margin-bottom: 20px">
+                    <div>
+                        <div class="score-num" id="fcKnown" style="color: #2d7a4f">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">known</div>
+                    </div>
+                    <div>
+                        <div class="score-num" id="fcUnknown" style="color: #c84b31">
+                            0
+                        </div>
+                        <div style="font-size: 12px; color: var(--mid)">learning</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="fcTotalTrack">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
+                </div>
+
+                <div id="fcActiveArea">
+                    <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
+                    <div class="flashcard" id="flashcard" onclick="flipCard()">
+                        <div class="fc-inner">
+                            <div class="fc-front">
+                                <div class="fc-label">KEY TERM</div>
+                                <div class="fc-term" id="fcTerm"></div>
+                            </div>
+                            <div class="fc-back">
+                                <div class="fc-def" id="fcDef"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="fc-hint">👆 Click card to flip</p>
+
+                    <div class="fc-nav" id="fcNavDefault">
+                        <button class="fc-btn outline" onclick="prevCard()">
+                            ← Prev
+                        </button>
+                        <button class="fc-btn outline" onclick="flipCard()">Flip</button>
+                        <button class="fc-btn" onclick="nextCard()">Next →</button>
+                    </div>
+
+                    <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px">
+                        <button class="fc-btn outline" style="border-color: #c84b31; color: #c84b31; flex: 1"
+                            onclick="markCard(false)">
+                            ❌ Still Learning
+                        </button>
+                        <button class="fc-btn" style="background: #2d7a4f; border-color: #2d7a4f; flex: 1"
+                            onclick="markCard(true)">
+                            ✅ Got It
+                        </button>
+                    </div>
+                </div>
+
+                <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px">
+                    <h3>Session Complete! 🎉</h3>
+                    <p style="margin: 15px 0">
+                        You knew <strong id="fcSummaryKnown">0</strong> out of
+                        <strong id="fcSummaryTotal">0</strong> cards.
+                    </p>
+                    <div style="
+                margin-top: 25px;
+                display: flex;
+                gap: 15px;
+                justify-content: center;
+                flex-wrap: wrap;
+              ">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
+                            style="background: #c84b31; border-color: #c84b31">
+                            Review Incorrect
+                        </button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">
+                            Practice All Again
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-truefalse">
+            <h2 class="section-title">True or False?</h2>
+            <p class="section-sub">Test your knowledge with these statements.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="tfScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="tfTotal">0</strong> answered
+                </div>
+                <button class="reset-btn" onclick="resetTF()">RESET</button>
+            </div>
+            <div class="tf-wrap" id="tfWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-exampractice">
+            <h2 class="section-title">Exam Practice Questions</h2>
+            <p class="section-sub">
+                Full exam questions with case studies. Use <strong>Hint</strong>,
+                <strong>Sentence Starter</strong> and
+                <strong>Submit &amp; See Mark Scheme</strong> for each question.
+            </p>
+            <div class="ep-list" id="epList"></div>
+        </div>
+    </main>
+
+<script>
+    // ══════════════════════════════════════
+    //  DATA: 2.2.3e Sub Programs and Random Numbers
+    //  Split out from 2.2.3 Additional Programming Techniques and expanded
+    //  into a full standalone page. Pseudocode shown in OCR Exam Reference
+    //  Language (ERL) — the language Paper 2 questions are set in.
+    // ══════════════════════════════════════
+    const pageMeta = {
+            id: '2-2-3e-subprograms-and-random-numbers',
+            badge: 'OCR GCSE Computer Science — Paper 2 · 2.2 Programming Fundamentals',
+            title: '2.2.3e Sub Programs and Random Numbers',
+            subtitle: 'Interactive revision guide',
+            subject: 'computer-science',
+        };
+
+    const topics = [
+        {
+            title: "What is a sub program?",
+            tag: "Sub programs",
+            content: `<h4>A named, reusable block of code</h4>
+<ul>
+<li>A <strong>sub program</strong> is a named block of code that carries out a specific task, and can be <strong>called</strong> (used) from elsewhere in a program instead of being written out in full every time it is needed.</li>
+<li>OCR's Exam Reference Language has two kinds of sub program: a <strong>function</strong>, which <strong>returns a value</strong>, and a <strong>procedure</strong>, which does <strong>not</strong> return a value.</li>
+<li>Both kinds are given a name when they are written, and are <strong>called</strong> using that name whenever the program needs to run them.</li>
+</ul>
+<div class="code-block">function double(n)
+  return n * 2
+endfunction
+
+procedure showWelcome()
+  print("Welcome!")
+endprocedure</div>
+<ul>
+<li><code>double</code> is a function — calling <code>double(4)</code> gives back the value 8. <code>showWelcome</code> is a procedure — calling <code>showWelcome()</code> just prints a message and sends nothing back.</li>
+</ul>`,
+            readCheck: {
+                q: "Which statement best describes a sub program?",
+                opts: ["A named block of code that carries out a task and can be called from elsewhere in a program", "A variable that stores several values of the same type, accessed using a single index number", "A file on disk that a program reads data from, one line at a time, until the end of the file", "A type of loop that repeats a fixed number of times, counting up from a starting value"],
+                ans: 0,
+                explain: "A sub program (a function or a procedure) is a named, reusable block of code that can be called whenever it's needed."
+            }
+        },
+        {
+            title: "Functions — carry out a task and return a value",
+            tag: "Functions",
+            content: `<h4>function … return … endfunction</h4>
+<ul>
+<li>A <strong>function</strong> is a sub program that carries out a task and <strong>returns a value</strong> using the <code>return</code> keyword.</li>
+<li>It is written between <code>function</code> and <code>endfunction</code>. The value after <code>return</code> is sent back to wherever the function was called from.</li>
+</ul>
+<div class="code-block">function square(n)
+  return n * n
+endfunction
+
+result = square(5)
+print(result)          // 25</div>
+<ul>
+<li>Because it returns a value, a function is normally called as part of an <strong>expression</strong> — assigned to a variable, printed directly, or used inside a condition.</li>
+</ul>`,
+            readCheck: {
+                q: "What keyword does a function use to send a value back to wherever it was called from?",
+                opts: ["return", "endfunction", "function", "print, because that is the only way any value could ever leave a function and become usable elsewhere"],
+                ans: 0,
+                explain: "return sends the value back to the caller. endfunction just marks where the function definition ends, and function starts it."
+            }
+        },
+        {
+            title: "Procedures — carry out a task, no return value",
+            tag: "Procedures",
+            content: `<h4>procedure … endprocedure</h4>
+<ul>
+<li>A <strong>procedure</strong> is a sub program that carries out a task but does <strong>not</strong> return a value — it has no <code>return</code> statement.</li>
+<li>It is written between <code>procedure</code> and <code>endprocedure</code>. A procedure is simply <strong>called on its own line</strong> to perform an action.</li>
+</ul>
+<div class="code-block">procedure printStars(n)
+  for i = 1 to n
+    print("*")
+  next i
+endprocedure
+
+printStars(5)          // prints *****</div>
+<ul>
+<li>Because a procedure sends nothing back, it would make no sense to write <code>result = printStars(5)</code> — there is no value to store.</li>
+</ul>`,
+            readCheck: {
+                q: "Which of these is true of a procedure?",
+                opts: ["It carries out a task but does not return a value", "It always returns a Boolean value of either true or false once it has finished running", "It must always be called from inside a function, and never directly from the main program", "It is only ever allowed to contain a single line of code between procedure and endprocedure"],
+                ans: 0,
+                explain: "A procedure performs a task and returns nothing — it has no return statement, unlike a function."
+            }
+        },
+        {
+            title: "Parameters and arguments",
+            tag: "Sub programs",
+            content: `<h4>What goes in, and what it's called when you call it</h4>
+<ul>
+<li>A <strong>parameter</strong> is a named value that a sub program expects to be given, listed in brackets when the sub program is <strong>defined</strong>.</li>
+<li>An <strong>argument</strong> is the actual value supplied for a parameter when the sub program is <strong>called</strong>.</li>
+</ul>
+<div class="code-block">function areaOfRectangle(width, height)   // width, height are PARAMETERS
+  return width * height
+endfunction
+
+print(areaOfRectangle(4, 5))               // 4, 5 are ARGUMENTS — output: 20</div>
+<ul>
+<li>A sub program can take <strong>no</strong> parameters, <strong>one</strong>, or <strong>several</strong>, separated by commas — and it must be called with the same number of arguments.</li>
+</ul>`,
+            readCheck: {
+                q: "In  function areaOfRectangle(width, height) , what are width and height?",
+                opts: ["Parameters — the named values the function expects to be given", "Arguments — the actual numbers supplied when the function is called", "Return values — what the function sends back once it has finished", "Local constants that can never be changed anywhere inside the function"],
+                ans: 0,
+                explain: "width and height are the PARAMETERS, named in the function's definition. The actual values given at the call (e.g. 4 and 5) are the arguments."
+            }
+        },
+        {
+            title: "Return values — using what a function sends back",
+            tag: "Functions",
+            content: `<h4>A function's result can be used straight away</h4>
+<ul>
+<li>The <strong>return value</strong> is the value a function sends back using <code>return</code>. Once a function returns, that value can be used exactly like any other value.</li>
+<li>A return value can be <strong>stored</strong> in a variable, <strong>printed</strong> directly, or used inside a <strong>condition</strong> or another expression.</li>
+</ul>
+<div class="code-block">function isEven(n)
+  return n MOD 2 == 0
+endfunction
+
+print(isEven(6))            // true — printed directly
+if isEven(7) then
+  print("even")
+else
+  print("odd")               // this branch runs — 7 is not even
+endif</div>
+<ul>
+<li>A <code>return</code> statement also immediately <strong>ends</strong> the function — any code written after it inside the same branch does not run.</li>
+</ul>`,
+            readCheck: {
+                q: "What happens as soon as a return statement runs inside a function?",
+                opts: ["The value is sent back to the caller and the function ends immediately", "The function pauses, waiting for the program to call it a second time before continuing", "Nothing happens until the very last line of the function has also been reached", "The value is stored permanently as a global variable for the rest of the program"],
+                ans: 0,
+                explain: "return sends the value back to wherever the function was called from, and ends the function straight away — code after it (in that branch) does not run."
+            }
+        },
+        {
+            title: "Local variables — scope inside a sub program",
+            tag: "Scope",
+            content: `<h4>A variable that only exists while its sub program runs</h4>
+<ul>
+<li>A <strong>local</strong> variable is declared <strong>inside</strong> a sub program. It only <strong>exists</strong> while that sub program is running.</li>
+<li>Once the sub program finishes, the local variable is <strong>destroyed</strong> — it cannot be accessed from outside the sub program, including from the main program.</li>
+</ul>
+<div class="code-block">procedure greet(name)
+  message = "Hello, " + name    // message is LOCAL to greet
+  print(message)
+endprocedure
+
+greet("Zara")         // prints "Hello, Zara"
+print(message)         // ERROR — message no longer exists here</div>
+<ul>
+<li>Two different sub programs can each safely use a local variable with the <strong>same name</strong> — they are completely separate and do not clash.</li>
+</ul>`,
+            readCheck: {
+                q: "A variable called total is declared INSIDE a function. What happens when the main program tries to use total after the function has finished running?",
+                opts: ["It causes an error, because total is local and no longer exists once the function ends", "It still works normally, because local variables are kept in memory for the rest of the program", "It resets to 0, because every local variable is automatically reset once its sub program ends", "It works, but only if the sub program was a procedure rather than a function"],
+                ans: 0,
+                explain: "A local variable exists only while its sub program is running — using it afterwards causes an error, since it has been destroyed."
+            }
+        },
+        {
+            title: "Global variables — scope across the whole program",
+            tag: "Scope",
+            content: `<h4>A variable that can be seen everywhere</h4>
+<ul>
+<li>A <strong>global</strong> variable is declared <strong>outside</strong> any sub program — usually near the start of the program.</li>
+<li>A global variable can be accessed and changed from <strong>anywhere</strong> in the program, including from <strong>inside</strong> any sub program.</li>
+</ul>
+<div class="code-block">highScore = 0                 // global — declared outside any sub program
+
+procedure updateScore(points)
+  highScore = highScore + points   // reads AND changes the global variable
+endprocedure
+
+updateScore(50)
+print(highScore)              // 50 — the change is visible outside the procedure too</div>
+<ul>
+<li>Unlike a local variable, a global variable is <strong>not</strong> destroyed when a sub program finishes — it keeps its value for the rest of the program.</li>
+</ul>`,
+            readCheck: {
+                q: "A variable called lives is declared at the very start of a program, outside every sub program. Where can it be used?",
+                opts: ["Anywhere in the program, including inside any sub program", "Only inside the one sub program that happens to change its value first", "Only inside the main program, and never from inside any sub program at all", "Nowhere, because a global variable can only ever be read, not changed"],
+                ans: 0,
+                explain: "Declaring a variable outside any sub program makes it global — accessible (and changeable) from anywhere in the program."
+            }
+        },
+        {
+            title: "Why local scope is good practice",
+            tag: "Scope",
+            content: `<h4>Keeping sub programs self-contained</h4>
+<ul>
+<li>Using <strong>local</strong> variables wherever possible is good practice, because it stops different sub programs from <strong>accidentally interfering</strong> with each other's data.</li>
+<li>If every variable were global, two sub programs that both happened to use a variable called (for example) <code>count</code> could accidentally overwrite each other's value, causing hard-to-find bugs.</li>
+</ul>
+<div class="code-block">procedure processOrders()
+  count = 0                 // local — safe, only used inside this procedure
+  // ... counts orders using count ...
+endprocedure
+
+procedure processRefunds()
+  count = 0                 // a completely different, separate local variable
+  // ... counts refunds using count, with no clash at all ...
+endprocedure</div>
+<ul>
+<li>Local variables make each sub program <strong>self-contained</strong>: you can understand, test and reuse it without worrying about what else in the program might be using the same variable names.</li>
+</ul>`,
+            readCheck: {
+                q: "Why is it good practice to use local variables inside a sub program wherever possible?",
+                opts: ["It stops different sub programs from accidentally interfering with each other's data", "It makes the sub program run several times faster than it would using global variables instead", "It is a strict rule of ERL, and a program that breaks it will refuse to run at all", "It automatically gives the sub program a return value, even if it contains no return statement"],
+                ans: 0,
+                explain: "Local variables keep a sub program self-contained, so it can't accidentally clash with or overwrite variables used elsewhere in the program."
+            }
+        },
+        {
+            title: "Why use sub programs?",
+            tag: "Exam skill",
+            content: `<h4>Justifying the use of functions and procedures</h4>
+<ul>
+<li>Exam questions often ask you to <strong>justify</strong> writing code as a function or procedure instead of writing it out in full every time it is needed. Good reasons include:</li>
+<li><strong>Reuse</strong> — write the code once, then call it as many times as needed, instead of copying and pasting the same lines repeatedly.</li>
+<li><strong>Decomposition</strong> — a large, complicated problem is broken down into smaller, named pieces that are easier to think about one at a time.</li>
+<li><strong>Easier to read, test and maintain</strong> — each sub program can be tested on its own, and if a mistake is found, it only needs fixing in <strong>one</strong> place.</li>
+</ul>
+<p>If a program needs to validate a postcode in six different places, writing a single <code>isValidPostcode(code)</code> function once — and calling it six times — is far better than writing (and later having to fix) the same validation logic six separate times.</p>`,
+            readCheck: {
+                q: "A program checks whether a password is strong enough in several different places. What is the strongest justification for putting this check inside a function?",
+                opts: ["The logic is written once and reused wherever needed, and only has to be fixed in one place if a mistake is found later", "Functions always make a program run noticeably faster than writing the exact same code out repeatedly, regardless of what that code does", "It is a strict requirement of ERL that any code used more than once must legally be written as a function", "Functions use less storage space on disk than the same code written out directly wherever it is needed"],
+                ans: 0,
+                explain: "Reuse and easier maintenance (fixing a bug in one place) are the key benefits of sub programs — not speed or a hard rule."
+            }
+        },
+        {
+            title: "Random number generation — random(a, b)",
+            tag: "Random numbers",
+            content: `<h4>Getting an unpredictable whole number</h4>
+<ul>
+<li><code>random(a, b)</code> returns a <strong>random integer</strong> between <code>a</code> and <code>b</code>, <strong>inclusive of both ends</strong> — both <code>a</code> and <code>b</code> are themselves possible results.</li>
+</ul>
+<div class="code-block">roll = random(1, 6)
+print(roll)</div>
+<ul>
+<li>This simulates rolling a standard six-sided dice: <code>roll</code> could be 1, 2, 3, 4, 5 <strong>or</strong> 6 — every whole number in that range is a possible outcome, each time the line runs.</li>
+<li>A common mistake is assuming the upper value is <strong>excluded</strong> (like some string or array operations). It is not — <code>random</code> is inclusive at both ends.</li>
+</ul>`,
+            readCheck: {
+                q: "A program uses  random(1, 6)  to simulate a dice roll. Which of these is a possible result?",
+                opts: ["6", "0, since counting is often assumed to start from zero rather than from the first value given to random", "7", "1.5, because random can return a decimal value roughly half of the time it is called"],
+                ans: 0,
+                explain: "random(1, 6) is inclusive of both ends and only returns whole numbers, so 6 is possible — 0, 7 and 1.5 are all outside its possible range."
+            }
+        },
+        {
+            title: "Using random numbers in a program",
+            tag: "Random numbers",
+            content: `<h4>Where random numbers are useful — and working out a possible range</h4>
+<ul>
+<li>Random numbers make a program <strong>unpredictable</strong> in a controlled way — useful for dice, card shuffles, choosing a random quiz question, or simple game mechanics like an enemy's next move.</li>
+</ul>
+<div class="code-block">questionNumber = random(1, 20)   // picks one of 20 quiz questions at random
+enemyMove = random(1, 3)         // 1 = attack, 2 = defend, 3 = heal</div>
+<ul>
+<li>Exam questions often ask you to state the <strong>smallest</strong> and <strong>largest</strong> possible value a call to <code>random</code> could return. Both answers come straight from the two values passed in — because <code>random(a, b)</code> is inclusive of both.</li>
+<li>For <code>random(5, 9)</code>: the smallest possible result is <strong>5</strong>, and the largest possible result is <strong>9</strong>.</li>
+</ul>`,
+            readCheck: {
+                q: "A program uses  random(10, 15)  to generate a value. What is the largest possible result it could return?",
+                opts: ["15", "16, because the value after the comma is normally treated as one more than the largest number random is actually allowed to return", "14", "10"],
+                ans: 0,
+                explain: "random(a, b) is inclusive of b, so the largest possible result of random(10, 15) is 15 itself — not 16 or 14."
+            }
+        }
+    ];
+
+    const mcqData = [
+        {
+            q: "What is the key difference between a function and a procedure?",
+            opts: ["A function returns a value; a procedure does not", "A function can only take a single parameter, whereas a procedure may take several parameters at once", "A procedure must always be called on the same line where it is defined, unlike a function", "There is no real difference; the two words simply mean the same thing in ERL"],
+            ans: 0,
+            explain: "A function returns a value using return; a procedure performs a task and does not return anything."
+        },
+        {
+            q: "Which keyword marks the end of a procedure's definition in ERL?",
+            opts: ["endprocedure", "endfunction, since both functions and procedures are always closed using the very same keyword", "return", "endif"],
+            ans: 0,
+            explain: "A procedure is written between procedure and endprocedure. A function instead uses function … endfunction."
+        },
+        {
+            q: "Which line correctly calls a function named triple and stores its result in a variable called answer?",
+            opts: ["answer = triple(3)", "triple(3), written on its own line exactly the way a procedure is normally called instead of a function", "function triple(3)", "return triple(3), written directly in the main program, outside of any sub program"],
+            ans: 0,
+            explain: "A function returns a value, so it's normally called as part of an expression — here, assigned to the variable answer."
+        },
+        {
+            q: "In the call  convertTemp(100) , what is 100?",
+            opts: ["An argument — the actual value passed into the function's parameter", "A parameter — the named value the function expects to receive", "A return value sent back once the function has finished running", "A local variable that must be declared before the function itself is written"],
+            ans: 0,
+            explain: "100 is the ARGUMENT — the actual value supplied at the call. The named value inside the function's brackets in its definition is the parameter."
+        },
+        {
+            q: "What happens immediately once a return statement runs inside a function?",
+            opts: ["The value is sent back to the caller and the function ends", "The program pauses and waits for user input before continuing any further", "The function restarts from its very first line, running through it a second time", "The value becomes a new global variable, usable everywhere else in the program"],
+            ans: 0,
+            explain: "return sends the value back to wherever the function was called and ends the function immediately — code after it does not run."
+        },
+        {
+            q: "A variable called total is declared INSIDE a procedure. What happens if the main program tries to print total after calling that procedure?",
+            opts: ["It causes an error, because total is local and no longer exists once the procedure has finished", "It prints the value total held while the procedure was running, since local variables are never destroyed", "It prints 0, because every local variable resets to zero automatically once its sub program ends", "Nothing different happens; local and global variables can always be used in exactly the same way"],
+            ans: 0,
+            explain: "total is local to the procedure, so it is destroyed once the procedure finishes — using it afterwards causes an error."
+        },
+        {
+            q: "A variable called score is declared outside every sub program, at the very start of the program. From where can score be used?",
+            opts: ["From anywhere in the program, including inside any sub program", "Only from inside the one sub program that first gives it a value", "Only from the main program, and never from inside a sub program", "Nowhere, since a variable declared outside a sub program cannot be used at all"],
+            ans: 0,
+            explain: "Declaring a variable outside any sub program makes it global, so it can be used anywhere in the program."
+        },
+        {
+            q: "What is the main benefit of using local variables instead of global ones wherever possible?",
+            opts: ["It stops different sub programs from accidentally interfering with each other's data", "It allows a sub program to be called without ever needing to supply any parameters", "It is the only way a sub program is able to return more than a single value at once", "It automatically makes every variable inside the sub program a constant that cannot change"],
+            ans: 0,
+            explain: "Local variables keep sub programs self-contained, avoiding accidental clashes between variables used in different parts of a program."
+        },
+        {
+            q: "A calculation is repeated in four separate places in a program. What is the best reason to move it into a function instead?",
+            opts: ["The logic only needs to be written once, and only needs fixing in one place if an error is found", "Functions always run considerably faster than exactly the same code written out four separate times", "A function is the only way a program can legally perform a calculation more than once", "Moving the calculation into a function automatically removes the need to test it at all"],
+            ans: 0,
+            explain: "Reuse and easier maintenance are the strongest reasons — write and fix the logic once, rather than four separate times."
+        },
+        {
+            q: "A program uses  random(20, 25)  to pick a value. Which of these can it NEVER return?",
+            opts: ["26", "20", "25", "22, because random is sometimes mistakenly thought to only ever return values strictly between the two given numbers"],
+            ans: 0,
+            explain: "random(20, 25) is inclusive of both ends, so 20 to 25 are all possible — but 26 is outside that range and can never be returned."
+        },
+        {
+            q: "A dice-rolling program uses  roll = random(1, 6) . What is the smallest possible value roll can take?",
+            opts: ["1", "0, since many programming operations are assumed to start counting from zero rather than from the first value given", "2", "6"],
+            ans: 0,
+            explain: "random(a, b) is inclusive of a, so the smallest possible result of random(1, 6) is 1 itself."
+        },
+        {
+            q: "A spinner game uses  random(1, 8)  to choose a segment. What is the largest possible value it can return?",
+            opts: ["8", "9, because the second value passed into random is often mistakenly treated as one more than the true largest possible result", "7", "1"],
+            ans: 0,
+            explain: "random(a, b) is inclusive of b, so the largest possible result of random(1, 8) is 8 itself — not 9 or 7."
+        }
+    ];
+
+    const matchData = [
+        { term: "Function", def: "A sub program that returns a value using return" },
+        { term: "Procedure", def: "A sub program that carries out a task but does not return a value" },
+        { term: "Parameter", def: "A named value a sub program expects to receive, listed when it is defined" },
+        { term: "Argument", def: "The actual value supplied for a parameter when a sub program is called" },
+        { term: "Return value", def: "The value a function sends back to wherever it was called from" },
+        { term: "Local variable", def: "Exists only while the sub program it is declared inside is running" },
+        { term: "Global variable", def: "Can be accessed from anywhere in the program, including inside sub programs" },
+        { term: "Scope", def: "The part of a program where a variable can be accessed" },
+        { term: "Decomposition", def: "Breaking a large problem down into smaller, named sub programs" },
+        { term: "Reuse", def: "Writing code once and calling it many times, instead of repeating it" },
+        { term: "random(a, b)", def: "Returns a random integer between a and b, inclusive of both" },
+        { term: "endfunction / endprocedure", def: "The keywords that mark the end of a function / procedure definition" }
+    ];
+
+    const fibData = [
+        {
+            display: "A _____ is a sub program that returns a value using return.",
+            blanks: { B1: "function" }
+        },
+        {
+            display: "A _____ is a sub program that carries out a task but does not return a value.",
+            blanks: { B1: "procedure" }
+        },
+        {
+            display: "A _____ is the named value a sub program expects to receive, listed in its definition.",
+            blanks: { B1: "parameter" }
+        },
+        {
+            display: "An _____ is the actual value supplied when a sub program is called.",
+            blanks: { B1: "argument" }
+        },
+        {
+            display: "A _____ variable only exists while the sub program it is declared inside is running.",
+            blanks: { B1: "local" }
+        },
+        {
+            display: "A _____ variable can be accessed from anywhere in the program, including inside sub programs.",
+            blanks: { B1: "global" }
+        },
+        {
+            display: "Writing code once and calling it many times, instead of repeating it, is called _____.",
+            blanks: { B1: "reuse" }
+        },
+        {
+            display: "random(a, b) returns a random integer between a and b, _____ of both ends.",
+            blanks: { B1: "inclusive" }
+        }
+    ];
+    const fibWords = ["function", "procedure", "parameter", "argument", "local", "global", "reuse", "inclusive"];
+
+    const tfData = [
+        {
+            statement: "A function returns a value using return.",
+            answer: true,
+            explanation: "Correct — return is what sends a function's result back to the caller."
+        },
+        {
+            statement: "A procedure always returns a Boolean value once it finishes running.",
+            answer: false,
+            explanation: "A procedure never returns a value at all — not a Boolean, or anything else. That describes a function instead."
+        },
+        {
+            statement: "An argument is the actual value passed into a sub program when it is called.",
+            answer: true,
+            explanation: "Correct — the argument is the real value supplied at the call; the parameter is its name in the definition."
+        },
+        {
+            statement: "A local variable can still be used by the main program after its sub program has finished running.",
+            answer: false,
+            explanation: "A local variable is destroyed once its sub program finishes — using it afterwards causes an error."
+        },
+        {
+            statement: "A global variable can be accessed from inside any sub program in the program.",
+            answer: true,
+            explanation: "Correct — a global variable, declared outside any sub program, can be read and changed from anywhere, including inside sub programs."
+        },
+        {
+            statement: "Using local variables wherever possible helps stop sub programs from accidentally interfering with each other's data.",
+            answer: true,
+            explanation: "Correct — local scope keeps each sub program self-contained, avoiding accidental clashes between variables."
+        },
+        {
+            statement: "random(1, 10) can never return the value 10.",
+            answer: false,
+            explanation: "random(a, b) is inclusive of both ends, so random(1, 10) CAN return 10 — as well as 1 and everything in between."
+        },
+        {
+            statement: "Breaking a large problem into smaller, named sub programs is called decomposition.",
+            answer: true,
+            explanation: "Correct — decomposition is one of the key reasons for using sub programs."
+        }
+    ];
+
+    const miscData = [
+        {
+            wrong: "Thinking a procedure can return a value, just like a function can.",
+            correct: "A <strong>procedure</strong> performs a task but does <strong>not</strong> return a value — it has no <code>return</code> statement. If a value needs to be sent back to wherever the sub program was called from, it must be written as a <strong>function</strong> instead.",
+            readCheck: {
+                q: "A sub program is needed that works out and sends back the total price of a shopping basket. Should it be written as a function or a procedure?",
+                opts: ["A function, because a value (the total price) needs to be returned to wherever it was called from", "A procedure, because performing a calculation is always classed as 'doing a task' rather than 'returning a value'", "Either one works identically, since functions and procedures are simply two different names for the same thing", "Neither — calculating a total can only ever be done using a single line of ordinary sequence code"],
+                ans: 0,
+                explain: "Since a value (the total price) must be sent back to the caller, this needs a function — a procedure cannot return a value."
+            }
+        },
+        {
+            wrong: "Mixing up parameters (named in the sub program's definition) and arguments (the actual values given at the call).",
+            correct: "A <strong>parameter</strong> is the named value listed when the sub program is <strong>defined</strong> (e.g. <code>width</code> in <code>function area(width, height)</code>). An <strong>argument</strong> is the actual value supplied when the sub program is <strong>called</strong> (e.g. the <code>4</code> in <code>area(4, 5)</code>).",
+            readCheck: {
+                q: "In  function area(width, height) , followed by the call  area(4, 5) , what is width?",
+                opts: ["A parameter, named in the function's definition", "An argument, since every value connected with a function call is always classed as an argument", "A return value that the function will eventually send back once it has finished running", "A global variable, since it is used both inside and outside the function"],
+                ans: 0,
+                explain: "width is a PARAMETER — it is the named value listed in the function's definition. 4 and 5 are the ARGUMENTS given at the call."
+            }
+        },
+        {
+            wrong: "Thinking a local variable can still be used once its sub program has finished running.",
+            correct: "A <strong>local</strong> variable only <strong>exists</strong> while the sub program it is declared inside is actually running. Once the sub program finishes, that variable is <strong>destroyed</strong> — trying to use it afterwards causes an error.",
+            readCheck: {
+                q: "A variable called  discount  is declared INSIDE a procedure called  applyOffer . What happens if the main program tries to print discount AFTER calling applyOffer()?",
+                opts: ["It causes an error, because discount is local to applyOffer and no longer exists once the procedure has finished", "It prints the last value discount held while applyOffer was running, since local variables are kept in memory forever", "It prints 0, since every local variable is automatically reset to zero the moment its sub program ends", "Nothing happens differently — local and global variables behave in exactly the same way in every situation"],
+                ans: 0,
+                explain: "discount is local to applyOffer, so it is destroyed once the procedure ends — it cannot be accessed from outside it."
+            }
+        },
+        {
+            wrong: "Thinking a global variable can only be READ from inside a sub program, but never changed.",
+            correct: "A global variable can be both <strong>read</strong> and <strong>changed</strong> from inside any sub program — there is no restriction stopping a sub program from updating it, unlike a local variable declared elsewhere, which cannot be seen at all.",
+            readCheck: {
+                q: "A global variable called  total  is declared at the start of a program. Can a procedure change the value stored in total?",
+                opts: ["Yes — a global variable can be read and changed from inside any sub program", "No — a sub program is only ever able to read a global variable, never change it", "Only if total is passed into the procedure as a parameter, otherwise it cannot be touched at all", "Only the main program is allowed to change a global variable's value, never a sub program"],
+                ans: 0,
+                explain: "A global variable can be read AND changed from inside any sub program, since it is accessible everywhere in the program."
+            }
+        },
+        {
+            wrong: "Thinking random(a, b) excludes b (the upper value), so it can never actually be returned.",
+            correct: "<code>random(a, b)</code> is <strong>inclusive of both ends</strong> — both <code>a</code> and <code>b</code> are possible results, not just the values strictly between them.",
+            readCheck: {
+                q: "A program uses  random(1, 4)  to pick a random question number. Which of these values can it NEVER return?",
+                opts: ["5", "1", "4", "2, because random(a, b) is sometimes mistakenly thought to only ever return values that sit strictly between a and b"],
+                ans: 0,
+                explain: "random(1, 4) can return 1, 2, 3 or 4 (inclusive of both ends) — but never a value outside that range, such as 5."
+            }
+        },
+        {
+            wrong: "Thinking sub programs are only useful for making a program's source code shorter to type out.",
+            correct: "Shorter code is a side effect, but the strongest exam justifications are <strong>reuse</strong> (write it once, call it many times), <strong>decomposition</strong> (breaking a big problem into named pieces) and <strong>easier testing/maintenance</strong> (each sub program can be tested alone, and fixed in one place).",
+            readCheck: {
+                q: "A student justifies using a function only by saying 'it makes the code shorter'. What further point should they add to give a stronger exam answer?",
+                opts: ["That the logic is easier to test and maintain, since a fix only needs to be made in one place", "That functions are the only part of a program allowed to contain a loop or a selection statement", "That shorter code always runs measurably faster than longer code, no matter what that code does", "Nothing further is needed, since making the code shorter is already the single most important reason"],
+                ans: 0,
+                explain: "Reuse, decomposition and easier testing/maintenance are the strongest justifications — 'shorter to type' alone is a weak exam answer."
+            }
+        }
+    ];
+
+    const examTips = [
+        {
+            type: "tip",
+            title: "Tracing code that calls a function",
+            pills: ["AO2", "Key skill", "Trace tables"],
+            content: `<p>"What does this output?" questions involving a function call are answered the same mechanical way as any other trace, with one extra step:</p>
+<ul>
+<li>Work out the function's <strong>return value</strong> first, using the arguments it was actually called with — treat this like a mini calculation on its own.</li>
+<li>Then substitute that return value back into the line that called the function, exactly as if it were any other value, and carry on tracing normally.</li>
+</ul>
+<p><strong>Example:</strong> for <code>function square(n): return n * n</code> and <code>total = 0; for i = 1 to 3: total = total + square(i)</code>, work out square(1)=1 so total=1, then square(2)=4 so total=5, then square(3)=9 so total=14. Final output: 14.</p>`,
+            readCheck: {
+                q: "What is the safest way to trace a line of code that calls a function as part of an expression?",
+                opts: ["Work out the function's return value first, using its arguments, then substitute that value back into the line", "Ignore the function call completely and only trace whatever other operators appear in the rest of that same line", "Assume every function call always returns 0, then go back and check whether that assumption was correct at the very end", "Skip straight to the last line of the whole program, since function calls rarely end up affecting the final output"],
+                ans: 0,
+                explain: "Work out the function's return value first (using the actual arguments given), then use that value to continue tracing the rest of the line."
+            }
+        },
+        {
+            type: "explain",
+            title: "Justifying the use of a function or procedure",
+            pills: ["AO1", "Justify", "Common question"],
+            content: `<p>When a question asks you to <strong>justify</strong> writing something as a function or procedure, name more than one reason for full marks:</p>
+<ul>
+<li><strong>Reuse</strong> — the code is written once and called wherever it's needed, instead of being copied out repeatedly.</li>
+<li><strong>Decomposition</strong> — a large problem is broken into smaller, named, more manageable pieces.</li>
+<li><strong>Easier to test and maintain</strong> — each sub program can be tested on its own, and a bug only needs fixing in one place.</li>
+</ul>
+<p>Avoid vague answers like "it's neater" or "it's shorter" on their own — examiners want a reason connected to <strong>reuse</strong>, <strong>decomposition</strong> or <strong>maintenance</strong>.</p>`,
+            readCheck: {
+                q: "Which of these is the strongest exam justification for writing repeated logic as a function?",
+                opts: ["It only needs to be written once, and only needs fixing in one place if a mistake is found later", "It makes the file that stores the source code noticeably smaller in size on the hard disk than it otherwise would be", "It is required, because ERL will refuse to run any code that happens to be repeated more than once", "It automatically stops the finished program from ever containing a single bug once it has been used"],
+                ans: 0,
+                explain: "Reuse and easier maintenance (fix once, in one place) are the strongest, most specific justifications examiners look for."
+            }
+        },
+        {
+            type: "tip",
+            title: "Local vs global — always check WHERE it's declared",
+            pills: ["AO1", "Scope", "Quick check"],
+            content: `<p>Scope questions (local or global?) are decided entirely by <strong>where a variable is first declared</strong> — nothing else matters:</p>
+<ul>
+<li>Declared <strong>inside</strong> a function or procedure (including as a parameter)? → <strong>local</strong>.</li>
+<li>Declared <strong>outside</strong> every sub program? → <strong>global</strong>.</li>
+</ul>
+<p>Don't be tricked by a global variable being <strong>used</strong> inside a sub program — using it there doesn't make it local. Only where it is <strong>declared</strong> decides its scope.</p>`,
+            readCheck: {
+                q: "A variable is declared inside a procedure, but the main program also happens to reference that same variable's name elsewhere by mistake. What decides whether the variable is local or global?",
+                opts: ["Only where the variable was first declared, not where it is later used or referenced", "Whichever part of the program uses the variable most often decides its scope", "The variable becomes global automatically the moment it is used outside its own sub program", "Scope is decided by the variable's data type, not by where it happens to be declared"],
+                ans: 0,
+                explain: "Scope is fixed by WHERE a variable is declared — inside a sub program means local, outside every sub program means global."
+            }
+        }
+    ];
+
+    const flashcards = [
+        { term: "Sub program", def: "A named, reusable block of code that can be called from elsewhere in a program" },
+        { term: "Function", def: "A sub program that returns a value using return" },
+        { term: "Procedure", def: "A sub program that carries out a task but does not return a value" },
+        { term: "endfunction / endprocedure", def: "Keywords that close a function / procedure definition" },
+        { term: "Parameter", def: "A named value a sub program expects to receive, listed when it is defined" },
+        { term: "Argument", def: "The actual value supplied for a parameter when a sub program is called" },
+        { term: "Return value", def: "The value a function sends back to wherever it was called from" },
+        { term: "Calling a function", def: "Normally done as part of an expression, e.g. result = double(4)" },
+        { term: "Calling a procedure", def: "Done on its own line, e.g. showWelcome()" },
+        { term: "Local variable", def: "Exists only while the sub program it is declared inside is running" },
+        { term: "Global variable", def: "Declared outside any sub program; can be accessed from anywhere, including inside sub programs" },
+        { term: "Why local scope is good", def: "Stops different sub programs from accidentally interfering with each other's data" },
+        { term: "Reuse", def: "Writing code once and calling it many times, instead of repeating it" },
+        { term: "Decomposition", def: "Breaking a large problem down into smaller, named sub programs" },
+        { term: "random(a, b)", def: "Returns a random integer between a and b, inclusive of both ends" },
+        { term: "random(1, 6)", def: "Simulates a standard dice roll — can return 1, 2, 3, 4, 5 or 6" }
+    ];
+
+    // ── Original clean-room exam questions (2026-07-24) ──
+    // Written from scratch against the OCR J277 §2.2.3 spec scope (sub
+    // programs + random number generation), split out and expanded from the
+    // combined 2.2.3 page's clean-room material. NOT transcribed from any
+    // OCR paper. No exam PDF was supplied for this sub-topic, so the tariff
+    // spread and format mix are authored from the standard J277 Paper 2
+    // assessment style (define/identify, short trace/write, classify,
+    // match, gap-fill, cloze) — NOT profiled from a real paper; treat the
+    // ceiling as a best estimate.
+    // Spread: 2x1, 2x2, 3x3, 4x4, 1x3(justify) = 12 questions / 33 marks
+    // (mcq/written/tickGrid/matchLine/bankCloze/traceTable/codeGaps/codeWrite).
+    const EXAM_CASE_STUDIES = {};
+
+    const examQuestions = [
+        {
+            num: "Q1",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: `<p>Tick <strong>one</strong> box to identify which keyword a function uses to send a value back to wherever it was called from.</p>`,
+            options: ["return", "endfunction, since that keyword is what actually sends the function's value back to the caller, not return", "function", "parameter"],
+            answer: 0,
+            hint: "This keyword appears inside the function body, and immediately ends the function once it runs.",
+            starter: "",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<ul><li><strong>return</strong></li></ul>
+</div>`,
+            modelAnswer: "return."
+        },
+        {
+            num: "Q2",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: `<p>A program uses <strong>random(3, 7)</strong> to pick a value. Tick <strong>one</strong> box to identify a value it can NEVER return.</p>`,
+            options: ["8", "3", "5", "7, because the upper value given to random is sometimes wrongly thought to be included as a possible result when it should actually be excluded"],
+            answer: 0,
+            hint: "random(a, b) is inclusive of both a and b — everything from 3 up to 7 is possible.",
+            starter: "",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<ul><li><strong>8</strong> (outside the range 3–7)</li></ul>
+</div>`,
+            modelAnswer: "8."
+        },
+        {
+            num: "Q3",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: `<p>The following function is defined and then called.</p><pre>function convertToPounds(pence)
+  return pence / 100
+endfunction
+
+cost = convertToPounds(250)</pre><p>State the name of the <strong>parameter</strong> in this function, and the <strong>argument</strong> used when it is called.</p>`,
+            hint: "The parameter is named inside the function's brackets when it is defined. The argument is the actual value given at the call.",
+            starter: "Parameter = … , Argument = …",
+            markPoints: {
+                note: "1 mark for each correct answer.",
+                groups: [
+                    { label: "Parameter", max: 1, points: [{ text: "pence", marks: 1 }] },
+                    { label: "Argument", max: 1, points: [{ text: "250", marks: 1 }] }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks</h5>
+<ul>
+<li>Parameter = <strong>pence</strong></li>
+<li>Argument = <strong>250</strong></li>
+</ul>
+</div>`,
+            modelAnswer: "Parameter = pence. Argument = 250."
+        },
+        {
+            num: "Q4",
+            marks: 4,
+            type: "written",
+            format: "tickGrid",
+            caseStudy: "",
+            question: `<p>The following code is a complete program.</p><pre>highScore = 0
+
+function bonusPoints(level)
+  extra = level * 5
+  return extra
+endfunction
+
+procedure addBonus(level)
+  points = bonusPoints(level)
+  highScore = highScore + points
+endprocedure
+
+addBonus(3)</pre><p>Tick <strong>one</strong> box in each row to classify each variable as <strong>local</strong> or <strong>global</strong>.</p>`,
+            grid: {
+                cols: ["Local", "Global"],
+                rows: [
+                    { label: "highScore", correct: [1] },
+                    { label: "extra", correct: [0] },
+                    { label: "points", correct: [0] },
+                    { label: "level (the parameter of bonusPoints)", correct: [0] }
+                ]
+            },
+            hint: "Check WHERE each variable is declared: outside every sub program = global; inside a sub program (including a parameter) = local.",
+            starter: "highScore: … extra: … points: … level: …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (1 mark per row)</h5>
+<ul>
+<li>highScore → <strong>Global</strong> (declared outside every sub program)</li>
+<li>extra → <strong>Local</strong> (declared inside bonusPoints)</li>
+<li>points → <strong>Local</strong> (declared inside addBonus)</li>
+<li>level → <strong>Local</strong> (a parameter of bonusPoints, so it is local to it)</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul><li>Each row is marked independently; 2+ ticks in a row scores 0 for that row.</li></ul>
+</div>`,
+            modelAnswer: "highScore: Global. extra: Local. points: Local. level: Local."
+        },
+        {
+            num: "Q5",
+            marks: 4,
+            type: "written",
+            format: "matchLine",
+            caseStudy: "",
+            question: `<p>Draw <strong>one</strong> line from each term to its correct description.</p><p>(There are more descriptions than terms — one description is not used.)</p>`,
+            match: {
+                left: ["Function", "Procedure", "Argument", "Local variable"],
+                right: [
+                    "A sub program that returns a value using return",
+                    "A sub program that carries out a task but does not return a value",
+                    "The actual value supplied for a parameter when a sub program is called",
+                    "A variable that only exists while the sub program it is declared inside is running",
+                    "A variable that can be accessed from anywhere in the program"
+                ],
+                answer: { "0": 0, "1": 1, "2": 2, "3": 3 },
+                decoys: [4]
+            },
+            hint: "Watch the decoy — one description is about a GLOBAL variable, not any of the four terms listed here.",
+            starter: "Function → …, Procedure → …, Argument → …, Local variable → …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (1 mark per correct line)</h5>
+<ul>
+<li>Function → <strong>A</strong> (returns a value using return)</li>
+<li>Procedure → <strong>B</strong> (carries out a task, does not return a value)</li>
+<li>Argument → <strong>C</strong> (the actual value supplied when a sub program is called)</li>
+<li>Local variable → <strong>D</strong> (only exists while its sub program is running)</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul><li>1 mark per correct line. Description E (a global variable) is a decoy and is not used.</li></ul>
+</div>`,
+            modelAnswer: "Function → returns a value using return. Procedure → carries out a task, does not return a value. Argument → the actual value supplied when a sub program is called. Local variable → only exists while its sub program is running."
+        },
+        {
+            num: "Q6",
+            marks: 4,
+            type: "written",
+            format: "traceTable",
+            caseStudy: "",
+            question: `<p>The following algorithm runs.</p><pre>function square(n)
+  return n * n
+endfunction
+
+total = 0
+for i = 1 to 4
+  total = total + square(i)
+next i
+print(total)</pre><p>Complete the trace table to show the value of <strong>square(i)</strong> and the running value of <strong>total</strong> after each pass of the loop.</p>`,
+            trace: {
+                columns: ["i", "square(i)", "total"],
+                rows: [
+                    ["1", "1", "1"],
+                    ["2", "4", "5"],
+                    ["3", "9", "14"],
+                    ["4", "16", "30"]
+                ]
+            },
+            hint: "Work out square(i) first for each pass (i x i), then add it onto the running total.",
+            starter: "Pass 1: i=1, square(i)=1, total=1 …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (1 mark per correct row of the trace)</h5>
+<ul>
+<li>Pass 1 → i = 1, square(i) = 1, total = 1</li>
+<li>Pass 2 → i = 2, square(i) = 4, total = 5</li>
+<li>Pass 3 → i = 3, square(i) = 9, total = 14</li>
+<li>Pass 4 → i = 4, square(i) = 16, total = 30</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul><li>1 mark for each fully-correct row. The program finally outputs 30.</li></ul>
+</div>`,
+            modelAnswer: "Pass 1: i=1, square(i)=1, total=1. Pass 2: i=2, square(i)=4, total=5. Pass 3: i=3, square(i)=9, total=14. Pass 4: i=4, square(i)=16, total=30. Output: 30."
+        },
+        {
+            num: "Q7",
+            marks: 3,
+            type: "written",
+            format: "codeGaps",
+            caseStudy: "",
+            question: `<p>The algorithm below should define a function that works out the perimeter of a rectangle, given its width and height, and return the result.</p><p>Complete the three gaps.</p>`,
+            gaps: {
+                lines: [
+                    "{1} perimeter(width, height)",
+                    "  {2} (width + height) * 2",
+                    "{3}"
+                ],
+                answers: {
+                    "1": ["function"],
+                    "2": ["return"],
+                    "3": ["endfunction"]
+                }
+            },
+            hint: "Gap 1 starts the definition, Gap 2 sends the calculated value back, Gap 3 closes the definition.",
+            starter: "Gap 1: … Gap 2: … Gap 3: …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 3 marks (1 mark per gap)</h5>
+<ul>
+<li>Gap 1: <strong>function</strong></li>
+<li>Gap 2: <strong>return</strong></li>
+<li>Gap 3: <strong>endfunction</strong></li>
+</ul>
+</div>`,
+            modelAnswer: "function perimeter(width, height) ; return (width + height) * 2 ; endfunction"
+        },
+        {
+            num: "Q8",
+            marks: 4,
+            type: "written",
+            format: "codeWrite",
+            caseStudy: "",
+            question: `<p>Write a function, using pseudocode, called <strong>maxOfTwo</strong> that:</p><ul><li>takes two parameters, a and b, and</li><li>returns whichever of the two values is larger.</li></ul><p>You may answer in OCR Exam Reference Language or in a high-level language you know.</p>`,
+            hint: "Compare a and b using a selection statement, and return whichever one is larger from inside each branch.",
+            starter: "function maxOfTwo(a, b)",
+            markPoints: {
+                note: "Mark the LOGIC (any equivalent, correct algorithm earns full marks — exact wording/language may vary).",
+                groups: [
+                    {
+                        label: "A correct maxOfTwo function", max: 4, points: [
+                            { text: "Defines a function named maxOfTwo that takes two parameters", marks: 1 },
+                            { text: "Uses a selection statement to compare the two parameters", marks: 1 },
+                            { text: "Returns a when a is the larger value", marks: 1 },
+                            { text: "Returns b when b is the larger value (or the two are equal)", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks — mark the logic (accept any equivalent code)</h5>
+<ul>
+<li>1 mark: function maxOfTwo defined, taking two parameters</li>
+<li>1 mark: a selection statement compares the two parameters</li>
+<li>1 mark: returns a when a is larger</li>
+<li>1 mark: returns b when b is larger (or equal)</li>
+</ul>
+<p>Example (ERL):</p>
+<div class="code-block">function maxOfTwo(a, b)
+  if a > b then
+    return a
+  else
+    return b
+  endif
+endfunction</div>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul><li>Any logically correct answer scores full marks — mark the logic, not the exact wording or choice of language.</li></ul>
+</div>`,
+            modelAnswer: "function maxOfTwo(a, b)\n  if a > b then\n    return a\n  else\n    return b\n  endif\nendfunction"
+        },
+        {
+            num: "Q9",
+            marks: 3,
+            type: "written",
+            format: "bankCloze",
+            caseStudy: "",
+            question: `<p>Complete the paragraph about sub programs by selecting terms from the list. <strong>Not all terms are used.</strong></p>`,
+            cloze: `<p>A sub program that returns a value using return is called a ___1___. A value passed into a sub program when it is called is called an ___2___. A variable that only exists while the sub program it is declared inside is running is called a ___3___ variable.</p>`,
+            bank: ["function", "procedure", "argument", "parameter", "local", "global"],
+            answers: {
+                "1": ["function"],
+                "2": ["argument"],
+                "3": ["local"]
+            },
+            hint: "Match each definition carefully — function vs procedure, argument vs parameter, local vs global.",
+            starter: "(1) … (2) … (3) …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 3 marks (1 mark for each completed term)</h5>
+<p>A sub program that returns a value is a <strong>function</strong>. A value passed in when it is called is an <strong>argument</strong>. A variable that only exists while its sub program runs is a <strong>local</strong> variable.</p>
+</div>`,
+            modelAnswer: "(1) function (2) argument (3) local"
+        },
+        {
+            num: "Q10",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: `<p>A quiz program picks a random question using <strong>questionNum = random(5, 9)</strong>.</p><p>State the smallest possible value questionNum can take, and the largest possible value questionNum can take.</p>`,
+            hint: "random(a, b) is inclusive of both a and b — both end values are themselves possible results.",
+            starter: "Smallest = … , Largest = …",
+            markPoints: {
+                note: "1 mark for each correct value.",
+                groups: [
+                    { label: "Smallest", max: 1, points: [{ text: "5", marks: 1 }] },
+                    { label: "Largest", max: 1, points: [{ text: "9", marks: 1 }] }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks</h5>
+<ul>
+<li>Smallest possible value = <strong>5</strong></li>
+<li>Largest possible value = <strong>9</strong></li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul><li>random(a, b) is inclusive of both a and b, so both 5 and 9 are possible outcomes.</li></ul>
+</div>`,
+            modelAnswer: "Smallest possible value = 5. Largest possible value = 9."
+        },
+        {
+            num: "Q11",
+            marks: 3,
+            type: "written",
+            caseStudy: "",
+            question: `<p>A student writes the same block of code, which checks whether a number is prime, in five different places in their program.</p><p>Give <strong>three</strong> reasons why rewriting this as a single function would be good practice.</p>`,
+            hint: "Think about how many times the logic has to be written, how easy it is to test, and how easy it is to fix if a mistake is found.",
+            starter: "Reason 1… Reason 2… Reason 3…",
+            markPoints: {
+                note: "1 mark for each distinct valid reason, up to 3.",
+                groups: [
+                    {
+                        label: "Three reasons", max: 3, points: [
+                            { text: "Reuse — the logic is written once and called wherever it is needed, instead of being copied five times", marks: 1 },
+                            { text: "Easier to test — the function can be tested on its own, separately from the rest of the program", marks: 1 },
+                            { text: "Easier to maintain — if a mistake is found, it only needs fixing in one place rather than five", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 3 marks (1 mark per valid reason, up to 3)</h5>
+<ul>
+<li>Reuse — the logic is written once and called wherever it is needed, instead of being copied out five times</li>
+<li>Easier to test — the function can be tested on its own, separately from the rest of the program</li>
+<li>Easier to maintain — a mistake only needs fixing in one place rather than five</li>
+</ul>
+</div>`,
+            modelAnswer: "Reuse: the logic is written once and called wherever needed, instead of being copied five times. Easier to test: the function can be tested on its own. Easier to maintain: a mistake only needs fixing in one place rather than five."
+        },
+        {
+            num: "Q12",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: `<p>The following code runs.</p><pre>procedure setDiscount(amount)
+  discount = amount * 0.1
+  print(discount)
+endprocedure
+
+setDiscount(200)
+print(discount)</pre><p>State what is printed by the <strong>first</strong> print(discount), inside the procedure, and explain why the <strong>second</strong> print(discount) causes an error.</p>`,
+            hint: "Work out amount * 0.1 first. Then think about where discount was declared, and whether it still exists once the procedure has finished.",
+            starter: "Inside the procedure, print(discount) outputs…, and it causes an error afterwards because…",
+            markPoints: {
+                note: "1 mark for the correct output, 1 mark for a correct explanation of local scope.",
+                groups: [
+                    {
+                        label: "Output + explanation", max: 2, points: [
+                            { text: "States the first print(discount) outputs 20 (200 x 0.1)", marks: 1 },
+                            { text: "Explains that discount is local to setDiscount, so it no longer exists once the procedure has finished, causing the second print(discount) to error", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks</h5>
+<ul>
+<li>1 mark: the first print(discount) outputs <strong>20</strong> (200 x 0.1)</li>
+<li>1 mark: discount is local to setDiscount, so it no longer exists once the procedure has finished — causing the second print(discount) to error</li>
+</ul>
+</div>`,
+            modelAnswer: "Inside the procedure, print(discount) outputs 20 (200 x 0.1 = 20). The second print(discount) causes an error because discount is a local variable declared inside setDiscount — it only exists while that procedure is running, and is destroyed once it finishes."
+        }
+    ];
+</script>
+    <script src="/script.js"></script>
+<script src="section-totals.js"></script>
+<script src="page-groups.js"></script>
+<script src="/progress-shared.js"></script>
+<script src="/gamification.js"></script>
+<script src="/topic-guard.js"></script>
+<script src="/notifications-shared.js"></script>
+<script src="/onboarding-tour.js"></script>
+<script src="/footer-legal.js"></script>
+<script src="/cs-lab/exam-widgets.js"></script>
+<script src="/cs-lab/exam-widgets-grids.js"></script>
+<script src="/cs-lab/exam-widgets-code.js"></script>
+<script src="/cs-lab/cs-lab.js" defer></script>
+</body>
+
+</html>

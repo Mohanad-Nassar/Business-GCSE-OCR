@@ -16,7 +16,7 @@
         <div>
             <div class="badge">OCR GCSE Computer Science — Paper 2 · 2.5 Programming Languages and IDEs</div>
             <h1>2.5.2 The Integrated Development Environment (IDE)</h1>
-            <p>Interactive revision guide · Content coming soon</p>
+            <p>Interactive revision guide</p>
         </div>
         <a href="/index.html" class="home-link">← 🏡 Home</a>
     </header>
@@ -256,7 +256,7 @@
 
 <script>
     // ══════════════════════════════════════
-    //  DATA: 2.5.2 The Integrated Development Environment (IDE) — placeholder, content not yet written
+    //  DATA: 2.5.2 The Integrated Development Environment (IDE)
     // ══════════════════════════════════════
     const pageMeta = {
             id: '2-5-2-the-integrated-development-environment-ide',
@@ -268,21 +268,678 @@
 
     const topics = [
         {
-            title: "This topic is being written",
-            tag: "Coming soon",
-            content: `<p>🚧 <strong>Content for this topic is on its way.</strong> Key Learning notes, practice questions and exam-style questions for <strong>2.5.2 The Integrated Development Environment (IDE)</strong> will appear here soon.</p>`
+            title: "What is an IDE?",
+            tag: "Key concept",
+            content: `<h4>Software that brings the tools together in one place</h4>
+<ul>
+<li>An <strong>IDE (Integrated Development Environment)</strong> is a piece of software that brings together, in <strong>one place</strong>, the tools a programmer needs to <strong>write</strong>, <strong>test</strong> and <strong>debug</strong> a program.</li>
+<li>Without an IDE, a programmer might have to swap between several separate pieces of software — one to type code, another to translate it, another to try and find mistakes. An IDE puts all of this together.</li>
+<li>Common facilities found in an IDE include an <strong>editor</strong> (with syntax highlighting, auto-indentation and auto-complete), tools that flag <strong>errors</strong> and help with <strong>debugging</strong>, a way to <strong>run</strong> the program, and a built-in <strong>translator</strong>.</li>
+</ul>`,
+            readCheck: {
+                q: "Which of these best describes an IDE (Integrated Development Environment)?",
+                opts: ["A single language that a computer can understand directly, without any translation step at all", "Software that brings together the tools needed to write, test and debug a program in one place", "A type of computer built specially for running programmer software and nothing else", "A backup service that automatically saves a copy of a programmer's code onto a separate remote server whenever a file is saved"],
+                ans: 1,
+                explain: "An IDE brings writing, testing and debugging tools together in one piece of software. It is not a language, a special computer, or a backup service."
+            }
+        },
+        {
+            title: "The editor and syntax highlighting",
+            tag: "Editor tools",
+            content: `<h4>Where you type your code — and how it helps you read it</h4>
+<ul>
+<li>The <strong>editor</strong> is the part of the IDE where the programmer <strong>types the code</strong>. It looks a little like a plain text editor, but it understands the programming language being used.</li>
+<li><strong>Syntax highlighting</strong> automatically colours different parts of the code — for example keywords, variable names, strings and comments are each shown in a different colour.</li>
+<li>This makes the <strong>structure</strong> of the code easier to see at a glance, and helps a mistake <strong>stand out</strong> — for example, if a string is not shown in the expected colour, a closing quote may be missing.</li>
+</ul>`,
+            readCheck: {
+                q: "How does syntax highlighting help a programmer while they write code?",
+                opts: ["It automatically fixes every syntax and logic mistake in the code without any input at all from the programmer", "It colours keywords, strings and other parts of the code so the structure is clearer and mistakes stand out", "It translates the whole program from source code into machine code, ready for it to be run on the computer", "It saves a permanent backup copy of the code file onto a separate drive every time the programmer makes a change"],
+                ans: 1,
+                explain: "Syntax highlighting colours the code to show its structure and make mistakes easier to spot. It does not fix mistakes, translate code or make backups."
+            }
+        },
+        {
+            title: "Auto-indentation and auto-complete",
+            tag: "Editor tools",
+            content: `<h4>Two more editor features that speed up writing code</h4>
+<ul>
+<li><strong>Auto-indentation</strong> automatically indents a new line to match the block it is inside — for example, the lines inside a loop or an if statement are indented for the programmer as they type, without them needing to press the tab key themselves.</li>
+<li><strong>Auto-complete</strong> (code completion) <strong>suggests</strong> variable names, function names and keywords as the programmer types, and lets them be inserted with a single key press.</li>
+<li>Together these features <strong>speed up writing code</strong> and <strong>reduce simple mistakes</strong>, such as inconsistent indentation or a misspelt variable name.</li>
+</ul>`,
+            readCheck: {
+                q: "What does auto-complete (code completion) do in an IDE?",
+                opts: ["It automatically indents every single new line of code so it always lines up with the block it is inside it", "It suggests variable names, function names and keywords as the programmer types, so they can be inserted quickly", "It runs the finished program immediately, so the programmer can see exactly what output it produces on the screen", "It checks the whole of the program for every possible logic error before allowing the programmer to save the file"],
+                ans: 1,
+                explain: "Auto-complete suggests names as you type, speeding up writing and reducing typos. Auto-indentation (option 1) is a separate editor feature."
+            }
+        },
+        {
+            title: "Spotting syntax errors as you type",
+            tag: "Error diagnostics",
+            content: `<h4>Catching mistakes before you even try to run the program</h4>
+<ul>
+<li>A <strong>syntax error</strong> is a mistake that breaks the grammar rules of the programming language — for example a missing bracket, a misspelt keyword, or a missing quotation mark.</li>
+<li>Most IDEs <strong>check the code as it is typed</strong> and flag a syntax error straight away, often by <strong>underlining</strong> it, so the programmer can fix the mistake immediately rather than only discovering it later when the program fails to run.</li>
+<li>This is different from a <strong>logic error</strong>, where the code is grammatically correct but does not do what the programmer intended. The IDE cannot flag these automatically, which is why <strong>debugging tools</strong> are needed instead (see below).</li>
+</ul>`,
+            readCheck: {
+                q: "Why is it useful for an IDE to flag syntax errors while the programmer is typing?",
+                opts: ["It means the programmer never needs to test the finished program at all before it is given to anyone else to use", "It lets the programmer fix the mistake straight away, instead of only finding out when the program fails to run", "It automatically rewrites the programmer's whole program so that it always produces the correct output", "It stops the programmer from being able to save their file until every single error has been fixed completely"],
+                ans: 1,
+                explain: "Flagging syntax errors as you type means mistakes can be fixed immediately, rather than only being found once the program is run."
+            }
+        },
+        {
+            title: "Debugging tools: breakpoints and stepping",
+            tag: "Debugging",
+            content: `<h4>Pausing a program to see what is really happening</h4>
+<ul>
+<li>A <strong>logic error</strong> does not stop a program from running, but it does produce the wrong result — these are harder to find than syntax errors, so an IDE provides <strong>debugging tools</strong> to help track them down.</li>
+<li>A <strong>breakpoint</strong> is a marker placed on a chosen line of code. When the program runs, it <strong>pauses</strong> at that line instead of carrying straight on, so the programmer can look at what is happening at that point.</li>
+<li><strong>Stepping</strong> then lets the programmer run the program <strong>one line at a time</strong> from the breakpoint, watching exactly what each line does, instead of it all running at once.</li>
+</ul>`,
+            readCheck: {
+                q: "What does a breakpoint do when a program is run in an IDE?",
+                opts: ["It permanently deletes the line of code it has been placed on before the program is even run at all", "It pauses the program at that line, so the programmer can look at what is happening at that point", "It highlights every syntax error found anywhere in the whole of the program's code", "It automatically corrects any logic error found on that particular line of the program"],
+                ans: 1,
+                explain: "A breakpoint pauses the running program at a chosen line so the programmer can examine it. It does not delete code or fix errors."
+            }
+        },
+        {
+            title: "Debugging tools: watching variables",
+            tag: "Debugging",
+            content: `<h4>Seeing values change to find where it goes wrong</h4>
+<ul>
+<li>Once a program is paused at a breakpoint, or being stepped through, the programmer can <strong>watch variables</strong> — that is, see the <strong>current value</strong> of chosen variables at that point in the program.</li>
+<li>By watching how a variable's value changes as each line runs, the programmer can spot the <strong>exact line</strong> where it becomes wrong, which usually shows where the logic error is.</li>
+<li>Used together, breakpoints, stepping and watching variables let a programmer <strong>debug more easily</strong> than by just reading the code and guessing.</li>
+</ul>`,
+            readCheck: {
+                q: "How does watching variables help a programmer find a logic error?",
+                opts: ["It automatically corrects any variable that is holding an incorrect value while the program runs, without telling the programmer", "It shows the current value of chosen variables so the programmer can see exactly where a value first becomes wrong", "It permanently stops the program from ever being run again until the logic error has been found and fixed", "It highlights any keyword in the program that has been spelt incorrectly by the programmer while typing"],
+                ans: 1,
+                explain: "Watching variables shows their current values as the program runs, helping pinpoint the exact line where a value becomes wrong. It does not fix errors automatically."
+            }
+        },
+        {
+            title: "Run-time environment and translators",
+            tag: "Running & translating",
+            content: `<h4>Running and translating the program without leaving the IDE</h4>
+<ul>
+<li>The <strong>run-time environment</strong> lets a programmer <strong>run (test) the program from inside the IDE</strong> and immediately see its output, instead of having to set up a separate piece of software to run it elsewhere.</li>
+<li>An IDE also includes a built-in <strong>translator</strong> — a <strong>compiler</strong> or an <strong>interpreter</strong> — so the source code can be <strong>translated and run directly within the IDE</strong>.</li>
+<li>Together, the run-time environment and the built-in translator mean a programmer can <strong>write, translate and test</strong> a program quickly, without switching between different pieces of software.</li>
+</ul>`,
+            readCheck: {
+                q: "What does the run-time environment of an IDE let a programmer do?",
+                opts: ["Colour keywords and strings in different colours so the structure of the code is easier to read", "Run and test the program from inside the IDE and see its output straight away", "Pause the program at a chosen line so its variables can be inspected one at a time", "Automatically indent every new line of code so it lines up correctly with its block"],
+                ans: 1,
+                explain: "The run-time environment lets the programmer run and test the program from inside the IDE, without setting up separate software."
+            }
         }
     ];
 
-    const mcqData = [];
-    const matchData = [];
-    const fibData = [];
-    const fibWords = [];
-    const tfData = [];
-    const miscData = [];
-    const examTips = [];
-    const flashcards = [];
-    const examQuestions = [];
+    const mcqData = [
+        {
+            q: "Which IDE facility colours keywords, strings and comments differently to make the code's structure easier to read?",
+            opts: ["Auto-complete", "Syntax highlighting", "A breakpoint", "The run-time environment"],
+            ans: 1,
+            explain: "Syntax highlighting colours different parts of the code so its structure is easy to see at a glance."
+        },
+        {
+            q: "Which facility suggests variable and function names as the programmer types them?",
+            opts: ["Auto-indentation", "Auto-complete", "A watch window", "The translator"],
+            ans: 1,
+            explain: "Auto-complete (code completion) suggests names as the programmer types, so they can be inserted quickly."
+        },
+        {
+            q: "What is a syntax error?",
+            opts: ["A mistake that breaks the grammar rules of the programming language", "A program that runs but produces the wrong output because of a mistake in the logic", "A message printed by the IDE to confirm the program ran successfully", "A tool used to pause a program at a chosen line while it is running"],
+            ans: 0,
+            explain: "A syntax error breaks the grammar rules of the language. A program that runs but gives the wrong result has a logic error instead."
+        },
+        {
+            q: "What is a logic error?",
+            opts: ["A mistake that stops the program from being translated into machine code at all", "A mistake where the program runs but produces the wrong result", "A mistake that the IDE always underlines automatically as the code is typed", "A mistake that can only happen when a breakpoint has been set on the wrong line"],
+            ans: 1,
+            explain: "A logic error is grammatically correct code that runs but gives the wrong result. The IDE cannot flag these automatically like it can syntax errors."
+        },
+        {
+            q: "What does a breakpoint let a programmer do?",
+            opts: ["Pause the program at a chosen line so its state can be examined", "Automatically fix any syntax errors found in the program", "Colour the keywords in the code so they are easier to read", "Suggest the names of variables as they are being typed into the editor"],
+            ans: 0,
+            explain: "A breakpoint pauses the program at a chosen line so the programmer can examine what is happening at that point."
+        },
+        {
+            q: "What does 'stepping' through code let a programmer do?",
+            opts: ["Delete lines of code one at a time until the error finally disappears completely", "Run the program one line at a time, watching what each line does", "Jump straight to the last line of the program without running any of the others", "Translate the whole program into machine code before it is run"],
+            ans: 1,
+            explain: "Stepping runs the program one line at a time, so the programmer can watch exactly what each line does."
+        },
+        {
+            q: "What does 'watching a variable' mean in an IDE's debugging tools?",
+            opts: ["Seeing the variable's current value as the program runs, to find where it becomes wrong", "Renaming the variable automatically to something more meaningful for the programmer to understand later", "Deleting the variable completely if it is never used anywhere else in the whole of the program", "Translating the variable's value from one data type into a completely different one"],
+            ans: 0,
+            explain: "Watching variables shows their current values as the program runs, helping locate exactly where a value becomes wrong."
+        },
+        {
+            q: "What does the run-time environment of an IDE allow?",
+            opts: ["Running and testing the program from inside the IDE, seeing its output immediately", "Colouring different parts of the code to show its structure more clearly for the programmer", "Automatically indenting new lines of code to line up with the block they are inside", "Suggesting variable and function names as the programmer types them into the editor window"],
+            ans: 0,
+            explain: "The run-time environment lets the programmer run and test the program from inside the IDE and see its output straight away."
+        },
+        {
+            q: "Which of these is a built-in translator that an IDE may provide?",
+            opts: ["An auto-complete list of variable names shown as the programmer types", "A compiler or an interpreter", "A breakpoint marker placed on a chosen line of code", "A syntax highlighting colour scheme applied to the editor"],
+            ans: 1,
+            explain: "An IDE's built-in translator is a compiler or an interpreter, letting code be translated and run without separate software."
+        },
+        {
+            q: "A programmer wants to find exactly which line of their code causes a variable to hold the wrong value. Which combination of IDE tools is most useful?",
+            opts: ["Auto-complete and auto-indentation", "Breakpoints, stepping and watching variables", "Syntax highlighting and the run-time environment", "The translator on its own, without using any other tool"],
+            ans: 1,
+            explain: "Breakpoints, stepping and watching variables together let the programmer see exactly where a value first goes wrong."
+        }
+    ];
+
+    const matchData = [
+        { term: "Editor", def: "Where the programmer types the code" },
+        { term: "Syntax highlighting", def: "Colours keywords, strings and other parts of the code to show its structure" },
+        { term: "Auto-indentation", def: "Automatically indents a new line to match the block it is inside" },
+        { term: "Auto-complete", def: "Suggests variable, function and keyword names as the programmer types" },
+        { term: "Syntax error", def: "A mistake that breaks the grammar rules of the programming language" },
+        { term: "Logic error", def: "A mistake where the program runs but produces the wrong result" },
+        { term: "Breakpoint", def: "Pauses the program at a chosen line so it can be examined" },
+        { term: "Stepping", def: "Runs the program one line at a time from a chosen point" },
+        { term: "Watching variables", def: "Shows the current value of chosen variables as the program runs" },
+        { term: "Run-time environment", def: "Lets the programmer run and test the program from inside the IDE" },
+        { term: "Translator", def: "A built-in compiler or interpreter that translates and runs the code" },
+        { term: "IDE", def: "Software that brings the tools to write, test and debug a program together in one place" }
+    ];
+
+    const fibData = [
+        {
+            display: "The _____ is the part of the IDE where the programmer types the code.",
+            blanks: { B1: "editor" }
+        },
+        {
+            display: "The IDE facility that colours keywords and strings to show the code's structure is called _____.",
+            blanks: { B1: "syntax highlighting" }
+        },
+        {
+            display: "The feature that automatically indents a new line to match its block is called _____.",
+            blanks: { B1: "auto-indentation" }
+        },
+        {
+            display: "The feature that suggests variable and function names as you type is called _____.",
+            blanks: { B1: "auto-complete" }
+        },
+        {
+            display: "A mistake that breaks the grammar rules of a programming language is called a _____ error.",
+            blanks: { B1: "syntax" }
+        },
+        {
+            display: "A _____ pauses a running program at a chosen line so its variables can be examined.",
+            blanks: { B1: "breakpoint" }
+        },
+        {
+            display: "The IDE's built-in compiler or interpreter that translates and runs code is called the _____.",
+            blanks: { B1: "translator" }
+        }
+    ];
+    const fibWords = ["editor", "syntax highlighting", "auto-indentation", "auto-complete", "syntax", "breakpoint", "translator"];
+
+    const tfData = [
+        {
+            statement: "Syntax highlighting colours different parts of the code to show its structure.",
+            answer: true,
+            explanation: "Correct — syntax highlighting colours keywords, strings and other elements so the code's structure is easy to see."
+        },
+        {
+            statement: "A logic error stops the program from running at all.",
+            answer: false,
+            explanation: "A logic error does NOT stop the program running — it runs but gives the wrong result. A syntax error is what breaks the language's grammar rules."
+        },
+        {
+            statement: "Auto-complete suggests variable and function names as the programmer types.",
+            answer: true,
+            explanation: "Correct — auto-complete (code completion) suggests names to insert as you type."
+        },
+        {
+            statement: "A breakpoint permanently deletes the line of code it is placed on.",
+            answer: false,
+            explanation: "A breakpoint only pauses the program at that line — it does not delete or change any code."
+        },
+        {
+            statement: "Stepping lets a programmer run the program one line at a time.",
+            answer: true,
+            explanation: "Correct — stepping runs the program one line at a time so the programmer can see what each line does."
+        },
+        {
+            statement: "Watching variables means the IDE deletes any variable that is not used.",
+            answer: false,
+            explanation: "Watching variables shows the current value of chosen variables as the program runs — it does not delete anything."
+        },
+        {
+            statement: "The run-time environment lets a programmer run and test a program from inside the IDE.",
+            answer: true,
+            explanation: "Correct — the run-time environment means the programmer does not need separate software to run and test the program."
+        },
+        {
+            statement: "An IDE cannot include a compiler or interpreter — these must always be separate programs.",
+            answer: false,
+            explanation: "An IDE's built-in translator IS a compiler or an interpreter, letting code be translated and run from inside the IDE."
+        }
+    ];
+
+    const miscData = [
+        {
+            wrong: "Thinking an IDE is just a fancy text editor for typing code.",
+            correct: "An IDE is more than an editor — it also provides <strong>error diagnostics</strong>, <strong>debugging tools</strong> (breakpoints, stepping, watching variables), a <strong>run-time environment</strong> to test the program, and a built-in <strong>translator</strong>, all in one place.",
+            readCheck: {
+                q: "Which of these is NOT normally provided by an IDE?",
+                opts: ["Debugging tools such as breakpoints and stepping", "A word processor for writing essays and general documents", "A run-time environment for testing the program", "A built-in translator such as a compiler or an interpreter"],
+                ans: 1,
+                explain: "An IDE provides debugging tools, a run-time environment and a translator — not a general word processor for essays."
+            }
+        },
+        {
+            wrong: "Confusing a syntax error with a logic error.",
+            correct: "A <strong>syntax error</strong> breaks the grammar rules of the language and is usually flagged by the IDE as you type. A <strong>logic error</strong> is grammatically correct code that runs but produces the <strong>wrong result</strong> — the IDE cannot flag these automatically, which is why debugging tools are needed.",
+            readCheck: {
+                q: "A program runs without any error message, but always calculates the wrong total. What type of error is this?",
+                opts: ["A syntax error, because grammar mistakes always produce the wrong output when a program is run", "A logic error", "A translation error caused by a fault in the compiler or interpreter itself", "A run-time environment error caused by testing the program inside the IDE"],
+                ans: 1,
+                explain: "Running without an error message but giving the wrong result is the definition of a logic error, not a syntax error."
+            }
+        },
+        {
+            wrong: "Thinking a breakpoint fixes the mistake for you.",
+            correct: "A breakpoint only <strong>pauses</strong> the program at a chosen line — it does not fix anything. The programmer then uses <strong>stepping</strong> and <strong>watching variables</strong> to work out what has gone wrong and fix it themselves.",
+            readCheck: {
+                q: "What happens when a running program reaches a breakpoint?",
+                opts: ["The program automatically fixes any mistake found on that line before carrying on", "The program pauses at that line so the programmer can examine it", "The program stops permanently and cannot be run again until it is rewritten", "The IDE deletes the breakpoint and continues running the rest of the program"],
+                ans: 1,
+                explain: "A breakpoint only pauses the program at that line — the programmer still has to find and fix the mistake themselves."
+            }
+        },
+        {
+            wrong: "Thinking auto-complete and syntax highlighting are the same feature.",
+            correct: "<strong>Syntax highlighting</strong> colours the code so its structure is easier to read. <strong>Auto-complete</strong> is a different feature — it suggests names to insert as you type, saving time and reducing typos.",
+            readCheck: {
+                q: "Which feature suggests a variable name to insert as the programmer starts typing it?",
+                opts: ["Syntax highlighting, because colouring the variable's name is what suggests it should be used", "Auto-complete", "A breakpoint placed on the line where the variable is first declared", "The run-time environment used to test the finished program"],
+                ans: 1,
+                explain: "Auto-complete is the feature that suggests names as you type. Syntax highlighting only colours the code — it does not suggest anything."
+            }
+        },
+        {
+            wrong: "Thinking an IDE always needs a separate program to translate and run code.",
+            correct: "An IDE has a built-in <strong>translator</strong> (a compiler or interpreter) and a <strong>run-time environment</strong>, so the programmer can translate and run their program <strong>from inside the IDE itself</strong> — no separate software is needed.",
+            readCheck: {
+                q: "Why can a programmer run and test their program without leaving the IDE?",
+                opts: ["Because the IDE includes a built-in translator and a run-time environment for running the code", "Because the IDE automatically emails the finished program to a separate translating service every time it is saved", "Because every logic error in the program is fixed automatically the moment the program is first saved", "Because syntax highlighting alone translates the whole of the code into machine code as it is typed"],
+                ans: 0,
+                explain: "The IDE's built-in translator and run-time environment mean the code can be translated and run from inside the IDE — no separate software is needed."
+            }
+        }
+    ];
+
+    const examTips = [
+        {
+            type: "tip",
+            title: "Naming the IDE tool, not just describing it",
+            pills: ["AO1", "Definitions", "Command words"],
+            content: `<p>Many marks are lost by describing what a tool does without naming it, or vice versa. If a question asks to <strong>identify</strong> a tool, give the <strong>name</strong> (e.g. "a breakpoint"). If it asks to <strong>explain</strong> or <strong>describe</strong>, give the name <strong>and</strong> say what it does.</p>
+<ul>
+<li>Learn the tools in pairs — name + what it does: syntax highlighting → colours the code; breakpoint → pauses the program; watching variables → shows a variable's value.</li>
+</ul>`,
+            readCheck: {
+                q: "A question asks you to 'identify' the IDE tool that pauses a program at a chosen line.",
+                opts: ["Describe in detail how the whole of the IDE works, from start to finish", "Name the tool: a breakpoint", "List every debugging tool the IDE provides, one after another", "Explain why syntax errors are different from logic errors"],
+                ans: 1,
+                explain: "'Identify' asks for the name of the tool — a breakpoint. A full description is only needed if the question says 'explain' or 'describe'."
+            }
+        },
+        {
+            type: "explain",
+            title: "Editing tools vs debugging tools — know which is which",
+            pills: ["AO1", "Categorising"],
+            content: `<p>Questions often ask you to sort IDE facilities into groups. Keep two groups clear in your head:</p>
+<ul>
+<li><strong>Helps you write code</strong>: syntax highlighting, auto-indentation, auto-complete.</li>
+<li><strong>Helps you find and fix errors</strong>: syntax error flagging, breakpoints, stepping, watching variables.</li>
+</ul>
+<p>The run-time environment and the translator sit slightly apart — they let the code be <strong>tested</strong> and <strong>run</strong> from inside the IDE.</p>`,
+            readCheck: {
+                q: "Which of these belongs in the group 'helps a programmer find and fix errors'?",
+                opts: ["Auto-complete, because it inserts a suggested name for the programmer automatically", "Watching variables", "Auto-indentation, because it lines new code up to match the block it is inside", "Syntax highlighting, because it colours the code to make it easier to read"],
+                ans: 1,
+                explain: "Watching variables is a debugging tool used to find errors. Auto-complete, auto-indentation and syntax highlighting all help with writing code."
+            }
+        },
+        {
+            type: "tip",
+            title: "Explain HOW a tool helps, not just WHAT it is",
+            pills: ["AO2", "Explain questions", "Command words"],
+            content: `<p>A common exam pattern is: "State a tool an IDE provides, and explain how it helps a programmer." Two marks usually need <strong>two separate ideas</strong> — naming the tool is not enough on its own for full marks.</p>
+<ul>
+<li><strong>Weak:</strong> "Breakpoints" (name only).</li>
+<li><strong>Better:</strong> "A breakpoint pauses the program at a chosen line, so the programmer can examine what is happening at that point rather than guessing."</li>
+</ul>`,
+            readCheck: {
+                q: "A question is worth 2 marks and asks you to 'state a debugging tool and explain how it helps'. What should your answer include?",
+                opts: ["Just the name of the tool, written as clearly and neatly as possible", "The name of the tool AND an explanation of how it helps the programmer", "A full list of every debugging tool the IDE provides, without any explanation", "A diagram of the IDE's editor window, with no written explanation at all"],
+                ans: 1,
+                explain: "A 2-mark 'state and explain' question needs both the name of the tool and an explanation of how it helps — not just one or the other."
+            }
+        }
+    ];
+
+    const flashcards = [
+        { term: "Editor", def: "Where the programmer types the code" },
+        { term: "Syntax highlighting", def: "Colours keywords, strings and other code elements to show structure" },
+        { term: "Auto-indentation", def: "Automatically indents a new line to match its block" },
+        { term: "Auto-complete", def: "Suggests variable, function and keyword names as you type" },
+        { term: "Syntax error", def: "Breaks the grammar rules of the language; flagged as you type" },
+        { term: "Logic error", def: "Code runs but gives the wrong result" },
+        { term: "Debugging tools", def: "Help find and fix logic errors" },
+        { term: "Breakpoint", def: "Pauses the program at a chosen line" },
+        { term: "Stepping", def: "Runs the program one line at a time" },
+        { term: "Watching variables", def: "Shows a variable's current value as the program runs" },
+        { term: "Run-time environment", def: "Lets you run and test the program from inside the IDE" },
+        { term: "Translator", def: "The IDE's built-in compiler or interpreter" },
+        { term: "Compiler", def: "Translates the whole program before it runs (can be built into the IDE)" },
+        { term: "Interpreter", def: "Translates and runs the program line by line (can be built into the IDE)" },
+        { term: "IDE", def: "Software that brings together the tools to write, test and debug a program" },
+        { term: "Why use debugging tools?", def: "To locate exactly where a logic error happens, instead of guessing" }
+    ];
+
+    // ── Original clean-room exam questions (2026-07-24) ──
+    // Written from scratch against the §2.5.2 spec scope (CS-CONTENT-PLAN.md
+    // §6.2 clean-room rule) — NOT transcribed from any OCR paper. No exam PDF
+    // was supplied for this topic, so the tariff spread and format mix below
+    // are authored from the standard J277 Paper 2 assessment style for this
+    // spec point (identify/name a tool, state-and-explain how it helps,
+    // classify tools, match tool-to-purpose, complete a table/cloze, and a
+    // longer describe-how-an-IDE-helps question), NOT profiled from a real
+    // paper — treat the ceiling as a best estimate.
+    // Spread: 2x1, 2x2, 3x4, 1x3, 1x6 = 9 questions / 27 marks (mcq/written/
+    // tickGrid/matchLine/tableFill/bankCloze).
+    const EXAM_CASE_STUDIES = {};
+
+    const examQuestions = [
+        {
+            num: "Q1",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: `<p>Tick <strong>one</strong> box to identify the IDE facility that colours keywords, strings and other parts of the code to show its structure.</p>`,
+            options: ["Auto-complete", "Syntax highlighting", "A breakpoint", "The run-time environment"],
+            answer: 1,
+            hint: "Which facility uses colour to show the structure of the code?",
+            starter: "",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<ul><li><strong>Syntax highlighting</strong></li></ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul><li>Only the correct option scores; 2 or more ticks scores 0.</li></ul>
+</div>`,
+            modelAnswer: "Syntax highlighting."
+        },
+        {
+            num: "Q2",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: `<p>Tick <strong>one</strong> box to identify what a breakpoint does.</p>`,
+            options: ["It deletes the line of code it is placed on", "It pauses the program at that line so it can be examined", "It suggests a variable name as the programmer types", "It translates the whole program into machine code"],
+            answer: 1,
+            hint: "Think about what happens to the program when it reaches that line.",
+            starter: "",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<ul><li><strong>It pauses the program at that line so it can be examined</strong></li></ul>
+</div>`,
+            modelAnswer: "It pauses the program at that line so it can be examined."
+        },
+        {
+            num: "Q3",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            stubs: ["Facility 1", "Facility 2"],
+            question: `<p>State <strong>two</strong> facilities that an IDE's editor may provide, other than syntax highlighting, and for each one, state how it helps the programmer.</p>`,
+            hint: "Think of editor features other than colouring code — e.g. something that lines code up, or something that suggests names.",
+            starter: "One facility is…, which helps by… A second facility is…, which helps by…",
+            markPoints: {
+                note: "1 mark for each facility identified together with a correct explanation of how it helps (up to 2).",
+                groups: [
+                    { label: "Facility 1", max: 1, points: [{ text: "Names a valid editor facility (e.g. auto-indentation) AND states correctly how it helps (e.g. lines new code up with its block automatically)", marks: 1 }] },
+                    { label: "Facility 2", max: 1, points: [{ text: "Names a second valid editor facility (e.g. auto-complete) AND states correctly how it helps (e.g. suggests names as you type, saving time / reducing typos)", marks: 1 }] }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks</h5>
+<ul>
+<li>1 mark: a valid facility (e.g. auto-indentation) with a correct explanation of how it helps.</li>
+<li>1 mark: a second valid facility (e.g. auto-complete) with a correct explanation of how it helps.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul><li>Naming a facility alone is not enough — each mark needs the facility AND how it helps.</li></ul>
+</div>`,
+            modelAnswer: "Auto-indentation automatically indents a new line to match the block it is inside, saving the programmer from doing this manually. Auto-complete suggests variable and function names as the programmer types, speeding up writing and reducing typos."
+        },
+        {
+            num: "Q4",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            stubs: ["Syntax error", "Logic error"],
+            question: `<p>State <strong>one</strong> difference between a <strong>syntax error</strong> and a <strong>logic error</strong>.</p>`,
+            hint: "Think about whether each type of error stops the program from running.",
+            starter: "A syntax error…, whereas a logic error…",
+            markPoints: {
+                note: "Up to 2 marks: both sides of the difference (the syntax-error side AND the logic-error side).",
+                groups: [
+                    {
+                        label: "The difference (both sides)", max: 2, points: [
+                            { text: "Says a syntax error breaks the grammar rules of the language / is usually flagged by the IDE as it is typed", marks: 1 },
+                            { text: "Contrasts this with a logic error, where the code runs but produces the wrong result", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks</h5>
+<ul>
+<li>Award 1 mark for: a syntax error breaks the grammar rules of the language / is flagged by the IDE as it is typed.</li>
+<li>Award 1 mark for: a logic error is grammatically correct code that runs but produces the wrong result.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul><li>Both sides of the contrast are needed for full marks.</li></ul>
+</div>`,
+            modelAnswer: "A syntax error breaks the grammar rules of the programming language and is usually flagged by the IDE as it is typed, whereas a logic error is grammatically correct code that runs but produces the wrong result."
+        },
+        {
+            num: "Q5",
+            marks: 4,
+            type: "written",
+            format: "tickGrid",
+            caseStudy: "",
+            question: `<p>Tick <strong>one</strong> box in each row to show whether the IDE facility mainly helps a programmer <strong>write</strong> code or <strong>find and fix errors</strong>.</p>`,
+            grid: {
+                cols: ["Helps write code", "Helps find and fix errors"],
+                rows: [
+                    { label: "Auto-complete", correct: [0] },
+                    { label: "Breakpoint", correct: [1] },
+                    { label: "Syntax highlighting", correct: [0] },
+                    { label: "Watching variables", correct: [1] }
+                ]
+            },
+            hint: "Auto-complete and syntax highlighting help you type code. Breakpoints and watching variables help you debug it.",
+            starter: "Auto-complete: … | Breakpoint: … | Syntax highlighting: … | Watching variables: …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (1 mark for each row)</h5>
+<ul>
+<li>Auto-complete → <strong>Helps write code</strong></li>
+<li>Breakpoint → <strong>Helps find and fix errors</strong></li>
+<li>Syntax highlighting → <strong>Helps write code</strong></li>
+<li>Watching variables → <strong>Helps find and fix errors</strong></li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul><li>Each row is marked independently; 2+ ticks in a row scores 0 for that row.</li></ul>
+</div>`,
+            modelAnswer: "Auto-complete: helps write code. Breakpoint: helps find and fix errors. Syntax highlighting: helps write code. Watching variables: helps find and fix errors."
+        },
+        {
+            num: "Q6",
+            marks: 4,
+            type: "written",
+            format: "matchLine",
+            caseStudy: "",
+            question: `<p>Draw <strong>one</strong> line from each IDE tool to what it does.</p><p>(There are more descriptions than tools — one description is not used.)</p>`,
+            match: {
+                left: ["Breakpoint", "Stepping", "Watching variables", "Run-time environment"],
+                right: ["Pauses the program at a chosen line", "Runs the program one line at a time", "Shows the current value of chosen variables as the program runs", "Lets the programmer run and test the program from inside the IDE", "Colours keywords and strings to show the code's structure"],
+                answer: { "0": 0, "1": 1, "2": 2, "3": 3 },
+                decoys: [4]
+            },
+            hint: "Watch the decoy: 'colours keywords and strings' describes syntax highlighting, which is not one of the four tools listed.",
+            starter: "Breakpoint → …, Stepping → …, Watching variables → …, Run-time environment → …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (1 mark per correct line)</h5>
+<ul>
+<li>Breakpoint → <strong>A</strong> (pauses the program at a chosen line)</li>
+<li>Stepping → <strong>B</strong> (runs the program one line at a time)</li>
+<li>Watching variables → <strong>C</strong> (shows the current value of chosen variables)</li>
+<li>Run-time environment → <strong>D</strong> (lets the programmer run and test the program from inside the IDE)</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul><li>1 mark per correct line. Description E ('colours keywords and strings') is a decoy describing syntax highlighting, and is not used.</li></ul>
+</div>`,
+            modelAnswer: "Breakpoint → pauses the program at a chosen line. Stepping → runs the program one line at a time. Watching variables → shows the current value of chosen variables. Run-time environment → lets the programmer run and test the program from inside the IDE."
+        },
+        {
+            num: "Q7",
+            marks: 4,
+            type: "written",
+            format: "tableFill",
+            caseStudy: "",
+            question: `<p>Complete the table by giving the correct IDE tool or facility for each purpose described.</p>`,
+            table: {
+                headers: ["Purpose", "IDE tool / facility"],
+                rows: [
+                    ["Suggests variable and function names as the programmer types", null],
+                    ["Automatically indents a new line to match the block it is inside", null],
+                    ["Pauses a running program at a chosen line", null],
+                    ["Translates and runs the source code from inside the IDE", null]
+                ]
+            },
+            answers: {
+                "0,1": ["auto-complete", "code completion"],
+                "1,1": ["auto-indentation"],
+                "2,1": ["breakpoint"],
+                "3,1": ["translator", "compiler", "interpreter"]
+            },
+            hint: "Think of the name of the facility that matches each purpose exactly.",
+            starter: "Row 1: … | Row 2: … | Row 3: … | Row 4: …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (1 mark each)</h5>
+<ul>
+<li>Suggests names as you type → <strong>Auto-complete (code completion)</strong></li>
+<li>Automatically indents a new line → <strong>Auto-indentation</strong></li>
+<li>Pauses the program at a chosen line → <strong>Breakpoint</strong></li>
+<li>Translates and runs code from inside the IDE → <strong>Translator (compiler / interpreter)</strong></li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul><li>1 mark per correct row; accept compiler or interpreter for the translator row.</li></ul>
+</div>`,
+            modelAnswer: "Row 1: auto-complete. Row 2: auto-indentation. Row 3: breakpoint. Row 4: translator (compiler/interpreter)."
+        },
+        {
+            num: "Q8",
+            marks: 3,
+            type: "written",
+            format: "bankCloze",
+            caseStudy: "",
+            question: `<p>Complete the paragraph about debugging tools by selecting terms from the list. <strong>Not all terms are used.</strong></p>`,
+            cloze: `<p>When a program is not producing the result the programmer expects, they can use debugging tools to find the logic error. A ___1___ pauses the program at a chosen line. ___2___ then runs the program one line at a time from that point. While this happens, the programmer can use ___3___ to see the current value of chosen variables and spot exactly where it goes wrong.</p>`,
+            bank: ["breakpoint", "Stepping", "watching variables", "syntax highlighting", "auto-complete", "translator"],
+            answers: {
+                "1": ["breakpoint"],
+                "2": ["Stepping"],
+                "3": ["watching variables"]
+            },
+            hint: "Pausing → one term; running one line at a time → one term; seeing a variable's value → one term.",
+            starter: "(1) … (2) … (3) …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 3 marks (1 mark for each completed term)</h5>
+<p>A <strong>breakpoint</strong> pauses the program at a chosen line. <strong>Stepping</strong> then runs the program one line at a time from that point. The programmer can use <strong>watching variables</strong> to see the current value of chosen variables and spot exactly where it goes wrong.</p>
+</div>`,
+            modelAnswer: "(1) breakpoint (2) Stepping (3) watching variables"
+        },
+        {
+            num: "Q9",
+            marks: 6,
+            type: "written",
+            caseStudy: "",
+            question: `<p>A student is writing a program in an IDE. Describe how the IDE can help the student to <strong>develop</strong> (write) and <strong>debug</strong> their program.</p>`,
+            hint: "Cover the editor, error diagnostics, debugging tools and being able to run the program — say how each one helps, not just its name.",
+            starter: "The editor helps the student write code by…. The IDE also helps the student find mistakes by…",
+            markPoints: {
+                note: "Up to 6 marks — one mark per valid point, mixing 'developing' and 'debugging' points. Any six of the following.",
+                groups: [
+                    {
+                        label: "Development and debugging support", max: 6, points: [
+                            { text: "Editor: syntax highlighting colours the code so its structure is clearer / mistakes stand out", marks: 1 },
+                            { text: "Editor: auto-indentation lines up new code with its block automatically", marks: 1 },
+                            { text: "Editor: auto-complete suggests names as the student types, speeding up writing and reducing typos", marks: 1 },
+                            { text: "Error diagnostics: the IDE flags syntax errors as the code is typed, so mistakes are fixed immediately rather than only found when the program is run", marks: 1 },
+                            { text: "Debugging tools: breakpoints let the student pause the program at a chosen line to examine it", marks: 1 },
+                            { text: "Debugging tools: stepping lets the student run the program one line at a time to see what each line does", marks: 1 },
+                            { text: "Debugging tools: watching variables shows the current value of chosen variables, helping locate exactly where a logic error occurs", marks: 1 },
+                            { text: "Run-time environment: lets the student run and test the program directly inside the IDE, without separate software", marks: 1 },
+                            { text: "Translator: a built-in compiler or interpreter translates and runs the code from inside the IDE", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (1 mark per valid point, up to 6; any six of the following)</h5>
+<ul>
+<li>Syntax highlighting colours the code so its structure is clearer and mistakes stand out.</li>
+<li>Auto-indentation lines up new code with its block automatically.</li>
+<li>Auto-complete suggests names as the student types, speeding up writing and reducing typos.</li>
+<li>The IDE flags syntax errors as the code is typed, so mistakes are fixed immediately rather than only when the program is run.</li>
+<li>Breakpoints let the student pause the program at a chosen line to examine it.</li>
+<li>Stepping lets the student run the program one line at a time to see what each line does.</li>
+<li>Watching variables shows the current value of chosen variables, helping locate exactly where a logic error occurs.</li>
+<li>The run-time environment lets the student run and test the program directly inside the IDE, without separate software.</li>
+<li>The built-in translator (a compiler or interpreter) translates and runs the code from inside the IDE.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul><li>Award 1 mark per distinct valid point up to a maximum of 6. Naming a tool with no explanation of how it helps is not creditworthy on its own.</li></ul>
+</div>`,
+            modelAnswer: "The IDE's editor helps the student write code: syntax highlighting colours keywords and strings so the code's structure is clear, auto-indentation lines up new code with its block automatically, and auto-complete suggests names as the student types, saving time and avoiding typos. As they type, the IDE flags syntax errors immediately, rather than the student only finding out when the program fails to run. To debug logic errors, the student can set a breakpoint to pause the program at a chosen line, then step through it one line at a time while watching variables to see where a value first becomes wrong. Finally, the run-time environment and the IDE's built-in translator let the student run and test the program directly inside the IDE, without needing separate software."
+        }
+    ];
 </script>
     <script src="/script.js"></script>
 <script src="section-totals.js"></script>

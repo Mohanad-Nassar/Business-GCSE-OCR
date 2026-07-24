@@ -1,0 +1,707 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1.3 Solutions to Barriers – Interactive Study Guide</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+    <header>
+        <div>
+            <div class="badge">OCR Level 1/Level 2 Sport Studies — R184 · 1. Issues Affecting Participation</div>
+            <h1>1.3 Solutions to Barriers</h1>
+            <p>Interactive revision guide · Content coming soon</p>
+        </div>
+        <a href="/index.html" class="home-link">← 🏡 Home</a>
+    </header>
+
+    <nav class="tab-bar" id="tabBar">
+        <button class="tab-btn active" onclick="switchTab('learn', this)">
+            📚 Key Learning
+        </button>
+        <button class="tab-btn" onclick="switchTab('mcq', this)">
+            ❓ MCQ Quiz
+        </button>
+        <button class="tab-btn" onclick="switchTab('matching', this)">
+            🔗 Matching
+        </button>
+        <button class="tab-btn" onclick="switchTab('fib', this)">
+            ✏️ Fill the Blanks
+        </button>
+        <button class="tab-btn" onclick="switchTab('misconceptions', this)">
+            ⚠️ Misconceptions
+        </button>
+        <button class="tab-btn" onclick="switchTab('examtips', this)">
+            🎯 Exam Tips
+        </button>
+        <button class="tab-btn" onclick="switchTab('flashcards', this)">
+            🃏 Flashcards
+        </button>
+        <button class="tab-btn" onclick="switchTab('truefalse', this)">
+            ✅ True / False
+        </button>
+        <button class="tab-btn" onclick="switchTab('exampractice', this)">
+            📝 Exam Practice
+        </button>
+    </nav>
+
+    <main>
+        <div class="tab-panel active" id="tab-learn">
+            <h2 class="section-title">Key Learning Topics</h2>
+            <p class="section-sub">Click any card to expand detailed notes.</p>
+            <div class="topic-grid" id="topicGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-mcq">
+            <h2 class="section-title">Multiple Choice Questions</h2>
+            <p class="section-sub">Select an answer to reveal instant feedback.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="mcqScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">
+                        correct answers
+                    </div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    out of <strong id="mcqTotal">0</strong> attempted
+                </div>
+                <button class="reset-btn" onclick="resetMCQ()">RESET</button>
+            </div>
+            <div class="quiz-wrap" id="mcqWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-matching">
+            <h2 class="section-title">Matching Activity</h2>
+            <p class="section-sub">
+                Click a term on the left, then click the matching definition on the
+                right.
+            </p>
+            <div style="margin-bottom: 16px">
+                <div class="score-bar">
+                    <div>
+                        <div class="score-num" id="matchScore">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">matched</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="matchTotal">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetMatch()">RESET</button>
+                </div>
+            </div>
+            <div class="match-grid">
+                <div>
+                    <div class="match-label">TERMS</div>
+                    <div class="match-col" id="matchLeft"></div>
+                </div>
+                <div>
+                    <div class="match-label">DEFINITIONS</div>
+                    <div class="match-col" id="matchRight"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-fib">
+            <h2 class="section-title">Fill in the Blanks</h2>
+            <p class="section-sub">
+                Click each dropdown and choose the correct word. Wrong answers reset —
+                try again!
+            </p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="fibScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="fibTotal">0</strong> blanks
+                </div>
+                <button class="reset-btn" onclick="resetFIB()">RESET</button>
+            </div>
+            <div class="fib-wrap" id="fibWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-misconceptions">
+            <h2 class="section-title">Common Misconceptions</h2>
+            <p class="section-sub">
+                What students often think — and what examiners actually want.
+            </p>
+            <div class="misc-list" id="miscList"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-examtips">
+            <h2 class="section-title">Exam Questions &amp; Tips</h2>
+            <p class="section-sub">
+                Most repeated question types and mark-scheme structures from real OCR
+                papers.
+            </p>
+            <div class="tips-grid" id="tipsGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-flashcards">
+            <h2 class="section-title">Flashcards</h2>
+            <p class="section-sub">
+                Test yourself! Flip the card and rate your knowledge. Review your weak
+                areas at the end.
+            </p>
+
+            <div class="fc-container">
+                <div class="score-bar" id="fcScoreBar" style="display: none; margin-bottom: 20px">
+                    <div>
+                        <div class="score-num" id="fcKnown" style="color: #2d7a4f">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">known</div>
+                    </div>
+                    <div>
+                        <div class="score-num" id="fcUnknown" style="color: #c84b31">
+                            0
+                        </div>
+                        <div style="font-size: 12px; color: var(--mid)">learning</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="fcTotalTrack">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
+                </div>
+
+                <div id="fcActiveArea">
+                    <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
+                    <div class="flashcard" id="flashcard" onclick="flipCard()">
+                        <div class="fc-inner">
+                            <div class="fc-front">
+                                <div class="fc-label">KEY TERM</div>
+                                <div class="fc-term" id="fcTerm"></div>
+                            </div>
+                            <div class="fc-back">
+                                <div class="fc-def" id="fcDef"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="fc-hint">👆 Click card to flip</p>
+
+                    <div class="fc-nav" id="fcNavDefault">
+                        <button class="fc-btn outline" onclick="prevCard()">
+                            ← Prev
+                        </button>
+                        <button class="fc-btn outline" onclick="flipCard()">Flip</button>
+                        <button class="fc-btn" onclick="nextCard()">Next →</button>
+                    </div>
+
+                    <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px">
+                        <button class="fc-btn outline" style="border-color: #c84b31; color: #c84b31; flex: 1"
+                            onclick="markCard(false)">
+                            ❌ Still Learning
+                        </button>
+                        <button class="fc-btn" style="background: #2d7a4f; border-color: #2d7a4f; flex: 1"
+                            onclick="markCard(true)">
+                            ✅ Got It
+                        </button>
+                    </div>
+                </div>
+
+                <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px">
+                    <h3>Session Complete! 🎉</h3>
+                    <p style="margin: 15px 0">
+                        You knew <strong id="fcSummaryKnown">0</strong> out of
+                        <strong id="fcSummaryTotal">0</strong> cards.
+                    </p>
+                    <div style="
+                margin-top: 25px;
+                display: flex;
+                gap: 15px;
+                justify-content: center;
+                flex-wrap: wrap;
+              ">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
+                            style="background: #c84b31; border-color: #c84b31">
+                            Review Incorrect
+                        </button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">
+                            Practice All Again
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-truefalse">
+            <h2 class="section-title">True or False?</h2>
+            <p class="section-sub">Test your knowledge with these statements.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="tfScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="tfTotal">0</strong> answered
+                </div>
+                <button class="reset-btn" onclick="resetTF()">RESET</button>
+            </div>
+            <div class="tf-wrap" id="tfWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-exampractice">
+            <h2 class="section-title">Exam Practice Questions</h2>
+            <p class="section-sub">
+                Full exam questions with case studies. Use <strong>Hint</strong>,
+                <strong>Sentence Starter</strong> and
+                <strong>Submit &amp; See Mark Scheme</strong> for each question.
+            </p>
+            <div class="ep-list" id="epList"></div>
+        </div>
+    </main>
+
+<script>
+    // ══════════════════════════════════════
+    //  DATA: 1.3 Solutions to Barriers — placeholder, content not yet written
+    // ══════════════════════════════════════
+    const pageMeta = {
+            id: '1-3-solutions-to-barriers',
+            badge: 'OCR Level 1/Level 2 Sport Studies — R184 · 1. Issues Affecting Participation',
+            title: '1.3 Solutions to Barriers',
+            subtitle: 'Interactive revision guide',
+            subject: 'sport-studies',
+        };
+
+    const topics = [
+        {
+            title: "Linking a solution to its barrier and its user group — the exam skill",
+            tag: "Exam skill",
+            content: `<h4>Why 'just listing solutions' fails</h4>
+<ul>
+<li>Every solution in this topic exists to remove a specific <strong>barrier</strong> (Topic 1.2) for a specific <strong>user group</strong> (Topic 1.1). A solution written on its own, with no barrier and no group named, earns little or nothing.</li>
+<li>Weak answer: <em>"Leisure centres could run more taster sessions."</em> This names a solution but shows no understanding of what it actually fixes.</li>
+<li>Strong answer: <em>"Free taster sessions remove the cost barrier facing unemployed people, letting them try an activity before committing any money."</em></li>
+</ul>
+<h4>Build every answer the same way</h4>
+<ul>
+<li>Step 1 — name the <strong>solution</strong>.</li>
+<li>Step 2 — say which <strong>barrier</strong> it removes.</li>
+<li>Step 3 — say which <strong>user group</strong> it helps, and why.</li>
+</ul>
+<p>This three-step shape is what most Section B marks in this topic actually reward — not the name of the solution by itself.</p>`,
+            readCheck: {
+                q: "Which of these shows the strongest understanding of a solution to a barrier?",
+                opts: ["A description linking the solution to the specific barrier it removes and the group it helps", "A long list naming every single possible solution a leisure centre could ever possibly consider offering", "The name of one solution with nothing else added", "A description of a barrier with no solution mentioned at all"],
+                ans: 0,
+                explain: "Marks come from linking a solution to the specific barrier it removes and the group it helps — not from a long list, a bare name, or a barrier alone with no fix."
+            }
+        },
+        {
+            title: "Provision, promotion and transport",
+            tag: "Core knowledge",
+            content: `<h4>Provision — the right programme, at the right time</h4>
+<ul>
+<li><strong>Provision</strong> means offering appropriate programmes, sessions, activities and <strong>times</strong> aimed at a specific user group, rather than one timetable expected to suit everybody.</li>
+<li>Example: a crèche-supported morning class for parents; a low-impact, sociable daytime session for retired people; a cheap after-school club for teenagers.</li>
+</ul>
+<h4>Promotion — telling the right people, in the right way</h4>
+<ul>
+<li><strong>Targeted advertising and promotion</strong> reaches a specific group directly, instead of one generic advert aimed at nobody in particular.</li>
+<li>Using <strong>role models</strong> from a group (or connected to it) can make an activity feel like "people like me do this".</li>
+<li><strong>Initiatives and incentives</strong> — such as a free taster session — let a group try an activity with nothing to lose, which can remove the fear of an unfamiliar or costly commitment.</li>
+</ul>
+<h4>Transport — getting there in the first place</h4>
+<ul>
+<li>A brilliant session is no use if a group cannot reach the venue. <strong>Increased and appropriate transport</strong> (extra buses, a pick-up service, better links to public transport) removes this barrier directly.</li>
+</ul>`,
+            readCheck: {
+                q: "A leisure centre features a well-known local wheelchair basketball player in its adverts. This is mainly an example of...",
+                opts: ["improved access to the building itself", "using a role model as a promotion strategy", "appropriate pricing for a user group", "increasing the transport available to the site"],
+                ans: 1,
+                explain: "Featuring a figure connected to a group in adverts is a promotion strategy (a role model), not a change to access, price or transport."
+            }
+        },
+        {
+            title: "Facilities, equipment and access",
+            tag: "Core knowledge",
+            content: `<h4>Appropriate facilities and equipment</h4>
+<ul>
+<li>Different user groups need different physical adjustments to take part safely and independently. Examples the specification highlights include:</li>
+<li><strong>Pool hoists</strong> — allow a person with limited mobility to enter and exit a swimming pool safely.</li>
+<li><strong>Hearing loops</strong> — let a person with a hearing impairment follow instructions or announcements clearly.</li>
+<li><strong>Braille or tactile signage</strong> — lets a person with a visual impairment navigate a building independently.</li>
+<li>These are examples for a <strong>range of disabilities</strong>, not only wheelchair users — the right piece of equipment should match the specific barrier a group actually faces.</li>
+</ul>
+<h4>Improved access</h4>
+<ul>
+<li><strong>Access</strong> is broader than one piece of equipment — it means the whole route into and around a facility (ramps, wide doorways, ground-floor changing rooms, clear paths) is usable by all user groups, not just the majority.</li>
+</ul>`,
+            readCheck: {
+                q: "A hearing loop fitted in a sports hall is a solution that mainly addresses...",
+                opts: ["a transport barrier for people who live a very long way indeed from the venue", "a facilities and equipment barrier for people with a hearing impairment", "a pricing barrier for economically disadvantaged people", "a promotion barrier caused by a lack of advertising"],
+                ans: 1,
+                explain: "A hearing loop removes a specific facilities-and-equipment barrier — it does not change transport, price, or how the session is advertised."
+            }
+        },
+        {
+            title: "Pricing solutions",
+            tag: "Core knowledge",
+            content: `<h4>Appropriate pricing for all user groups</h4>
+<ul>
+<li>Cost is one of the most common barriers (Topic 1.2), so pricing is one of the most tested solutions.</li>
+<li><strong>Concessions</strong> — reduced prices for groups such as students, unemployed people or over-60s.</li>
+<li><strong>Free taster sessions</strong> — let a group try an activity before paying anything at all.</li>
+<li><strong>Free or reduced-price equipment</strong> — removes the barrier of needing to buy kit before you can even start.</li>
+</ul>
+<h4>Pricing must actually fit the group</h4>
+<ul>
+<li>A concession that is still too expensive for the group it targets fixes nothing. Good answers check that the pricing change realistically removes the cost barrier for that specific group.</li>
+</ul>`,
+            readCheck: {
+                q: "Which of these is the best example of an 'appropriate pricing' solution?",
+                opts: ["Raising every single price so that the centre simply earns more money overall", "Offering a free taster session so a group can try an activity before paying", "Removing the reception desk from the building entirely", "Running the same single advert on local radio for every group"],
+                ans: 1,
+                explain: "A free taster session removes the cost barrier before anyone commits money. Raising prices, removing reception, or a single generic advert are not pricing solutions at all."
+            }
+        }
+    ];
+
+    const mcqData = [
+        {
+            q: "A leisure centre currently only runs sessions during the working week daytime. Which change is the clearest example of the 'provision' solution?",
+            opts: ["Printing a brand new leaflet that only describes the sessions already running in the daytime", "Adding an evening or weekend session aimed at people who work in the daytime", "Charging slightly less money for the existing daytime sessions", "Employing an extra receptionist to answer the phone during the day"],
+            ans: 1,
+            explain: "Provision means changing WHAT is on offer — new sessions at new times. A new leaflet is promotion, a lower price is pricing, and extra reception staff changes neither the offer nor who can attend."
+        },
+        {
+            q: "A local swimming club wants more teenage girls to join. Which action best uses a 'promotion' solution?",
+            opts: ["Fitting a hearing loop in the changing rooms for members with a hearing impairment", "Adding extra car-parking spaces outside the venue for visiting families", "Featuring a respected female swimmer from the local area in its adverts", "Building a wheelchair-accessible ramp at the main entrance"],
+            ans: 2,
+            explain: "Using a local role model in adverts targets the group directly — that's promotion. Hearing loops, parking and ramps are facilities, transport and access changes, not promotion."
+        },
+        {
+            q: "Several older residents say they would attend a gentle exercise class but have no way of reaching the venue. Which solution most directly removes this barrier?",
+            opts: ["A free taster session with absolutely no charge at all for the very first visit", "A dedicated pick-up service or an extra bus route to the venue", "A louder advert broadcast on local commercial radio", "A slightly cheaper price for the same weekly class"],
+            ans: 1,
+            explain: "The barrier described is getting there, not cost or awareness — so a pick-up service or extra bus route is the solution that actually removes it."
+        },
+        {
+            q: "A member with a visual impairment struggles to find their way around a large sports centre. Which solution addresses this specific barrier?",
+            opts: ["Braille or tactile signage placed clearly around the building", "A free taster session offered to new visually impaired members", "An extra evening class added to the existing weekly timetable", "A reduced membership price for the first three months"],
+            ans: 0,
+            explain: "Braille or tactile signage lets a visually impaired person navigate independently. A taster session, a new class time, and a lower price do not solve a navigation barrier."
+        },
+        {
+            q: "A centre has a step at the main entrance and narrow changing-room doorways. Which change best improves 'access' for wheelchair users?",
+            opts: ["Running more sessions later in the evening for working members", "Advertising the centre repeatedly using a well-known local wheelchair athlete", "Fitting a ramp at the entrance and widening the changing-room doorways", "Offering a discount for the first month of membership"],
+            ans: 2,
+            explain: "A ramp and wider doorways change the physical route into and around the building — that is access. The other options are provision, promotion and pricing instead."
+        },
+        {
+            q: "Which of these answers best links a solution to both a barrier and a user group?",
+            opts: ["Leisure centres should really try to offer more activities generally", "Free taster sessions remove the cost barrier for unemployed people, so they can try an activity first", "Free taster sessions are honestly thought to be a fantastic idea for absolutely every leisure centre in the entire country", "Cost is sometimes a problem for people who do not have very much money"],
+            ans: 1,
+            explain: "This option names the solution, the exact barrier (cost) and the exact group (unemployed people). The others are vague, generic, or name a barrier with no linked fix."
+        }
+    ];
+
+    const matchData = [
+        { term: "Provision", def: "Offering appropriate programmes, sessions, activities and times for a specific user group" },
+        { term: "Targeted promotion", def: "Advertising aimed directly at a particular user group rather than a general audience" },
+        { term: "Role model", def: "A person from or connected to a group whose example encourages that group to take part" },
+        { term: "Taster session", def: "A free trial of an activity that lets a group try it before committing any money" },
+        { term: "Transport solution", def: "Extra buses, pick-up services or better links that help a group reach a venue" },
+        { term: "Accessible facilities and equipment", def: "Physical features such as pool hoists, hearing loops or tactile signage that remove a barrier" },
+        { term: "Improved access", def: "Ramps, wide doorways and clear paths that make a whole venue usable for all groups" },
+        { term: "Concessionary pricing", def: "A reduced price aimed at a group such as students, over-60s or unemployed people" }
+    ];
+
+    const fibData = [
+        {
+            display: "Offering the right programmes, sessions and _____ for a specific user group is called provision.",
+            blanks: { B1: "times" }
+        },
+        {
+            display: "Using a well-known figure connected to a user group in adverts is called using a _____ model.",
+            blanks: { B1: "role" }
+        },
+        {
+            display: "A free _____ session lets a group try an activity before paying anything at all.",
+            blanks: { B1: "taster" }
+        },
+        {
+            display: "Fitting a pool hoist or a hearing loop is an example of appropriate facilities and _____.",
+            blanks: { B1: "equipment" }
+        },
+        {
+            display: "Widening doorways and adding ramps around a venue is an example of improved _____.",
+            blanks: { B1: "access" }
+        },
+        {
+            display: "A reduced price aimed at a group such as students or over-60s is called a _____.",
+            blanks: { B1: "concession" }
+        }
+    ];
+    const fibWords = ["times", "role", "taster", "equipment", "access", "concession"];
+
+    const tfData = [
+        {
+            statement: "A solution only earns full marks in the exam when it is linked to a specific barrier and a specific user group.",
+            answer: true,
+            explanation: "Naming a solution on its own rarely earns the marks — the mark scheme rewards the solution PLUS the barrier it removes PLUS the group it helps."
+        },
+        {
+            statement: "Provision means advertising an activity, rather than changing its timing or sessions.",
+            answer: false,
+            explanation: "Provision changes WHAT is on offer — new sessions, activities or times. Advertising an existing offer differently is promotion, a separate solution."
+        },
+        {
+            statement: "A pool hoist is an example of appropriate facilities and equipment for some user groups.",
+            answer: true,
+            explanation: "A pool hoist lets a person with limited mobility enter and exit a pool safely — a facilities-and-equipment solution matched to that barrier."
+        },
+        {
+            statement: "Braille or tactile signage is only ever useful for wheelchair users.",
+            answer: false,
+            explanation: "Braille and tactile signage help people with a visual impairment. 'People with disabilities' covers a wide range, so the right solution must match the actual barrier."
+        },
+        {
+            statement: "A free taster session is an example of an initiative that can help remove the cost barrier.",
+            answer: true,
+            explanation: "A taster session lets a group try an activity before paying anything, which removes the fear of committing money to something unfamiliar."
+        },
+        {
+            statement: "Improving access always means exactly the same thing as adding more car-parking spaces.",
+            answer: false,
+            explanation: "Access covers the whole route into and around a venue — ramps, doorways, ground-floor changing rooms and clear paths — not only parking."
+        }
+    ];
+
+    const miscData = [
+        {
+            wrong: "If I just name a solution like 'more taster sessions', that should get me the marks.",
+            correct: "Naming a solution alone rarely earns the marks. Weak answer: \"Centres could run more taster sessions.\" Full-marks answer: \"Free taster sessions remove the cost barrier facing unemployed people, letting them try an activity before paying anything.\" The mark is for the barrier AND the group, not the solution's name by itself.",
+            readCheck: {
+                q: "What is missing from the answer 'Centres could run more taster sessions'?",
+                opts: ["Nothing — the answer is already complete", "The specific barrier it removes and the user group it helps", "A much longer list of other possible solutions that could be tried", "The exact price of the taster session"],
+                ans: 1,
+                explain: "The name of the solution alone shows no understanding — the marks need the barrier it removes and the group it helps attached to it."
+            }
+        },
+        {
+            wrong: "Provision and promotion are basically the same thing — they're both about getting more people to sessions.",
+            correct: "They are two different solutions. Provision changes WHAT is on offer (the sessions, times and activities themselves). Promotion changes whether people KNOW about it and want to attend (adverts, role models, incentives). A centre can have perfect provision that nobody has ever heard of, and perfect promotion for a timetable that suits nobody.",
+            readCheck: {
+                q: "A centre adds a new Saturday morning class. This is an example of...",
+                opts: ["promotion, because it might attract new members", "provision, because it changes what sessions are on offer", "pricing, because Saturday classes usually cost more", "transport, because it is generally easier to reach on a Saturday"],
+                ans: 1,
+                explain: "Adding a new session changes the offer itself — that is provision, not promotion, pricing or transport."
+            }
+        },
+        {
+            wrong: "Facilities-and-equipment solutions like hearing loops or braille signage are only relevant to wheelchair users.",
+            correct: "These solutions target specific, different disabilities — a hearing loop helps a hearing impairment, braille/tactile signage helps a visual impairment, a pool hoist helps limited mobility. 'People with disabilities' covers a wide range, so a strong answer picks the solution that matches the actual barrier, rather than defaulting to 'wheelchair access' every time.",
+            readCheck: {
+                q: "Which solution best matches a member who has a visual impairment?",
+                opts: ["A much wider doorway added for wheelchair access", "Braille or tactile signage around the building", "A pool hoist for entering the water", "An extra evening session"],
+                ans: 1,
+                explain: "Braille/tactile signage matches a visual impairment specifically. The other options solve different barriers for different groups."
+            }
+        },
+        {
+            wrong: "Any lower price automatically counts as an 'appropriate pricing' solution.",
+            correct: "A price cut only works as a solution if it actually removes the barrier for that specific group. A concession that is still unaffordable for an unemployed person fixes nothing. Strong answers check the pricing change realistically matches the group's real situation, not just that a number went down.",
+            readCheck: {
+                q: "A centre lowers its price from £20 to £18 for unemployed members. Why might this NOT be an 'appropriate' pricing solution?",
+                opts: ["Because the price has changed at all", "Because £18 may still be unaffordable for this group", "Because the centre should never change any prices", "Because pricing solutions are never allowed in this topic"],
+                ans: 1,
+                explain: "A small reduction that is still unaffordable does not remove the real barrier — the change has to genuinely fit the group it targets."
+            }
+        }
+    ];
+
+    const examTips = [
+        {
+            type: "tip",
+            title: "Command words and mark tariffs for this topic",
+            pills: ["Identify", "Describe", "Explain"],
+            content: `<p>Solutions questions vary a lot in length. Match your answer to the command word:</p>
+<ul>
+<li><strong>Identify / State</strong> — just name a solution. "Identify one solution to a transport barrier" = one named idea, 1 mark.</li>
+<li><strong>Describe</strong> — say what the solution involves. "Describe one way a centre could improve access" = give the feature (e.g. a ramp, wider doorways).</li>
+<li><strong>Explain</strong> — give the reason, using the barrier AND the group. "Explain how a centre could increase participation among carers" = a solution <em>plus</em> the barrier it removes for that group.</li>
+</ul>
+<p><strong>Read the mark tariff:</strong> [1] wants one point; [2] usually wants two points, or one point developed with a reason; [4] in Section B wants points applied to the scenario, one barrier/group pair at a time.</p>`,
+            readCheck: {
+                q: "A question says: 'Identify one solution that could improve transport to a venue [1]'. What is the safest answer?",
+                opts: ["A full explanation of every possible transport solution", "One named transport solution", "A description of a transport barrier instead", "A list of five different solutions"],
+                ans: 1,
+                explain: "'Identify' + [1] = one named idea, nothing more. Explaining fully or listing five solutions wastes time for no extra marks."
+            }
+        },
+        {
+            type: "tip",
+            title: "The golden rule: solution → barrier → group",
+            pills: ["Section B", "AO2"],
+            content: `<p>The single most common way to lose marks here is stopping at the solution's name. Build every answer as <strong>solution → barrier it removes → group it helps</strong>:</p>
+<ul>
+<li><strong>❌ 0–1 marks:</strong> "More taster sessions."</li>
+<li><strong>✅ full marks:</strong> "Free taster sessions remove the cost barrier facing unemployed people, so they can try an activity before paying anything."</li>
+</ul>
+<p>In <strong>Section B</strong> the question gives you a scenario (a named centre, named groups). You must use a barrier and a group <em>from that scenario</em>, not a general example.</p>`,
+            readCheck: {
+                q: "In a Section B scenario about a named leisure centre, your solution should be linked to...",
+                opts: ["absolutely any barrier you happen to remember", "the barrier and group given in the scenario", "a famous athlete you personally admire", "your own local gym only"],
+                ans: 1,
+                explain: "Section B is applied — the marks are for linking your solution to the specific barrier and group described in the scenario in front of you."
+            }
+        },
+        {
+            type: "tip",
+            title: "Where solutions appear + sentence starters",
+            pills: ["Section A", "Section B", "Section C"],
+            content: `<p><strong>Where it shows up:</strong> solutions appear as quick recall in <strong>Section A</strong> (identify/state a solution), as applied points in <strong>Section B</strong> scenarios about increasing participation, and as the basis for <strong>Section C</strong> 8-mark answers evaluating how effective a range of solutions would really be.</p>
+<p><strong>Three punchy tips:</strong></p>
+<ul>
+<li>Learn the six solution types (provision, promotion, transport, facilities/equipment, access, pricing) so you can always recall a few.</li>
+<li>For every solution, memorise <em>one</em> barrier it removes and <em>one</em> group it helps — that pairing is usually where the mark is.</li>
+<li>In longer answers, weigh up limits (cost to the centre, one change not suiting every group) — that is where the top marks live.</li>
+</ul>
+<p><strong>Sentence starters for a longer answer:</strong></p>
+<ul>
+<li>"One solution here is… which removes the barrier of… for…"</li>
+<li>"This works because…"</li>
+<li>"However, this solution might not fully work if… because…"</li>
+</ul>`,
+            readCheck: {
+                q: "Why is weighing up a solution's limits a useful point in a longer answer?",
+                opts: ["It fills space with extra words", "It shows deeper understanding of how effective the solution really is", "It means the solution should never be attempted", "It completely replaces the need for mentioning any barrier or group at all"],
+                ans: 1,
+                explain: "Noticing a real limit (cost, or one group's needs clashing with another's) shows evaluation — the skill that lifts a Section C answer into the top band."
+            }
+        }
+    ];
+
+    const flashcards = [
+        { term: "Provision", def: "Appropriate programmes, sessions, activities and times aimed at a specific user group" },
+        { term: "Targeted promotion", def: "Advertising aimed directly at a particular user group, not a general audience" },
+        { term: "Role model", def: "A person from or connected to a group whose example encourages that group to take part" },
+        { term: "Taster session", def: "A free trial that lets a group try an activity before paying anything" },
+        { term: "Transport solution", def: "Extra buses, pick-up services or better links that help a group reach a venue" },
+        { term: "Accessible facilities/equipment", def: "Pool hoists, hearing loops, braille/tactile signage — matched to the barrier" },
+        { term: "Improved access", def: "Ramps, wide doorways and clear paths that make a venue usable for all groups" },
+        { term: "Concessionary pricing", def: "A reduced price aimed at a group such as students, over-60s or unemployed people" }
+    ];
+
+    const examQuestions = [
+        {
+            num: "1",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: "Identify <strong>two</strong> different types of solution that could help increase participation among under-represented user groups.",
+            hint: "Pick two from provision, promotion, transport, facilities/equipment, access or pricing.",
+            starter: "One solution is… Another solution is…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1)</h5>
+<p><strong>1 mark for each correct type of solution named, to a maximum of two. Accept any two different solutions, including:</strong></p>
+<ul>
+<li>Appropriate provision (programmes, sessions, activities or times for a user group)</li>
+<li>Targeted promotion, including using role models</li>
+<li>Initiatives or incentives, such as free taster sessions</li>
+<li>Increased or appropriate transport availability</li>
+<li>Appropriate facilities and equipment (e.g. pool hoists, hearing loops, braille/tactile signage)</li>
+<li>Improved access to facilities</li>
+<li>Appropriate pricing (concessions, taster sessions, free/reduced-price equipment)</li>
+</ul>
+<p>Do not credit the same type of solution written twice.</p>
+</div>`,
+            modelAnswer: "One solution is offering a free taster session.\n\nAnother solution is fitting accessible facilities, such as a hearing loop.",
+            markPoints: { note: "One tick per correct, DIFFERENT type of solution; cap at 2.", groups: [
+                { label: "Your first solution", max: 1, points: ["Names a valid type of solution from the specification"] },
+                { label: "Your second solution", max: 1, points: ["Names a DIFFERENT valid type of solution (not a repeat of the first)"] }
+            ] }
+        },
+        {
+            num: "2",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Which of these is the best example of using transport to remove a barrier to participation?",
+            options: ["Printing a new price list and handing it out at reception", "Running a free pick-up minibus service from a nearby estate to the leisure centre", "Adding a well-known professional athlete's photo to the centre's website homepage", "Extending the opening hours of the reception desk each evening"],
+            answer: 1,
+            hint: "Think about what actually changes whether a group can physically reach a venue.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO2)</h5>
+<p><strong>Answer: B — Running a free pick-up minibus service from a nearby estate to the leisure centre.</strong></p>
+<ul>
+<li>A pick-up service directly solves a transport barrier by getting people to the venue.</li>
+<li>A price list, a website photo, and reception hours are pricing, promotion and staffing changes, not transport.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "3",
+            marks: 4,
+            type: "written",
+            caseStudy: `<p><strong>Scenario — Northgate Community Sports Centre</strong></p><p>Northgate Community Sports Centre wants to increase participation among two groups it currently under-serves. <strong>Wheelchair users</strong> cannot reach the main hall because the building has a step at the entrance and narrow changing-room doorways. <strong>Unemployed local residents</strong> say the £6 session price is too high for them to attend regularly.</p>`,
+            question: "Explain how Northgate Community Sports Centre could address the barriers facing these <strong>two</strong> user groups.",
+            hint: "Take each group in turn. Name a solution, then link it to the specific barrier that group faces in the scenario (the step/doorways, or the £6 price).",
+            starter: "Wheelchair users face the barrier of… so Northgate could…\n\nUnemployed residents face the barrier of… so Northgate could…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (AO2: application)</h5>
+<p><strong>Up to 2 marks per user group: 1 for identifying the relevant barrier from the scenario, 1 for a solution that removes it. Answers may include:</strong></p>
+<ul>
+<li><strong>Wheelchair users</strong> — the step and narrow doorways are an access barrier. Northgate could fit a ramp at the entrance and widen the changing-room doorways.</li>
+<li><strong>Unemployed residents</strong> — the £6 price is a cost barrier. Northgate could offer a concessionary price or a free taster session for this group.</li>
+</ul>
+<p>Accept any other reasonable, applied answer. A solution with no barrier named, or a solution not linked to the scenario, earns 1 of the 2 marks for that group.</p>
+</div>`,
+            modelAnswer: "Wheelchair users face an access barrier caused by the step and narrow doorways. Northgate could fit a ramp at the entrance and widen the changing-room doorways so they can enter and use the building independently.\n\nUnemployed residents face a cost barrier because £6 a session is too expensive for them to attend regularly. Northgate could offer a concessionary price, or a free taster session, so cost stops being the reason they cannot take part.",
+            markPoints: { note: "Mark each group out of 2: one tick for the barrier from the scenario, one for a linked solution.", groups: [
+                { label: "Wheelchair users", max: 2, points: ["Identifies the access barrier from the scenario (the step and/or narrow doorways)", "Gives a solution that removes it (e.g. a ramp, widened doorways)"] },
+                { label: "Unemployed residents", max: 2, points: ["Identifies the cost barrier from the scenario (the £6 price)", "Gives a solution that removes it (e.g. a concession, a free taster session)"] }
+            ] }
+        },
+        {
+            num: "4",
+            marks: 8,
+            type: "written",
+            format: "banded",
+            caseStudy: `<p><strong>Scenario — Northgate Community Sports Centre</strong></p><p>Northgate Community Sports Centre has a limited budget but wants to raise overall participation. Alongside wheelchair users and unemployed residents, staff have also noticed that few teenagers and few retired residents currently attend.</p>`,
+            question: "Evaluate how effective a range of solutions would be in increasing overall participation at Northgate Community Sports Centre.",
+            hint: "Choose two or three user groups. For each, give a solution and the barrier it removes. Then weigh it up — what limits how well it would actually work? Finish with a judgement.",
+            starter: "One solution Northgate could use is… which removes the barrier of… for…\n\nAnother is…\n\nHowever, the extent to which this raises participation depends on…\n\nOverall, …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 8 marks (level-of-response). Read the band you fit, then pick a mark.</h5>
+<ul>
+<li><strong>Band 3 (thorough), 6–8:</strong> a balanced, well-applied discussion of several solutions, clearly linked to the barrier and group each one removes, weighing genuine limits (budget, one change not suiting every group), ending in a justified judgement.</li>
+<li><strong>Band 2 (reasonable), 3–5:</strong> sound understanding applied to more than one solution with some evaluation, but the discussion may be one-sided or the judgement unsupported.</li>
+<li><strong>Band 1 (basic), 1–2:</strong> names solutions and/or barriers with little application and no real evaluation; largely a list.</li>
+<li><strong>0 marks:</strong> nothing creditworthy.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Indicative content (indicative, not a checklist — reward valid alternatives)</h5>
+<ul>
+<li><strong>Wheelchair users:</strong> a ramp and wider doorways remove the access barrier caused by the step and narrow changing rooms.</li>
+<li><strong>Unemployed residents:</strong> a concession or free taster session removes the £6 cost barrier.</li>
+<li><strong>Teenagers:</strong> a cheap, sociable after-school session, promoted through a local role model, could remove cost and awareness barriers together.</li>
+<li><strong>Retired residents:</strong> a gentle, sociable daytime session (provision) suited to their availability and fitness could bring in a group with free daytime hours.</li>
+<li><strong>Evaluation:</strong> solutions only work if Northgate can afford them (a ramp and lower prices both cost money on a limited budget); a change for one group can clash with another (a lively teenage session may put off retired residents wanting calm); the biggest gain likely comes from fixing the barrier facing the largest under-served group first.</li>
+<li><strong>Judgement:</strong> a range of targeted solutions is powerful because each removes the specific barrier a group faces — but it only raises participation as far as the limited budget allows, so Northgate should prioritise the cheapest, highest-impact changes first.</li>
+</ul>
+</div>`,
+            modelAnswer: "Northgate could fit a ramp and widen doorways to remove the access barrier stopping wheelchair users attending, and offer a concession or free taster session to remove the £6 cost barrier facing unemployed residents. A cheap after-school session, promoted using a local role model, could attract teenagers put off by cost and unfamiliarity, while a gentle daytime session (provision) could suit retired residents' availability and fitness.\n\nHowever, these changes cost money the centre may not have, and one change can clash with another — a lively teenage session might put off retired residents wanting a calm atmosphere.\n\nOverall, targeting each group's specific barrier is an effective approach, but on a limited budget Northgate should prioritise the cheapest changes that reach the largest under-served group first."
+        }
+    ];
+</script>
+    <script src="/cs-lab/exam-widgets.js"></script>
+    <script src="/script.js"></script>
+<script src="section-totals.js"></script>
+<script src="page-groups.js"></script>
+<script src="/progress-shared.js"></script>
+<script src="/gamification.js"></script>
+<script src="/topic-guard.js"></script>
+<script src="/notifications-shared.js"></script>
+<script src="/onboarding-tour.js"></script>
+<script src="/footer-legal.js"></script>
+</body>
+
+</html>

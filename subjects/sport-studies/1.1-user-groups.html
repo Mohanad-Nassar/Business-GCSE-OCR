@@ -1,0 +1,699 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1.1 User Groups – Interactive Study Guide</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+    <header>
+        <div>
+            <div class="badge">OCR Level 1/Level 2 Sport Studies — R184 · 1. Issues Affecting Participation</div>
+            <h1>1.1 User Groups</h1>
+            <p>Interactive revision guide · Content coming soon</p>
+        </div>
+        <a href="/index.html" class="home-link">← 🏡 Home</a>
+    </header>
+
+    <nav class="tab-bar" id="tabBar">
+        <button class="tab-btn active" onclick="switchTab('learn', this)">
+            📚 Key Learning
+        </button>
+        <button class="tab-btn" onclick="switchTab('mcq', this)">
+            ❓ MCQ Quiz
+        </button>
+        <button class="tab-btn" onclick="switchTab('matching', this)">
+            🔗 Matching
+        </button>
+        <button class="tab-btn" onclick="switchTab('fib', this)">
+            ✏️ Fill the Blanks
+        </button>
+        <button class="tab-btn" onclick="switchTab('misconceptions', this)">
+            ⚠️ Misconceptions
+        </button>
+        <button class="tab-btn" onclick="switchTab('examtips', this)">
+            🎯 Exam Tips
+        </button>
+        <button class="tab-btn" onclick="switchTab('flashcards', this)">
+            🃏 Flashcards
+        </button>
+        <button class="tab-btn" onclick="switchTab('truefalse', this)">
+            ✅ True / False
+        </button>
+        <button class="tab-btn" onclick="switchTab('exampractice', this)">
+            📝 Exam Practice
+        </button>
+    </nav>
+
+    <main>
+        <div class="tab-panel active" id="tab-learn">
+            <h2 class="section-title">Key Learning Topics</h2>
+            <p class="section-sub">Click any card to expand detailed notes.</p>
+            <div class="topic-grid" id="topicGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-mcq">
+            <h2 class="section-title">Multiple Choice Questions</h2>
+            <p class="section-sub">Select an answer to reveal instant feedback.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="mcqScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">
+                        correct answers
+                    </div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    out of <strong id="mcqTotal">0</strong> attempted
+                </div>
+                <button class="reset-btn" onclick="resetMCQ()">RESET</button>
+            </div>
+            <div class="quiz-wrap" id="mcqWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-matching">
+            <h2 class="section-title">Matching Activity</h2>
+            <p class="section-sub">
+                Click a term on the left, then click the matching definition on the
+                right.
+            </p>
+            <div style="margin-bottom: 16px">
+                <div class="score-bar">
+                    <div>
+                        <div class="score-num" id="matchScore">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">matched</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="matchTotal">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetMatch()">RESET</button>
+                </div>
+            </div>
+            <div class="match-grid">
+                <div>
+                    <div class="match-label">TERMS</div>
+                    <div class="match-col" id="matchLeft"></div>
+                </div>
+                <div>
+                    <div class="match-label">DEFINITIONS</div>
+                    <div class="match-col" id="matchRight"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-fib">
+            <h2 class="section-title">Fill in the Blanks</h2>
+            <p class="section-sub">
+                Click each dropdown and choose the correct word. Wrong answers reset —
+                try again!
+            </p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="fibScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="fibTotal">0</strong> blanks
+                </div>
+                <button class="reset-btn" onclick="resetFIB()">RESET</button>
+            </div>
+            <div class="fib-wrap" id="fibWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-misconceptions">
+            <h2 class="section-title">Common Misconceptions</h2>
+            <p class="section-sub">
+                What students often think — and what examiners actually want.
+            </p>
+            <div class="misc-list" id="miscList"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-examtips">
+            <h2 class="section-title">Exam Questions &amp; Tips</h2>
+            <p class="section-sub">
+                Most repeated question types and mark-scheme structures from real OCR
+                papers.
+            </p>
+            <div class="tips-grid" id="tipsGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-flashcards">
+            <h2 class="section-title">Flashcards</h2>
+            <p class="section-sub">
+                Test yourself! Flip the card and rate your knowledge. Review your weak
+                areas at the end.
+            </p>
+
+            <div class="fc-container">
+                <div class="score-bar" id="fcScoreBar" style="display: none; margin-bottom: 20px">
+                    <div>
+                        <div class="score-num" id="fcKnown" style="color: #2d7a4f">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">known</div>
+                    </div>
+                    <div>
+                        <div class="score-num" id="fcUnknown" style="color: #c84b31">
+                            0
+                        </div>
+                        <div style="font-size: 12px; color: var(--mid)">learning</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="fcTotalTrack">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
+                </div>
+
+                <div id="fcActiveArea">
+                    <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
+                    <div class="flashcard" id="flashcard" onclick="flipCard()">
+                        <div class="fc-inner">
+                            <div class="fc-front">
+                                <div class="fc-label">KEY TERM</div>
+                                <div class="fc-term" id="fcTerm"></div>
+                            </div>
+                            <div class="fc-back">
+                                <div class="fc-def" id="fcDef"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="fc-hint">👆 Click card to flip</p>
+
+                    <div class="fc-nav" id="fcNavDefault">
+                        <button class="fc-btn outline" onclick="prevCard()">
+                            ← Prev
+                        </button>
+                        <button class="fc-btn outline" onclick="flipCard()">Flip</button>
+                        <button class="fc-btn" onclick="nextCard()">Next →</button>
+                    </div>
+
+                    <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px">
+                        <button class="fc-btn outline" style="border-color: #c84b31; color: #c84b31; flex: 1"
+                            onclick="markCard(false)">
+                            ❌ Still Learning
+                        </button>
+                        <button class="fc-btn" style="background: #2d7a4f; border-color: #2d7a4f; flex: 1"
+                            onclick="markCard(true)">
+                            ✅ Got It
+                        </button>
+                    </div>
+                </div>
+
+                <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px">
+                    <h3>Session Complete! 🎉</h3>
+                    <p style="margin: 15px 0">
+                        You knew <strong id="fcSummaryKnown">0</strong> out of
+                        <strong id="fcSummaryTotal">0</strong> cards.
+                    </p>
+                    <div style="
+                margin-top: 25px;
+                display: flex;
+                gap: 15px;
+                justify-content: center;
+                flex-wrap: wrap;
+              ">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
+                            style="background: #c84b31; border-color: #c84b31">
+                            Review Incorrect
+                        </button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">
+                            Practice All Again
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-truefalse">
+            <h2 class="section-title">True or False?</h2>
+            <p class="section-sub">Test your knowledge with these statements.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="tfScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="tfTotal">0</strong> answered
+                </div>
+                <button class="reset-btn" onclick="resetTF()">RESET</button>
+            </div>
+            <div class="tf-wrap" id="tfWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-exampractice">
+            <h2 class="section-title">Exam Practice Questions</h2>
+            <p class="section-sub">
+                Full exam questions with case studies. Use <strong>Hint</strong>,
+                <strong>Sentence Starter</strong> and
+                <strong>Submit &amp; See Mark Scheme</strong> for each question.
+            </p>
+            <div class="ep-list" id="epList"></div>
+        </div>
+    </main>
+
+<script>
+    // ══════════════════════════════════════
+    //  DATA: 1.1 User Groups — placeholder, content not yet written
+    // ══════════════════════════════════════
+    const pageMeta = {
+            id: '1-1-user-groups',
+            badge: 'OCR Level 1/Level 2 Sport Studies — R184 · 1. Issues Affecting Participation',
+            title: '1.1 User Groups',
+            subtitle: 'Interactive revision guide',
+            subject: 'sport-studies',
+        };
+
+    const topics = [
+        {
+            title: "What a 'user group' is — and why it matters",
+            tag: "Key concept",
+            content: `<h4>The idea</h4>
+<ul>
+<li>A <strong>user group</strong> is a category of people who share a characteristic that affects <strong>whether, why and how</strong> they take part in sport.</li>
+<li>Examples of characteristics used to sort people into groups include their age, their gender, whether they have a disability, their family situation and whether they are in work.</li>
+</ul>
+<h4>Why anyone bothers grouping people</h4>
+<ul>
+<li>Leisure centres, clubs, councils and national governing bodies want <strong>more people to take part</strong>. To do that, they have to understand who is <em>not</em> taking part and why.</li>
+<li>The key point the exam keeps testing: <strong>different user groups can have different needs, goals and requirements.</strong> A session that suits one group may put another off completely.</li>
+<li>So a provider thinks about each group separately — its timing, price, activities and facilities — instead of assuming one offer fits everyone.</li>
+</ul>`,
+            readCheck: {
+                q: "Which of these is the best description of a 'user group'?",
+                opts: ["A category of people who share a feature affecting how they take part in sport", "A group of dedicated fans who follow the same professional team to every home and away match", "The panel of officials a governing body uses to referee a competition", "A single fitness class that is open only to complete beginners"],
+                ans: 0,
+                explain: "A user group is a category of people (such as teenagers or carers) who share a characteristic affecting their participation — not fans, officials, or one particular class."
+            }
+        },
+        {
+            title: "The user groups you need to know",
+            tag: "Core knowledge",
+            content: `<p>The specification groups participants by shared characteristics. It helps to sort them into four themes, and to remember <strong>what each group typically needs</strong>.</p>
+<h4>By life stage</h4>
+<ul>
+<li><strong>Young children</strong> (birth to the end of primary school) — need safe, supervised, play-based activity.</li>
+<li><strong>Teenagers</strong> (secondary school age) — often want sociable, low-cost and flexible activities that fit around school.</li>
+<li><strong>Retired people / people over 60</strong> — often prefer low-impact, sociable activities that suit a range of fitness levels.</li>
+</ul>
+<h4>By family role</h4>
+<ul>
+<li><strong>Families with children</strong> and <strong>parents</strong> (single or couples) — need family-friendly timing and activities they can do together.</li>
+<li><strong>People with family commitments</strong> and <strong>carers</strong> (looking after relatives, the elderly, or siblings) — need flexible timings and sometimes childcare so they can attend at all.</li>
+</ul>
+<h4>By work situation</h4>
+<ul>
+<li><strong>People who work</strong> — usually need early-morning, evening or weekend sessions.</li>
+<li><strong>Unemployed / economically disadvantaged people</strong> — often need free or reduced-price sessions.</li>
+</ul>
+<h4>By identity</h4>
+<ul>
+<li><strong>Gender</strong> — different genders can have different needs, goals and requirements from sport.</li>
+<li><strong>People from different ethnic groups</strong> — may have different cultural needs or preferences a provider should respect.</li>
+<li><strong>People with disabilities</strong> — need accessible facilities and inclusive coaching. This covers a <em>range</em> of disabilities, not only wheelchair users.</li>
+</ul>`,
+            readCheck: {
+                q: "The specification says 'people with disabilities' as a user group should be understood to include...",
+                opts: ["only people who use a wheelchair", "only people who have a visible, physical disability of some kind", "a range of disabilities, not just physical ones", "only people who cannot take part in any sport"],
+                ans: 2,
+                explain: "The group covers a range of disabilities — physical, sensory and hidden — so providers must think more widely than wheelchair access alone."
+            }
+        },
+        {
+            title: "Different needs, goals and requirements — the exam skill",
+            tag: "Exam skill",
+            content: `<h4>Naming a group is only the start</h4>
+<ul>
+<li>Weak answer: <em>"A user group is teenagers."</em> That names a group but shows no understanding.</li>
+<li>Strong answer: <em>"Teenagers are a user group who often need low-cost, sociable sessions after school, because they usually have little money and want to take part with friends."</em></li>
+<li>The mark almost always comes from <strong>linking the group to what it needs, and why</strong> — not from the name on its own.</li>
+</ul>
+<h4>How needs differ — quick examples</h4>
+<ul>
+<li>A <strong>working parent</strong> may need a crèche and evening classes; a <strong>teenager</strong> may need a cheap after-school club; an <strong>over-60</strong> may need a gentle, sociable session.</li>
+<li>The same activity, at the same time and price, would suit one of them and lose the other two.</li>
+</ul>
+<h4>People belong to more than one group</h4>
+<ul>
+<li>A person can sit in several groups at once — a <strong>working single parent</strong> who is also <strong>over 60</strong> — and their needs stack up.</li>
+<li>People in the <em>same</em> group still differ: two 15-year-olds might want completely different things, one to compete and one to socialise.</li>
+</ul>`,
+            readCheck: {
+                q: "A question asks you to explain the needs of teenagers as a user group. What is most likely to earn the marks?",
+                opts: ["Just writing the word 'teenagers'", "Saying what teenagers need from sport and why", "Listing every user group you can remember", "Describing your own favourite sport in detail"],
+                ans: 1,
+                explain: "Explain questions reward linking the group to a specific need and a reason — naming the group, or listing other groups, adds nothing."
+            }
+        }
+    ];
+
+    const mcqData = [
+        {
+            q: "What is meant by a 'user group' in sport?",
+            opts: ["A category of people who share a feature affecting whether and how they take part", "A crowd of supporters who follow the same professional team to matches every single week", "The officials a national governing body trains to referee competitive fixtures", "A fitness class that is aimed only at complete beginners"],
+            ans: 0,
+            explain: "A user group is a category of people — such as teenagers, carers or over-60s — who share a characteristic that affects their participation. Fans, officials and a single class are not user groups."
+        },
+        {
+            q: "Which of these is a user group named in the specification?",
+            opts: ["People who have watched at least one live sporting fixture in a stadium this year", "People who own the most expensive branded sports equipment on the market", "People with family commitments", "People who have represented their country at an international competition"],
+            ans: 2,
+            explain: "'People with family commitments' is one of the named groups. Watching live sport, owning expensive gear, or playing for your country are not the groups the specification lists."
+        },
+        {
+            q: "A carer looks after an elderly relative. What do they most need in order to take part in sport?",
+            opts: ["A guarantee that they will win every competition they choose to enter at the centre", "Flexible session times, and sometimes support with caring, so they can attend", "Only the most advanced elite coaching that is available in the region", "A private facility that no other user group is ever allowed to enter"],
+            ans: 1,
+            explain: "Carers are often short of free time, so flexible timing and help with their caring role are what let them take part — not guaranteed wins, elite coaching or a private venue."
+        },
+        {
+            q: "Two people are both 15 but want different things from sport — one to compete, one to socialise. This best shows that...",
+            opts: ["teenagers are not really a user group at all", "everyone who belongs to the same user group always wants precisely the same thing from sport", "user groups should be banned from all leisure centres", "even within one user group, people can still have different needs and goals"],
+            ans: 3,
+            explain: "People in the same group still differ, which is why 'name the group' is never enough — you have to think about the individual's needs."
+        },
+        {
+            q: "Which group is most likely to need free or reduced-price sessions to take part?",
+            opts: ["People who work full-time in very highly paid professional careers", "Unemployed or economically disadvantaged people", "People who already own a fully equipped private gym at home", "Performers who receive large amounts of commercial sponsorship money"],
+            ans: 1,
+            explain: "Cost is the main barrier for economically disadvantaged people, so free or reduced-price sessions help most. The other groups can already afford to take part."
+        },
+        {
+            q: "A provider wants more disabled people to take part. Which change best fits that group's needs?",
+            opts: ["Removing all seating so that nobody is able to rest during a session", "Making every activity far more physically demanding than it was before", "Adding accessible facilities and inclusive, well-trained coaching", "Only running sessions in venues reached by a long flight of stairs"],
+            ans: 2,
+            explain: "Accessible facilities and inclusive coaching remove real barriers for a range of disabilities. Removing seating, raising the difficulty, or using stairs-only venues would each shut people out."
+        }
+    ];
+
+    const matchData = [
+        { term: "User group", def: "A category of people who share a feature that affects their participation in sport" },
+        { term: "Teenagers", def: "People of secondary-school age who often want sociable, low-cost and flexible activities" },
+        { term: "Carers", def: "People who look after a relative and so need flexible timings and sometimes childcare" },
+        { term: "People with disabilities", def: "A group who may need accessible facilities and inclusive coaching, covering more than wheelchair users" },
+        { term: "Retired people / over-60s", def: "Older people who often prefer low-impact, sociable activities suited to mixed fitness levels" },
+        { term: "Young children", def: "Under-11s who need close supervision and activities built around play rather than formal rules" },
+        { term: "Economically disadvantaged people", def: "People on a low income who often need free or reduced-price sessions to take part" },
+        { term: "People who work", def: "People whose job hours mean they usually need early-morning, evening or weekend sessions" }
+    ];
+
+    const fibData = [
+        {
+            display: "A user group is a _____ of people who share characteristics that affect their participation.",
+            blanks: { B1: "category" }
+        },
+        {
+            display: "Providers study user groups because each one can have different needs, _____ and requirements.",
+            blanks: { B1: "goals" }
+        },
+        {
+            display: "Retired people and the over-60s often prefer _____-impact activities that are also sociable.",
+            blanks: { B1: "low" }
+        },
+        {
+            display: "A carer may need _____ session times so they can fit sport around looking after a relative.",
+            blanks: { B1: "flexible" }
+        },
+        {
+            display: "Unemployed or economically _____ people often need free or reduced-price sessions.",
+            blanks: { B1: "disadvantaged" }
+        },
+        {
+            display: "People with _____ may need accessible facilities and inclusive coaching to take part.",
+            blanks: { B1: "disabilities" }
+        }
+    ];
+    const fibWords = ["category", "goals", "low", "flexible", "disadvantaged", "disabilities"];
+
+    const tfData = [
+        {
+            statement: "A user group is a category of people who share a characteristic that affects their participation in sport.",
+            answer: true,
+            explanation: "That's the definition — the shared feature (age, work, disability, family role and so on) is what shapes how and whether they take part."
+        },
+        {
+            statement: "Naming a user group means the same thing as naming a barrier to participation.",
+            answer: false,
+            explanation: "A user group is WHO takes part (a category of people). A barrier is WHAT stops participation (like cost or transport). They are different ideas."
+        },
+        {
+            statement: "Everyone who belongs to the same user group wants exactly the same thing from sport.",
+            answer: false,
+            explanation: "People in the same group still differ — two teenagers might want completely different things, so you cannot treat a whole group as identical."
+        },
+        {
+            statement: "'People with disabilities' as a user group refers only to wheelchair users.",
+            answer: false,
+            explanation: "It covers a range of disabilities — physical, sensory and hidden — so providers must think far more widely than wheelchair access."
+        },
+        {
+            statement: "People who work often need early-morning, evening or weekend sessions.",
+            answer: true,
+            explanation: "Their job hours usually block the daytime, so sessions outside working hours are what let them take part."
+        },
+        {
+            statement: "The best way to help economically disadvantaged people take part is to raise prices.",
+            answer: false,
+            explanation: "Cost is their main barrier, so raising prices makes things worse — free or reduced-price sessions are what help this group."
+        }
+    ];
+
+    const miscData = [
+        {
+            wrong: "To answer a question on user groups, I just need to name some groups, like 'teenagers' or 'carers'.",
+            correct: "Naming is only the first mark at most. The examiner is looking for you to link the group to what it NEEDS and WHY. Level 1 answer: \"A user group is teenagers.\" Full-marks answer: \"Teenagers are a user group who often need cheap, sociable sessions after school, because they usually have little money and want to take part with friends.\" The difference is the need and the reason.",
+            readCheck: {
+                q: "An 'Explain' question asks about the needs of one user group. What earns the marks?",
+                opts: ["Naming as many different user groups as you possibly can", "Naming the group, then its need and a reason", "Writing the group's name in bold", "Describing your own weekend sport"],
+                ans: 1,
+                explain: "Explain = point + reason. Naming the group alone, or listing lots of groups, does not show the understanding the mark scheme rewards."
+            }
+        },
+        {
+            wrong: "A 'user group' and a 'barrier' are basically the same thing.",
+            correct: "They are two different ideas that the exam keeps side by side. A user group is a category of PEOPLE (who might take part). A barrier is something that STOPS people taking part (cost, transport, lack of provision). A question can ask you to link them — 'what barrier affects this group?' — but they are not the same word.",
+            readCheck: {
+                q: "Which of these is a user group, not a barrier?",
+                opts: ["Lack of transport", "Retired people and the over-60s", "A lack of any disposable income to spend", "No local facilities"],
+                ans: 1,
+                explain: "Retired people/over-60s are a category of people — a user group. Transport, income and facilities are barriers that could stop a group taking part."
+            }
+        },
+        {
+            wrong: "Everyone in a user group is the same, and a person can only ever be in one group.",
+            correct: "Both halves are wrong. People in the same group differ (two 15-year-olds can want very different things). And a person belongs to several groups at once — a working single parent who is also over 60 sits in three groups, and their needs add up. Good answers notice this overlap.",
+            readCheck: {
+                q: "A working single parent who is also over 60 shows that...",
+                opts: ["user groups never overlap", "a person can belong to several user groups at once", "only one single group is ever allowed to use a centre at any one time", "over-60s cannot have jobs"],
+                ans: 1,
+                explain: "People sit in several groups at once, and their needs stack up — which is exactly why providers plan around real individuals, not just labels."
+            }
+        },
+        {
+            wrong: "'Gender' as a user group must mean it is only about women's sport.",
+            correct: "'Gender' as a user group simply means that different genders can have different needs, goals and requirements from sport — it applies to everyone, not only women. For example, a provider might notice that one gender is under-represented in a particular activity and adjust how it promotes or runs it.",
+            readCheck: {
+                q: "What does 'gender' as a user group actually mean?",
+                opts: ["Sport is only for one gender", "Different genders can have different needs and goals", "Gender has absolutely no effect on how people take part in sport", "Only women count as a user group"],
+                ans: 1,
+                explain: "It is about recognising that needs and goals can differ by gender — for all genders — so provision can be adjusted to widen participation."
+            }
+        }
+    ];
+
+    const examTips = [
+        {
+            type: "tip",
+            title: "Command words for this topic — what each one wants",
+            pills: ["Identify", "State", "Describe", "Explain"],
+            content: `<p>User-group questions are usually short. Match your answer length to the command word:</p>
+<ul>
+<li><strong>Identify / State</strong> — just name it. "Identify two user groups" = write two group names, nothing more. 1 mark each.</li>
+<li><strong>Describe</strong> — say what it is or what it is like. "Describe the needs of one user group" = give the features of those needs.</li>
+<li><strong>Explain</strong> — give a reason. Use the word <em>because</em>. "Explain why teenagers may not take part" = a barrier <em>plus</em> why it stops them.</li>
+</ul>
+<p><strong>Read the mark tariff:</strong> [1] wants one point; [2] usually wants two points, or one point developed; [4] in Section B wants points applied to the scenario.</p>`,
+            readCheck: {
+                q: "A question says: 'Identify two user groups [2]'. What is the safest answer?",
+                opts: ["A long paragraph about one group", "Two user group names", "One group name explained in detail", "A list of six groups"],
+                ans: 1,
+                explain: "'Identify' + [2] = two names, one mark each. Explaining one group, or listing six, wastes time and risks the examiner marking only the first two anyway."
+            }
+        },
+        {
+            type: "tip",
+            title: "The golden rule: name the group AND its need",
+            pills: ["Section A", "Section B", "AO2"],
+            content: `<p>The single most common way to lose marks here is stopping at the name. Build every answer as <strong>group → need → reason</strong>:</p>
+<ul>
+<li><strong>❌ 0–1 marks:</strong> "Carers."</li>
+<li><strong>✅ full marks:</strong> "Carers need flexible session times, because they have to fit sport around looking after a relative."</li>
+</ul>
+<p>In <strong>Section B</strong> the question gives you a scenario (a named leisure centre, a named person). Then you must use a detail <em>from that scenario</em>, not a general example.</p>`,
+            readCheck: {
+                q: "In a Section B scenario question about a named leisure centre, your example should come from...",
+                opts: ["absolutely any sport that you happen to like", "the scenario you are given", "a famous athlete", "your own school only"],
+                ans: 1,
+                explain: "Section B is applied — the marks are for using the scenario in front of you. A general example that ignores the scenario is capped."
+            }
+        },
+        {
+            type: "tip",
+            title: "Where user groups appear + sentence starters",
+            pills: ["Section A", "Section B", "Section C"],
+            content: `<p><strong>Where it shows up:</strong> user groups appear as quick recall in <strong>Section A</strong> (identify/state), and as applied points in <strong>Section B</strong> scenarios about increasing participation. They also feed <strong>Section C</strong> 8-mark answers about how a provider could get more people taking part.</p>
+<p><strong>Three punchy tips:</strong></p>
+<ul>
+<li>Learn the groups in themes (life stage, family, work, identity) so you can always recall a few.</li>
+<li>For every group, memorise <em>one</em> typical need — that need is usually where the mark is.</li>
+<li>Watch for overlap: a person can be in several groups at once, which is a great evaluation point.</li>
+</ul>
+<p><strong>Sentence starters for a longer answer:</strong></p>
+<ul>
+<li>"One user group affected here is… because…"</li>
+<li>"This group would need… so the centre could…"</li>
+<li>"However, the same change might not suit… because…"</li>
+</ul>`,
+            readCheck: {
+                q: "Why is 'overlap' between user groups a useful point in a longer answer?",
+                opts: ["It fills space", "It shows one person can have several needs at once", "It means groups do not exist", "It completely replaces the need to give any examples at all"],
+                ans: 1,
+                explain: "Noticing that one person belongs to several groups (so their needs stack up) shows deeper understanding — the kind of point that lifts a Section C answer."
+            }
+        }
+    ];
+
+    const flashcards = [
+        { term: "User group", def: "A category of people who share a feature affecting their participation in sport" },
+        { term: "Young children", def: "Birth to end of primary; need safe, supervised, play-based activity" },
+        { term: "Teenagers", def: "Secondary-school age; often want sociable, affordable, flexible activities" },
+        { term: "Retired / over-60s", def: "Often prefer low-impact, sociable activities for mixed fitness levels" },
+        { term: "Carers", def: "Look after a relative; need flexible times and sometimes childcare" },
+        { term: "People with disabilities", def: "Need accessible facilities and inclusive coaching — not only wheelchair users" },
+        { term: "People who work", def: "Job hours mean they need early-morning, evening or weekend sessions" },
+        { term: "Economically disadvantaged", def: "Low income; often need free or reduced-price sessions" }
+    ];
+
+    const examQuestions = [
+        {
+            num: "1",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: "Identify <strong>two</strong> different user groups who take part in sport.",
+            hint: "Just name two — pick from age, work, family or identity groups (for example teenagers, carers, over-60s, disabled people, working people).",
+            starter: "One user group is… Another user group is…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1)</h5>
+<p><strong>1 mark for each correct user group named, to a maximum of two. Accept any two different valid groups, including:</strong></p>
+<ul>
+<li>Teenagers / secondary-school-age young people</li>
+<li>People with a disability, including but not limited to wheelchair users</li>
+<li>Under-11s / young children needing supervised, play-based sessions</li>
+<li>Working adults who need early-morning, evening or weekend slots</li>
+<li>People on a low income / not currently in work</li>
+<li>Retired individuals or those aged over 60</li>
+<li>Parents or families who have children</li>
+<li>Carers looking after a relative</li>
+<li>People of a particular gender</li>
+<li>People from a particular ethnic background</li>
+</ul>
+<p>Do not credit the same group written twice.</p>
+</div>`,
+            modelAnswer: "One user group is teenagers.\n\nAnother user group is people with disabilities.",
+            markPoints: { note: "One tick per correct, DIFFERENT user group; cap at 2.", groups: [
+                { label: "Your first user group", max: 1, points: ["Names a valid user group from the specification"] },
+                { label: "Your second user group", max: 1, points: ["Names a DIFFERENT valid user group (not a repeat of the first)"] }
+            ] }
+        },
+        {
+            num: "2",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Which user group is most likely to need free or reduced-price sessions in order to take part?",
+            options: ["People who work in highly paid professional careers", "Unemployed or economically disadvantaged people", "People who own a private gym at home", "Sponsored elite performers"],
+            answer: 1,
+            hint: "Think about which group faces cost as its main barrier.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO2)</h5>
+<p><strong>Answer: B — Unemployed or economically disadvantaged people.</strong></p>
+<ul>
+<li>Cost is the main barrier for this group, so free or reduced-price sessions remove it.</li>
+<li>The other groups can already afford to take part, so price is not their key barrier.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "3",
+            marks: 4,
+            type: "written",
+            caseStudy: `<p><strong>Scenario — Meadowbank Leisure Centre</strong></p><p>Meadowbank Leisure Centre wants more local people to use its facilities. Staff have identified two user groups they are not reaching: <strong>working parents of young children</strong>, and <strong>teenagers</strong>. At the moment, most classes run between 10am and 3pm on weekdays, and a single session costs £8.</p>`,
+            question: "Explain how Meadowbank could meet the different needs of these <strong>two</strong> user groups.",
+            hint: "Take each group in turn. Say what that group NEEDS, then a change the centre could make to meet it. Use details from the scenario (the daytime timing and the £8 price).",
+            starter: "Working parents of young children need… so Meadowbank could…\n\nTeenagers need… so Meadowbank could…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (AO2: application)</h5>
+<p><strong>Up to 2 marks per user group: 1 for identifying a relevant need, 1 for a change that meets it using the scenario. Answers may include:</strong></p>
+<ul>
+<li><strong>Working parents of young children</strong> — need childcare and/or family-friendly timing (the 10am–3pm slot clashes with work). Meadowbank could run a crèche, or add early-morning, evening or weekend sessions.</li>
+<li><strong>Teenagers</strong> — need low cost and sociable, after-school timing (£8 is a lot for a teenager). Meadowbank could offer cheaper concession sessions after school that they can attend with friends.</li>
+</ul>
+<p>Accept any other reasonable, applied answer. A need with no change, or a change not linked to the scenario, earns 1 of the 2 marks for that group.</p>
+</div>`,
+            modelAnswer: "Working parents of young children need childcare and timings that fit around work. The current 10am–3pm classes clash with the working day, so Meadowbank could run a crèche and add evening or weekend sessions so parents can exercise while their children are supervised.\n\nTeenagers usually have little money, so the £8 price is a barrier, and they like to take part with friends. Meadowbank could offer cheaper after-school concession sessions that teenagers can attend together.",
+            markPoints: { note: "Mark each group out of 2: one tick for the need, one for a scenario-linked change.", groups: [
+                { label: "Working parents of young children", max: 2, points: ["Identifies a relevant need (e.g. childcare, or timing that fits around work)", "Gives a change that meets it, using the scenario (e.g. a crèche, or evening/weekend sessions instead of 10am–3pm)"] },
+                { label: "Teenagers", max: 2, points: ["Identifies a relevant need (e.g. low cost, sociable, after-school timing)", "Gives a change that meets it, using the scenario (e.g. cheaper after-school sessions to attend with friends, instead of £8)"] }
+            ] }
+        },
+        {
+            num: "4",
+            marks: 8,
+            type: "written",
+            format: "banded",
+            caseStudy: `<p><strong>Scenario — Meadowbank Leisure Centre</strong></p><p>Meadowbank Leisure Centre serves a mixed local area with many families, older residents, and people in low-paid work. The manager wants to increase overall participation and believes that understanding its different user groups is the key.</p>`,
+            question: "Discuss how a leisure centre like Meadowbank could use its understanding of different user groups to increase overall participation.",
+            hint: "Choose two or three user groups. For each, explain the need and the change that meets it. Then weigh it up — what are the limits or costs of doing this? Finish with a judgement on how much it would really help.",
+            starter: "One user group Meadowbank could target is… who need… so the centre could…\n\nAnother group is…\n\nHowever, the extent to which this increases participation depends on…\n\nOverall, …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 8 marks (level-of-response). Read the band you fit, then pick a mark.</h5>
+<ul>
+<li><strong>Band 3 (thorough), 6–8:</strong> a balanced, well-applied discussion of several user groups, showing clearly how meeting their needs would raise participation AND weighing the limits (cost, staffing, one change not suiting every group), ending in a justified judgement.</li>
+<li><strong>Band 2 (reasonable), 3–5:</strong> sound understanding applied to more than one group with some analysis, but the discussion may be one-sided or the judgement unsupported.</li>
+<li><strong>Band 1 (basic), 1–2:</strong> names groups and/or needs with little application and no real evaluation; largely a list.</li>
+<li><strong>0 marks:</strong> nothing creditworthy.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Indicative content (indicative, not a checklist — reward valid alternatives)</h5>
+<ul>
+<li><strong>Older residents / over-60s:</strong> low-impact, sociable sessions in the quiet daytime hours could bring in a group with free time during the day.</li>
+<li><strong>People in low-paid work / economically disadvantaged:</strong> concession pricing or free taster sessions removes cost as a barrier.</li>
+<li><strong>Working parents / families:</strong> a crèche and evening/weekend family sessions open up times they can actually attend.</li>
+<li><strong>Teenagers:</strong> cheap, sociable after-school clubs.</li>
+<li><strong>Evaluation:</strong> understanding groups only helps if the centre can afford the changes (staff, a crèche, lower prices cut income); one change can suit one group but clash with another (a busy family session may put off over-60s wanting calm); the biggest gains may come from targeting the largest under-served group first.</li>
+<li><strong>Judgement:</strong> understanding user groups is powerful because it lets the centre remove the <em>specific</em> barrier each group faces — but it increases participation only if the centre can resource the changes and accepts it cannot perfectly suit everyone at once.</li>
+</ul>
+</div>`,
+            modelAnswer: "Meadowbank can raise participation by matching its offer to each group's needs. Older residents have free daytime hours and want low-impact, sociable activity, so gentle daytime classes would attract them. People in low-paid work face cost as their main barrier, so concession pricing removes it. Working parents need childcare, so a crèche with evening sessions opens up times they can use.\n\nHowever, this only works if the centre can afford it — a crèche needs staff and lower prices cut income — and one change can clash with another, as a busy family session may put off over-60s wanting calm.\n\nOverall, understanding user groups is Meadowbank's strongest tool because it targets the exact barrier each group faces — but it raises participation only if the changes are affordable and the largest under-served groups come first."
+        }
+    ];
+</script>
+    <script src="/cs-lab/exam-widgets.js"></script>
+    <script src="/script.js"></script>
+<script src="section-totals.js"></script>
+<script src="page-groups.js"></script>
+<script src="/progress-shared.js"></script>
+<script src="/gamification.js"></script>
+<script src="/topic-guard.js"></script>
+<script src="/notifications-shared.js"></script>
+<script src="/onboarding-tour.js"></script>
+<script src="/footer-legal.js"></script>
+</body>
+
+</html>

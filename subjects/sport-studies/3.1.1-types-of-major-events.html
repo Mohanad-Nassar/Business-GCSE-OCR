@@ -1,0 +1,700 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3.1.1 Types of Major Events – Interactive Study Guide</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+    <header>
+        <div>
+            <div class="badge">OCR Level 1/Level 2 Sport Studies — R184 · 3. Hosting a Major Sporting Event</div>
+            <h1>3.1.1 Types of Major Events</h1>
+            <p>Interactive revision guide · Content coming soon</p>
+        </div>
+        <a href="/index.html" class="home-link">← 🏡 Home</a>
+    </header>
+
+    <nav class="tab-bar" id="tabBar">
+        <button class="tab-btn active" onclick="switchTab('learn', this)">
+            📚 Key Learning
+        </button>
+        <button class="tab-btn" onclick="switchTab('mcq', this)">
+            ❓ MCQ Quiz
+        </button>
+        <button class="tab-btn" onclick="switchTab('matching', this)">
+            🔗 Matching
+        </button>
+        <button class="tab-btn" onclick="switchTab('fib', this)">
+            ✏️ Fill the Blanks
+        </button>
+        <button class="tab-btn" onclick="switchTab('misconceptions', this)">
+            ⚠️ Misconceptions
+        </button>
+        <button class="tab-btn" onclick="switchTab('examtips', this)">
+            🎯 Exam Tips
+        </button>
+        <button class="tab-btn" onclick="switchTab('flashcards', this)">
+            🃏 Flashcards
+        </button>
+        <button class="tab-btn" onclick="switchTab('truefalse', this)">
+            ✅ True / False
+        </button>
+        <button class="tab-btn" onclick="switchTab('exampractice', this)">
+            📝 Exam Practice
+        </button>
+    </nav>
+
+    <main>
+        <div class="tab-panel active" id="tab-learn">
+            <h2 class="section-title">Key Learning Topics</h2>
+            <p class="section-sub">Click any card to expand detailed notes.</p>
+            <div class="topic-grid" id="topicGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-mcq">
+            <h2 class="section-title">Multiple Choice Questions</h2>
+            <p class="section-sub">Select an answer to reveal instant feedback.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="mcqScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">
+                        correct answers
+                    </div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    out of <strong id="mcqTotal">0</strong> attempted
+                </div>
+                <button class="reset-btn" onclick="resetMCQ()">RESET</button>
+            </div>
+            <div class="quiz-wrap" id="mcqWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-matching">
+            <h2 class="section-title">Matching Activity</h2>
+            <p class="section-sub">
+                Click a term on the left, then click the matching definition on the
+                right.
+            </p>
+            <div style="margin-bottom: 16px">
+                <div class="score-bar">
+                    <div>
+                        <div class="score-num" id="matchScore">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">matched</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="matchTotal">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetMatch()">RESET</button>
+                </div>
+            </div>
+            <div class="match-grid">
+                <div>
+                    <div class="match-label">TERMS</div>
+                    <div class="match-col" id="matchLeft"></div>
+                </div>
+                <div>
+                    <div class="match-label">DEFINITIONS</div>
+                    <div class="match-col" id="matchRight"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-fib">
+            <h2 class="section-title">Fill in the Blanks</h2>
+            <p class="section-sub">
+                Click each dropdown and choose the correct word. Wrong answers reset —
+                try again!
+            </p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="fibScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="fibTotal">0</strong> blanks
+                </div>
+                <button class="reset-btn" onclick="resetFIB()">RESET</button>
+            </div>
+            <div class="fib-wrap" id="fibWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-misconceptions">
+            <h2 class="section-title">Common Misconceptions</h2>
+            <p class="section-sub">
+                What students often think — and what examiners actually want.
+            </p>
+            <div class="misc-list" id="miscList"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-examtips">
+            <h2 class="section-title">Exam Questions &amp; Tips</h2>
+            <p class="section-sub">
+                Most repeated question types and mark-scheme structures from real OCR
+                papers.
+            </p>
+            <div class="tips-grid" id="tipsGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-flashcards">
+            <h2 class="section-title">Flashcards</h2>
+            <p class="section-sub">
+                Test yourself! Flip the card and rate your knowledge. Review your weak
+                areas at the end.
+            </p>
+
+            <div class="fc-container">
+                <div class="score-bar" id="fcScoreBar" style="display: none; margin-bottom: 20px">
+                    <div>
+                        <div class="score-num" id="fcKnown" style="color: #2d7a4f">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">known</div>
+                    </div>
+                    <div>
+                        <div class="score-num" id="fcUnknown" style="color: #c84b31">
+                            0
+                        </div>
+                        <div style="font-size: 12px; color: var(--mid)">learning</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="fcTotalTrack">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
+                </div>
+
+                <div id="fcActiveArea">
+                    <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
+                    <div class="flashcard" id="flashcard" onclick="flipCard()">
+                        <div class="fc-inner">
+                            <div class="fc-front">
+                                <div class="fc-label">KEY TERM</div>
+                                <div class="fc-term" id="fcTerm"></div>
+                            </div>
+                            <div class="fc-back">
+                                <div class="fc-def" id="fcDef"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="fc-hint">👆 Click card to flip</p>
+
+                    <div class="fc-nav" id="fcNavDefault">
+                        <button class="fc-btn outline" onclick="prevCard()">
+                            ← Prev
+                        </button>
+                        <button class="fc-btn outline" onclick="flipCard()">Flip</button>
+                        <button class="fc-btn" onclick="nextCard()">Next →</button>
+                    </div>
+
+                    <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px">
+                        <button class="fc-btn outline" style="border-color: #c84b31; color: #c84b31; flex: 1"
+                            onclick="markCard(false)">
+                            ❌ Still Learning
+                        </button>
+                        <button class="fc-btn" style="background: #2d7a4f; border-color: #2d7a4f; flex: 1"
+                            onclick="markCard(true)">
+                            ✅ Got It
+                        </button>
+                    </div>
+                </div>
+
+                <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px">
+                    <h3>Session Complete! 🎉</h3>
+                    <p style="margin: 15px 0">
+                        You knew <strong id="fcSummaryKnown">0</strong> out of
+                        <strong id="fcSummaryTotal">0</strong> cards.
+                    </p>
+                    <div style="
+                margin-top: 25px;
+                display: flex;
+                gap: 15px;
+                justify-content: center;
+                flex-wrap: wrap;
+              ">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
+                            style="background: #c84b31; border-color: #c84b31">
+                            Review Incorrect
+                        </button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">
+                            Practice All Again
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-truefalse">
+            <h2 class="section-title">True or False?</h2>
+            <p class="section-sub">Test your knowledge with these statements.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="tfScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="tfTotal">0</strong> answered
+                </div>
+                <button class="reset-btn" onclick="resetTF()">RESET</button>
+            </div>
+            <div class="tf-wrap" id="tfWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-exampractice">
+            <h2 class="section-title">Exam Practice Questions</h2>
+            <p class="section-sub">
+                Full exam questions with case studies. Use <strong>Hint</strong>,
+                <strong>Sentence Starter</strong> and
+                <strong>Submit &amp; See Mark Scheme</strong> for each question.
+            </p>
+            <div class="ep-list" id="epList"></div>
+        </div>
+    </main>
+
+<script>
+    // ══════════════════════════════════════
+    //  DATA: 3.1.1 Types of Major Events — placeholder, content not yet written
+    // ══════════════════════════════════════
+    const pageMeta = {
+            id: '3-1-1-types-of-major-events',
+            badge: 'OCR Level 1/Level 2 Sport Studies — R184 · 3. Hosting a Major Sporting Event',
+            title: '3.1.1 Types of Major Events',
+            subtitle: 'Interactive revision guide',
+            subject: 'sport-studies',
+        };
+
+    const topics = [
+        {
+            title: "What a 'major sporting event' is, and why its type matters",
+            tag: "Key concept",
+            content: `<h4>What counts as 'major'</h4>
+<ul>
+<li>A <strong>major sporting event</strong> is a large-scale competition that draws big numbers of participants, spectators, media coverage and often government or commercial money.</li>
+<li>The exam is far less interested in "how big" an event is and much more interested in <strong>how it is scheduled</strong> — where it is held, and whether it comes back to the same place.</li>
+</ul>
+<h4>Why the hosting pattern matters</h4>
+<ul>
+<li>A host city, governing body or sponsor plans very differently depending on whether an event visits <em>once only</em>, <em>every so often at a new venue</em>, or <em>every time at the same venue</em>.</li>
+<li>The key exam skill: correctly naming the type an event follows, and backing it up with a matching example — not just describing the sport itself.</li>
+</ul>`,
+            readCheck: {
+                q: "What does the specification mainly focus on when it sorts major sporting events into types?",
+                opts: ["How much prize money the winning athlete or team receives", "The pattern of where, and how often, an event is hosted", "How many television channels choose to broadcast the event live", "Whether the event includes more than one sport in its programme"],
+                ans: 1,
+                explain: "The types are about the hosting pattern — whether the venue changes and how often the event repeats — not about prize money, broadcast reach or how many sports are involved."
+            }
+        },
+        {
+            title: "Regular events — a different host each time",
+            tag: "Core knowledge",
+            content: `<h4>The idea</h4>
+<ul>
+<li>A <strong>regular event</strong> repeats on a fixed schedule (for example, every year), but moves to a <strong>different host city or country</strong> each time it is held.</li>
+<li>Example: a major club competition's final might be scheduled every year, yet a new city bids to stage it each time — one year in one country, the next year somewhere else entirely.</li>
+</ul>
+<h4>Why the moving host matters</h4>
+<ul>
+<li>Because the venue changes, each host usually has to build or adapt facilities almost from scratch, which can bring fresh investment and tourism to a new place every time.</li>
+<li>Fans and organisers cannot assume the same stadium or transport links will be used twice running, so planning restarts for every single edition.</li>
+</ul>`,
+            readCheck: {
+                q: "Which of these correctly describes a 'regular' major sporting event?",
+                opts: ["It is held only once, in a single host city, as a rare once-in-a-generation occasion for that host", "It is held every year at exactly the same fixed venue and never moves elsewhere", "It repeats on a schedule, but moves to a different host city each time it is held", "It has no fixed schedule and could be staged in any country at any random time"],
+                ans: 2,
+                explain: "'Regular' means it repeats on a schedule AND changes host each time — unlike a once-only event, and unlike an event that stays at the same fixed venue every year."
+            }
+        },
+        {
+            title: "'One-off' events, and regular and recurring events",
+            tag: "Core knowledge",
+            content: `<h4>'One-off' events</h4>
+<ul>
+<li>A <strong>'one-off' event</strong> is hosted in a particular city extremely rarely — often only once in a generation. It is a huge, once-in-a-lifetime undertaking for that host.</li>
+<li>Example: a summer multi-sport Games that a country might only get the chance to stage once every few decades, if it ever gets the chance at all.</li>
+</ul>
+<h4>Regular and recurring events</h4>
+<ul>
+<li>A <strong>regular and recurring event</strong> also repeats on a schedule (such as every year), but — unlike a regular event — it returns to the <strong>same venue</strong> every single time.</li>
+<li>Example: an annual tennis championship played at the same grounds every year, or a motor-racing event held at the same circuit every season.</li>
+</ul>
+<h4>The key difference to hold onto</h4>
+<ul>
+<li>All three types can repeat on a schedule — the real difference is entirely about whether, and how, the <strong>host location changes</strong>: a 'one-off' event barely repeats at all; a regular event repeats but moves; a regular and recurring event repeats and stays exactly where it is.</li>
+</ul>`,
+            readCheck: {
+                q: "Which statement correctly describes a 'regular and recurring' major sporting event?",
+                opts: ["It is held on a repeating schedule and returns to the same venue every time it is staged", "It is held once only, in a single city, and is never staged again in future", "It repeats on a schedule but always moves to a completely new and different host city each time", "It has no fixed venue at all and no fixed schedule of any kind whatsoever"],
+                ans: 0,
+                explain: "Regular AND recurring means it repeats on a schedule (like a regular event) but keeps the SAME venue every time — the opposite of a regular event, which moves host each time."
+            }
+        },
+        {
+            title: "Telling the three types apart — the exam skill",
+            tag: "Exam skill",
+            content: `<h4>Name the type AND give a matching example</h4>
+<ul>
+<li>Writing "it's a one-off event" on its own earns little. Marks usually come from pairing the <strong>correct type</strong> with a <strong>correct, matching example or reason</strong>.</li>
+<li>Weak answer: <em>"The Games are a one-off event."</em> Strong answer: <em>"The Games are a 'one-off' event because a host city gets the chance to stage them only very rarely, so this may be its only opportunity."</em></li>
+</ul>
+<h4>Comparing the three types side by side</h4>
+<ul>
+<li><strong>Regular</strong> = repeats + host changes each time (e.g. a club competition final moving city to city).</li>
+<li><strong>'One-off'</strong> = barely repeats + a rare, huge undertaking (e.g. a summer multi-sport Games).</li>
+<li><strong>Regular and recurring</strong> = repeats + host stays the same (e.g. an annual championship at the same grounds).</li>
+</ul>
+<h4>Why the type matters to a host or organiser</h4>
+<ul>
+<li>A 'one-off' host often builds large, permanent infrastructure from scratch, since it may never host the event again — a lasting legacy matters hugely to that decision.</li>
+<li>A regular event's rotating hosts can bid competitively and share the workload and cost of the event around different places over time.</li>
+<li>A regular and recurring host can reuse and gradually improve the same venue every year, so it makes long-term investment in that one fixed site.</li>
+</ul>`,
+            readCheck: {
+                q: "A candidate answers a question about a named event by writing only 'It is a one-off event'. What is missing from this answer?",
+                opts: ["Nothing at all — naming the type alone is already enough for full marks", "A correct example or reason that shows understanding of that type", "A description of the closing ceremony held at the event", "The exact date on which tickets first went on general sale"],
+                ans: 1,
+                explain: "Naming a type without a matching example or reason rarely earns full marks — the mark scheme rewards showing you understand WHY that type fits, not just stating a label."
+            }
+        }
+    ];
+
+    const mcqData = [
+        {
+            q: "A major sporting event repeats on a schedule, but a different city is chosen to host it every time. Which type of event is this?",
+            opts: ["This is a regular and recurring event, because the exact same host venue is used every single time without exception", "This is a regular event, because it repeats on a schedule but the host changes each time", "This is a 'one-off' event, because the host city gets only one single chance ever", "This is not a scheduled event at all, since no city can ever host it twice running"],
+            ans: 1,
+            explain: "Repeating on a schedule but moving host each time is the definition of a regular event — a regular and recurring event keeps the same venue, and a 'one-off' barely repeats at all."
+        },
+        {
+            q: "A country gets the chance to stage a summer multi-sport Games only once every few decades, if at all. Which type of major event is this?",
+            opts: ["A regular event, because the host changes to a new city on a fixed yearly schedule", "A regular and recurring event, since the same city keeps hosting it every year", "A 'one-off' event, since a host city gets this rare chance only very occasionally", "An event with no type at all, because it is simply too large to be classified"],
+            ans: 2,
+            explain: "Being hosted extremely rarely, as a once-in-a-generation opportunity, is exactly what makes an event 'one-off' — the other options describe events that repeat far more often."
+        },
+        {
+            q: "A national motor-racing event is staged at the same circuit every single season, year after year. Which type of event is this?",
+            opts: ["A 'one-off' event, since the host city only gets to stage that particular circuit race a single time in its history", "A regular event, because a different circuit bids to host the race each season", "A regular and recurring event, because it repeats and always returns to that same circuit", "An event with an entirely random schedule that changes without any real pattern"],
+            ans: 2,
+            explain: "Repeating on a schedule AND staying at the same venue every time is the definition of regular and recurring — a 'one-off' would happen rarely, and a regular event would change host."
+        },
+        {
+            q: "Which of these is the best example of a regular event, rather than a regular and recurring one?",
+            opts: ["An annual tennis championship that is always played at the same grounds every year", "A motor-racing event held at one fixed circuit for every single season of the calendar", "A club competition final that is played in a newly chosen host city every year", "A summer multi-sport Games that a country hosts only once in a generation"],
+            ans: 2,
+            explain: "A regular event repeats but changes host — a final moving to a new city each year fits that pattern, unlike the fixed-venue tennis or motor-racing examples, or the rare 'one-off' Games."
+        },
+        {
+            q: "Why does a host city for a 'one-off' event usually invest so heavily in permanent, large-scale infrastructure?",
+            opts: ["Because permanent infrastructure is always cheaper to build than temporary structures", "Because the national governing body legally requires permanent buildings for any event", "Because that host city may never get the chance to stage the event again", "Because temporary infrastructure is against the rules for every major sporting event"],
+            ans: 2,
+            explain: "Since a 'one-off' host might never host the event again, it often builds for a lasting legacy — not because permanent building is cheaper or a strict rule of every event."
+        },
+        {
+            q: "Why can a regular event's rotating hosts share out the cost and workload of staging it over time?",
+            opts: ["Because only one host city is ever legally permitted to bid for the event", "Because a new host bids to stage the event each time it is held", "Because regular events never actually require any facilities to be built", "Because the same single venue is reused for absolutely every edition"],
+            ans: 1,
+            explain: "A regular event moves between different bidding hosts, so the cost and effort of staging it is spread across several places over time — it is not stuck with one host or one venue."
+        }
+    ];
+
+    const matchData = [
+        { term: "Regular event", def: "A major event that repeats on a schedule but is hosted in a different city each time" },
+        { term: "'One-off' event", def: "A major event hosted in a particular city extremely rarely, often only once in a generation" },
+        { term: "Regular and recurring event", def: "A major event that repeats on a schedule and returns to the same venue every time" },
+        { term: "Rotating host", def: "The pattern where a different city bids to stage an event each time it is held" },
+        { term: "Fixed host venue", def: "The pattern where the same venue stages an event every time it is held" },
+        { term: "Once-in-a-generation opportunity", def: "A description of how rarely a host city gets the chance to stage a 'one-off' event" },
+        { term: "Scheduling pattern", def: "Whether, and how often, a major event returns to the same host location" }
+    ];
+
+    const fibData = [
+        {
+            display: "A _____ event repeats on a schedule but is hosted in a different city each time it is held.",
+            blanks: { B1: "regular" }
+        },
+        {
+            display: "A 'one-off' event is hosted in a particular city extremely _____, often only once in a generation.",
+            blanks: { B1: "rarely" }
+        },
+        {
+            display: "A regular and _____ event returns to the same venue every time it is held.",
+            blanks: { B1: "recurring" }
+        },
+        {
+            display: "All three types of major event can repeat on a _____, but they differ in whether the host changes.",
+            blanks: { B1: "schedule" }
+        },
+        {
+            display: "A regular event's rotating host means a new city can _____ to stage it each time.",
+            blanks: { B1: "bid" }
+        },
+        {
+            display: "A 'one-off' host often has to build permanent _____ from scratch, since it may never host again.",
+            blanks: { B1: "infrastructure" }
+        }
+    ];
+    const fibWords = ["regular", "rarely", "recurring", "schedule", "bid", "infrastructure"];
+
+    const tfData = [
+        {
+            statement: "A regular event is hosted in a different city each time it is held.",
+            answer: true,
+            explanation: "That's the definition of a regular event — it repeats on a schedule, but a new host city is chosen every time."
+        },
+        {
+            statement: "A 'one-off' event is hosted in the same city every single year.",
+            answer: false,
+            explanation: "That describes a regular and recurring event. A 'one-off' event is the opposite — it is hosted in a particular city only extremely rarely."
+        },
+        {
+            statement: "A regular and recurring event returns to the same venue each time it is held.",
+            answer: true,
+            explanation: "Correct — it repeats on a schedule like a regular event, but unlike a regular event it keeps the same venue every time."
+        },
+        {
+            statement: "All three types of major event happen only once and are never repeated.",
+            answer: false,
+            explanation: "Only a 'one-off' event barely repeats. Both a regular event and a regular and recurring event repeat on a fixed schedule — they just differ in whether the host changes."
+        },
+        {
+            statement: "Naming the correct type of event, with no example or reason, is usually enough to earn full exam marks.",
+            answer: false,
+            explanation: "Marks usually need a matching example or reason tied to the type, not just the type's name on its own."
+        },
+        {
+            statement: "A host city for a 'one-off' event often builds permanent infrastructure because it may never get the chance to host again.",
+            answer: true,
+            explanation: "Correct — since the chance may never come round again, a 'one-off' host tends to invest for a lasting legacy rather than a temporary setup."
+        }
+    ];
+
+    const miscData = [
+        {
+            wrong: "All three types of major event basically mean the same thing — they all just happen 'sometimes'.",
+            correct: "They are three distinct patterns, and the exam rewards telling them apart. The difference is entirely about the HOST LOCATION: a regular event repeats but moves host; a 'one-off' event barely repeats at all; a regular and recurring event repeats and stays at the same host. Saying an event 'happens sometimes' shows none of that understanding.",
+            readCheck: {
+                q: "What is the real difference between the three types of major sporting event?",
+                opts: ["There is no real difference between any of the three named types at all, ever", "Whether, and how, the host location changes between times the event is held", "How many spectators attend the event in a typical host city", "How much prize money is on offer to the eventual overall winner"],
+                ans: 1,
+                explain: "The types are defined entirely by the hosting pattern — does the venue change, stay the same, or barely repeat — not by attendance figures or prize money."
+            }
+        },
+        {
+            wrong: "'One-off' must mean the event is small or unimportant, since it only happens once.",
+            correct: "'One-off' describes the SCHEDULING PATTERN, not the size or importance of an event. In fact, 'one-off' events (such as a summer multi-sport Games) are often among the very biggest events a host will ever stage — that is exactly why the chance to host one comes round so rarely.",
+            readCheck: {
+                q: "What does the term 'one-off' actually describe about a major sporting event?",
+                opts: ["That the event is small in scale and attracts little media attention", "That a host city gets the chance to stage it only very rarely", "That the event has already been permanently cancelled by organisers", "That the event is not a real sporting competition at all"],
+                ans: 1,
+                explain: "'One-off' is about how rarely a host gets the chance — not about the event being small or unimportant. 'One-off' events are often huge, once-in-a-generation occasions."
+            }
+        },
+        {
+            wrong: "A regular event and a regular and recurring event are the same thing, since both repeat on a schedule.",
+            correct: "Both do repeat on a schedule, which is exactly why students mix them up — but they differ in ONE key way: a regular event moves to a different host each time, while a regular and recurring event returns to the same host every time. That single difference is what the exam is testing.",
+            readCheck: {
+                q: "What is the one key difference between a regular event and a regular and recurring event?",
+                opts: ["A regular and recurring event never actually follows any fixed schedule of any kind", "Whether the event returns to the same host venue, or moves to a new one each time", "A regular event is always far bigger in scale than a recurring one", "There genuinely is no difference between these two named types"],
+                ans: 1,
+                explain: "Both repeat on a schedule — the difference is purely whether the host location changes (regular) or stays the same (regular and recurring)."
+            }
+        },
+        {
+            wrong: "In an exam answer, just writing the correct type's name earns the same marks as explaining it.",
+            correct: "Naming the type is usually only worth a mark on its own in the shortest 'Identify/State' questions. For anything asking you to Describe or Explain, you must pair the type with a correct, matching example or reason — the name alone is not enough to reach full marks.",
+            readCheck: {
+                q: "For an 'Explain' question about the type of a named event, what is most likely to earn the marks?",
+                opts: ["Writing only the correct type name and nothing else at all", "Naming the type, then giving a matching example or reason", "Listing all three types you have learned", "Describing the sport being played at the event"],
+                ans: 1,
+                explain: "'Explain' rewards a type PLUS a reason or example that fits it — naming the type alone, listing every type, or describing the sport itself does not show that understanding."
+            }
+        }
+    ];
+
+    const examTips = [
+        {
+            type: "tip",
+            title: "Command words for this topic — what each one wants",
+            pills: ["Identify", "State", "Describe", "Explain"],
+            content: `<p>Questions on event types are usually short. Match your answer length to the command word:</p>
+<ul>
+<li><strong>Identify / State</strong> — just name it. "Identify one type of major sporting event" = one type name, nothing more. 1 mark.</li>
+<li><strong>Describe</strong> — say what the type is like. "Describe a 'one-off' event" = give its features (rare, huge, once-in-a-generation).</li>
+<li><strong>Explain</strong> — give a reason, and usually an example. "Explain why an event is regular and recurring" = the pattern (same venue) plus why it fits.</li>
+</ul>
+<p><strong>Read the mark tariff:</strong> [1] wants one point; [2]–[4] want the type named AND applied to a given example or scenario.</p>`,
+            readCheck: {
+                q: "A question says: 'Identify one type of major sporting event [1]'. What is the safest answer?",
+                opts: ["A full paragraph describing every type you know", "One correct type name", "The type's name along with a full worked example", "A list of all three types with definitions"],
+                ans: 1,
+                explain: "'Identify' + [1] = one name, one mark. A full paragraph, or listing all three types, wastes time on a question only worth a single mark."
+            }
+        },
+        {
+            type: "tip",
+            title: "The golden rule: name the type AND give a matching example",
+            pills: ["Section A", "Section B", "AO2"],
+            content: `<p>The single most common way to lose marks here is stopping at the type's name. Build every answer as <strong>type → example/reason</strong>:</p>
+<ul>
+<li><strong>❌ 0–1 marks:</strong> "It's a one-off event."</li>
+<li><strong>✅ full marks:</strong> "It's a 'one-off' event because the host city only gets the chance to stage it very rarely, so this may be its only opportunity."</li>
+</ul>
+<p>In <strong>Section B</strong> the question gives you a scenario (a named place or event). Use a detail <em>from that scenario</em> to justify the type — not just a general fact you already knew.</p>`,
+            readCheck: {
+                q: "In a Section B scenario question about a named event, your justification should come from...",
+                opts: ["absolutely any event that you happen to know about", "the scenario you are given in the question", "an event that was hosted many decades ago", "your own personal opinion about which type sounds best"],
+                ans: 1,
+                explain: "Section B is applied — the marks are for using the scenario in front of you. A justification that ignores the scenario is capped."
+            }
+        },
+        {
+            type: "tip",
+            title: "Where this topic appears + sentence starters",
+            pills: ["Section A", "Section B", "Section C"],
+            content: `<p><strong>Where it shows up:</strong> event types appear as quick recall in <strong>Section A</strong> (identify/state), and as applied justification in <strong>Section B</strong> scenarios about a specific bid or host. They also feed <strong>Section C</strong> 8-mark answers weighing up hosting decisions for different event types.</p>
+<p><strong>Three punchy tips:</strong></p>
+<ul>
+<li>Learn the three types by their ONE defining feature each: moves (regular), rare (one-off), stays put (recurring).</li>
+<li>For every example you give, check it genuinely matches the type — don't reuse the same example for two different types.</li>
+<li>In a longer answer, weigh up BOTH the benefits and the drawbacks of a type before reaching a judgement.</li>
+</ul>
+<p><strong>Sentence starters for a longer answer:</strong></p>
+<ul>
+<li>"One benefit of this type of event is… because…"</li>
+<li>"However, a drawback of this type is… because…"</li>
+<li>"Overall, this type is the stronger choice because…"</li>
+</ul>`,
+            readCheck: {
+                q: "Why is weighing up BOTH a benefit and a drawback useful in a longer answer on event types?",
+                opts: ["It fills space without adding any real understanding", "It shows balanced analysis, which is what levelled questions reward", "It means you no longer need to reach any final, justified judgement at the end", "It replaces the need to give a correct example altogether"],
+                ans: 1,
+                explain: "Levelled (banded) questions reward balanced analysis of both sides before a judgement — a one-sided answer is capped in the middle band at best."
+            }
+        }
+    ];
+
+    const flashcards = [
+        { term: "Regular event", def: "Repeats on a schedule; hosted in a different city each time" },
+        { term: "'One-off' event", def: "Hosted in a city extremely rarely, often once in a generation" },
+        { term: "Regular and recurring event", def: "Repeats on a schedule and returns to the same venue every time" },
+        { term: "Rotating host", def: "A new city bids to stage the event each time it is held" },
+        { term: "Fixed host venue", def: "The same venue stages the event every time it is held" },
+        { term: "Legacy investment", def: "Long-term facilities a 'one-off' host builds since it may not host again" },
+        { term: "Applied example — regular", def: "A club competition final played in a newly chosen host city each year" },
+        { term: "Applied example — recurring", def: "A motor-racing event held at the same circuit every season" }
+    ];
+
+    const examQuestions = [
+        {
+            num: "1",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: "Identify <strong>two</strong> of the three types of major sporting event, based on how they are hosted.",
+            hint: "Name two from: regular, 'one-off', regular and recurring.",
+            starter: "One type is… Another type is…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1)</h5>
+<p><strong>1 mark for each correct type named, to a maximum of two. Accept any two of:</strong></p>
+<ul>
+<li>Regular event</li>
+<li>'One-off' event</li>
+<li>Regular and recurring event</li>
+</ul>
+<p>Do not credit the same type written twice.</p>
+</div>`,
+            modelAnswer: "One type is a regular event.\n\nAnother type is a 'one-off' event.",
+            markPoints: { note: "One tick per correct, DIFFERENT type; cap at 2.", groups: [
+                { label: "Your first type", max: 1, points: ["Names a valid type of major sporting event (regular / 'one-off' / regular and recurring)"] },
+                { label: "Your second type", max: 1, points: ["Names a DIFFERENT valid type (not a repeat of the first)"] }
+            ] }
+        },
+        {
+            num: "2",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Which type of major sporting event returns to the same host venue every time it is held?",
+            options: ["A regular event, since a completely new host city bids for it every single time", "A regular and recurring event, since the venue stays the same each time", "A 'one-off' event, since the host only gets the chance a single time", "None of these types ever return to a venue more than once"],
+            answer: 1,
+            hint: "Think about which type's defining feature is a FIXED venue.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO2)</h5>
+<p><strong>Answer: B — A regular and recurring event.</strong></p>
+<ul>
+<li>It repeats on a schedule but stays at the same venue every time.</li>
+<li>A regular event moves host, and a 'one-off' event is hosted only very rarely — neither returns to a fixed venue every time.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "3",
+            marks: 4,
+            type: "written",
+            caseStudy: `<p><strong>Scenario — Meadow City's bid</strong></p><p>Meadow City is bidding to host the final of the "National Cup", a major club competition whose final is played in a newly chosen city every year. If Meadow City wins this bid, it would be the first time the city has ever hosted the final.</p>`,
+            question: "Using the scenario, explain which type of major event the National Cup final is, and explain one way hosting it would differ for Meadow City compared with hosting a regular and recurring event.",
+            hint: "First name the type and justify it using the scenario (a new city each year). Then compare: what does Meadow City NOT get, that a regular and recurring host would?",
+            starter: "The National Cup final is a… event because…\n\nThis differs from a regular and recurring event because Meadow City…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (AO2: application)</h5>
+<p><strong>Up to 2 marks for identifying the type with a scenario reason; up to 2 marks for a correct, applied comparison. Answers may include:</strong></p>
+<ul>
+<li><strong>Identifying the type:</strong> a regular event, because the final repeats on a schedule (every year) but is hosted in a newly chosen city each time (Meadow City has never hosted it before).</li>
+<li><strong>Comparison:</strong> a regular and recurring host reuses and improves the SAME venue every year and builds a long-term reputation there, whereas Meadow City may get only this one chance to host and cannot rely on hosting the final again.</li>
+</ul>
+<p>Accept any other reasonable, applied answer. A type named with no scenario reason earns 1 of the 2 marks; a comparison with no application to Meadow City earns 1 of the 2 marks.</p>
+</div>`,
+            modelAnswer: "The National Cup final is a regular event because it repeats every year but is played in a different city each time, and this would be Meadow City's first time hosting it. This differs from a regular and recurring event, where the same host keeps the same venue and can improve it year on year, whereas Meadow City may only get this one chance and cannot rely on hosting the final again.",
+            markPoints: { note: "Mark each part out of 2: one tick for the type + reason, one for a scenario-linked comparison.", groups: [
+                { label: "Identifying the type", max: 2, points: ["Names the National Cup final as a regular event", "Gives a reason using the scenario (repeats on a schedule but a newly chosen city hosts it each time)"] },
+                { label: "Comparing to a regular and recurring event", max: 2, points: ["Explains that a regular and recurring host keeps and improves the same venue every year", "Applies it to Meadow City (may only get this one chance; cannot rely on hosting it again)"] }
+            ] }
+        },
+        {
+            num: "4",
+            marks: 8,
+            type: "written",
+            format: "banded",
+            caseStudy: `<p><strong>Scenario — Sanderford's decision</strong></p><p>Sanderford is a mid-sized town whose council must choose between bidding to host one leg of a touring club competition final (a new city hosts it every year) or investing in a permanent circuit to host a national motor-racing event that would return to Sanderford every season.</p>`,
+            question: "Discuss whether Sanderford's council should bid for the touring club competition final, or invest in a permanent circuit for the same-venue motor-racing event.",
+            hint: "Weigh up both options: what does each type of event offer, and what does each cost or risk? Then give a judgement, using the scenario, on which is the stronger choice for Sanderford.",
+            starter: "Bidding for the touring final would… because…\n\nInvesting in the permanent circuit would… because…\n\nHowever, the extent to which this pays off depends on…\n\nOverall, …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 8 marks (level-of-response). Read the band you fit, then pick a mark.</h5>
+<ul>
+<li><strong>Band 3 (thorough), 6–8:</strong> a balanced, well-applied discussion of BOTH options, weighing benefits and costs of each type using the scenario, ending in a justified judgement.</li>
+<li><strong>Band 2 (reasonable), 3–5:</strong> sound understanding applied to at least one option with some analysis, but the discussion may be one-sided or the judgement unsupported.</li>
+<li><strong>Band 1 (basic), 1–2:</strong> names the event types and/or a fact about each with little application and no real evaluation; largely a list.</li>
+<li><strong>0 marks:</strong> nothing creditworthy.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Indicative content (indicative, not a checklist — reward valid alternatives)</h5>
+<ul>
+<li><strong>Touring final (regular event):</strong> lower upfront cost since facilities are needed for one edition only; still brings a tourism and profile boost for that single year; but no guarantee Sanderford ever hosts it again, so new facilities may go unused afterwards.</li>
+<li><strong>Permanent circuit (regular and recurring event):</strong> far higher upfront cost to build; but delivers guaranteed, repeated hosting, spreading that cost over many years and building a lasting reputation and steady annual tourism and jobs.</li>
+<li><strong>Evaluation:</strong> the touring bid suits a council with limited funds and no appetite for long-term commitment; the permanent circuit suits a council that can afford the initial investment and wants sustained, repeated benefit rather than a single uncertain year.</li>
+<li><strong>Judgement:</strong> if Sanderford can afford the initial outlay, the permanent circuit is usually the stronger long-term choice, because repeated guaranteed hosting delivers more lasting benefit than a single touring bid with no certainty of a repeat.</li>
+</ul>
+</div>`,
+            modelAnswer: "Bidding for the touring final suits Sanderford if funds are limited, because it only needs facilities for one edition rather than a whole permanent circuit, and it can still boost tourism and local pride for that single year. However, Sanderford has no guarantee of ever hosting the touring final again, so any new facilities may go unused afterwards. Building a permanent circuit for the same-venue motor-racing event costs far more upfront, but it lets Sanderford host the event every year, spreading that cost over time and building a lasting reputation and steady annual income from tourism and jobs. Overall, if Sanderford can afford the initial investment, the permanent circuit is the stronger long-term choice, because repeated, guaranteed hosting delivers more lasting benefit than a single, uncertain touring bid."
+        }
+    ];
+</script>
+    <script src="/cs-lab/exam-widgets.js"></script>
+    <script src="/script.js"></script>
+<script src="section-totals.js"></script>
+<script src="page-groups.js"></script>
+<script src="/progress-shared.js"></script>
+<script src="/gamification.js"></script>
+<script src="/topic-guard.js"></script>
+<script src="/notifications-shared.js"></script>
+<script src="/onboarding-tour.js"></script>
+<script src="/footer-legal.js"></script>
+</body>
+
+</html>

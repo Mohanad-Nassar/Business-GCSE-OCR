@@ -1,0 +1,713 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2.1 Values Promoted Through Sport – Interactive Study Guide</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+    <header>
+        <div>
+            <div class="badge">OCR Level 1/Level 2 Sport Studies — R184 · 2. The Role of Sport in Promoting Values</div>
+            <h1>2.1 Values Promoted Through Sport</h1>
+            <p>Interactive revision guide · Content coming soon</p>
+        </div>
+        <a href="/index.html" class="home-link">← 🏡 Home</a>
+    </header>
+
+    <nav class="tab-bar" id="tabBar">
+        <button class="tab-btn active" onclick="switchTab('learn', this)">
+            📚 Key Learning
+        </button>
+        <button class="tab-btn" onclick="switchTab('mcq', this)">
+            ❓ MCQ Quiz
+        </button>
+        <button class="tab-btn" onclick="switchTab('matching', this)">
+            🔗 Matching
+        </button>
+        <button class="tab-btn" onclick="switchTab('fib', this)">
+            ✏️ Fill the Blanks
+        </button>
+        <button class="tab-btn" onclick="switchTab('misconceptions', this)">
+            ⚠️ Misconceptions
+        </button>
+        <button class="tab-btn" onclick="switchTab('examtips', this)">
+            🎯 Exam Tips
+        </button>
+        <button class="tab-btn" onclick="switchTab('flashcards', this)">
+            🃏 Flashcards
+        </button>
+        <button class="tab-btn" onclick="switchTab('truefalse', this)">
+            ✅ True / False
+        </button>
+        <button class="tab-btn" onclick="switchTab('exampractice', this)">
+            📝 Exam Practice
+        </button>
+    </nav>
+
+    <main>
+        <div class="tab-panel active" id="tab-learn">
+            <h2 class="section-title">Key Learning Topics</h2>
+            <p class="section-sub">Click any card to expand detailed notes.</p>
+            <div class="topic-grid" id="topicGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-mcq">
+            <h2 class="section-title">Multiple Choice Questions</h2>
+            <p class="section-sub">Select an answer to reveal instant feedback.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="mcqScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">
+                        correct answers
+                    </div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    out of <strong id="mcqTotal">0</strong> attempted
+                </div>
+                <button class="reset-btn" onclick="resetMCQ()">RESET</button>
+            </div>
+            <div class="quiz-wrap" id="mcqWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-matching">
+            <h2 class="section-title">Matching Activity</h2>
+            <p class="section-sub">
+                Click a term on the left, then click the matching definition on the
+                right.
+            </p>
+            <div style="margin-bottom: 16px">
+                <div class="score-bar">
+                    <div>
+                        <div class="score-num" id="matchScore">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">matched</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="matchTotal">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetMatch()">RESET</button>
+                </div>
+            </div>
+            <div class="match-grid">
+                <div>
+                    <div class="match-label">TERMS</div>
+                    <div class="match-col" id="matchLeft"></div>
+                </div>
+                <div>
+                    <div class="match-label">DEFINITIONS</div>
+                    <div class="match-col" id="matchRight"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-fib">
+            <h2 class="section-title">Fill in the Blanks</h2>
+            <p class="section-sub">
+                Click each dropdown and choose the correct word. Wrong answers reset —
+                try again!
+            </p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="fibScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="fibTotal">0</strong> blanks
+                </div>
+                <button class="reset-btn" onclick="resetFIB()">RESET</button>
+            </div>
+            <div class="fib-wrap" id="fibWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-misconceptions">
+            <h2 class="section-title">Common Misconceptions</h2>
+            <p class="section-sub">
+                What students often think — and what examiners actually want.
+            </p>
+            <div class="misc-list" id="miscList"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-examtips">
+            <h2 class="section-title">Exam Questions &amp; Tips</h2>
+            <p class="section-sub">
+                Most repeated question types and mark-scheme structures from real OCR
+                papers.
+            </p>
+            <div class="tips-grid" id="tipsGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-flashcards">
+            <h2 class="section-title">Flashcards</h2>
+            <p class="section-sub">
+                Test yourself! Flip the card and rate your knowledge. Review your weak
+                areas at the end.
+            </p>
+
+            <div class="fc-container">
+                <div class="score-bar" id="fcScoreBar" style="display: none; margin-bottom: 20px">
+                    <div>
+                        <div class="score-num" id="fcKnown" style="color: #2d7a4f">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">known</div>
+                    </div>
+                    <div>
+                        <div class="score-num" id="fcUnknown" style="color: #c84b31">
+                            0
+                        </div>
+                        <div style="font-size: 12px; color: var(--mid)">learning</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="fcTotalTrack">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
+                </div>
+
+                <div id="fcActiveArea">
+                    <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
+                    <div class="flashcard" id="flashcard" onclick="flipCard()">
+                        <div class="fc-inner">
+                            <div class="fc-front">
+                                <div class="fc-label">KEY TERM</div>
+                                <div class="fc-term" id="fcTerm"></div>
+                            </div>
+                            <div class="fc-back">
+                                <div class="fc-def" id="fcDef"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="fc-hint">👆 Click card to flip</p>
+
+                    <div class="fc-nav" id="fcNavDefault">
+                        <button class="fc-btn outline" onclick="prevCard()">
+                            ← Prev
+                        </button>
+                        <button class="fc-btn outline" onclick="flipCard()">Flip</button>
+                        <button class="fc-btn" onclick="nextCard()">Next →</button>
+                    </div>
+
+                    <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px">
+                        <button class="fc-btn outline" style="border-color: #c84b31; color: #c84b31; flex: 1"
+                            onclick="markCard(false)">
+                            ❌ Still Learning
+                        </button>
+                        <button class="fc-btn" style="background: #2d7a4f; border-color: #2d7a4f; flex: 1"
+                            onclick="markCard(true)">
+                            ✅ Got It
+                        </button>
+                    </div>
+                </div>
+
+                <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px">
+                    <h3>Session Complete! 🎉</h3>
+                    <p style="margin: 15px 0">
+                        You knew <strong id="fcSummaryKnown">0</strong> out of
+                        <strong id="fcSummaryTotal">0</strong> cards.
+                    </p>
+                    <div style="
+                margin-top: 25px;
+                display: flex;
+                gap: 15px;
+                justify-content: center;
+                flex-wrap: wrap;
+              ">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
+                            style="background: #c84b31; border-color: #c84b31">
+                            Review Incorrect
+                        </button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">
+                            Practice All Again
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-truefalse">
+            <h2 class="section-title">True or False?</h2>
+            <p class="section-sub">Test your knowledge with these statements.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="tfScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="tfTotal">0</strong> answered
+                </div>
+                <button class="reset-btn" onclick="resetTF()">RESET</button>
+            </div>
+            <div class="tf-wrap" id="tfWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-exampractice">
+            <h2 class="section-title">Exam Practice Questions</h2>
+            <p class="section-sub">
+                Full exam questions with case studies. Use <strong>Hint</strong>,
+                <strong>Sentence Starter</strong> and
+                <strong>Submit &amp; See Mark Scheme</strong> for each question.
+            </p>
+            <div class="ep-list" id="epList"></div>
+        </div>
+    </main>
+
+<script>
+    // ══════════════════════════════════════
+    //  DATA: 2.1 Values Promoted Through Sport — placeholder, content not yet written
+    // ══════════════════════════════════════
+    const pageMeta = {
+            id: '2-1-values-promoted-through-sport',
+            badge: 'OCR Level 1/Level 2 Sport Studies — R184 · 2. The Role of Sport in Promoting Values',
+            title: '2.1 Values Promoted Through Sport',
+            subtitle: 'Interactive revision guide',
+            subject: 'sport-studies',
+        };
+
+    const topics = [
+        {
+            title: "What 'values promoted through sport' means",
+            tag: "Key concept",
+            content: `<h4>The idea</h4>
+<ul>
+<li>Taking part in sport is not only about physical activity — it can also build <strong>positive attitudes and behaviours</strong> that matter in everyday life, both on the pitch and off it.</li>
+<li>The specification names seven values that sport can promote: <strong>team spirit, fair play, citizenship, tolerance and respect, inclusion, national pride</strong> and <strong>excellence</strong>.</li>
+</ul>
+<h4>The trap the exam is designed to catch</h4>
+<ul>
+<li><strong>"Tolerance and respect" is ONE combined value, not two.</strong> Students often write them as two separate values to try to pick up two marks — that loses marks rather than gaining them, because the mark scheme only credits it once.</li>
+<li>Together they mean gaining a <strong>greater understanding of other cultures</strong> and ways of doing things through contact with people in sport.</li>
+</ul>
+<h4>How to answer well</h4>
+<ul>
+<li>Every mark on this topic rewards <strong>naming the value AND giving a sporting example</strong> that actually shows it happening — never the name on its own.</li>
+</ul>`,
+            readCheck: {
+                q: "How many separate values does the specification treat 'tolerance' and 'respect' as?",
+                opts: ["One — tolerance and respect are treated as a single combined value in the specification", "Two — tolerance and respect are two entirely separate values in the specification", "Three — tolerance, respect and understanding are three separate values in the specification", "Zero — neither tolerance nor respect appears anywhere in the specification"],
+                ans: 0,
+                explain: "Tolerance and respect are always marked as ONE combined value — writing them as two separate values does not earn two marks."
+            }
+        },
+        {
+            title: "Team spirit, fair play and citizenship",
+            tag: "Core knowledge",
+            content: `<h4>Team spirit</h4>
+<ul>
+<li><strong>Team spirit</strong> — supporting and encouraging your teammates as everyone works together toward a shared goal.</li>
+<li>Sporting example: a substitute who has not been picked to play still shouts encouragement from the bench, and players cover for a tired teammate rather than criticising them.</li>
+</ul>
+<h4>Fair play</h4>
+<ul>
+<li><strong>Fair play</strong> — following the rules honestly, never trying to cheat, and accepting decisions made by officials even when you disagree.</li>
+<li>Sporting example: a footballer tells the referee that the ball crossed the line for a throw-in even though the referee missed it and had given the decision the player's way.</li>
+</ul>
+<h4>Citizenship</h4>
+<ul>
+<li><strong>Citizenship</strong> — using sport to build positive links and connections within the local community.</li>
+<li>Sporting example: players from a local club volunteer as coaches for a youth team, building stronger relationships across the neighbourhood.</li>
+</ul>`,
+            readCheck: {
+                q: "A substitute who is not selected to play still calls out encouragement to teammates working toward the same shared goal. Which value is this showing?",
+                opts: ["Team spirit — supporting and encouraging teammates as everyone works toward a shared goal", "Fair play — following the written rules honestly and accepting every decision officials make", "Citizenship — using sport to build positive links within the local community", "Excellence — striving to be your best by giving maximum effort in competition"],
+                ans: 0,
+                explain: "Encouraging teammates toward a shared goal, even from the bench, is team spirit — not fair play, citizenship or excellence."
+            }
+        },
+        {
+            title: "Tolerance and respect, inclusion, national pride and excellence",
+            tag: "Core knowledge",
+            content: `<h4>Tolerance and respect (ONE value)</h4>
+<ul>
+<li>A greater understanding and appreciation of people from <strong>other cultures</strong> and backgrounds, gained through contact in sport.</li>
+<li>Sporting example: after the final whistle, two opponents from different countries swap shirts and thank each other for a hard-fought game.</li>
+</ul>
+<h4>Inclusion</h4>
+<ul>
+<li>Giving people from <strong>every social group</strong> an equal opportunity to take part, whatever their background, ability or gender.</li>
+<li>Sporting example: a walking-football session is deliberately opened up to players of any age, gender or fitness level.</li>
+</ul>
+<h4>National pride</h4>
+<ul>
+<li>Supporting a national team in a way that creates a <strong>shared sense of identity and unity</strong> among very different people.</li>
+<li>Sporting example: thousands of fans from many different backgrounds come together to cheer for the same national team at a major tournament.</li>
+</ul>
+<h4>Excellence</h4>
+<ul>
+<li>Striving to be your best by giving <strong>maximum effort</strong> and always trying to improve.</li>
+<li>Sporting example: an athlete pushes through a demanding training block purely to improve their own personal best time.</li>
+</ul>`,
+            readCheck: {
+                q: "A council builds stronger links across its town by running free sessions through local sports clubs. Which value does this best describe?",
+                opts: ["National pride — supporting a national team creates one shared sense of identity and unity for everyone", "Citizenship — using sport to build positive links and connections within the local community", "Inclusion — giving people from every social group an equal opportunity to take part", "Tolerance and respect — a greater understanding and appreciation of another culture"],
+                ans: 1,
+                explain: "Building links within the local community through sport is citizenship, not national pride, inclusion or tolerance and respect."
+            }
+        },
+        {
+            title: "Naming a value isn't enough — the exam skill",
+            tag: "Exam skill",
+            content: `<h4>Naming is only the start</h4>
+<ul>
+<li>Weak answer: <em>"A value sport promotes is fair play."</em> That names a value but shows no understanding.</li>
+<li>Strong answer: <em>"Fair play is a value sport can promote — for example, a player telling the referee the ball crossed the line for a throw-in, even though the decision had gone their way."</em></li>
+<li>The mark almost always rewards <strong>linking the value to a real sporting example</strong>, not the name on its own.</li>
+</ul>
+<h4>Build every answer the same way</h4>
+<ul>
+<li><strong>Value → sporting example → what it shows.</strong> State the value, describe a moment in sport, then explain why that moment demonstrates the value.</li>
+<li>In a Section B scenario, use a detail <strong>from that scenario</strong> as your example rather than a general one you already had prepared.</li>
+</ul>`,
+            readCheck: {
+                q: "A question asks you to explain how sport can promote one named value. What is most likely to earn the marks?",
+                opts: ["Naming the value and giving a sporting example that shows it happening", "Writing the value's name clearly, underlined, in capital letters for emphasis", "Listing as many of the seven values as you can remember", "Describing your own favourite sporting fixture in detail"],
+                ans: 0,
+                explain: "Explain questions on this topic reward the value plus a sporting example that shows it — naming the value alone, or listing every value, earns little."
+            }
+        }
+    ];
+
+    const mcqData = [
+        {
+            q: "Which two ideas does the specification treat as ONE single combined value, not two separate values?",
+            opts: ["Team spirit and fair play, because supporting teammates and following the rules are always the same thing", "Tolerance and respect, which together mean gaining a greater understanding of other cultures and backgrounds", "Inclusion and national pride, since giving everyone a fair chance to play is identical to supporting a country", "Citizenship and excellence, because building local community links is the same as striving to be your best"],
+            ans: 1,
+            explain: "Tolerance and respect are always marked as a single combined value. The other three pairs (team spirit/fair play, inclusion/national pride, citizenship/excellence) are all separate values."
+        },
+        {
+            q: "A substitute who has not been picked to play still shouts encouragement to teammates chasing a shared goal. Which value is this?",
+            opts: ["Team spirit — supporting and encouraging teammates while everyone works toward the same shared goal", "Fair play — following the written rules of the game and never attempting to cheat an opponent", "National pride — supporting a national team so that lots of very different people feel one shared sense of identity", "Excellence — pushing yourself with maximum effort so that your own performance keeps improving"],
+            ans: 0,
+            explain: "Encouraging teammates toward a shared goal, even without playing, is team spirit — the other options describe fair play, national pride and excellence instead."
+        },
+        {
+            q: "A local sports club runs free junior coaching sessions and builds stronger links across its neighbourhood. Which value does this best show?",
+            opts: ["Inclusion — making sure people from every social group get an equal opportunity to take part", "Citizenship — using sport to build positive links and connections within the local community", "National pride — creating a shared sense of identity by supporting the same national team", "Fair play — competing honestly, following the rules and accepting decisions made by officials"],
+            ans: 1,
+            explain: "Building links within the local community through a club's coaching sessions is citizenship — not inclusion, national pride or fair play."
+        },
+        {
+            q: "After the final whistle, two opponents from different countries swap shirts and thank each other for a hard-fought game. Which value does this best show?",
+            opts: ["National pride — a shared sense of identity created by supporting the same national team", "Excellence — striving to be your best and always giving maximum effort in competition", "Tolerance and respect — a greater understanding and appreciation of another culture", "Team spirit — supporting teammates as they work together toward one shared goal"],
+            ans: 2,
+            explain: "Appreciating an opponent from a different culture after the game shows tolerance and respect, not national pride, excellence or team spirit."
+        },
+        {
+            q: "A walking-football session is deliberately opened up to players of any age, gender or fitness level. Which value does this best show?",
+            opts: ["Fair play — following the agreed rules of the game and accepting the referee's decisions", "Excellence — trying your hardest to keep improving your own personal performance", "Inclusion — giving people from every social group an equal opportunity to take part", "Citizenship — building positive links and connections within the local community"],
+            ans: 2,
+            explain: "Welcoming every age, gender and fitness level is inclusion — not fair play, excellence or citizenship."
+        },
+        {
+            q: "Thousands of fans from many different backgrounds come together to cheer for the same national team at a major tournament. Which value does this best show?",
+            opts: ["Citizenship — using sport to build stronger links and connections within a local community", "Fair play — competing honestly, following the rules, and accepting the officials' decisions", "Inclusion — giving people from every social group an equal chance to take part in sport", "National pride — supporting a national team creates a shared sense of identity and unity"],
+            ans: 3,
+            explain: "Fans of different backgrounds uniting behind one national team is national pride — not citizenship, fair play or inclusion."
+        }
+    ];
+
+    const matchData = [
+        { term: "Team spirit", def: "Supporting and encouraging teammates as everyone works together toward a shared goal" },
+        { term: "Fair play", def: "Following the rules honestly, never cheating, and accepting the decisions officials make" },
+        { term: "Citizenship", def: "Using sport to build positive links and connections within the local community" },
+        { term: "Tolerance and respect", def: "A greater understanding and appreciation of people from other cultures, gained through sport" },
+        { term: "Inclusion", def: "Giving people from every social group an equal opportunity to take part in sport" },
+        { term: "National pride", def: "Supporting a national team in a way that creates a shared sense of identity and unity" },
+        { term: "Excellence", def: "Striving to be your best by giving maximum effort and always trying to improve" }
+    ];
+
+    const fibData = [
+        {
+            display: "Team _____ means supporting and encouraging your teammates as you work together toward a shared goal.",
+            blanks: { B1: "spirit" }
+        },
+        {
+            display: "Fair play means following the rules honestly and never trying to _____ an opponent.",
+            blanks: { B1: "cheat" }
+        },
+        {
+            display: "Citizenship means using sport to build positive links within the local _____.",
+            blanks: { B1: "community" }
+        },
+        {
+            display: "Tolerance and respect together mean gaining a greater understanding of other _____.",
+            blanks: { B1: "cultures" }
+        },
+        {
+            display: "Inclusion means giving people from every social group an equal _____ to take part.",
+            blanks: { B1: "opportunity" }
+        },
+        {
+            display: "Excellence means striving to be your best by giving maximum _____.",
+            blanks: { B1: "effort" }
+        }
+    ];
+    const fibWords = ["spirit", "cheat", "community", "cultures", "opportunity", "effort"];
+
+    const tfData = [
+        {
+            statement: "Tolerance and respect are treated as one combined value in the specification, not two separate values.",
+            answer: true,
+            explanation: "Writing them as two separate values does not earn extra marks — the mark scheme only credits this once, as a single combined value."
+        },
+        {
+            statement: "Team spirit only applies to players who are actually selected to play in a match.",
+            answer: false,
+            explanation: "A substitute or non-playing squad member can still show team spirit by encouraging and supporting the team from the sidelines."
+        },
+        {
+            statement: "Citizenship in this context means the same thing as legally holding a passport for a country.",
+            answer: false,
+            explanation: "Citizenship here means building positive links within the local community through sport — it has nothing to do with passports or nationality."
+        },
+        {
+            statement: "National pride can bring people from very different backgrounds together to support the same team.",
+            answer: true,
+            explanation: "Supporting a national team can create a shared sense of identity and unity across people who otherwise have little in common."
+        },
+        {
+            statement: "Inclusion means that only people with a disability should be given the opportunity to take part.",
+            answer: false,
+            explanation: "Inclusion means giving people from every social group an equal opportunity — not restricting participation to just one group."
+        },
+        {
+            statement: "Excellence simply means winning every competition you enter.",
+            answer: false,
+            explanation: "Excellence means striving to be your best and giving maximum effort to improve — it is not the same as always winning."
+        }
+    ];
+
+    const miscData = [
+        {
+            wrong: "Tolerance and respect are two separate values, so I can list them separately to pick up two marks.",
+            correct: "They are always marked as ONE combined value. Writing 'tolerance' and 'respect' as two different values on an 'identify two values' question does not earn two marks — it usually earns one at most, because the examiner sees it as the same value written twice.",
+            readCheck: {
+                q: "On an 'identify two values' question, writing 'tolerance' then 'respect' as your two answers usually earns...",
+                opts: ["Two marks, because they are two separate values in the specification", "One mark at most, because they are one combined value written twice", "Zero marks, because neither word appears in the specification at all", "Bonus marks for extra detail beyond what was asked"],
+                ans: 1,
+                explain: "Tolerance and respect count as one value, so giving both words as your 'two' values usually earns only one mark, not two."
+            }
+        },
+        {
+            wrong: "National pride is basically the same idea as citizenship, because both are about people coming together.",
+            correct: "They are different ideas the exam keeps side by side. National pride is about supporting a national TEAM, creating a shared identity across the whole country. Citizenship is about building links within a LOCAL community, such as through a club. A question can ask about either, so keep the scale (national vs local) clear.",
+            readCheck: {
+                q: "What is the key difference between national pride and citizenship?",
+                opts: ["There is no real difference at all — the two ideas mean exactly the same thing, always", "National pride is about a national team; citizenship is about local community links", "Citizenship only applies to professional athletes, never to amateurs", "National pride can only be shown by people who play for their country"],
+                ans: 1,
+                explain: "National pride works at a national scale (supporting the national team); citizenship works at a local scale (community links through sport)."
+            }
+        },
+        {
+            wrong: "Naming a value like 'fair play' is enough to get the mark on its own.",
+            correct: "Naming is only the first step. The mark scheme rewards linking the value to a sporting example that actually shows it happening. Weak answer: \"Fair play.\" Full-marks answer: \"Fair play — a player tells the referee the ball crossed the line even though the decision had gone their way.\"",
+            readCheck: {
+                q: "A question asks you to explain how sport promotes one value. What is needed for full marks?",
+                opts: ["The value's name only, written out clearly and neatly on the line", "The value's name PLUS a sporting example that shows it", "A list of every value you can remember", "A description of your own favourite team"],
+                ans: 1,
+                explain: "Full marks need the value named and a sporting example linked to it — the name alone does not show understanding."
+            }
+        },
+        {
+            wrong: "Excellence just means winning every match or competition you take part in.",
+            correct: "Excellence means striving to be your best and giving maximum effort, whether or not you actually win. An athlete who trains hard and improves their personal best is showing excellence even in a competition they lose.",
+            readCheck: {
+                q: "Which of these best shows the value of excellence?",
+                opts: ["An athlete who wins a competition very easily without ever trying that hard at all", "An athlete who trains hard and improves their personal best, even after losing", "A team that refuses to shake hands with the opposition after a narrow defeat", "A crowd that boos the away team throughout an entire match"],
+                ans: 1,
+                explain: "Excellence is about maximum effort and self-improvement, not the result — the athlete who improves their best time shows it even in defeat."
+            }
+        }
+    ];
+
+    const examTips = [
+        {
+            type: "tip",
+            title: "Command words for this topic — what each one wants",
+            pills: ["Identify", "State", "Describe", "Explain"],
+            content: `<p>Values questions are usually short. Match your answer length to the command word:</p>
+<ul>
+<li><strong>Identify / State</strong> — just name it. "Identify two values sport can promote" = write two value names, nothing more. 1 mark each.</li>
+<li><strong>Describe</strong> — say what the value looks like in practice, without needing a full reason.</li>
+<li><strong>Explain</strong> — give a sporting example and link it to the value. "Explain how sport can promote fair play" = name fair play, then give an example that shows it.</li>
+</ul>
+<p><strong>Read the mark tariff:</strong> [1] wants one point; [2] usually wants two points, or one point developed with an example; [4] in Section B wants points applied to the given scenario.</p>`,
+            readCheck: {
+                q: "A question says: 'Identify two values sport can promote [2]'. What is the safest answer?",
+                opts: ["A long paragraph describing one value in detail", "Two value names, nothing more", "One value name with a full sporting example attached", "A list of six or seven different values"],
+                ans: 1,
+                explain: "'Identify' + [2] = two names, one mark each. Explaining one value in depth, or listing extra values, wastes time without extra credit."
+            }
+        },
+        {
+            type: "tip",
+            title: "The golden rule: value AND a sporting example",
+            pills: ["Section A", "Section B", "AO2"],
+            content: `<p>The single most common way to lose marks here is stopping at the value's name. Build every answer as <strong>value → sporting example → what it shows</strong>:</p>
+<ul>
+<li><strong>❌ 0–1 marks:</strong> "Fair play."</li>
+<li><strong>✅ full marks:</strong> "Fair play — a player tells the referee the ball crossed the line even though the decision had gone in their favour."</li>
+</ul>
+<p>In <strong>Section B</strong> the question gives you a scenario (a named event, club or person). Then you must use a detail <em>from that scenario</em> as your example, not one you already had prepared.</p>`,
+            readCheck: {
+                q: "In a Section B scenario question about a named event, your sporting example should come from...",
+                opts: ["absolutely any sport you happen to like", "the scenario you are given", "a famous athlete not mentioned in the scenario", "your own school sports day only"],
+                ans: 1,
+                explain: "Section B is applied — the marks are for using the scenario in front of you, not a prepared general example."
+            }
+        },
+        {
+            type: "tip",
+            title: "Where values appear + sentence starters",
+            pills: ["Section A", "Section B", "Section C"],
+            content: `<p><strong>Where it shows up:</strong> values appear as quick recall in <strong>Section A</strong> (identify/state), as applied points in <strong>Section B</strong> scenarios about a club or event, and feed <strong>Section C</strong> 8-mark answers about how far sport really promotes positive values.</p>
+<p><strong>Three punchy tips:</strong></p>
+<ul>
+<li>Learn the seven values in threes — team spirit/fair play/citizenship, then tolerance & respect/inclusion, then national pride/excellence — so you can always recall a few.</li>
+<li>For every value, memorise <em>one</em> ready-made sporting example — that example is usually where the mark is.</li>
+<li>Never split tolerance and respect into two values — it is one, and treating it as two costs marks rather than gaining them.</li>
+</ul>
+<p><strong>Sentence starters for a longer answer:</strong></p>
+<ul>
+<li>"One way sport promotes positive values is… because…"</li>
+<li>"This matters because it shows…"</li>
+<li>"On the other hand, this value might not always be shown, because…"</li>
+</ul>`,
+            readCheck: {
+                q: "Why is it risky to write 'tolerance' and 'respect' as two separate answers on an 'identify' question?",
+                opts: ["It is not risky at all, and it always earns full marks either way, every time", "They are one combined value, so it usually earns only one mark, not two", "The examiner will refuse to mark the question at all", "It means you cannot use either word anywhere else in the exam"],
+                ans: 1,
+                explain: "Because tolerance and respect are one combined value, giving both words as separate answers usually earns only one mark rather than two."
+            }
+        }
+    ];
+
+    const flashcards = [
+        { term: "Team spirit", def: "Supporting and encouraging teammates as everyone works toward a shared goal" },
+        { term: "Fair play", def: "Following the rules honestly, never cheating, accepting officials' decisions" },
+        { term: "Citizenship", def: "Using sport to build positive links within the local community" },
+        { term: "Tolerance and respect (ONE value)", def: "A greater understanding of other cultures gained through sport" },
+        { term: "Inclusion", def: "Giving people from every social group an equal opportunity to take part" },
+        { term: "National pride", def: "Supporting a national team creates a shared sense of identity and unity" },
+        { term: "Excellence", def: "Striving to be your best by giving maximum effort and improving" }
+    ];
+
+    const examQuestions = [
+        {
+            num: "1",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: "Identify <strong>two</strong> values that sport can promote.",
+            hint: "Pick from team spirit, fair play, citizenship, tolerance and respect (as one value), inclusion, national pride, or excellence.",
+            starter: "One value is… Another value is…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1)</h5>
+<p><strong>1 mark for each correct value named, to a maximum of two. Accept any two DIFFERENT values, including:</strong></p>
+<ul>
+<li>Team spirit</li>
+<li>Fair play</li>
+<li>Citizenship</li>
+<li>Tolerance and respect (counts as ONE value)</li>
+<li>Inclusion</li>
+<li>National pride</li>
+<li>Excellence</li>
+</ul>
+<p>Do not credit the same value written twice, and do not credit 'tolerance' and 'respect' as two separate answers.</p>
+</div>`,
+            modelAnswer: "One value is fair play.\n\nAnother value is inclusion.",
+            markPoints: { note: "One tick per correct, DIFFERENT value; cap at 2. Tolerance and respect together count as only one value.", groups: [
+                { label: "Your first value", max: 1, points: ["Names a valid value from the specification"] },
+                { label: "Your second value", max: 1, points: ["Names a DIFFERENT valid value (not a repeat, and not 'tolerance' if the first was 'respect' or vice versa)"] }
+            ] }
+        },
+        {
+            num: "2",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Two opponents from different countries swap shirts after a match, showing an appreciation of each other's culture. Which value does this show?",
+            options: ["National pride — a shared sense of identity created by supporting the same national team", "Tolerance and respect — a greater understanding and appreciation of another culture", "Excellence — striving to be your best and always giving maximum effort", "Team spirit — supporting teammates as they work toward a shared goal"],
+            answer: 1,
+            hint: "Think about which value is specifically about understanding people from other cultures.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO2)</h5>
+<p><strong>Answer: B — Tolerance and respect.</strong></p>
+<ul>
+<li>Appreciating an opponent's culture after a hard-fought game is the definition of tolerance and respect.</li>
+<li>The other options describe national pride, excellence and team spirit instead, none of which is about understanding another culture.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "3",
+            marks: 4,
+            type: "written",
+            caseStudy: `<p><strong>Scenario — Bellmoor Community Sports Day</strong></p><p>Bellmoor Council organises a free community sports day each summer. Local clubs run taster sessions side by side, and one session is a mixed-ability five-a-side tournament that anyone can enter, regardless of age or experience.</p>`,
+            question: "Explain how the Bellmoor Community Sports Day could promote <strong>two</strong> different values covered in this topic.",
+            hint: "Take each value in turn. Name the value, then use a detail FROM the scenario (the local clubs, or the mixed-ability tournament) as your sporting example.",
+            starter: "One value shown is… because the scenario shows…\n\nAnother value shown is… because…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (AO2: application)</h5>
+<p><strong>Up to 2 marks per value: 1 for naming a relevant value, 1 for linking it to a detail from the scenario. Answers may include:</strong></p>
+<ul>
+<li><strong>Citizenship</strong> — local clubs running sessions together builds links and connections within the Bellmoor community.</li>
+<li><strong>Inclusion</strong> — the mixed-ability five-a-side tournament gives people of any age or experience an equal opportunity to take part.</li>
+</ul>
+<p>Accept any other reasonable, applied value (e.g. team spirit, if linked to players supporting each other in the tournament). A value named with no scenario detail earns 1 of the 2 marks for that value.</p>
+</div>`,
+            modelAnswer: "One value shown is citizenship, because local clubs running sessions side by side at the sports day builds links and connections across the Bellmoor community.\n\nAnother value shown is inclusion, because the mixed-ability five-a-side tournament is open to anyone regardless of age or experience, giving everyone an equal opportunity to take part.",
+            markPoints: { note: "Mark each value out of 2: one tick for naming it, one for linking it to a detail from the scenario.", groups: [
+                { label: "Your first value", max: 2, points: ["Names a relevant value from the specification", "Links it to a detail from the scenario (e.g. local clubs running sessions together, or the mixed-ability tournament)"] },
+                { label: "Your second value", max: 2, points: ["Names a DIFFERENT relevant value", "Links it to a detail from the scenario"] }
+            ] }
+        },
+        {
+            num: "4",
+            marks: 8,
+            type: "written",
+            format: "banded",
+            caseStudy: `<p><strong>Scenario — Northfield School Sports Day</strong></p><p>Northfield School holds an annual "Mini Games" sports day. Students are placed into mixed-year house teams, races include a wheelchair-accessible relay open to all students, and the day ends with each house's flag being paraded around the field.</p>`,
+            question: "Discuss the extent to which an event like Northfield's Mini Games promotes positive values among the students who take part.",
+            hint: "Choose two or three values. For each, use a detail from the scenario as your example. Then weigh it up — are there limits to how much the event really changes attitudes? Finish with a judgement.",
+            starter: "One value the Mini Games promotes is… shown by…\n\nAnother value is…\n\nHowever, the extent to which this changes attitudes depends on…\n\nOverall, …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 8 marks (level-of-response). Read the band you fit, then pick a mark.</h5>
+<ul>
+<li><strong>Band 3 (thorough), 6–8:</strong> a balanced, well-applied discussion of several values, showing clearly how the event promotes them AND weighing the limits (a one-off day, values only lasting if reinforced), ending in a justified judgement.</li>
+<li><strong>Band 2 (reasonable), 3–5:</strong> sound understanding applied to more than one value with some analysis, but the discussion may be one-sided or the judgement unsupported.</li>
+<li><strong>Band 1 (basic), 1–2:</strong> names values with little application to the scenario and no real evaluation; largely a list.</li>
+<li><strong>0 marks:</strong> nothing creditworthy.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Indicative content (indicative, not a checklist — reward valid alternatives)</h5>
+<ul>
+<li><strong>Team spirit:</strong> mixed-year house teams push students to support classmates they do not normally play alongside.</li>
+<li><strong>Inclusion:</strong> a wheelchair-accessible relay open to all students gives every student an equal opportunity to take part, not just the most able.</li>
+<li><strong>National pride (at school scale):</strong> parading each house's flag builds a shared sense of identity within that house.</li>
+<li><strong>Evaluation:</strong> values shown on a single sports day may not carry over into everyday school life unless reinforced regularly; some students may still be left out if the day is dominated by the most competitive teams; the impact likely depends on how the school follows the day up.</li>
+<li><strong>Judgement:</strong> an event like the Mini Games is a strong opportunity to promote values such as inclusion and team spirit in one focused day — but it only builds lasting positive attitudes if the school reinforces those values afterwards, rather than treating it as a one-off.</li>
+</ul>
+</div>`,
+            modelAnswer: "The Mini Games promotes several values. Mixing year groups into house teams builds team spirit, as students support classmates they do not usually play alongside. The wheelchair-accessible relay shows inclusion, since every student gets an equal chance to take part, not only the most able. Parading each house's flag also builds a shared identity within that house, similar to national pride at a smaller scale.\n\nHowever, a single sports day may not change attitudes long-term, and the most competitive teams could still dominate, leaving some students feeling excluded despite the accessible relay.\n\nOverall, the Mini Games is a strong opportunity to promote values like inclusion and team spirit in one day, but it only creates lasting change if the school reinforces these values afterwards rather than leaving it as a one-off event."
+        }
+    ];
+</script>
+    <script src="/cs-lab/exam-widgets.js"></script>
+    <script src="/script.js"></script>
+<script src="section-totals.js"></script>
+<script src="page-groups.js"></script>
+<script src="/progress-shared.js"></script>
+<script src="/gamification.js"></script>
+<script src="/topic-guard.js"></script>
+<script src="/notifications-shared.js"></script>
+<script src="/onboarding-tour.js"></script>
+<script src="/footer-legal.js"></script>
+</body>
+
+</html>

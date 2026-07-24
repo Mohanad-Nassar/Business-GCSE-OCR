@@ -255,6 +255,15 @@ server-graded — check these on EVERY activity conversion and rollout:
 - **Stripping an inline array is only safe when that activity renders from the
   bank by default** (page sets `window.SERVER_GRADED = true` and the section has
   bank rows). Never strip an array whose activity still lacks a server path.
+- **`record_mastery_answer`'s durable mastery counters are FIRST-EVER-gated.**
+  `total_mastered` (daily_revise_stats) and `mastery_events` fire only the first
+  time a question is EVER mastered per student — deduped against an existing
+  `mastery_events` row, **not** the old `v_new_count = 3 and v_old_count < 3`
+  transition guard, which re-fired on every master→reset→re-master cycle and let a
+  scripted client farm mastery (and the coins/XP/leaderboard rank that read it).
+  `mastery_count` still resets on a wrong answer so a forgotten question re-surfaces.
+  Do not revert the gate to the bare transition guard (added 2026-07-19 for the
+  coin economy — supabase/rewards-store.sql / [[rewards-store-feature]]).
 
 ---
 

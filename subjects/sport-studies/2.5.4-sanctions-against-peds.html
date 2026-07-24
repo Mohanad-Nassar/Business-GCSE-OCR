@@ -1,0 +1,655 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2.5.4 Sanctions Against PEDs – Interactive Study Guide</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+    <header>
+        <div>
+            <div class="badge">OCR Level 1/Level 2 Sport Studies — R184 · 2. The Role of Sport in Promoting Values</div>
+            <h1>2.5.4 Sanctions Against PEDs</h1>
+            <p>Interactive revision guide · Content coming soon</p>
+        </div>
+        <a href="/index.html" class="home-link">← 🏡 Home</a>
+    </header>
+
+    <nav class="tab-bar" id="tabBar">
+        <button class="tab-btn active" onclick="switchTab('learn', this)">
+            📚 Key Learning
+        </button>
+        <button class="tab-btn" onclick="switchTab('mcq', this)">
+            ❓ MCQ Quiz
+        </button>
+        <button class="tab-btn" onclick="switchTab('matching', this)">
+            🔗 Matching
+        </button>
+        <button class="tab-btn" onclick="switchTab('fib', this)">
+            ✏️ Fill the Blanks
+        </button>
+        <button class="tab-btn" onclick="switchTab('misconceptions', this)">
+            ⚠️ Misconceptions
+        </button>
+        <button class="tab-btn" onclick="switchTab('examtips', this)">
+            🎯 Exam Tips
+        </button>
+        <button class="tab-btn" onclick="switchTab('flashcards', this)">
+            🃏 Flashcards
+        </button>
+        <button class="tab-btn" onclick="switchTab('truefalse', this)">
+            ✅ True / False
+        </button>
+        <button class="tab-btn" onclick="switchTab('exampractice', this)">
+            📝 Exam Practice
+        </button>
+    </nav>
+
+    <main>
+        <div class="tab-panel active" id="tab-learn">
+            <h2 class="section-title">Key Learning Topics</h2>
+            <p class="section-sub">Click any card to expand detailed notes.</p>
+            <div class="topic-grid" id="topicGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-mcq">
+            <h2 class="section-title">Multiple Choice Questions</h2>
+            <p class="section-sub">Select an answer to reveal instant feedback.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="mcqScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">
+                        correct answers
+                    </div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    out of <strong id="mcqTotal">0</strong> attempted
+                </div>
+                <button class="reset-btn" onclick="resetMCQ()">RESET</button>
+            </div>
+            <div class="quiz-wrap" id="mcqWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-matching">
+            <h2 class="section-title">Matching Activity</h2>
+            <p class="section-sub">
+                Click a term on the left, then click the matching definition on the
+                right.
+            </p>
+            <div style="margin-bottom: 16px">
+                <div class="score-bar">
+                    <div>
+                        <div class="score-num" id="matchScore">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">matched</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="matchTotal">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetMatch()">RESET</button>
+                </div>
+            </div>
+            <div class="match-grid">
+                <div>
+                    <div class="match-label">TERMS</div>
+                    <div class="match-col" id="matchLeft"></div>
+                </div>
+                <div>
+                    <div class="match-label">DEFINITIONS</div>
+                    <div class="match-col" id="matchRight"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-fib">
+            <h2 class="section-title">Fill in the Blanks</h2>
+            <p class="section-sub">
+                Click each dropdown and choose the correct word. Wrong answers reset —
+                try again!
+            </p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="fibScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="fibTotal">0</strong> blanks
+                </div>
+                <button class="reset-btn" onclick="resetFIB()">RESET</button>
+            </div>
+            <div class="fib-wrap" id="fibWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-misconceptions">
+            <h2 class="section-title">Common Misconceptions</h2>
+            <p class="section-sub">
+                What students often think — and what examiners actually want.
+            </p>
+            <div class="misc-list" id="miscList"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-examtips">
+            <h2 class="section-title">Exam Questions &amp; Tips</h2>
+            <p class="section-sub">
+                Most repeated question types and mark-scheme structures from real OCR
+                papers.
+            </p>
+            <div class="tips-grid" id="tipsGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-flashcards">
+            <h2 class="section-title">Flashcards</h2>
+            <p class="section-sub">
+                Test yourself! Flip the card and rate your knowledge. Review your weak
+                areas at the end.
+            </p>
+
+            <div class="fc-container">
+                <div class="score-bar" id="fcScoreBar" style="display: none; margin-bottom: 20px">
+                    <div>
+                        <div class="score-num" id="fcKnown" style="color: #2d7a4f">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">known</div>
+                    </div>
+                    <div>
+                        <div class="score-num" id="fcUnknown" style="color: #c84b31">
+                            0
+                        </div>
+                        <div style="font-size: 12px; color: var(--mid)">learning</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="fcTotalTrack">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
+                </div>
+
+                <div id="fcActiveArea">
+                    <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
+                    <div class="flashcard" id="flashcard" onclick="flipCard()">
+                        <div class="fc-inner">
+                            <div class="fc-front">
+                                <div class="fc-label">KEY TERM</div>
+                                <div class="fc-term" id="fcTerm"></div>
+                            </div>
+                            <div class="fc-back">
+                                <div class="fc-def" id="fcDef"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="fc-hint">👆 Click card to flip</p>
+
+                    <div class="fc-nav" id="fcNavDefault">
+                        <button class="fc-btn outline" onclick="prevCard()">
+                            ← Prev
+                        </button>
+                        <button class="fc-btn outline" onclick="flipCard()">Flip</button>
+                        <button class="fc-btn" onclick="nextCard()">Next →</button>
+                    </div>
+
+                    <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px">
+                        <button class="fc-btn outline" style="border-color: #c84b31; color: #c84b31; flex: 1"
+                            onclick="markCard(false)">
+                            ❌ Still Learning
+                        </button>
+                        <button class="fc-btn" style="background: #2d7a4f; border-color: #2d7a4f; flex: 1"
+                            onclick="markCard(true)">
+                            ✅ Got It
+                        </button>
+                    </div>
+                </div>
+
+                <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px">
+                    <h3>Session Complete! 🎉</h3>
+                    <p style="margin: 15px 0">
+                        You knew <strong id="fcSummaryKnown">0</strong> out of
+                        <strong id="fcSummaryTotal">0</strong> cards.
+                    </p>
+                    <div style="
+                margin-top: 25px;
+                display: flex;
+                gap: 15px;
+                justify-content: center;
+                flex-wrap: wrap;
+              ">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
+                            style="background: #c84b31; border-color: #c84b31">
+                            Review Incorrect
+                        </button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">
+                            Practice All Again
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-truefalse">
+            <h2 class="section-title">True or False?</h2>
+            <p class="section-sub">Test your knowledge with these statements.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="tfScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="tfTotal">0</strong> answered
+                </div>
+                <button class="reset-btn" onclick="resetTF()">RESET</button>
+            </div>
+            <div class="tf-wrap" id="tfWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-exampractice">
+            <h2 class="section-title">Exam Practice Questions</h2>
+            <p class="section-sub">
+                Full exam questions with case studies. Use <strong>Hint</strong>,
+                <strong>Sentence Starter</strong> and
+                <strong>Submit &amp; See Mark Scheme</strong> for each question.
+            </p>
+            <div class="ep-list" id="epList"></div>
+        </div>
+    </main>
+
+<script>
+    // ══════════════════════════════════════
+    //  DATA: 2.5.4 Sanctions Against PEDs
+    // ══════════════════════════════════════
+    const pageMeta = {
+            id: '2-5-4-sanctions-against-peds',
+            badge: 'OCR Level 1/Level 2 Sport Studies — R184 · 2. The Role of Sport in Promoting Values',
+            title: '2.5.4 Sanctions Against PEDs',
+            subtitle: 'Interactive revision guide',
+            subject: 'sport-studies',
+        };
+
+    const topics = [
+        {
+            title: "Bans — the headline sanction for PED use",
+            tag: "Key concept",
+            content: `<h4>What a sanction is</h4>
+<ul>
+<li>A <strong>sanction</strong> is an official penalty handed out once a performer has been found guilty of using a prohibited substance or method.</li>
+<li>The best-known sanction is a <strong>ban</strong> — the performer cannot train with their squad, enter competitions, or receive funding, for a set period.</li>
+</ul>
+<h4>Bans vary in length</h4>
+<ul>
+<li>A ban is not one fixed punishment — its length changes case by case. A first offence often carries a ban of a <strong>set number of years</strong>, rather than a short suspension.</li>
+<li>A performer caught using PEDs <strong>more than once</strong> can be given a <strong>lifetime ban</strong>, ending their career in that sport completely.</li>
+<li>The exam expects you to know that length reflects seriousness: a longer, or lifetime, ban shows that repeated or serious cheating is treated far more harshly than a single lapse.</li>
+</ul>`,
+            readCheck: {
+                q: "Which statement about bans as a sanction against PED use is correct?",
+                opts: ["A ban always lasts precisely the same length regardless of whether it is a first or repeat offence", "Ban length can vary, and a performer who repeatedly offends can receive a lifetime ban", "Bans can only ever be given to performers who have never previously failed a drugs test", "A ban means a performer must pay a large fixed sum instead of missing any competitions"],
+                ans: 1,
+                explain: "Ban length is not fixed — it varies with the case, and repeat offenders can receive a lifetime ban. A ban is about missing competition, not a payment."
+            }
+        },
+        {
+            title: "Fines, and being stripped of medals, titles and records",
+            tag: "Core knowledge",
+            content: `<h4>Fines</h4>
+<ul>
+<li>Alongside a ban, a performer found guilty of using PEDs can be given a <strong>fine</strong> — a sum of money they must pay as part of their punishment.</li>
+<li>Fines vary in amount depending on the case, and can be added on top of a ban rather than replacing one.</li>
+</ul>
+<h4>Being stripped of medals, titles and records</h4>
+<ul>
+<li>A guilty performer can also be <strong>stripped of medals, titles and records</strong> won while using a prohibited substance or method.</li>
+<li>This means a medal is returned or reallocated, a title is taken away, and a record is deleted from the record books, as if the result had never happened.</li>
+<li>This sanction targets a performer's <strong>reputation and achievements</strong>, not only their money or their ability to compete — for many elite performers, losing a title or record hurts more than a fine.</li>
+</ul>`,
+            readCheck: {
+                q: "What does it mean for a performer to be 'stripped' of a medal after a PED offence?",
+                opts: ["The medal is cleaned and sent back to the performer in fully restored condition", "The medal, title or record is taken away and the result is removed from the record books", "The performer is instead given a smaller replacement medal made from a cheaper metal", "The performer keeps the medal but must wear it at every single future competition entered"],
+                ans: 1,
+                explain: "Being 'stripped' means the medal, title or record is formally taken away and removed from the record books — the achievement no longer stands."
+            }
+        },
+        {
+            title: "Why sanctions exist — deterrence as well as punishment",
+            tag: "Exam skill",
+            content: `<h4>Two jobs, one sanction</h4>
+<ul>
+<li>A sanction does two jobs at once. First, it <strong>punishes</strong> the individual performer who has already broken the rules — through a ban, a fine, or being stripped of what they won.</li>
+<li>Second, it is meant to <strong>deter</strong> — to put other performers off using PEDs in the first place, by making the consequences clear and severe.</li>
+</ul>
+<h4>Building an exam-ready answer</h4>
+<ul>
+<li>Weak answer: <em>"Cheats get banned."</em> That names a sanction but shows no understanding of its purpose.</li>
+<li>Strong answer: <em>"A lifetime ban deters other performers because it shows repeat cheating ends a career completely, so the risk clearly outweighs any gain."</em></li>
+<li>Section C questions often ask you to judge <strong>whether sanctions actually work as a deterrent</strong> — a good answer weighs the size of the punishment against how likely a performer thinks they are to be caught.</li>
+</ul>`,
+            readCheck: {
+                q: "Besides punishing the individual, what is a sanction against PED use also meant to do?",
+                opts: ["Deter other performers from choosing to use prohibited substances themselves", "Guarantee that particular sport will never again see any further doping case", "Reduce how much training a completely clean performer is allowed to do", "Increase the total prize money available to the eventual winning performer"],
+                ans: 0,
+                explain: "A sanction is meant to deter other performers, not just punish the one caught — it cannot guarantee no future case, and it has no effect on clean performers' training or prize funds."
+            }
+        }
+    ];
+
+    const mcqData = [
+        {
+            q: "What is most likely to happen to a performer caught using PEDs for a second time, having already served a ban once before?",
+            opts: ["They receive an identical short suspension to a first-time offender in the same sport", "They may receive a lifetime ban, ending their career in that sport completely", "They are simply asked to apologise publicly with no further ban or fine applied", "They automatically become team captain for their club in the following season"],
+            ans: 1,
+            explain: "Repeat offenders face harsher sanctions than first-timers, and a lifetime ban is the most severe option available — the other outcomes describe no real sanction at all."
+        },
+        {
+            q: "A performer is fined and stripped of a title after a positive drugs test. Which best explains why both sanctions are used together?",
+            opts: ["One sanction removes their money, while the other removes their reputation and achievements", "The two sanctions cancel each other out, so the performer suffers no real consequence at all", "A fine and losing a title are simply two different names for exactly the same punishment", "Governing bodies choose a sanction completely at random with no consistent reasoning behind it"],
+            ans: 0,
+            explain: "A fine and being stripped of a title punish different things — money and reputation/achievement — which is why governing bodies often apply more than one sanction."
+        },
+        {
+            q: "Why might a governing body strip a performer of a record they set, rather than only banning them from future competition?",
+            opts: ["Because it removes an achievement gained unfairly, showing the result should not stand", "Because record books can never be changed once a result has been published anywhere", "Because a stripped record automatically increases the performer's future appearance fees", "Because changing a written record always costs far less than administering any ban"],
+            ans: 0,
+            explain: "Stripping a record removes an achievement that was gained through cheating, so the result no longer stands — record books are updated, and this has nothing to do with fees or cost."
+        },
+        {
+            q: "A young performer is deciding whether to risk using a banned substance. Which sanction is designed to put them off doing so?",
+            opts: ["Free entry into every future competition no matter what the eventual result is", "The threat of a lengthy ban, a fine, and losing any medals won if they are caught", "A guarantee that drugs testing will never take place at their level of competition", "A private meeting where no written record of any offence is ever kept on file"],
+            ans: 1,
+            explain: "Severe, well-known sanctions — a long ban, a fine, losing medals — are exactly what is meant to deter a performer from taking the risk in the first place."
+        },
+        {
+            q: "A cyclist banned for two years after a first doping offence tests positive again three years later. Based on how sanctions usually work, what is most likely?",
+            opts: ["The second ban is likely to be equal to or longer than the first, possibly a lifetime ban", "The second offence is ignored completely because the first ban has already been served", "The governing body must reduce any new ban because one has already been served before", "The cyclist instead receives a medal in recognition of admitting to the second failed test"],
+            ans: 0,
+            explain: "Repeat offences are treated more, not less, seriously — a second ban is likely to match or exceed the first, up to a lifetime ban, not be reduced or ignored."
+        },
+        {
+            q: "What is the main purpose of publicising the sanctions given to performers caught using PEDs?",
+            opts: ["To help the performer's existing sponsors quickly design a brand new advertising campaign", "To deter other performers by making the real consequences of being caught widely known", "To increase ticket sales across the venue for that performer's very next scheduled event", "To give sports journalists something new and unrelated to write about each week"],
+            ans: 1,
+            explain: "Publicising sanctions is a deterrent — it shows every other performer exactly what being caught actually costs, which is the point of making it public."
+        }
+    ];
+
+    const matchData = [
+        { term: "Ban", def: "A sanction stopping a performer training or competing for a period, which can extend to a lifetime for repeat offenders" },
+        { term: "Fine", def: "A sum of money a performer must pay as part of their punishment for a PED offence" },
+        { term: "Stripped of a medal, title or record", def: "Having an achievement gained while using a prohibited substance formally taken away" },
+        { term: "Lifetime ban", def: "A ban with no end date, usually given for a serious or repeated PED offence" },
+        { term: "Deterrent effect", def: "The way a severe, well-known sanction is meant to put other performers off using PEDs" },
+        { term: "Repeat offender", def: "A performer who has already been sanctioned before and is then caught using PEDs again" }
+    ];
+
+    const fibData = [
+        {
+            display: "A performer found guilty of a PED offence can receive a _____, stopping them competing for a period.",
+            blanks: { B1: "ban" }
+        },
+        {
+            display: "Ban length can vary, and a repeat offender may be given a _____ ban with no end date.",
+            blanks: { B1: "lifetime" }
+        },
+        {
+            display: "As well as a ban, a guilty performer can be ordered to pay a _____.",
+            blanks: { B1: "fine" }
+        },
+        {
+            display: "A performer can be _____ of medals, titles and records won while using a prohibited substance.",
+            blanks: { B1: "stripped" }
+        },
+        {
+            display: "Sanctions are meant to _____ other performers from choosing to use PEDs in the first place.",
+            blanks: { B1: "deter" }
+        }
+    ];
+    const fibWords = ["ban", "lifetime", "fine", "stripped", "deter"];
+
+    const tfData = [
+        {
+            statement: "A ban is always exactly the same length, regardless of whether it is a first or repeat offence.",
+            answer: false,
+            explanation: "Ban length varies with the case — a first offence may carry a set number of years, while repeat offenders can face a lifetime ban."
+        },
+        {
+            statement: "A performer can be fined and banned at the same time for a single PED offence.",
+            answer: true,
+            explanation: "Sanctions can be combined — a fine punishes financially while a ban stops the performer competing, so both can apply to one offence."
+        },
+        {
+            statement: "Being stripped of a record means it is removed from the record books as though it had not happened.",
+            answer: true,
+            explanation: "Stripping removes the achievement entirely — the record is deleted or reallocated, not just noted as suspicious."
+        },
+        {
+            statement: "Sanctions exist only to punish the individual performer and have no effect on anyone else.",
+            answer: false,
+            explanation: "Sanctions are also meant to deter — by making the consequences clear, they aim to put other performers off using PEDs too."
+        },
+        {
+            statement: "A performer who is caught using PEDs more than once can receive a lifetime ban.",
+            answer: true,
+            explanation: "Repeat offences are treated more severely, and a lifetime ban is the toughest sanction available for persistent cheating."
+        },
+        {
+            statement: "Fines for PED offences are always exactly the same amount, whatever the case involves.",
+            answer: false,
+            explanation: "Fines vary in amount depending on the case — they are not a single fixed sum applied to every offence."
+        }
+    ];
+
+    const miscData = [
+        {
+            wrong: "A ban is the only sanction a governing body can use against PED use.",
+            correct: "A ban is only one option. Governing bodies can also fine a performer, and strip them of medals, titles and records won while using a prohibited substance — often combining more than one sanction for a single offence, because each targets something different (time, money, reputation).",
+            readCheck: {
+                q: "Besides a ban, what else can a governing body use to sanction a PED offence?",
+                opts: ["Nothing else — a ban is always the complete sanction on its own", "A fine, and/or being stripped of medals, titles or records", "A permanent increase in the performer's future prize money", "A guarantee of a place at the performer's next major competition"],
+                ans: 1,
+                explain: "Fines and being stripped of medals/titles/records are real, separate sanctions that can sit alongside a ban."
+            }
+        },
+        {
+            wrong: "Sanctions only punish the performer who was caught — they don't affect anyone else's choices.",
+            correct: "Sanctions have a second job: deterrence. By making a ban, fine or stripped record public and severe, governing bodies aim to put other performers off using PEDs, because they can see exactly what being caught actually costs.",
+            readCheck: {
+                q: "What is the second purpose of a sanction, alongside punishing the individual performer?",
+                opts: ["Deterring other performers from choosing to use PEDs themselves", "Making sure the sport receives more media coverage each season", "Ensuring no performer is ever tested for banned substances again", "Guaranteeing the performer a route back into the sport next year"],
+                ans: 0,
+                explain: "Deterrence is the second purpose — showing other performers the real consequences so they choose not to risk using PEDs."
+            }
+        },
+        {
+            wrong: "Once a performer has served their ban, the offence is forgotten and any record they set still stands.",
+            correct: "Serving a ban does not undo being stripped of a medal, title or record — those stay removed from the record books permanently. And the offence itself is not forgotten: if the same performer is caught again, it counts as a repeat offence and can lead to a lifetime ban.",
+            readCheck: {
+                q: "After a performer finishes serving a ban, what happens to a record they were stripped of?",
+                opts: ["It is automatically restored back to them once their ban period fully ends", "It stays removed from the record books; serving the ban does not restore it", "It is reassigned permanently to whichever performer finished in second place", "It is kept on hold until the performer's very next competition begins"],
+                ans: 1,
+                explain: "Being stripped of a record is permanent — finishing a ban does not undo it, and a later offence still counts as a repeat."
+            }
+        }
+    ];
+
+    const examTips = [
+        {
+            type: "tip",
+            title: "Command words for this topic — what each one wants",
+            pills: ["Identify", "State", "Describe", "Explain"],
+            content: `<p>Sanctions questions are usually short recall, but can be developed into applied points. Match your answer length to the command word:</p>
+<ul>
+<li><strong>Identify / State</strong> — just name it. "Identify one sanction used against PED use" = write one sanction, nothing more. 1 mark.</li>
+<li><strong>Describe</strong> — say what the sanction involves. "Describe a ban as a sanction" = explain what happens to the performer.</li>
+<li><strong>Explain</strong> — give a reason. Use the word <em>because</em>. "Explain why a lifetime ban might be given" = the sanction <em>plus</em> why (usually a repeat offence).</li>
+</ul>
+<p><strong>Read the mark tariff:</strong> [1] wants one point; [2] usually wants two points, or one point developed; marks in Section B want points applied to the scenario given.</p>`,
+            readCheck: {
+                q: "A question says: 'Identify two sanctions used against PED use [2]'. What is the safest answer?",
+                opts: ["A long paragraph describing only one sanction in detail", "Two sanction names, such as a ban and a fine", "One sanction explained at great length with no second name given", "A list of six different sanctions written out in full"],
+                ans: 1,
+                explain: "'Identify' + [2] = two names, one mark each. Explaining only one, or listing six, wastes time and risks marks only being credited for the first two anyway."
+            }
+        },
+        {
+            type: "tip",
+            title: "The golden rule: name the sanction AND its intended effect",
+            pills: ["Section A", "Section B", "AO2"],
+            content: `<p>The single most common way to lose marks here is stopping at the sanction's name. Build every answer as <strong>sanction → effect → reason</strong>:</p>
+<ul>
+<li><strong>❌ 0–1 marks:</strong> "A lifetime ban."</li>
+<li><strong>✅ full marks:</strong> "A lifetime ban punishes the performer by ending their career, and deters others because it shows repeat cheating is never worth the risk."</li>
+</ul>
+<p>In <strong>Section B</strong> the question gives you a scenario (a named performer, a named offence). Then you must use a detail <em>from that scenario</em> — such as whether it is a first or repeat offence — not a general example.</p>`,
+            readCheck: {
+                q: "In a Section B scenario question about a named performer's PED offence, your sanction choice should be based on...",
+                opts: ["absolutely any sanction at all, chosen without reference to the scenario given", "the details given in the scenario, such as whether it is a repeat offence", "the sanction you personally think sounds the most severe", "a sanction used in a completely different named sport"],
+                ans: 1,
+                explain: "Section B is applied — the marks are for linking a sanction to the actual detail in the scenario, such as whether the offence is a first or repeat one."
+            }
+        },
+        {
+            type: "tip",
+            title: "Where sanctions appear in the exam + sentence starters",
+            pills: ["Section A", "Section B", "Section C"],
+            content: `<p><strong>Where it shows up:</strong> sanctions appear as quick recall in <strong>Section A</strong> (identify/state), as applied points in <strong>Section B</strong> scenarios about a named performer's offence, and they feed <strong>Section C</strong> 8-mark discussions about whether current sanctions are effective enough.</p>
+<p><strong>Three punchy tips:</strong></p>
+<ul>
+<li>Learn the three sanctions together — ban, fine, stripped of medals/titles/records — so you can always recall more than one.</li>
+<li>For every sanction, memorise its <em>intended effect</em> (punish and/or deter) — that link is usually where the mark is.</li>
+<li>Watch for the first-offence vs repeat-offence distinction — it is a great way to justify why one sanction is more severe than another.</li>
+</ul>
+<p><strong>Sentence starters for a longer answer:</strong></p>
+<ul>
+<li>"One sanction that could be applied here is… because…"</li>
+<li>"This sanction is intended to deter other performers by…"</li>
+<li>"However, this sanction may not fully stop PED use because…"</li>
+</ul>`,
+            readCheck: {
+                q: "Why is the first-offence vs repeat-offence distinction a useful point in a longer answer?",
+                opts: ["It fills space without needing to say anything further", "It justifies why one sanction is harsher than another", "It proves that sanctions are never actually applied at all", "It removes the need to name any sanction whatsoever"],
+                ans: 1,
+                explain: "Linking the sanction's severity to whether it is a first or repeat offence shows deeper understanding — exactly the kind of point that lifts a longer answer."
+            }
+        }
+    ];
+
+    const flashcards = [
+        { term: "Sanction", def: "An official penalty given once a performer is found guilty of a PED offence" },
+        { term: "Ban", def: "Stops a performer training/competing for a period; can be a lifetime ban for repeat offenders" },
+        { term: "Fine", def: "A sum of money a performer must pay as part of a PED sanction" },
+        { term: "Stripped of a medal/title/record", def: "An achievement gained while using PEDs is formally taken away" },
+        { term: "Lifetime ban", def: "A ban with no end date, usually for a serious or repeated offence" },
+        { term: "Deterrent effect", def: "The way a severe sanction is meant to discourage other performers from using PEDs" }
+    ];
+
+    const examQuestions = [
+        {
+            num: "1",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: "Identify <strong>two</strong> sanctions that can be given to a performer found guilty of using a PED.",
+            hint: "Pick two different sanctions — for example a ban, a fine, or being stripped of a medal, title or record.",
+            starter: "One sanction is… Another sanction is…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1)</h5>
+<p><strong>1 mark for each correct sanction named, to a maximum of two. Accept any two different sanctions, including:</strong></p>
+<ul>
+<li>A ban (of varying length, up to a lifetime ban)</li>
+<li>A fine</li>
+<li>Being stripped of medals, titles or records</li>
+</ul>
+<p>Do not credit the same sanction written twice.</p>
+</div>`,
+            modelAnswer: "One sanction is a ban.\n\nAnother sanction is a fine.",
+            markPoints: { note: "One tick per correct, DIFFERENT sanction; cap at 2.", groups: [
+                { label: "Your first sanction", max: 1, points: ["Names a valid sanction (ban, fine, or stripped of medals/titles/records)"] },
+                { label: "Your second sanction", max: 1, points: ["Names a DIFFERENT valid sanction (not a repeat of the first)"] }
+            ] }
+        },
+        {
+            num: "2",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Which sanction removes an achievement a performer has already won, rather than affecting their future participation or finances?",
+            options: ["Being banned from competing for a set number of years", "Being stripped of a medal, title or record", "Being fined a sum of money set by the governing body", "Being required to attend an anti-doping education session"],
+            answer: 1,
+            hint: "Think about which sanction targets something the performer already achieved, not something they might do or pay in future.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO2)</h5>
+<p><strong>Answer: B — Being stripped of a medal, title or record.</strong></p>
+<ul>
+<li>This sanction removes an achievement already gained, unlike a ban (future participation) or a fine (money).</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "3",
+            marks: 4,
+            type: "written",
+            caseStudy: `<p><strong>Scenario — Priya Anand, Redcliffe Athletics Club</strong></p><p>Priya Anand, a sprinter for Redcliffe Athletics Club, has failed a drugs test after winning her national final, in which she also set a new club record. It is her first ever doping offence.</p>`,
+            question: "Explain <strong>two</strong> sanctions that could be applied to Priya as a result of this offence.",
+            hint: "Take each sanction in turn. Name it, then link it to a detail in the scenario — the fact it is her first offence, or the fact she set a new record.",
+            starter: "One sanction Priya could receive is… because…\n\nAnother sanction she could receive is… because…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (AO2: application)</h5>
+<p><strong>Up to 2 marks per sanction: 1 for naming a relevant sanction, 1 for linking it to the scenario. Answers may include:</strong></p>
+<ul>
+<li><strong>A ban</strong> — of a set length, reflecting that this is a first offence rather than a repeat one.</li>
+<li><strong>Being stripped of her record</strong> — because she set a new club record during the race in which she failed the test, so that result should not stand.</li>
+<li>A fine could also be credited if clearly linked to the scenario.</li>
+</ul>
+<p>Accept any other reasonable, applied answer. A sanction named with no scenario link earns 1 of the 2 marks for that sanction.</p>
+</div>`,
+            modelAnswer: "One sanction Priya could receive is a ban of a set length, because this is her first offence rather than a repeat one, so it would not need to be a lifetime ban.\n\nAnother sanction is being stripped of her new club record, because she set it during the very race in which she failed the drugs test, so that result should not stand.",
+            markPoints: { note: "Mark each sanction out of 2: one tick for naming it, one for linking it to the scenario.", groups: [
+                { label: "Your first sanction", max: 2, points: ["Names a valid sanction (e.g. a ban, of a set length)", "Links it to the scenario (e.g. reflects that this is a first offence, not a repeat one)"] },
+                { label: "Your second sanction", max: 2, points: ["Names a DIFFERENT valid sanction (e.g. stripped of her record, or a fine)", "Links it to the scenario (e.g. the record was set during the race in which she failed the test)"] }
+            ] }
+        },
+        {
+            num: "4",
+            marks: 8,
+            type: "written",
+            format: "banded",
+            caseStudy: `<p><strong>Scenario — National Swimming League</strong></p><p>The National Swimming League introduced a strict sanctions policy several years ago, including lengthy bans, fines and stripped records. Despite this, two swimmers were caught using PEDs in the same season, and league officials are now debating whether sanctions alone are working.</p>`,
+            question: "Discuss whether sanctions are the best way to stop performers using PEDs in sport.",
+            hint: "Explain how sanctions are meant to work (punish and deter), then weigh up their limits (some performers still risk it) against other approaches (like education). Finish with a judgement.",
+            starter: "Sanctions such as… are meant to stop PED use by…\n\nHowever, sanctions alone may not be enough because…\n\nOverall, …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 8 marks (level-of-response). Read the band you fit, then pick a mark.</h5>
+<ul>
+<li><strong>Band 3 (thorough), 6–8:</strong> a balanced, well-applied discussion showing clearly how sanctions punish and deter, AND weighing genuine limits (some performers still risk it, sanctions act after the harm is done, other methods exist), ending in a justified judgement.</li>
+<li><strong>Band 2 (reasonable), 3–5:</strong> sound understanding of sanctions with some analysis, but the discussion may be one-sided or the judgement unsupported.</li>
+<li><strong>Band 1 (basic), 1–2:</strong> names sanctions with little application and no real evaluation; largely a list.</li>
+<li><strong>0 marks:</strong> nothing creditworthy.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Indicative content (indicative, not a checklist — reward valid alternatives)</h5>
+<ul>
+<li><strong>How sanctions are meant to work:</strong> bans, fines and stripped records punish the individual and are publicised to deter others, by showing that being caught costs a career, money and reputation.</li>
+<li><strong>Limits of sanctions:</strong> the League's own case shows two swimmers still offended despite a strict policy, suggesting some performers accept the risk; sanctions only apply once a performer has already been caught, so they do not stop the initial decision to use PEDs; harsher sanctions may not deter someone confident they will avoid testing.</li>
+<li><strong>Other approaches:</strong> education, and thorough testing (making being caught more likely), work alongside sanctions rather than replacing them.</li>
+<li><strong>Judgement:</strong> sanctions are a necessary part of the system because they give real consequences and some deterrent effect — but the League's repeat cases show sanctions alone do not guarantee compliance, so they work best combined with strong testing and education.</li>
+</ul>
+</div>`,
+            modelAnswer: "Sanctions such as bans, fines and stripped records are meant to stop PED use by punishing the performer caught and deterring others, since the consequences are made public and severe.\n\nHowever, the League's own experience shows sanctions alone may not be enough: two swimmers still offended despite a strict policy, suggesting some performers accept the risk, and sanctions only apply after a performer is already caught, so they do not prevent the initial decision to use PEDs.\n\nOverall, sanctions are a necessary and important part of tackling PED use, but they work best alongside strong testing and education rather than as the only method, since this case shows sanctions on their own do not fully stop repeat offending."
+        }
+    ];
+</script>
+    <script src="/cs-lab/exam-widgets.js"></script>
+    <script src="/script.js"></script>
+<script src="section-totals.js"></script>
+<script src="page-groups.js"></script>
+<script src="/progress-shared.js"></script>
+<script src="/gamification.js"></script>
+<script src="/topic-guard.js"></script>
+<script src="/notifications-shared.js"></script>
+<script src="/onboarding-tour.js"></script>
+<script src="/footer-legal.js"></script>
+</body>
+
+</html>

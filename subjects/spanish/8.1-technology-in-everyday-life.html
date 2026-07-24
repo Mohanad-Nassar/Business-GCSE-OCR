@@ -4,297 +4,506 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>8.1 Technology in Everyday Life – Interactive Study Guide</title>
+    <title>8.1 Technology in Everyday Life – GCSE Spanish</title>
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
         rel="stylesheet" />
     <link rel="stylesheet" href="/style.css" />
+    <style>
+      /* 🔊 audio-button + Audio-panel styling is injected by /speech.js (shared).
+         Only page-specific styles live here. */
+      .vocab-tbl{width:100%;border-collapse:collapse;margin:8px 0}
+      .vocab-tbl td{border-bottom:1px solid var(--line,#e4e8f0);padding:6px 8px;vertical-align:top}
+      .vocab-tbl td:first-child{font-weight:600;white-space:nowrap}
+      @container (max-width:640px){.vocab-tbl,.vocab-tbl tbody,.vocab-tbl tr,.vocab-tbl td{display:block;width:100%}.vocab-tbl td{border-bottom:none;padding:4px 0;white-space:normal}.vocab-tbl td:nth-child(2n){padding-bottom:10px;border-bottom:1px solid var(--line,#e4e8f0);margin-bottom:6px}}
+      .tier-h{display:inline-block;font-size:.72em;font-weight:700;color:#8a5a00;
+        background:#fff3d6;border-radius:5px;padding:1px 5px;margin-left:5px;vertical-align:middle}
+    </style>
 </head>
 
 <body>
     <header>
         <div>
-            <div class="badge">AQA GCSE Spanish — Theme 3 · 8. Media and Technology</div>
+            <div class="badge">AQA GCSE Spanish (8692) — Theme 3 · 8. Media and Technology</div>
             <h1>8.1 Technology in Everyday Life</h1>
-            <p>Interactive revision guide · Content coming soon</p>
+            <p>La tecnología en la vida diaria · Interactive study guide</p>
         </div>
         <a href="/index.html" class="home-link">← 🏡 Home</a>
     </header>
 
     <nav class="tab-bar" id="tabBar">
-        <button class="tab-btn active" onclick="switchTab('learn', this)">
-            📚 Key Learning
-        </button>
-        <button class="tab-btn" onclick="switchTab('mcq', this)">
-            ❓ MCQ Quiz
-        </button>
-        <button class="tab-btn" onclick="switchTab('matching', this)">
-            🔗 Matching
-        </button>
-        <button class="tab-btn" onclick="switchTab('fib', this)">
-            ✏️ Fill the Blanks
-        </button>
-        <button class="tab-btn" onclick="switchTab('misconceptions', this)">
-            ⚠️ Misconceptions
-        </button>
-        <button class="tab-btn" onclick="switchTab('examtips', this)">
-            🎯 Exam Tips
-        </button>
-        <button class="tab-btn" onclick="switchTab('flashcards', this)">
-            🃏 Flashcards
-        </button>
-        <button class="tab-btn" onclick="switchTab('truefalse', this)">
-            ✅ True / False
-        </button>
-        <button class="tab-btn" onclick="switchTab('exampractice', this)">
-            📝 Exam Practice
-        </button>
+        <button class="tab-btn active" onclick="switchTab('learn', this)">📚 Key Learning</button>
+        <button class="tab-btn" onclick="switchTab('mcq', this)">❓ MCQ Quiz</button>
+        <button class="tab-btn" onclick="switchTab('matching', this)">🔗 Matching</button>
+        <button class="tab-btn" onclick="switchTab('fib', this)">✏️ Fill the Blanks</button>
+        <button class="tab-btn" onclick="switchTab('misconceptions', this)">⚠️ Misconceptions</button>
+        <button class="tab-btn" onclick="switchTab('examtips', this)">🎯 Exam Tips</button>
+        <button class="tab-btn" onclick="switchTab('flashcards', this)">🃏 Flashcards</button>
+        <button class="tab-btn" onclick="switchTab('truefalse', this)">✅ True / False</button>
+        <button class="tab-btn" onclick="switchTab('exampractice', this)">📝 Exam Practice</button>
     </nav>
 
     <main>
         <div class="tab-panel active" id="tab-learn">
             <h2 class="section-title">Key Learning Topics</h2>
-            <p class="section-sub">Click any card to expand detailed notes.</p>
+            <p class="section-sub">Click any card to expand. Tap 🔊 to hear the Spanish.</p>
             <div class="topic-grid" id="topicGrid"></div>
         </div>
-
         <div class="tab-panel" id="tab-mcq">
             <h2 class="section-title">Multiple Choice Questions</h2>
-            <p class="section-sub">Select an answer to reveal instant feedback.</p>
+            <p class="section-sub">Some questions play audio — tap 🔊 and choose the meaning.</p>
             <div class="score-bar">
-                <div>
-                    <div class="score-num" id="mcqScore">0</div>
-                    <div style="font-size: 12px; color: var(--mid)">
-                        correct answers
-                    </div>
-                </div>
-                <div style="font-size: 13px; color: var(--mid)">
-                    out of <strong id="mcqTotal">0</strong> attempted
-                </div>
+                <div><div class="score-num" id="mcqScore">0</div><div style="font-size:12px;color:var(--mid)">correct answers</div></div>
+                <div style="font-size:13px;color:var(--mid)">out of <strong id="mcqTotal">0</strong> attempted</div>
                 <button class="reset-btn" onclick="resetMCQ()">RESET</button>
             </div>
             <div class="quiz-wrap" id="mcqWrap"></div>
         </div>
-
         <div class="tab-panel" id="tab-matching">
             <h2 class="section-title">Matching Activity</h2>
-            <p class="section-sub">
-                Click a term on the left, then click the matching definition on the
-                right.
-            </p>
-            <div style="margin-bottom: 16px">
-                <div class="score-bar">
-                    <div>
-                        <div class="score-num" id="matchScore">0</div>
-                        <div style="font-size: 12px; color: var(--mid)">matched</div>
-                    </div>
-                    <div style="font-size: 13px; color: var(--mid)">
-                        out of <strong id="matchTotal">0</strong>
-                    </div>
-                    <button class="reset-btn" onclick="resetMatch()">RESET</button>
-                </div>
-            </div>
+            <p class="section-sub">Click a term on the left, then its match on the right.</p>
+            <div style="margin-bottom:16px"><div class="score-bar">
+                <div><div class="score-num" id="matchScore">0</div><div style="font-size:12px;color:var(--mid)">matched</div></div>
+                <div style="font-size:13px;color:var(--mid)">out of <strong id="matchTotal">0</strong></div>
+                <button class="reset-btn" onclick="resetMatch()">RESET</button>
+            </div></div>
             <div class="match-grid">
-                <div>
-                    <div class="match-label">TERMS</div>
-                    <div class="match-col" id="matchLeft"></div>
-                </div>
-                <div>
-                    <div class="match-label">DEFINITIONS</div>
-                    <div class="match-col" id="matchRight"></div>
-                </div>
+                <div><div class="match-label">TERMS</div><div class="match-col" id="matchLeft"></div></div>
+                <div><div class="match-label">DEFINITIONS</div><div class="match-col" id="matchRight"></div></div>
             </div>
         </div>
-
         <div class="tab-panel" id="tab-fib">
             <h2 class="section-title">Fill in the Blanks</h2>
-            <p class="section-sub">
-                Click each dropdown and choose the correct word. Wrong answers reset —
-                try again!
-            </p>
+            <p class="section-sub">Choose the correct word. Dictation rows play audio — tap 🔊, then fill the gap.</p>
             <div class="score-bar">
-                <div>
-                    <div class="score-num" id="fibScore">0</div>
-                    <div style="font-size: 12px; color: var(--mid)">correct</div>
-                </div>
-                <div style="font-size: 13px; color: var(--mid)">
-                    of <strong id="fibTotal">0</strong> blanks
-                </div>
+                <div><div class="score-num" id="fibScore">0</div><div style="font-size:12px;color:var(--mid)">correct</div></div>
+                <div style="font-size:13px;color:var(--mid)">of <strong id="fibTotal">0</strong> blanks</div>
                 <button class="reset-btn" onclick="resetFIB()">RESET</button>
             </div>
             <div class="fib-wrap" id="fibWrap"></div>
         </div>
-
         <div class="tab-panel" id="tab-misconceptions">
             <h2 class="section-title">Common Misconceptions</h2>
-            <p class="section-sub">
-                What students often think — and what examiners actually want.
-            </p>
+            <p class="section-sub">The mistakes GCSE Spanish students make most.</p>
             <div class="misc-list" id="miscList"></div>
         </div>
-
         <div class="tab-panel" id="tab-examtips">
             <h2 class="section-title">Exam Questions &amp; Tips</h2>
-            <p class="section-sub">
-                Most repeated question types and mark-scheme structures from real OCR
-                papers.
-            </p>
+            <p class="section-sub">How each of the four papers rewards this topic.</p>
             <div class="tips-grid" id="tipsGrid"></div>
         </div>
-
         <div class="tab-panel" id="tab-flashcards">
             <h2 class="section-title">Flashcards</h2>
-            <p class="section-sub">
-                Test yourself! Flip the card and rate your knowledge. Review your weak
-                areas at the end.
-            </p>
-
+            <p class="section-sub">Test yourself! Flip the card and rate your knowledge.</p>
             <div class="fc-container">
-                <div class="score-bar" id="fcScoreBar" style="display: none; margin-bottom: 20px">
-                    <div>
-                        <div class="score-num" id="fcKnown" style="color: #2d7a4f">0</div>
-                        <div style="font-size: 12px; color: var(--mid)">known</div>
-                    </div>
-                    <div>
-                        <div class="score-num" id="fcUnknown" style="color: #c84b31">
-                            0
-                        </div>
-                        <div style="font-size: 12px; color: var(--mid)">learning</div>
-                    </div>
-                    <div style="font-size: 13px; color: var(--mid)">
-                        out of <strong id="fcTotalTrack">0</strong>
-                    </div>
+                <div class="score-bar" id="fcScoreBar" style="display:none;margin-bottom:20px">
+                    <div><div class="score-num" id="fcKnown" style="color:#2d7a4f">0</div><div style="font-size:12px;color:var(--mid)">known</div></div>
+                    <div><div class="score-num" id="fcUnknown" style="color:#c84b31">0</div><div style="font-size:12px;color:var(--mid)">learning</div></div>
+                    <div style="font-size:13px;color:var(--mid)">out of <strong id="fcTotalTrack">0</strong></div>
                     <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
                 </div>
-
                 <div id="fcActiveArea">
                     <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
                     <div class="flashcard" id="flashcard" onclick="flipCard()">
                         <div class="fc-inner">
-                            <div class="fc-front">
-                                <div class="fc-label">KEY TERM</div>
-                                <div class="fc-term" id="fcTerm"></div>
-                            </div>
-                            <div class="fc-back">
-                                <div class="fc-def" id="fcDef"></div>
-                            </div>
+                            <div class="fc-front"><div class="fc-label">SPANISH</div><div class="fc-term" id="fcTerm"></div></div>
+                            <div class="fc-back"><div class="fc-def" id="fcDef"></div></div>
                         </div>
                     </div>
                     <p class="fc-hint">👆 Click card to flip</p>
-
                     <div class="fc-nav" id="fcNavDefault">
-                        <button class="fc-btn outline" onclick="prevCard()">
-                            ← Prev
-                        </button>
+                        <button class="fc-btn outline" onclick="prevCard()">← Prev</button>
                         <button class="fc-btn outline" onclick="flipCard()">Flip</button>
                         <button class="fc-btn" onclick="nextCard()">Next →</button>
                     </div>
-
-                    <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px">
-                        <button class="fc-btn outline" style="border-color: #c84b31; color: #c84b31; flex: 1"
-                            onclick="markCard(false)">
-                            ❌ Still Learning
-                        </button>
-                        <button class="fc-btn" style="background: #2d7a4f; border-color: #2d7a4f; flex: 1"
-                            onclick="markCard(true)">
-                            ✅ Got It
-                        </button>
+                    <div class="fc-nav" id="fcNavAssess" style="display:none;gap:15px">
+                        <button class="fc-btn outline" style="border-color:#c84b31;color:#c84b31;flex:1" onclick="markCard(false)">❌ Still Learning</button>
+                        <button class="fc-btn" style="background:#2d7a4f;border-color:#2d7a4f;flex:1" onclick="markCard(true)">✅ Got It</button>
                     </div>
                 </div>
-
-                <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px">
+                <div id="fcSummaryArea" style="display:none;text-align:center;padding:40px 20px">
                     <h3>Session Complete! 🎉</h3>
-                    <p style="margin: 15px 0">
-                        You knew <strong id="fcSummaryKnown">0</strong> out of
-                        <strong id="fcSummaryTotal">0</strong> cards.
-                    </p>
-                    <div style="
-                margin-top: 25px;
-                display: flex;
-                gap: 15px;
-                justify-content: center;
-                flex-wrap: wrap;
-              ">
-                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
-                            style="background: #c84b31; border-color: #c84b31">
-                            Review Incorrect
-                        </button>
-                        <button class="fc-btn outline" onclick="resetFlashcards()">
-                            Practice All Again
-                        </button>
+                    <p style="margin:15px 0">You knew <strong id="fcSummaryKnown">0</strong> out of <strong id="fcSummaryTotal">0</strong> cards.</p>
+                    <div style="margin-top:25px;display:flex;gap:15px;justify-content:center;flex-wrap:wrap">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()" style="background:#c84b31;border-color:#c84b31">Review Incorrect</button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">Practice All Again</button>
                     </div>
                 </div>
             </div>
         </div>
-
         <div class="tab-panel" id="tab-truefalse">
             <h2 class="section-title">True or False?</h2>
-            <p class="section-sub">Test your knowledge with these statements.</p>
+            <p class="section-sub">¿Verdadero o falso?</p>
             <div class="score-bar">
-                <div>
-                    <div class="score-num" id="tfScore">0</div>
-                    <div style="font-size: 12px; color: var(--mid)">correct</div>
-                </div>
-                <div style="font-size: 13px; color: var(--mid)">
-                    of <strong id="tfTotal">0</strong> answered
-                </div>
+                <div><div class="score-num" id="tfScore">0</div><div style="font-size:12px;color:var(--mid)">correct</div></div>
+                <div style="font-size:13px;color:var(--mid)">of <strong id="tfTotal">0</strong> answered</div>
                 <button class="reset-btn" onclick="resetTF()">RESET</button>
             </div>
             <div class="tf-wrap" id="tfWrap"></div>
         </div>
-
         <div class="tab-panel" id="tab-exampractice">
             <h2 class="section-title">Exam Practice Questions</h2>
-            <p class="section-sub">
-                Full exam questions with case studies. Use <strong>Hint</strong>,
-                <strong>Sentence Starter</strong> and
-                <strong>Submit &amp; See Mark Scheme</strong> for each question.
-            </p>
+            <p class="section-sub">Reading comprehension and translation. Use <strong>Hint</strong>, <strong>Sentence Starter</strong> and <strong>Submit &amp; See Mark Scheme</strong>.</p>
             <div class="ep-list" id="epList"></div>
         </div>
     </main>
 
 <script>
-    // ══════════════════════════════════════
-    //  DATA: 8.1 Technology in Everyday Life — placeholder, content not yet written
-    // ══════════════════════════════════════
-    const pageMeta = {
-            id: '8-1-technology-in-everyday-life',
-            badge: 'AQA GCSE Spanish — Theme 3 · 8. Media and Technology',
-            title: '8.1 Technology in Everyday Life',
-            subtitle: 'Interactive revision guide',
-            subject: 'spanish',
-        };
+    // ══════════════════════════════════════════════════════════════════
+    //  DATA: 8.1 Technology in everyday life  (AQA 8692, Theme 3 Topic 2)
+    //  All taught Spanish is on the prescribed wordlist. Audible Spanish carries
+    //  data-say="…"; data-listen makes a prompt audio-only (no transcript shown).
+    //  Higher-tier items marked <span class="tier-h">H</span>. Option-writing follows
+    //  docs/QUESTION-AUTHORING.md (no length tell; distractors = real errors).
+    // ══════════════════════════════════════════════════════════════════
+    const pageMeta = { id: '8-1-technology-in-everyday-life', badge: 'AQA GCSE Spanish (8692) — Theme 3 · 8. Media and Technology', title: '8.1 Technology in Everyday Life', subtitle: 'Interactive study guide', subject: 'spanish' };
 
     const topics = [
         {
-            title: "This topic is being written",
-            tag: "Coming soon",
-            content: `<p>🚧 <strong>Content for this topic is on its way.</strong> Key Learning notes, practice questions and exam-style questions for <strong>8.1 Technology in Everyday Life</strong> will appear here soon.</p>`
+            title: "What technology vocabulary do I need?",
+            tag: "Key concept",
+            content: `<p>Devices and gadgets — <strong>los aparatos</strong>. Tap 🔊 to hear each one.</p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="el móvil">el móvil</span></td><td>the mobile phone</td><td><span data-say="el teléfono">el teléfono</span></td><td>the phone</td></tr>
+              <tr><td><span data-say="el ordenador">el ordenador</span></td><td>the computer</td><td><span data-say="la tableta">la tableta</span></td><td>the tablet</td></tr>
+              <tr><td><span data-say="el portátil">el portátil</span></td><td>the laptop</td><td><span data-say="internet">internet</span></td><td>the internet</td></tr>
+              <tr><td><span data-say="la aplicación">la aplicación</span></td><td>the app</td><td><span data-say="la pantalla">la pantalla</span></td><td>the screen</td></tr>
+            </table>
+            <p>Note the gender: <span data-say="el móvil">el móvil</span> and <span data-say="el ordenador">el ordenador</span> are both masculine, even though many tech words look like they could be feminine.</p>
+            <p>Model sentence: <span data-say="Tengo un móvil, una tableta y un portátil.">Tengo un móvil, una tableta y un portátil.</span> — <em>I have a mobile phone, a tablet and a laptop.</em></p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="cargar">cargar</span></td><td>to charge (a device)</td><td><span data-say="funcionar">funcionar</span></td><td>to work / to function</td></tr>
+            </table>
+            <p>Extra: <span data-say="Cargo el móvil todos los días porque si no, no funciona.">Cargo el móvil todos los días porque si no, no funciona.</span> — <em>I charge my phone every day because otherwise it doesn't work.</em></p>`,
+            readCheck: { q: "Which word means ‘the screen’?", opts: ["el ordenador", "la aplicación", "la pantalla", "el portátil"], ans: 2, explain: "la pantalla = the screen. The other three are all genuine device words, so read carefully." }
+        },
+        {
+            title: "How do I say what I do online?",
+            tag: "Key concept",
+            content: `<p>Everyday internet actions, all in the present tense (yo form):</p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="navego por internet">navegar por internet</span></td><td>to browse the internet</td><td><span data-say="mando mensajes">mandar / enviar mensajes</span></td><td>to send messages</td></tr>
+              <tr><td><span data-say="descargo aplicaciones">descargar</span></td><td>to download</td><td><span data-say="subo fotos">subir fotos</span></td><td>to upload photos</td></tr>
+              <tr><td><span data-say="busco información">buscar información</span></td><td>to search for information</td><td><span data-say="juego a videojuegos">jugar a videojuegos</span></td><td>to play videogames</td></tr>
+              <tr><td><span data-say="veo vídeos">ver vídeos</span></td><td>to watch videos</td><td><span data-say="hago los deberes">hacer los deberes</span></td><td>to do homework</td></tr>
+            </table>
+            <p>Model sentence: <span data-say="Todos los días navego por internet, mando mensajes y veo vídeos.">Todos los días navego por internet, mando mensajes y veo vídeos.</span></p>
+            <p>Extra: <span data-say="Guardo mis fotos favoritas y juego a un videojuego nuevo.">Guardo mis fotos favoritas y juego a un videojuego nuevo.</span> — <em>I save my favourite photos and I play a new video game.</em> A veces hay <span data-say="un retraso">un retraso</span> (a delay/lag) cuando intento <span data-say="conectar">conectar</span> el móvil a internet.</p>`,
+            readCheck: { q: "Which phrase means ‘to search for information’?", opts: ["subir fotos", "buscar información", "descargar aplicaciones", "mandar mensajes"], ans: 1, explain: "buscar información = to search for information. The others are real actions you do online, but different ones." }
+        },
+        {
+            title: "How do I say what something is used FOR? (para + infinitive)",
+            tag: "Exam skill",
+            content: `<p>To explain the purpose of a device, use <strong>para + infinitive</strong>. The verb after ‘para’ never changes — it always stays as the infinitive, whoever the subject is.</p>
+            <ul>
+              <li><span data-say="Uso el móvil para mandar mensajes.">Uso el móvil para mandar mensajes.</span> — I use my phone to send messages.</li>
+              <li><span data-say="Uso la tableta para ver vídeos.">Uso la tableta para ver vídeos.</span> — I use the tablet to watch videos.</li>
+              <li><span data-say="Usamos el ordenador para hacer los deberes.">Usamos el ordenador para hacer los deberes.</span> — We use the computer to do homework.</li>
+            </ul>
+            <p>Common error: writing <em>“para mando mensajes”</em> — conjugating the second verb instead of leaving it as the infinitive.</p>`,
+            readCheck: { q: "Which sentence correctly uses ‘para + infinitive’?", opts: ["Uso el móvil para mando mensajes", "Uso el móvil para mandando mensajes", "Uso el móvil para he mandado mensajes", "Uso el móvil para mandar mensajes"], ans: 3, explain: "After ‘para’ the verb must stay as the infinitive: mandar. The other three wrongly conjugate, use the gerund, or use the perfect tense." }
+        },
+        {
+            title: "How do I give opinions about technology?",
+            tag: "Exam skill",
+            content: `<p>Opinion adjectives for technology — tap 🔊:</p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="útil">útil</span></td><td>useful</td><td><span data-say="práctico">práctico</span></td><td>practical</td></tr>
+              <tr><td><span data-say="imprescindible">imprescindible</span></td><td>essential</td><td><span data-say="rápido">rápido</span></td><td>fast</td></tr>
+              <tr><td><span data-say="una pérdida de tiempo">una pérdida de tiempo</span></td><td>a waste of time</td><td><span data-say="adicto">adicto / adicta</span></td><td>addicted</td></tr>
+            </table>
+            <p>Use <strong>gustar</strong> / <strong>encantar</strong> — the verb agrees with what follows, not with you:</p>
+            <ul>
+              <li>ONE thing / an infinitive → <span data-say="me gusta">me gusta</span>: <span data-say="Me gusta navegar por internet.">Me gusta navegar por internet.</span></li>
+              <li>MORE THAN ONE thing → <span data-say="me encantan">me encantan</span>: <span data-say="Me encantan los videojuegos.">Me encantan los videojuegos.</span></li>
+            </ul>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="claro">claro / clara</span></td><td>clear, light</td><td><span data-say="especial">especial</span></td><td>special</td></tr>
+            </table>
+            <p>Extra: <span data-say="Esta foto es muy clara y el videojuego es especial e increíble.">Esta foto es muy clara y el videojuego es especial e increíble.</span> — <em>This photo is very clear and the video game is special and incredible.</em></p>`,
+            readCheck: { q: "Which sentence is grammatically correct?", opts: ["Me encanta los videojuegos", "Me encantan los videojuegos", "Me encantas los videojuegos", "Me encantamos los videojuegos"], ans: 1, explain: "‘los videojuegos’ is plural, so the verb agrees in the plural: encantan. Like gustar, encantar agrees with what follows, not with the speaker." }
+        },
+        {
+            title: "How do I say how often I use technology?",
+            tag: "Key concept",
+            content: `<p>Frequency expressions — combine with a reason using <strong>porque</strong>:</p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="todos los días">todos los días</span></td><td>every day</td></tr>
+              <tr><td><span data-say="siempre">siempre</span></td><td>always</td></tr>
+              <tr><td><span data-say="a menudo">a menudo</span></td><td>often</td></tr>
+              <tr><td><span data-say="nunca">nunca</span></td><td>never</td></tr>
+            </table>
+            <p>Example: <span data-say="Uso el móvil todos los días porque es muy práctico.">Uso el móvil todos los días porque es muy práctico.</span> — <em>I use my phone every day because it is very practical.</em></p>
+            <p>Extra: <span data-say="Paso solo un minuto en la aplicación antes de pasar a la siguiente.">Paso solo un minuto en la aplicación antes de pasar a la siguiente.</span> — <em>I spend only a minute on the app before moving on to the next one.</em> Mi <span data-say="último móvil">último móvil</span> es mucho más rápido. — <em>My latest phone is much faster.</em></p>`,
+            readCheck: { q: "Which phrase means ‘often’?", opts: ["siempre", "nunca", "todos los días", "a menudo"], ans: 3, explain: "a menudo = often. siempre = always, nunca = never, todos los días = every day — all real frequency words, but different meanings." }
+        },
+        {
+            title: "Higher: advantages, disadvantages and the subjunctive",
+            tag: "Higher tier",
+            content: `<p><span class="tier-h">H</span> Structure an advantage or a disadvantage with <strong>es que</strong>:</p>
+            <ul>
+              <li><span data-say="Una ventaja de la tecnología es que es muy útil.">Una ventaja de la tecnología es que es muy útil.</span> — An advantage of technology is that it is very useful.</li>
+              <li><span data-say="Una desventaja es que es fácil hacerse adicto.">Una desventaja es que es fácil hacerse adicto.</span> — A disadvantage is that it is easy to become addicted.</li>
+            </ul>
+            <p><span class="tier-h">H</span> After <strong>es importante que</strong> the verb switches into the <strong>subjunctive</strong>:</p>
+            <ul>
+              <li><span data-say="Es importante que uses el móvil con cuidado.">Es importante que uses el móvil con cuidado.</span> <span class="tier-h">H</span> — It is important that you use your phone carefully.</li>
+            </ul>
+            <p><span class="tier-h">H</span> <span data-say="Un beneficio de la tecnología es la creación de aplicaciones nuevas cada día.">Un beneficio de la tecnología es la creación de aplicaciones nuevas cada día.</span> — <em>A benefit of technology is the creation of new apps every day.</em></p>`,
+            readCheck: { q: "Which sentence correctly uses the subjunctive after ‘es importante que’?", opts: ["Es importante que usas el móvil con cuidado", "Es importante que usa el móvil con cuidado", "Es importante que uses el móvil con cuidado", "Es importante que usar el móvil con cuidado"], ans: 2, explain: "es importante que triggers the subjunctive: uses. The other options wrongly use the indicative (usas/usa) or the infinitive (usar)." }
+        },
+        {
+            title: "More verbs for describing how I use technology",
+            tag: "Key concept",
+            content: `<p>Extra verbs that come up constantly when you describe your everyday tech habits — tap 🔊:</p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="encontrar">encontrar</span></td><td>to find</td><td><span data-say="entrar">entrar (en)</span></td><td>to enter / to log into</td></tr>
+              <tr><td><span data-say="abrir">abrir</span></td><td>to open</td><td><span data-say="continuar">continuar</span></td><td>to continue</td></tr>
+              <tr><td><span data-say="mover">mover</span></td><td>to move</td><td><span data-say="crecer">crecer</span></td><td>to grow</td></tr>
+              <tr><td><span data-say="escoger">escoger</span></td><td>to choose</td></tr>
+            </table>
+            <p>Model sentences: <span data-say="Encuentro muchas aplicaciones útiles en internet.">Encuentro muchas aplicaciones útiles en internet.</span> — <em>I find lots of useful apps on the internet.</em> <span data-say="Entro en la aplicación todos los días.">Entro en la aplicación todos los días.</span> — <em>I log into the app every day.</em></p>
+            <p><span data-say="Abro la aplicación y continúo navegando después de cenar.">Abro la aplicación y continúo navegando después de cenar.</span> — <em>I open the app and continue browsing after dinner.</em> A veces la pantalla <span data-say="se abre">se abre</span> sola cuando el móvil se cae. — <em>Sometimes the screen opens by itself when the phone falls.</em></p>
+            <p>Extra: <span data-say="Muevo los archivos a otra carpeta y escojo el mejor móvil según el precio.">Muevo los archivos a otra carpeta y escojo el mejor móvil según el precio.</span> — <em>I move the files to another folder and I choose the best phone according to the price.</em> <span data-say="La tecnología crece muy rápido cada año.">La tecnología crece muy rápido cada año.</span> — <em>Technology grows very fast every year.</em></p>`,
+            readCheck: { q: "Which verb means ‘to grow’?", opts: ["crecer", "escoger", "continuar", "encontrar"], ans: 0, explain: "crecer = to grow. escoger (to choose), continuar (to continue) and encontrar (to find) are all real everyday verbs, but different meanings." }
         }
     ];
 
-    const mcqData = [];
-    const matchData = [];
-    const fibData = [];
-    const fibWords = [];
-    const tfData = [];
-    const miscData = [];
-    const examTips = [];
-    const flashcards = [];
-    const examQuestions = [];
+    const mcqData = [
+        { q: `<span data-say="Uso el móvil para mandar mensajes." data-listen></span><br>Listen. What is the phone used for?`, opts: ["sending messages", "downloading photos", "doing homework", "playing videogames"], ans: 0, explain: "‘uso el móvil para mandar mensajes’ = I use my phone to send messages. The other three are real tech actions, but not this one." },
+        { q: `<span data-say="Navego por internet todos los días." data-listen></span><br>Listen. What does the speaker do?`, opts: ["I browsed the internet only once", "I browse the internet every day", "I never go on the internet at all", "I will browse the internet tomorrow"], ans: 1, explain: "‘navego … todos los días’ = present tense + every day. The traps swap in the preterite, a negative, and the future." },
+        { q: "How do you say ‘I download apps’ in Spanish?", opts: ["Descargar aplicaciones", "Descargando aplicaciones", "Descargo aplicaciones", "Descargado aplicaciones"], ans: 2, explain: "‘I download’ needs the present tense (yo) form: descargo. The others are the infinitive, gerund and past participle." },
+        { q: "Complete: ‘Uso la tableta para ___ vídeos.’", opts: ["veo", "viendo", "visto", "ver"], ans: 3, explain: "‘para’ is always followed by the infinitive: ver. veo/viendo/visto are all wrongly conjugated or non-infinitive forms." },
+        { q: "Which is correct: ‘Me ___ los videojuegos.’", opts: ["gusta", "gustan", "gustas", "gustamos"], ans: 1, explain: "‘los videojuegos’ is plural, so gustar agrees in the plural: gustan." },
+        { q: "‘una pérdida de tiempo’ means…", opts: ["a loss of signal", "a useful invention", "a waste of time", "a broken screen"], ans: 2, explain: "una pérdida de tiempo = a waste of time. The distractors are all plausible tech-related meanings, but wrong." },
+        { q: "Which word means ‘practical’?", opts: ["rápido", "útil", "imprescindible", "práctico"], ans: 3, explain: "práctico = practical. rápido = fast, útil = useful, imprescindible = essential — all real opinion adjectives, easily confused." },
+        { q: "Complete: ‘Es importante que ___ el móvil con cuidado.’", opts: ["uses", "usas", "usa", "usar"], ans: 0, explain: "‘es importante que’ triggers the subjunctive: uses. usas/usa are indicative, usar is the infinitive." },
+        { q: "Which sentence gives a DISADVANTAGE of technology?", opts: ["Una ventaja es que es rápido y muy práctico", "Es rápido y práctico", "Una desventaja es que es adictiva", "Me encanta navegar por internet mucho"], ans: 2, explain: "‘una desventaja es que es adictiva’ names an actual disadvantage. Option A is an advantage, and length is not a clue — it is the longest option here and still wrong." },
+        { q: `<span data-say="Subo fotos a la aplicación." data-listen></span><br>Listen. What does the person do?`, opts: ["downloads photos from the app", "uploads photos to the app", "deletes photos from the phone", "sends photos to a friend"], ans: 1, explain: "‘subo fotos a la aplicación’ = I upload photos to the app. subir (to upload) is easily confused with descargar (to download) — that is exactly the trap in option A." },
+        { q: "Which verb means ‘to charge’ (a device)?", opts: ["cargar", "guardar", "funcionar", "conectar"], ans: 0, explain: "cargar = to charge. guardar (to save), funcionar (to work) and conectar (to connect) are all real tech verbs, but different actions." },
+        { q: "Complete: ‘Mi móvil no ___ bien hoy.’ (doesn’t work well today)", opts: ["funciona", "funcionando", "carga", "conecta"], ans: 0, explain: "The conjugated present-tense form is needed: funciona. funcionando wrongly uses the gerund; carga/conecta are the wrong verb entirely." },
+        { q: "Which word means ‘to connect’?", opts: ["conectar", "cargar", "guardar", "funcionar"], ans: 0, explain: "conectar = to connect. The others are real tech verbs (to charge, to save, to work) but not this one." },
+        { q: `<span data-say="Hay un retraso en la aplicación." data-listen></span><br>Listen. What is the problem?`, opts: ["There is a delay in the app", "There is a new app available", "The app has been deleted", "The app is very fast today"], ans: 0, explain: "‘hay un retraso’ = there is a delay/lag. The traps invent an unrelated update, deletion or speed." },
+        { q: "Which is the correct Spanish for ‘video game’?", opts: ["el videojuego", "la videojuega", "el video juego", "los videojuego"], ans: 0, explain: "el videojuego is one word, masculine, singular. The others wrongly change the gender ending, split it into two words, or use a plural article with a singular noun." },
+        { q: "Which phrase means ‘to save photos’?", opts: ["guardar fotos", "subir fotos", "descargar fotos", "buscar fotos"], ans: 0, explain: "guardar fotos = to save photos. subir (upload), descargar (download) and buscar (search for) are all real, easily confused tech verbs." },
+        { q: "Complete: ‘Uso la nube para ___ mis fotos.’ (to save)", opts: ["guardar", "guardando", "guardo", "guardado"], ans: 0, explain: "‘para’ is always followed by the infinitive: guardar. guardando/guardo/guardado are the gerund, conjugated and past-participle forms." },
+        { q: "Which word means ‘incredible’?", opts: ["increíble", "especial", "último", "siguiente"], ans: 0, explain: "increíble = incredible. especial (special), último (last) and siguiente (next) are real opinion/sequence words, but different meanings." },
+        { q: "Which phrase means ‘a benefit of technology’?", opts: ["un beneficio de la tecnología", "una ventaja de la tecnología", "una creación de la tecnología", "un impacto de la tecnología"], ans: 0, explain: "beneficio = benefit. ventaja (advantage), creación (creation) and impacto (impact) are all real, similar abstract nouns used about technology." },
+        { q: "Which phrase means ‘a minute’?", opts: ["un minuto", "una hora", "un día", "una semana"], ans: 0, explain: "un minuto = a minute. hora (hour), día (day) and semana (week) are all real time units, but longer periods." },
+        { q: "Which word means ‘clear’ or ‘light’ (describing a colour or a picture)?", opts: ["claro", "oscuro", "especial", "siguiente"], ans: 0, explain: "claro = clear/light. oscuro (dark) is its direct opposite; especial (special) and siguiente (next) are real adjectives, but different meanings." },
+        { q: "Which word means ‘next’ or ‘following’?", opts: ["siguiente", "anterior", "último", "penúltimo"], ans: 0, explain: "siguiente = next/following. anterior (previous), último (last) and penúltimo (second-to-last) are all genuine sequence words that a student can easily mix up." },
+        { q: "Which word means ‘last’ or ‘latest’?", opts: ["último", "siguiente", "especial", "increíble"], ans: 0, explain: "último = last/latest. siguiente (next), especial (special) and increíble (incredible) are real describing words, but different meanings." },
+        { q: "Which word means ‘special’?", opts: ["especial", "claro", "siguiente", "increíble"], ans: 0, explain: "especial = special. claro (clear/of course), siguiente (next) and increíble (incredible) are all real adjectives easily confused with it." },
+        { q: "Which word means ‘creation’?", opts: ["creación", "creador", "crear", "creativo"], ans: 0, explain: "creación (noun) = creation. creador (creator), crear (to create) and creativo (creative) are the same word family in a different form — a classic part-of-speech mix-up." },
+        { q: "Which verb means ‘to enter’ or ‘to log into’ (an app)?", opts: ["entrar", "salir", "abrir", "cerrar"], ans: 0, explain: "entrar (en) = to enter/log into. salir (to exit), abrir (to open) and cerrar (to close) are all real related actions, but different ones." },
+        { q: `<span data-say="Escojo el mejor móvil según el precio." data-listen></span><br>Listen. What is the person doing?`, opts: ["choosing the best phone based on price", "buying the most expensive phone available", "finding a cheap phone online for a friend", "comparing two identical phones before buying"], ans: 0, explain: "‘escojo el mejor móvil según el precio’ = I choose the best phone according to the price. escoger = to choose, not to buy or compare." },
+        { q: "Complete: ‘La tecnología ___ muy rápido cada año.’ (grows)", opts: ["crece", "creciendo", "crecido", "crecer"], ans: 0, explain: "The conjugated present-tense form is needed: crece. creciendo is the gerund, crecido the past participle, crecer the infinitive." },
+        { q: "Which verb means ‘to move’ (e.g. files)?", opts: ["mover", "guardar", "cargar", "borrar"], ans: 0, explain: "mover = to move. guardar (to save), cargar (to charge) and borrar (to delete) are all real device actions, but different ones." },
+        { q: "Complete: ‘Abro la aplicación y ___ navegando.’ (I continue)", opts: ["continúo", "continuando", "continuado", "continuar"], ans: 0, explain: "The conjugated present-tense (yo) form is needed: continúo. The others are the gerund, past participle and infinitive." },
+        { q: "Which verb means ‘to find’ (the result of searching)?", opts: ["encontrar", "buscar", "descargar", "escoger"], ans: 0, explain: "encontrar = to find. buscar (to search for) is the verb for the action before you find something — a common mix-up; descargar (to download) and escoger (to choose) are unrelated actions." }
+    ];
+
+    const matchData = [
+        { term: "el móvil", def: "the mobile phone" },
+        { term: "el ordenador", def: "the computer" },
+        { term: "la tableta", def: "the tablet" },
+        { term: "el portátil", def: "the laptop" },
+        { term: "la aplicación", def: "the app" },
+        { term: "la pantalla", def: "the screen" },
+        { term: "navegar por internet", def: "to browse the internet" },
+        { term: "mandar mensajes", def: "to send messages" },
+        { term: "descargar", def: "to download" },
+        { term: "subir fotos", def: "to upload photos" },
+        { term: "buscar información", def: "to search for information" },
+        { term: "una pérdida de tiempo", def: "a waste of time" },
+        { term: "cargar", def: "to charge (a device)" },
+        { term: "funcionar", def: "to work / to function" },
+        { term: "guardar", def: "to save" },
+        { term: "conectar", def: "to connect" },
+        { term: "el retraso", def: "the delay" },
+        { term: "el videojuego", def: "the video game" },
+        { term: "claro / clara", def: "clear, light" },
+        { term: "último", def: "last / latest" },
+        { term: "siguiente", def: "next / following" },
+        { term: "especial", def: "special" },
+        { term: "el minuto", def: "the minute" },
+        { term: "la creación", def: "the creation" },
+        { term: "el beneficio", def: "the benefit" },
+        { term: "increíble", def: "incredible" },
+        { term: "vuestro / vuestra", def: "your (plural, familiar)" },
+        { term: "pesado", def: "heavy / annoying, boring" },
+        { term: "fatal", def: "awful / terrible" },
+        { term: "lo bueno", def: "the good thing" },
+        { term: "encontrar", def: "to find" },
+        { term: "entrar (en)", def: "to enter / to log into" },
+        { term: "abrir; abrirse", def: "to open; to open by itself" },
+        { term: "continuar", def: "to continue" },
+        { term: "mover", def: "to move" },
+        { term: "crecer", def: "to grow" },
+        { term: "escoger", def: "to choose" }
+    ];
+
+    const fibData = [
+        { display: `Uso el _____ para navegar por internet. <span data-say="Uso el móvil para navegar por internet." data-listen></span>`, blanks: { B1: "móvil" } },
+        { display: `Mando _____ a mis amigos todos los días. <span data-say="Mando mensajes a mis amigos todos los días." data-listen></span>`, blanks: { B1: "mensajes" } },
+        { display: `Descargo _____ en mi tableta. (apps)`, blanks: { B1: "aplicaciones" } },
+        { display: `Uso el ordenador para _____ los deberes. (to do)`, blanks: { B1: "hacer" } },
+        { display: `Internet es muy _____ para buscar información. (useful)`, blanks: { B1: "útil" } },
+        { display: `Paso demasiado tiempo en el móvil — ¡soy _____! (addicted)`, blanks: { B1: "adicto" } },
+        { display: `_____ por internet es una pérdida de tiempo, en mi opinión. (browsing)`, blanks: { B1: "Navegar" } },
+        { display: `Tengo que _____ el móvil porque la batería está baja. (to charge)`, blanks: { B1: "cargar" } },
+        { display: `Mi ordenador no _____ bien hoy. <span data-say="Mi ordenador no funciona bien hoy." data-listen></span>`, blanks: { B1: "funciona" } },
+        { display: `Quiero _____ mi portátil a internet. (to connect)`, blanks: { B1: "conectar" } },
+        { display: `Hay un _____ en la aplicación esta noche. <span data-say="Hay un retraso en la aplicación esta noche." data-listen></span>`, blanks: { B1: "retraso" } },
+        { display: `Solo tengo un _____ para revisar mis mensajes. (minute)`, blanks: { B1: "minuto" } },
+        { display: `Un _____ de la tecnología es que puedes aprender cosas nuevas. (benefit)`, blanks: { B1: "beneficio" } },
+        { display: `_____ el mejor móvil según el precio. (I choose)`, blanks: { B1: "Escojo" } },
+        { display: `La aplicación se _____ automáticamente cuando enciendo el móvil. (opens)`, blanks: { B1: "abre" } },
+        { display: `_____ muchas aplicaciones útiles en internet. (I find)`, blanks: { B1: "Encuentro" } }
+    ];
+    const fibWords = ["móvil", "mensajes", "aplicaciones", "hacer", "útil", "adicto", "Navegar", "cargar", "funciona", "conectar", "retraso", "minuto", "beneficio", "Escojo", "abre", "Encuentro"];
+
+    const tfData = [
+        { statement: "After ‘para’, the verb always stays as the infinitive.", answer: true, explanation: "para mandar mensajes, para ver vídeos — never conjugated after para." },
+        { statement: "‘El móvil’ is a feminine noun, so it should be ‘la móvil’.", answer: false, explanation: "móvil is masculine: el móvil, even though many tech words end differently." },
+        { statement: "‘Me gustan los videojuegos’ is correct because ‘videojuegos’ is plural.", answer: true, explanation: "gustar (and encantar) agree with what follows, not with the speaker." },
+        { statement: "‘Descargar’ means ‘to upload’.", answer: false, explanation: "descargar = to download; subir = to upload — opposite actions." },
+        { statement: "‘todos los días’ means ‘some days’.", answer: false, explanation: "todos los días = every day, not ‘some days’." },
+        { statement: "‘Es importante que uses el móvil con cuidado’ uses the subjunctive.", answer: true, explanation: "es importante que triggers the subjunctive: uses (Higher tier)." },
+        { statement: "‘una ventaja’ means ‘a disadvantage’.", answer: false, explanation: "una ventaja = an advantage; una desventaja = a disadvantage." },
+        { statement: "‘adicto/a’ agrees with gender like a normal adjective.", answer: true, explanation: "soy adicto (masc.) / soy adicta (fem.)." },
+        { statement: "‘guardar’ means ‘to look at’ a photo.", answer: false, explanation: "guardar = to save, not to look at (mirar = to look at)." },
+        { statement: "‘el retraso’ means ‘a delay’.", answer: true, explanation: "el retraso = a delay/lag — useful when technology is slow to connect." },
+        { statement: "‘entrar’ means ‘to exit’.", answer: false, explanation: "entrar = to enter/log into; salir = to exit — opposite actions." },
+        { statement: "‘crecer’ means ‘to grow’.", answer: true, explanation: "crecer = to grow, e.g. la tecnología crece muy rápido." }
+    ];
+
+    const miscData = [
+        { wrong: "Uso el móvil para mando mensajes.", correct: "Uso el móvil para mandar mensajes.", readCheck: { q: "What is the error in ‘para mando mensajes’?", opts: ["‘para’ should be replaced with ‘por’, since ‘por’ introduces the reason for an action", "‘para’ must be followed by the infinitive, not a conjugated verb", "‘mensajes’ needs the definite article ‘los’", "‘mando’ should be spelled ‘mandó’"], ans: 1, explain: "‘para’ is always followed by the infinitive: mandar, not the conjugated ‘mando’." } },
+        { wrong: "Me gusta los videojuegos.", correct: "Me gustan los videojuegos.", readCheck: { q: "Why must it be ‘gustan’, not ‘gusta’, here?", opts: ["‘gustar’ is always used in the plural form because it never changes for a singular subject", "‘los videojuegos’ is plural, so the verb agrees in the plural", "‘videojuegos’ is a feminine noun", "‘me’ should be changed to ‘te’"], ans: 1, explain: "gustar agrees with what follows: plural noun → gustan." } },
+        { wrong: "Descargar significa ‘subir’.", correct: "Descargar significa ‘to download’; subir = ‘to upload’.", readCheck: { q: "What is the real difference between ‘descargar’ and ‘subir’?", opts: ["‘descargar’ is only used for photos, ‘subir’ for apps, so the two words never overlap", "there is no difference — both are correct", "‘descargar’ = to download, ‘subir’ = to upload (opposite actions)", "they are two different ways to say the same action"], ans: 2, explain: "descargar and subir are opposite actions — download vs. upload — a very common mix-up." } },
+        { wrong: "La móvil es muy útil.", correct: "El móvil es muy útil.", readCheck: { q: "Why is ‘El móvil’ correct, not ‘La móvil’?", opts: ["adjectives always take the article ‘la’", "‘útil’ forces the article to be feminine because adjectives agree with a nearby word", "‘móvil’ is a feminine noun ending in -a", "‘móvil’ is a masculine noun, even though many tech words are feminine"], ans: 3, explain: "el móvil is masculine — gender must be learned per word, not guessed from meaning." } },
+        { wrong: "Es importante que usas el móvil con cuidado.", correct: "Es importante que uses el móvil con cuidado.", readCheck: { q: "Why does ‘es importante que’ need ‘uses’, not ‘usas’?", opts: ["‘usas’ is the correct form and ‘uses’ is wrong because the indicative always follows ‘que’", "‘es importante que’ triggers the subjunctive (uses), not the indicative", "‘uses’ is the plural form of ‘usar’", "‘que’ should be removed from the sentence"], ans: 1, explain: "es importante que is a subjunctive trigger — the following verb must be uses, not the indicative usas." } }
+    ];
+
+    const examTips = [
+        { type: "tip", title: "Paper 1 — Listening & dictation", pills: ["Listening", "Dictation"], content: "Listen for the device (el móvil, la tableta, el ordenador…) and the purpose after ‘para’, which is always an infinitive: para hacer los deberes, para mandar mensajes. Don’t confuse descargar (download) with subir (upload) — they sound different but are easy to mix up under pressure.", readCheck: { q: "You hear ‘Uso el ordenador para hacer los deberes.’ What is the computer used for?", opts: ["sending messages", "browsing social media", "doing homework", "downloading apps"], ans: 2, explain: "para hacer los deberes = to do homework." } },
+        { type: "tip", title: "Paper 3 — Reading & translation into English", pills: ["Reading", "Translation"], content: "Translate para + infinitive naturally: ‘uso el móvil para navegar por internet’ = ‘I use my phone to browse the internet’, not a clumsy word-for-word version. Learn device words precisely — el portátil (laptop) is not the same word as el ordenador (computer).", readCheck: { q: "‘Prefiero mi portátil porque es más rápido’ translates as…", opts: ["I prefer my laptop because it is faster", "I prefer my computer because it is slower", "I prefer my tablet because it is cheaper", "I prefer my phone because it is newer"], ans: 0, explain: "portátil = laptop; más rápido = faster." } },
+        { type: "evaluate", title: "Paper 4 — Writing & translation into Spanish", pills: ["Writing", "Higher"], content: "Combine a device, a use, an opinion and a reason: ‘Uso el móvil todos los días para mandar mensajes, pero creo que una desventaja es que es fácil hacerse adicto.’ At Higher, add the subjunctive: ‘es importante que uses el móvil con cuidado’.", readCheck: { q: "Which Spanish sentence reaches the top band for this topic?", opts: ["Uso el móvil todos los días para mando mensajes y veo vídeos, pero pienso que es muy útil, rápido y práctico para todo tipo de cosas", "Uso internet", "Es útil y rápido", "Uso el móvil todos los días para mandar mensajes, pero creo que una desventaja es que es fácil hacerse adicto"], ans: 3, explain: "Range + accuracy win: a device, a use, a linked disadvantage — all grammatically correct. Option A is longer but contains a ‘para mando’ error, proving length is not a reliable clue." } }
+    ];
+
+    const flashcards = [
+        { term: "el móvil", def: "the mobile phone", say: "el móvil" },
+        { term: "el ordenador", def: "the computer", say: "el ordenador" },
+        { term: "la tableta", def: "the tablet", say: "la tableta" },
+        { term: "el portátil", def: "the laptop", say: "el portátil" },
+        { term: "la aplicación (la app)", def: "the app", say: "la aplicación" },
+        { term: "la pantalla", def: "the screen", say: "la pantalla" },
+        { term: "navegar por internet", def: "to browse the internet", say: "navegar por internet" },
+        { term: "mandar mensajes", def: "to send messages", say: "mandar mensajes" },
+        { term: "descargar", def: "to download", say: "descargar" },
+        { term: "subir fotos", def: "to upload photos", say: "subir fotos" },
+        { term: "buscar información", def: "to search for information", say: "buscar información" },
+        { term: "jugar a videojuegos", def: "to play videogames", say: "jugar a videojuegos" },
+        { term: "hacer los deberes", def: "to do homework", say: "hacer los deberes" },
+        { term: "útil / práctico", def: "useful / practical", say: "útil, práctico" },
+        { term: "una pérdida de tiempo", def: "a waste of time", say: "una pérdida de tiempo" },
+        { term: "adicto / adicta (H)", def: "addicted", say: "soy adicto al móvil" },
+        { term: "todos los días / a menudo", def: "every day / often", say: "todos los días, a menudo" },
+        { term: "es importante que uses… (H)", def: "it is important that you use… (subjunctive)", say: "es importante que uses el móvil con cuidado" },
+        { term: "cargar", def: "to charge (a device)", say: "cargar el móvil" },
+        { term: "funcionar", def: "to work / to function", say: "funcionar" },
+        { term: "guardar", def: "to save", say: "guardar fotos" },
+        { term: "conectar", def: "to connect", say: "conectar a internet" },
+        { term: "el retraso (H)", def: "the delay / lag", say: "hay un retraso" },
+        { term: "el videojuego", def: "the video game", say: "el videojuego" },
+        { term: "claro / clara", def: "clear, light (colour/picture)", say: "una foto muy clara" },
+        { term: "último / última", def: "last / latest", say: "el último móvil" },
+        { term: "siguiente", def: "next / following", say: "la siguiente aplicación" },
+        { term: "especial", def: "special", say: "una aplicación especial" },
+        { term: "el minuto", def: "the minute", say: "un minuto" },
+        { term: "la creación", def: "the creation", say: "la creación de aplicaciones" },
+        { term: "el beneficio (H)", def: "the benefit", say: "un beneficio de la tecnología" },
+        { term: "increíble", def: "incredible", say: "increíble" },
+        { term: "vuestro / vuestra (H)", def: "your (plural, familiar)", say: "vuestro móvil" },
+        { term: "pesado / pesada (H)", def: "heavy / annoying, boring", say: "es un poco pesado" },
+        { term: "fatal (H)", def: "awful, terrible", say: "fatal" },
+        { term: "lo bueno", def: "the good thing", say: "lo bueno es que es rápido" },
+        { term: "encontrar", def: "to find", say: "encontrar información" },
+        { term: "entrar (en)", def: "to enter / to log into", say: "entrar en la aplicación" },
+        { term: "abrir; abrirse", def: "to open; to open by itself", say: "abrir la aplicación" },
+        { term: "continuar", def: "to continue", say: "continuar navegando" },
+        { term: "mover", def: "to move", say: "mover los archivos" },
+        { term: "crecer", def: "to grow", say: "la tecnología crece" },
+        { term: "escoger", def: "to choose", say: "escoger el mejor móvil" }
+    ];
+
+    const EXAM_CASE_STUDIES = {
+        "carlos-tech": `<p><strong>Lee lo que dice Carlos.</strong></p>
+        <p><em>"Tengo un móvil y una tableta, pero prefiero mi portátil porque es más rápido. Todos los días uso internet para hacer los deberes y buscar información. También me encanta descargar aplicaciones nuevas, aunque a veces subo demasiadas fotos a las redes. Sin embargo, creo que una desventaja de la tecnología es que es fácil hacerse adicto. Por eso, es importante que use el móvil con cuidado."</em></p>`
+    };
+
+    const examQuestions = [
+        {
+            num: 1, marks: 4, type: "written", caseId: "carlos-tech",
+            question: "Read what Carlos says. Answer <strong>in English</strong>.<br>(a) Name <strong>one</strong> device Carlos has, other than his laptop. (1)<br>(b) Why does he prefer his laptop? (1)<br>(c) Name <strong>one</strong> thing he uses the internet for every day. (1)<br>(d) According to Carlos, what is a disadvantage of technology? (1)",
+            hint: "Find the devices in the first sentence, the reason after ‘porque’, the daily uses after ‘uso internet para’, and the disadvantage after ‘una desventaja … es que’.",
+            starter: "(a) He has… (b) Because… (c) He uses it to… (d) A disadvantage is that…",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 4 marks (AO3 Reading)</h5><ul>
+                <li><strong>(a)</strong> a mobile phone / a tablet (ANY ONE) <em>(1)</em>.</li>
+                <li><strong>(b)</strong> (because) it is faster <em>(1)</em>.</li>
+                <li><strong>(c)</strong> doing homework / searching for information (ANY ONE) <em>(1)</em>.</li>
+                <li><strong>(d)</strong> it is easy to become addicted <em>(1)</em>.</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+                <li>Answers in English; do not penalise spelling if the meaning is clear.</li>
+            </ul></div>`,
+            modelAnswer: "(a) A mobile phone (or a tablet). (b) Because it is faster. (c) Doing homework (or searching for information). (d) It is easy to become addicted.",
+            markPoints: { note: "One tick per correct detail; cap at 4.", groups: [
+                { label: "(a) a device — 1", max: 1, points: ["mobile phone OR tablet"] },
+                { label: "(b) reason — 1", max: 1, points: ["it is faster"] },
+                { label: "(c) daily use — 1", max: 1, points: ["homework / searching for information"] },
+                { label: "(d) disadvantage — 1", max: 1, points: ["easy to become addicted"] }
+            ] }
+        },
+        {
+            num: 2, marks: 5, type: "written",
+            question: "Translate these sentences <strong>into Spanish</strong>.<br>(a) I use my mobile to send messages. <br>(b) Downloading apps is very practical. <br>(c) I think that the internet is very useful because it is fast.",
+            hint: "‘I use my mobile to…’ = Uso mi móvil para + infinitive. ‘Downloading apps’ = Descargar aplicaciones. ‘I think that’ = Creo que…",
+            starter: "(a) Uso mi móvil para… (b) Descargar aplicaciones es… (c) Creo que internet es…",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 5 marks (AO4 Writing: translation)</h5><ul>
+                <li><strong>(a)</strong> Uso mi móvil para mandar mensajes. <em>(1)</em></li>
+                <li><strong>(b)</strong> Descargar aplicaciones es muy práctico. <em>(1)</em></li>
+                <li><strong>(c)</strong> Creo que <em>(1)</em> internet es muy útil <em>(1)</em> porque es rápido <em>(1)</em>.</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+                <li>Accept minor accent errors. ‘para mandar’ must keep the infinitive, not a conjugated verb.</li>
+            </ul></div>`,
+            modelAnswer: "(a) Uso mi móvil para mandar mensajes. (b) Descargar aplicaciones es muy práctico. (c) Creo que internet es muy útil porque es rápido.",
+            markPoints: { note: "One tick per scheme point; cap at 5.", groups: [
+                { label: "(a)", max: 1, points: ["Uso mi móvil para mandar mensajes"] },
+                { label: "(b)", max: 1, points: ["Descargar aplicaciones es muy práctico"] },
+                { label: "(c)", max: 3, points: ["Creo que", "internet es muy útil", "porque es rápido"] }
+            ] }
+        }
+    ];
 </script>
+
+    <!-- Spanish voice capability (SPANISH-CONTENT-PLAN.md §8.1). Self-installs the 🔊
+         buttons + speed/voice panel + tab observer. Loads before /script.js. -->
     <script src="/speech.js"></script>
+    <!-- Exam self-marking: tick-the-mark-scheme panel (shared with CS / Additional Maths;
+         docs/SELF-MARK-POINTS-AUTHORING.md). -->
     <script src="/cs-lab/exam-widgets.js"></script>
     <script src="/script.js"></script>
-<script src="section-totals.js"></script>
-<script src="page-groups.js"></script>
-<script src="/progress-shared.js"></script>
-<script src="/gamification.js"></script>
-<script src="/topic-guard.js"></script>
-<script src="/notifications-shared.js"></script>
-<script src="/onboarding-tour.js"></script>
-<script src="/footer-legal.js"></script>
+    <script src="section-totals.js"></script>
+    <script src="page-groups.js"></script>
+    <script src="/progress-shared.js"></script>
+    <script src="/gamification.js"></script>
+    <script src="/topic-guard.js"></script>
+    <script src="/notifications-shared.js"></script>
+    <script src="/onboarding-tour.js"></script>
+    <script src="/footer-legal.js"></script>
 </body>
 
 </html>

@@ -550,6 +550,7 @@
      margin-top: 12px;
      border-top: 1px solid var(--border);
      padding-top: 12px;
+     container-type: inline-size; /* lets .vocab-tbl react to its OWN rendered width, not the viewport — needed since e.g. the Review Calendar modal is a fixed 600px box on any screen size */
  }
 
  .topic-card.open .topic-content {
@@ -2064,6 +2065,38 @@
  .case-study-text table {
      margin-top: 4px;
      margin-bottom: 4px;
+ }
+
+ /* ── Teaching-content tables (global) ──────────────────────────────
+    Tables authored inside the learning tabs (character-code tables, unit
+    ladders, worked-example steps, comparison grids) are plain <table> with
+    no class, so without this they render as borderless floating columns
+    that are hard to read. Give every plain table OUTSIDE the exam tab a
+    thin, theme-aware bordered grid. Scope notes:
+      • :not(#tab-exampractice) leaves the exam tab alone, so exam-question
+        tables (.ep-question table), case-study tables (.ep-case table) and
+        interactive widget tables (.csew-grids-table) keep their own styling.
+      • table:not([class]) skips deliberately-classed tables such as
+        .case-table and .csew-grids-table so their bespoke CSS still wins.
+    This is a global fix: every subject/page that loads style.css inherits it,
+    so new topic pages get bordered tables automatically — authors just write
+    a normal <table> with a <th> header row. */
+ .tab-panel:not(#tab-exampractice) table:not([class]) {
+     border-collapse: collapse;
+     margin: 12px 0 16px;
+     font-size: 14px;
+     max-width: 100%;
+ }
+ .tab-panel:not(#tab-exampractice) table:not([class]) th,
+ .tab-panel:not(#tab-exampractice) table:not([class]) td {
+     border: 1px solid var(--border);
+     padding: 7px 11px;
+     text-align: left;
+     vertical-align: top;
+ }
+ .tab-panel:not(#tab-exampractice) table:not([class]) th {
+     background: var(--cream);
+     font-weight: 600;
  }
  /* ══════════════════════════════════════
    COURSE NAVIGATION SIDEBAR (MOBILE & DESKTOP)

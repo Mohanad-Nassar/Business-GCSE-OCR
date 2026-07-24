@@ -182,28 +182,60 @@ const SUBJECT_BADGE_SETS = {
     { id: 'am-magic',   icon: '🎩', rarity: 'legendary', label: 'Mathemagician',    desc: 'Fully complete every Additional Maths topic', test: _sbAll },
     { id: 'am-infinity',icon: '♾️', rarity: 'mythic',    label: 'To Infinity',      desc: 'Complete every topic AND answer 1,000 Additional Maths questions', test: s => _sbAll(s) && s.totalDone >= 1000 },
   ],
-  // Fallback for any other/teacher-authored subject — generic but still tiered.
+  // Fallback for ANY other subject — including teacher-authored ones, whose
+  // topic tree isn't in the static registry. Tests use ONLY questions answered
+  // (countable from progress for any subject, static or custom — see
+  // gamSubjectStatsFromProgress), so they actually unlock, unlike completion
+  // tests which need a topic tree we don't have for custom subjects.
   '_default': [
-    { id: 'sub-first',  icon: '🌱', rarity: 'common',    label: 'First Steps',   desc: 'Answer your first question in this subject', test: s => s.totalDone >= 1 },
-    { id: 'sub-100',    icon: '🎯', rarity: 'uncommon',  label: 'Getting Going', desc: 'Answer 100 questions in this subject',       test: s => s.totalDone >= 100 },
-    { id: 'sub-scholar',icon: '📖', rarity: 'rare',      label: 'Subject Scholar',desc: 'Fully complete 5 topics in this subject',   test: s => s.topicsComplete >= 5 },
-    { id: 'sub-unit',   icon: '🧩', rarity: 'rare',      label: 'Unit Master',   desc: 'Complete a whole unit in this subject',      test: s => s.unitComplete },
-    { id: 'sub-power',  icon: '⚡', rarity: 'epic',      label: 'Powerhouse',    desc: 'Answer 500 questions in this subject',       test: s => s.totalDone >= 500 },
-    { id: 'sub-conq',   icon: '👑', rarity: 'legendary', label: 'Conqueror',     desc: 'Fully complete every topic in this subject', test: _sbAll },
-    { id: 'sub-legend', icon: '🌟', rarity: 'mythic',    label: 'Living Legend', desc: 'Complete every topic AND answer 1,000 questions in this subject', test: s => _sbAll(s) && s.totalDone >= 1000 },
+    { id: 'sub-first', icon: '🌱', rarity: 'common',    label: 'First Steps',    desc: 'Answer your first question in this subject', test: s => s.totalDone >= 1 },
+    { id: 'sub-50',    icon: '🎯', rarity: 'uncommon',  label: 'Getting Going',  desc: 'Answer 50 questions in this subject',        test: s => s.totalDone >= 50 },
+    { id: 'sub-100',   icon: '⚡', rarity: 'rare',      label: 'Century',        desc: 'Answer 100 questions in this subject',       test: s => s.totalDone >= 100 },
+    { id: 'sub-250',   icon: '📚', rarity: 'rare',      label: 'Dedicated',      desc: 'Answer 250 questions in this subject',       test: s => s.totalDone >= 250 },
+    { id: 'sub-500',   icon: '🔥', rarity: 'epic',      label: 'Powerhouse',     desc: 'Answer 500 questions in this subject',       test: s => s.totalDone >= 500 },
+    { id: 'sub-1000',  icon: '🏆', rarity: 'legendary', label: 'Subject Master', desc: 'Answer 1,000 questions in this subject',     test: s => s.totalDone >= 1000 },
+    { id: 'sub-2500',  icon: '🌟', rarity: 'mythic',    label: 'Living Legend',  desc: 'Answer 2,500 questions in this subject',     test: s => s.totalDone >= 2500 },
   ],
 };
 function gamSubjectBadgeDefs(slug) {
   return SUBJECT_BADGE_SETS[slug] || SUBJECT_BADGE_SETS._default;
 }
 
-// Per-subject stats for one subject (uses that subject's page tree from
-// PAGE_GROUPS_ALL; streak/Daily-Revise/review left at 0 since subject badges
-// are progress-derived). Returns null if the subject's tree isn't loaded.
+// Per-subject stats for one subject. Static subjects use their page tree from
+// PAGE_GROUPS_ALL (full stats incl. topic completion). Teacher-authored
+// subjects aren't in that static registry, so we fall back to counting answered
+// questions straight from progress — enough for the questions-only _default
+// badge set. Streak/Daily-Revise/review left at 0 (subject badges are
+// progress-derived). Never returns null now, so custom subjects show badges.
 function gamComputeSubjectStats(slug, progress) {
   const groups = (window.PAGE_GROUPS_ALL && window.PAGE_GROUPS_ALL[slug]) || null;
-  if (!groups || !groups.length) return null;
-  return computeGamificationStats(progress, 0, { correctCount: 0, masteredCount: 0 }, { completed: 0 }, {}, groups);
+  if (groups && groups.length) {
+    return computeGamificationStats(progress, 0, { correctCount: 0, masteredCount: 0 }, { completed: 0 }, {}, groups);
+  }
+  return gamSubjectStatsFromProgress(slug, progress);
+}
+
+// Minimal per-subject stats derived only from progress — for subjects with no
+// static topic tree (teacher-authored). Sums answered questions across page ids
+// prefixed 'slug:'; completion fields stay 0/false (unknowable without a tree),
+// which is why the _default badge set is questions-only.
+function gamSubjectStatsFromProgress(slug, progress) {
+  const prefix = slug + ':';
+  let totalDone = 0;
+  Object.keys(progress || {}).forEach(pid => {
+    if (pid.lastIndexOf(prefix, 0) !== 0) return;      // starts-with prefix
+    const secs = progress[pid] || {};
+    Object.keys(secs).forEach(k => {
+      if (k !== 'flashcards') totalDone += (secs[k] && secs[k].done) || 0;
+    });
+  });
+  const xp = totalDone * GAMIFICATION_XP_PER_QUESTION;
+  return {
+    xp, level: gamificationLevelFromXp(xp).level,
+    topicsComplete: 0, totalDone, totalTopics: 0, byCategory: {},
+    unitComplete: false, streak: 0, drCorrect: 0, drMastered: 0,
+    reviewsCompleted: 0, lbTop10: false, lbTop3: false, lbFirst: false,
+  };
 }
 function gamificationSubjectBadgesFor(subjectStats, slug) {
   return subjectStats ? gamSubjectBadgeDefs(slug).filter(b => b.test(subjectStats)) : [];
@@ -380,6 +412,25 @@ function _gamEnsureStyles() {
     .gam-levelup-toast.show{opacity:1;transform:translateY(0) scale(1);}
     .gam-combo-toast{position:fixed;top:64px;right:18px;z-index:400;display:flex;align-items:center;gap:8px;background:linear-gradient(135deg,#b8860b,#d4a843);color:#fff;font-family:'DM Mono',monospace;font-size:13px;font-weight:600;padding:8px 16px;border-radius:99px;box-shadow:0 8px 24px rgba(184,134,11,.4);opacity:0;transform:translateY(-10px) scale(.9);transition:opacity .25s,transform .25s cubic-bezier(.34,1.4,.64,1);pointer-events:none;}
     .gam-combo-toast.show{opacity:1;transform:translateY(0) scale(1);}
+    /* Streak-safe celebration — deliberately bottom-centre and bigger than the
+       other toasts so the once-a-day moment feels like an event, not a chip. */
+    .gam-streak-toast{position:fixed;left:50%;bottom:26px;z-index:492;display:flex;align-items:center;gap:14px;
+      background:linear-gradient(135deg,#e25822,#f0a02a);color:#fff;font-family:'DM Sans',sans-serif;
+      padding:14px 22px 14px 18px;border-radius:16px;box-shadow:0 14px 40px rgba(226,88,34,.45);
+      max-width:min(92vw,430px);opacity:0;transform:translateX(-50%) translateY(14px) scale(.96);
+      transition:opacity .3s,transform .35s cubic-bezier(.34,1.4,.64,1);pointer-events:none;}
+    .gam-streak-toast.show{opacity:1;transform:translateX(-50%) translateY(0) scale(1);}
+    .gam-streak-flame{font-size:38px;line-height:1;flex-shrink:0;animation:gamFlamePulse 1.1s ease-in-out infinite;}
+    @keyframes gamFlamePulse{0%,100%{transform:scale(1);}50%{transform:scale(1.16);}}
+    .gam-streak-kicker{font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;opacity:.9;}
+    .gam-streak-headline{font-family:'Playfair Display',serif;font-weight:700;font-size:17px;line-height:1.2;margin-top:1px;}
+    .gam-streak-days{font-family:'DM Mono',monospace;font-size:12px;margin-top:3px;opacity:.95;}
+    .gam-streak-days b{font-size:15px;}
+    .gam-streak-sub{font-size:11.5px;opacity:.85;margin-top:3px;line-height:1.4;}
+    @media (prefers-reduced-motion: reduce){
+      .gam-streak-flame{animation:none;}
+      .gam-streak-toast{transition:opacity .2s;}
+    }
   `;
   document.head.appendChild(style);
 }
@@ -388,6 +439,13 @@ function _gamToast(el, holdMs) {
   document.body.appendChild(el);
   requestAnimationFrame(() => el.classList.add('show'));
   setTimeout(() => { el.classList.remove('show'); setTimeout(() => el.remove(), 400); }, holdMs);
+}
+
+// Fire-and-forget: lets avatar-buddy.js (or anything else) react to a
+// celebration without gamification.js knowing it exists — no listener means
+// no-op, so this is safe on every page whether or not the buddy is mounted.
+function _gamNotifyBuddy(kind, detail) {
+  try { window.dispatchEvent(new CustomEvent('vidya:celebrate', { detail: Object.assign({ kind }, detail) })); } catch (e) {}
 }
 
 function gamificationShowXpToast(amount) {
@@ -400,6 +458,7 @@ function gamificationShowXpToast(amount) {
 
 function gamificationShowBadgeToast(badge) {
   _gamEnsureStyles();
+  _gamNotifyBuddy('badge', { label: badge.label, icon: badge.icon });
   gamificationPlaySound('badge');
   const el = document.createElement('div');
   el.className = 'gam-badge-toast';
@@ -410,6 +469,7 @@ function gamificationShowBadgeToast(badge) {
 
 function gamificationShowLevelUpToast(level) {
   _gamEnsureStyles();
+  _gamNotifyBuddy('levelup', { level });
   const el = document.createElement('div');
   el.className = 'gam-levelup-toast';
   el.textContent = `⭐ Level ${level}!`;
@@ -418,10 +478,105 @@ function gamificationShowLevelUpToast(level) {
 
 function gamificationShowComboToast(combo) {
   _gamEnsureStyles();
+  _gamNotifyBuddy('combo', { combo });
   const el = document.createElement('div');
   el.className = 'gam-combo-toast';
   el.innerHTML = `<span aria-hidden="true">🔥</span> ${combo} correct in a row!`;
   _gamToast(el, 1600);
+}
+
+// ── "Streak safe" celebration (once a day, when the daily goal is met) ──
+// Rotating copy so the daily moment doesn't go stale, with milestone lines
+// taking over on the big days.
+const _GAM_STREAK_LINES = [
+  'Streak secured!', 'Streak locked in!', 'Chain unbroken!',
+  'Still burning!', 'Another day, still on fire!', 'Your streak lives on!',
+];
+function _gamStreakHeadline(streak, fallback) {
+  if (streak >= 365) return 'A full YEAR. Absolutely legendary.';
+  if (streak >= 100) return 'One hundred days. Legendary.';
+  if (streak >= 50) return '50 days strong — unstoppable!';
+  if (streak >= 30) return 'A whole month. Incredible!';
+  if (streak >= 14) return 'Two weeks running!';
+  if (streak >= 7) return 'A full week — nice one!';
+  return fallback;
+}
+
+// Shared card builder for the two daily moments below.
+function _gamStreakCard(kicker, headline, subLine, showDays) {
+  const el = document.createElement('div');
+  el.className = 'gam-streak-toast';
+  el.setAttribute('role', 'status');
+  el.__paint = (streak) => {
+    const days = (showDays && streak > 0)
+      ? `<div class="gam-streak-days"><b>${streak}</b> day${streak === 1 ? '' : 's'} in a row</div>` : '';
+    el.innerHTML = `
+      <div class="gam-streak-flame" aria-hidden="true">🔥</div>
+      <div>
+        <div class="gam-streak-kicker">${gcseEscapeHtmlSafe(kicker)}</div>
+        <div class="gam-streak-headline">${typeof headline === 'function' ? headline(streak) : headline}</div>
+        ${days}
+        <div class="gam-streak-sub">${subLine}</div>
+      </div>`;
+  };
+  return el;
+}
+
+// Pull the freshest streak from the server and repaint the card — this is also
+// what stops the HUD showing a stale streak until the student refreshes.
+function _gamRefreshStreakInto(el) {
+  const client = window._gcseSupabaseClient || _gamLastClient;
+  if (!client || typeof gamificationRefreshStreak !== 'function') return;
+  Promise.resolve(gamificationRefreshStreak(client))
+    .then(s => { if (el && el.parentNode && el.__paint) el.__paint(s); })
+    .catch(() => {});
+}
+
+// ① First CORRECT answer of the day in this subject — the streak is now safe.
+// Nudges them toward the daily goal without implying the streak depends on it.
+function gamificationCelebrateStreakSafe(todayCount) {
+  _gamEnsureStyles();
+  _gamNotifyBuddy('streak', { todayCount: todayCount || 1, streak: _gamStreak });
+  gamificationPlaySound('badge');
+  if (typeof _gamConfettiBurst === 'function') _gamConfettiBurst(22);
+
+  const fallback = _GAM_STREAK_LINES[Math.floor(Math.random() * _GAM_STREAK_LINES.length)];
+  const subjName = (window.SUBJECT && window.SUBJECT.name) || '';
+  const left = Math.max(0, GAMIFICATION_DAILY_GOAL - (todayCount || 1));
+  const sub = left > 0
+    ? `That's your streak locked in for today. <b>${left} more</b> to hit your daily goal of ${GAMIFICATION_DAILY_GOAL}.`
+    : `Streak locked in — and today's goal of ${GAMIFICATION_DAILY_GOAL} is already done!`;
+
+  const el = _gamStreakCard(
+    subjName ? subjName + ' streak safe' : 'Streak safe',
+    (streak) => _gamStreakHeadline(streak, fallback), sub, true);
+  el.__paint(_gamStreak);
+  _gamToast(el, 5200);
+  _gamRefreshStreakInto(el);
+}
+
+// ② Daily goal reached — the bigger, optional target.
+function gamificationCelebrateDailyGoal() {
+  _gamEnsureStyles();
+  _gamNotifyBuddy('daily-goal', {});
+  gamificationPlaySound('badge');
+  if (typeof _gamConfettiBurst === 'function') _gamConfettiBurst(44);
+
+  const subjName = (window.SUBJECT && window.SUBJECT.name) || '';
+  const el = _gamStreakCard(
+    'Daily goal', 'Daily goal smashed! 🎯',
+    `${GAMIFICATION_DAILY_GOAL} questions${subjName ? ' in ' + gcseEscapeHtmlSafe(subjName) : ''} today — brilliant work.`,
+    true);
+  el.__paint(_gamStreak);
+  _gamToast(el, 5000);
+  _gamRefreshStreakInto(el);
+}
+
+// Local escape (account-cluster.js isn't loaded on every page that toasts).
+function gcseEscapeHtmlSafe(str) {
+  return String(str == null ? '' : str).replace(/[&<>"']/g, c => (
+    { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]
+  ));
 }
 
 // ── Streak (needs a server round trip — see gamification-functions.sql) ──
@@ -432,19 +587,28 @@ let _gamStreak = 0;
 // once a streak has lapsed, "last practised X ago" instead of a bare 0.
 let _gamStreakLongest = 0;
 let _gamStreakLastActive = null;
+// The all-subjects ("overall") streak — get_my_streak with p_subject null.
+// On a subject-scoped page it's the reassurance number: a student who practises
+// every day but rotates subjects keeps NO single subject's daily streak, so the
+// subject chip can read 0 while they've genuinely been active all week. Shown
+// alongside the subject streak on the practice calendar. Null until fetched (and
+// left null on the cross-subject view, where the subject streak already IS this).
+let _gamStreakOverall = null;
 // Last Supabase client any gamification refresh was handed — lets the
 // heatmap poller find the client on pages (dashboard, badges) that keep it
 // in a module-local, not a window global. Set by the refreshers below.
 let _gamLastClient = null;
-async function gamificationRefreshStreak(client) {
+async function gamificationRefreshStreak(client, subjectOverride) {
   try {
     if (!client) return 0;
     _gamLastClient = client;
     // Scope the streak to the current subject (window.SUBJECT set by the
     // subject loader / page-groups); null on the cross-subject profile view
-    // (badges.html) keeps the all-subjects streak. Falls back to the old
-    // no-arg call if the subject-aware function isn't deployed yet.
-    const p_subject = (window.SUBJECT && window.SUBJECT.slug) || null;
+    // (badges.html) keeps the all-subjects streak. Pass subjectOverride
+    // explicitly (the Review Calendar passes null) to force a scope. Falls
+    // back to the old no-arg call if the subject-aware fn isn't deployed yet.
+    const p_subject = arguments.length > 1
+      ? subjectOverride : ((window.SUBJECT && window.SUBJECT.slug) || null);
     let { data, error } = await client.rpc('get_my_streak', { p_subject });
     if (error) { ({ data, error } = await client.rpc('get_my_streak')); }
     if (!error && data) {
@@ -454,6 +618,15 @@ async function gamificationRefreshStreak(client) {
       // Repaint the topic/home HUD if one is on this page (no-op elsewhere) —
       // callers like script.js refresh the streak after auth without repainting.
       if (typeof _gamUpdateHud === 'function') _gamUpdateHud();
+    }
+    // On a subject-scoped page, also fetch the all-subjects streak (p_subject
+    // null) for the "overall" chip. On the cross-subject view (p_subject already
+    // null) the streak above IS the overall one — reuse it, no extra round trip.
+    if (p_subject && !error) {
+      const { data: od, error: oe } = await client.rpc('get_my_streak', { p_subject: null });
+      if (!oe && od) _gamStreakOverall = { current: od.current || 0, longest: od.longest || 0, lastActive: od.last_active || null };
+    } else if (!p_subject && !error && data) {
+      _gamStreakOverall = { current: _gamStreak, longest: _gamStreakLongest, lastActive: _gamStreakLastActive };
     }
   } catch (e) {}
   return _gamStreak;
@@ -593,37 +766,125 @@ async function gamificationRefreshLeaderboardStats(client) {
 // ── Daily goal (device-local, display-only — XP stays pure) ──
 // Gives the day-streak something visible to chase: answer N questions
 // today. Counted locally per calendar day; old keys are pruned as we go.
-const GAMIFICATION_DAILY_GOAL = 20;
+// 10 per subject — a student with 9 subjects can't realistically hit 20 in
+// each. The streak is secured by the first CORRECT answer (see _gamBumpDaily);
+// this is the stretch target on top.
+const GAMIFICATION_DAILY_GOAL = 10;
 
-function _gamDailyKey() {
+// The counter is scoped per STUDENT, per SUBJECT, per day. It used to be a
+// bare `gcse_daily_<date>`, which meant every student sharing a browser (and
+// every subject) incremented ONE counter — so a student who had answered
+// nothing could show 20/20, and the goal celebration could never fire because
+// the shared count was already past the goal. Date first so pruning old days
+// is a prefix test that never wipes today's other subjects.
+function _gamTodayStr() {
   const d = new Date();
   const p = n => String(n).padStart(2, '0');
-  return `gcse_daily_${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())}`;
+  return `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())}`;
+}
+function _gamDailyOwner() {
+  try {
+    const s = JSON.parse(localStorage.getItem('gcse_session_v1') || 'null');
+    if (s && s.username) return String(s.username);
+  } catch (e) {}
+  return 'anon';
+}
+function _gamDailySubject() { return (window.SUBJECT && window.SUBJECT.slug) || 'all'; }
+function _gamDailyKey() {
+  return `gcse_daily_${_gamTodayStr()}_${_gamDailyOwner()}_${_gamDailySubject()}`;
+}
+// Shown-once-per-day flag for the "streak safe" toast (same scoping).
+function _gamStreakSafeKey() {
+  return `gcse_safe_${_gamTodayStr()}_${_gamDailyOwner()}_${_gamDailySubject()}`;
 }
 
 function gamificationDailyCount() {
   try { return parseInt(localStorage.getItem(_gamDailyKey()) || '0', 10) || 0; } catch (e) { return 0; }
 }
-
-function _gamBumpDaily() {
-  const key = _gamDailyKey();
-  let n = gamificationDailyCount() + 1;
+function _gamSetDailyCount(n) {
+  try { localStorage.setItem(_gamDailyKey(), String(n)); } catch (e) {}
+}
+function _gamPruneOldDaily() {
+  const keep = `gcse_daily_${_gamTodayStr()}_`;
+  const keepSafe = `gcse_safe_${_gamTodayStr()}_`;
   try {
     Object.keys(localStorage).forEach(k => {
-      if (k.startsWith('gcse_daily_') && k !== key) localStorage.removeItem(k);
+      if (k.indexOf('gcse_daily_') === 0 && k.indexOf(keep) !== 0) localStorage.removeItem(k);
+      if (k.indexOf('gcse_safe_') === 0 && k.indexOf(keepSafe) !== 0) localStorage.removeItem(k);
     });
-    localStorage.setItem(key, String(n));
   } catch (e) {}
+}
+
+// isCorrect: true only for a correct answer. The FIRST correct answer of the
+// day in this subject is what secures the streak (server rule: a day counts
+// when there's at least one correct answer), so that's when we celebrate —
+// the 10-question daily goal is a separate, bigger target.
+function _gamBumpDaily(isCorrect) {
+  _gamPruneOldDaily();
+  _gamAnsweredThisSession = true;   // sync stops correcting downwards from here
+  const n = gamificationDailyCount() + 1;
+  _gamSetDailyCount(n);
+
+  if (isCorrect === true) {
+    let shown = null;
+    try { shown = localStorage.getItem(_gamStreakSafeKey()); } catch (e) {}
+    if (!shown) {
+      try { localStorage.setItem(_gamStreakSafeKey(), '1'); } catch (e) {}
+      try { gamificationCelebrateStreakSafe(n); } catch (e) {}
+    }
+  }
   if (n === GAMIFICATION_DAILY_GOAL) {
-    gamificationPlaySound('badge');
-    if (typeof _gamConfettiBurst === 'function') _gamConfettiBurst(24);
-    _gamEnsureStyles();
-    const el = document.createElement('div');
-    el.className = 'gam-combo-toast';
-    el.innerHTML = `<span aria-hidden="true">🎯</span> Daily goal smashed — ${GAMIFICATION_DAILY_GOAL} questions today! Streak safe 🔥`;
-    _gamToast(el, 3200);
+    try { gamificationCelebrateDailyGoal(); } catch (e) {}
   }
   return n;
+}
+
+// Reconcile today's count with the server so the chip is right on a second
+// device and after a browser wipe.
+//
+// Counts DISTINCT questions, NOT raw events: progress_events logs one row per
+// ATTEMPT (a wrong FIB pick, a retried MCQ, a re-answer each add a row — see
+// the deliberate wrong-pick logging in script.js), so the old
+// get_my_activity_days row-count made "2 questions answered" read as 4. The
+// heatmap wants raw activity; this chip means questions, so they differ.
+//
+// Authoritative on page load (it can correct a locally-inflated count), but
+// only ever raises the number once the student has started answering in this
+// session, so the chip never visibly jumps backwards mid-practice while a
+// write is still in flight.
+let _gamAnsweredThisSession = false;
+async function gamificationSyncDailyCount(client) {
+  try {
+    if (!client) return gamificationDailyCount();
+    const slug = (window.SUBJECT && window.SUBJECT.slug) || null;
+    const start = new Date(); start.setHours(0, 0, 0, 0);   // local midnight
+    // RLS (progress_events_self_select) already limits this to the caller.
+    let q = client.from('progress_events')
+      .select('page_id, section, question_id, answer')
+      .gte('answered_at', start.toISOString())
+      .limit(2000);
+    if (slug) q = q.like('page_id', slug + ':%');
+    const { data, error } = await q;
+    if (error || !Array.isArray(data)) return gamificationDailyCount();
+
+    // Mirror the client rules exactly, or the load-time reconcile would put the
+    // inflated number straight back: skip flashcards, and skip progress markers
+    // (a card ticked "read" stores the bare JSON `true`; real answers are
+    // objects), which is the other half of the check-up double-count.
+    const seen = new Set();
+    data.forEach(r => {
+      if (!r || r.section === 'flashcards' || r.answer === true) return;
+      seen.add(`${r.page_id}|${r.section}|${r.question_id}`);
+    });
+    const server = seen.size;
+    const local = gamificationDailyCount();
+    if (server !== local && (server > local || !_gamAnsweredThisSession)) {
+      _gamPruneOldDaily();
+      _gamSetDailyCount(server);
+      if (typeof _gamUpdateHud === 'function') _gamUpdateHud();
+    }
+  } catch (e) {}
+  return gamificationDailyCount();
 }
 
 // ── Flashcard daily review cap (separate from the daily goal above —
@@ -678,7 +939,11 @@ function _gamTrackCombo(isCorrect) {
 
 let _gamLevelSeen = null;
 let _gamCheckTimer = null;
-function gamificationOnAnswer(isCorrect, section) {
+// opts.countsAsQuestion === false = a progress marker (a Key Learning /
+// Misconceptions / Exam Tips card ticked "read"), not an answered question.
+// It still earns XP, but must NOT advance the daily-goal counter — otherwise
+// one check-up question counts twice (card marker + the answer itself).
+function gamificationOnAnswer(isCorrect, section, opts) {
   if (typeof PAGE_GROUPS === 'undefined' || typeof ProgressStore === 'undefined') return;
   gamificationPlaySound(isCorrect === true ? 'correct' : isCorrect === false ? 'wrong' : 'neutral');
   // XP is only earned for CORRECT answers (quiz sections store done =
@@ -686,7 +951,7 @@ function gamificationOnAnswer(isCorrect, section) {
   // actions (reading a card, revealing a mark scheme) still earn.
   // Flashcards never earn XP (see computeGamificationStats).
   if (isCorrect !== false && section !== 'flashcards') gamificationShowXpToast(GAMIFICATION_XP_PER_QUESTION);
-  if (section !== 'flashcards') _gamBumpDaily();
+  if (section !== 'flashcards' && !(opts && opts.countsAsQuestion === false)) _gamBumpDaily(isCorrect);
   _gamTrackCombo(isCorrect);
 
   // Debounced so a burst of quick answers doesn't spam badge/level toasts.
@@ -1340,6 +1605,9 @@ function _gamHudStreakInit(tries) {
   if (client) {
     gamificationRefreshStreak(client).then(() => _gamUpdateHud());
     gamificationRefreshDailyReviseStats(client).then(() => _gamUpdateHud());
+    // Trust the server for "answered today" — the local counter can be behind
+    // on a second device (or ahead of nothing, on a fresh browser).
+    if (typeof gamificationSyncDailyCount === 'function') gamificationSyncDailyCount(client);
     return;
   }
   if (tries > 40) return; // ~20s — offline/teacher preview, streak just stays 0
@@ -1402,10 +1670,15 @@ function _gamHudStreakInit(tries) {
 // ══════════════════════════════════════════════════════════════
 
 let _gamActivityDays = [];
-async function gamificationRefreshActivityDays(client) {
+async function gamificationRefreshActivityDays(client, subjectOverride) {
   try {
     if (!client) return _gamActivityDays;
     _gamLastClient = client;
+    if (arguments.length > 1) {
+      const { data: d2, error: e2 } = await client.rpc('get_my_activity_days', { p_subject: subjectOverride });
+      if (!e2 && Array.isArray(d2)) _gamActivityDays = d2;
+      return _gamActivityDays;
+    }
     // Subject-scope the calendar on a subject-scoped page (window.SUBJECT set
     // by subjectLoaderInit mode:'single'); pass null on the cross-subject view
     // (mode:'all', e.g. badges.html) to aggregate every subject. p_days is left
@@ -1507,6 +1780,7 @@ function _gamInjectHeatStyles() {
     .gam-heat-stats{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px;margin:0 0 13px;}
     .gam-heat-stat{font-family:'DM Mono',monospace;font-size:11px;color:var(--mid,#5a6e7f);background:var(--cream,#ede7d9);border:1px solid var(--border,#c9bfaa);border-radius:99px;padding:4px 11px;white-space:nowrap;}
     .gam-heat-stat strong{color:var(--ink,#1a2332);font-weight:700;}
+    .gam-heat-stat--overall{border-color:var(--gold,#d4a843);}
     .gam-heat-scroll{overflow-x:auto;overflow-y:hidden;padding-bottom:4px;-webkit-overflow-scrolling:touch;text-align:center;}
     .gam-heat-plot{display:inline-flex;gap:6px;}
     .gam-heat-side{display:flex;flex-direction:column;gap:var(--gh-gap);padding-top:20px;flex-shrink:0;}
@@ -1590,7 +1864,9 @@ function renderStreakHeatmap(mountEl, activityDays, streakInfo) {
   // Subject-scoped pages (window.SUBJECT set, mode:'single') name the subject;
   // the cross-subject view (window.SUBJECT null, mode:'all', e.g. badges.html)
   // keeps the generic line. Interpolated the same way as ariaLabel above.
-  const hintText = (window.SUBJECT && window.SUBJECT.name)
+  // streakInfo.allSubjects forces the generic line on a page that HAS a
+  // window.SUBJECT but is deliberately showing every subject (Review Calendar).
+  const hintText = (!(streakInfo && streakInfo.allSubjects) && window.SUBJECT && window.SUBJECT.name)
     ? `Every ${window.SUBJECT.name} question you answer lights up a day.`
     : 'Every question you answer — on any subject — lights up a day.';
 
@@ -1606,6 +1882,14 @@ function renderStreakHeatmap(mountEl, activityDays, streakInfo) {
       `<span class="gam-heat-stat"><strong>🔥 ${cur}</strong> day streak</span>`,
       `<span class="gam-heat-stat"><strong>🏆 ${lng}</strong> longest</span>`,
     ];
+    // Overall (all-subjects) streak — only on a subject-scoped page (window.SUBJECT
+    // set), where the 🔥 chip above counts THIS subject alone and can read 0 for a
+    // student who practises daily but across different subjects. On the
+    // cross-subject view the 🔥 chip already IS the overall streak, so no chip.
+    const ov = streakInfo.overall;
+    if (ov && window.SUBJECT && window.SUBJECT.slug) {
+      parts.push(`<span class="gam-heat-stat gam-heat-stat--overall" title="Days in a row you've practised — counting every subject"><strong>🌍 ${ov.current || 0}</strong> day overall streak</span>`);
+    }
     if (!cur && last) {
       const ago = gamificationAgoLabel(last);
       if (ago) parts.push(`<span class="gam-heat-stat">Last practised <strong>${ago}</strong></span>`);
@@ -1661,11 +1945,16 @@ function _gamHeatmapInit(tries) {
   if (!anchor) return;
   const client = window._gcseSupabaseClient || _gamLastClient;
   if (client) {
+    // The Review Calendar is a cross-subject view (its subject filter defaults
+    // to every subject), so its heatmap + streak cover ALL subjects — passing
+    // null forces that scope regardless of the page's window.SUBJECT.
+    // badges.html already gets it for free (window.SUBJECT is null there).
+    const allSubjects = anchor.cls === 'gam-heat-mount--cal';
     // Fetch the calendar and the streak numbers together so the summary line
     // (current/longest/last-practised) renders with the grid in one pass.
     Promise.all([
-      gamificationRefreshActivityDays(client),
-      gamificationRefreshStreak(client),
+      allSubjects ? gamificationRefreshActivityDays(client, null) : gamificationRefreshActivityDays(client),
+      allSubjects ? gamificationRefreshStreak(client, null) : gamificationRefreshStreak(client),
     ]).then(([days]) => {
       if (document.getElementById('gamHeatmapMount')) return;   // already mounted
       const mount = document.createElement('div');
@@ -1674,6 +1963,7 @@ function _gamHeatmapInit(tries) {
       anchor.after.parentNode.insertBefore(mount, anchor.after.nextSibling);
       renderStreakHeatmap(mount, days, {
         current: _gamStreak, longest: _gamStreakLongest, lastActive: _gamStreakLastActive,
+        overall: _gamStreakOverall, allSubjects: allSubjects,
       });
     });
     return;

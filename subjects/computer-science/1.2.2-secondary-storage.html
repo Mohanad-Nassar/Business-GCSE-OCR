@@ -770,30 +770,10 @@
         { term: "Solid-state's strength", def: "Fast, durable and portable, with no moving parts to fail" }
     ];
 
-    // ── WHY THIS PAGE DOES NOT INCLUDE EVERY SECONDARY-STORAGE-ADJACENT
-    // QUESTION FROM ITS SOURCE PAPERS (do not "fix" this) ──
-    // Per CS-CONTENT-PLAN.md §6.2, each question lives on exactly ONE page.
-    // Sourced from 2022/2023 Paper 1 (question papers + mark schemes +
-    // examiner reports in CS resources/Full exam papers/, gitignored) and the
-    // verified 2024 mock (mock-papers/2024-paper1.js):
-    //   • 2024 mock Q5a(i) [tick-box sampling] and Q5a(ii) [bit depth] are
-    //     about SOUND, not secondary storage devices — that's 1.2.7's page.
-    //   • 2024 mock Q5b(iii) [tick smallest capacity] and Q5b(iv) [MB→GB
-    //     calculation] are pure unit-conversion/capacity-calculation
-    //     questions with no device-choice content — left for 1.2.3 (Units).
-    //   • 2022 Paper 1 Q7(a)(i) [RAM vs ROM] and Q7(a)(ii) [RAM examples] are
-    //     primary storage — 1.2.1's page.
-    //   • 2023 Paper 1 Q5(a)(i) [explain why a computer needs BOTH primary
-    //     AND secondary storage, 2 marks] sits on the primary/secondary
-    //     boundary. Left for 1.2.1, since it pairs naturally with that page's
-    //     "why computers need primary storage" scope and 1.2.2's own "need"
-    //     bullet is separately covered by 2022 Q7(b)(i) below.
-    //   • 2023 Paper 1 Q5(a)(iii) [Virtual Memory true/false table] is
-    //     1.2.1's virtual-memory scope.
-    // Only the genuinely device/type-choice and "why secondary storage"
-    // questions are transcribed onto THIS page below.
+    // Exam questions below: original clean-room content, authored from
+    // this sub-topic's spec scope (not transcribed from any exam paper).
     const EXAM_CASE_STUDIES = {
-        "smart-tv": `<p>A smart television allows the user to search the Internet and watch videos online.</p><p>The smart television has secondary storage.</p>`,
+        "photo-frame": `<p>A digital photo frame stands on a shelf, permanently plugged into a wall socket. It slowly cycles through a set of family photographs, one after another, all day long.</p><p>The photo frame has secondary storage built in.</p>`,
         "library-pc": `<p>A public library has several PCs available for anyone to use to browse the internet and write documents. During an upcoming open day, the library wants to hand out a promotional disc to hundreds of visitors, containing a demo of educational software.</p>`,
         "bootable-usb": `<p>A computing technician has created a bootable installer for a new operating system. She uses it to install the same operating system onto many different desktop computers in a school's IT suite, one after another.</p>`,
         "data-centre-archive": `<p>A cloud storage company runs a data centre that permanently archives billions of customer files. Once a file has been stored for 30 days, it is very rarely opened again. The data centre's storage devices are installed in racks and never move once fitted.</p>`,
@@ -803,73 +783,71 @@
 
     const examQuestions = [
         {
-            num: "2022 Q7(b)(i)",
+            num: "Q1",
             marks: 2,
             type: "written",
-            caseId: "smart-tv",
-            question: `<p>State, using an example, why the smart television needs secondary storage.</p>`,
-            hint: "Give ONE concrete example of what's stored (the OS, an app, a recorded show) AND the reason it must survive being switched off — both halves are needed for 2 marks.",
+            caseId: "photo-frame",
+            question: `<p>State, using an example, why the digital photo frame needs secondary storage.</p>`,
+            hint: "Give ONE concrete example of what's stored (the photos, the frame's software) AND the reason it must survive being unplugged — both halves are needed for 2 marks.",
             starter: "For example, [something specific] needs to be stored, because…",
             markScheme: `<div class="marks-section">
-<h5>Mark Scheme — 2 marks (1 mark each to max 2)</h5>
+<h5>Mark Scheme — 2 marks (1 mark each, up to max 2)</h5>
 <ul>
-<li>1 mark for example, e.g. the OS, web browser software, recorded show, user preferences</li>
-<li>1 mark for: to store data once the computer is turned off / permanently // for non-volatile storage</li>
+<li>1 mark for an example of what is stored, e.g. the photograph files, the frame's operating system, the display software</li>
+<li>1 mark for the reason: so the data is kept even when the photo frame is unplugged or switched off, or because secondary storage is non-volatile</li>
 </ul>
 </div>
 <div class="marks-section">
 <h5>How the marks are given</h5>
 <ul>
-<li>Allow 2 marks by example, e.g. "To install software that will not be lost when the TV is turned off" gets 1 mark for software and 1 mark for not being lost when turned off.</li>
-<li>Do not award brand names without exemplification.</li>
+<li>Allow both marks from a single sentence, e.g. "The photograph files need to be stored so they are not lost when the frame is unplugged" gets 1 mark for naming the photographs and 1 mark for not being lost when unplugged.</li>
+<li>Do not award a brand or model name on its own without an example of what is actually stored.</li>
 </ul>
 </div>
 <div class="marks-section">
-<h5>Examiner's Comments</h5>
-<p>This question was answered well by many candidates. Many candidates correctly identified an example, most commonly downloaded videos, the operating system, or applications. Fewer were able to expand this as to why, for example stating that it was needed for the computer to work.</p>
-<p><strong>Misconception:</strong> a common misunderstanding was that it is needed as a backup for when the television fails.</p>
+<h5>Common mistakes</h5>
+<p>Students often give a sensible example of what is stored but forget to explain why it needs to survive the frame being switched off, so only one of the two marks is picked up. Some also confuse secondary storage with RAM, describing it as somewhere data is held only temporarily while the frame is switched on.</p>
 </div>`,
-            modelAnswer: "For example, the operating system needs to be stored on the smart TV's secondary storage, because it must remain there permanently even when the television is switched off — RAM alone would lose this data every time the power is cut."
+            modelAnswer: "For example, the photograph files need to be stored on the photo frame's secondary storage, because they must remain there permanently even when the frame is unplugged from the mains — RAM alone would lose this data whenever the power is cut."
         },
         {
-            num: "2023 Q5(a)(ii)",
+            num: "Q2",
             marks: 2,
             type: "written",
             stubs: ["Secondary storage device", "Example data"],
-            question: `<p>An artist has a computer that they use to create images.</p><p>Give one example of a secondary storage device that the artist's computer will have, and an example of the data that will be stored on it.</p>`,
-            hint: "Name an actual DEVICE (e.g. a hard drive or SSD), not just a type (e.g. 'magnetic') — and give data that would genuinely be created or used by an artist.",
+            question: `<p>A journalist uses a laptop to write and edit news articles.</p><p>Give one example of a secondary storage device that the journalist's laptop will have, and an example of the data that will be stored on it.</p>`,
+            hint: "Name an actual DEVICE (e.g. a hard drive or SSD), not just a type (e.g. 'solid state') — and give data that would genuinely be created by a journalist.",
             starter: "Device: … | Example data: …",
             markScheme: `<div class="marks-section">
 <h5>Mark Scheme — 2 marks (1 mark for device, 1 mark for data)</h5>
 <ul>
-<li>Hard drive // SSD // USB (memory) stick // Flash memory card // CD // DVD, etc.</li>
-<li>e.g. Images created // documents // software // files // data moved from RAM to virtual memory</li>
+<li>1 mark for a named device, e.g. hard drive, SSD, USB memory stick, flash memory card, CD, DVD</li>
+<li>1 mark for suitable example data, e.g. written articles, interview recordings, photographs, or data moved from RAM into virtual memory</li>
 </ul>
 </div>
 <div class="marks-section">
 <h5>How the marks are given</h5>
 <ul>
-<li>Allow any secondary device. Benefit of the doubt for "optical disc".</li>
-<li>Question asks for device, not type of device — magnetic/optical/solid state alone is not enough.</li>
-<li>Award the example even if it is stored on an incorrect secondary storage device.</li>
-<li>USB on its own is not enough.</li>
+<li>Allow any genuine secondary storage device, including an optical disc.</li>
+<li>The question asks for a device, not a type of device — magnetic, optical or solid state on its own is not enough.</li>
+<li>Award the data mark even if it is paired with an incorrect device.</li>
+<li>"USB" on its own is not enough; it must be clear a storage device is meant, e.g. "USB memory stick".</li>
 </ul>
 </div>
 <div class="marks-section">
-<h5>Examiner's Comments</h5>
-<p>Candidates were required to identify a secondary storage device. Some responses identified a type of storage media (for example magnetic) instead of identifying a device (for example hard drive). Some responses gave RAM or ROM as a secondary storage device. These responses were incorrect.</p>
-<p>The example data varied but many responses were able to identify the storage of files, the images or software.</p>
+<h5>Common mistakes</h5>
+<p>Some students name a type of storage, such as "magnetic", instead of an actual device, such as "hard drive", which does not answer the question. Others confuse secondary storage with RAM or ROM, or give example data that would not realistically come from a journalist's work.</p>
 </div>`,
-            modelAnswer: "Device: SSD (solid-state drive)\n\nExample data: The image files the artist has created."
+            modelAnswer: "Device: SSD (solid-state drive)\n\nExample data: The news articles the journalist has written."
         },
         {
-            num: "2022 Q7(b)(ii)",
+            num: "Q3",
             marks: 4,
             type: "written",
-            caseId: "smart-tv",
+            caseId: "photo-frame",
             stubs: ["Secondary storage type", "Justification"],
-            question: `<p>Identify one appropriate type of secondary storage for the smart television. Justify your choice.</p>`,
-            hint: "Name a TYPE (magnetic or solid state — optical isn't suitable here) first, then give reasons that only make sense for that type in a television that mostly stays in one place.",
+            question: `<p>Identify one appropriate type of secondary storage for the digital photo frame. Justify your choice.</p>`,
+            hint: "Name a TYPE (magnetic or solid state — optical isn't suitable for a device that must access files directly and repeatedly) first, then give reasons that only make sense for that type in a device that stays in one place all day.",
             starter: "Type: … | Justification: …",
             markPoints: {
                 note: "1 mark for a correctly chosen type; 1 mark per justification point that genuinely matches that type, up to a max of 3. Justification must match the chosen type — reasons for the wrong type earn nothing.",
@@ -881,66 +859,66 @@
                     },
                     {
                         label: "Your justification", max: 3, points: [
-                            { text: "Gave a capacity reason matching your type (e.g. large storage capacity for storing software/videos/HD content)", marks: 1 },
-                            { text: "Gave a reason linked to the TV not being moved (e.g. magnetic: durability/portability isn't required because it stays still; solid state: durable/robust if it ever IS moved)", marks: 1 },
-                            { text: "Gave a cost reason matching your type (e.g. low cost to purchase, so the TV is cheaper to manufacture/buy)", marks: 1 },
-                            { text: "Gave another correct reason matching your type (e.g. solid state: fast data access makes the TV more responsive / runs quieter / produces less heat / uses less energy / compact; magnetic: the device is small enough to fit inside the TV / longevity and reliability)", marks: 1 }
+                            { text: "Gave a capacity reason matching your type (e.g. enough capacity to store a large library of family photographs)", marks: 1 },
+                            { text: "Gave a reason linked to the frame staying in one place (e.g. magnetic: portability/durability isn't essential because the frame is never moved; solid state: still durable if the frame is ever knocked or moved)", marks: 1 },
+                            { text: "Gave a cost reason matching your type (e.g. low cost to purchase, keeping the frame affordable)", marks: 1 },
+                            { text: "Gave another correct reason matching your type (e.g. solid state: near-silent operation suits a device left running in a room / fast access lets the next photo appear without a delay / uses little power; magnetic: the device is small enough to fit inside a slim frame / good long-term reliability)", marks: 1 }
                         ]
                     }
                 ]
             },
             markScheme: `<div class="marks-section">
-<h5>Mark Scheme — 4 marks (1 mark for choice of magnetic or solid state; 1 mark per bullet to max 3 for justification) e.g.</h5>
+<h5>Mark Scheme — 4 marks (1 mark for choice of magnetic or solid state; 1 mark per point to max 3 for justification) e.g.</h5>
 <ul>
-<li><strong>Magnetic:</strong> large storage capacity … for storing software/videos/HD; television unlikely to be moved … therefore durability/portability not required; cost to purchase is low … so the TV will be cheaper to manufacture/purchase; device will fit in a TV // device is small; longevity // reliable.</li>
-<li><strong>Solid state:</strong> large storage capacity … for storing software/videos/HD; television may be moved … therefore durable/robust/portable; fast data access … television will be more responsive; cost to purchase is low … so the TV is not too expensive to manufacture/purchase; run quieter; produce less heat; use less energy; compact // lightweight … so TV can be made smaller/lighter.</li>
+<li><strong>Magnetic:</strong> enough storage capacity for a large family photo library; the frame is never moved, so durability and portability are not essential; low cost to purchase, keeping the frame affordable; the device is small enough to fit inside a slim frame; good long-term reliability.</li>
+<li><strong>Solid state:</strong> enough storage capacity for a large family photo library; still durable if the frame is ever knocked or moved; near-silent operation suits a device left running in a room; fast access means the next photo appears without a delay; uses little power; produces little heat; compact enough to fit inside a slim frame.</li>
 </ul>
 </div>
 <div class="marks-section">
 <h5>How the marks are given</h5>
 <ul>
-<li>Do not award a specific device, e.g. hard disk — the question asks for a type. Follow-through is allowed for justification, to max 3. If both a device and a type are given, award, e.g. solid state drive, SSD, magnetic hard disk drive.</li>
+<li>Do not award a specific device, e.g. hard disk — the question asks for a type. Follow-through justification marks are still allowed, to a max of 3. If both a device and a type are given, award it, e.g. solid state drive, SSD, magnetic hard disk drive.</li>
 <li>Mark the first secondary storage type given.</li>
-<li>If no secondary storage type is given, read the justification for a type — do not award the type mark, but mark the justification (max 3).</li>
-<li>Justification must match the choice.</li>
-<li>If the type is inappropriate, e.g. optical, do not award.</li>
+<li>If no secondary storage type is given, read the justification for a type — do not award the type mark, but still mark the justification (max 3).</li>
+<li>Justification must match the choice made.</li>
+<li>If the type is inappropriate, e.g. optical, do not award the type mark.</li>
 </ul>
 </div>
 <div class="marks-section">
-<h5>Examiner's Comments</h5>
-<p>Many candidates were able to correctly justify their choice of secondary storage. A few candidates gave a type of storage, instead giving a specific device such as a hard drive. There were some good examples of application in responses. For example, expanding the feature of high capacity to the need to download high-definition movies which can take up large amounts of storage. Another application commonly given was the need for a responsive television which was provided by the fast data access speeds.</p>
+<h5>Common mistakes</h5>
+<p>Some students name a specific device, such as "a hard disk drive", instead of a type, and lose the type mark even though the justification may be sound. Others mix reasons from both types in one answer, such as arguing for magnetic storage's low cost and then solid state's silent operation, which does not consistently justify a single choice.</p>
 </div>`,
-            modelAnswer: "Type: Solid state\n\nJustification: A solid-state drive has no moving parts, so it won't be damaged if the television is knocked or moved. It also has fast data access, which keeps the television responsive when loading apps or streaming video, and it runs quietly and produces little heat, which suits a device that's switched on for long periods."
+            modelAnswer: "Type: Solid state\n\nJustification: A solid-state drive has no moving parts, so it runs silently, which suits a photo frame left switched on in a living room. It also has fast access speeds, so each new photograph appears without a noticeable delay, and it uses very little power, which matters for a device that stays plugged in and switched on all day."
         },
         {
-            num: "Q5b(i)",
+            num: "Q4",
             marks: 4,
             type: "written",
-            question: `<p>The musician has run out of storage space on their secondary storage device and needs to buy a replacement. Identify whether the musician should buy a magnetic secondary storage device or a solid state secondary storage device for their computer. Justify your choice.</p>`,
+            question: `<p>A gamer has run out of storage space on their gaming PC and needs to buy a replacement secondary storage device to install more games. Identify whether the gamer should buy a magnetic secondary storage device or a solid state secondary storage device. Justify your choice.</p>`,
             hint: "Pick a type first, then give up to 4 justification points that only make sense for the type you picked (not a generic list of pros and cons of both).",
             starter: "Type: … Justification: …",
             stubs: ["Type", "Justification"],
-            markScheme: `<div class="marks-section"><h5>Mark Scheme — 4 marks (no mark for type; 1 mark each point matching the type, max 4)</h5><ul>
-<li><strong>Magnetic e.g.</strong> usually cheaper cost to purchase per unit of data; sufficient/good durability for what is needed (e.g. computer unlikely to move regularly); sufficient/fast speed of access, no significant delays storing/reading data; (long-term) reliable/longevity, unlikely to need replacing/break from over-use; high capacity, e.g. large sound files or higher bit depth.</li>
-<li><strong>Solid state e.g.</strong> cost often equates to magnetic per quantity, not expensive per unit of data; durable/robust, no moving parts, so the computer can be moved without risk of losing data; fast speed of access, no significant delays; high capacity, nearly the same/higher capacity than magnetic; small in physical size/portable; produces less sound when running; requires little/less power so running costs are reduced; drives do not get fragmented files/need defragging.</li>
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 4 marks (no mark for the type itself; 1 mark per point matching the type, max 4)</h5><ul>
+<li><strong>Magnetic e.g.</strong> lower cost per gigabyte, so more storage for the same money; sufficient durability for the situation, since a desktop PC is not usually moved; very high capacity, suiting a large game library; reasonably fast once a game is installed and simply being loaded.</li>
+<li><strong>Solid state e.g.</strong> much faster read and write speed, so games install and load faster; no moving parts, so it is more durable if the PC is ever moved or knocked; produces less noise and heat than a spinning disk; still offers high capacity for a large game library, though usually at a greater cost per gigabyte; loading screens within games are shorter.</li>
 </ul></div><div class="marks-section"><h5>How the marks are given</h5><ul>
-<li>MP1 needs to be cost per unit, e.g. "it costs less per GB than other storage types" — not just "it is cheap to buy".</li>
-<li>Allow the reverse argument for each, e.g. for magnetic: "magnetic is not as robust but the computer will not be moved" gets 1 mark for not moving and 1 mark for solid state's robustness not being required.</li>
-<li>If no type is given on line 1, read the answer to look for a type and then award justification. If no type is identified anywhere in the answer, 0 marks.</li>
-</ul></div>`,
-            modelAnswer: "Type: Solid state\n\nJustification: Solid state drives have no moving parts, so they are more durable if the musician's computer gets knocked or moved. They also have fast access speeds, so there are no delays loading or saving large sound files, and they run silently, which matters when recording audio."
+<li>A cost point must specifically compare cost per gigabyte, not just state "cheap" or "expensive" without qualifying it against the amount of storage.</li>
+<li>Allow the reverse argument for each type, e.g. for solid state: "it costs more, but the faster loading times are worth it for gaming" gets credit for both the cost point and the speed point.</li>
+<li>If no type is stated at the start of the answer, read the whole answer to look for a type before awarding the justification marks. If no type is identified anywhere in the answer, award 0 marks.</li>
+</ul></div><div class="marks-section"><h5>Common mistakes</h5><p>Students sometimes list generic facts about solid-state storage, such as "it is faster", without linking this to gaming, for example shorter loading screens or quicker installs. Others try to credit both magnetic and solid state in the same answer instead of committing to one type and justifying it consistently.</p></div>`,
+            modelAnswer: "Type: Solid state\n\nJustification: A solid-state drive has much faster read and write speeds than a magnetic hard disk, so games will install and load noticeably quicker. It also has no moving parts, so it is more durable if the PC is ever moved, and it runs more quietly and produces less heat than a spinning magnetic disk."
         },
         {
-            num: "Q5b(ii)",
+            num: "Q5",
             marks: 1,
             type: "written",
-            question: `<p>Identify one other type of secondary storage.</p>`,
+            question: `<p>Other than magnetic or solid-state storage, identify one further type of secondary storage.</p>`,
             hint: "Name a storage TYPE (a category), not a brand or a specific device model.",
             starter: "…",
             markScheme: `<div class="marks-section"><h5>Mark Scheme — 1 mark</h5><ul>
 <li><strong>Optical</strong></li>
 </ul></div><div class="marks-section"><h5>How the marks are given</h5><ul>
-<li>BOD "optic". Do not award an example of optical storage (e.g. "DVD") in place of the type.</li>
+<li>Accept "optic" or "optical disc". Do not award a specific example of optical storage, such as "DVD" or "Blu-ray", in place of the type itself.</li>
 </ul></div>`,
             modelAnswer: "Optical storage."
         },
@@ -962,7 +940,7 @@
             markScheme: `<div class="marks-section">
 <h5>Mark Scheme — 1 mark</h5>
 <ul>
-<li>Optical storage, because discs are very cheap to mass-produce identical copies of — CAO (correct answer only)</li>
+<li>Optical storage, because discs are very cheap to mass-produce identical copies of</li>
 </ul>
 </div>
 <div class="marks-section">
@@ -991,7 +969,7 @@
             markScheme: `<div class="marks-section">
 <h5>Mark Scheme — 1 mark</h5>
 <ul>
-<li>'Solid-state' names the type; a USB memory stick/SSD would be the device — CAO</li>
+<li>'Solid-state' names the type; a USB memory stick/SSD would be the device</li>
 </ul>
 </div>
 <div class="marks-section">

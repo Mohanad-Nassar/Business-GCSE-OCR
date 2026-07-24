@@ -1,0 +1,696 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2.4.1 Etiquette of Performers – Interactive Study Guide</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+    <header>
+        <div>
+            <div class="badge">OCR Level 1/Level 2 Sport Studies — R184 · 2. The Role of Sport in Promoting Values</div>
+            <h1>2.4.1 Etiquette of Performers</h1>
+            <p>Interactive revision guide · Content coming soon</p>
+        </div>
+        <a href="/index.html" class="home-link">← 🏡 Home</a>
+    </header>
+
+    <nav class="tab-bar" id="tabBar">
+        <button class="tab-btn active" onclick="switchTab('learn', this)">
+            📚 Key Learning
+        </button>
+        <button class="tab-btn" onclick="switchTab('mcq', this)">
+            ❓ MCQ Quiz
+        </button>
+        <button class="tab-btn" onclick="switchTab('matching', this)">
+            🔗 Matching
+        </button>
+        <button class="tab-btn" onclick="switchTab('fib', this)">
+            ✏️ Fill the Blanks
+        </button>
+        <button class="tab-btn" onclick="switchTab('misconceptions', this)">
+            ⚠️ Misconceptions
+        </button>
+        <button class="tab-btn" onclick="switchTab('examtips', this)">
+            🎯 Exam Tips
+        </button>
+        <button class="tab-btn" onclick="switchTab('flashcards', this)">
+            🃏 Flashcards
+        </button>
+        <button class="tab-btn" onclick="switchTab('truefalse', this)">
+            ✅ True / False
+        </button>
+        <button class="tab-btn" onclick="switchTab('exampractice', this)">
+            📝 Exam Practice
+        </button>
+    </nav>
+
+    <main>
+        <div class="tab-panel active" id="tab-learn">
+            <h2 class="section-title">Key Learning Topics</h2>
+            <p class="section-sub">Click any card to expand detailed notes.</p>
+            <div class="topic-grid" id="topicGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-mcq">
+            <h2 class="section-title">Multiple Choice Questions</h2>
+            <p class="section-sub">Select an answer to reveal instant feedback.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="mcqScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">
+                        correct answers
+                    </div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    out of <strong id="mcqTotal">0</strong> attempted
+                </div>
+                <button class="reset-btn" onclick="resetMCQ()">RESET</button>
+            </div>
+            <div class="quiz-wrap" id="mcqWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-matching">
+            <h2 class="section-title">Matching Activity</h2>
+            <p class="section-sub">
+                Click a term on the left, then click the matching definition on the
+                right.
+            </p>
+            <div style="margin-bottom: 16px">
+                <div class="score-bar">
+                    <div>
+                        <div class="score-num" id="matchScore">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">matched</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="matchTotal">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetMatch()">RESET</button>
+                </div>
+            </div>
+            <div class="match-grid">
+                <div>
+                    <div class="match-label">TERMS</div>
+                    <div class="match-col" id="matchLeft"></div>
+                </div>
+                <div>
+                    <div class="match-label">DEFINITIONS</div>
+                    <div class="match-col" id="matchRight"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-fib">
+            <h2 class="section-title">Fill in the Blanks</h2>
+            <p class="section-sub">
+                Click each dropdown and choose the correct word. Wrong answers reset —
+                try again!
+            </p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="fibScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="fibTotal">0</strong> blanks
+                </div>
+                <button class="reset-btn" onclick="resetFIB()">RESET</button>
+            </div>
+            <div class="fib-wrap" id="fibWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-misconceptions">
+            <h2 class="section-title">Common Misconceptions</h2>
+            <p class="section-sub">
+                What students often think — and what examiners actually want.
+            </p>
+            <div class="misc-list" id="miscList"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-examtips">
+            <h2 class="section-title">Exam Questions &amp; Tips</h2>
+            <p class="section-sub">
+                Most repeated question types and mark-scheme structures from real OCR
+                papers.
+            </p>
+            <div class="tips-grid" id="tipsGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-flashcards">
+            <h2 class="section-title">Flashcards</h2>
+            <p class="section-sub">
+                Test yourself! Flip the card and rate your knowledge. Review your weak
+                areas at the end.
+            </p>
+
+            <div class="fc-container">
+                <div class="score-bar" id="fcScoreBar" style="display: none; margin-bottom: 20px">
+                    <div>
+                        <div class="score-num" id="fcKnown" style="color: #2d7a4f">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">known</div>
+                    </div>
+                    <div>
+                        <div class="score-num" id="fcUnknown" style="color: #c84b31">
+                            0
+                        </div>
+                        <div style="font-size: 12px; color: var(--mid)">learning</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="fcTotalTrack">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
+                </div>
+
+                <div id="fcActiveArea">
+                    <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
+                    <div class="flashcard" id="flashcard" onclick="flipCard()">
+                        <div class="fc-inner">
+                            <div class="fc-front">
+                                <div class="fc-label">KEY TERM</div>
+                                <div class="fc-term" id="fcTerm"></div>
+                            </div>
+                            <div class="fc-back">
+                                <div class="fc-def" id="fcDef"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="fc-hint">👆 Click card to flip</p>
+
+                    <div class="fc-nav" id="fcNavDefault">
+                        <button class="fc-btn outline" onclick="prevCard()">
+                            ← Prev
+                        </button>
+                        <button class="fc-btn outline" onclick="flipCard()">Flip</button>
+                        <button class="fc-btn" onclick="nextCard()">Next →</button>
+                    </div>
+
+                    <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px">
+                        <button class="fc-btn outline" style="border-color: #c84b31; color: #c84b31; flex: 1"
+                            onclick="markCard(false)">
+                            ❌ Still Learning
+                        </button>
+                        <button class="fc-btn" style="background: #2d7a4f; border-color: #2d7a4f; flex: 1"
+                            onclick="markCard(true)">
+                            ✅ Got It
+                        </button>
+                    </div>
+                </div>
+
+                <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px">
+                    <h3>Session Complete! 🎉</h3>
+                    <p style="margin: 15px 0">
+                        You knew <strong id="fcSummaryKnown">0</strong> out of
+                        <strong id="fcSummaryTotal">0</strong> cards.
+                    </p>
+                    <div style="
+                margin-top: 25px;
+                display: flex;
+                gap: 15px;
+                justify-content: center;
+                flex-wrap: wrap;
+              ">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
+                            style="background: #c84b31; border-color: #c84b31">
+                            Review Incorrect
+                        </button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">
+                            Practice All Again
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-truefalse">
+            <h2 class="section-title">True or False?</h2>
+            <p class="section-sub">Test your knowledge with these statements.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="tfScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="tfTotal">0</strong> answered
+                </div>
+                <button class="reset-btn" onclick="resetTF()">RESET</button>
+            </div>
+            <div class="tf-wrap" id="tfWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-exampractice">
+            <h2 class="section-title">Exam Practice Questions</h2>
+            <p class="section-sub">
+                Full exam questions with case studies. Use <strong>Hint</strong>,
+                <strong>Sentence Starter</strong> and
+                <strong>Submit &amp; See Mark Scheme</strong> for each question.
+            </p>
+            <div class="ep-list" id="epList"></div>
+        </div>
+    </main>
+
+<script>
+    // ══════════════════════════════════════
+    //  DATA: 2.4.1 Etiquette of Performers — placeholder, content not yet written
+    // ══════════════════════════════════════
+    const pageMeta = {
+            id: '2-4-1-etiquette-of-performers',
+            badge: 'OCR Level 1/Level 2 Sport Studies — R184 · 2. The Role of Sport in Promoting Values',
+            title: '2.4.1 Etiquette of Performers',
+            subtitle: 'Interactive revision guide',
+            subject: 'sport-studies',
+        };
+
+    const topics = [
+        {
+            title: "Etiquette: what it is and why performers observe it",
+            tag: "Key concept",
+            content: `<h4>What 'etiquette' means in sport</h4>
+<ul>
+<li><strong>Etiquette</strong> is the unwritten code of good conduct and manners a performer is expected to follow — conventions that go beyond what is written in the sport's official rulebook.</li>
+<li>A performer can obey every written rule of a sport and still behave badly by ignoring etiquette — for example, celebrating right in an injured opponent's face breaks no written rule, but it is still poor conduct.</li>
+</ul>
+<h4>Why performers observe it — three reasons</h4>
+<ul>
+<li><strong>Fairness</strong> — some conventions exist purely so that no performer gains an advantage that has nothing to do with skill (for example, staying still in an opponent's eyeline during their shot).</li>
+<li><strong>Safety of fellow participants</strong> — some conventions exist purely to stop performers being hurt (for example, not tackling once play has already stopped).</li>
+<li><strong>Reinforcing positive sporting values</strong> — following etiquette consistently keeps values such as respect and fair play alive within a sport, for everyone taking part and watching.</li>
+</ul>`,
+            readCheck: {
+                q: "Which of these best explains what 'etiquette' means for a performer?",
+                opts: ["An unwritten code of good conduct that goes beyond the sport's official rulebook", "Every written law and regulation that is printed inside the sport's official rulebook", "A list of skills a performer must master before being allowed to compete at all", "The scoring system used by officials to work out the final result of a match"],
+                ans: 0,
+                explain: "Etiquette is unwritten — conventions beyond the rulebook. Option B describes the opposite (written rules), and the others describe skill requirements or scoring, not etiquette."
+            }
+        },
+        {
+            title: "Knowing when to be quiet or hold back",
+            tag: "Core knowledge",
+            content: `<h4>Recognising the right moment</h4>
+<ul>
+<li>Good etiquette often means a performer recognising a moment when staying quiet, still or out of the way is the appropriate thing to do — without needing to be told.</li>
+<li>Examples across sports: staying silent while an opponent lines up a decisive shot; not walking across the field of play while the ball is live; waiting for a rally to finish before returning a stray ball.</li>
+</ul>
+<h4>Why this matters</h4>
+<ul>
+<li>These moments usually protect the same two reasons as above — interrupting at the wrong time can distract an opponent unfairly, or create a safety risk if performers collide.</li>
+<li>A performer who has to be reminded every single time is showing they do not really understand etiquette — recognising the moment yourself is the mark of a well-mannered competitor.</li>
+</ul>`,
+            readCheck: {
+                q: "A performer notices their opponent is about to take a shot that will decide the point. What does good etiquette suggest?",
+                opts: ["Call out something distracting at exactly the moment your opponent is about to strike the ball", "Stay completely still and silent until the shot has been taken", "Walk across the playing area to fetch a different ball while play continues", "Ask the referee to pause the whole match until you are ready to keep watching"],
+                ans: 1,
+                explain: "Etiquette means holding back at the decisive moment. Calling out, walking across live play, or demanding a pause would all distract or disrupt — the opposite of what is expected."
+            }
+        },
+        {
+            title: "Sportsmanship: the letter AND the spirit of the rules",
+            tag: "Core knowledge",
+            content: `<h4>The definition to learn</h4>
+<ul>
+<li><strong>Sportsmanship</strong> means playing within the letter of the rules (the written laws) <strong>and</strong> the spirit of the rules (the fairness those laws are trying to protect) — even when nobody is checking.</li>
+<li>A sportsmanlike performer would rather lose fairly than win by exploiting a loophole nobody has noticed.</li>
+</ul>
+<h4>An example</h4>
+<ul>
+<li>In a school football match, a striker notices the ball went out of play just before they scored, but the assistant referee has not seen it. The striker tells the referee the ball was out, giving up the goal, because winning that way would not feel like a genuine win.</li>
+</ul>`,
+            readCheck: {
+                q: "Which of these best matches the definition of sportsmanship used in this course?",
+                opts: ["Playing strictly within the written rules while still quietly hunting for any legal edge available", "Refusing to compete against any opponent who is clearly stronger than you are", "Sticking to the exact rules and their fair-play spirit, even when no official is checking", "Following only the instructions given personally by your coach or team manager"],
+                ans: 2,
+                explain: "Sportsmanship covers BOTH the letter and the spirit of the rules, unchecked. Option A describes gamesmanship instead — legal, but chasing an edge rather than respecting fairness."
+            }
+        },
+        {
+            title: "Gamesmanship: bending the rules for an edge",
+            tag: "Exam skill",
+            content: `<h4>The definition to learn</h4>
+<ul>
+<li><strong>Gamesmanship</strong> means bending the rules, or using legal-but-borderline tactics, to gain an advantage — <strong>without technically breaking any written rule</strong>.</li>
+<li>The key difference from cheating: gamesmanship never breaks a written law of the sport. The key difference from sportsmanship: it ignores the spirit of fair competition to chase an edge.</li>
+</ul>
+<h4>Examples</h4>
+<ul>
+<li>A tennis player takes the maximum time allowed between points, every single point, once they start losing momentum — purely to disrupt their opponent's rhythm.</li>
+<li>A losing team's substitute takes slightly longer than necessary to leave the pitch in the closing minutes, running down the clock.</li>
+</ul>
+<h4>Sportsmanship vs gamesmanship — the core contrast</h4>
+<ul>
+<li>Sportsmanship respects the spirit of the rules; gamesmanship exploits the letter of the rules while ignoring their spirit.</li>
+<li>Both stay inside the written rulebook — the difference is intention: fairness versus advantage-seeking.</li>
+</ul>`,
+            readCheck: {
+                q: "Which of these is the best description of gamesmanship?",
+                opts: ["Deliberately and openly breaking a written rule of the sport in order to win", "Following both the written rules and their underlying spirit at every moment", "Refusing to take part in any competition unless the playing conditions are absolutely perfect in every way", "Bending the rules or seeking a legal-but-unfair edge, without technically breaking a written rule"],
+                ans: 3,
+                explain: "Gamesmanship stays legal but chases an edge. Option A describes cheating (a rule IS broken), and option B describes sportsmanship instead."
+            }
+        }
+    ];
+
+    const mcqData = [
+        {
+            q: "Which of these is a genuine reason performers are expected to observe etiquette?",
+            opts: ["It reinforces positive sporting values and protects fairness and safety", "It guarantees that the more experienced performer will always win the contest", "It replaces the need for a referee or official to be present at the match", "It only applies to professional performers, never to school or club sport"],
+            ans: 0,
+            explain: "Etiquette exists for fairness, safety and reinforcing values — it never guarantees a result, replaces officials, or applies only to professionals."
+        },
+        {
+            q: "A golfer's playing partner is standing over the ball, about to take a decisive putt. What should the golfer do?",
+            opts: ["Quietly shuffle their feet and check their phone to pass the time", "Stay completely still and silent until the putt has been taken", "Walk onto the green to check where the flag is", "Ask the playing partner to hurry up and take the putt"],
+            ans: 1,
+            explain: "Etiquette means holding back completely during a decisive shot. Shuffling, walking onto the green, or rushing the other player would all distract or disrupt."
+        },
+        {
+            q: "Which sentence best shows sportsmanship rather than gamesmanship?",
+            opts: ["A player stays carefully inside every written rule while quietly searching out every possible legal advantage they can find", "A player argues with the referee until the decision is changed in their favour", "A player admits fouling even though the referee doesn't spot it, and accepts the decision going against them", "A player refuses to shake hands with the opposition after losing a close match"],
+            ans: 2,
+            explain: "Owning up when nobody is checking shows respect for the spirit of the rules — true sportsmanship. Option A instead describes chasing legal advantages, which is gamesmanship."
+        },
+        {
+            q: "Which of these is the clearest example of gamesmanship?",
+            opts: ["Deliberately punching an opponent off the ball whenever the match referee happens to not be looking", "Congratulating an opponent generously after they win a hard-fought contest", "Following every written rule and every unwritten convention of the sport", "Deliberately taking the maximum time allowed between points to unsettle an opponent's rhythm"],
+            ans: 3,
+            explain: "Using the full, legal time allowance purely to disrupt an opponent is gamesmanship — legal, but chasing an edge. Punching an opponent breaks a written rule, so it is cheating, not gamesmanship."
+        },
+        {
+            q: "What is the key difference between gamesmanship and cheating?",
+            opts: ["Gamesmanship always breaks a written rule, whereas cheating never breaks any rule at all", "Gamesmanship never breaks a written rule; cheating does break a written rule", "There is no real difference between gamesmanship and cheating at all", "Cheating is only possible in individual sports, never in team sports"],
+            ans: 1,
+            explain: "Gamesmanship always stays inside the written rulebook, even while chasing an edge. Cheating actually breaks a written rule — that is the exam-worthy distinction."
+        },
+        {
+            q: "A team is known for consistently showing good etiquette and sportsmanship. What is this most likely to do for the sport?",
+            opts: ["Guarantee the team a better result than their skill level deserves", "Remove the need for the sport to have any officials at future matches", "Help reinforce positive sporting values that the sport depends on", "Stop any other team from ever using gamesmanship tactics again"],
+            ans: 2,
+            explain: "Consistent good conduct reinforces values like respect and fair play — it does not guarantee results, remove the need for officials, or stop others' behaviour."
+        }
+    ];
+
+    const matchData = [
+        { term: "Etiquette", def: "The unwritten code of good conduct expected of a performer, beyond the sport's official rulebook" },
+        { term: "Sportsmanship", def: "Playing within both the written rules and their underlying spirit, even when no one is checking" },
+        { term: "Gamesmanship", def: "Bending the rules or chasing a borderline advantage, without technically breaking any written law" },
+        { term: "Fairness", def: "A reason for good conduct: stopping an advantage that has nothing to do with a performer's actual skill" },
+        { term: "Safety of fellow participants", def: "A reason for good conduct: protecting others from being hurt during a contest" },
+        { term: "Reinforcing positive sporting values", def: "A reason for good conduct: keeping ideas like respect and fair play alive within a sport" },
+        { term: "Time-wasting", def: "A common example of legally using up the clock to protect a lead near the end of a contest" }
+    ];
+
+    const fibData = [
+        {
+            display: "Etiquette is an _____ code of good conduct that goes beyond a sport's official rulebook.",
+            blanks: { B1: "unwritten" }
+        },
+        {
+            display: "Sportsmanship means playing within the letter and the _____ of the rules.",
+            blanks: { B1: "spirit" }
+        },
+        {
+            display: "Gamesmanship means bending the rules to gain an edge without _____ breaking a written rule.",
+            blanks: { B1: "technically" }
+        },
+        {
+            display: "One reason performers observe etiquette is _____ — stopping an advantage that has nothing to do with skill.",
+            blanks: { B1: "fairness" }
+        },
+        {
+            display: "Good etiquette also protects the _____ of fellow participants during a contest.",
+            blanks: { B1: "safety" }
+        },
+        {
+            display: "Consistent good conduct helps _____ positive sporting values within a sport.",
+            blanks: { B1: "reinforce" }
+        }
+    ];
+    const fibWords = ["unwritten", "spirit", "technically", "fairness", "safety", "reinforce"];
+
+    const tfData = [
+        {
+            statement: "Etiquette is the same thing as the sport's official written rulebook.",
+            answer: false,
+            explanation: "Etiquette is UNWRITTEN — conventions that go beyond the rulebook, not the rulebook itself."
+        },
+        {
+            statement: "Sportsmanship means respecting the spirit of the rules, not just the letter.",
+            answer: true,
+            explanation: "Sportsmanship covers both the letter AND the spirit — playing fairly even when nobody is checking."
+        },
+        {
+            statement: "Gamesmanship involves openly breaking a written rule of the sport.",
+            answer: false,
+            explanation: "Gamesmanship always stays inside the written rules — it bends them for an edge, but never technically breaks them. Breaking a rule is cheating."
+        },
+        {
+            statement: "One reason for observing etiquette is protecting the safety of fellow participants.",
+            answer: true,
+            explanation: "Safety is one of the three reasons — some conventions exist purely to stop performers being hurt."
+        },
+        {
+            statement: "A performer who has to be told every time to stay quiet is showing strong etiquette.",
+            answer: false,
+            explanation: "Recognising the moment yourself, without being told, is the real mark of good etiquette."
+        },
+        {
+            statement: "Gamesmanship and cheating mean exactly the same thing.",
+            answer: false,
+            explanation: "Gamesmanship never breaks a written rule; cheating does. That distinction is exactly what the exam tests."
+        }
+    ];
+
+    const miscData = [
+        {
+            wrong: "Gamesmanship is basically just another word for cheating, since both are about trying to win unfairly.",
+            correct: "They are different ideas the exam tests precisely. GAMESMANSHIP stays inside the written rules while chasing a legal-but-unfair edge. CHEATING actually breaks a written rule. A player time-wasting legally is gamesmanship; a player throwing a punch off the ball breaks a rule and is cheating.",
+            readCheck: {
+                q: "What is the key difference between gamesmanship and cheating?",
+                opts: ["Cheating always avoids breaking any written rule, while gamesmanship constantly breaks the sport's rulebook", "Gamesmanship stays inside the written rules of the sport; cheating breaks a written rule", "There is no meaningful difference between the two ideas at all", "Gamesmanship only happens in team sports, never in individual ones"],
+                ans: 1,
+                explain: "Gamesmanship never technically breaks a written rule; cheating does. That is the precise distinction the exam rewards."
+            }
+        },
+        {
+            wrong: "Sportsmanship just means being a good loser and shaking hands at the end.",
+            correct: "That is only a small, final part of it. The full definition is obeying both the exact rules AND the fair-play spirit behind them for the ENTIRE contest — not just being gracious once it is over. A player could shake hands warmly at the end and still have shown poor sportsmanship during the match itself.",
+            readCheck: {
+                q: "Which of these captures the FULL meaning of sportsmanship, not just part of it?",
+                opts: ["Being polite to the officials only after the final whistle has been blown", "Shaking hands warmly with opponents at the end, regardless of how fairly the match itself was played", "Obeying both the exact rules and the fair-play spirit behind them for the entire contest", "Applauding your own teammates loudly whenever they happen to score a point"],
+                ans: 2,
+                explain: "Sportsmanship applies throughout the contest, not only at the final whistle — a warm handshake alone does not prove fair play took place during the match."
+            }
+        },
+        {
+            wrong: "As long as I don't break a written rule, it doesn't matter how I behave — that's just part of the game.",
+            correct: "This ignores etiquette and the spirit of the rules, which matter even when no written rule is broken. A performer can stay entirely legal and still show poor conduct — distracting an opponent, ignoring a safety convention, or refusing to acknowledge a genuine error. Legal is not the same as well-mannered.",
+            readCheck: {
+                q: "A performer says 'I never break a written rule, so how I behave doesn't matter.' What is missing from this view?",
+                opts: ["It ignores etiquette and the spirit of the rules, which matter even when no written rule is broken", "It ignores the fact that written rules are only ever a small part of everything a referee is actually watching for", "It ignores the exact scoreline of the match at the moment the behaviour happens", "It ignores how many spectators are physically present inside the stadium that day"],
+                ans: 0,
+                explain: "Staying legal is not the same as showing good conduct — etiquette and the spirit of fair play matter beyond just the written rulebook."
+            }
+        },
+        {
+            wrong: "'Knowing when to be quiet' is only about politeness — it has nothing to do with safety.",
+            correct: "It links to BOTH reasons for etiquette, not just fairness/politeness. Holding back at the wrong moment can also risk a collision — for example, walking into a live playing area, or moving suddenly near a performer mid-action. Etiquette protects safety just as much as it protects fairness.",
+            readCheck: {
+                q: "Why can 'knowing when to be quiet or hold back' matter for safety, not just politeness?",
+                opts: ["Because staying quiet at the right moment always guarantees that a performer will go on to win their next contest", "Because officials are not allowed to speak until a performer has finished talking", "Because it has no connection to safety and is only a matter of good manners", "Because holding back at the wrong moment can cause a collision or distract someone dangerously"],
+                ans: 3,
+                explain: "Interrupting or moving at the wrong moment risks a collision as well as unfair distraction — etiquette serves safety, not just politeness."
+            }
+        }
+    ];
+
+    const examTips = [
+        {
+            type: "tip",
+            title: "Command words for this topic — what each one wants",
+            pills: ["Identify", "State", "Explain", "Discuss"],
+            content: `<p>Etiquette questions range from quick recall to a full 8-mark discussion. Match your answer length to the command word:</p>
+<ul>
+<li><strong>Identify / State</strong> — just name it. "State one reason for observing etiquette [1]" = write the reason, nothing more.</li>
+<li><strong>Explain</strong> — give a reason, using the word <em>because</em>. "Explain why a tactic is gamesmanship" = say what it is, plus why it counts, linked to the scenario.</li>
+<li><strong>Discuss</strong> (the Section C 8-marker) — weigh up both sides (the short-term appeal of gamesmanship AND the longer-term cost) and reach a justified judgement.</li>
+</ul>
+<p><strong>Read the mark tariff:</strong> [1] wants one point; [4] in Section B wants two developed, applied points; [8] wants balance plus a judgement.</p>`,
+            readCheck: {
+                q: "A question says: 'Identify one reason why performers observe etiquette [1]'. What is the safest answer?",
+                opts: ["A full paragraph explaining fairness, safety and reinforcing values all together", "One named reason, such as fairness or safety", "A list of every user group who might take part in the sport", "A description of the referee's full matchday routine and duties"],
+                ans: 1,
+                explain: "'Identify' + [1] = one named reason. A full paragraph, a list of user groups, or a description of duties all waste time on a single-mark question."
+            }
+        },
+        {
+            type: "tip",
+            title: "The core contrast: never blur sportsmanship and gamesmanship",
+            pills: ["Section A", "Section B", "AO2"],
+            content: `<p>The single most common way to lose marks here is defining gamesmanship as cheating, or sportsmanship as only "being a good loser". Always state BOTH halves of the real definition:</p>
+<ul>
+<li><strong>❌ 0–1 marks:</strong> "Gamesmanship is cheating."</li>
+<li><strong>✅ full marks:</strong> "Gamesmanship bends the rules for an advantage without technically breaking them, whereas sportsmanship respects the spirit of the rules even when nobody is checking."</li>
+</ul>
+<p>In <strong>Section B</strong> you will usually be given a scenario. Decide first whether the behaviour described breaks a written rule (cheating), stays legal but chases an edge (gamesmanship), or respects fairness throughout (sportsmanship) — then explain using detail from the scenario.</p>`,
+            readCheck: {
+                q: "Which answer about gamesmanship is most likely to earn full marks?",
+                opts: ["Gamesmanship means cheating by openly and deliberately breaking a written rule of the sport itself", "Gamesmanship is exactly the same idea as good sportsmanship in every sport", "Gamesmanship bends the rules for an advantage, without technically breaking any of them", "Gamesmanship only exists in sports that do not use a professional referee"],
+                ans: 2,
+                explain: "Full marks needs the precise definition: bending the rules for an edge WITHOUT breaking them. Calling it cheating, or the same as sportsmanship, misses the exam-worthy distinction."
+            }
+        },
+        {
+            type: "tip",
+            title: "Where etiquette appears + sentence starters",
+            pills: ["Section A", "Section B", "Section C"],
+            content: `<p><strong>Where it shows up:</strong> etiquette appears as quick recall in <strong>Section A</strong> (identify/state a reason or definition), as an applied point in <strong>Section B</strong> scenarios (deciding whether behaviour is sportsmanship or gamesmanship), and it feeds <strong>Section C</strong> 8-mark answers about the impact of relying on gamesmanship rather than sportsmanship.</p>
+<p><strong>Three punchy tips:</strong></p>
+<ul>
+<li>Always give BOTH halves of the sportsmanship/gamesmanship definitions — never just half.</li>
+<li>In a scenario, check first: does it break a written rule (cheating), stay legal but chase an edge (gamesmanship), or respect fairness throughout (sportsmanship)?</li>
+<li>For an 8-mark Discuss, weigh gamesmanship's small short-term gain against its longer-term cost to reputation and trust.</li>
+</ul>
+<p><strong>Sentence starters for a longer answer:</strong></p>
+<ul>
+<li>"One example of gamesmanship here is… because…"</li>
+<li>"This differs from sportsmanship because…"</li>
+<li>"Overall, the greater impact is… because…"</li>
+</ul>`,
+            readCheck: {
+                q: "Why is naming a specific example the strongest way to answer a Section B question here?",
+                opts: ["Because the marks reward applying the idea to the given scenario, not a general definition", "Because writing a specific example always takes far less time to plan than a full definition does", "Because officials only accept answers that contain a specific example", "Because a definition on its own is never accepted by any exam board"],
+                ans: 0,
+                explain: "Section B is applied — the marks are for using the scenario in front of you, not just stating a general definition."
+            }
+        }
+    ];
+
+    const flashcards = [
+        { term: "Etiquette", def: "Unwritten code of good conduct expected of a performer, beyond the official rulebook" },
+        { term: "Sportsmanship", def: "Playing within the letter AND spirit of the rules, even when unchecked" },
+        { term: "Gamesmanship", def: "Bending the rules for an edge, without technically breaking a written rule" },
+        { term: "Fairness (reason for etiquette)", def: "Stops an advantage that has nothing to do with a performer's actual skill" },
+        { term: "Safety of fellow participants (reason for etiquette)", def: "Conventions that exist purely to prevent performers being hurt" },
+        { term: "Reinforcing positive sporting values", def: "Consistent good conduct keeps values like respect alive within a sport" },
+        { term: "Knowing when to be quiet", def: "Recognising a moment to hold back, without needing to be told" },
+        { term: "Time-wasting", def: "A common gamesmanship example: legally using up the clock to protect a lead" }
+    ];
+
+    const examQuestions = [
+        {
+            num: "1",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: "State <strong>two</strong> reasons why performers are expected to observe etiquette in sport.",
+            hint: "Pick two from: fairness, safety of fellow participants, or reinforcing positive sporting values.",
+            starter: "One reason is… Another reason is…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1)</h5>
+<p><strong>1 mark for each correct reason named, to a maximum of two. Accept any two DIFFERENT reasons from:</strong></p>
+<ul>
+<li>Fairness — stops an advantage that has nothing to do with skill</li>
+<li>Safety of fellow participants — protects performers from being hurt</li>
+<li>Reinforcing positive sporting values — keeps values like respect alive</li>
+</ul>
+<p>Do not credit the same reason written twice.</p>
+</div>`,
+            modelAnswer: "One reason is fairness — it stops an advantage that has nothing to do with skill.\n\nAnother reason is safety — some conventions exist purely to protect fellow participants from injury.",
+            markPoints: { note: "One tick per correct, DIFFERENT reason; cap at 2.", groups: [
+                { label: "Your first reason", max: 1, points: ["Names a valid reason for observing etiquette (fairness, safety of fellow participants, or reinforcing positive sporting values)"] },
+                { label: "Your second reason", max: 1, points: ["Names a DIFFERENT valid reason from the list"] }
+            ] }
+        },
+        {
+            num: "2",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Which of these best describes gamesmanship?",
+            options: ["Deliberately and very openly breaking one of the sport's official written rules right in front of the referee", "Bending the rules or chasing a legal-but-unfair edge, without technically breaking a written rule", "Respecting both the written rules and their fair-play spirit at every single moment", "Refusing to take part in a contest unless conditions are perfect"],
+            answer: 1,
+            hint: "Think about whether a written rule is actually broken or not.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO2)</h5>
+<p><strong>Answer: B — Bending the rules or chasing a legal-but-unfair edge, without technically breaking a written rule.</strong></p>
+<ul>
+<li>Gamesmanship always stays inside the written rulebook while seeking an advantage.</li>
+<li>Openly breaking a rule is cheating, and respecting the letter AND spirit of the rules describes sportsmanship instead.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "3",
+            marks: 4,
+            type: "written",
+            caseStudy: `<p><strong>Scenario — Larkfield Badminton Club</strong></p><p>Jamila is playing a close badminton match for Larkfield Badminton Club. She is a single point away from losing the set. Before her opponent's next serve, Jamila spends a long time re-tying an already-secure shoelace and adjusting her wristband, even though neither actually needs attention, clearly hoping to break her opponent's rhythm. She does not break any written rule of badminton by doing this.</p>`,
+            question: "Explain why Jamila's behaviour in the scenario is an example of <strong>gamesmanship</strong>, and explain why it would <strong>not</strong> be described as good sportsmanship.",
+            hint: "First explain what makes it gamesmanship (an edge sought without breaking a written rule). Then explain what sportsmanship requires that this behaviour is missing.",
+            starter: "This is gamesmanship because…\n\nHowever, it is not good sportsmanship because…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (AO2: application)</h5>
+<p><strong>Up to 2 marks for explaining the gamesmanship, up to 2 marks for explaining why it is not sportsmanship. Answers may include:</strong></p>
+<ul>
+<li><strong>Gamesmanship (2):</strong> Jamila is trying to disrupt her opponent's rhythm/concentration to gain an advantage (1), without breaking any written rule of badminton — linked to the scenario detail of delaying before the serve/re-tying laces when not needed (1).</li>
+<li><strong>Not sportsmanship (2):</strong> sportsmanship means respecting the spirit of the rules as well as the letter (1); Jamila's delay goes against that fairness even though it is legal, so it does not show good sportsmanship (1).</li>
+</ul>
+<p>Accept any other reasonable, applied answer that identifies the advantage-seeking and links it to the scenario.</p>
+</div>`,
+            modelAnswer: "This is gamesmanship because Jamila is trying to unsettle her opponent's rhythm to gain an advantage, without breaking any written rule of badminton — the delay before the serve is legal but is done purely to gain an edge.\n\nHowever, it is not good sportsmanship, because sportsmanship means respecting the spirit of the rules as well as the letter, and deliberately delaying to distract an opponent goes against that fairness, even though no rule is broken.",
+            markPoints: { note: "Mark each half out of 2: gamesmanship (advantage + scenario link), then why it fails sportsmanship (definition + applied reason).", groups: [
+                { label: "Explaining the gamesmanship", max: 2, points: ["Identifies that Jamila is seeking an advantage (disrupting her opponent's rhythm/concentration) without breaking a written rule", "Links the explanation to a scenario detail (the delay/re-tying laces before the serve when not needed)"] },
+                { label: "Explaining why it is not sportsmanship", max: 2, points: ["States that sportsmanship means respecting the spirit of the rules, not just the letter", "Explains that Jamila's delay goes against that fairness/spirit even though it is legal"] }
+            ] }
+        },
+        {
+            num: "4",
+            marks: 8,
+            type: "written",
+            format: "banded",
+            caseStudy: `<p><strong>Scenario — Larkfield Badminton Club</strong></p><p>Larkfield Badminton Club's coach has noticed that several junior players, following examples like Jamila's, are increasingly using gamesmanship tactics to try to win close matches, rather than relying on sportsmanship.</p>`,
+            question: "Discuss the impact that relying on gamesmanship, rather than sportsmanship, could have on performers and on a sport like badminton.",
+            hint: "Cover more than one impact — on the individual performer's reputation and development, and on the sport's fairness and reputation. Weigh any short-term benefit against the longer-term cost, then reach a judgement.",
+            starter: "One impact of relying on gamesmanship is… because…\n\nHowever, sportsmanship instead would…\n\nOverall, the greater impact is… because…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 8 marks (level-of-response). Read the band you fit, then pick a mark.</h5>
+<ul>
+<li><strong>Band 3 (thorough), 6–8:</strong> a balanced, well-applied discussion of several impacts (on performers AND on the sport), weighing any short-term benefit of gamesmanship against its longer-term cost, ending in a justified judgement.</li>
+<li><strong>Band 2 (reasonable), 3–5:</strong> sound understanding applied to more than one impact with some analysis, but the discussion may be one-sided or the judgement unsupported.</li>
+<li><strong>Band 1 (basic), 1–2:</strong> names an impact and/or the terms with little application and no real evaluation; largely a list.</li>
+<li><strong>0 marks:</strong> nothing creditworthy.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Indicative content (indicative, not a checklist — reward valid alternatives)</h5>
+<ul>
+<li><strong>Short-term:</strong> gamesmanship might unsettle an opponent and help win a close point or match.</li>
+<li><strong>Performer impact:</strong> relying on it can stunt real skill development under pressure, and a reputation for it can put off future opponents, partners or sponsors who prefer fair competitors.</li>
+<li><strong>Sport impact:</strong> if common across a club or sport, it can lower spectators' and participants' trust in its fairness, undermining the values the sport depends on.</li>
+<li><strong>Sportsmanship contrast:</strong> builds a performer's reputation for fair play under pressure and reinforces those values for everyone watching.</li>
+<li><strong>Evaluation:</strong> gamesmanship's advantage is usually small and short-lived, while sportsmanship's benefits (trust, respect, development) build over a whole career or sport's reputation — though occasional gamesmanship differs from a persistent culture of it.</li>
+<li><strong>Judgement:</strong> relying on gamesmanship risks more than it gains for both the performer and the sport, so clubs should encourage sportsmanship despite gamesmanship's minor short-term appeal.</li>
+</ul>
+</div>`,
+            modelAnswer: "Relying on gamesmanship, like delaying serves to unsettle an opponent, might win Larkfield's players a close point or two in the short term. However, it stops players developing real skill under pressure, and a reputation for it can put off future opponents, partners or even sponsors who prefer fair competitors. If gamesmanship becomes common across the club, spectators and other players may start to trust the sport's fairness less, undermining values like respect that the sport depends on.\n\nSportsmanship, by contrast, builds a performer's reputation for playing fairly even under pressure, and reinforces those values for everyone watching. Its benefits build steadily over a whole career, while gamesmanship's edge is usually small and short-lived.\n\nOverall, relying on gamesmanship risks more than it gains — Larkfield's coach should encourage sportsmanship, even though gamesmanship keeps a minor short-term appeal in very close matches."
+        }
+    ];
+</script>
+    <script src="/cs-lab/exam-widgets.js"></script>
+    <script src="/script.js"></script>
+<script src="section-totals.js"></script>
+<script src="page-groups.js"></script>
+<script src="/progress-shared.js"></script>
+<script src="/gamification.js"></script>
+<script src="/topic-guard.js"></script>
+<script src="/notifications-shared.js"></script>
+<script src="/onboarding-tour.js"></script>
+<script src="/footer-legal.js"></script>
+</body>
+
+</html>

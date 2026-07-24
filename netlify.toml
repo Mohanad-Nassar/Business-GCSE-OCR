@@ -13,7 +13,18 @@
   SECRETS_SCAN_OMIT_KEYS = "SUPABASE_URL"
 
 [functions]
-  node_bundler = "esbuild"
+  # "nft" (@vercel/nft), not "esbuild". Both bundle these functions correctly —
+  # every function here is plain .js, so nothing needs esbuild's transpiling.
+  # The difference is that esbuild ships a NATIVE esbuild.exe, and this
+  # machine's managed Defender policy ("EUS:Win32/CustomEnterpriseBlock", an
+  # Avanti Schools Trust rule) deletes that binary within seconds of it being
+  # written — it wiped every copy on the machine at once on 2026-07-16, which
+  # made `netlify dev` crash on startup while bundling and took localhost:8888
+  # down entirely. nft is pure JavaScript, so there is no binary to delete.
+  # Trade-off: function zips are slightly larger (no minification/tree-shaking);
+  # behaviour is identical. If IT ever excludes node_modules from that policy,
+  # switching back to "esbuild" is safe — but there's no need to.
+  node_bundler = "nft"
 
 # Weekly cron: builds/tops-up each student's "retry what you got wrong" task.
 # Runs with no HTTP caller — see netlify/functions/weekly-retry-tasks.js.

@@ -1,0 +1,247 @@
+{
+  "slug": "sport-studies",
+  "name": "Sport Studies",
+  "key_stage": "ks4",
+  "level": "Level 1/Level 2",
+  "exam_board": "OCR",
+  "spec_code": "J829",
+  "exam_date": "2027-05-11",
+  "colour": "#16a34a",
+  "icon": "🏅",
+  "groups": [
+    {
+      "id": "1-issues-affecting-participation",
+      "title": "1. Issues Affecting Participation",
+      "sub": "R184 · Contemporary Issues in Sport",
+      "colour": "#16a34a",
+      "pages": [
+        {
+          "id": "1-1-user-groups",
+          "name": "1.1 User Groups",
+          "sub": "Issues Affecting Participation",
+          "file": "1.1-user-groups.html"
+        },
+        {
+          "id": "1-2-barriers-to-participation",
+          "name": "1.2 Barriers to Participation",
+          "sub": "Issues Affecting Participation",
+          "file": "1.2-barriers-to-participation.html"
+        },
+        {
+          "id": "1-3-solutions-to-barriers",
+          "name": "1.3 Solutions to Barriers",
+          "sub": "Issues Affecting Participation",
+          "file": "1.3-solutions-to-barriers.html"
+        },
+        {
+          "id": "1-4-popularity-of-sport-in-the-uk",
+          "name": "1.4 Popularity of Sport in the UK",
+          "sub": "Issues Affecting Participation",
+          "file": "1.4-popularity-of-sport-in-the-uk.html"
+        },
+        {
+          "id": "1-5-emerging-and-new-sports",
+          "name": "1.5 Emerging and New Sports",
+          "sub": "Issues Affecting Participation",
+          "file": "1.5-emerging-and-new-sports.html"
+        }
+      ]
+    },
+    {
+      "id": "2-the-role-of-sport-in-promoting-values",
+      "title": "2. The Role of Sport in Promoting Values",
+      "sub": "R184 · Contemporary Issues in Sport",
+      "colour": "#16a34a",
+      "pages": [
+        {
+          "id": "2-1-values-promoted-through-sport",
+          "name": "2.1 Values Promoted Through Sport",
+          "sub": "The Role of Sport in Promoting Values",
+          "file": "2.1-values-promoted-through-sport.html"
+        },
+        {
+          "id": "2-2-the-olympic-paralympic-movement",
+          "name": "2.2 The Olympic & Paralympic Movement",
+          "sub": "The Role of Sport in Promoting Values",
+          "file": "2.2-the-olympic-and-paralympic-movement.html"
+        },
+        {
+          "id": "2-3-initiatives-and-campaigns",
+          "name": "2.3 Initiatives and Campaigns",
+          "sub": "The Role of Sport in Promoting Values",
+          "file": "2.3-initiatives-and-campaigns.html"
+        },
+        {
+          "id": "2-4-1-etiquette-of-performers",
+          "name": "2.4.1 Etiquette of Performers",
+          "sub": "The Role of Sport in Promoting Values",
+          "file": "2.4.1-etiquette-of-performers.html"
+        },
+        {
+          "id": "2-4-2-etiquette-of-spectators",
+          "name": "2.4.2 Etiquette of Spectators",
+          "sub": "The Role of Sport in Promoting Values",
+          "file": "2.4.2-etiquette-of-spectators.html"
+        },
+        {
+          "id": "2-5-1-why-performers-use-peds",
+          "name": "2.5.1 Why Performers Use PEDs",
+          "sub": "The Role of Sport in Promoting Values",
+          "file": "2.5.1-why-performers-use-peds.html"
+        },
+        {
+          "id": "2-5-2-why-performers-should-not-use-peds",
+          "name": "2.5.2 Why Performers Should Not Use PEDs",
+          "sub": "The Role of Sport in Promoting Values",
+          "file": "2.5.2-why-performers-should-not-use-peds.html"
+        },
+        {
+          "id": "2-5-3-the-role-of-wada",
+          "name": "2.5.3 The Role of WADA",
+          "sub": "The Role of Sport in Promoting Values",
+          "file": "2.5.3-the-role-of-wada.html"
+        },
+        {
+          "id": "2-5-4-sanctions-against-peds",
+          "name": "2.5.4 Sanctions Against PEDs",
+          "sub": "The Role of Sport in Promoting Values",
+          "file": "2.5.4-sanctions-against-peds.html"
+        },
+        {
+          "id": "2-5-5-education-against-peds",
+          "name": "2.5.5 Education Against PEDs",
+          "sub": "The Role of Sport in Promoting Values",
+          "file": "2.5.5-education-against-peds.html"
+        },
+        {
+          "id": "2-5-6-the-impact-of-peds-on-sport",
+          "name": "2.5.6 The Impact of PEDs on Sport",
+          "sub": "The Role of Sport in Promoting Values",
+          "file": "2.5.6-the-impact-of-peds-on-sport.html"
+        }
+      ]
+    },
+    {
+      "id": "3-hosting-a-major-sporting-event",
+      "title": "3. Hosting a Major Sporting Event",
+      "sub": "R184 · Contemporary Issues in Sport",
+      "colour": "#16a34a",
+      "pages": [
+        {
+          "id": "3-1-1-types-of-major-events",
+          "name": "3.1.1 Types of Major Events",
+          "sub": "Hosting a Major Sporting Event",
+          "file": "3.1.1-types-of-major-events.html"
+        },
+        {
+          "id": "3-1-2-participants-and-spectators",
+          "name": "3.1.2 Participants and Spectators",
+          "sub": "Hosting a Major Sporting Event",
+          "file": "3.1.2-participants-and-spectators.html"
+        },
+        {
+          "id": "3-2-pre-event-aspects",
+          "name": "3.2 Pre-Event Aspects",
+          "sub": "Hosting a Major Sporting Event",
+          "file": "3.2-pre-event-aspects.html"
+        },
+        {
+          "id": "3-3-1-during-the-event",
+          "name": "3.3.1 During the Event",
+          "sub": "Hosting a Major Sporting Event",
+          "file": "3.3.1-during-the-event.html"
+        },
+        {
+          "id": "3-3-2-post-event-and-legacy",
+          "name": "3.3.2 Post-Event and Legacy",
+          "sub": "Hosting a Major Sporting Event",
+          "file": "3.3.2-post-event-and-legacy.html"
+        }
+      ]
+    },
+    {
+      "id": "4-national-governing-bodies",
+      "title": "4. National Governing Bodies",
+      "sub": "R184 · Contemporary Issues in Sport",
+      "colour": "#16a34a",
+      "pages": [
+        {
+          "id": "4-1-the-role-of-ngbs",
+          "name": "4.1 The Role of NGBs",
+          "sub": "National Governing Bodies",
+          "file": "4.1-the-role-of-ngbs.html"
+        }
+      ]
+    },
+    {
+      "id": "5-technology-in-sport",
+      "title": "5. Technology in Sport",
+      "sub": "R184 · Contemporary Issues in Sport",
+      "colour": "#16a34a",
+      "pages": [
+        {
+          "id": "5-1-1-technology-to-enhance-performance",
+          "name": "5.1.1 Technology to Enhance Performance",
+          "sub": "Technology in Sport",
+          "file": "5.1.1-technology-to-enhance-performance.html"
+        },
+        {
+          "id": "5-1-2-technology-to-increase-safety",
+          "name": "5.1.2 Technology to Increase Safety",
+          "sub": "Technology in Sport",
+          "file": "5.1.2-technology-to-increase-safety.html"
+        },
+        {
+          "id": "5-1-3-technology-and-officiating",
+          "name": "5.1.3 Technology and Officiating",
+          "sub": "Technology in Sport",
+          "file": "5.1.3-technology-and-officiating.html"
+        },
+        {
+          "id": "5-1-4-technology-to-enhance-spectatorship",
+          "name": "5.1.4 Technology to Enhance Spectatorship",
+          "sub": "Technology in Sport",
+          "file": "5.1.4-technology-to-enhance-spectatorship.html"
+        },
+        {
+          "id": "5-2-1-positive-effects-of-technology",
+          "name": "5.2.1 Positive Effects of Technology",
+          "sub": "Technology in Sport",
+          "file": "5.2.1-positive-effects-of-technology.html"
+        },
+        {
+          "id": "5-2-2-negative-effects-of-technology",
+          "name": "5.2.2 Negative Effects of Technology",
+          "sub": "Technology in Sport",
+          "file": "5.2.2-negative-effects-of-technology.html"
+        },
+        {
+          "id": "5-2-3-technology-and-the-spectator-experience",
+          "name": "5.2.3 Technology and the Spectator Experience",
+          "sub": "Technology in Sport",
+          "file": "5.2.3-technology-and-the-spectator-experience.html"
+        }
+      ]
+    },
+    {
+      "id": "6-exam-preparation",
+      "title": "6. Exam Preparation",
+      "sub": "R184 · Contemporary Issues in Sport",
+      "colour": "#16a34a",
+      "pages": [
+        {
+          "id": "6-1-command-words-and-exam-sections",
+          "name": "6.1 Command Words and Exam Sections",
+          "sub": "Exam Preparation",
+          "file": "6.1-command-words-and-exam-sections.html"
+        },
+        {
+          "id": "6-2-extended-response-technique",
+          "name": "6.2 Extended-Response Technique",
+          "sub": "Exam Preparation",
+          "file": "6.2-extended-response-technique.html"
+        }
+      ]
+    }
+  ]
+}

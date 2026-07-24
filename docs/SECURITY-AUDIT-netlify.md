@@ -202,7 +202,7 @@ write, matching the `create-class.js` reference:
 |---------|-------|-----------|---------|
 | **`CRON_SECRET`** | Netlify site env vars | **NEW — set this** | Authorizes manual/operator HTTP triggers of `weekly-retry-tasks`; genuine `@weekly` cron does not need it. Never commit it. |
 | `SUPABASE_SERVICE_ROLE_KEY` | Netlify site env vars | existing | Service-role key; must stay server-only, never in committed files / front-end. |
-| `GEMINI_API_KEY` | Netlify site env vars | existing | Used by `suggest-marks.js`. |
+| `MARKING_GEMINI_API_KEY` | Netlify site env vars | existing | Used by `suggest-marks.js`. Deliberately not named `GEMINI_API_KEY` — Netlify Dev auto-swaps that name (and `ANTHROPIC_API_KEY`/`OPENAI_API_KEY`) for its own AI Gateway proxy credentials when it detects an AI coding agent. |
 | `CONTENT_GATE_DISABLED` | Netlify site env vars | existing (optional) | Kill switch for the content gate; unchanged by this work. |
 
 ---

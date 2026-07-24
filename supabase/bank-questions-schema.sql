@@ -34,7 +34,7 @@ create table if not exists bank_questions (
     page_id      text not null,
     page_name    text not null,
     source       text not null,          -- 'exam'|'mcq'|'tf'|'learn'|'misc'|'tips'|'fib'|'match'
-    qtype        text not null check (qtype in ('mcq', 'tf', 'fib')),
+    qtype        text not null check (qtype in ('mcq', 'tf', 'fib', 'numeric')),
     marks        numeric not null check (marks > 0),
     snapshot     jsonb not null,          -- question/options/caseStudy/reading/hint/starter — no answer
     answer_key   jsonb not null default '{}'::jsonb,  -- correct answer / blanks / explain — hidden

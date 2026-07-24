@@ -1,0 +1,666 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>5.1.4 Technology to Enhance Spectatorship – Interactive Study Guide</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+    <header>
+        <div>
+            <div class="badge">OCR Level 1/Level 2 Sport Studies — R184 · 5. Technology in Sport</div>
+            <h1>5.1.4 Technology to Enhance Spectatorship</h1>
+            <p>Interactive revision guide · Content coming soon</p>
+        </div>
+        <a href="/index.html" class="home-link">← 🏡 Home</a>
+    </header>
+
+    <nav class="tab-bar" id="tabBar">
+        <button class="tab-btn active" onclick="switchTab('learn', this)">
+            📚 Key Learning
+        </button>
+        <button class="tab-btn" onclick="switchTab('mcq', this)">
+            ❓ MCQ Quiz
+        </button>
+        <button class="tab-btn" onclick="switchTab('matching', this)">
+            🔗 Matching
+        </button>
+        <button class="tab-btn" onclick="switchTab('fib', this)">
+            ✏️ Fill the Blanks
+        </button>
+        <button class="tab-btn" onclick="switchTab('misconceptions', this)">
+            ⚠️ Misconceptions
+        </button>
+        <button class="tab-btn" onclick="switchTab('examtips', this)">
+            🎯 Exam Tips
+        </button>
+        <button class="tab-btn" onclick="switchTab('flashcards', this)">
+            🃏 Flashcards
+        </button>
+        <button class="tab-btn" onclick="switchTab('truefalse', this)">
+            ✅ True / False
+        </button>
+        <button class="tab-btn" onclick="switchTab('exampractice', this)">
+            📝 Exam Practice
+        </button>
+    </nav>
+
+    <main>
+        <div class="tab-panel active" id="tab-learn">
+            <h2 class="section-title">Key Learning Topics</h2>
+            <p class="section-sub">Click any card to expand detailed notes.</p>
+            <div class="topic-grid" id="topicGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-mcq">
+            <h2 class="section-title">Multiple Choice Questions</h2>
+            <p class="section-sub">Select an answer to reveal instant feedback.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="mcqScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">
+                        correct answers
+                    </div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    out of <strong id="mcqTotal">0</strong> attempted
+                </div>
+                <button class="reset-btn" onclick="resetMCQ()">RESET</button>
+            </div>
+            <div class="quiz-wrap" id="mcqWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-matching">
+            <h2 class="section-title">Matching Activity</h2>
+            <p class="section-sub">
+                Click a term on the left, then click the matching definition on the
+                right.
+            </p>
+            <div style="margin-bottom: 16px">
+                <div class="score-bar">
+                    <div>
+                        <div class="score-num" id="matchScore">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">matched</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="matchTotal">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetMatch()">RESET</button>
+                </div>
+            </div>
+            <div class="match-grid">
+                <div>
+                    <div class="match-label">TERMS</div>
+                    <div class="match-col" id="matchLeft"></div>
+                </div>
+                <div>
+                    <div class="match-label">DEFINITIONS</div>
+                    <div class="match-col" id="matchRight"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-fib">
+            <h2 class="section-title">Fill in the Blanks</h2>
+            <p class="section-sub">
+                Click each dropdown and choose the correct word. Wrong answers reset —
+                try again!
+            </p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="fibScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="fibTotal">0</strong> blanks
+                </div>
+                <button class="reset-btn" onclick="resetFIB()">RESET</button>
+            </div>
+            <div class="fib-wrap" id="fibWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-misconceptions">
+            <h2 class="section-title">Common Misconceptions</h2>
+            <p class="section-sub">
+                What students often think — and what examiners actually want.
+            </p>
+            <div class="misc-list" id="miscList"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-examtips">
+            <h2 class="section-title">Exam Questions &amp; Tips</h2>
+            <p class="section-sub">
+                Most repeated question types and mark-scheme structures from real OCR
+                papers.
+            </p>
+            <div class="tips-grid" id="tipsGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-flashcards">
+            <h2 class="section-title">Flashcards</h2>
+            <p class="section-sub">
+                Test yourself! Flip the card and rate your knowledge. Review your weak
+                areas at the end.
+            </p>
+
+            <div class="fc-container">
+                <div class="score-bar" id="fcScoreBar" style="display: none; margin-bottom: 20px">
+                    <div>
+                        <div class="score-num" id="fcKnown" style="color: #2d7a4f">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">known</div>
+                    </div>
+                    <div>
+                        <div class="score-num" id="fcUnknown" style="color: #c84b31">
+                            0
+                        </div>
+                        <div style="font-size: 12px; color: var(--mid)">learning</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="fcTotalTrack">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
+                </div>
+
+                <div id="fcActiveArea">
+                    <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
+                    <div class="flashcard" id="flashcard" onclick="flipCard()">
+                        <div class="fc-inner">
+                            <div class="fc-front">
+                                <div class="fc-label">KEY TERM</div>
+                                <div class="fc-term" id="fcTerm"></div>
+                            </div>
+                            <div class="fc-back">
+                                <div class="fc-def" id="fcDef"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="fc-hint">👆 Click card to flip</p>
+
+                    <div class="fc-nav" id="fcNavDefault">
+                        <button class="fc-btn outline" onclick="prevCard()">
+                            ← Prev
+                        </button>
+                        <button class="fc-btn outline" onclick="flipCard()">Flip</button>
+                        <button class="fc-btn" onclick="nextCard()">Next →</button>
+                    </div>
+
+                    <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px">
+                        <button class="fc-btn outline" style="border-color: #c84b31; color: #c84b31; flex: 1"
+                            onclick="markCard(false)">
+                            ❌ Still Learning
+                        </button>
+                        <button class="fc-btn" style="background: #2d7a4f; border-color: #2d7a4f; flex: 1"
+                            onclick="markCard(true)">
+                            ✅ Got It
+                        </button>
+                    </div>
+                </div>
+
+                <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px">
+                    <h3>Session Complete! 🎉</h3>
+                    <p style="margin: 15px 0">
+                        You knew <strong id="fcSummaryKnown">0</strong> out of
+                        <strong id="fcSummaryTotal">0</strong> cards.
+                    </p>
+                    <div style="
+                margin-top: 25px;
+                display: flex;
+                gap: 15px;
+                justify-content: center;
+                flex-wrap: wrap;
+              ">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
+                            style="background: #c84b31; border-color: #c84b31">
+                            Review Incorrect
+                        </button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">
+                            Practice All Again
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-truefalse">
+            <h2 class="section-title">True or False?</h2>
+            <p class="section-sub">Test your knowledge with these statements.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="tfScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="tfTotal">0</strong> answered
+                </div>
+                <button class="reset-btn" onclick="resetTF()">RESET</button>
+            </div>
+            <div class="tf-wrap" id="tfWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-exampractice">
+            <h2 class="section-title">Exam Practice Questions</h2>
+            <p class="section-sub">
+                Full exam questions with case studies. Use <strong>Hint</strong>,
+                <strong>Sentence Starter</strong> and
+                <strong>Submit &amp; See Mark Scheme</strong> for each question.
+            </p>
+            <div class="ep-list" id="epList"></div>
+        </div>
+    </main>
+
+<script>
+    // ══════════════════════════════════════
+    //  DATA: 5.1.4 Technology to Enhance Spectatorship
+    // ══════════════════════════════════════
+    const pageMeta = {
+            id: '5-1-4-technology-to-enhance-spectatorship',
+            badge: 'OCR Level 1/Level 2 Sport Studies — R184 · 5. Technology in Sport',
+            title: '5.1.4 Technology to Enhance Spectatorship',
+            subtitle: 'Interactive revision guide',
+            subject: 'sport-studies',
+        };
+
+    const topics = [
+        {
+            title: "What 'enhancing spectatorship' means",
+            tag: "Key concept",
+            content: `<h4>The idea</h4>
+<ul>
+<li><strong>Spectatorship</strong> is the experience of <strong>watching</strong> sport — whether that's live inside a stadium or arena, or watching on television, a stream or a phone.</li>
+<li>One role of technology in sport is to make that watching experience <strong>better</strong>: clearer, more exciting, and easier to follow.</li>
+</ul>
+<h4>Not the same as performance, safety or officiating</h4>
+<ul>
+<li>This is a separate role from technology that helps a performer play better, technology that keeps people safe, or technology that helps an official make a correct decision.</li>
+<li>Here, the audience is the <strong>spectator</strong>, not the player or the official — so ask "does this make the watching experience better for the crowd or the viewer?"</li>
+</ul>
+<h4>Two settings to remember</h4>
+<ul>
+<li><strong>Inside the venue</strong> — fans in their seats at a stadium, arena or track.</li>
+<li><strong>Away from the venue</strong> — fans watching on TV, a stream, or checking an app.</li>
+</ul>`,
+            readCheck: {
+                q: "Which question best captures what 'technology to enhance spectatorship' is about?",
+                opts: ["Does this technology make the watching experience better for fans?", "Does this technology help a performer refine a competitive technique?", "Does this technology protect a participant's body from serious injury?", "Does this technology help an official reach the correct decision?"],
+                ans: 0,
+                explain: "Spectatorship is about the audience's experience of watching, not the performer's technique, participant safety or officiating accuracy — those are separate roles of technology."
+            }
+        },
+        {
+            title: "Big screens and enhanced broadcast coverage",
+            tag: "Core knowledge",
+            content: `<h4>Big screens inside the stadium</h4>
+<ul>
+<li>Large screens fitted inside stadia and arenas show <strong>action replays</strong> and <strong>slow-motion replays</strong> of key moments, so fans in the crowd can see incidents they may have missed live.</li>
+<li>When an official reviews a decision, the big screen can show fans the same replay the official is using, so the crowd can follow and understand an appeal rather than just waiting for an announcement.</li>
+<li>Example: at a cricket ground, the big screen might show a ball-tracking replay during a review, letting the crowd see why a batter was given out or not out.</li>
+</ul>
+<h4>Enhanced television broadcast coverage</h4>
+<ul>
+<li>Broadcasters use <strong>multiple camera angles</strong> around a venue, so viewers at home can see an incident from several different views rather than one fixed angle.</li>
+<li><strong>On-screen graphics</strong> add extra information over the picture — such as a trajectory line, a split-time comparison, or a graphic showing how close a decision was — helping viewers understand what is happening.</li>
+<li>Example: an on-screen speed reading during a tennis serve, or an onboard camera view during a cycling or motorsport event, both add detail a viewer could not otherwise see.</li>
+</ul>`,
+            readCheck: {
+                q: "Why might a stadium show fans the same review replay on its big screen that an official is using?",
+                opts: ["So the crowd can follow and understand the decision, not just wait for an announcement", "So the official watching from the touchline can see the incident for the very first time ever", "So players on the pitch can argue with the decision much more easily", "So the stadium can reduce the total number of match officials used"],
+                ans: 0,
+                explain: "Sharing the replay lets the watching crowd follow the same evidence as the official, turning a wait into part of the spectator experience — it isn't there to help the official see it first, encourage arguing, or cut staff."
+            }
+        },
+        {
+            title: "Apps, live stats and applying examples correctly",
+            tag: "Exam skill",
+            content: `<h4>Live stats and second-screen apps</h4>
+<ul>
+<li>Fans can use official <strong>apps or websites</strong> during an event to check <strong>live statistics</strong> — such as a runner's split times, a team's possession percentage, or a player's distance covered — while still watching the action.</li>
+<li>This adds detail the naked eye cannot supply, and lets a fan away from the venue feel closer to the event.</li>
+</ul>
+<h4>Always name a sport or setting</h4>
+<ul>
+<li>Weak answer: <em>"Technology helps spectators."</em> That names a role but gives no detail.</li>
+<li>Strong answer: <em>"A big screen at a rugby stadium replays a disputed try in slow motion, so fans can see the evidence and understand the referee's decision, instead of only hearing an announcement."</em></li>
+<li>The mark almost always needs a <strong>named example linked to a specific benefit</strong> — not just the word "technology".</li>
+</ul>
+<h4>Don't confuse this with the evaluation topic</h4>
+<ul>
+<li>This topic is about how technology is <strong>used</strong> to improve the spectator experience. A different topic asks you to <strong>weigh up</strong> the positives and negatives of technology for spectators — save that judgement for that topic, and focus here on explaining clear uses and benefits.</li>
+</ul>`,
+            readCheck: {
+                q: "A strong exam answer about enhancing spectatorship should always include...",
+                opts: ["A named example of the technology linked to a specific benefit for fans", "The word 'technology' repeated as many times as you possibly can manage", "A criticism of an official's overall performance in the fixture", "A description of a performer's personal training programme"],
+                ans: 0,
+                explain: "Naming the technology and linking it to a real benefit for the audience is what earns marks — repeating a word, criticising officials, or describing training is off-topic here."
+            }
+        }
+    ];
+
+    const mcqData = [
+        {
+            q: "What does 'enhancing spectatorship' mean in the context of technology in sport?",
+            opts: ["Making the experience of watching sport better for the audience", "Making a performer's competitive technique more accurate", "Making the playing surface much safer for participants", "Making it easier for an official to review a contested decision"],
+            ans: 0,
+            explain: "Spectatorship is about the watching experience; improving technique, surface safety and officiating accuracy are separate roles of technology in sport."
+        },
+        {
+            q: "What is the main purpose of showing an action replay on a stadium's big screen?",
+            opts: ["To let the crowd see a key moment again and follow what happened", "To completely replace the need for any match officials working at the fixture", "To make the playing surface much more visible to the groundstaff", "To give performers a good deal of extra recovery time between events"],
+            ans: 0,
+            explain: "Big-screen replays are for the crowd's benefit, not to remove officials, help groundstaff, or give performers recovery time."
+        },
+        {
+            q: "A broadcaster adds an on-screen graphic showing a serve's exact speed during a tennis match. This mainly helps...",
+            opts: ["viewers at home understand more detail about what just happened", "the player serve the ball with much greater accuracy next time", "the official decide whether that particular serve was in or out", "the groundstaff prepare the court surface for the next game"],
+            ans: 0,
+            explain: "The graphic is broadcast information for the viewer's understanding, not a tool for the player's technique, the official's decision, or court preparation."
+        },
+        {
+            q: "Why might a fan use a live-stats app while watching a match on television?",
+            opts: ["To see extra detail, such as player statistics, that the broadcast picture alone does not show", "To officially referee the match themselves from home using the app, fully replacing the real match officials", "To physically replace the stadium's existing big-screen system", "To stop the broadcaster from showing any camera angles at all"],
+            ans: 0,
+            explain: "A stats app adds detail for the viewer's own interest — it does not turn a fan into an official, replace stadium screens, or block camera angles."
+        },
+        {
+            q: "Which of these is an example of technology enhancing spectatorship, rather than officiating?",
+            opts: ["A big screen replaying a great goal in slow motion for the crowd to enjoy again", "A video review system overturning a refereeing decision out on the pitch itself", "A sensor confirming to the official whether a ball crossed the goal line correctly", "A system checking a serve landed correctly inside the line for the umpire"],
+            ans: 0,
+            explain: "Replaying a moment for the crowd's enjoyment is about the spectator experience; the other three examples are about helping an official reach a correct decision."
+        },
+        {
+            q: "A stadium adds giant screens purely so fans can watch replays and see review decisions explained. This is best described as technology used to...",
+            opts: ["enhance the spectator experience", "enhance a performer's competitive technique", "increase participant safety during the event", "support a governing body's overall funding model"],
+            ans: 0,
+            explain: "Screens aimed at helping the crowd follow the action and decisions are enhancing spectatorship, not technique, safety, or funding."
+        }
+    ];
+
+    const matchData = [
+        { term: "Spectatorship", def: "The experience of watching sport, either live in a venue or through broadcast and apps" },
+        { term: "Big screen", def: "Large screen fitted inside a stadium or arena, used to show fans replays and review decisions" },
+        { term: "Broadcast graphics", def: "On-screen information added to a TV picture, such as a trajectory line or a speed reading" },
+        { term: "Multiple camera angles", def: "Several different broadcast views of the same incident, shown so viewers see more detail" },
+        { term: "Live-stats app", def: "An app or website giving fans extra statistics, such as split times, during an event" },
+        { term: "Slow-motion replay", def: "Footage played back at reduced speed so viewers can study a fast incident more clearly" }
+    ];
+
+    const fibData = [
+        {
+            display: "Spectatorship means the experience of _____ sport, whether live or on a screen.",
+            blanks: { B1: "watching" }
+        },
+        {
+            display: "A big screen inside a stadium can show fans an action _____ so they can see a moment again.",
+            blanks: { B1: "replay" }
+        },
+        {
+            display: "Broadcasters add on-screen _____ to give viewers extra information, such as a speed reading.",
+            blanks: { B1: "graphics" }
+        },
+        {
+            display: "Multiple camera _____ let broadcast viewers see an incident from more than one view.",
+            blanks: { B1: "angles" }
+        },
+        {
+            display: "A live-stats _____ lets a fan check extra statistics, such as split times, during an event.",
+            blanks: { B1: "app" }
+        }
+    ];
+    const fibWords = ["watching", "replay", "graphics", "angles", "app"];
+
+    const tfData = [
+        {
+            statement: "Technology that enhances spectatorship is mainly about improving the watching experience for fans.",
+            answer: true,
+            explanation: "That's the definition — it is about the audience's experience, whether in the stadium or watching remotely."
+        },
+        {
+            statement: "A big screen replay in a stadium is mainly there to help a performer train more effectively.",
+            answer: false,
+            explanation: "Big-screen replays are aimed at the crowd's experience, not at training a performer."
+        },
+        {
+            statement: "On-screen broadcast graphics, like a speed reading, can help viewers understand more detail about what happened.",
+            answer: true,
+            explanation: "Graphics add information the naked eye could not supply, helping the audience follow the action."
+        },
+        {
+            statement: "A live-stats app used by a fan at home is an example of technology enhancing officiating.",
+            answer: false,
+            explanation: "A fan checking stats is about the spectator experience, not helping an official reach a decision."
+        },
+        {
+            statement: "Multiple camera angles let broadcast viewers see an incident from more than one point of view.",
+            answer: true,
+            explanation: "Different camera positions around a venue give viewers a fuller picture of the same moment."
+        },
+        {
+            statement: "Showing a review replay on a stadium's big screen always removes the need for a match official.",
+            answer: false,
+            explanation: "The screen helps the crowd follow the decision — the official, not the screen, still makes the final call."
+        }
+    ];
+
+    const miscData = [
+        {
+            wrong: "If spectators can see it happening, it must be an example of technology enhancing spectatorship.",
+            correct: "The test is not whether spectators can SEE it — it's whether the technology's main purpose is to improve the watching experience. A goal-line sensor is visible to the crowd, but its purpose is helping the official make a correct call, so it belongs with officiating, not spectatorship. Ask: 'who is this mainly FOR — the crowd, or the official?'",
+            readCheck: {
+                q: "A goal-line sensor confirms the ball crossed the line for the referee. Even though the crowd can see the outcome, this is best classed as...",
+                opts: ["technology enhancing spectatorship", "technology supporting officiating", "technology enhancing performance", "technology increasing participant safety"],
+                ans: 1,
+                explain: "Its main purpose is giving the official correct information, so it belongs with officiating, even though the crowd can also see the result."
+            }
+        },
+        {
+            wrong: "Naming 'big screens' is enough to answer any question about enhancing spectatorship.",
+            correct: "Naming the technology is only the first step. The mark almost always needs the SPECIFIC benefit linked to it — what the screen actually shows, and why that helps fans. 'Big screens' alone earns little; 'a big screen replays a disputed decision so the crowd can follow it' earns the mark.",
+            readCheck: {
+                q: "Which answer about big screens is most likely to earn full marks?",
+                opts: ["Big screens exist inside most modern stadiums built all around the world today", "A big screen replays a review so the crowd can follow the decision", "Big screens are usually very large and extremely bright", "Some large stadiums have more than one big screen"],
+                ans: 1,
+                explain: "Only this option links the technology to a specific benefit for the audience — the others just describe the screen."
+            }
+        },
+        {
+            wrong: "This topic is the same as weighing up the positives and negatives of technology for fans.",
+            correct: "This topic is about how technology is USED to enhance the experience — explaining benefits with named examples. Weighing up both the positives AND the negatives for spectators is a separate, later topic. Keep this topic focused on clear, positive uses.",
+            readCheck: {
+                q: "A question on THIS topic mainly wants you to...",
+                opts: ["explain positive uses of technology for spectators with examples", "list every possible negative effect on spectators in a great deal of detail", "describe a performer's personal training schedule", "weigh up the costs and benefits of officiating technology only"],
+                ans: 0,
+                explain: "This topic focuses on explaining enhancement/uses with named examples; weighing positives and negatives together belongs to a separate topic."
+            }
+        }
+    ];
+
+    const examTips = [
+        {
+            type: "tip",
+            title: "Command words for this topic — what each one wants",
+            pills: ["Identify", "Describe", "Explain"],
+            content: `<p>Questions on enhancing spectatorship are usually short recall or short explain. Match your answer length to the command word:</p>
+<ul>
+<li><strong>Identify / State</strong> — just name a piece of technology. "Identify one way technology enhances spectatorship" = one named example. 1 mark.</li>
+<li><strong>Describe</strong> — say what the technology does. "Describe how big screens are used" = explain what appears on the screen.</li>
+<li><strong>Explain</strong> — give a reason, using "because". "Explain how this benefits spectators" = the use PLUS why it helps the audience.</li>
+</ul>
+<p><strong>Read the mark tariff:</strong> [1] wants one point; [2] usually wants two points, or one point developed with a reason; [4] in Section B wants points applied to the scenario given.</p>`,
+            readCheck: {
+                q: "A question says: 'Identify one piece of technology that enhances spectatorship [1]'. What is the safest answer?",
+                opts: ["One named example, such as a big screen replay", "A long paragraph describing several different technologies", "A description of how an official reviews a decision", "An explanation of a performer's diet and training"],
+                ans: 0,
+                explain: "'Identify' + [1] wants one named example — nothing about officiating, training or a lengthy paragraph is needed."
+            }
+        },
+        {
+            type: "tip",
+            title: "The golden rule: name the technology AND the benefit",
+            pills: ["Section A", "Section B", "AO2"],
+            content: `<p>The single most common way to lose marks here is naming the technology with no benefit attached. Build every answer as <strong>technology → what it shows/does → benefit for the fan</strong>:</p>
+<ul>
+<li><strong>❌ 0–1 marks:</strong> "Big screens."</li>
+<li><strong>✅ full marks:</strong> "A big screen replays a disputed try in slow motion, so fans in the stadium can see the evidence and follow the referee's decision."</li>
+</ul>
+<p>In <strong>Section B</strong> the question gives you a scenario (a named venue, a named event). Use a detail <em>from that scenario</em>, not a general example.</p>`,
+            readCheck: {
+                q: "In a Section B scenario about a named stadium, your example of enhancing spectatorship should come from...",
+                opts: ["any technology you happen to have heard of before", "the scenario you are given", "a completely different sport entirely", "your own personal opinion of the stadium"],
+                ans: 1,
+                explain: "Section B is applied — marks come from using the scenario given, not a random unrelated example."
+            }
+        },
+        {
+            type: "tip",
+            title: "Where this appears + sentence starters",
+            pills: ["Section A", "Section B", "Section C"],
+            content: `<p><strong>Where it shows up:</strong> enhancing spectatorship appears as quick recall in <strong>Section A</strong> (identify/describe a technology), and as applied points in <strong>Section B</strong> scenarios about a venue or event upgrading its technology. It can also feed a <strong>Section C</strong> 8-mark discussion of how technology affects the wider spectator experience.</p>
+<p><strong>Three punchy tips:</strong></p>
+<ul>
+<li>Split your examples into "inside the venue" (big screens, replays) and "away from the venue" (broadcast graphics, apps) so you always have more than one type ready.</li>
+<li>Always name a sport or setting — a vague "technology helps fans" answer earns little.</li>
+<li>Keep this topic about uses and benefits; save weighing up downsides for the evaluation topic.</li>
+</ul>
+<p><strong>Sentence starters for a longer answer:</strong></p>
+<ul>
+<li>"One example of technology enhancing spectatorship is… because…"</li>
+<li>"This benefits fans by…"</li>
+<li>"However, the same technology might not help every fan, because…"</li>
+</ul>`,
+            readCheck: {
+                q: "Splitting examples into 'inside the venue' and 'away from the venue' mainly helps because...",
+                opts: ["it guarantees full marks on every single question you attempt", "it gives you more than one type of example ready to use", "it means you never need to give a named example", "it replaces the need to explain any benefit at all"],
+                ans: 1,
+                explain: "Having both types ready means you can answer whichever setting a question describes, with a specific example rather than a vague one."
+            }
+        }
+    ];
+
+    const flashcards = [
+        { term: "Spectatorship", def: "The experience of watching sport, live in a venue or through broadcast and apps" },
+        { term: "Big screen", def: "In-stadium screen showing replays and review decisions to the crowd" },
+        { term: "Broadcast graphics", def: "On-screen information, such as a speed reading, added to the TV picture" },
+        { term: "Multiple camera angles", def: "Several broadcast views of the same incident shown to viewers" },
+        { term: "Live-stats app", def: "App or website giving fans extra statistics during an event" },
+        { term: "Slow-motion replay", def: "Footage played back at reduced speed so an incident can be studied clearly" }
+    ];
+
+    const examQuestions = [
+        {
+            num: "1",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: "Identify <strong>two</strong> examples of technology that enhance the spectator experience.",
+            hint: "Just name two — pick from big screens/replays inside the stadium, or broadcast graphics/apps away from the venue.",
+            starter: "One example is… Another example is…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1)</h5>
+<p><strong>1 mark for each valid example named, to a maximum of two. Accept any two different examples, including:</strong></p>
+<ul>
+<li>Big screen action replay / slow-motion replay</li>
+<li>On-screen broadcast graphics (e.g. a speed reading or trajectory line)</li>
+<li>Multiple camera angles</li>
+<li>Live-stats app or website</li>
+</ul>
+<p>Do not credit the same example written twice.</p>
+</div>`,
+            modelAnswer: "One example is a big screen inside a stadium replaying the action.\n\nAnother example is a live-stats app giving fans extra statistics.",
+            markPoints: { note: "One tick per valid, DIFFERENT example; cap at 2.", groups: [
+                { label: "Your first example", max: 1, points: ["Names a valid technology that enhances spectatorship"] },
+                { label: "Your second example", max: 1, points: ["Names a DIFFERENT valid technology (not a repeat of the first)"] }
+            ] }
+        },
+        {
+            num: "2",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Which of these is the best example of technology enhancing the spectator experience, rather than officiating?",
+            options: ["A big screen replaying a great save for the crowd to enjoy again", "A goal-line sensor confirming the ball crossed the line for the referee", "A video review system overturning an on-pitch decision", "A sensor checking a serve landed inside the line for the umpire"],
+            answer: 0,
+            hint: "Think about which option is mainly FOR the crowd's enjoyment, not for helping an official decide.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO2)</h5>
+<p><strong>Answer: A — A big screen replaying a great save for the crowd to enjoy again.</strong></p>
+<ul>
+<li>This is mainly for the audience's enjoyment and understanding of the moment.</li>
+<li>The other options are all mainly for helping an official reach a correct decision.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "3",
+            marks: 4,
+            type: "written",
+            caseStudy: `<p><strong>Scenario — Redcliffe Arena</strong></p><p>Redcliffe Arena has just installed two large screens above the court and launched a new mobile app for fans attending netball matches. The screens can show action replays during stoppages, and the app lets fans check live player statistics during play.</p>`,
+            question: "Explain how <strong>two</strong> of Redcliffe Arena's changes enhance the spectator experience.",
+            hint: "Take each change in turn. Say what it lets fans do, then why that improves their experience. Use details from the scenario (the screens above the court, and the app).",
+            starter: "The large screens let fans… which improves their experience because…\n\nThe mobile app lets fans… which improves their experience because…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (AO2: application)</h5>
+<p><strong>Up to 2 marks per change: 1 for stating what it lets fans do, 1 for explaining the benefit using the scenario. Answers may include:</strong></p>
+<ul>
+<li><strong>Large screens</strong> — show action replays during stoppages, so fans in the arena can see a key moment again if they missed it live, keeping them engaged with the match.</li>
+<li><strong>Mobile app</strong> — gives live player statistics during play, so fans can follow extra detail about the game as it happens, rather than relying only on what they can see from their seat.</li>
+</ul>
+<p>Accept any other reasonable, applied answer. A description with no benefit, or a benefit not linked to the scenario, earns 1 of the 2 marks for that change.</p>
+</div>`,
+            modelAnswer: "The large screens above the court replay the action during stoppages, so fans in the arena can see a key passage of play again if they missed it live, keeping them engaged with the match.\n\nThe mobile app gives fans live player statistics during play, so they can follow extra detail about performance as the game happens, rather than relying only on what they can see from their seat.",
+            markPoints: { note: "Mark each change out of 2: one tick for what it lets fans do, one for the benefit, linked to the scenario.", groups: [
+                { label: "Large screens", max: 2, points: ["States what the screens let fans do (e.g. see action replays during stoppages)", "Explains the benefit for fans, linked to the scenario (e.g. can see/follow a moment they missed live)"] },
+                { label: "Mobile app", max: 2, points: ["States what the app lets fans do (e.g. check live player statistics during play)", "Explains the benefit for fans, linked to the scenario (e.g. extra detail about performance as the game happens)"] }
+            ] }
+        },
+        {
+            num: "4",
+            marks: 8,
+            type: "written",
+            format: "banded",
+            caseStudy: `<p><strong>Scenario — Redcliffe Arena</strong></p><p>Redcliffe Arena's manager is considering further technology investment — including bigger screens, a live-stats app, and extra broadcast cameras for televised matches — to improve the experience for fans both inside and outside the arena.</p>`,
+            question: "Discuss how further technology investment at Redcliffe Arena could enhance the experience for spectators both inside and outside the arena.",
+            hint: "Choose two or three technologies. For each, explain the benefit for a named group of spectators (inside the venue, or watching elsewhere). Then weigh up the limits. Finish with a judgement.",
+            starter: "One technology Redcliffe Arena could add is… which would help fans inside the arena by…\n\nAnother is… which would help fans watching elsewhere by…\n\nHowever, the extent to which this improves the experience depends on…\n\nOverall, …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 8 marks (level-of-response). Read the band you fit, then pick a mark.</h5>
+<ul>
+<li><strong>Band 3 (thorough), 6–8:</strong> a balanced, well-applied discussion of several technologies, showing clearly how each enhances the experience for spectators both inside AND outside the arena, weighing the limits (cost, uneven access to the technology, possible distraction from the live action), ending in a justified judgement.</li>
+<li><strong>Band 2 (reasonable), 3–5:</strong> sound understanding applied to more than one technology with some analysis, but the discussion may be one-sided or the judgement unsupported.</li>
+<li><strong>Band 1 (basic), 1–2:</strong> names technologies and/or benefits with little application and no real evaluation; largely a list.</li>
+<li><strong>0 marks:</strong> nothing creditworthy.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Indicative content (indicative, not a checklist — reward valid alternatives)</h5>
+<ul>
+<li><strong>Bigger screens:</strong> clearer, more frequent replays for fans inside the arena, helping them follow decisions and enjoy key moments again.</li>
+<li><strong>Live-stats app:</strong> extra detail (e.g. player statistics) for fans both inside and outside the arena, deepening engagement without needing to be at the action itself.</li>
+<li><strong>Extra broadcast cameras:</strong> more camera angles for fans watching on TV or a stream, showing incidents from views a single fixed camera could not.</li>
+<li><strong>Evaluation:</strong> this only helps if fans actually use and can access the technology (not every fan owns a smartphone or wants to look at a screen instead of the game); the investment has a real cost; too many replays or graphics could distract from the live action itself; the benefit may differ for in-arena fans compared with remote fans.</li>
+<li><strong>Judgement:</strong> investment is likely to enhance the experience because it gives both groups of fans clearer information and more to engage with — but only if Redcliffe manages it so the extra technology adds to, rather than distracts from, watching the sport itself.</li>
+</ul>
+</div>`,
+            modelAnswer: "Bigger screens would let fans inside the arena see clearer replays of key moments, helping them follow the action and any review decisions rather than missing things live. A live-stats app gives both in-arena and remote fans extra detail, such as player statistics, deepening their engagement with the match. Extra broadcast cameras give fans watching on TV more camera angles, showing incidents a single fixed view could not.\n\nHowever, this only works if fans actually use the technology — not everyone wants to check a phone during play, and the investment has a real cost. Too many replays or graphics could also distract from the live action itself.\n\nOverall, this investment would likely enhance the experience for most fans by giving them clearer information and more ways to engage, but only if Redcliffe manages it carefully so the technology adds to the sport rather than competing with it."
+        }
+    ];
+</script>
+    <script src="/cs-lab/exam-widgets.js"></script>
+    <script src="/script.js"></script>
+<script src="section-totals.js"></script>
+<script src="page-groups.js"></script>
+<script src="/progress-shared.js"></script>
+<script src="/gamification.js"></script>
+<script src="/topic-guard.js"></script>
+<script src="/notifications-shared.js"></script>
+<script src="/onboarding-tour.js"></script>
+<script src="/footer-legal.js"></script>
+</body>
+
+</html>

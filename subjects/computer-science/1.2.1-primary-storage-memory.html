@@ -756,108 +756,102 @@
         { term: "RAM vs ROM: contents", def: "RAM holds what's currently running; ROM holds the fixed boot-up instructions" },
         { term: "Register", def: "Tiny, extremely fast storage location inside the CPU itself" }
     ];
-    // ── WHY THIS PAGE ONLY HAS PART OF EACH SOURCE QUESTION (do not "fix" this) ──
-    // This topic has no ExamBuilder compilation PDF, so questions were sourced
-    // from the FULL past papers (CS resources/Full exam papers/). Two questions
-    // span both 1.2.1 and 1.2.2, and only the 1.2.1 parts are transcribed here:
-    //   • 2022 Paper 1 Q7(b) (i/ii, 6 marks — smart TV secondary storage device
-    //     choice) belongs to 1.2.2 (secondary storage), not here.
-    //   • 2023 Paper 1 Q5(a)(ii) (2 marks — artist's secondary storage device +
-    //     example data) also belongs to 1.2.2, not here.
-    // RULE FOR EVERY FUTURE TOPIC: diff your source against the sibling pages'
-    // scope BEFORE transcribing (CS-CONTENT-PLAN.md §6.2).
+    // Exam questions below: original clean-room content, authored from
+    // this sub-topic's spec scope (not transcribed from any exam paper).
     const EXAM_CASE_STUDIES = {
         "smart-tv": `<p>A smart television allows the user to search the Internet and watch videos online.</p><p>The smart television has both RAM and ROM.</p>`,
         "artist-computer": `<p>An artist has a computer that they use to create images. Their computer has both hardware and software.</p><p>The hardware includes primary and secondary storage.</p>`,
         "console-64": `<p>A games console has 8GB of RAM built in. When the console is switched on, it runs a start-up program stored in its ROM before loading the console's operating system.</p><p>Players can install and run several games and apps on the console.</p>`,
         "weather-station": `<p>A school has installed an automatic weather station on its roof. The weather station is a small embedded computer that measures temperature, rainfall and wind speed every minute, and sends the readings to the school's server.</p><p>The weather station has both RAM and ROM.</p>`,
         "video-editing-pc": `<p>A student uses a desktop PC to edit video footage for a media studies project. The PC has 16GB of RAM, and the video-editing software often has several large video files open at once.</p>`,
-        "school-laptop": `<p>A school issues laptops to students for use in lessons. Some of the laptops have 4GB of RAM, while others have 8GB of RAM.</p><p>Students often have several applications and browser tabs open at the same time during a lesson.</p>`
+        "school-laptop": `<p>A school issues laptops to students for use in lessons. Some of the laptops have 4GB of RAM, while others have 8GB of RAM.</p><p>Students often have several applications and browser tabs open at the same time during a lesson.</p>`,
+        "digital-radio": `<p>A digital radio lets the user tune into different radio stations and shows the name of the song currently playing on a small screen.</p><p>The digital radio has both RAM and ROM.</p>`,
+        "smart-speaker": `<p>A smart speaker listens for voice commands to play music, set reminders and answer questions.</p><p>The smart speaker has both primary and secondary storage.</p>`,
+        "photographer-laptop": `<p>A photographer uses a laptop to edit high-resolution photos. The laptop has 8GB of RAM, and the photo-editing software often has many large image files open at once.</p><p>The laptop uses Virtual Memory (VM).</p>`
     };
 
     const examQuestions = [
         {
-            num: "Q7(a)(i)",
+            num: "Q1",
             marks: 1,
             type: "written",
-            caseId: "smart-tv",
-            question: `<p>State the difference between RAM and ROM.</p>`,
-            hint: "This is asking for a DIFFERENCE — write both sides in one sentence: 'RAM is ___, whereas ROM is ___.' Naming only one side is not enough.",
+            caseId: "digital-radio",
+            question: `<p>State one difference between RAM and ROM.</p>`,
+            hint: "A 'difference' question needs BOTH sides in one sentence — 'RAM is ___, whereas ROM is ___.' Describing only one of them is not enough.",
             starter: "RAM is …, whereas ROM is …",
             markScheme: `<div class="marks-section">
 <h5>Mark Scheme — 1 mark</h5>
 <ul>
-<li>ROM is non-volatile, RAM is volatile // by description</li>
-<li>Content of ROM cannot (usually) be changed, content of RAM can be changed</li>
+<li>Award 1 mark for a correct difference that covers both sides, for example: "RAM is volatile and loses its contents when the power is off, whereas ROM is non-volatile and keeps its contents" or "the contents of RAM can be changed, whereas the contents of ROM (normally) cannot be changed".</li>
 </ul>
 </div>
 <div class="marks-section">
 <h5>How the marks are given</h5>
 <ul>
-<li>Read the whole answer.</li>
+<li>Read the whole answer — both sides of the difference must be present to award the mark.</li>
+<li>Do not accept a description of only RAM or only ROM on its own.</li>
 </ul>
 </div>
 <div class="marks-section">
-<h5>Examiner's Comments</h5>
-<p>This question was answered well, with many candidates correctly identifying that RAM is volatile and ROM is non-volatile. When a difference is required, candidates must make sure they are giving both sides of the difference — "RAM is volatile" is not enough on its own. Some candidates gave the purpose of RAM and ROM; this is a difference in use, not a fundamental difference between the two.</p>
+<h5>Common mistakes</h5>
+<p>Students often name only one side of the comparison, for example writing "RAM is volatile" without saying what ROM is instead — a difference needs both halves in the same answer. Another common slip is describing what RAM and ROM are used for rather than how they differ as types of memory; a difference in purpose is not the same as a fundamental difference between the two.</p>
 </div>`,
-            modelAnswer: "RAM is volatile, whereas ROM is non-volatile — RAM loses its contents when the power is off, but ROM keeps them."
+            modelAnswer: "RAM is volatile, so it loses its contents when the power is turned off, whereas ROM is non-volatile and keeps its contents even without power."
         },
         {
-            num: "Q7(a)(ii)",
+            num: "Q2",
             marks: 2,
             type: "written",
-            caseId: "smart-tv",
+            caseId: "digital-radio",
             stubs: ["1", "2"],
-            question: `<p>Give <strong>two</strong> examples of data that the smart television could store in RAM.</p>`,
-            hint: "Think about what's ACTIVE right now — the programme currently being watched, data being buffered, the button just pressed — not the app or the OS as a whole (that's spread across RAM and secondary storage).",
+            question: `<p>Give <strong>two</strong> examples of data that the digital radio could store in RAM while it is switched on.</p>`,
+            hint: "Think about what's active right now — the station currently tuned in, the song title being displayed — not the app or the operating system as a whole.",
             starter: "1: … | 2: …",
             markScheme: `<div class="marks-section">
-<h5>Mark Scheme — 2 marks (1 mark each to max 2), e.g.</h5>
+<h5>Mark Scheme — 2 marks (1 mark each, up to 2)</h5>
 <ul>
-<li>Web browser/application that is running</li>
-<li>(Parts of the) operating system currently running</li>
-<li>Current video/film/TV programme being watched</li>
-<li>Data being downloaded/buffered</li>
-<li>Button pressed by the user</li>
-<li>Current volume</li>
-<li>Current channel being watched</li>
-<li>Source being watched (e.g. HDMI1)</li>
+<li>Award 1 mark for each valid example of data currently in use, up to 2, for example:</li>
+<li>The radio station/frequency currently tuned in</li>
+<li>The name of the song or track currently playing/being displayed</li>
+<li>The current volume level</li>
+<li>Data being received from the broadcast signal</li>
+<li>The button most recently pressed by the user</li>
+<li>(Parts of) the operating system currently running</li>
 </ul>
 </div>
 <div class="marks-section">
 <h5>How the marks are given</h5>
 <ul>
-<li>Allow anything reasonable but it must be clearly RAM, e.g. not just "stores the software/OS" (this is secondary storage).</li>
-<li>Do not award brand names without exemplification.</li>
+<li>Accept any reasonable example, provided it is clearly data currently in use, not the app or firmware as a whole.</li>
+<li>Do not award "the radio's software" or "the operating system" without specifying that it is the currently running part.</li>
 </ul>
 </div>
 <div class="marks-section">
-<h5>Examiner's Comments</h5>
-<p>Some candidates found this question challenging. Many responses were generic applications such as "a streaming service" or "a TV programme" — a TV programme will not be stored in RAM in its entirety, but the parts currently or about to be watched would be. Likewise, an application in its entirety will not be stored in RAM, but the parts being used will be. The most commonly correct responses were the recording currently being watched, the data received from the remote control, and the websites being accessed.</p>
+<h5>Common mistakes</h5>
+<p>A frequent error is naming something stored permanently rather than something currently in use, such as "the list of saved stations" instead of "the station currently tuned in". Students also sometimes give the same idea worded two different ways, which only counts as one valid example, not two.</p>
 </div>`,
-            modelAnswer: "1: The TV programme currently being watched (or about to be watched)\n\n2: Data being downloaded or buffered while streaming"
+            modelAnswer: "1: The radio station/frequency currently tuned in\n\n2: The name of the song currently playing, ready to display on the screen"
         },
         {
-            num: "Q5(a)(i)",
+            num: "Q3",
             marks: 2,
             type: "written",
-            caseId: "artist-computer",
+            caseId: "smart-speaker",
             stubs: ["Primary storage", "Secondary storage"],
-            question: `<p>Explain why a computer needs both primary <strong>and</strong> secondary storage.</p>`,
-            hint: "Two separate reasons — one for WHY primary storage is needed, one for WHY secondary storage is needed. The question is asking why they're needed, not what they store.",
+            question: `<p>Explain why the smart speaker needs both primary <strong>and</strong> secondary storage.</p>`,
+            hint: "Two separate reasons — one for why primary storage is needed, one for why secondary storage is needed. It's asking WHY they're needed, not what they store.",
             starter: "Primary storage is needed because…, and secondary storage is needed because…",
             markPoints: {
                 note: "One mark for a correct reason primary storage is needed, one mark for a correct reason secondary storage is needed — you must cover both sides to reach full marks.",
                 groups: [
                     {
                         label: "Your reason for primary storage", max: 1, points: [
-                            { text: "Gives a correct reason primary storage is needed — e.g. to store (active) data/instructions/software the processor needs to access, or without it the computer couldn't start up/work", marks: 1 }
+                            { text: "Gives a correct reason primary storage is needed — e.g. to hold the data/instructions/software the processor is currently using, or so the speaker has the start-up instructions needed to work at all", marks: 1 }
                         ]
                     },
                     {
                         label: "Your reason for secondary storage", max: 1, points: [
-                            { text: "Gives a correct reason secondary storage is needed — e.g. to store data/files long-term/permanently, so they aren't lost when the power is off (NOT just 'to back up data')", marks: 1 }
+                            { text: "Gives a correct reason secondary storage is needed — e.g. to store data/files (such as saved settings or downloaded content) long-term/permanently, so they are not lost when the power is off (not just 'to back up data')", marks: 1 }
                         ]
                     }
                 ]
@@ -865,74 +859,72 @@
             markScheme: `<div class="marks-section">
 <h5>Mark Scheme — 2 marks (1 mark each)</h5>
 <ul>
-<li><strong>Primary</strong> — to store (active) data/instructions/software/OS that the processor needs to access // without primary the computer won't be able to start up/work // (ROM) so the start-up instructions are not deleted when the computer turns off // (RAM) to store the currently running data/software/instructions // (Cache) to store frequently used data/instructions</li>
-<li><strong>Secondary</strong> — to store data/files long-term/permanently // without secondary the user's files will not be stored when the power is turned off // store data not currently being used</li>
+<li><strong>Primary storage</strong> — Award 1 mark for a correct reason, e.g. to hold the data, instructions or software the processor is currently using, or so the speaker has the start-up instructions needed to work at all.</li>
+<li><strong>Secondary storage</strong> — Award 1 mark for a correct reason, e.g. to store data or files (such as saved settings or downloaded content) long-term/permanently, so they are not lost when the power is turned off.</li>
 </ul>
 </div>
 <div class="marks-section">
 <h5>How the marks are given</h5>
 <ul>
-<li>The question is not asking what they store, but WHY they are needed.</li>
-<li>Secondary storage: not "to backup data" without reference to long-term/permanence.</li>
+<li>The question asks WHY each type of storage is needed, not what it stores — an answer that only names an example, without explaining the need, does not score.</li>
+<li>Do not accept "to back up data" for secondary storage unless it is linked to long-term/permanent storage.</li>
 </ul>
 </div>
 <div class="marks-section">
-<h5>Examiner's Comments</h5>
-<p>Some candidates found this question challenging and often gave examples of each type of storage instead of answering why both are required. Some candidates were able to accurately describe the purpose of primary storage as storing currently running data and software.</p>
-<p><strong>Misconception:</strong> a common misconception was that secondary storage is used when primary storage is full, or that it is only used as a backup.</p>
+<h5>Common mistakes</h5>
+<p>Students often list an example of data for each type of storage instead of explaining why that type of storage is necessary — for example writing "primary storage holds the volume setting" rather than explaining that primary storage is needed because the processor must be able to access currently-used data directly and quickly. A common misconception is that secondary storage is only used once primary storage is full, rather than being needed for permanent storage regardless of how much RAM is available.</p>
 </div>`,
-            modelAnswer: "Primary storage (RAM) is needed to hold the data, instructions and software the processor is currently using, so the CPU can access them directly and quickly.\n\nSecondary storage is needed to store the user's files and programs long-term/permanently, so they are not lost when the power is turned off."
+            modelAnswer: "Primary storage (RAM) is needed so the processor can directly and quickly access the data, instructions and software it is currently using.\n\nSecondary storage is needed to store the speaker's data and files (such as saved settings) long-term/permanently, so they are not lost when the power is turned off."
         },
         {
-            num: "Q5(a)(iii)",
+            num: "Q4",
             marks: 4,
             type: "written",
             format: "tableFill",
-            caseId: "artist-computer",
-            question: `<p>The computer has Virtual Memory (VM).</p><p>The table has four statements about VM. Not all of the statements are correct.</p><p>Tick (✓) the <strong>True</strong> column for the statements that are correct.</p><p>Re-write any statement that is incorrect by changing it to make it true.</p>`,
-            hint: "One row is true as it stands. For the other three, be precise: SECONDARY storage (not primary) in row 1, and RAM (not just 'primary storage') in rows 2 and 4 — 'primary storage' also includes ROM and cache, so it isn't precise enough.",
+            caseId: "photographer-laptop",
+            question: `<p>The table has four statements about how the laptop's Virtual Memory (VM) works. Not all of the statements are correct.</p><p>Tick (✓) the <strong>True</strong> column for the statements that are correct.</p><p>Re-write any statement that is incorrect by changing it to make it true.</p>`,
+            hint: "Think about which type of memory is doing what: ROM never changes, RAM holds what's active, and secondary storage is where the overflow really goes. Three of the four rows have one wrong word.",
             starter: "Row 1: False — … | Row 2: False — … | Row 3: True | Row 4: False — …",
             table: {
                 headers: ["Statement", "True (✓) or your correction"],
                 rows: [
-                    ["A section of primary storage is partitioned to act as virtual memory", null],
-                    ["Data from ROM is transferred into VM", null],
-                    ["VM is needed when RAM is full, or nearly full", null],
-                    ["Data from VM is transferred back to secondary storage when needed", null]
+                    ["Virtual memory works by using some of the laptop's free RAM to create extra secondary storage space", null],
+                    ["When RAM is nearly full, data that isn't currently needed is moved out of ROM to free up space", null],
+                    ["A laptop that relies heavily on virtual memory runs more slowly than one where all the open files fit into RAM", null],
+                    ["Once data has been moved into virtual memory, it stays there for the rest of the editing session and is never transferred back to RAM", null]
                 ],
                 openChoice: true
             },
             markPoints: {
-                note: "One mark per row: tick TRUE rows as they are, or correct FALSE rows precisely. 'Primary storage' is not an accepted correction where the scheme wants RAM specifically.",
+                note: "One mark per row: tick TRUE rows as they are, or correct FALSE rows precisely.",
                 groups: [
-                    { label: "Row 1", max: 1, points: [{ text: "Marked FALSE and corrected to: a section of SECONDARY storage (accept HDD/SSD) is partitioned to act as virtual memory", marks: 1 }] },
-                    { label: "Row 2", max: 1, points: [{ text: "Marked FALSE and corrected to: data from RAM (not 'primary storage') is transferred into VM", marks: 1 }] },
+                    { label: "Row 1", max: 1, points: [{ text: "Marked FALSE and corrected to state that virtual memory works the other way round: a section of SECONDARY storage is used to extend the space available to RAM", marks: 1 }] },
+                    { label: "Row 2", max: 1, points: [{ text: "Marked FALSE and corrected to say the data is moved out of RAM (not ROM); ROM only stores the fixed boot-up instructions and is not affected by virtual memory", marks: 1 }] },
                     { label: "Row 3", max: 1, points: [{ text: "Marked TRUE, with no correction needed", marks: 1 }] },
-                    { label: "Row 4", max: 1, points: [{ text: "Marked FALSE and corrected to: data from VM is transferred back to RAM (not 'primary storage') when needed", marks: 1 }] }
+                    { label: "Row 4", max: 1, points: [{ text: "Marked FALSE and corrected to say the data IS transferred back into RAM again when it is next needed", marks: 1 }] }
                 ]
             },
             markScheme: `<div class="marks-section">
 <h5>Mark Scheme — 4 marks (1 mark for each row)</h5>
 <ul>
-<li>Row 1 — False: a section of <strong>secondary</strong> storage is partitioned to act as virtual memory</li>
-<li>Row 2 — False: data from <strong>RAM</strong> is transferred into VM</li>
+<li>Row 1 — False: virtual memory actually works the other way round — a section of <strong>secondary</strong> storage is used to extend the space available to RAM</li>
+<li>Row 2 — False: the data that is moved out is <strong>RAM</strong>, not ROM</li>
 <li>Row 3 — True</li>
-<li>Row 4 — False: data from VM is transferred back to <strong>RAM</strong> when needed</li>
+<li>Row 4 — False: the data IS transferred back into <strong>RAM</strong> again when it is next needed</li>
 </ul>
 </div>
 <div class="marks-section">
 <h5>How the marks are given</h5>
 <ul>
-<li>Allow a description of the error in place of a full rewrite, e.g. row 1: "primary should be secondary".</li>
-<li>Accept HDD/SSD for secondary storage in row 1.</li>
-<li>Do not accept "primary storage" for RAM in rows 2 and 4.</li>
+<li>Allow a description of the error in place of a full rewrite, e.g. row 1: "RAM and secondary storage the wrong way round".</li>
+<li>Do not accept "primary storage" as a substitute for RAM in row 2.</li>
 </ul>
 </div>
 <div class="marks-section">
-<h5>Examiner's Comments</h5>
-<p>In this question candidates needed to consider each statement, identify whether it was true or false, and if it was false, re-write it to make it true. Candidates commonly identified the third statement as being true. The first statement was often correctly altered to identify that secondary storage was used. The second statement was sometimes changed correctly to RAM, but at other times was changed to secondary storage. The final statement was often changed to "primary storage", which was not enough, because primary storage would include ROM and cache and so is not precise enough to describe how VM works.</p>
+<h5>Common mistakes</h5>
+<p>Students sometimes reverse the direction virtual memory works in, believing spare RAM is used to create extra permanent storage rather than spare secondary storage being borrowed to extend RAM. Confusing RAM with ROM in row 2 is also common, since both are examples of primary storage; remembering that ROM's contents never change (so it cannot be swapped in and out) rules this out. Row 4 catches students who assume swapping is a one-way trip rather than a two-way process.</p>
 </div>`,
-            modelAnswer: "Row 1: False — a section of SECONDARY storage is partitioned to act as virtual memory.\n\nRow 2: False — data from RAM is transferred into VM.\n\nRow 3: True.\n\nRow 4: False — data from VM is transferred back to RAM when needed."
+            modelAnswer: "Row 1: False — virtual memory actually works the other way round: a section of secondary storage is used to extend the space available to RAM.\n\nRow 2: False — the data that is moved out is RAM, not ROM.\n\nRow 3: True.\n\nRow 4: False — the data is transferred back into RAM again when it is next needed."
         },
         {
             num: "P1",
@@ -952,7 +944,7 @@
             markScheme: `<div class="marks-section">
 <h5>Mark Scheme — 1 mark</h5>
 <ul>
-<li>The boot-up (bootstrap) program — CAO (correct answer only)</li>
+<li>The boot-up (bootstrap) program</li>
 </ul>
 </div>
 <div class="marks-section">
@@ -974,7 +966,7 @@
             markScheme: `<div class="marks-section">
 <h5>Mark Scheme — 1 mark</h5>
 <ul>
-<li>Permanent/secondary storage is too slow for the processor to access directly, so the program must be loaded into RAM // RAM can be accessed (almost) instantly by the processor</li>
+<li>Permanent/secondary storage is too slow for the processor to access directly, so the program must be loaded into RAM, or RAM can be accessed (almost) instantly by the processor</li>
 </ul>
 </div>
 <div class="marks-section">
@@ -998,7 +990,7 @@
             markScheme: `<div class="marks-section">
 <h5>Mark Scheme — 2 marks (1 mark for what happens, 1 mark for why)</h5>
 <ul>
-<li>The unsaved edits are lost // deleted (1)</li>
+<li>The unsaved edits are lost or deleted (1)</li>
 <li>Because RAM is volatile, so its contents are lost when the power is removed (1)</li>
 </ul>
 </div>
@@ -1055,7 +1047,7 @@
             markScheme: `<div class="marks-section">
 <h5>Mark Scheme — 1 mark</h5>
 <ul>
-<li>In a partitioned section of the laptop's secondary storage — CAO</li>
+<li>In a partitioned section of the laptop's secondary storage</li>
 </ul>
 </div>
 <div class="marks-section">

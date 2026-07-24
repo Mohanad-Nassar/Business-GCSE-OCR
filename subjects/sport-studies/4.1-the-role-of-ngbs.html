@@ -1,0 +1,716 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>4.1 The Role of NGBs – Interactive Study Guide</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+    <header>
+        <div>
+            <div class="badge">OCR Level 1/Level 2 Sport Studies — R184 · 4. National Governing Bodies</div>
+            <h1>4.1 The Role of NGBs</h1>
+            <p>Interactive revision guide · Content coming soon</p>
+        </div>
+        <a href="/index.html" class="home-link">← 🏡 Home</a>
+    </header>
+
+    <nav class="tab-bar" id="tabBar">
+        <button class="tab-btn active" onclick="switchTab('learn', this)">
+            📚 Key Learning
+        </button>
+        <button class="tab-btn" onclick="switchTab('mcq', this)">
+            ❓ MCQ Quiz
+        </button>
+        <button class="tab-btn" onclick="switchTab('matching', this)">
+            🔗 Matching
+        </button>
+        <button class="tab-btn" onclick="switchTab('fib', this)">
+            ✏️ Fill the Blanks
+        </button>
+        <button class="tab-btn" onclick="switchTab('misconceptions', this)">
+            ⚠️ Misconceptions
+        </button>
+        <button class="tab-btn" onclick="switchTab('examtips', this)">
+            🎯 Exam Tips
+        </button>
+        <button class="tab-btn" onclick="switchTab('flashcards', this)">
+            🃏 Flashcards
+        </button>
+        <button class="tab-btn" onclick="switchTab('truefalse', this)">
+            ✅ True / False
+        </button>
+        <button class="tab-btn" onclick="switchTab('exampractice', this)">
+            📝 Exam Practice
+        </button>
+    </nav>
+
+    <main>
+        <div class="tab-panel active" id="tab-learn">
+            <h2 class="section-title">Key Learning Topics</h2>
+            <p class="section-sub">Click any card to expand detailed notes.</p>
+            <div class="topic-grid" id="topicGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-mcq">
+            <h2 class="section-title">Multiple Choice Questions</h2>
+            <p class="section-sub">Select an answer to reveal instant feedback.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="mcqScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">
+                        correct answers
+                    </div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    out of <strong id="mcqTotal">0</strong> attempted
+                </div>
+                <button class="reset-btn" onclick="resetMCQ()">RESET</button>
+            </div>
+            <div class="quiz-wrap" id="mcqWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-matching">
+            <h2 class="section-title">Matching Activity</h2>
+            <p class="section-sub">
+                Click a term on the left, then click the matching definition on the
+                right.
+            </p>
+            <div style="margin-bottom: 16px">
+                <div class="score-bar">
+                    <div>
+                        <div class="score-num" id="matchScore">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">matched</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="matchTotal">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetMatch()">RESET</button>
+                </div>
+            </div>
+            <div class="match-grid">
+                <div>
+                    <div class="match-label">TERMS</div>
+                    <div class="match-col" id="matchLeft"></div>
+                </div>
+                <div>
+                    <div class="match-label">DEFINITIONS</div>
+                    <div class="match-col" id="matchRight"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-fib">
+            <h2 class="section-title">Fill in the Blanks</h2>
+            <p class="section-sub">
+                Click each dropdown and choose the correct word. Wrong answers reset —
+                try again!
+            </p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="fibScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="fibTotal">0</strong> blanks
+                </div>
+                <button class="reset-btn" onclick="resetFIB()">RESET</button>
+            </div>
+            <div class="fib-wrap" id="fibWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-misconceptions">
+            <h2 class="section-title">Common Misconceptions</h2>
+            <p class="section-sub">
+                What students often think — and what examiners actually want.
+            </p>
+            <div class="misc-list" id="miscList"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-examtips">
+            <h2 class="section-title">Exam Questions &amp; Tips</h2>
+            <p class="section-sub">
+                Most repeated question types and mark-scheme structures from real OCR
+                papers.
+            </p>
+            <div class="tips-grid" id="tipsGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-flashcards">
+            <h2 class="section-title">Flashcards</h2>
+            <p class="section-sub">
+                Test yourself! Flip the card and rate your knowledge. Review your weak
+                areas at the end.
+            </p>
+
+            <div class="fc-container">
+                <div class="score-bar" id="fcScoreBar" style="display: none; margin-bottom: 20px">
+                    <div>
+                        <div class="score-num" id="fcKnown" style="color: #2d7a4f">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">known</div>
+                    </div>
+                    <div>
+                        <div class="score-num" id="fcUnknown" style="color: #c84b31">
+                            0
+                        </div>
+                        <div style="font-size: 12px; color: var(--mid)">learning</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="fcTotalTrack">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
+                </div>
+
+                <div id="fcActiveArea">
+                    <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
+                    <div class="flashcard" id="flashcard" onclick="flipCard()">
+                        <div class="fc-inner">
+                            <div class="fc-front">
+                                <div class="fc-label">KEY TERM</div>
+                                <div class="fc-term" id="fcTerm"></div>
+                            </div>
+                            <div class="fc-back">
+                                <div class="fc-def" id="fcDef"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="fc-hint">👆 Click card to flip</p>
+
+                    <div class="fc-nav" id="fcNavDefault">
+                        <button class="fc-btn outline" onclick="prevCard()">
+                            ← Prev
+                        </button>
+                        <button class="fc-btn outline" onclick="flipCard()">Flip</button>
+                        <button class="fc-btn" onclick="nextCard()">Next →</button>
+                    </div>
+
+                    <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px">
+                        <button class="fc-btn outline" style="border-color: #c84b31; color: #c84b31; flex: 1"
+                            onclick="markCard(false)">
+                            ❌ Still Learning
+                        </button>
+                        <button class="fc-btn" style="background: #2d7a4f; border-color: #2d7a4f; flex: 1"
+                            onclick="markCard(true)">
+                            ✅ Got It
+                        </button>
+                    </div>
+                </div>
+
+                <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px">
+                    <h3>Session Complete! 🎉</h3>
+                    <p style="margin: 15px 0">
+                        You knew <strong id="fcSummaryKnown">0</strong> out of
+                        <strong id="fcSummaryTotal">0</strong> cards.
+                    </p>
+                    <div style="
+                margin-top: 25px;
+                display: flex;
+                gap: 15px;
+                justify-content: center;
+                flex-wrap: wrap;
+              ">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
+                            style="background: #c84b31; border-color: #c84b31">
+                            Review Incorrect
+                        </button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">
+                            Practice All Again
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-truefalse">
+            <h2 class="section-title">True or False?</h2>
+            <p class="section-sub">Test your knowledge with these statements.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="tfScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="tfTotal">0</strong> answered
+                </div>
+                <button class="reset-btn" onclick="resetTF()">RESET</button>
+            </div>
+            <div class="tf-wrap" id="tfWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-exampractice">
+            <h2 class="section-title">Exam Practice Questions</h2>
+            <p class="section-sub">
+                Full exam questions with case studies. Use <strong>Hint</strong>,
+                <strong>Sentence Starter</strong> and
+                <strong>Submit &amp; See Mark Scheme</strong> for each question.
+            </p>
+            <div class="ep-list" id="epList"></div>
+        </div>
+    </main>
+
+<script>
+    // ══════════════════════════════════════
+    //  DATA: 4.1 The Role of NGBs
+    // ══════════════════════════════════════
+    const pageMeta = {
+            id: '4-1-the-role-of-ngbs',
+            badge: 'OCR Level 1/Level 2 Sport Studies — R184 · 4. National Governing Bodies',
+            title: '4.1 The Role of NGBs',
+            subtitle: 'Interactive revision guide',
+            subject: 'sport-studies',
+        };
+
+    const topics = [
+        {
+            title: "What a National Governing Body (NGB) is",
+            tag: "Key concept",
+            content: `<h4>The idea</h4>
+<ul>
+<li>A <strong>National Governing Body (NGB)</strong> is the official organisation put in charge of running and developing one sport across the whole country.</li>
+<li>Every major sport in the UK has its own NGB — for example, there is a national governing body for football, one for rugby union, one for swimming and one for tennis. Each one oversees its sport from complete beginners right up to the national team.</li>
+</ul>
+<h4>What NGBs are actually for</h4>
+<ul>
+<li>An NGB is not just a name on a badge — it carries out a wide range of jobs that keep its sport running, growing and fair.</li>
+<li>The exam does not want you to simply name what an NGB does; it wants you to explain the <strong>purpose</strong> behind each role — what the NGB does, and <em>why</em> that helps the sport.</li>
+<li>Build a habit of turning every role into a "so that" sentence: "an NGB runs coaching qualifications <strong>so that</strong> more good coaches come through, which raises the standard of the sport."</li>
+</ul>`,
+            readCheck: {
+                q: "Which of these best describes what a National Governing Body (NGB) is?",
+                opts: ["The official organisation in charge of running and developing one sport nationally", "A private company that manufactures and sells replica kit for one sport's fans", "A local leisure centre that runs a single weekly beginners' session for one particular sport", "A supporters' group that arranges travel to a national team's away fixtures"],
+                ans: 0,
+                explain: "An NGB is the official body overseeing a whole sport nationally — not a kit manufacturer, a single venue, or a supporters' group."
+            }
+        },
+        {
+            title: "Growing the sport: participation, coaching and competitions",
+            tag: "Core knowledge",
+            content: `<h4>Promoting participation</h4>
+<ul>
+<li>NGBs run schemes and campaigns to get more people playing their sport — for example, running a taster scheme in schools, or advertising through the media to reach new audiences.</li>
+<li>Part of this job is making sure the sport offers <strong>equal opportunities</strong> — actively encouraging groups who are currently under-represented, such as girls, disabled players or older beginners, so the sport grows rather than staying with the same small audience.</li>
+</ul>
+<h4>Developing coaching and officiating</h4>
+<ul>
+<li>An NGB designs and runs <strong>coaching qualifications</strong>, usually organised into levels — for instance a Level 1 award for a helper, up to advanced awards for coaching representative teams.</li>
+<li>It does the same for <strong>officiating</strong> — training and qualifying referees, umpires or judges through levels — so that games at every level are run by people who know the rules properly.</li>
+<li><strong>Why this matters:</strong> without a steady supply of qualified coaches and officials, clubs cannot run new sessions or fixtures, so the sport cannot grow.</li>
+</ul>
+<h4>Organising tournaments and competitions</h4>
+<ul>
+<li>NGBs organise the fixture list and competition structure for their sport — from local leagues, through regional and national cups, up to the national representative team's matches.</li>
+<li>This gives performers of every standard somewhere to test themselves and something to aim for, which keeps people motivated to keep training and playing.</li>
+</ul>`,
+            readCheck: {
+                q: "An NGB trains and qualifies referees through a system of levels. Which NGB role does this show?",
+                opts: ["Lobbying central government for extra funding for elite facilities", "Developing the sport's coaching and officiating infrastructure", "Applying disciplinary procedures against a professional club", "Organising the national representative team's next fixture list"],
+                ans: 1,
+                explain: "Training and qualifying officials through levels is part of developing coaching and officiating infrastructure — not funding, discipline, or fixtures on their own."
+            }
+        },
+        {
+            title: "Keeping the sport fair and safe: rules, discipline and safety",
+            tag: "Core knowledge",
+            content: `<h4>Amending rules and applying discipline</h4>
+<ul>
+<li>An NGB owns the official rulebook for its sport and can <strong>amend (change) the rules</strong> when it needs to — for example to make a contact sport safer, or to close a loophole players are exploiting.</li>
+<li>When a player, coach or club breaks the rules, the NGB applies its <strong>disciplinary procedures</strong> — this can mean a warning, a fine, a suspension, or in serious cases a much longer ban.</li>
+<li><strong>Purpose:</strong> without a body willing to enforce the rules, breaking them would carry no real consequence, and the sport would stop being fair for everyone else taking part.</li>
+</ul>
+<h4>Ensuring safety</h4>
+<ul>
+<li>NGBs set minimum safety standards for equipment, facilities and how sessions are run, and expect affiliated clubs and coaches to follow them.</li>
+<li>They may also set rules around player welfare — for instance concussion protocols in contact sports — so participants are protected from unnecessary injury.</li>
+</ul>
+<h4>Support, insurance and technical guidance</h4>
+<ul>
+<li>NGBs provide <strong>support</strong> to their affiliated clubs and members, such as advice on running a club or a helpline for questions.</li>
+<li>Many arrange or require <strong>insurance</strong> cover, so that clubs, coaches and players are protected if an accident happens during the sport.</li>
+<li>They also give <strong>technical guidance</strong> — coaching resources, skill breakdowns and best-practice advice — so members do not have to work everything out for themselves.</li>
+</ul>`,
+            readCheck: {
+                q: "A club is fined and a player is suspended after a serious breach of the rules. Which NGB role is being shown here?",
+                opts: ["Providing detailed technical guidance and coaching resources to affiliated members", "Promoting participation through a national media campaign", "Organising a tournament for the sport's top regional teams", "Amending the rules and applying disciplinary procedures for rule-breaking"],
+                ans: 3,
+                explain: "A fine and a suspension are disciplinary procedures being applied after the rules were broken — not guidance, promotion, or fixture organisation."
+            }
+        },
+        {
+            title: "Steering the sport's future: policies, funding — and the exam skill",
+            tag: "Exam skill",
+            content: `<h4>Developing policies and initiatives</h4>
+<ul>
+<li>An NGB writes <strong>policies</strong> — official written plans covering things like safeguarding, anti-discrimination or long-term development — that clubs and members are expected to follow.</li>
+<li>It also launches <strong>initiatives</strong> — new projects designed to solve a specific problem the sport faces, such as a shortage of coaches in one region or falling participation among one user group.</li>
+</ul>
+<h4>Lobbying for funding</h4>
+<ul>
+<li>NGBs <strong>lobby</strong> (formally argue their case to) government bodies and other funding organisations for money to invest in facilities, coaching and grassroots development.</li>
+<li>Extra funding lets an NGB build or improve facilities, subsidise coaching courses, or fund talent pathways — all of which grow and improve the sport over time.</li>
+</ul>
+<h4>Naming a role is only the start</h4>
+<ul>
+<li>Weak answer: <em>"An NGB organises competitions."</em> That names a role but shows no real understanding.</li>
+<li>Strong answer: <em>"An NGB organises competitions at every level, so that players of all abilities have a clear pathway and stay motivated to keep training."</em></li>
+<li>Whichever role you are asked about, build your answer as <strong>role → what it involves → why it helps the sport</strong>.</li>
+</ul>`,
+            readCheck: {
+                q: "A question asks you to explain how an NGB lobbies for funding. What is most likely to earn full marks?",
+                opts: ["Just naming 'lobbying for funding' with no further detail at all", "Saying the NGB argues for funding, and explaining what that funding is then used for", "Listing every other NGB role you can possibly remember, in as much detail as possible", "Describing how a private sponsor pays one professional athlete's wages"],
+                ans: 1,
+                explain: "Naming plus what the funding achieves (facilities, coaching, pathways) shows the understanding the mark scheme rewards — naming alone, or listing unrelated roles, does not."
+            }
+        }
+    ];
+
+    const mcqData = [
+        {
+            q: "What is the main purpose of a National Governing Body (NGB)?",
+            opts: ["To run and develop a single sport nationally, from grassroots to elite level", "To sell official replica kit and matchday merchandise for one sport's national team", "To broadcast every fixture in a sport live to a subscription-only audience", "To organise one single local competition, held once a year in one town"],
+            ans: 0,
+            explain: "An NGB runs and develops its whole sport nationally, across every level — not merchandise, broadcasting rights, or a single yearly event."
+        },
+        {
+            q: "Why might an NGB run a scheme that specifically targets an under-represented group, such as girls or older beginners?",
+            opts: ["To meet a legal quota requiring exactly equal numbers of people from every group", "To grow the sport by giving equal opportunities to groups who are not yet taking part", "To reduce overall participation numbers so that facilities stay quieter", "To guarantee that this particular group wins every regional competition it enters this season"],
+            ans: 1,
+            explain: "Targeted schemes widen participation by removing the barriers a specific group faces — they are not about quotas, quieter facilities, or guaranteed wins."
+        },
+        {
+            q: "An NGB runs a Level 1 coaching award and trains new referees through a levels system. What is this an example of?",
+            opts: ["Lobbying central government for extra funding for elite facilities", "Applying disciplinary procedures against a professional club", "Developing the sport's coaching and officiating infrastructure", "Organising the national team's fixtures for the coming season"],
+            ans: 2,
+            explain: "Coaching awards and refereeing levels build up the sport's coaching and officiating infrastructure — not funding, discipline, or fixture-organising."
+        },
+        {
+            q: "A club is fined and a player is suspended after a serious breach of the rules. Which NGB role is being shown here?",
+            opts: ["Providing detailed technical guidance and coaching resources to affiliated members", "Promoting participation through a national media campaign", "Organising a tournament for the sport's top regional teams", "Amending the rules and applying disciplinary procedures for rule-breaking"],
+            ans: 3,
+            explain: "A fine and a suspension show disciplinary procedures being applied — the guidance, promotion and tournament options describe different NGB jobs."
+        },
+        {
+            q: "A local club asks its NGB for advice on running sessions safely and for insurance cover. Which role is this?",
+            opts: ["Lobbying government bodies for extra grassroots funding", "Providing support, insurance and technical guidance to members", "Organising national and regional competitions for the sport", "Developing a brand-new policy on player welfare and safeguarding"],
+            ans: 1,
+            explain: "Advice and insurance cover for an affiliated club are exactly what the support, insurance and technical guidance role covers."
+        },
+        {
+            q: "An NGB spends time formally arguing its case to government for more investment in facilities and coaching. What is this called?",
+            opts: ["Ensuring safety within the sport at every level of competition", "Applying disciplinary procedures for serious rule-breaking", "Lobbying for funding to invest in the sport", "Developing new policies and initiatives for its members"],
+            ans: 2,
+            explain: "Formally arguing the case to government or funding bodies for investment is lobbying for funding — a different job from safety, discipline or policy-writing."
+        }
+    ];
+
+    const matchData = [
+        { term: "National Governing Body (NGB)", def: "The official organisation in charge of running and developing one sport across the whole country" },
+        { term: "Promoting participation", def: "Running schemes and media campaigns so more people, including under-represented groups, start taking part" },
+        { term: "Coaching and officiating infrastructure", def: "Designing and running qualification levels for coaches and for referees, umpires or judges" },
+        { term: "Organising tournaments and competitions", def: "Setting up the leagues, cups and fixtures that give performers of every standard somewhere to compete" },
+        { term: "Amending rules and applying disciplinary procedures", def: "Changing the rulebook when needed, and punishing players or clubs who break the rules" },
+        { term: "Ensuring safety", def: "Setting minimum safety standards for equipment, facilities and how sessions are run" },
+        { term: "Support, insurance and technical guidance", def: "Helping affiliated clubs with advice, insurance cover and coaching resources" },
+        { term: "Policies, initiatives and lobbying for funding", def: "Writing official plans, launching new projects, and arguing the sport's case for investment" }
+    ];
+
+    const fibData = [
+        {
+            display: "A National Governing Body is the organisation officially in charge of running and _____ a single sport nationally.",
+            blanks: { B1: "developing" }
+        },
+        {
+            display: "NGBs promote _____ by running schemes and media campaigns that reach new audiences.",
+            blanks: { B1: "participation" }
+        },
+        {
+            display: "An NGB trains and qualifies coaches and officials through a system of _____.",
+            blanks: { B1: "levels" }
+        },
+        {
+            display: "When a player seriously breaks the rules, the NGB can apply its _____ procedures.",
+            blanks: { B1: "disciplinary" }
+        },
+        {
+            display: "Many NGBs arrange or require _____ cover so clubs and players are protected if an accident happens.",
+            blanks: { B1: "insurance" }
+        },
+        {
+            display: "NGBs _____ government and other funding bodies for investment in facilities and coaching.",
+            blanks: { B1: "lobby" }
+        }
+    ];
+    const fibWords = ["developing", "participation", "levels", "disciplinary", "insurance", "lobby"];
+
+    const tfData = [
+        {
+            statement: "A National Governing Body is responsible for running and developing one sport nationally.",
+            answer: true,
+            explanation: "That's the definition of an NGB — one official organisation overseeing its sport from grassroots to elite level."
+        },
+        {
+            statement: "An NGB has no involvement in training referees or officials — clubs are left to sort that out alone.",
+            answer: false,
+            explanation: "NGBs design and run officiating qualifications through levels, so officials at every level of the sport are properly trained."
+        },
+        {
+            statement: "An NGB can amend (change) the rules of its own sport when it needs to.",
+            answer: true,
+            explanation: "NGBs own the official rulebook and can change it, for example to improve safety or close a loophole."
+        },
+        {
+            statement: "Because NGBs never target under-represented groups, every session is aimed at exactly the same audience.",
+            answer: false,
+            explanation: "Promoting participation includes running schemes for under-represented groups, such as girls or older beginners, to widen who takes part."
+        },
+        {
+            statement: "Lobbying for funding means an NGB formally argues its case to government or other funding bodies for investment.",
+            answer: true,
+            explanation: "That's exactly what lobbying means here — making the case for money to invest in facilities, coaching and development."
+        },
+        {
+            statement: "Because clubs run their own sessions, an NGB never sets safety standards for facilities or equipment.",
+            answer: false,
+            explanation: "Ensuring safety is a core NGB role — it sets minimum safety standards that affiliated clubs and coaches are expected to follow."
+        }
+    ];
+
+    const miscData = [
+        {
+            wrong: "Explaining an NGB's role just means naming what it does, like 'organises competitions'.",
+            correct: "Naming is only the first mark at most. The examiner wants you to link the role to its purpose. Weak answer: \"An NGB organises competitions.\" Full-marks answer: \"An NGB organises competitions at every level, so that players of all abilities have a clear pathway and stay motivated to keep training.\" The difference is the reason.",
+            readCheck: {
+                q: "An 'Explain' question asks about one NGB role. What earns the marks?",
+                opts: ["Naming as many different NGB roles as you possibly can, quickly", "Naming the role, then explaining why it helps the sport", "Writing the role's name in capital letters", "Describing your own favourite sporting event in detail"],
+                ans: 1,
+                explain: "Explain = point + reason. Naming the role alone, or listing several roles, does not show the understanding the mark scheme rewards."
+            }
+        },
+        {
+            wrong: "An NGB only deals with the best professional players and elite competitions.",
+            correct: "An NGB oversees its ENTIRE sport, not only the elite end. The same organisation that runs the national team's fixtures also sets up beginner coaching levels, safety standards for a small local club, and insurance advice for grassroots members. 'National' means the whole country and every level, not just the top.",
+            readCheck: {
+                q: "Which of these best shows the true scope of an NGB's work?",
+                opts: ["Running only the national representative team's own annual fixture list", "Overseeing the sport from grassroots beginners up to elite level", "Managing only the training of already-professional athletes", "Advising a single elite club on its transfer policy"],
+                ans: 1,
+                explain: "An NGB's roles — coaching, safety, competitions, support — apply across the whole sport, from complete beginners through to the national team."
+            }
+        },
+        {
+            wrong: "'Lobbying for funding' means the NGB hands out money to clubs itself, like a bank.",
+            correct: "Lobbying is arguing the CASE for funding to somebody else — usually government or another funding body — not giving money out directly. The NGB persuades others to invest, and then uses any funding it secures to improve facilities, coaching and development.",
+            readCheck: {
+                q: "What does 'lobbying for funding' actually involve?",
+                opts: ["The NGB directly paying every affiliated club from its own bank account each year", "The NGB formally arguing its case to government or funding bodies for investment", "The NGB refusing to accept any outside investment at all", "The NGB selling shares in the sport to private investors"],
+                ans: 1,
+                explain: "Lobbying means making the case for investment to an outside body — it is not the NGB acting as a bank and handing out its own money."
+            }
+        },
+        {
+            wrong: "Ensuring safety and applying disciplinary procedures are really just the same NGB role.",
+            correct: "They are related but different. Ensuring safety is about setting standards BEFORE anything goes wrong (equipment, facilities, welfare rules). Applying disciplinary procedures is about punishing rule-breaking AFTER it has already happened (fines, suspensions, bans). A question can ask about either, so keep them separate in your answer.",
+            readCheck: {
+                q: "Which of these is part of 'ensuring safety', rather than 'discipline'?",
+                opts: ["Suspending a player from every competitive fixture for a full six months", "Fining a club for a rule-breaking incident", "Setting minimum safety standards for all equipment before sessions begin", "Banning a coach for repeated rule violations"],
+                ans: 2,
+                explain: "Setting standards before anything goes wrong is safety; fines, suspensions and bans are all discipline applied after a rule has been broken."
+            }
+        }
+    ];
+
+    const examTips = [
+        {
+            type: "tip",
+            title: "Command words for this topic — what each one wants",
+            pills: ["Identify", "State", "Describe", "Explain"],
+            content: `<p>NGB questions are usually short recall or applied questions. Match your answer length to the command word:</p>
+<ul>
+<li><strong>Identify / State</strong> — just name it. "Identify two roles of an NGB" = two role names, nothing more. 1 mark each.</li>
+<li><strong>Describe</strong> — say what the role involves. "Describe how an NGB supports coaching" = give the features of that role.</li>
+<li><strong>Explain</strong> — give a reason. Use the word <em>because</em> or <em>so that</em>. "Explain why an NGB applies disciplinary procedures" = the role <em>plus</em> why it matters.</li>
+</ul>
+<p><strong>Read the mark tariff:</strong> [1] wants one point; [2]-[4] usually wants points developed or applied to a scenario; a levelled 6/8-mark question wants a balanced, judged answer.</p>`,
+            readCheck: {
+                q: "A question says: 'Identify two roles of a National Governing Body [2]'. What is the safest answer?",
+                opts: ["A long paragraph about one role", "Two role names", "One role name explained in detail", "A list of six roles"],
+                ans: 1,
+                explain: "'Identify' + [2] = two names, one mark each. Explaining one role, or listing six, wastes time and risks the examiner marking only the first two anyway."
+            }
+        },
+        {
+            type: "tip",
+            title: "The golden rule: name the role AND its purpose",
+            pills: ["Section A", "Section B", "AO2"],
+            content: `<p>The single most common way to lose marks here is stopping at the name. Build every answer as <strong>role → purpose</strong>:</p>
+<ul>
+<li><strong>❌ 0–1 marks:</strong> "It organises competitions."</li>
+<li><strong>✅ full marks:</strong> "It organises competitions at every level, so players of all abilities have a pathway and stay motivated."</li>
+</ul>
+<p>In <strong>Section B</strong> the question gives you a scenario (a named club, a named problem). You must then use a detail <em>from that scenario</em>, not a general example.</p>`,
+            readCheck: {
+                q: "In a Section B scenario question about a named club's problem, your example should come from...",
+                opts: ["absolutely any sport that you happen to like", "the scenario you are given", "a famous athlete", "your own school only"],
+                ans: 1,
+                explain: "Section B is applied — the marks are for using the scenario in front of you. A general example that ignores the scenario is capped."
+            }
+        },
+        {
+            type: "tip",
+            title: "Where NGB roles appear + sentence starters",
+            pills: ["Section A", "Section B", "Section C"],
+            content: `<p><strong>Where it shows up:</strong> NGB roles appear as quick recall in <strong>Section A</strong> (identify/state), and as applied points in <strong>Section B</strong> scenarios about a club's problem. They also feed <strong>Section C</strong> 8-mark answers about how effectively an NGB balances growing a sport with policing it.</p>
+<p><strong>Three punchy tips:</strong></p>
+<ul>
+<li>Learn the roles in pairs (growth roles: participation, coaching, competitions, policies, funding; policing roles: rules, discipline, safety, support) so you can always recall a few from each side.</li>
+<li>For every role, memorise <em>one</em> reason it helps the sport — that reason is usually where the mark is.</li>
+<li>Watch for the link between roles: weak discipline can undo good promotion work, which is a great evaluation point.</li>
+</ul>
+<p><strong>Sentence starters for a longer answer:</strong></p>
+<ul>
+<li>"One way an NGB develops the sport is… which helps because…"</li>
+<li>"On the policing side, the NGB…"</li>
+<li>"However, a limit of this is…"</li>
+</ul>`,
+            readCheck: {
+                q: "Why is the link between 'growth' roles and 'policing' roles a useful evaluation point?",
+                opts: ["It fills space", "It shows the two sides of an NGB's work can affect each other", "It means NGBs do not really need rules", "It completely replaces the need to name any individual roles at all"],
+                ans: 1,
+                explain: "Noticing that weak discipline can undermine participation growth (or vice versa) shows deeper understanding — the kind of point that lifts a Section C answer."
+            }
+        }
+    ];
+
+    const flashcards = [
+        { term: "National Governing Body (NGB)", def: "The official organisation in charge of running and developing one sport nationally" },
+        { term: "Promoting participation", def: "Schemes and media campaigns that grow the sport, including targeting under-represented groups" },
+        { term: "Coaching and officiating infrastructure", def: "Qualification levels for coaches and for referees, umpires or judges" },
+        { term: "Organising competitions", def: "Setting up leagues, cups and fixtures at every level of the sport" },
+        { term: "Rules and discipline", def: "Amending the rulebook and punishing players or clubs who break the rules" },
+        { term: "Safety", def: "Setting minimum safety standards for equipment, facilities and session delivery" },
+        { term: "Support, insurance and guidance", def: "Advice, insurance cover and coaching resources for affiliated clubs" },
+        { term: "Policies, initiatives and funding", def: "Official plans, new projects, and arguing the case for outside investment" }
+    ];
+
+    const examQuestions = [
+        {
+            num: "1",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: "Identify <strong>two</strong> roles that a National Governing Body (NGB) carries out for its sport.",
+            hint: "Just name two — pick from growth (participation, coaching/officiating, competitions, policies, funding) or policing (rules/discipline, safety, support/insurance/guidance).",
+            starter: "One role of an NGB is… Another role is…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1)</h5>
+<p><strong>1 mark for each correct NGB role named, to a maximum of two. Accept any two different roles, including:</strong></p>
+<ul>
+<li>Promoting participation</li>
+<li>Developing coaching and officiating infrastructure</li>
+<li>Organising tournaments and competitions</li>
+<li>Amending rules and applying disciplinary procedures</li>
+<li>Ensuring safety</li>
+<li>Providing support, insurance and technical guidance</li>
+<li>Developing policies and initiatives</li>
+<li>Lobbying for funding</li>
+</ul>
+<p>Do not credit the same role written twice.</p>
+</div>`,
+            modelAnswer: "One role of an NGB is organising tournaments and competitions.\n\nAnother role is applying disciplinary procedures against rule-breakers.",
+            markPoints: { note: "One tick per correct, DIFFERENT NGB role; cap at 2.", groups: [
+                { label: "Your first NGB role", max: 1, points: ["Names a valid NGB role"] },
+                { label: "Your second NGB role", max: 1, points: ["Names a DIFFERENT valid NGB role (not a repeat of the first)"] }
+            ] }
+        },
+        {
+            num: "2",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Which of these is a genuine role of a National Governing Body (NGB)?",
+            options: ["Selling television advertising space during a live international fixture", "Training and qualifying coaches and officials through a system of levels", "Deciding which players a private club should sign each transfer window", "Setting the ticket price for a single local five-a-side tournament"],
+            answer: 1,
+            hint: "Think about which option matches building up the sport's coaching and officiating infrastructure.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO2)</h5>
+<p><strong>Answer: B — Training and qualifying coaches and officials through a system of levels.</strong></p>
+<ul>
+<li>This is the NGB's coaching and officiating infrastructure role.</li>
+<li>TV advertising, club transfers and one local event's pricing are not NGB roles.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "3",
+            marks: 4,
+            type: "written",
+            caseStudy: `<p><strong>Scenario — Northfield Hockey Club</strong></p><p>Northfield Hockey Club has raised two concerns with its national governing body. First, the club has too few qualified coaches, so several junior teams cannot train properly. Second, a player was seriously injured last season after an opponent committed a serious foul that went unpunished at the time.</p>`,
+            question: "Explain how the national governing body for hockey could respond to <strong>each</strong> of Northfield Hockey Club's two concerns.",
+            hint: "Take each concern in turn. Name the NGB role that fits it, then explain how that role would actually solve the problem described.",
+            starter: "The lack of qualified coaches could be addressed by… because…\n\nThe unpunished serious foul could be addressed by… because…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (AO2: application)</h5>
+<p><strong>Up to 2 marks per concern: 1 for identifying a relevant NGB role, 1 for explaining how it solves the scenario's problem. Answers may include:</strong></p>
+<ul>
+<li><strong>Coaching shortage</strong> — the NGB's coaching qualification levels; training more coaches through these awards would let Northfield's junior teams train properly instead of missing sessions.</li>
+<li><strong>Unpunished serious foul</strong> — the NGB's disciplinary procedures; reviewing the incident and sanctioning the offending player enforces the rules and helps prevent similar injuries in future.</li>
+</ul>
+<p>Accept any other reasonable, applied answer. A role with no explanation, or an explanation not linked to the scenario, earns 1 of the 2 marks for that concern.</p>
+</div>`,
+            modelAnswer: "The lack of qualified coaches could be addressed by the NGB running its coaching qualification levels, because training more coaches through these awards would let Northfield's junior teams train properly instead of missing sessions.\n\nThe unpunished serious foul could be addressed by the NGB applying its disciplinary procedures, because reviewing the incident and sanctioning the offending player enforces the rules and helps prevent similar injuries in future.",
+            markPoints: { note: "Mark each concern out of 2: one tick for a relevant role, one for an explanation linked to the scenario.", groups: [
+                { label: "The coaching shortage", max: 2, points: ["Identifies a relevant NGB role (e.g. coaching qualifications/levels)", "Explains how it fixes THIS scenario (e.g. trains new coaches so junior teams can train properly)"] },
+                { label: "The unpunished serious foul", max: 2, points: ["Identifies a relevant NGB role (e.g. disciplinary procedures/rule enforcement)", "Explains how it fixes THIS scenario (e.g. sanctions the offending player so fouls are punished)"] }
+            ] }
+        },
+        {
+            num: "4",
+            marks: 8,
+            type: "written",
+            format: "banded",
+            caseStudy: `<p><strong>Scenario — Northfield Hockey Club (continued)</strong></p><p>Northfield's committee wants to understand more broadly how a national governing body balances growing a sport like hockey with keeping it fair and safe through rules and discipline.</p>`,
+            question: "Discuss how effectively a national governing body could balance developing a sport with policing rule-breaking within it.",
+            hint: "Cover both sides: growth roles (participation, coaching/officiating, competitions, policies, funding) AND policing roles (rules, discipline, safety). Weigh up the strengths and limits of each, then reach a judgement.",
+            starter: "One way an NGB develops the sport is… which helps because…\n\nOn the policing side, the NGB…\n\nHowever, a limit of this is…\n\nOverall, …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 8 marks (level-of-response). Read the band you fit, then pick a mark.</h5>
+<ul>
+<li><strong>Band 3 (thorough), 6–8:</strong> a balanced, well-applied discussion of BOTH growth and policing roles, showing clearly how each supports the sport AND weighing the limits (resources, a badly-handled case undermining trust), ending in a justified judgement.</li>
+<li><strong>Band 2 (reasonable), 3–5:</strong> sound understanding applied to more than one role with some analysis, but the discussion may be one-sided (growth OR policing, not both) or the judgement unsupported.</li>
+<li><strong>Band 1 (basic), 1–2:</strong> names roles with little application and no real evaluation; largely a list.</li>
+<li><strong>0 marks:</strong> nothing creditworthy.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Indicative content (indicative, not a checklist — reward valid alternatives)</h5>
+<ul>
+<li><strong>Growth roles:</strong> coaching/officiating qualifications and organised competitions attract and keep participants; policies, initiatives and lobbying for funding add resources to support that growth.</li>
+<li><strong>Policing roles:</strong> amending rules and applying disciplinary procedures (as with Northfield's unpunished foul) keeps the sport fair; ensuring safety protects participants so they keep taking part.</li>
+<li><strong>Link between the two:</strong> new participants are more likely to stay if they trust the sport is properly refereed and enforced — growth and policing support each other.</li>
+<li><strong>Evaluation:</strong> an NGB has limited money and staff, so investing heavily in growth can leave fewer resources for slower discipline processes; a badly-handled case (like Northfield's) can undermine confidence built by development work; one job without the other is unlikely to work long-term.</li>
+<li><strong>Judgement:</strong> an NGB balances the two most effectively when it treats growth and enforcement as connected — participation without safety and fairness will not last.</li>
+</ul>
+</div>`,
+            modelAnswer: "A national governing body develops hockey by running coaching qualifications and organising competitions, so more players are attracted and given somewhere to compete. It also polices the sport by amending rules and applying disciplinary procedures, punishing fouls like the one that injured Northfield's player, which keeps the game fair and safe. These two jobs support each other: new participants are more likely to stay if they trust the sport is properly refereed and enforced.\n\nHowever, an NGB has limited money and staff, so investing heavily in growth can leave fewer resources for slower discipline processes, and a badly-handled case like Northfield's can undermine confidence built by development work.\n\nOverall, an NGB is most effective when it treats growth and enforcement as connected jobs, not separate ones — because participation without safety will not last."
+        }
+    ];
+</script>
+    <script src="/cs-lab/exam-widgets.js"></script>
+    <script src="/script.js"></script>
+<script src="section-totals.js"></script>
+<script src="page-groups.js"></script>
+<script src="/progress-shared.js"></script>
+<script src="/gamification.js"></script>
+<script src="/topic-guard.js"></script>
+<script src="/notifications-shared.js"></script>
+<script src="/onboarding-tour.js"></script>
+<script src="/footer-legal.js"></script>
+</body>
+
+</html>

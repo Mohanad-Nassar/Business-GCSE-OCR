@@ -4,297 +4,412 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>X.1 Listening and Dictation – Interactive Study Guide</title>
+    <title>X.1 Listening and Dictation – GCSE Spanish</title>
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
         rel="stylesheet" />
     <link rel="stylesheet" href="/style.css" />
+    <style>
+      /* 🔊 audio-button + Audio-panel styling is injected by /speech.js (shared).
+         Only page-specific styles live here. */
+      .vocab-tbl{width:100%;border-collapse:collapse;margin:8px 0}
+      .vocab-tbl td{border-bottom:1px solid var(--line,#e4e8f0);padding:6px 8px;vertical-align:top}
+      .vocab-tbl td:first-child{font-weight:600;white-space:nowrap}
+      @container (max-width:640px){.vocab-tbl,.vocab-tbl tbody,.vocab-tbl tr,.vocab-tbl td{display:block;width:100%}.vocab-tbl td{border-bottom:none;padding:4px 0;white-space:normal}.vocab-tbl td:nth-child(2n){padding-bottom:10px;border-bottom:1px solid var(--line,#e4e8f0);margin-bottom:6px}}
+      .tier-h{display:inline-block;font-size:.72em;font-weight:700;color:#8a5a00;
+        background:#fff3d6;border-radius:5px;padding:1px 5px;margin-left:5px;vertical-align:middle}
+    </style>
 </head>
 
 <body>
     <header>
         <div>
-            <div class="badge">AQA GCSE Spanish — Exam Skills · X. Exam Skills</div>
+            <div class="badge">AQA GCSE Spanish (8692) — Exam Skills · Paper 1 Listening</div>
             <h1>X.1 Listening and Dictation</h1>
-            <p>Interactive revision guide · Content coming soon</p>
+            <p>El examen de comprensión auditiva y el dictado · Interactive study guide</p>
         </div>
         <a href="/index.html" class="home-link">← 🏡 Home</a>
     </header>
 
     <nav class="tab-bar" id="tabBar">
-        <button class="tab-btn active" onclick="switchTab('learn', this)">
-            📚 Key Learning
-        </button>
-        <button class="tab-btn" onclick="switchTab('mcq', this)">
-            ❓ MCQ Quiz
-        </button>
-        <button class="tab-btn" onclick="switchTab('matching', this)">
-            🔗 Matching
-        </button>
-        <button class="tab-btn" onclick="switchTab('fib', this)">
-            ✏️ Fill the Blanks
-        </button>
-        <button class="tab-btn" onclick="switchTab('misconceptions', this)">
-            ⚠️ Misconceptions
-        </button>
-        <button class="tab-btn" onclick="switchTab('examtips', this)">
-            🎯 Exam Tips
-        </button>
-        <button class="tab-btn" onclick="switchTab('flashcards', this)">
-            🃏 Flashcards
-        </button>
-        <button class="tab-btn" onclick="switchTab('truefalse', this)">
-            ✅ True / False
-        </button>
-        <button class="tab-btn" onclick="switchTab('exampractice', this)">
-            📝 Exam Practice
-        </button>
+        <button class="tab-btn active" onclick="switchTab('learn', this)">📚 Key Learning</button>
+        <button class="tab-btn" onclick="switchTab('mcq', this)">❓ MCQ Quiz</button>
+        <button class="tab-btn" onclick="switchTab('matching', this)">🔗 Matching</button>
+        <button class="tab-btn" onclick="switchTab('fib', this)">✏️ Fill the Blanks</button>
+        <button class="tab-btn" onclick="switchTab('misconceptions', this)">⚠️ Misconceptions</button>
+        <button class="tab-btn" onclick="switchTab('examtips', this)">🎯 Exam Tips</button>
+        <button class="tab-btn" onclick="switchTab('flashcards', this)">🃏 Flashcards</button>
+        <button class="tab-btn" onclick="switchTab('truefalse', this)">✅ True / False</button>
+        <button class="tab-btn" onclick="switchTab('exampractice', this)">📝 Exam Practice</button>
     </nav>
 
     <main>
         <div class="tab-panel active" id="tab-learn">
             <h2 class="section-title">Key Learning Topics</h2>
-            <p class="section-sub">Click any card to expand detailed notes.</p>
+            <p class="section-sub">Click any card to expand. Tap 🔊 to hear the Spanish.</p>
             <div class="topic-grid" id="topicGrid"></div>
         </div>
-
         <div class="tab-panel" id="tab-mcq">
             <h2 class="section-title">Multiple Choice Questions</h2>
-            <p class="section-sub">Select an answer to reveal instant feedback.</p>
+            <p class="section-sub">Some questions play audio — tap 🔊 and choose the meaning.</p>
             <div class="score-bar">
-                <div>
-                    <div class="score-num" id="mcqScore">0</div>
-                    <div style="font-size: 12px; color: var(--mid)">
-                        correct answers
-                    </div>
-                </div>
-                <div style="font-size: 13px; color: var(--mid)">
-                    out of <strong id="mcqTotal">0</strong> attempted
-                </div>
+                <div><div class="score-num" id="mcqScore">0</div><div style="font-size:12px;color:var(--mid)">correct answers</div></div>
+                <div style="font-size:13px;color:var(--mid)">out of <strong id="mcqTotal">0</strong> attempted</div>
                 <button class="reset-btn" onclick="resetMCQ()">RESET</button>
             </div>
             <div class="quiz-wrap" id="mcqWrap"></div>
         </div>
-
         <div class="tab-panel" id="tab-matching">
             <h2 class="section-title">Matching Activity</h2>
-            <p class="section-sub">
-                Click a term on the left, then click the matching definition on the
-                right.
-            </p>
-            <div style="margin-bottom: 16px">
-                <div class="score-bar">
-                    <div>
-                        <div class="score-num" id="matchScore">0</div>
-                        <div style="font-size: 12px; color: var(--mid)">matched</div>
-                    </div>
-                    <div style="font-size: 13px; color: var(--mid)">
-                        out of <strong id="matchTotal">0</strong>
-                    </div>
-                    <button class="reset-btn" onclick="resetMatch()">RESET</button>
-                </div>
-            </div>
+            <p class="section-sub">Click a term on the left, then its match on the right.</p>
+            <div style="margin-bottom:16px"><div class="score-bar">
+                <div><div class="score-num" id="matchScore">0</div><div style="font-size:12px;color:var(--mid)">matched</div></div>
+                <div style="font-size:13px;color:var(--mid)">out of <strong id="matchTotal">0</strong></div>
+                <button class="reset-btn" onclick="resetMatch()">RESET</button>
+            </div></div>
             <div class="match-grid">
-                <div>
-                    <div class="match-label">TERMS</div>
-                    <div class="match-col" id="matchLeft"></div>
-                </div>
-                <div>
-                    <div class="match-label">DEFINITIONS</div>
-                    <div class="match-col" id="matchRight"></div>
-                </div>
+                <div><div class="match-label">TERMS</div><div class="match-col" id="matchLeft"></div></div>
+                <div><div class="match-label">DEFINITIONS</div><div class="match-col" id="matchRight"></div></div>
             </div>
         </div>
-
         <div class="tab-panel" id="tab-fib">
             <h2 class="section-title">Fill in the Blanks</h2>
-            <p class="section-sub">
-                Click each dropdown and choose the correct word. Wrong answers reset —
-                try again!
-            </p>
+            <p class="section-sub">Choose the correct word. Dictation rows play audio — tap 🔊, then fill the gap.</p>
             <div class="score-bar">
-                <div>
-                    <div class="score-num" id="fibScore">0</div>
-                    <div style="font-size: 12px; color: var(--mid)">correct</div>
-                </div>
-                <div style="font-size: 13px; color: var(--mid)">
-                    of <strong id="fibTotal">0</strong> blanks
-                </div>
+                <div><div class="score-num" id="fibScore">0</div><div style="font-size:12px;color:var(--mid)">correct</div></div>
+                <div style="font-size:13px;color:var(--mid)">of <strong id="fibTotal">0</strong> blanks</div>
                 <button class="reset-btn" onclick="resetFIB()">RESET</button>
             </div>
             <div class="fib-wrap" id="fibWrap"></div>
         </div>
-
         <div class="tab-panel" id="tab-misconceptions">
             <h2 class="section-title">Common Misconceptions</h2>
-            <p class="section-sub">
-                What students often think — and what examiners actually want.
-            </p>
+            <p class="section-sub">The mistakes GCSE Spanish students make most.</p>
             <div class="misc-list" id="miscList"></div>
         </div>
-
         <div class="tab-panel" id="tab-examtips">
             <h2 class="section-title">Exam Questions &amp; Tips</h2>
-            <p class="section-sub">
-                Most repeated question types and mark-scheme structures from real OCR
-                papers.
-            </p>
+            <p class="section-sub">How each of the four papers rewards this topic.</p>
             <div class="tips-grid" id="tipsGrid"></div>
         </div>
-
         <div class="tab-panel" id="tab-flashcards">
             <h2 class="section-title">Flashcards</h2>
-            <p class="section-sub">
-                Test yourself! Flip the card and rate your knowledge. Review your weak
-                areas at the end.
-            </p>
-
+            <p class="section-sub">Test yourself! Flip the card and rate your knowledge.</p>
             <div class="fc-container">
-                <div class="score-bar" id="fcScoreBar" style="display: none; margin-bottom: 20px">
-                    <div>
-                        <div class="score-num" id="fcKnown" style="color: #2d7a4f">0</div>
-                        <div style="font-size: 12px; color: var(--mid)">known</div>
-                    </div>
-                    <div>
-                        <div class="score-num" id="fcUnknown" style="color: #c84b31">
-                            0
-                        </div>
-                        <div style="font-size: 12px; color: var(--mid)">learning</div>
-                    </div>
-                    <div style="font-size: 13px; color: var(--mid)">
-                        out of <strong id="fcTotalTrack">0</strong>
-                    </div>
+                <div class="score-bar" id="fcScoreBar" style="display:none;margin-bottom:20px">
+                    <div><div class="score-num" id="fcKnown" style="color:#2d7a4f">0</div><div style="font-size:12px;color:var(--mid)">known</div></div>
+                    <div><div class="score-num" id="fcUnknown" style="color:#c84b31">0</div><div style="font-size:12px;color:var(--mid)">learning</div></div>
+                    <div style="font-size:13px;color:var(--mid)">out of <strong id="fcTotalTrack">0</strong></div>
                     <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
                 </div>
-
                 <div id="fcActiveArea">
                     <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
                     <div class="flashcard" id="flashcard" onclick="flipCard()">
                         <div class="fc-inner">
-                            <div class="fc-front">
-                                <div class="fc-label">KEY TERM</div>
-                                <div class="fc-term" id="fcTerm"></div>
-                            </div>
-                            <div class="fc-back">
-                                <div class="fc-def" id="fcDef"></div>
-                            </div>
+                            <div class="fc-front"><div class="fc-label">SPANISH</div><div class="fc-term" id="fcTerm"></div></div>
+                            <div class="fc-back"><div class="fc-def" id="fcDef"></div></div>
                         </div>
                     </div>
                     <p class="fc-hint">👆 Click card to flip</p>
-
                     <div class="fc-nav" id="fcNavDefault">
-                        <button class="fc-btn outline" onclick="prevCard()">
-                            ← Prev
-                        </button>
+                        <button class="fc-btn outline" onclick="prevCard()">← Prev</button>
                         <button class="fc-btn outline" onclick="flipCard()">Flip</button>
                         <button class="fc-btn" onclick="nextCard()">Next →</button>
                     </div>
-
-                    <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px">
-                        <button class="fc-btn outline" style="border-color: #c84b31; color: #c84b31; flex: 1"
-                            onclick="markCard(false)">
-                            ❌ Still Learning
-                        </button>
-                        <button class="fc-btn" style="background: #2d7a4f; border-color: #2d7a4f; flex: 1"
-                            onclick="markCard(true)">
-                            ✅ Got It
-                        </button>
+                    <div class="fc-nav" id="fcNavAssess" style="display:none;gap:15px">
+                        <button class="fc-btn outline" style="border-color:#c84b31;color:#c84b31;flex:1" onclick="markCard(false)">❌ Still Learning</button>
+                        <button class="fc-btn" style="background:#2d7a4f;border-color:#2d7a4f;flex:1" onclick="markCard(true)">✅ Got It</button>
                     </div>
                 </div>
-
-                <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px">
+                <div id="fcSummaryArea" style="display:none;text-align:center;padding:40px 20px">
                     <h3>Session Complete! 🎉</h3>
-                    <p style="margin: 15px 0">
-                        You knew <strong id="fcSummaryKnown">0</strong> out of
-                        <strong id="fcSummaryTotal">0</strong> cards.
-                    </p>
-                    <div style="
-                margin-top: 25px;
-                display: flex;
-                gap: 15px;
-                justify-content: center;
-                flex-wrap: wrap;
-              ">
-                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
-                            style="background: #c84b31; border-color: #c84b31">
-                            Review Incorrect
-                        </button>
-                        <button class="fc-btn outline" onclick="resetFlashcards()">
-                            Practice All Again
-                        </button>
+                    <p style="margin:15px 0">You knew <strong id="fcSummaryKnown">0</strong> out of <strong id="fcSummaryTotal">0</strong> cards.</p>
+                    <div style="margin-top:25px;display:flex;gap:15px;justify-content:center;flex-wrap:wrap">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()" style="background:#c84b31;border-color:#c84b31">Review Incorrect</button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">Practice All Again</button>
                     </div>
                 </div>
             </div>
         </div>
-
         <div class="tab-panel" id="tab-truefalse">
             <h2 class="section-title">True or False?</h2>
-            <p class="section-sub">Test your knowledge with these statements.</p>
+            <p class="section-sub">¿Verdadero o falso?</p>
             <div class="score-bar">
-                <div>
-                    <div class="score-num" id="tfScore">0</div>
-                    <div style="font-size: 12px; color: var(--mid)">correct</div>
-                </div>
-                <div style="font-size: 13px; color: var(--mid)">
-                    of <strong id="tfTotal">0</strong> answered
-                </div>
+                <div><div class="score-num" id="tfScore">0</div><div style="font-size:12px;color:var(--mid)">correct</div></div>
+                <div style="font-size:13px;color:var(--mid)">of <strong id="tfTotal">0</strong> answered</div>
                 <button class="reset-btn" onclick="resetTF()">RESET</button>
             </div>
             <div class="tf-wrap" id="tfWrap"></div>
         </div>
-
         <div class="tab-panel" id="tab-exampractice">
             <h2 class="section-title">Exam Practice Questions</h2>
-            <p class="section-sub">
-                Full exam questions with case studies. Use <strong>Hint</strong>,
-                <strong>Sentence Starter</strong> and
-                <strong>Submit &amp; See Mark Scheme</strong> for each question.
-            </p>
+            <p class="section-sub">Reading comprehension and translation. Use <strong>Hint</strong>, <strong>Sentence Starter</strong> and <strong>Submit &amp; See Mark Scheme</strong>.</p>
             <div class="ep-list" id="epList"></div>
         </div>
     </main>
 
 <script>
-    // ══════════════════════════════════════
-    //  DATA: X.1 Listening and Dictation — placeholder, content not yet written
-    // ══════════════════════════════════════
-    const pageMeta = {
-            id: 'x-1-listening-and-dictation',
-            badge: 'AQA GCSE Spanish — Exam Skills · X. Exam Skills',
-            title: 'X.1 Listening and Dictation',
-            subtitle: 'Interactive revision guide',
-            subject: 'spanish',
-        };
+    // ══════════════════════════════════════════════════════════════════
+    //  DATA: X.1 Listening and Dictation  (AQA 8692, Exam Skills — Paper 1)
+    //  Paper 1 = written Listening exam. Foundation 35 min/40 marks, Higher
+    //  45 min/50 marks, 25% of the GCSE. 5 min reading time first, 2 min at
+    //  the end to check. Section A = comprehension in English (32/40 marks).
+    //  Section B = DICTATION (8/10 marks). All taught Spanish is on the
+    //  prescribed wordlist unless deliberately marked as an off-list dictation
+    //  word. Audible Spanish carries data-say="…"; data-listen makes a prompt
+    //  audio-only (no transcript shown — speech.js strips any inner text).
+    //  Higher-tier items marked <span class="tier-h">H</span>. Option-writing
+    //  follows docs/QUESTION-AUTHORING.md (no length tell; distractors = real
+    //  errors / genuine traps, not filler).
+    // ══════════════════════════════════════════════════════════════════
+    const pageMeta = { id: 'x-1-listening-and-dictation', badge: 'AQA GCSE Spanish (8692) — Exam Skills · Paper 1 Listening', title: 'X.1 Listening and Dictation', subtitle: 'Interactive study guide', subject: 'spanish' };
 
     const topics = [
         {
-            title: "This topic is being written",
-            tag: "Coming soon",
-            content: `<p>🚧 <strong>Content for this topic is on its way.</strong> Key Learning notes, practice questions and exam-style questions for <strong>X.1 Listening and Dictation</strong> will appear here soon.</p>`
+            title: "What does Paper 1 actually test?",
+            tag: "Exam format",
+            content: `<p>Paper 1 is the <strong>Listening</strong> exam — a <strong>written</strong> paper: you hear a recording and write your answers straight onto the question paper. It is worth <strong>25% of your whole GCSE</strong>.</p>
+            <table class="vocab-tbl">
+              <tr><td>Foundation</td><td>35 minutes, 40 marks</td></tr>
+              <tr><td>Higher</td><td>45 minutes, 50 marks</td></tr>
+            </table>
+            <p>You get <strong>5 minutes' reading time</strong> before the recording starts, and <strong>2 minutes at the end</strong> to check your answers — use both fully. The exam has two sections: <strong>Section A</strong> (comprehension, 32/40 marks) and <strong>Section B</strong> (dictation, 8/10 marks).</p>
+            <p>Vocabulary for talking about the exam itself:</p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="escuchar">escuchar</span></td><td>to listen</td><td><span data-say="la grabación">la grabación</span></td><td>the recording</td></tr>
+              <tr><td><span data-say="comprender">comprender</span></td><td>to understand</td><td><span data-say="contestar">contestar</span></td><td>to answer</td></tr>
+            </table>`,
+            readCheck: { q: "How much reading time do you get before the recording starts in Paper 1?", opts: ["5 minutes", "10 minutes", "No reading time at all — the recording starts immediately", "2 minutes, the same as the checking time at the end"], ans: 0, explain: "You get 5 minutes' reading time before the recording starts, plus a separate 2 minutes at the end to check answers." }
+        },
+        {
+            title: "Section A: how to use the reading time",
+            tag: "Exam skill",
+            content: `<p>Section A questions are asked <strong>in English</strong> and answered <strong>in English or non-verbally</strong> (a tick, a letter, a number). Use the 5-minute reading window to read <strong>every</strong> question first, underline the key words, and predict what TYPE of answer each one needs — a number? a reason? an opinion?</p>
+            <p>Once the recording starts, don't try to translate word by word. Listen for whole known chunks. Example: a recording says <span data-say="Normalmente, veo la tele y hago mis deberes.">Normalmente, veo la tele y hago mis deberes.</span> — even if you miss a word, recognising the chunk <span data-say="me gusta">me gusta</span> (I like) or <span data-say="tengo que">tengo que</span> (I have to) tells you instantly what kind of information is coming next.</p>
+            <p>The number of marks for a question tells you how many separate details are needed — a 2-mark question needs two distinct pieces of information.</p>`,
+            readCheck: { q: "What is the best use of the 5-minute reading time before Section A?", opts: ["Read every question, underline key words and predict the type of answer needed", "Skip straight to writing full English sentences for every possible answer before listening", "Memorise the whole question paper word for word before listening", "Ignore the questions and just wait quietly for the recording to begin"], ans: 0, explain: "Reading and predicting first means you already know what to listen for once the audio starts." }
+        },
+        {
+            title: "Recognising numbers, times, dates and days",
+            tag: "Key concept",
+            content: `<p>Numbers, times and dates carry a lot of marks in Section A because they are precise, checkable details. Learn to recognise them <strong>instantly</strong>, without translating word by word.</p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="el lunes">el lunes</span></td><td>Monday</td><td><span data-say="el miércoles">el miércoles</span></td><td>Wednesday</td></tr>
+              <tr><td><span data-say="el sábado">el sábado</span></td><td>Saturday</td><td><span data-say="el domingo">el domingo</span></td><td>Sunday</td></tr>
+              <tr><td><span data-say="a la una">a la una</span></td><td>at one o'clock</td><td><span data-say="el mediodía">el mediodía</span></td><td>midday</td></tr>
+              <tr><td><span data-say="a las ocho y media">a las ocho y media</span></td><td>at half past eight</td><td><span data-say="a las diez menos cuarto">a las diez menos cuarto</span></td><td>at quarter to ten</td></tr>
+              <tr><td><span data-say="el primero de enero">el primero de enero</span></td><td>the 1st of January</td><td><span data-say="el treinta de abril">el treinta de abril</span></td><td>the 30th of April</td></tr>
+            </table>
+            <p>Tip: listen for the pattern <span data-say="a las...">a las…</span> for clock times, and <span data-say="el... de...">el … de …</span> for dates — you don't need every word, just spot the pattern and grab the number.</p>`,
+            readCheck: { q: "Which strategy helps most when listening for a date in the recording?", opts: ["Spot the pattern ‘el … de …’ and focus on grabbing the number", "Wait for the whole sentence to be translated silently in your head first", "Only write down a date if you hear the day of the week too", "Ignore dates completely, since they are rarely worth marks"], ans: 0, explain: "Spanish dates follow a fixed pattern (el + number + de + month), so recognising the pattern lets you grab the number fast." }
+        },
+        {
+            title: "Negatives and distractors — don't get caught out",
+            tag: "Exam skill",
+            content: `<p>Exam recordings are deliberately designed to include <strong>distractors</strong> — words you recognise that are <em>not</em> the answer, often because a negative flips the meaning.</p>
+            <ul>
+              <li><span data-say="no">no</span> — not / no</li>
+              <li><span data-say="nunca">nunca</span> — never</li>
+              <li><span data-say="nada">nada</span> — nothing</li>
+              <li><span data-say="tampoco">tampoco</span> — neither / not … either</li>
+            </ul>
+            <p>Example: <span data-say="Antes me gustaba el fútbol, pero ya no me gusta nada.">Antes me gustaba el fútbol, pero ya no me gusta nada.</span> — <em>I used to like football, but I don't like it at all now.</em> The recording says ‘fútbol’, but the negative at the end means it is <strong>not</strong> a current hobby.</p>
+            <p>Watch for <span data-say="tampoco">tampoco</span> too: <span data-say="A mí tampoco me gusta la geografía.">A mí tampoco me gusta la geografía.</span> — <em>I don't like geography either.</em></p>`,
+            readCheck: { q: "Why are negative words like ‘nunca’ or ‘no’ so important to catch while listening?", opts: ["They can completely reverse the meaning of the sentence you are listening to", "They are always the very first word in a Spanish sentence", "They only ever appear in Higher-tier recordings, never in Foundation-tier papers", "They tell you the recording has finished and it is time to write"], ans: 0, explain: "A single negative word can flip a whole sentence's meaning, which is exactly how the exam builds distractors." }
+        },
+        {
+            title: "Section B: Dictation — what happens?",
+            tag: "Exam format",
+            content: `<p>Section B is <strong>dictation</strong> — you hear short sentences and write down <em>exactly</em> what is said, word for word, punctuation included. It is worth <strong>8 marks at Foundation / 10 marks at Higher</strong>.</p>
+            <p>A few of the words will come from <strong>outside</strong> the GCSE vocabulary list — don't panic, just write your best attempt using normal Spanish spelling rules; a reasonable attempt can still gain credit, but a blank cannot.</p>
+            <p>Golden rules: use the pauses to write (not to guess ahead), then use the final play-through to check spelling and add any accents you can hear.</p>
+            <p>Try it: listen to this example — <span data-say="Mi hermano tiene el pelo rizado y es muy simpático." data-listen></span> — then check: <em>Mi hermano tiene el pelo rizado y es muy simpático.</em> (My brother has curly hair and is very nice.)</p>`,
+            readCheck: { q: "How many marks is Section B (dictation) worth at Foundation tier?", opts: ["8 marks", "40 marks", "0 marks — it is not assessed at Foundation", "25 marks"], ans: 0, explain: "Section B (dictation) is 8 marks at Foundation and 10 marks at Higher; Section A carries the bulk of the marks (32/40)." }
+        },
+        {
+            title: "Higher: matching sound to spelling in dictation",
+            tag: "Higher tier",
+            content: `<p><span class="tier-h">H</span> Spanish spelling follows the sound closely, but these patterns catch students out in dictation:</p>
+            <table class="vocab-tbl">
+              <tr><td>soft c / z</td><td><span data-say="cero">cero</span>, <span data-say="cinco">cinco</span>, <span data-say="zapato">zapato</span> — c before e/i, and z, make a soft "th/s" sound</td></tr>
+              <tr><td>throaty g / j</td><td><span data-say="jueves">jueves</span>, <span data-say="gente">gente</span> — j always, and g before e/i, make a throaty "h" sound</td></tr>
+              <tr><td>silent h</td><td><span data-say="hermano">hermano</span>, <span data-say="hay">hay</span> — h is never pronounced, so listen for the vowel that follows</td></tr>
+              <tr><td>ñ</td><td><span data-say="español">español</span>, <span data-say="año">año</span> — a completely different letter to plain n</td></tr>
+              <tr><td>rr</td><td><span data-say="perro">perro</span> vs <span data-say="pero">pero</span> — a rolled rr changes the whole word</td></tr>
+            </table>
+            <p><span class="tier-h">H</span> Add accents where you can hear the stress fall somewhere unexpected, e.g. <span data-say="está">está</span>, <span data-say="música">música</span> — but getting the letters right matters more than a missing accent.</p>`,
+            readCheck: { q: "Why does dictation test the difference between ‘perro’ and ‘pero’?", opts: ["A rolled rr versus a single r changes the whole word and its meaning", "‘perro’ and ‘pero’ are pronounced in exactly the same way, so it never really matters", "Only Foundation students need to know this distinction", "The letters r and rr are always interchangeable in Spanish spelling"], ans: 0, explain: "perro (dog) and pero (but) sound different because of the rolled rr — writing the wrong one changes the word completely." }
         }
     ];
 
-    const mcqData = [];
-    const matchData = [];
-    const fibData = [];
-    const fibWords = [];
-    const tfData = [];
-    const miscData = [];
-    const examTips = [];
-    const flashcards = [];
-    const examQuestions = [];
+    const mcqData = [
+        { q: `<span data-say="Tengo un hermano mayor y una hermana menor." data-listen></span><br>Listen. What does the speaker say about their siblings?`, opts: ["An older brother and a younger sister", "A younger brother and an older sister", "Two older brothers and no sisters at all", "An older sister who lives with a younger brother in Madrid"], ans: 0, explain: "mayor = older, menor = younger. Trap B simply swaps the two around; trap D adds invented detail." },
+        { q: `<span data-say="Normalmente hago mis deberes después de cenar." data-listen></span><br>Listen. When does the speaker usually do their homework?`, opts: ["After dinner", "Before dinner", "Straight after school finishes, every single day", "Every morning before going to school, without fail"], ans: 0, explain: "‘después de cenar’ = after dinner. The other options invent a different time that was never said." },
+        { q: `<span data-say="El sábado que viene voy a ir a un concierto." data-listen></span><br>Listen. What are the speaker's plans?`, opts: ["Going to a concert next Saturday", "Going to a concert last Saturday", "Staying home quietly next Saturday", "Going to a football match next Saturday evening with friends"], ans: 0, explain: "‘el sábado que viene’ = next Saturday (future); trap B swaps it to the past, trap D invents a different event." },
+        { q: `<span data-say="Nunca voy al gimnasio porque no tengo tiempo." data-listen></span><br>Listen. What does the speaker say?`, opts: ["They never go to the gym because they don't have time", "They go to the gym every day because they have plenty of time", "They sometimes go to the gym at the weekend, if there's time", "They used to go to the gym a lot but stopped last year after an injury"], ans: 0, explain: "‘nunca … no tengo tiempo’ = never … because I don't have time. Trap B reverses both the frequency and the reason." },
+        { q: `<span data-say="Mi hermana quería ser médica, pero al final decidió estudiar para ser profesora." data-listen></span><br>Listen. What does the speaker's sister want to be NOW?`, opts: ["A teacher", "A doctor", "Both a doctor and a teacher at the same time", "A doctor, but only after training as a teacher first"], ans: 0, explain: "‘médica’ is mentioned only to be rejected by ‘pero al final decidió’ — the final choice is profesora (teacher)." },
+        { q: `<span data-say="Mi cumpleaños es el treinta de abril." data-listen></span><br>Listen. When is the speaker's birthday?`, opts: ["The 30th of April", "The 13th of April", "The 30th of August", "The 3rd of April, the same day as her brother's"], ans: 0, explain: "treinta = 30 (not trece = 13), and abril = April (not agosto = August)." },
+        { q: "In the 5 minutes' reading time before Section A starts, what is the BEST use of your time?", opts: ["Read every question and predict what kind of answer each one needs", "Write out full English sentences for every possible answer in advance", "Memorise the entire question paper word for word before listening", "Skip ahead and read only the final question, since it carries the most marks"], ans: 0, explain: "Reading and predicting turns the reading time into real preparation for the listening that follows." },
+        { q: "In Section B (dictation), what should you do during the final play-through of each sentence?", opts: ["Check your spelling and add any missing accents you can hear", "Ignore it completely and move straight to the next sentence", "Translate the whole sentence into English instead of writing down the Spanish you hear", "Count how many words the sentence contains and nothing else"], ans: 0, explain: "The extra play-through exists so you can proof-read what you've already written, not to redo it." },
+        { q: `A recording mentions <span data-say="el fútbol">el fútbol</span> but then adds <span data-say="ya no me gusta nada" data-listen></span>. What does this test?`, opts: ["Whether you notice the negative flips the meaning, so football is NOT the answer", "Whether you can spell ‘fútbol’ correctly, including the accent", "Whether you know the plural form of ‘el fútbol’", "Whether you can translate the whole sentence into perfect, fully accented Higher-tier Spanish"], ans: 0, explain: "This is exactly how a distractor works — the word is said, then rejected by the negative that follows." },
+        { q: `<span data-say="Mi hermano tiene el pelo rizado y los ojos verdes." data-listen></span><br>Listen. What does the speaker describe?`, opts: ["Their brother's curly hair and green eyes", "Their brother's straight hair and blue eyes", "Their sister's curly hair and green eyes", "Their brother's curly hair, green eyes and a small scar above one eyebrow"], ans: 0, explain: "rizado = curly, verdes = green, hermano = brother. Every distractor swaps one true detail for a false one." }
+    ];
+
+    const matchData = [
+        { term: "escuchar", def: "to listen" },
+        { term: "la grabación", def: "the recording" },
+        { term: "comprender", def: "to understand" },
+        { term: "contestar", def: "to answer" },
+        { term: "el dictado", def: "the dictation" },
+        { term: "la respuesta", def: "the answer" },
+        { term: "subrayar", def: "to underline (key words)" },
+        { term: "el tiempo de lectura", def: "the reading time" },
+        { term: "repetir", def: "to repeat" },
+        { term: "deletrear", def: "to spell out" },
+        { term: "la tilde", def: "the accent mark" },
+        { term: "predecir", def: "to predict" }
+    ];
+
+    const fibData = [
+        { display: `Mi hermano tiene el pelo _____. <span data-say="Mi hermano tiene el pelo rizado." data-listen></span>`, blanks: { B1: "rizado" } },
+        { display: `Vivo en una casa _____ en las afueras de la ciudad. <span data-say="Vivo en una casa grande en las afueras de la ciudad." data-listen></span>`, blanks: { B1: "grande" } },
+        { display: `Compré unos _____ nuevos para el gimnasio. <span data-say="Compré unos zapatos nuevos para el gimnasio." data-listen></span>`, blanks: { B1: "zapatos" } },
+        { display: `Voy a la piscina todos los _____. <span data-say="Voy a la piscina todos los jueves." data-listen></span>`, blanks: { B1: "jueves" } },
+        { display: `Tengo un _____ que se llama Pablo. <span data-say="Tengo un hermano que se llama Pablo." data-listen></span>`, blanks: { B1: "hermano" } },
+        { display: `Estudio _____ en el instituto. <span data-say="Estudio español en el instituto." data-listen></span>`, blanks: { B1: "español" } },
+        { display: `Usa el tiempo de lectura para _____ lo que se va a preguntar. (to predict)`, blanks: { B1: "predecir" } }
+    ];
+    const fibWords = ["rizado", "grande", "zapatos", "jueves", "hermano", "español", "predecir"];
+
+    const tfData = [
+        { statement: "Paper 1 (Listening) is worth 25% of the whole GCSE.", answer: true, explanation: "Correct — Listening is one of four papers, each worth 25%." },
+        { statement: "Section B (dictation) is worth more marks than Section A (comprehension).", answer: false, explanation: "The opposite is true — Section A carries 32/40 marks, Section B only 8/10." },
+        { statement: `Listen: <span data-say="Voy a leer todas las preguntas antes de escuchar la grabación." data-listen></span> — this describes GOOD exam technique for Paper 1.`, answer: true, explanation: "Reading every question before the recording starts is exactly the technique this page teaches." },
+        { statement: "A negative word like ‘nunca’ or ‘no’ can completely flip the meaning of a sentence you are listening to.", answer: true, explanation: "This is exactly how exam recordings build distractors." },
+        { statement: `Listen: <span data-say="Mi madre trabaja en un hospital y mi padre es profesor." data-listen></span> — the statement claims the speaker's father is a teacher.`, answer: true, explanation: "‘mi padre es profesor’ = my father is a teacher; the mother works in a hospital." },
+        { statement: `Listen: <span data-say="Nunca he estudiado francés." data-listen></span> — this means the speaker studies French every day.`, answer: false, explanation: "‘nunca he estudiado francés’ = I have never studied French — the exact opposite meaning." },
+        { statement: "In dictation, you only need to write the general meaning of the sentence, not the exact words.", answer: false, explanation: "Dictation requires an exact, correctly spelled transcription, not a paraphrase." },
+        { statement: "Adding a missing accent, like on ‘está’, can matter for full marks in Higher-tier dictation.", answer: true, explanation: "Accents are part of correct spelling, so at Higher tier they can affect the mark." }
+    ];
+
+    const miscData = [
+        { wrong: "In Section B, you can write a rough paraphrase of what you hear instead of the exact words.", correct: "In Section B, you must write EXACTLY what you hear, correctly spelled — dictation tests exact transcription, not paraphrase.", readCheck: { q: "What is required in Section B (dictation)?", opts: ["Writing exactly what you hear, spelled correctly", "Writing a rough summary in your own words", "Translating the sentence into English instead", "Writing only the first and last word of each sentence"], ans: 0, explain: "Dictation marks are for accurate transcription, not a summary or a translation." } },
+        { wrong: "If a dictation sentence includes a word outside your vocabulary list, you should leave that part blank.", correct: "Even for unfamiliar words, write your best attempt using normal Spanish sound-spelling rules — a reasonable attempt can gain credit, but a blank cannot.", readCheck: { q: "A dictation sentence includes a word outside your vocabulary list. What should you do?", opts: ["Attempt a spelling using normal Spanish sound-spelling patterns", "Leave that part of the sentence blank since it isn't on the list", "Write the nearest English word in its place instead", "Stop writing completely and skip to the next sentence"], ans: 0, explain: "A sensible attempt using normal Spanish spelling rules can still earn credit; a blank definitely cannot." } },
+        { wrong: "Words like ‘no’ or ‘nunca’ are minor details you can usually skip when listening for the answer.", correct: "A negative like ‘no’ or ‘nunca’ can completely reverse a sentence's meaning, so it is often the MOST important word to catch.", readCheck: { q: "Why should you never skip past a negative word while listening?", opts: ["It can completely reverse the meaning of the whole sentence", "Negatives are only ever used in Higher-tier recordings", "Negatives always come at the very start of a Spanish sentence", "Skipping negatives makes the recording easier to follow"], ans: 0, explain: "A missed negative is one of the most common reasons students pick the wrong answer in Section A." } },
+        { wrong: "The 5 minutes' reading time at the start of Paper 1 is just for reading instructions, so it barely matters.", correct: "The reading time is for reading every question and predicting what to listen for — using it well makes the actual listening much easier.", readCheck: { q: "What is the reading time at the start of Paper 1 actually for?", opts: ["Reading every question and predicting what kind of answer is needed", "Reading only the front-cover instructions and general exam rules, nothing else", "Filling in your name and candidate number very slowly", "Nothing important — it can safely be skipped altogether"], ans: 0, explain: "Predicting the question types before the recording starts is the whole point of the reading time." } },
+        { wrong: "Once you have written an answer in Section A, there is no need to check it again.", correct: "The 2 minutes at the end of the exam are for checking your answers make sense (an age of 200, for example, is clearly wrong) — always use them.", readCheck: { q: "What are the final 2 minutes of Paper 1 for?", opts: ["Checking your answers make sense and correcting obvious mistakes", "Starting Section B (dictation) again from the very beginning of the recording", "Copying your answers onto a separate answer sheet", "Nothing — the exam is effectively already finished by then"], ans: 0, explain: "The final 2 minutes exist specifically so you can catch and fix obvious errors before time is called." } }
+    ];
+
+    const examTips = [
+        { type: "tip", title: "Section A — predict before you listen", pills: ["Listening", "Technique"], content: `Use the 5-minute reading window to read every question and predict what is coming, e.g. <span data-say="¿Qué le gusta hacer los fines de semana?" data-listen></span> signals an OPINION or ACTIVITY answer is needed. Predicting the answer type before the audio starts means you already know what to listen out for.`, readCheck: { q: "Why predict the type of answer needed BEFORE the recording starts?", opts: ["So you already know what kind of information to listen out for", "So you can write the full answer before hearing anything in the recording at all", "Because predicting is required by the exam board's rules", "So you can skip listening to that question altogether"], ans: 0, explain: "Predicting focuses your listening on exactly the detail the question is asking for." } },
+        { type: "tip", title: "Section B — dictation strategy", pills: ["Listening", "Dictation", "Higher"], content: `Write down what you hear using normal sound-spelling rules — soft c/z, throaty g/j, silent h, ñ and rr all matter, e.g. <span data-say="Voy a la piscina los jueves." data-listen></span>. Use the final play-through only to check spelling and accents, not to rewrite from scratch.`, readCheck: { q: "What should the FINAL play-through of a dictation sentence be used for?", opts: ["Checking spelling and adding any accents you can hear", "Writing the sentence down completely for the very first time", "Translating the sentence into English", "Deciding whether to answer that sentence at all"], ans: 0, explain: "By the final play-through you should already have a full attempt written — it is a check, not a first draft." } },
+        { type: "evaluate", title: "Using the reading time and the checking time", pills: ["Exam technique", "Listening"], content: `Two windows of time are easy to waste: the 5 minutes before the recording (read every question, underline key words) and the 2 minutes after (check answers make sense — <span data-say="Después de escuchar, tienes dos minutos para comprobar tus respuestas." data-listen></span>). An age of 200, or a day that doesn't exist, is an obvious sign an answer needs another look.`, readCheck: { q: "Which pair of exam-time habits gets the most out of Paper 1?", opts: ["Predicting from every question first, then checking answers make sense at the end", "Listening carefully but ignoring the reading time and the final checking time completely", "Writing answers only during the checking time at the very end", "Reading the questions after the recording has already finished"], ans: 0, explain: "Both windows are graded time you are given for a reason — predicting first and checking last." } }
+    ];
+
+    const flashcards = [
+        { term: "escuchar", def: "to listen", say: "escuchar" },
+        { term: "la grabación", def: "the recording", say: "la grabación" },
+        { term: "comprender", def: "to understand", say: "comprender" },
+        { term: "contestar", def: "to answer", say: "contestar" },
+        { term: "el dictado", def: "the dictation", say: "el dictado" },
+        { term: "la respuesta", def: "the answer", say: "la respuesta" },
+        { term: "subrayar", def: "to underline (key words)", say: "subrayar" },
+        { term: "el tiempo de lectura", def: "the reading time", say: "el tiempo de lectura" },
+        { term: "repetir", def: "to repeat", say: "repetir" },
+        { term: "deletrear", def: "to spell out", say: "deletrear" },
+        { term: "la tilde", def: "the accent mark", say: "la tilde" },
+        { term: "predecir", def: "to predict", say: "predecir" },
+        { term: "nunca / no / nada", def: "never / not / nothing — meaning-flipping negatives", say: "nunca, no, nada" },
+        { term: "tampoco", def: "neither / not … either", say: "tampoco" },
+        { term: "a las…", def: "at … o'clock (clock times)", say: "a las ocho" },
+        { term: "el … de …", def: "the … of … (dates)", say: "el treinta de abril" },
+        { term: "rizado (H)", def: "curly — a common dictation spelling test", say: "rizado" },
+        { term: "la ñ y la rr (H)", def: "the letters ñ and rr — never the same as n or r", say: "español, perro" }
+    ];
+
+    const EXAM_CASE_STUDIES = {};
+
+    const examQuestions = [
+        {
+            num: 1, marks: 8, type: "written",
+            question: `You will hear four short sentences. Tap 🔊 on each one and write EXACTLY what you hear, spelling every word correctly.<br>
+            (a) <span data-say="Mi hermano tiene el pelo rizado." data-listen></span><br>
+            (b) <span data-say="Vamos a la piscina los jueves." data-listen></span><br>
+            (c) <span data-say="Nunca como carne los fines de semana." data-listen></span><br>
+            (d) <span data-say="Voy a estudiar español el año que viene." data-listen></span>`,
+            hint: "Listen once for the general sentence, then again to check spelling — watch for jueves (throaty j), nunca (a negative), and the ñ in español.",
+            starter: "(a) Mi… (b) Vamos… (c) Nunca… (d) Voy…",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 8 marks (AO3 Listening: dictation, Foundation)</h5><ul>
+                <li><strong>(a)</strong> Mi hermano tiene <em>(1)</em> el pelo rizado <em>(1)</em>.</li>
+                <li><strong>(b)</strong> Vamos a la piscina <em>(1)</em> los jueves <em>(1)</em>.</li>
+                <li><strong>(c)</strong> Nunca como carne <em>(1)</em> los fines de semana <em>(1)</em>.</li>
+                <li><strong>(d)</strong> Voy a estudiar español <em>(1)</em> el año que viene <em>(1)</em>.</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+                <li>One mark per correctly spelled chunk shown above; minor accent slips may still cost the mark at this tier if the letters are also wrong.</li>
+            </ul></div>`,
+            modelAnswer: "(a) Mi hermano tiene el pelo rizado. (b) Vamos a la piscina los jueves. (c) Nunca como carne los fines de semana. (d) Voy a estudiar español el año que viene.",
+            markPoints: { note: "One tick per correctly spelled chunk; cap at 8.", groups: [
+                { label: "(a) Mi hermano tiene", max: 1, points: ["Mi hermano tiene"] },
+                { label: "(a) el pelo rizado", max: 1, points: ["el pelo rizado"] },
+                { label: "(b) Vamos a la piscina", max: 1, points: ["Vamos a la piscina"] },
+                { label: "(b) los jueves", max: 1, points: ["los jueves"] },
+                { label: "(c) Nunca como carne", max: 1, points: ["Nunca como carne"] },
+                { label: "(c) los fines de semana", max: 1, points: ["los fines de semana"] },
+                { label: "(d) Voy a estudiar español", max: 1, points: ["Voy a estudiar español"] },
+                { label: "(d) el año que viene", max: 1, points: ["el año que viene"] }
+            ] }
+        },
+        {
+            num: 2, marks: 10, type: "written",
+            question: `<span class="tier-h">H</span> You will hear four short sentences. Tap 🔊 on each one and write EXACTLY what you hear, spelling every word correctly, with accents where you can.<br>
+            (a) <span data-say="Mi madre es médica y trabaja en el hospital." data-listen></span><br>
+            (b) <span data-say="El sábado que viene voy a comprar unos zapatos nuevos." data-listen></span><br>
+            (c) <span data-say="Mi hermano mayor estudia inglés en la universidad." data-listen></span><br>
+            (d) <span data-say="Después del examen, estaba muy cansado pero contento." data-listen></span>`,
+            hint: "Watch for the accents on médica, sábado and inglés, the soft z sound in zapatos, and the rolled rr is NOT present in pero (but) — don't confuse it with perro (dog).",
+            starter: "(a) Mi madre… (b) El sábado… (c) Mi hermano… (d) Después del examen…",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 10 marks (AO3 Listening: dictation, Higher)</h5><ul>
+                <li><strong>(a)</strong> Mi madre es médica <em>(1)</em> y trabaja <em>(1)</em> en el hospital <em>(1)</em>.</li>
+                <li><strong>(b)</strong> El sábado que viene <em>(1)</em> voy a comprar <em>(1)</em> unos zapatos nuevos <em>(1)</em>.</li>
+                <li><strong>(c)</strong> Mi hermano mayor <em>(1)</em> estudia inglés en la universidad <em>(1)</em>.</li>
+                <li><strong>(d)</strong> Después del examen <em>(1)</em> estaba muy cansado pero contento <em>(1)</em>.</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+                <li>One mark per correctly spelled chunk; at Higher, an accent that changes a word's identity (e.g. médica) is expected for the mark.</li>
+            </ul></div>`,
+            modelAnswer: "(a) Mi madre es médica y trabaja en el hospital. (b) El sábado que viene voy a comprar unos zapatos nuevos. (c) Mi hermano mayor estudia inglés en la universidad. (d) Después del examen, estaba muy cansado pero contento.",
+            markPoints: { note: "One tick per correctly spelled chunk; cap at 10.", groups: [
+                { label: "(a) Mi madre es médica", max: 1, points: ["Mi madre es médica"] },
+                { label: "(a) y trabaja", max: 1, points: ["y trabaja"] },
+                { label: "(a) en el hospital", max: 1, points: ["en el hospital"] },
+                { label: "(b) El sábado que viene", max: 1, points: ["El sábado que viene"] },
+                { label: "(b) voy a comprar", max: 1, points: ["voy a comprar"] },
+                { label: "(b) unos zapatos nuevos", max: 1, points: ["unos zapatos nuevos"] },
+                { label: "(c) Mi hermano mayor", max: 1, points: ["Mi hermano mayor"] },
+                { label: "(c) estudia inglés en la universidad", max: 1, points: ["estudia inglés en la universidad"] },
+                { label: "(d) Después del examen", max: 1, points: ["Después del examen"] },
+                { label: "(d) estaba muy cansado pero contento", max: 1, points: ["estaba muy cansado pero contento"] }
+            ] }
+        }
+    ];
 </script>
+
+    <!-- Spanish voice capability (SPANISH-CONTENT-PLAN.md §8.1). Self-installs the 🔊
+         buttons + speed/voice panel + tab observer. Loads before /script.js. -->
     <script src="/speech.js"></script>
+    <!-- Exam self-marking: tick-the-mark-scheme panel (shared with CS / Additional Maths;
+         docs/SELF-MARK-POINTS-AUTHORING.md). -->
     <script src="/cs-lab/exam-widgets.js"></script>
     <script src="/script.js"></script>
-<script src="section-totals.js"></script>
-<script src="page-groups.js"></script>
-<script src="/progress-shared.js"></script>
-<script src="/gamification.js"></script>
-<script src="/topic-guard.js"></script>
-<script src="/notifications-shared.js"></script>
-<script src="/onboarding-tour.js"></script>
-<script src="/footer-legal.js"></script>
+    <script src="section-totals.js"></script>
+    <script src="page-groups.js"></script>
+    <script src="/progress-shared.js"></script>
+    <script src="/gamification.js"></script>
+    <script src="/topic-guard.js"></script>
+    <script src="/notifications-shared.js"></script>
+    <script src="/onboarding-tour.js"></script>
+    <script src="/footer-legal.js"></script>
 </body>
 
 </html>

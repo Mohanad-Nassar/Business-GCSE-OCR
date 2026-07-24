@@ -1,0 +1,1197 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2.2.3c File Handling and Records – Interactive Study Guide</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+    <header>
+        <div>
+            <div class="badge">OCR GCSE Computer Science — Paper 2 · 2.2 Programming Fundamentals</div>
+            <h1>2.2.3c File Handling and Records</h1>
+            <p>Interactive revision guide</p>
+        </div>
+        <a href="/index.html" class="home-link">← 🏡 Home</a>
+    </header>
+
+    <nav class="tab-bar" id="tabBar">
+        <button class="tab-btn active" onclick="switchTab('learn', this)">
+            📚 Key Learning
+        </button>
+        <button class="tab-btn" onclick="switchTab('mcq', this)">
+            ❓ MCQ Quiz
+        </button>
+        <button class="tab-btn" onclick="switchTab('matching', this)">
+            🔗 Matching
+        </button>
+        <button class="tab-btn" onclick="switchTab('fib', this)">
+            ✏️ Fill the Blanks
+        </button>
+        <button class="tab-btn" onclick="switchTab('misconceptions', this)">
+            ⚠️ Misconceptions
+        </button>
+        <button class="tab-btn" onclick="switchTab('examtips', this)">
+            🎯 Exam Tips
+        </button>
+        <button class="tab-btn" onclick="switchTab('flashcards', this)">
+            🃏 Flashcards
+        </button>
+        <button class="tab-btn" onclick="switchTab('truefalse', this)">
+            ✅ True / False
+        </button>
+        <button class="tab-btn" onclick="switchTab('exampractice', this)">
+            📝 Exam Practice
+        </button>
+    </nav>
+
+    <main>
+        <div class="tab-panel active" id="tab-learn">
+            <h2 class="section-title">Key Learning Topics</h2>
+            <p class="section-sub">Click any card to expand detailed notes.</p>
+            <div class="topic-grid" id="topicGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-mcq">
+            <h2 class="section-title">Multiple Choice Questions</h2>
+            <p class="section-sub">Select an answer to reveal instant feedback.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="mcqScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">
+                        correct answers
+                    </div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    out of <strong id="mcqTotal">0</strong> attempted
+                </div>
+                <button class="reset-btn" onclick="resetMCQ()">RESET</button>
+            </div>
+            <div class="quiz-wrap" id="mcqWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-matching">
+            <h2 class="section-title">Matching Activity</h2>
+            <p class="section-sub">
+                Click a term on the left, then click the matching definition on the
+                right.
+            </p>
+            <div style="margin-bottom: 16px">
+                <div class="score-bar">
+                    <div>
+                        <div class="score-num" id="matchScore">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">matched</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="matchTotal">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetMatch()">RESET</button>
+                </div>
+            </div>
+            <div class="match-grid">
+                <div>
+                    <div class="match-label">TERMS</div>
+                    <div class="match-col" id="matchLeft"></div>
+                </div>
+                <div>
+                    <div class="match-label">DEFINITIONS</div>
+                    <div class="match-col" id="matchRight"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-fib">
+            <h2 class="section-title">Fill in the Blanks</h2>
+            <p class="section-sub">
+                Click each dropdown and choose the correct word. Wrong answers reset —
+                try again!
+            </p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="fibScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="fibTotal">0</strong> blanks
+                </div>
+                <button class="reset-btn" onclick="resetFIB()">RESET</button>
+            </div>
+            <div class="fib-wrap" id="fibWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-misconceptions">
+            <h2 class="section-title">Common Misconceptions</h2>
+            <p class="section-sub">
+                What students often think — and what examiners actually want.
+            </p>
+            <div class="misc-list" id="miscList"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-examtips">
+            <h2 class="section-title">Exam Questions &amp; Tips</h2>
+            <p class="section-sub">
+                Most repeated question types and mark-scheme structures from real OCR
+                papers.
+            </p>
+            <div class="tips-grid" id="tipsGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-flashcards">
+            <h2 class="section-title">Flashcards</h2>
+            <p class="section-sub">
+                Test yourself! Flip the card and rate your knowledge. Review your weak
+                areas at the end.
+            </p>
+
+            <div class="fc-container">
+                <div class="score-bar" id="fcScoreBar" style="display: none; margin-bottom: 20px">
+                    <div>
+                        <div class="score-num" id="fcKnown" style="color: #2d7a4f">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">known</div>
+                    </div>
+                    <div>
+                        <div class="score-num" id="fcUnknown" style="color: #c84b31">
+                            0
+                        </div>
+                        <div style="font-size: 12px; color: var(--mid)">learning</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="fcTotalTrack">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
+                </div>
+
+                <div id="fcActiveArea">
+                    <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
+                    <div class="flashcard" id="flashcard" onclick="flipCard()">
+                        <div class="fc-inner">
+                            <div class="fc-front">
+                                <div class="fc-label">KEY TERM</div>
+                                <div class="fc-term" id="fcTerm"></div>
+                            </div>
+                            <div class="fc-back">
+                                <div class="fc-def" id="fcDef"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="fc-hint">👆 Click card to flip</p>
+
+                    <div class="fc-nav" id="fcNavDefault">
+                        <button class="fc-btn outline" onclick="prevCard()">
+                            ← Prev
+                        </button>
+                        <button class="fc-btn outline" onclick="flipCard()">Flip</button>
+                        <button class="fc-btn" onclick="nextCard()">Next →</button>
+                    </div>
+
+                    <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px">
+                        <button class="fc-btn outline" style="border-color: #c84b31; color: #c84b31; flex: 1"
+                            onclick="markCard(false)">
+                            ❌ Still Learning
+                        </button>
+                        <button class="fc-btn" style="background: #2d7a4f; border-color: #2d7a4f; flex: 1"
+                            onclick="markCard(true)">
+                            ✅ Got It
+                        </button>
+                    </div>
+                </div>
+
+                <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px">
+                    <h3>Session Complete! 🎉</h3>
+                    <p style="margin: 15px 0">
+                        You knew <strong id="fcSummaryKnown">0</strong> out of
+                        <strong id="fcSummaryTotal">0</strong> cards.
+                    </p>
+                    <div style="
+                margin-top: 25px;
+                display: flex;
+                gap: 15px;
+                justify-content: center;
+                flex-wrap: wrap;
+              ">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
+                            style="background: #c84b31; border-color: #c84b31">
+                            Review Incorrect
+                        </button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">
+                            Practice All Again
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-truefalse">
+            <h2 class="section-title">True or False?</h2>
+            <p class="section-sub">Test your knowledge with these statements.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="tfScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="tfTotal">0</strong> answered
+                </div>
+                <button class="reset-btn" onclick="resetTF()">RESET</button>
+            </div>
+            <div class="tf-wrap" id="tfWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-exampractice">
+            <h2 class="section-title">Exam Practice Questions</h2>
+            <p class="section-sub">
+                Full exam questions with case studies. Use <strong>Hint</strong>,
+                <strong>Sentence Starter</strong> and
+                <strong>Submit &amp; See Mark Scheme</strong> for each question.
+            </p>
+            <div class="ep-list" id="epList"></div>
+        </div>
+    </main>
+
+<script>
+    // ══════════════════════════════════════
+    //  DATA: 2.2.3c File Handling and Records — placeholder, content not yet written
+    // ══════════════════════════════════════
+    const pageMeta = {
+            id: '2-2-3c-file-handling-and-records',
+            badge: 'OCR GCSE Computer Science — Paper 2 · 2.2 Programming Fundamentals',
+            title: '2.2.3c File Handling and Records',
+            subtitle: 'Interactive revision guide',
+            subject: 'computer-science',
+        };
+
+    const topics = [
+        {
+            title: "Why programs use files",
+            tag: "File handling",
+            content: `<h4>Making data outlive the program that created it</h4>
+<ul>
+<li>Every variable and array a program uses is stored in <strong>RAM (main memory)</strong> — as soon as the program ends, that memory is cleared and the data is gone.</li>
+<li>A <strong>file</strong> is stored on <strong>secondary storage</strong> (e.g. a hard disk), so data written to a file <strong>persists</strong> — it still exists after the program that wrote it has finished running, and can be read again later, even by a completely different program.</li>
+</ul>
+<div class="code-block">// Without a file: this score is lost the moment the program ends
+score = 87
+
+// With a file: this score is still there tomorrow
+myFile = open("scores.txt")
+myFile.writeLine("87")
+myFile.close()</div>
+<ul>
+<li>Files are how programs save settings, high scores, user accounts, or any other data that needs to still be there the next time the program runs.</li>
+</ul>`,
+            readCheck: {
+                q: "Why is data written to a file still available after the program that wrote it has closed down?",
+                opts: ["Because the file is stored on secondary storage, so its data persists once the program stops running", "Because every file automatically copies itself into a brand new variable just before the program ends", "It isn't — file data is cleared in exactly the same way RAM is, the moment any program finishes running", "Because closing a program automatically re-opens the file the next time any program at all happens to run"],
+                ans: 0,
+                explain: "Files live on secondary storage (not RAM), so their data persists after the program that wrote them has finished running — unlike an ordinary variable."
+            }
+        },
+        {
+            title: "Opening and creating a file",
+            tag: "File handling",
+            content: `<h4>A file must be opened before your program can use it</h4>
+<ul>
+<li><code>myFile = open("data.txt")</code> — opens a file that <strong>already exists</strong>, and gives the program a way of referring to it afterwards (here, the name <code>myFile</code>).</li>
+<li><code>newFile("data.txt")</code> — creates a brand <strong>new, empty</strong> file with that name. Use this <strong>before</strong> trying to open a file that doesn't exist yet.</li>
+</ul>
+<div class="code-block">newFile("log.txt")            // creates a new, empty file
+myFile = open("log.txt")      // now it can be opened
+myFile.writeLine("Program started")
+myFile.close()</div>
+<ul>
+<li><code>open(...)</code> does <strong>not</strong> create a file — if the named file doesn't exist yet, <code>open(...)</code> is not the right command to use on its own.</li>
+</ul>`,
+            readCheck: {
+                q: "A program needs to write to a file called \"log.txt\", which does not exist yet. What should it do?",
+                opts: ["Call newFile(\"log.txt\") to create it, then open(\"log.txt\") to open it", "Call open(\"log.txt\") on its own — open() automatically creates any file that is missing before opening it", "Call myFile.writeLine(\"log.txt\") — writeLine() is able to create a brand new file by itself, with no other command needed first", "Nothing extra is needed, because every file used in a program already exists automatically as soon as the program starts running"],
+                ans: 0,
+                explain: "open(...) only works on a file that ALREADY exists. To create a brand-new file first, use newFile(...), then open(...) it."
+            }
+        },
+        {
+            title: "Reading from a file: readLine and endOfFile",
+            tag: "File handling",
+            content: `<h4>Getting data back out of a file, one line at a time</h4>
+<ul>
+<li><code>myFile.readLine()</code> — reads the <strong>next</strong> line of text from an open file, and returns it.</li>
+<li><code>myFile.endOfFile()</code> — a Boolean method that returns <strong>true</strong> once there is no more data left to read in the file (and <strong>false</strong> while there is still more to come).</li>
+</ul>
+<div class="code-block">myFile = open("scores.txt")
+firstLine = myFile.readLine()
+print(firstLine)
+print(myFile.endOfFile())   // false, if there is still more of the file left to read</div>
+<ul>
+<li>readLine() and endOfFile() do two different jobs: readLine() <strong>fetches</strong> data, endOfFile() only <strong>tests</strong> whether there's any data left — it never returns a line of text itself.</li>
+</ul>`,
+            readCheck: {
+                q: "What does myFile.endOfFile() return while there is STILL more data left to read in the file?",
+                opts: ["false", "true — this is instead what it returns once every line in the file has already been read", "The next line of text in the file, exactly like readLine() would", "An error, since endOfFile() can only ever be called after the whole file has already been read once"],
+                ans: 0,
+                explain: "endOfFile() returns false while data remains, and only becomes true once the whole file has been read — it's the loop's stopping condition, not a way of fetching text."
+            }
+        },
+        {
+            title: "Reading a WHOLE file: the read loop",
+            tag: "File handling",
+            content: `<h4>A pattern for reading every line in a file</h4>
+<ul>
+<li>A program usually doesn't know in advance how many lines a file contains, so reading the <strong>whole</strong> file uses a <strong>condition-controlled loop</strong> that repeats until the end of the file is reached — not a fixed-count for loop.</li>
+</ul>
+<div class="code-block">myFile = open("scores.txt")
+while NOT myFile.endOfFile()
+  line = myFile.readLine()
+  print(line)
+endwhile
+myFile.close()</div>
+<ul>
+<li>Each pass of the loop: check <strong>endOfFile()</strong> first, then <strong>readLine()</strong> to get the next line, then do something with it (here, print it). The loop stops as soon as endOfFile() becomes true.</li>
+</ul>`,
+            readCheck: {
+                q: "Why does reading a whole file normally use a while NOT myFile.endOfFile() loop, rather than a for loop?",
+                opts: ["The number of lines in the file usually isn't known in advance, so a condition-controlled loop fits better than a fixed-count one", "Because readLine() cannot legally be written inside a for loop's body under any circumstances at all", "Because for loops can only ever be used together with arrays, and are never allowed to be used with a file of any kind whatsoever, no matter what it contains", "Because while loops always run measurably faster than for loops whenever a file is involved in a program"],
+                ans: 0,
+                explain: "You don't know in advance how many lines a file holds, so a condition-controlled loop (repeat until endOfFile() is true) is the natural fit — not a fixed-count for loop."
+            }
+        },
+        {
+            title: "Writing to a file, and closing it",
+            tag: "File handling",
+            content: `<h4>Putting data into a file, then finishing properly</h4>
+<ul>
+<li><code>myFile.writeLine("some text")</code> — writes a line of text to the file.</li>
+<li><code>myFile.close()</code> — closes the file. <strong>Always</strong> close a file once your program has finished using it.</li>
+</ul>
+<div class="code-block">myFile = open("log.txt")
+myFile.writeLine("Program started")
+myFile.writeLine("Level 1 complete")
+myFile.close()</div>
+<ul>
+<li>Closing a file makes sure any data that was written is <strong>saved properly</strong>, and it <strong>frees the file up</strong> so other programs can use it. A file left open can lose data, or stay locked so nothing else can access it.</li>
+</ul>`,
+            readCheck: {
+                q: "Why should a program always call close() on a file once it has finished using it?",
+                opts: ["So the data is saved properly and the file is freed for other programs to use", "Because a file left open will automatically delete all of its own contents the next time the program runs", "Closing a file has no real effect at all — it is only included in exam answers for good style", "So that the file's name is automatically changed the next time newFile() happens to be called on it"],
+                ans: 0,
+                explain: "Closing a file makes sure changes are saved properly and releases the file for other programs — leaving one open risks lost data or a locked file."
+            }
+        },
+        {
+            title: "What is a record?",
+            tag: "Data structure",
+            content: `<h4>Grouping related data under one name</h4>
+<ul>
+<li>A <strong>record</strong> is a data structure that groups together several related <strong>fields</strong> under a single name — a bit like <strong>one row</strong> of a table.</li>
+<li>Unlike an array, a record's fields can be <strong>different data types</strong> — each field keeps its own name and its own type, but the whole group is treated as one thing.</li>
+</ul>
+<div class="code-block">record Student
+  name : string
+  age : integer
+  isMember : boolean
+endrecord</div>
+<ul>
+<li>Here, <code>name</code>, <code>age</code> and <code>isMember</code> are three <strong>fields</strong> of a single <code>Student</code> record — one string, one integer and one Boolean, all grouped together.</li>
+</ul>`,
+            readCheck: {
+                q: "What is a record?",
+                opts: ["A data structure that groups related fields, possibly of different data types, under one name", "A single array that is only ever able to hold whole numbers, and no other data type at all, regardless of what a program actually needs to store", "A file that stores a complete history of every single change ever made to one variable", "A type of loop that keeps repeating until every field in a data structure has been read once"],
+                ans: 0,
+                explain: "A record groups related fields (which may be of different types) under one name — like a Student record with name, age and isMember fields."
+            }
+        },
+        {
+            title: "Records vs arrays",
+            tag: "Data structure",
+            content: `<h4>Two different ways to group data — used for different jobs</h4>
+<ul>
+<li>An <strong>array</strong> stores <strong>many items</strong>, usually all of the <strong>same</strong> data type, accessed by a <strong>numeric index</strong> — for example, five test scores.</li>
+<li>A <strong>record</strong> stores a <strong>few related fields</strong>, which can be of <strong>different</strong> data types, accessed by <strong>name</strong> — for example, one student's name, age and membership status.</li>
+</ul>
+<div class="code-block">array scores[5]        // many items, same type (integer), indexed 0 to 4
+
+record Student          // a few related fields, different types
+  name : string
+  age : integer
+  isMember : boolean
+endrecord</div>
+<ul>
+<li>Rule of thumb: lots of similar values → <strong>array</strong>. A handful of different-but-related facts about ONE thing → <strong>record</strong>.</li>
+</ul>`,
+            readCheck: {
+                q: "What is the key difference between a record and an array?",
+                opts: ["A record's fields can be different data types; an array usually holds many items of the same type", "A record can only ever be used inside a loop, whereas an array can be used absolutely anywhere in a program", "An array must always be closed once a program has finished with it, exactly like a file has to be", "There is no real difference between them — the two words are simply alternative names for one another"],
+                ans: 0,
+                explain: "A record groups a few related fields, which can be different types. An array is normally many items of the SAME type, indexed numerically."
+            }
+        },
+        {
+            title: "Accessing a record's fields",
+            tag: "Data structure",
+            content: `<h4>Reading and setting one field at a time</h4>
+<ul>
+<li>Once a record has been declared, an actual record <strong>variable</strong> is created and its fields are set using <strong>dot notation</strong>: <code>variableName.fieldName</code>.</li>
+</ul>
+<div class="code-block">record Student
+  name : string
+  age : integer
+  isMember : boolean
+endrecord
+
+student1.name = "Amara"
+student1.age = 15
+student1.isMember = true
+
+print(student1.name)     // "Amara"
+print(student1.age)      // 15</div>
+<ul>
+<li>Each field keeps its own type: <code>student1.name</code> is always a string, <code>student1.age</code> is always an integer, and so on — setting the wrong type of value into a field would be an error.</li>
+</ul>`,
+            readCheck: {
+                q: "For the record above, what does student1.age = 15 do?",
+                opts: ["Sets the age field of the record variable student1 to the value 15", "Creates a brand new record called age, completely separate from student1, with the value 15", "Opens a file called \"15\" and stores it inside the field called student1", "Declares a new array called age with 15 elements, unrelated to the Student record"],
+                ans: 0,
+                explain: "Dot notation (variableName.fieldName) sets or reads one field of a record variable — here, the age field of student1 is set to 15."
+            }
+        },
+        {
+            title: "Tracing a file-read algorithm",
+            tag: "Exam skill",
+            content: `<h4>Working out exactly what a file-reading program does</h4>
+<ul>
+<li>To answer a "what does this print?" question about file-reading code, imagine the file's actual contents and trace the loop <strong>one pass at a time</strong>, just like tracing any other loop.</li>
+</ul>
+<p>Suppose <code>scores.txt</code> contains three lines: <code>67</code>, <code>82</code>, <code>54</code>.</p>
+<div class="code-block">myFile = open("scores.txt")
+while NOT myFile.endOfFile()
+  line = myFile.readLine()
+  print(line)
+endwhile
+myFile.close()</div>
+<ul>
+<li>Pass 1: endOfFile() is false (67 remains) → readLine() returns "67" → prints 67.</li>
+<li>Pass 2: endOfFile() is false (82 remains) → readLine() returns "82" → prints 82.</li>
+<li>Pass 3: endOfFile() is false (54 remains) → readLine() returns "54" → prints 54.</li>
+<li>Pass 4: endOfFile() is now true (nothing left) → the loop stops, and close() runs.</li>
+</ul>`,
+            readCheck: {
+                q: "In the trace above, why does the loop stop after the third pass?",
+                opts: ["Because myFile.endOfFile() becomes true once all three lines have been read, so there is nothing left to read", "Because a while loop is only ever allowed to run for a maximum of three passes, no matter what file it is reading", "Because readLine() automatically calls close() on the file the third time it is used inside any loop", "Because print() can only ever be called a maximum of three times before the whole program has to stop running"],
+                ans: 0,
+                explain: "The loop's condition is NOT myFile.endOfFile() — once every line has been read, endOfFile() becomes true, and the loop stops."
+            }
+        },
+        {
+            title: "Choosing between a file, a record and an array",
+            tag: "Exam skill",
+            content: `<h4>Justifying your choice of data structure in an exam answer</h4>
+<ul>
+<li>Questions may ask you to <strong>justify</strong> using a file, a record, or an array for a given scenario. Keep the reasoning specific to what each one is actually good at:</li>
+<li><strong>File</strong> — choose this when data needs to <strong>persist</strong> after the program ends (e.g. saved high scores, settings, logs).</li>
+<li><strong>Record</strong> — choose this when you need to group <strong>several different pieces of information about ONE thing</strong> (e.g. one product's name, price and stock level).</li>
+<li><strong>Array</strong> — choose this when you need to store <strong>many values of the same kind</strong> (e.g. every player's score in a class).</li>
+</ul>
+<p>Example: "A shop wants to store the name, price and stock level of ONE product." A <strong>record</strong> fits best — three related-but-different fields about a single product, kept together rather than spread across three separate arrays that could fall out of sync.</p>`,
+            readCheck: {
+                q: "A program needs to store a product's name (text), price (a number) and stock level (a whole number) together. Which data structure best fits this, and why?",
+                opts: ["A record, because it groups several related fields of different types together under one name", "An array, because arrays are always the correct choice whenever more than one piece of data needs to be stored", "A file, because only files are able to store more than a single value at any one time in a program", "None of these — separate, individually-named variables are always better than any structured grouping"],
+                ans: 0,
+                explain: "A record is designed exactly for this: a few related fields (name, price, stock), possibly of different types, describing ONE thing."
+            }
+        }
+    ];
+
+    const mcqData = [
+        {
+            q: "Which command creates a brand-new, empty file called \"results.txt\"?",
+            opts: ["newFile(\"results.txt\")", "open(\"results.txt\") — this instead expects the file to already exist, and will not create one that is missing", "myFile.writeLine(\"results.txt\")", "myFile.close()"],
+            ans: 0,
+            explain: "newFile(...) creates a brand new, empty file. open(...) is for accessing a file that already exists."
+        },
+        {
+            q: "Which command reads the NEXT line of text from an already-open file?",
+            opts: ["myFile.readLine()", "myFile.endOfFile() — this instead only tests whether any data is left to read, it does not return a line of text itself", "myFile.writeLine()", "open(\"file\")"],
+            ans: 0,
+            explain: "readLine() fetches the next line and returns it. endOfFile() just tests whether there's more data — it never returns any text."
+        },
+        {
+            q: "What does myFile.writeLine(\"Hello\") do?",
+            opts: ["Writes the line \"Hello\" to the file", "Reads the next line from the file and stores it in a new variable called Hello", "Creates a brand new file named Hello.txt, ready to be written to", "Checks whether the word \"Hello\" already appears anywhere at all inside the file"],
+            ans: 0,
+            explain: "writeLine(text) writes the given line of text to the open file — it doesn't read, search, or create a new file."
+        },
+        {
+            q: "Why does a program need to close a file after writing to it?",
+            opts: ["So the data is saved properly and the file is freed for other programs to use", "Because a file automatically erases its own contents unless close() is called immediately afterwards", "So the file's name is automatically changed the next time the program happens to run", "Closing a file has no real effect on the program — it is only ever needed to satisfy exam mark schemes"],
+            ans: 0,
+            explain: "close() makes sure written data is properly saved and releases the file for other programs — it isn't just a formality."
+        },
+        {
+            q: "Which loop is normally used to read every line in a file, from start to end?",
+            opts: ["A while loop that repeats until myFile.endOfFile() becomes true", "A for loop that always repeats exactly ten times, no matter how long the actual file turns out to be", "No loop is needed at all, since readLine() automatically reads every single line in one call", "An infinite loop with no condition, since a file can never actually be read all the way to its end"],
+            ans: 0,
+            explain: "Since the number of lines usually isn't known in advance, a condition-controlled while loop — repeating until endOfFile() is true — is used."
+        },
+        {
+            q: "What is a record?",
+            opts: ["A data structure that groups related fields, possibly of different types, under one name", "An array that is only ever able to store whole numbers, and no other kind of data at all", "A file that has been opened for both reading and writing at exactly the same time", "A single variable that is only ever able to hold one piece of data, with no other fields at all"],
+            ans: 0,
+            explain: "A record groups related fields (e.g. name, age, isMember) — possibly of different types — under one name."
+        },
+        {
+            q: "A Student record has the fields name, age and isMember. What data type is age most likely to be?",
+            opts: ["An integer", "A Boolean, since every field inside any one record must always share exactly the same data type", "A whole separate file, opened somewhere earlier using the open() command", "An array holding every student's age in the entire school, rather than just this one student's age"],
+            ans: 0,
+            explain: "age stores a whole number (a person's age in years), so it's an integer field — unlike name (string) or isMember (Boolean)."
+        },
+        {
+            q: "Which of these is the key difference between a record and an array?",
+            opts: ["A record's fields can be different data types; an array usually holds many items of the same type", "A record can only ever be used inside a loop, while an array can be used absolutely anywhere in a program", "An array must always be closed once the program has finished using it, in the same way a file must be", "There is no real difference between them at all — the two terms simply describe the same data structure"],
+            ans: 0,
+            explain: "A record's fields can differ in type (string, integer, Boolean...); an array is normally many items of the SAME type."
+        },
+        {
+            q: "Why is data written to a file still usable after the program that created it has closed down?",
+            opts: ["Because the file is stored on secondary storage, so its data persists once the program stops running", "Because file data is automatically copied into every other variable in the program just before it closes", "It isn't — all file data is automatically deleted the moment any program that used it finishes running", "Because closing a program automatically re-opens every file it used the next time any program at all runs"],
+            ans: 0,
+            explain: "Files persist on secondary storage rather than in RAM, so their data is still there once the program that wrote it has stopped running."
+        },
+        {
+            q: "In record Student ... age : integer ... endrecord, what does age : integer tell you?",
+            opts: ["age is a field of this record, and it stores a whole number", "age is the record's overall name, and integer is a completely separate field belonging to it", "integer is a value being stored inside a variable called age, with no connection to any record at all", "age is a file that has already been opened somewhere earlier on in the same program"],
+            ans: 0,
+            explain: "This declares age as a field of the Student record, with the data type integer — a whole number."
+        },
+        {
+            q: "What does myFile.endOfFile() return while there is STILL more data left to read?",
+            opts: ["false", "true — this is instead what is returned only once every line in the file has already been read", "The next line of the file, exactly the same as calling readLine() would", "An error, since endOfFile() can only be called after the file has already been read through once already"],
+            ans: 0,
+            explain: "endOfFile() returns false while data remains to be read, and only switches to true once the whole file has been read."
+        },
+        {
+            q: "Which pair of commands correctly creates a new file, then makes it ready to read from or write to?",
+            opts: ["newFile(\"data.txt\") followed by myFile = open(\"data.txt\")", "myFile.close() followed immediately by myFile.readLine()", "open(\"data.txt\") on its own, even though the file does not exist yet at the time it is called", "myFile.endOfFile() followed immediately by myFile.writeLine(\"data.txt\")"],
+            ans: 0,
+            explain: "newFile(...) must create the file first, since open(...) only works on a file that already exists."
+        }
+    ];
+
+    const matchData = [
+        { term: "open(\"file\")", def: "Opens a file that already exists so it can be read from or written to" },
+        { term: "newFile(\"file\")", def: "Creates a brand new, empty file with that name" },
+        { term: "myFile.readLine()", def: "Reads the next line of text from an open file and returns it" },
+        { term: "myFile.writeLine(text)", def: "Writes a line of text to an open file" },
+        { term: "myFile.endOfFile()", def: "Becomes true once there is no more data left to read in the file" },
+        { term: "myFile.close()", def: "Closes a file, saving its data and releasing it for other programs" },
+        { term: "Record", def: "Groups related fields, possibly of different data types, under one name" },
+        { term: "Field", def: "One named, typed piece of data stored inside a record" },
+        { term: "while NOT myFile.endOfFile()", def: "The loop condition used to keep reading until the end of a file is reached" },
+        { term: "Student record example", def: "name (string), age (integer) and isMember (boolean) grouped under one name" },
+        { term: "Array (for contrast)", def: "Stores many items that are usually all the same data type, indexed numerically" },
+        { term: "Persistence", def: "Data written to a file still exists after the program that wrote it has finished running" }
+    ];
+
+    const fibData = [
+        {
+            display: "A file must be _____ before a program can read data from it or write data to it.",
+            blanks: { B1: "opened" }
+        },
+        {
+            display: "The command myFile.readLine() returns the next _____ of text from an open file.",
+            blanks: { B1: "line" }
+        },
+        {
+            display: "myFile._____() becomes true once there is no more data left to read in a file.",
+            blanks: { B1: "endOfFile" }
+        },
+        {
+            display: "A program should always _____ a file once it has finished using it, so the data is saved properly.",
+            blanks: { B1: "close" }
+        },
+        {
+            display: "A _____ is a data structure that groups related fields, possibly of different types, under one name.",
+            blanks: { B1: "record" }
+        },
+        {
+            display: "Each named piece of data inside a record is called a _____.",
+            blanks: { B1: "field" }
+        },
+        {
+            display: "Unlike an array, a record's fields can be _____ data types.",
+            blanks: { B1: "different" }
+        },
+        {
+            display: "Reading a whole file normally uses a condition-controlled _____ that repeats until the end of the file is reached.",
+            blanks: { B1: "loop" }
+        }
+    ];
+    const fibWords = ["opened", "line", "endOfFile", "close", "record", "field", "different", "loop"];
+
+    const tfData = [
+        {
+            statement: "myFile.readLine() reads the NEXT line from an open file.",
+            answer: true,
+            explanation: "Correct — readLine() fetches whichever line comes next in the file, each time it is called."
+        },
+        {
+            statement: "newFile(\"data.txt\") opens a file that already exists, without changing its contents.",
+            answer: false,
+            explanation: "newFile(...) creates a brand new, EMPTY file. It doesn't open an existing file unchanged — open(...) does that."
+        },
+        {
+            statement: "A file should always be closed once a program has finished using it.",
+            answer: true,
+            explanation: "Correct — closing a file saves its data properly and frees it for other programs to use."
+        },
+        {
+            statement: "A record can only store fields that are all the same data type, just like an array.",
+            answer: false,
+            explanation: "A record can mix data types freely — a Student record can hold a string, an integer and a Boolean together."
+        },
+        {
+            statement: "A record is similar to one row of a table, grouping several related fields together.",
+            answer: true,
+            explanation: "Correct — a record groups related fields under one name, much like one row holds several columns' worth of data for one entity."
+        },
+        {
+            statement: "An array is generally used to store many items of the same data type.",
+            answer: true,
+            explanation: "Correct — arrays are best suited to many similar values (e.g. a list of scores), unlike a record's few, possibly-different fields."
+        },
+        {
+            statement: "myFile.endOfFile() becomes true as soon as a file is first opened, even before anything has been read.",
+            answer: false,
+            explanation: "endOfFile() only becomes true once every line has actually been read — not the moment the file is opened (unless the file is empty)."
+        },
+        {
+            statement: "Reading a whole file normally uses a loop that repeats until the end of the file is reached, because the number of lines usually isn't known in advance.",
+            answer: true,
+            explanation: "Correct — that's exactly why a condition-controlled while loop (testing endOfFile()) is used rather than a fixed-count for loop."
+        }
+    ];
+
+    const miscData = [
+        {
+            wrong: "Thinking open(\"file\") creates a brand-new file if one doesn't already exist.",
+            correct: "<code>open(...)</code> only works on a file that <strong>already exists</strong>. To create a brand-new, empty file, use <code>newFile(\"file\")</code> first — usually right before opening it.",
+            readCheck: {
+                q: "A program needs to write to a file called \"scores.txt\", which does not exist yet. What should it do first?",
+                opts: ["Call newFile(\"scores.txt\") to create it, before calling open(\"scores.txt\")", "Call open(\"scores.txt\") straight away — open() will silently create the file itself if it happens to be missing", "Call myFile.writeLine(\"scores.txt\") — writeLine() is able to create a brand new file on its own, with nothing else needed first", "Nothing — every file a program might ever need already exists automatically before the program starts running"],
+                ans: 0,
+                explain: "open(...) only opens a file that already exists. A brand-new file must be created with newFile(...) first."
+            }
+        },
+        {
+            wrong: "Mixing up readLine() and endOfFile() — thinking readLine() is what tells a loop when to stop.",
+            correct: "<code>endOfFile()</code> is the Boolean <strong>test</strong> that controls the loop (it becomes true once nothing is left to read). <code>readLine()</code> only <strong>fetches</strong> the next line of text — it never tells you whether the file has ended.",
+            readCheck: {
+                q: "Which method should be used as the CONDITION of a loop that reads a whole file?",
+                opts: ["myFile.endOfFile()", "myFile.readLine(), since it always returns true once the last line of the file has already been read", "myFile.close(), since a file must always be closed before its condition can be correctly tested at all", "newFile(\"file\"), since this is the only command that is able to detect where a file's contents actually end"],
+                ans: 0,
+                explain: "endOfFile() is the Boolean test used in the loop's condition. readLine() only fetches a line of text — it isn't a true/false test."
+            }
+        },
+        {
+            wrong: "Forgetting to close a file once a program has finished reading or writing to it.",
+            correct: "Always call <code>close()</code> once you're done with a file. This makes sure any data written is properly saved, and frees the file for other programs to use — a file left open can lose data or stay locked.",
+            readCheck: {
+                q: "A program writes several lines to a file but the code never calls close(). What is the most likely consequence?",
+                opts: ["The written data may not be saved properly, and the file may stay locked for other programs", "Nothing at all — close() is entirely optional and has no effect on whether data is saved correctly", "The file automatically closes itself after exactly ten writeLine() calls, with no close() needed at all", "The program crashes immediately the very first time writeLine() is called, before any data is written"],
+                ans: 0,
+                explain: "Skipping close() risks data not being saved properly, and can leave the file locked so other programs can't use it."
+            }
+        },
+        {
+            wrong: "Thinking a record's fields must all be the same data type, just like an array's elements.",
+            correct: "A record can mix data types freely — a Student record might have a string field, an integer field and a Boolean field, all together. An array, by contrast, normally holds many items of the <strong>same</strong> type.",
+            readCheck: {
+                q: "A Student record has fields name (string), age (integer) and isMember (boolean). Is this a valid record?",
+                opts: ["Yes — a record's fields are allowed to be different data types", "No — every field inside the same record must always share one single data type", "No — a record can only ever contain exactly one field, never three at once", "Yes, but only because name, age and isMember are all secretly stored as strings underneath"],
+                ans: 0,
+                explain: "Records are specifically designed to group fields of DIFFERENT types together — a string, an integer and a Boolean in one record is completely normal."
+            }
+        },
+        {
+            wrong: "Thinking three separate arrays (names, ages, isMember flags) work just as well as one record.",
+            correct: "With separate arrays it's easy for the data to fall <strong>out of sync</strong> — e.g. deleting index 2 from the names array but forgetting to also delete index 2 from the other two. A record groups everything about ONE student together in a single place, so this can't happen.",
+            readCheck: {
+                q: "What is a key risk of using three separate arrays (names, ages, isMember) instead of one array of Student records?",
+                opts: ["The arrays can fall out of sync with each other, e.g. after adding or removing one student from only one of the arrays", "Separate arrays are always slower to search through than a single array of records, no matter how large or small each one actually happens to be", "Separate arrays can only ever store numeric data, never any text at all, unlike an array of records", "There is no real risk at all — three separate arrays are always exactly as reliable as one array of records"],
+                ans: 0,
+                explain: "Related data spread across separate arrays can easily go out of sync (e.g. one array updated but not the others) — a record avoids this by keeping it all together."
+            }
+        },
+        {
+            wrong: "Thinking data saved to a file disappears again as soon as the program that wrote it stops running.",
+            correct: "That's true of ordinary variables (stored in RAM, cleared when the program ends) — but <strong>not</strong> of files. A file is stored on secondary storage, so its data persists and can still be read the next time any program opens it.",
+            readCheck: {
+                q: "A program writes a player's score to a file, then closes down completely. Is the score still available afterwards?",
+                opts: ["Yes — the file is stored on secondary storage, so its data persists after the program has closed", "No — closing any program automatically deletes every file that program ever wrote to", "Only if the same program is still running somewhere else at the exact same time on the same computer", "No — file data is only ever kept in RAM, in exactly the same way an ordinary variable's data is"],
+                ans: 0,
+                explain: "Files persist on secondary storage even after the program that wrote them has closed — unlike a variable, which exists only in RAM while the program runs."
+            }
+        }
+    ];
+
+    const examTips = [
+        {
+            type: "tip",
+            title: "Getting file-handling commands precise",
+            pills: ["AO1", "Key skill", "Common question"],
+            content: `<p>Questions often ask you to state or complete the exact command used for a file-handling task. Keep each command's job crystal clear:</p>
+<ul>
+<li><strong>open</strong> — for a file that already exists. <strong>newFile</strong> — creates a brand-new one.</li>
+<li><strong>readLine</strong> — fetches the next line of text. <strong>endOfFile</strong> — tests (true/false) whether any data is left.</li>
+<li><strong>writeLine</strong> — writes a line of text. <strong>close</strong> — always call this once you're finished.</li>
+</ul>
+<p><strong>Example:</strong> "Which command tells a program whether it has reached the end of a file?" → <code>myFile.endOfFile()</code>, not readLine() — readLine() fetches data, it doesn't test anything.</p>`,
+            readCheck: {
+                q: "Which pair correctly matches each command to its job?",
+                opts: ["readLine() fetches the next line of text; endOfFile() tests whether any data is left to read", "readLine() tests whether any data is left to read; endOfFile() fetches the next line of text", "Both readLine() and endOfFile() fetch the next line of text, just written in two different styles", "Both readLine() and endOfFile() only test whether a file has been closed properly, nothing more"],
+                ans: 0,
+                explain: "readLine() FETCHES a line of text. endOfFile() only TESTS (true/false) whether there's any data left — the two jobs are easy to mix up."
+            }
+        },
+        {
+            type: "explain",
+            title: "Completing a read-whole-file algorithm",
+            pills: ["AO2", "File handling", "Gap-fill"],
+            content: `<p>A very common question style gives you a "read the whole file" algorithm with one or more gaps to complete. The structure is always the same shape:</p>
+<div class="code-block">myFile = open("file.txt")
+while NOT myFile.endOfFile()
+  line = myFile.readLine()
+  // do something with line
+endwhile
+myFile.close()</div>
+<ul>
+<li>The <strong>condition</strong> of the while loop is always a call to <strong>endOfFile()</strong> (with NOT, since the loop keeps going while it's false).</li>
+<li>Inside the loop, the line that fetches data is always a call to <strong>readLine()</strong>.</li>
+<li>The very last line, after the loop ends, is always <strong>close()</strong>.</li>
+</ul>`,
+            readCheck: {
+                q: "In the standard read-whole-file pattern, which command appears as the VERY LAST line, after the loop has finished?",
+                opts: ["myFile.close()", "myFile.readLine(), since one extra final line must always be read again after the loop has already ended", "myFile.endOfFile(), called on its own one last time purely to double-check the loop actually stopped correctly", "newFile(\"file.txt\"), so that the file is recreated fresh and ready for the very next time the program runs"],
+                ans: 0,
+                explain: "Once the loop has finished (endOfFile() is true), the file should be closed — close() is always the final step."
+            }
+        },
+        {
+            type: "tip",
+            title: "Justifying record vs array vs file in a scenario",
+            pills: ["AO2", "Justify", "Scenario"],
+            content: `<p>Scenario questions often ask you to justify choosing a record, an array, or a file. Anchor your answer to what each one is specifically good at:</p>
+<ul>
+<li><strong>File</strong> — the data must still be there after the program closes down (persistence).</li>
+<li><strong>Record</strong> — several different-but-related pieces of information about ONE thing need grouping together.</li>
+<li><strong>Array</strong> — many values of the SAME kind need storing together, accessed by position.</li>
+</ul>
+<p><strong>Example:</strong> "A library needs to keep track of each book's title, author and whether it is currently on loan, even after the computer is switched off." This needs <strong>both</strong>: a <strong>record</strong> to group title/author/onLoan for one book, and a <strong>file</strong> so the data survives being switched off.</p>`,
+            readCheck: {
+                q: "A scenario needs data to still exist the next time a program is switched on. Which data structure is essential for this, on its own?",
+                opts: ["A file, because only a file's data persists after a program has stopped running", "An array, because arrays are the only data structure capable of holding more than one value at once", "A record, because grouping fields together automatically makes any data persist between separate program runs", "None of these — persistence between runs is not something any data structure is able to provide by itself"],
+                ans: 0,
+                explain: "Only a file provides persistence (data surviving after the program has closed) — records and arrays exist only in memory while a program runs."
+            }
+        }
+    ];
+
+    const flashcards = [
+        { term: "open(\"file\")", def: "Opens a file that already exists so it can be read from or written to" },
+        { term: "newFile(\"file\")", def: "Creates a brand new, empty file with that name" },
+        { term: "myFile.readLine()", def: "Reads the next line from the file and returns it" },
+        { term: "myFile.writeLine(text)", def: "Writes a line of text to the file" },
+        { term: "myFile.endOfFile()", def: "Becomes true once there is no more data left to read in the file" },
+        { term: "myFile.close()", def: "Closes the file, saving the data and releasing it for other programs" },
+        { term: "Why close a file?", def: "So the data is saved properly and the file is freed for other programs to use" },
+        { term: "Why use a file at all?", def: "So the data still exists (persists) after the program has finished running" },
+        { term: "Read-whole-file loop", def: "while NOT myFile.endOfFile() ... read a line ... endwhile ... then close the file" },
+        { term: "Record", def: "A data structure that groups related fields, possibly of different types, under one name" },
+        { term: "Field", def: "One named piece of data inside a record, with its own data type" },
+        { term: "Record vs array (types)", def: "A record's fields can be different types; an array's elements are usually all the same type" },
+        { term: "Record vs array (access)", def: "A record's fields are accessed by name; an array's elements are accessed by numeric index" },
+        { term: "Example record", def: "A Student record with fields name (string), age (integer) and isMember (boolean)" },
+        { term: "\"One row of a table\"", def: "The usual way to picture a record — all the related fields for one thing, grouped together" },
+        { term: "Loop type for reading a file", def: "A condition-controlled loop (while), because the number of lines usually isn't known in advance" }
+    ];
+
+    // ── Original clean-room exam questions (2026-07-24) ──
+    // Written from scratch against the file-handling + records slice of the
+    // §2.2.3 spec scope (this page is a sub-page split out of 2.2.3) — NOT
+    // transcribed from any OCR paper. No exam PDF was supplied for this
+    // sub-topic, so the tariff spread and format mix below are authored from
+    // the standard J277 Paper 2 assessment style for file handling (open/
+    // newFile/readLine/writeLine/endOfFile/close, the read-whole-file loop)
+    // and records (fields, mixed data types, record vs array), NOT profiled
+    // from a real paper — treat the ceiling as a best estimate.
+    // Spread: 3x1, 2x2, 2x3, 3x4, ... = 12 questions / 39 marks (mcq/
+    // written/tableFill/matchLine/tickGrid/bankCloze/codeGaps/codeWrite).
+    const EXAM_CASE_STUDIES = {};
+
+    const examQuestions = [
+        {
+            num: "Q1",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: `<p>Tick <strong>one</strong> box to identify the command that opens a file which <strong>already exists</strong>, ready for reading or writing.</p>`,
+            options: ["open(\"file\")", "newFile(\"file\") — this instead creates a brand new, empty file rather than opening one that is already there", "myFile.readLine()", "myFile.close()"],
+            answer: 0,
+            hint: "open() is for a file that ALREADY exists; newFile() creates a brand new one.",
+            starter: "",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<ul><li><strong>open("file")</strong></li></ul>
+</div>`,
+            modelAnswer: "open(\"file\")."
+        },
+        {
+            num: "Q2",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: `<p>Tick <strong>one</strong> box to identify what myFile.endOfFile() returns once every line in the file has been read.</p>`,
+            options: ["true", "false — this is instead what it returns for every line before the very last one has actually been reached", "The last line that was read from the file", "An error, because reading past the final line of a file is never actually allowed to happen"],
+            answer: 0,
+            hint: "endOfFile() is a Boolean method used to control a read loop.",
+            starter: "",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<ul><li><strong>true</strong></li></ul>
+</div>`,
+            modelAnswer: "true."
+        },
+        {
+            num: "Q3",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: `<p>A Book record is declared with fields title (string), price (real) and pages (integer). Tick <strong>one</strong> box to identify which of these is an example of a <strong>record</strong>, rather than an array.</p>`,
+            options: ["A Book with fields title, price and pages grouped under one name", "A list of ten integer page-counts, all stored under one variable name and accessed by numeric index", "A single string variable holding one book's title and nothing else besides that", "A file that has just been opened using open(), before anything has actually been read from it"],
+            answer: 0,
+            hint: "A record groups a few related, possibly different-typed fields under one name.",
+            starter: "",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<ul><li><strong>A Book with fields title, price and pages grouped under one name</strong></li></ul>
+</div>`,
+            modelAnswer: "A Book with fields title, price and pages grouped under one name."
+        },
+        {
+            num: "Q4",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: `<p>A student says: "Once my program finishes running, any data stored in a normal variable is lost — but data written to a file is not." Give the reason this is true.</p>`,
+            hint: "Think about WHERE each kind of data is actually stored, and whether that storage is cleared when the program stops.",
+            starter: "A variable is stored in ___, which is cleared when the program ends. A file is stored on ___, so...",
+            markPoints: {
+                note: "1 mark for each part of the explanation.",
+                groups: [
+                    {
+                        label: "Reason", max: 2, points: [
+                            { text: "A variable is stored in RAM (main memory), which is cleared once the program ends", marks: 1 },
+                            { text: "A file is stored on secondary storage, so its data persists after the program has finished running", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks</h5>
+<ul>
+<li>A variable is stored in <strong>RAM</strong>, which is cleared when the program ends</li>
+<li>A file is stored on <strong>secondary storage</strong>, so its data persists after the program stops running</li>
+</ul>
+</div>`,
+            modelAnswer: "A variable is stored in RAM, which is cleared once the program ends. A file is stored on secondary storage, so its data persists after the program has finished running."
+        },
+        {
+            num: "Q5",
+            marks: 3,
+            type: "written",
+            caseStudy: "",
+            question: `<p>Explain why a program should always call close() on a file once it has finished using it.</p>`,
+            hint: "Think about what could go wrong with the data, and with the file itself, if close() is never called.",
+            starter: "Calling close() makes sure that... . If a file is never closed, it could...",
+            markPoints: {
+                note: "Up to 3 marks for a full explanation.",
+                groups: [
+                    {
+                        label: "Explanation", max: 3, points: [
+                            { text: "Closing a file makes sure any data written to it is saved properly", marks: 1 },
+                            { text: "Closing a file frees it up so other programs can use it", marks: 1 },
+                            { text: "A file left open risks losing data, or staying locked so nothing else can access it", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 3 marks</h5>
+<ul>
+<li>Closing a file makes sure any data written to it is <strong>saved properly</strong></li>
+<li>Closing a file <strong>frees it up</strong> for other programs to use</li>
+<li>A file left open risks <strong>losing data</strong>, or staying <strong>locked</strong></li>
+</ul>
+</div>`,
+            modelAnswer: "Calling close() makes sure any data written to the file is saved properly, and it frees the file up so other programs can use it. A file that is never closed risks losing data, or staying locked so nothing else can access it."
+        },
+        {
+            num: "Q6",
+            marks: 3,
+            type: "written",
+            format: "tableFill",
+            caseStudy: "",
+            question: `<p>A Student record stores the following data for one student: name = "Amara", age = 15, isMember = true.</p><p>Complete the table below by writing the correct <strong>data type</strong> for each field.</p>`,
+            table: {
+                headers: ["Field", "Data type"],
+                rows: [
+                    ["name", null],
+                    ["age", null],
+                    ["isMember", null]
+                ]
+            },
+            answers: {
+                "0,1": ["string"],
+                "1,1": ["integer"],
+                "2,1": ["boolean", "Boolean"]
+            },
+            hint: "Look at the example value given for each field — is it text, a whole number, or true/false?",
+            starter: "name: … , age: … , isMember: …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 3 marks (1 mark per correct data type)</h5>
+<ul>
+<li>name → <strong>string</strong></li>
+<li>age → <strong>integer</strong></li>
+<li>isMember → <strong>boolean</strong></li>
+</ul>
+</div>`,
+            modelAnswer: "name: string. age: integer. isMember: boolean."
+        },
+        {
+            num: "Q7",
+            marks: 6,
+            type: "written",
+            format: "matchLine",
+            caseStudy: "",
+            question: `<p>Draw <strong>one</strong> line from each ERL file-handling command to what it does.</p>`,
+            match: {
+                left: ["open(\"file\")", "newFile(\"file\")", "myFile.readLine()", "myFile.writeLine(text)", "myFile.endOfFile()", "myFile.close()"],
+                right: [
+                    "Opens an existing file so it can be read from or written to",
+                    "Creates a brand new, empty file with that name",
+                    "Reads the next line from the file and returns it",
+                    "Writes a line of text to the file",
+                    "Becomes true once there is no more data left to read in the file",
+                    "Closes the file so the data is saved properly and it is released for other programs"
+                ],
+                answer: { "0": 0, "1": 1, "2": 2, "3": 3, "4": 4, "5": 5 }
+            },
+            hint: "Match by what each command DOES to the file — opens, creates, reads, writes, tests for the end, or closes it.",
+            starter: "open → …, newFile → …, readLine → …, writeLine → …, endOfFile → …, close → …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (1 mark per correct line)</h5>
+<ul>
+<li>open("file") → opens an existing file</li>
+<li>newFile("file") → creates a brand new, empty file</li>
+<li>myFile.readLine() → reads the next line and returns it</li>
+<li>myFile.writeLine(text) → writes a line of text to the file</li>
+<li>myFile.endOfFile() → becomes true once there is no more data left to read</li>
+<li>myFile.close() → closes the file, saving the data and releasing it</li>
+</ul>
+</div>`,
+            modelAnswer: "open → opens an existing file. newFile → creates a brand new, empty file. readLine → reads the next line and returns it. writeLine → writes a line of text. endOfFile → true once there is no more data left. close → closes the file, saving the data."
+        },
+        {
+            num: "Q8",
+            marks: 6,
+            type: "written",
+            format: "tickGrid",
+            caseStudy: "",
+            question: `<p>Tick <strong>one</strong> box in each row to classify the statement as describing a <strong>Record</strong> or an <strong>Array</strong>.</p>`,
+            grid: {
+                cols: ["Record", "Array"],
+                rows: [
+                    { label: "Can group fields of different data types together", correct: [0] },
+                    { label: "Every element is normally the same data type", correct: [1] },
+                    { label: "Fields are accessed by name, not by a numeric index", correct: [0] },
+                    { label: "Elements are accessed using a numeric index, starting at 0", correct: [1] },
+                    { label: "Declared in ERL as, for example, array scores[5]", correct: [1] },
+                    { label: "Groups values such as name, age and isMember under one variable", correct: [0] }
+                ]
+            },
+            hint: "Think about whether the statement is about GROUPING different types together, or storing many items of the SAME type.",
+            starter: "Row 1: … Row 2: … Row 3: … Row 4: … Row 5: … Row 6: …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (1 mark per row)</h5>
+<ul>
+<li>Groups different types together → <strong>Record</strong></li>
+<li>Every element the same type → <strong>Array</strong></li>
+<li>Accessed by name → <strong>Record</strong></li>
+<li>Accessed by numeric index from 0 → <strong>Array</strong></li>
+<li>Declared as array scores[5] → <strong>Array</strong></li>
+<li>Groups name, age, isMember together → <strong>Record</strong></li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul><li>Each row is marked independently; 2 ticks in one row scores 0 for that row.</li></ul>
+</div>`,
+            modelAnswer: "Record: groups different types, accessed by name, groups name/age/isMember. Array: every element the same type, accessed by numeric index from 0, declared as array scores[5]."
+        },
+        {
+            num: "Q9",
+            marks: 5,
+            type: "written",
+            format: "bankCloze",
+            caseStudy: "",
+            question: `<p>Complete the passage below using words from the word bank. <strong>Not all words are used.</strong></p>`,
+            cloze: `<p>A file must be ___1___ before a program can read from it or write to it. <code>myFile.___2___()</code> reads the next line of text from an open file, and <code>myFile.___3___()</code> writes a new line of text to it. The Boolean method <code>myFile.___4___()</code> becomes true once there is no more data left to read. Once the program has finished using the file, it should always be ___5___, so that the data is saved properly and the file is released for other programs to use.</p>`,
+            bank: ["opened", "readLine", "writeLine", "endOfFile", "closed", "deleted", "copied"],
+            answers: {
+                "1": ["opened"],
+                "2": ["readLine"],
+                "3": ["writeLine"],
+                "4": ["endOfFile"],
+                "5": ["closed"]
+            },
+            hint: "Work through the passage in order — each blank is a file-handling command, or the general term for what happens to a file before or after use.",
+            starter: "(1) … (2) … (3) … (4) … (5) …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 5 marks (1 mark for each completed blank)</h5>
+<p>A file must be <strong>opened</strong> before a program can read from it or write to it. myFile.<strong>readLine</strong>() reads the next line, and myFile.<strong>writeLine</strong>() writes a new line. myFile.<strong>endOfFile</strong>() becomes true once nothing is left to read. Once finished with, the file should always be <strong>closed</strong>.</p>
+</div>`,
+            modelAnswer: "(1) opened (2) readLine (3) writeLine (4) endOfFile (5) closed"
+        },
+        {
+            num: "Q10",
+            marks: 3,
+            type: "written",
+            format: "codeGaps",
+            caseStudy: "",
+            question: `<p>The algorithm below should open a file called "notes.txt", print every line it contains, and then close the file.</p><p>Complete the three gaps.</p>`,
+            gaps: {
+                lines: [
+                    "myFile = open(\"notes.txt\")",
+                    "while NOT myFile.{1}()",
+                    "  line = myFile.{2}()",
+                    "  print(line)",
+                    "endwhile",
+                    "myFile.{3}()"
+                ],
+                answers: {
+                    "1": ["endOfFile"],
+                    "2": ["readLine"],
+                    "3": ["close"]
+                }
+            },
+            hint: "The loop needs a condition that keeps going until there's no more data left, and a way to actually fetch each line of text.",
+            starter: "Gap 1: … Gap 2: … Gap 3: …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 3 marks (1 mark per gap)</h5>
+<ul>
+<li>Gap 1: <strong>endOfFile</strong></li>
+<li>Gap 2: <strong>readLine</strong></li>
+<li>Gap 3: <strong>close</strong></li>
+</ul>
+</div>`,
+            modelAnswer: "while NOT myFile.endOfFile() ; line = myFile.readLine() ; myFile.close()"
+        },
+        {
+            num: "Q11",
+            marks: 4,
+            type: "written",
+            format: "codeWrite",
+            caseStudy: "",
+            question: `<p>Write an algorithm, using pseudocode, that opens a file called "attendance.txt", reads through it line by line, counts how many lines it contains, and prints the total once the whole file has been read. Remember to close the file.</p><p>You may answer in OCR Exam Reference Language or in a high-level language you know.</p>`,
+            hint: "Set a counter to 0 before the loop starts. Each pass of the read loop should add 1 to the counter. Print the counter once the loop has finished, then close the file.",
+            starter: "myFile = open(\"attendance.txt\")\ncount = 0",
+            markPoints: {
+                note: "Mark the LOGIC (any equivalent, correct algorithm earns full marks — exact wording/language may vary).",
+                groups: [
+                    {
+                        label: "A correct line-counting algorithm", max: 4, points: [
+                            { text: "Opens the file and sets a counter variable to 0 before the loop starts", marks: 1 },
+                            { text: "Uses a loop that repeats until the end of the file is reached", marks: 1 },
+                            { text: "Reads each line inside the loop and adds 1 to the counter every pass", marks: 1 },
+                            { text: "Prints the final counter value and closes the file once the loop has finished", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks — mark the logic (accept any equivalent code)</h5>
+<ul>
+<li>1 mark: file opened and a counter set to 0 before the loop</li>
+<li>1 mark: loop repeats until the end of the file is reached</li>
+<li>1 mark: each pass reads a line and adds 1 to the counter</li>
+<li>1 mark: final count is printed and the file is closed</li>
+</ul>
+<p>Example (ERL):</p>
+<div class="code-block">myFile = open("attendance.txt")
+count = 0
+while NOT myFile.endOfFile()
+  line = myFile.readLine()
+  count = count + 1
+endwhile
+print(count)
+myFile.close()</div>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul><li>Any logically correct answer scores full marks — mark the logic, not the exact wording or choice of language.</li></ul>
+</div>`,
+            modelAnswer: "myFile = open(\"attendance.txt\")\ncount = 0\nwhile NOT myFile.endOfFile()\n  line = myFile.readLine()\n  count = count + 1\nendwhile\nprint(count)\nmyFile.close()"
+        },
+        {
+            num: "Q12",
+            marks: 4,
+            type: "written",
+            caseStudy: "",
+            question: `<p>A shop program stores data about each product it sells: its name (text), price (a number) and how many are in stock (a whole number).</p><p>Explain why a record is a more suitable data structure for this than three separate arrays.</p>`,
+            hint: "Think about what a record keeps together in one place, and what could go wrong if the same data were spread across three separate arrays instead.",
+            starter: "A record keeps all of one product's data together, because... . With three separate arrays, a risk would be...",
+            markPoints: {
+                note: "1 mark for each distinct point made, up to 4.",
+                groups: [
+                    {
+                        label: "Explanation", max: 4, points: [
+                            { text: "All the data about the SAME product is grouped together in one place, rather than spread across three arrays", marks: 1 },
+                            { text: "Each field can have the most suitable data type (name = string, price = real, stock = integer) within one record", marks: 1 },
+                            { text: "The related fields are clearly linked as belonging to the same product, via one record variable", marks: 1 },
+                            { text: "Using three separate arrays risks them becoming out of sync, e.g. removing an item from one array but not the other two", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks</h5>
+<ul>
+<li>All the data about the same product is grouped together, rather than spread across three arrays</li>
+<li>Each field can have its own most suitable data type within the one record</li>
+<li>The fields are clearly linked as belonging to the same product</li>
+<li>Three separate arrays risk falling out of sync with each other</li>
+</ul>
+</div>`,
+            modelAnswer: "A record keeps all of one product's data (name, price, stock) grouped together in a single place, with each field able to have its own most suitable data type. With three separate arrays, the data can fall out of sync — for example, removing a product from the names array but forgetting to also remove it from the price and stock arrays."
+        }
+    ];
+</script>
+    <script src="/script.js"></script>
+<script src="section-totals.js"></script>
+<script src="page-groups.js"></script>
+<script src="/progress-shared.js"></script>
+<script src="/gamification.js"></script>
+<script src="/topic-guard.js"></script>
+<script src="/notifications-shared.js"></script>
+<script src="/onboarding-tour.js"></script>
+<script src="/footer-legal.js"></script>
+<script src="/cs-lab/exam-widgets.js"></script>
+<script src="/cs-lab/exam-widgets-grids.js"></script>
+<script src="/cs-lab/exam-widgets-code.js"></script>
+<script src="/cs-lab/cs-lab.js" defer></script>
+</body>
+
+</html>

@@ -16,7 +16,7 @@
         <div>
             <div class="badge">OCR GCSE Computer Science — Paper 1 · 1.2 Memory and Storage</div>
             <h1>1.2.7 Data Storage: Sound</h1>
-            <p>Interactive revision guide · Content coming soon</p>
+            <p>Interactive revision guide</p>
         </div>
         <a href="/index.html" class="home-link">← 🏡 Home</a>
     </header>
@@ -256,7 +256,7 @@
 
 <script>
     // ══════════════════════════════════════
-    //  DATA: 1.2.7 Data Storage: Sound — placeholder, content not yet written
+    //  DATA: 1.2.7 Data Storage: Sound
     // ══════════════════════════════════════
     const pageMeta = {
             id: '1-2-7-data-storage-sound',
@@ -268,21 +268,979 @@
 
     const topics = [
         {
-            title: "This topic is being written",
-            tag: "Coming soon",
-            content: `<p>🚧 <strong>Content for this topic is on its way.</strong> Key Learning notes, practice questions and exam-style questions for <strong>1.2.7 Data Storage: Sound</strong> will appear here soon.</p>`
+            title: "How is analogue sound turned into digital data?",
+            tag: "Key concept",
+            content: `<h4>Analogue sound, digital storage</h4>
+<ul>
+<li>Real sound is an <strong>analogue</strong> signal — a smooth, continuous wave whose <strong>amplitude</strong> (its height, which corresponds to loudness) can take literally any value as it changes over time.</li>
+<li>A computer can only store <strong>binary</strong> data, so a continuous analogue wave cannot be stored directly — it has to be converted into a stream of binary numbers first. This process is called <strong>sampling</strong>.</li>
+</ul>
+<h4>What actually happens during sampling</h4>
+<ul>
+<li>An analogue-to-digital converter measures the wave's <strong>amplitude</strong> at <strong>regular, fixed time intervals</strong> — one snapshot after another along the wave.</li>
+<li>Each individual measurement (a <strong>sample</strong>) is rounded to the nearest value that can be represented in binary, and stored as a <strong>binary number</strong>.</li>
+<li>Played back in order, one after another, these stored samples recreate an approximation of the original analogue wave — never a perfect copy, because sampling can only capture the wave's height at particular instants, not every instant in between.</li>
+</ul>
+<svg viewBox="0 0 290 140" width="290" height="140" role="img" aria-label="A sound wave with six evenly spaced vertical sample lines, each ending in a dot showing the amplitude measured at that instant">
+<line x1="10" y1="130" x2="280" y2="130" stroke="currentColor" stroke-width="1.5" opacity="0.35"/>
+<polyline points="10,70 45,25 80,115 115,25 150,115 185,25 220,115 255,25 280,70" fill="none" stroke="currentColor" stroke-width="2.5"/>
+<line x1="10" y1="130" x2="10" y2="70" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3,3" opacity="0.6"/>
+<line x1="64" y1="130" x2="64" y2="74" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3,3" opacity="0.6"/>
+<line x1="118" y1="130" x2="118" y2="33" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3,3" opacity="0.6"/>
+<line x1="172" y1="130" x2="172" y2="58" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3,3" opacity="0.6"/>
+<line x1="226" y1="130" x2="226" y2="100" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3,3" opacity="0.6"/>
+<line x1="280" y1="130" x2="280" y2="70" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3,3" opacity="0.6"/>
+<circle cx="10" cy="70" r="4" fill="currentColor"/>
+<circle cx="64" cy="74" r="4" fill="currentColor"/>
+<circle cx="118" cy="33" r="4" fill="currentColor"/>
+<circle cx="172" cy="58" r="4" fill="currentColor"/>
+<circle cx="226" cy="100" r="4" fill="currentColor"/>
+<circle cx="280" cy="70" r="4" fill="currentColor"/>
+</svg>
+<p>The dashed lines mark six regular instants in time; the dot on each one is the sample taken at that instant. Notice how much of the wave's shape between the dots is simply never recorded — that missing detail is exactly what a higher sample rate reduces.</p>
+<h4>Why "approximation" matters</h4>
+<ul>
+<li>Because sampling only measures the wave at intervals, some information between samples is always lost. The more often — and more precisely — you sample, the closer the digital copy gets to the original. That is the whole idea behind sample rate and bit depth, covered next.</li>
+</ul>`,
+            readCheck: {
+                q: "Why must an analogue sound wave be sampled before a computer can store it?",
+                opts: ["A computer can only store binary data, so the wave must be converted into binary numbers", "Sampling is a compression technique that shrinks the file so it takes up far less storage space", "Microphones only ever produce a digital electrical signal, so no conversion is required at all", "Sampling instantly removes background noise from a recording before it is saved as a file"],
+                ans: 0,
+                explain: "A computer can only store binary data. Sound starts out as a continuous analogue wave, so it must be sampled — measured at regular intervals and each measurement stored as binary — before it can be stored at all."
+            }
+        },
+        {
+            title: "Sample rate: how often the wave is measured",
+            tag: "Calculation",
+            content: `<h4>Sample rate: how often the wave is measured</h4>
+<ul>
+<li><strong>Sample rate</strong> is the number of samples taken from the analogue wave <strong>every second</strong>, measured in <strong>hertz (Hz)</strong> (or kilohertz, kHz, where 1 kHz = 1,000 Hz).</li>
+<li>A sample rate of 8,000 Hz means the wave's amplitude is measured 8,000 separate times, evenly spaced, within a single second of audio.</li>
+</ul>
+<h4>Higher sample rate = closer to the original wave</h4>
+<ul>
+<li>The wave is constantly changing between samples, and none of that in-between detail is captured — it simply is not recorded at all.</li>
+<li>Taking MORE samples per second means the gaps between measurements are smaller, so less of the original wave's detail is missed. The digital copy ends up a closer match to the real analogue sound — higher playback quality.</li>
+<li>Taking FEWER samples per second leaves bigger gaps, so more detail is lost, and the digital version is a rougher approximation of the original — this can be heard as a noticeably lower-quality recording.</li>
+</ul>
+<h4>Higher sample rate = bigger file</h4>
+<ul>
+<li>Every extra sample taken is another value that has to be stored as a binary number. A higher sample rate therefore always produces MORE samples for the same length of recording, which means a LARGER file size.</li>
+</ul>
+<table>
+<tr><th>Sample rate</th><th>Samples taken in 1 second</th></tr>
+<tr><td>4,000 Hz</td><td>4,000 samples</td></tr>
+<tr><td>8,000 Hz</td><td>8,000 samples</td></tr>
+<tr><td>44,100 Hz (44.1 kHz)</td><td>44,100 samples</td></tr>
+</table>
+<p>44.1 kHz is the sample rate used for standard audio CDs — a real-world example of a high sample rate chosen for good playback quality.</p>`,
+            readCheck: {
+                q: "A recording uses a sample rate of 6,000 Hz. How many samples are taken from the wave in 2 seconds?",
+                opts: ["12,000 samples", "6,000 samples", "3,000 samples", "18,000 samples"],
+                ans: 0,
+                explain: "Samples per second × duration = 6,000 × 2 = 12,000 samples."
+            }
+        },
+        {
+            title: "Bit depth: how precisely each sample is measured",
+            tag: "Calculation",
+            content: `<h4>Bit depth: how precisely each sample is measured</h4>
+<ul>
+<li><strong>Bit depth</strong> (also called <strong>sample resolution</strong>) is the number of <strong>bits</strong> used to store the value of <strong>each individual sample</strong>.</li>
+<li>The number of bits available decides how many different amplitude values a single sample can be rounded to — a bit depth of n bits gives <strong>2<sup>n</sup></strong> possible levels, exactly the same "2 to the power of n" rule used for colour depth in images.</li>
+</ul>
+<svg viewBox="0 0 230 180" width="230" height="180" role="img" aria-label="Two vertical boxes comparing bit depth: a 2-bit box divided into 4 equal amplitude levels, and a 3-bit box divided into 8 equal amplitude levels, showing that more bits give more possible levels">
+<rect x="10" y="10" width="90" height="160" fill="none" stroke="currentColor" stroke-width="2"/>
+<line x1="10" y1="50" x2="100" y2="50" stroke="currentColor" stroke-width="1.5"/>
+<line x1="10" y1="90" x2="100" y2="90" stroke="currentColor" stroke-width="1.5"/>
+<line x1="10" y1="130" x2="100" y2="130" stroke="currentColor" stroke-width="1.5"/>
+<rect x="130" y="10" width="90" height="160" fill="none" stroke="currentColor" stroke-width="2"/>
+<line x1="130" y1="30" x2="220" y2="30" stroke="currentColor" stroke-width="1.5"/>
+<line x1="130" y1="50" x2="220" y2="50" stroke="currentColor" stroke-width="1.5"/>
+<line x1="130" y1="70" x2="220" y2="70" stroke="currentColor" stroke-width="1.5"/>
+<line x1="130" y1="90" x2="220" y2="90" stroke="currentColor" stroke-width="1.5"/>
+<line x1="130" y1="110" x2="220" y2="110" stroke="currentColor" stroke-width="1.5"/>
+<line x1="130" y1="130" x2="220" y2="130" stroke="currentColor" stroke-width="1.5"/>
+<line x1="130" y1="150" x2="220" y2="150" stroke="currentColor" stroke-width="1.5"/>
+</svg>
+<p>Left: a 2-bit depth gives 2<sup>2</sup> = 4 possible amplitude levels for each sample. Right: a 3-bit depth gives 2<sup>3</sup> = 8 possible levels — roughly double the levels for just one extra bit, letting each sample record the wave's true height far more precisely.</p>
+<h4>Higher bit depth = closer to the original wave</h4>
+<ul>
+<li>With only a few possible levels, each sample has to be rounded to the nearest available level, which can be some distance from the wave's real height at that instant — this rounding error is heard as background hiss or distortion.</li>
+<li>A higher bit depth gives many more levels to round to, so each sample sits much closer to the wave's true amplitude, giving a cleaner, higher-quality recording.</li>
+</ul>
+<h4>Higher bit depth = bigger file</h4>
+<ul>
+<li>Every sample stored using MORE bits takes up MORE space, regardless of the sample rate or duration. A higher bit depth therefore always produces a LARGER file size, for exactly the same recording.</li>
+</ul>`,
+            readCheck: {
+                q: "A sample is stored using a bit depth of 4 bits. How many different amplitude levels can that sample be rounded to?",
+                opts: ["16", "8", "4", "32"],
+                ans: 0,
+                explain: "2 to the power of 4 = 16 possible levels."
+            }
+        },
+        {
+            title: "Quality vs file size: the trade-off from sample rate and bit depth",
+            tag: "Comparison",
+            content: `<h4>Both factors push quality and file size the same way</h4>
+<ul>
+<li>Increasing <strong>sample rate</strong> captures the wave more often, giving a closer match to the original — but it means more samples are taken for the same length of recording, so the file gets <strong>bigger</strong>.</li>
+<li>Increasing <strong>bit depth</strong> allows each sample to be measured more precisely — but it means more bits are stored for every single sample, so the file gets <strong>bigger</strong> too.</li>
+<li>There is no way to improve playback quality using either factor without also increasing the file size — it is always a trade-off, exactly as with colour depth and resolution for images.</li>
+</ul>
+<h4>Worked example: doubling the sample rate</h4>
+<table>
+<tr><th>Step</th><th>What you do</th><th>Result</th></tr>
+<tr><td>1</td><td>A 4-second recording uses a sample rate of 5,000 Hz and a bit depth of 8 bits. Find the file size in bits, then bytes, then KB.</td><td>5,000 × 4 × 8 = 160,000 bits → 20,000 bytes → 20 KB</td></tr>
+<tr><td>2</td><td>Double ONLY the sample rate to 10,000 Hz, keeping duration and bit depth the same. Recalculate.</td><td>10,000 × 4 × 8 = 320,000 bits → 40,000 bytes → 40 KB</td></tr>
+<tr><td>3</td><td>Compare the two file sizes.</td><td>40 KB is exactly double the original 20 KB</td></tr>
+</table>
+<h4>Why this differs from the image-doubling trap</h4>
+<ul>
+<li>Doubling ONE sound factor (sample rate) doubles the file size directly — the sound formula multiplies three separate factors together, so doubling any ONE of them (sample rate, duration or bit depth) doubles the file size. This is different from an image, where doubling BOTH height and width together roughly quadruples the file size.</li>
+</ul>`,
+            readCheck: {
+                q: "A recording's file size is 20 KB. If you double ONLY the bit depth, keeping sample rate and duration the same, what is the new approximate file size?",
+                opts: ["40 KB", "20 KB", "80 KB", "10 KB"],
+                ans: 0,
+                explain: "Doubling any single factor in sample rate × duration × bit depth doubles the file size: 20 KB × 2 = 40 KB."
+            }
+        },
+        {
+            title: "Worked example: calculating a sound file's size",
+            tag: "Worked example",
+            content: `<h4>The formula</h4>
+<ul>
+<li><strong>File size (bits) = sample rate (Hz) × duration (seconds) × bit depth (bits)</strong></li>
+<li>Always calculate the answer in <strong>bits</strong> first, then convert into whatever unit the question actually asks for.</li>
+</ul>
+<h4>Worked example</h4>
+<table>
+<tr><th>Step</th><th>What you do</th><th>Result</th></tr>
+<tr><td>1</td><td>A 5-second recording is sampled at 8,000 Hz with an 8-bit depth. Multiply sample rate × duration × bit depth.</td><td>8,000 × 5 × 8 = 320,000 bits</td></tr>
+<tr><td>2</td><td>Convert bits into bytes by dividing by 8.</td><td>320,000 ÷ 8 = 40,000 bytes</td></tr>
+<tr><td>3</td><td>Convert bytes into a sensible unit by dividing by 1,000.</td><td>40,000 ÷ 1,000 = 40 KB</td></tr>
+</table>
+<h4>Show every step, every time</h4>
+<ul>
+<li>OCR-style marking usually splits calculation marks between the <strong>working</strong> and the <strong>final answer</strong> — so writing down all three steps (multiply, then ÷8, then ÷1,000) protects your marks even if you slip on the arithmetic somewhere along the way.</li>
+<li>Unless a question tells you otherwise, this formula assumes a single (<strong>mono</strong>) recording channel — see the next section for what changes with stereo sound.</li>
+</ul>`,
+            readCheck: {
+                q: "A sound is recorded for 3 seconds at a sample rate of 4,000 Hz with a bit depth of 8 bits. What is the file size in KB?",
+                opts: ["12 KB", "96 KB", "1.5 KB", "1,200 KB"],
+                ans: 0,
+                explain: "4,000 × 3 × 8 = 96,000 bits. 96,000 ÷ 8 = 12,000 bytes. 12,000 ÷ 1,000 = 12 KB."
+            }
+        },
+        {
+            title: "Mono vs stereo: an extra factor in the formula",
+            tag: "Calculation",
+            content: `<h4>Mono: one channel, the formula as given</h4>
+<ul>
+<li>A <strong>mono</strong> (single-channel) recording stores just ONE stream of samples, so the file size is exactly sample rate × duration × bit depth, with nothing extra to add.</li>
+</ul>
+<h4>Stereo: two channels, double the data</h4>
+<ul>
+<li>A <strong>stereo</strong> recording stores TWO separate channels of samples at once (a "left" channel and a "right" channel, which is what lets headphones produce a sense of direction). Each channel is sampled using exactly the same sample rate and bit depth.</li>
+<li>Because there are two complete streams of samples instead of one, a stereo recording's file size is exactly <strong>double</strong> the mono formula's result: <strong>sample rate × duration × bit depth × 2</strong>.</li>
+</ul>
+<h4>Worked example</h4>
+<table>
+<tr><th>Step</th><th>What you do</th><th>Result</th></tr>
+<tr><td>1</td><td>The same 5-second, 8,000 Hz, 8-bit recording from before is instead recorded in STEREO. Calculate the mono size in bits first.</td><td>8,000 × 5 × 8 = 320,000 bits</td></tr>
+<tr><td>2</td><td>Multiply by 2 for the second (stereo) channel.</td><td>320,000 × 2 = 640,000 bits</td></tr>
+<tr><td>3</td><td>Convert to bytes, then KB, as normal.</td><td>640,000 ÷ 8 = 80,000 bytes; ÷ 1,000 = 80 KB</td></tr>
+</table>
+<h4>Only apply the ×2 when the question says stereo</h4>
+<ul>
+<li>Unless a question specifically tells you the recording is in stereo, always assume <strong>mono</strong> and use the plain formula with no ×2. Adding an unrequested ×2 — or forgetting a genuinely stereo one — is one of the most common slips on this topic.</li>
+</ul>`,
+            readCheck: {
+                q: "A 2-second recording uses a sample rate of 10,000 Hz and an 8-bit depth, recorded in STEREO. What is its file size in KB?",
+                opts: ["40 KB", "20 KB", "10 KB", "80 KB"],
+                ans: 0,
+                explain: "Mono: 10,000 × 2 × 8 = 160,000 bits → 20,000 bytes → 20 KB. Stereo doubles this: 20 × 2 = 40 KB."
+            }
         }
     ];
 
-    const mcqData = [];
-    const matchData = [];
-    const fibData = [];
-    const fibWords = [];
-    const tfData = [];
-    const miscData = [];
-    const examTips = [];
-    const flashcards = [];
-    const examQuestions = [];
+    const mcqData = [
+        {
+            q: "What does 'sample rate' measure?",
+            opts: ["The number of samples taken from the wave every second", "The number of bits used to store each individual sample", "The total length of a recording, measured in seconds", "The number of separate audio channels a recording uses"],
+            ans: 0,
+            explain: "Sample rate is the number of samples taken from the wave every second, measured in Hz."
+        },
+        {
+            q: "What does 'bit depth' measure?",
+            opts: ["The number of bits used to store each individual sample", "The number of samples taken from the wave every second", "The total duration of the recording, measured in seconds", "The number of channels used in a stereo recording"],
+            ans: 0,
+            explain: "Bit depth is the number of bits used to store the value of each individual sample."
+        },
+        {
+            q: "Which unit is sample rate measured in?",
+            opts: ["Hertz (Hz) — the number of samples taken every second", "Bits per second (bps) — the number of bits transferred every second", "Bytes (B) — the total file size once the recording is saved", "Decibels (dB) — a measurement of how loud the recording sounds"],
+            ans: 0,
+            explain: "Sample rate is measured in hertz (Hz) — each hertz means one sample taken per second."
+        },
+        {
+            q: "A recording lasts 2 seconds, using a sample rate of 3,000 Hz. How many samples are taken in total?",
+            opts: ["6,000 samples", "3,000 samples", "1,500 samples", "9,000 samples"],
+            ans: 0,
+            explain: "Samples per second × duration = 3,000 × 2 = 6,000 samples."
+        },
+        {
+            q: "A sample is stored using a bit depth of 5 bits. How many different amplitude levels can it represent?",
+            opts: ["32", "16", "8", "64"],
+            ans: 0,
+            explain: "2 to the power of 5 = 32."
+        },
+        {
+            q: "Increasing a recording's sample rate, with bit depth and duration unchanged, has what effect?",
+            opts: ["A closer match to the original wave and a larger file size", "A closer match to the original wave and a smaller file size", "More possible amplitude levels per sample and a larger file size", "No change occurs to either the file size or the playback quality"],
+            ans: 0,
+            explain: "A higher sample rate captures the wave more often, giving a closer match to the original — but more samples also means a bigger file."
+        },
+        {
+            q: "Increasing a recording's bit depth, with sample rate and duration unchanged, has what effect?",
+            opts: ["More possible amplitude levels per sample and a larger file size", "More possible amplitude levels per sample and a smaller file size", "More samples taken every second and a larger file size", "No change occurs to either the file size or the playback quality"],
+            ans: 0,
+            explain: "A higher bit depth gives more levels to round each sample to (better quality) but stores more bits per sample (bigger file)."
+        },
+        {
+            q: "A sound is recorded for 4 seconds at a sample rate of 5,000 Hz with an 8-bit depth. What is the file size in bytes?",
+            opts: ["20,000 bytes", "160,000 bytes", "2,500 bytes", "40,000 bytes"],
+            ans: 0,
+            explain: "5,000 × 4 × 8 = 160,000 bits. 160,000 ÷ 8 = 20,000 bytes."
+        },
+        {
+            q: "A sound is recorded for 10 seconds at a sample rate of 4,000 Hz with an 8-bit depth. What is the file size in KB?",
+            opts: ["40 KB", "320 KB", "5 KB", "400 KB"],
+            ans: 0,
+            explain: "4,000 × 10 × 8 = 320,000 bits. 320,000 ÷ 8 = 40,000 bytes. 40,000 ÷ 1,000 = 40 KB."
+        },
+        {
+            q: "A 2-second mono recording at 8,000 Hz with an 8-bit depth is 16 KB. What would the SAME recording be, in KB, if recorded in stereo instead?",
+            opts: ["32 KB", "16 KB", "8 KB", "64 KB"],
+            ans: 0,
+            explain: "A stereo recording doubles the mono file size: 16 KB × 2 = 32 KB."
+        },
+        {
+            q: "Which statement about analogue and digital sound is correct?",
+            opts: ["Analogue sound is continuous; sampling converts it into a stream of binary numbers", "Analogue sound is already stored as binary numbers before any sampling ever takes place", "Sampling converts an already-digital recording back into a continuous analogue wave again", "A microphone stores sound directly as a fixed sample rate and bit depth, with no wave"],
+            ans: 0,
+            explain: "Analogue sound is a continuous wave; sampling measures it at intervals and stores each measurement as binary — the reverse of options 2 and 3."
+        },
+        {
+            q: "A memory card can hold 2,000 KB of audio. Each mono recording made on it is 40 KB. Roughly how many of these recordings will fit?",
+            opts: ["50 recordings", "20 recordings", "80 recordings", "500 recordings"],
+            ans: 0,
+            explain: "2,000 ÷ 40 = 50 recordings."
+        }
+    ];
+
+    const matchData = [
+        { term: "Sample", def: "One single measurement of a sound wave's amplitude, taken at one instant" },
+        { term: "Sampling", def: "Measuring an analogue wave's amplitude at regular intervals and storing each value as binary" },
+        { term: "Analogue sound", def: "A continuous signal whose amplitude can take any value as it changes over time" },
+        { term: "Sample rate", def: "The number of samples taken from a sound wave every second, measured in Hz" },
+        { term: "Bit depth (sound)", def: "The number of bits used to store the value of each individual sample" },
+        { term: "Hertz (Hz)", def: "The unit sample rate is measured in — one sample per second" },
+        { term: "Mono recording", def: "A recording that stores a single channel of samples" },
+        { term: "Stereo recording", def: "A recording that stores two separate channels of samples (left and right)" },
+        { term: "Effect of higher sample rate on quality", def: "A closer match to the original analogue wave" },
+        { term: "Effect of higher sample rate on file size", def: "More samples are stored, so a bigger file" },
+        { term: "Effect of higher bit depth on quality", def: "Each sample is rounded more precisely, closer to the true amplitude" },
+        { term: "Effect of higher bit depth on file size", def: "More bits are stored per sample, so a bigger file" },
+        { term: "Sound file-size formula", def: "Sample rate × duration (seconds) × bit depth" },
+        { term: "Stereo file-size adjustment", def: "Multiply the mono file size by 2, one stream of samples for each channel" }
+    ];
+
+    const fibData = [
+        {
+            display: "Real sound is an _____ signal, and its amplitude can take any value as it changes over time.",
+            blanks: { B1: "analogue" }
+        },
+        {
+            display: "The process of measuring an analogue wave's amplitude at regular intervals and storing each value as binary is called _____.",
+            blanks: { B1: "sampling" }
+        },
+        {
+            display: "Sample rate is measured in _____, the number of samples taken every second.",
+            blanks: { B1: "hertz" }
+        },
+        {
+            display: "Bit depth is the number of _____ used to store the value of each individual sample.",
+            blanks: { B1: "bits" }
+        },
+        {
+            display: "The formula for a sound file's size is sample rate × duration × _____.",
+            blanks: { B1: "bit depth" }
+        },
+        {
+            display: "A higher sample rate and a higher bit depth both increase file size, but improve the recording's playback _____.",
+            blanks: { B1: "quality" }
+        },
+        {
+            display: "A recording that stores two separate channels (left and right) is called _____, and its file size is double a mono recording's.",
+            blanks: { B1: "stereo" }
+        },
+        {
+            display: "A sound file-size calculation should always be worked out in _____ first, then converted into the unit the question asks for.",
+            blanks: { B1: "bits" }
+        }
+    ];
+    const fibWords = ["analogue", "sampling", "hertz", "bits", "bit depth", "quality", "stereo"];
+
+    const tfData = [
+        {
+            statement: "Sound is an analogue signal before it is sampled.",
+            answer: true,
+            explanation: "Correct — real sound is a continuous analogue wave; sampling converts it into digital data."
+        },
+        {
+            statement: "Sample rate measures the number of bits used to store each sample.",
+            answer: false,
+            explanation: "That describes bit depth, not sample rate. Sample rate is the number of samples taken every second, measured in Hz."
+        },
+        {
+            statement: "A higher sample rate always produces a larger file, for the same duration and bit depth.",
+            answer: true,
+            explanation: "Correct — more samples per second means more values to store, so the file size increases."
+        },
+        {
+            statement: "A higher bit depth means each sample can be rounded to more possible amplitude levels.",
+            answer: true,
+            explanation: "Correct — a bit depth of n bits gives 2 to the power of n possible levels, so more bits means more levels."
+        },
+        {
+            statement: "Increasing bit depth improves quality with no effect on file size.",
+            answer: false,
+            explanation: "There is always a trade-off — more bits stored per sample also increases the file size."
+        },
+        {
+            statement: "The sound file-size formula is sample rate × duration × bit depth.",
+            answer: true,
+            explanation: "Correct — file size in bits = sample rate × duration × bit depth."
+        },
+        {
+            statement: "A stereo recording's file size is calculated using exactly the same formula as a mono recording, with no adjustment.",
+            answer: false,
+            explanation: "A stereo recording stores two channels, so its file size is double the mono formula's result (× 2)."
+        },
+        {
+            statement: "A file-size calculation using the sound formula should be left in bits as the final answer, even if the question asks for KB.",
+            answer: false,
+            explanation: "The formula gives bits first, but that is only the first step — convert (÷8 for bytes, ÷1,000 per unit after that) into whatever unit the question actually asks for."
+        }
+    ];
+
+    const miscData = [
+        {
+            wrong: "Thinking sample rate and bit depth measure the same thing.",
+            correct: "<strong>Sample rate</strong> is how OFTEN the wave is measured (samples per second, in Hz). <strong>Bit depth</strong> is how PRECISELY each individual sample is measured (bits per sample). They are two separate, independent factors.",
+            readCheck: {
+                q: "Which statement correctly distinguishes sample rate from bit depth?",
+                opts: ["Sample rate is samples per second; bit depth is bits used per sample", "Sample rate and bit depth both measure exactly the same thing", "Bit depth is samples per second; sample rate is bits used per sample instead", "Sample rate measures loudness; bit depth measures the recording's duration"],
+                ans: 0,
+                explain: "Sample rate = how often (Hz); bit depth = how precisely (bits per sample) — two separate properties of a digital recording."
+            }
+        },
+        {
+            wrong: "Thinking a bit depth of n bits gives n possible amplitude levels — e.g. assuming 4 bits means 4 levels.",
+            correct: "It is <strong>2 to the power of n</strong>, not n. A bit depth of 4 bits gives 2<sup>4</sup> = <strong>16</strong> possible levels, not 4 — exactly the same rule used for colour depth in images.",
+            readCheck: {
+                q: "A bit depth of 4 bits is used. How many different amplitude levels can each sample represent?",
+                opts: ["4", "8", "16", "20"],
+                ans: 2,
+                explain: "2 to the power of 4 = 16, not 4. Bit depth and number of levels are related by 2 to the power of n, not a simple count."
+            }
+        },
+        {
+            wrong: "Leaving a sound file-size calculation answer in bits, because the multiplication already produced 'a number' that looks like an answer.",
+            correct: "Sample rate × duration × bit depth always gives the answer in <strong>bits</strong> first — that is only the first step. You must then divide by 8 to reach bytes, and keep dividing by 1,000 for each unit up the ladder until you reach the unit the question actually asked for.",
+            readCheck: {
+                q: "A calculation gives 160,000 bits, and the question asks for the answer in KB. What should you do next?",
+                opts: ["Divide by 8 to get bytes, then divide by 1,000 to get KB", "Write down 160,000 as the final answer, already correct in KB", "Multiply the bits total by 8 to reach bytes", "Divide the bits total by 1,000 only, then stop working"],
+                ans: 0,
+                explain: "160,000 bits ÷ 8 = 20,000 bytes, then ÷ 1,000 = 20 KB. Both conversion steps are needed to reach the unit asked for."
+            }
+        },
+        {
+            wrong: "Forgetting to double the file size for a stereo recording, or doubling one that is actually mono.",
+            correct: "Only apply <strong>×2</strong> when a question specifically says the recording is <strong>stereo</strong> (two channels). A plain sample-rate × duration × bit-depth calculation already assumes <strong>mono</strong> (one channel) unless told otherwise.",
+            readCheck: {
+                q: "A question gives a sample rate, duration and bit depth but does not mention stereo or mono. Which should you assume?",
+                opts: ["Mono — use the plain formula with no ×2", "Stereo — always multiply the plain formula by 2", "It cannot be calculated without being told which one it is", "Both channels — divide the plain formula by 2 instead"],
+                ans: 0,
+                explain: "Unless a question specifically states the recording is stereo, assume mono and use the plain formula (no ×2)."
+            }
+        },
+        {
+            wrong: "Believing that increasing sample rate only affects file size with no effect on quality, or that bit depth only affects quality with no effect on file size.",
+            correct: "Both factors affect BOTH things. A higher sample rate AND a higher bit depth each improve playback quality AND increase file size — neither factor affects only one of the two.",
+            readCheck: {
+                q: "Which statement about sample rate and bit depth is correct?",
+                opts: ["Both factors affect quality AND file size, not just one or the other", "Sample rate only ever affects file size; bit depth only ever affects quality", "Bit depth only ever affects file size; sample rate only ever affects quality", "Neither sample rate nor bit depth has any real effect on quality at all"],
+                ans: 0,
+                explain: "Both sample rate and bit depth affect BOTH playback quality and file size — that is exactly why the topic is a trade-off."
+            }
+        },
+        {
+            wrong: "Assuming sound is already stored as binary before it reaches the computer, so no conversion process is needed.",
+            correct: "Real sound is an <strong>analogue</strong> signal — a continuous wave, not binary data. It must be <strong>sampled</strong> (its amplitude measured at regular intervals and each measurement stored as a binary number) before a computer can store it at all.",
+            readCheck: {
+                q: "Why can't a computer store an analogue sound wave directly, without first sampling it?",
+                opts: ["The wave is continuous, but computers can only store data as binary numbers", "Microphones are only ever able to physically produce a binary electrical signal", "Analogue sound waves cannot physically be recorded by any microphone at all", "Computers can already store analogue waves directly, so sampling is not needed"],
+                ans: 0,
+                explain: "Analogue sound is a continuous signal; a computer can only store binary data, so the wave must be sampled and each measurement stored as a binary number."
+            }
+        }
+    ];
+
+    const examTips = [
+        {
+            type: "explain",
+            title: "Show-your-working ladder: the sound file-size calculation",
+            pills: ["AO2", "2 marks", "Working + answer", "Own-figure rule"],
+            content: `<p>A typical question: <em>"A recording lasts 3 seconds, sampled at 5,000 Hz with an 8-bit depth. Calculate the file size in bytes. Show your working."</em> [2 marks] Here is the same answer at every level:</p>
+
+<p><strong>❌ 0 marks:</strong> "15,000 bytes"</p>
+<ul>
+<li>No working shown. Even a correct final answer with nothing behind it risks losing the working mark entirely if it happens to be wrong.</li>
+</ul>
+
+<p><strong>⚠️ 1 mark:</strong> "5,000 × 3 × 8 = 120,000"</p>
+<ul>
+<li>Valid working is shown (1 mark), but the answer was never converted into bytes and stated as a final answer — the second mark is for the CONVERTED answer in the unit asked for.</li>
+</ul>
+
+<p><strong>✅ 2 marks:</strong> "5,000 × 3 × 8 = 120,000 bits <strong>(1)</strong>. 120,000 ÷ 8 = 15,000 bytes <strong>(1)</strong>."</p>
+
+<p><strong>Why this matters even if your arithmetic slips:</strong> OCR-style marking separates the WORKING mark from the ANSWER mark. If your method is correct but you slip on the final division, you can still keep the working mark — but only if you actually wrote the working down.</p>`,
+            readCheck: {
+                q: "You calculate 5,000 × 3 × 8 = 120,000 correctly, but then wrongly divide by 100 instead of 8 and write '1,200 bytes'. What mark do you get out of 2?",
+                opts: ["0, because the final stated answer is wrong", "1 — the working mark for the correct multiplication step", "2, since your working clearly shows you understood the method", "It depends entirely on which calculator you used"],
+                ans: 1,
+                explain: "The multiplication step (5,000 × 3 × 8 = 120,000 bits) is valid working, so it earns the working mark even though the final conversion — and therefore the answer mark — was wrong."
+            }
+        },
+        {
+            type: "tip",
+            title: "2 to the power of n levels: don't just double the bit depth",
+            pills: ["AO1", "1–2 marks", "Calculation", "Strategy"],
+            content: `<p>Bit depth questions trip students up in one of two directions — going from bit depth to levels, or levels back to bit depth. Both need the SAME rule: <strong>2 to the power of the bit depth</strong>, never the bit depth multiplied by 2.</p>
+
+<p><strong>Direction 1 — bit depth → number of levels:</strong> raise 2 to the power of the given bit depth. A bit depth of 5 bits gives 2<sup>5</sup> = 32 levels, NOT 5 × 2 = 10.</p>
+
+<p><strong>Direction 2 — number of levels → minimum bit depth:</strong> try increasing bit depths and calculate 2<sup>n</sup> for each one until the result is big enough. Needing at least 100 levels? 2<sup>6</sup> = 64 (too few), 2<sup>7</sup> = 128 (enough) — so the minimum bit depth is 7 bits.</p>
+
+<p><strong>The trap to avoid:</strong> confusing bit depth (precision of each sample) with sample rate (how often samples are taken). "How many levels" is always a bit depth question; "how many samples per second" is always a sample-rate question — they never use the same formula.</p>`,
+            readCheck: {
+                q: "A bit depth of 3 bits is doubled to a bit depth of 6 bits. What happens to the number of possible amplitude levels?",
+                opts: ["It rises from 8 to 64, not simply doubling to 16", "It exactly doubles, rising from 8 to 16", "It stays exactly the same at 8 levels", "It rises to 24 levels only, since 3 multiplied by 6 equals 18 which is then rounded"],
+                ans: 0,
+                explain: "2 to the power of 3 = 8 and 2 to the power of 6 = 64. Doubling the bit depth does not double the number of levels — it multiplies it by a far bigger factor."
+            }
+        },
+        {
+            type: "explain",
+            title: "Command-word ladder: 'state' vs 'explain' for the quality/size trade-off",
+            pills: ["AO1/AO2", "2–4 marks", "Command words", "Development chain"],
+            content: `<p>The same underlying knowledge — that increasing sample rate or bit depth affects both quality and file size — is tested at very different tariffs depending on the command word used.</p>
+
+<p><strong>"State" (1–2 marks):</strong> a single, direct fact is enough. <em>"State the effect of increasing a recording's sample rate on its file size."</em> → "It increases the file size." One clear statement, no reasoning required.</p>
+
+<p><strong>"Explain" (3–4 marks):</strong> needs the full <em>point → …which means… → consequence</em> chain, not just the fact. <em>"Explain the effect of increasing a recording's sample rate."</em></p>
+<ul>
+<li><strong>Point:</strong> "A higher sample rate takes more samples of the wave every second…"</li>
+<li><strong>…which means…:</strong> "…so less of the original wave's detail is missed between samples, giving a closer match to the original sound…"</li>
+<li><strong>…but the consequence is…:</strong> "…while also increasing the overall file size, because more samples have to be stored for the same length of recording."</li>
+</ul>
+
+<p><strong>Why the chain matters:</strong> a bare "state" answer scores 0 on an "explain" question, because it stops after the first link — the examiner is specifically paying for the "…which means…" development, not just the initial fact.</p>`,
+            readCheck: {
+                q: "A 3-mark 'explain' question asks about the effect of increasing bit depth. A student writes only 'It makes the file size bigger.' How many of the 3 marks would this likely earn?",
+                opts: ["Likely just 1 mark — a bare statement with no development chain", "All 3 marks, since the key fact given is completely correct", "0 marks, because the statement given is factually wrong", "2 marks, for correctly identifying file size as the affected factor"],
+                ans: 0,
+                explain: "An 'explain' question needs the point developed with a 'which means...' chain (more bits → more precise levels, but also more data to store). A bare fact with no development usually only reaches the first mark."
+            }
+        }
+    ];
+
+    const flashcards = [
+        { term: "Sample", def: "One measurement of a sound wave's amplitude, taken at a single instant" },
+        { term: "Sampling", def: "Measuring an analogue wave's amplitude at regular intervals and storing each value as binary" },
+        { term: "Analogue sound", def: "A continuous signal whose amplitude can take any value as it changes over time" },
+        { term: "Sample rate", def: "The number of samples taken from a sound wave every second, measured in Hz" },
+        { term: "Hertz (Hz)", def: "The unit sample rate is measured in — one sample per second" },
+        { term: "Bit depth", def: "The number of bits used to store the value of each individual sample" },
+        { term: "2 to the power of n rule (sound)", def: "A bit depth of n bits can represent 2 to the power of n amplitude levels" },
+        { term: "Effect of higher sample rate", def: "Closer match to the original wave (better quality) but more samples stored (bigger file)" },
+        { term: "Effect of higher bit depth", def: "Each sample rounded more precisely (better quality) but more bits stored per sample (bigger file)" },
+        { term: "Sound file-size formula", def: "Sample rate × duration (seconds) × bit depth, giving the size in bits" },
+        { term: "Mono recording", def: "A recording that stores a single channel of samples" },
+        { term: "Stereo recording", def: "A recording that stores two channels of samples (left and right)" },
+        { term: "Stereo file-size adjustment", def: "Double the mono formula's result — one stream of samples for each channel" },
+        { term: "Converting bits to bytes", def: "Divide the number of bits by 8" },
+        { term: "Converting bytes to kilobytes", def: "Divide the number of bytes by 1,000 (this specification's convention)" },
+        { term: "Why sound must be sampled", def: "Computers can only store binary data; sampling converts the continuous wave into binary numbers" },
+        { term: "Minimum bit depth for N levels", def: "The smallest n where 2 to the power of n is at least N" }
+    ];
+
+    // ── S1–S14: original clean-room questions (2026-07-19) ──
+    // Written from scratch against the §1.2.4 (Sound) spec scope (analogue
+    // sound, sampling, sample rate, bit depth, the quality/file-size
+    // trade-off, mono/stereo, and the sound file-size formula), NOT
+    // transcribed from any past paper or ExamBuilder PDF — no exam PDF exists
+    // for this page (CS-CONTENT-PLAN.md §6.2's 2026-07-17 clean-room rule).
+    // All scenarios, numbers and mark schemes are original. See
+    // docs/SELF-MARK-POINTS-AUTHORING.md for the markPoints convention used
+    // throughout the calculation questions.
+    const EXAM_CASE_STUDIES = {
+        "voice-memo": `<p>A smartphone app lets users record short voice memos, which are saved directly onto the phone's internal storage before being backed up online.</p>`,
+        "radio-drama": `<p>An online radio station broadcasts an original radio drama series. Each finished episode is saved as a sound file and uploaded to the station's streaming server, which has a fixed amount of storage space.</p>`,
+        "birdsong-survey": `<p>A conservation charity records birdsong in a nature reserve using audio recorders left out overnight, later analysing the files on a laptop to identify which species were present.</p>`
+    };
+
+    const examQuestions = [
+        {
+            num: "S1",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: `<p>Tick (✓) <strong>one</strong> box to identify the correct definition of sampling.</p>`,
+            options: ["Measuring an analogue wave's amplitude at regular intervals and storing each as binary", "Compressing an audio file so that it takes up less storage space", "Playing back a recorded sound file through a pair of speakers", "Removing background noise from a recording before it is saved"],
+            answer: 0,
+            hint: "Sampling is about CAPTURING the wave, not compressing or playing it back.",
+            starter: "",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<ul>
+<li><strong>Measuring an analogue wave's amplitude at regular intervals and storing each as binary</strong></li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Accept cross or other indication as long as it is clear which one box is intended.</li>
+<li>2+ ticks = 0 marks.</li>
+</ul>
+</div>`,
+            modelAnswer: "Measuring an analogue wave's amplitude at regular intervals and storing each as binary."
+        },
+        {
+            num: "S2",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: `<p>A recording lasts 3 seconds at a sample rate of 4,000 Hz. Tick (✓) <strong>one</strong> box to identify how many samples are taken in total.</p>`,
+            options: ["12,000 samples", "4,000 samples", "3,000 samples", "7,000 samples"],
+            answer: 0,
+            hint: "Samples per second × duration in seconds.",
+            starter: "",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<ul>
+<li><strong>12,000 samples</strong>. Working: 4,000 × 3 = 12,000.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Only the correct option scores; there is no credit for a value calculated using the wrong method.</li>
+</ul>
+</div>`,
+            modelAnswer: "12,000 samples (4,000 × 3 = 12,000)."
+        },
+        {
+            num: "S3",
+            marks: 1,
+            type: "written",
+            caseStudy: "",
+            question: `<p>State what is meant by the term <strong>bit depth</strong> when describing a sampled sound.</p>`,
+            hint: "Answer in terms of bits per sample, not samples per second.",
+            starter: "Bit depth is…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<ul>
+<li>The number of bits used to store the value of each individual sample</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Do not accept a description of sample rate instead of bits-per-sample.</li>
+</ul>
+</div>`,
+            modelAnswer: "Bit depth is the number of bits used to store the value of each individual sample."
+        },
+        {
+            num: "S4",
+            marks: 3,
+            type: "written",
+            caseId: "voice-memo",
+            question: `<p>Describe how one of the app's voice memos is represented and stored as binary data.</p>`,
+            hint: "Work through the chain: what kind of signal sound starts as, what happens to it at regular intervals, and what each measurement becomes.",
+            starter: "The memo begins as…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 3 marks (1 mark per point to max 3)</h5>
+<ul>
+<li>The voice memo begins as an analogue sound wave (continuous, not yet in binary)</li>
+<li>The wave's amplitude is sampled — measured at regular time intervals</li>
+<li>Each sample is stored as a binary number, using the number of bits set by the bit depth</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Award 1 mark per point to a maximum of 3. Accept any equivalent correct wording.</li>
+</ul>
+</div>`,
+            modelAnswer: "The voice memo begins as an analogue sound wave. Its amplitude is sampled — measured at regular time intervals. Each sample is then stored as a binary number, using the number of bits set by the recording's bit depth."
+        },
+        {
+            num: "S5",
+            marks: 1,
+            type: "mcq",
+            caseId: "voice-memo",
+            question: `<p>A memo is recorded for 6 seconds at a sample rate of 8,000 Hz with an 8-bit depth. Tick (✓) <strong>one</strong> box to identify its file size in bytes.</p>`,
+            options: ["48,000 bytes", "384,000 bytes", "6,000 bytes", "3,000 bytes"],
+            answer: 0,
+            hint: "Work out bits first (sample rate × duration × bit depth), then divide by 8 to reach bytes.",
+            starter: "",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<ul>
+<li><strong>48,000 bytes</strong>. Working: 8,000 × 6 × 8 = 384,000 bits; 384,000 ÷ 8 = 48,000 bytes.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Only the correct option scores.</li>
+</ul>
+</div>`,
+            modelAnswer: "48,000 bytes (8,000 × 6 × 8 = 384,000 bits; 384,000 ÷ 8 = 48,000 bytes)."
+        },
+        {
+            num: "S6",
+            marks: 2,
+            type: "written",
+            caseId: "voice-memo",
+            question: `<p>Each memo the app records lasts 4 seconds, using a sample rate of 6,000 Hz and a bit depth of 8 bits. Calculate the file size of one memo, in bytes. Show your working.</p>`,
+            hint: "Use sample rate × duration × bit depth to get bits first, then divide by 8 for bytes.",
+            starter: "Working: 6,000 × 4 × 8 = … bits, ÷ 8 = … bytes. Answer: … bytes",
+            markPoints: {
+                note: "One mark for valid working, one mark for the correct final answer — the answer mark follows through from your own working even if it isn't 24,000 bytes.",
+                groups: [
+                    {
+                        label: "Your working", max: 1, points: [
+                            { text: "Shows valid working using sample rate × duration × bit depth (6,000 × 4 × 8 = 192,000 bits), or an equivalent correct method", marks: 1 }
+                        ]
+                    },
+                    {
+                        label: "Your answer", max: 1, points: [
+                            { text: "Gives the correct final answer of 24,000 bytes (accept a value that correctly follows through from their own working)", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks</h5>
+<ul>
+<li>1 mark for valid working, e.g. 6,000 × 4 × 8 = 192,000 (bits)</li>
+<li>1 mark for the answer: 24,000 bytes</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Accept any correct method that reaches bits first, then converts to bytes by dividing by 8.</li>
+<li>Award the working mark even if the final answer is wrong, provided the method shown is valid.</li>
+</ul>
+</div>`,
+            modelAnswer: "Working: 6,000 × 4 × 8 = 192,000 bits. 192,000 ÷ 8 = 24,000 bytes. Answer: 24,000 bytes"
+        },
+        {
+            num: "S7",
+            marks: 4,
+            type: "written",
+            caseId: "voice-memo",
+            question: `<p>The app developer wants to increase quality by raising the bit depth from 8 bits to 16 bits, keeping the sample rate (6,000 Hz) and duration (4 seconds) the same as the 24,000-byte (24 KB) memo calculated earlier.</p><p>Calculate the new file size in KB, and state how many times bigger it is than the original 24 KB memo. Show your working.</p>`,
+            hint: "Find the new file size the same way as before (sample rate × duration × bit depth, then ÷8 and ÷1,000), then compare your new KB figure to the original 24 KB.",
+            starter: "Working: 6,000 × 4 × 16 = … bits, ÷ 8 = … bytes, ÷ 1,000 = … KB. Compared to 24 KB, this is … times bigger.",
+            markPoints: {
+                note: "Two groups: up to 2 marks for the working that reaches a file size in KB, and up to 2 marks for correctly comparing that figure to the original 24 KB — the second group follows through from your own answer above, even if it isn't 48 KB.",
+                groups: [
+                    {
+                        label: "Your working", max: 2, points: [
+                            { text: "Correctly multiplies sample rate × duration × bit depth (6,000 × 4 × 16 = 384,000 bits)", marks: 1 },
+                            { text: "Correctly converts the bits total into bytes then KB (384,000 ÷ 8 = 48,000 bytes; 48,000 ÷ 1,000 = 48 KB)", marks: 1 }
+                        ]
+                    },
+                    {
+                        label: "Your answer and comparison", max: 2, points: [
+                            { text: "States the correct file size as 48 KB (or the value that correctly follows through from their own working above)", marks: 1 },
+                            { text: "Correctly compares their new file size to the original 24 KB and states it is 2 times bigger (or the correctly follow-through ratio)", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks</h5>
+<ul>
+<li>1 mark: 6,000 × 4 × 16 = 384,000 (bits)</li>
+<li>1 mark: 384,000 ÷ 8 = 48,000 (bytes); 48,000 ÷ 1,000 = 48 (KB)</li>
+<li>1 mark for the answer: 48 KB</li>
+<li>1 mark: correctly states this is 2 times bigger than the original 24 KB (48 ÷ 24 = 2)</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Own-figure/follow-through applies to the comparison mark — it can be awarded using the candidate's own file-size figure, provided the comparison method is correct.</li>
+</ul>
+</div>`,
+            modelAnswer: "Working: 6,000 × 4 × 16 = 384,000 bits. 384,000 ÷ 8 = 48,000 bytes. 48,000 ÷ 1,000 = 48 KB. The original 8-bit memo was 24 KB, so the new memo (48 KB) is 48 ÷ 24 = 2 times bigger."
+        },
+        {
+            num: "S8",
+            marks: 4,
+            type: "written",
+            caseId: "radio-drama",
+            question: `<p>Describe how increasing the sample rate used to record one of the radio drama's episodes, and increasing its bit depth, would each affect the episode's file size and its playback quality.</p>`,
+            hint: "Two separate factors — sample rate and bit depth — and for EACH one you need both its effect on file size AND its effect on quality.",
+            starter: "A higher sample rate would… A higher bit depth would…",
+            markPoints: {
+                note: "Two groups: up to 2 marks for sample rate (file size effect + quality effect) and up to 2 marks for bit depth (file size effect + quality effect).",
+                groups: [
+                    {
+                        label: "Sample rate", max: 2, points: [
+                            { text: "States a higher sample rate increases the file size (more samples stored for the same length of recording)", marks: 1 },
+                            { text: "States a higher sample rate improves quality (closer match to the original wave)", marks: 1 }
+                        ]
+                    },
+                    {
+                        label: "Bit depth", max: 2, points: [
+                            { text: "States a higher bit depth increases the file size (more bits stored per sample)", marks: 1 },
+                            { text: "States a higher bit depth improves quality (each sample rounded more precisely)", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks</h5>
+<ul>
+<li>1 mark: higher sample rate increases file size (more samples stored)</li>
+<li>1 mark: higher sample rate improves quality (closer match to the original wave)</li>
+<li>1 mark: higher bit depth increases file size (more bits per sample)</li>
+<li>1 mark: higher bit depth improves quality (each sample rounded more precisely)</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Full marks needs both sample rate and bit depth addressed, with both the file-size effect AND the quality effect given for each.</li>
+</ul>
+</div>`,
+            modelAnswer: "A higher sample rate means more samples are taken every second, increasing the file size, but it gives a closer match to the original wave, improving quality. A higher bit depth means more bits are used to store each sample, increasing the file size, but it lets each sample be rounded more precisely, also improving quality."
+        },
+        {
+            num: "S9",
+            marks: 1,
+            type: "written",
+            caseStudy: "",
+            question: `<p>A birdsong recorder uses a bit depth of 6 bits per sample. Calculate the number of different amplitude levels each sample can represent.</p>`,
+            hint: "2 to the power of the bit depth.",
+            starter: "Number of levels = …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<ul>
+<li>64 (2 to the power of 6)</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Only the correct value scores; no credit for a value found using the wrong method.</li>
+</ul>
+</div>`,
+            modelAnswer: "64 (2 to the power of 6 = 64)."
+        },
+        {
+            num: "S10",
+            marks: 2,
+            type: "written",
+            caseId: "birdsong-survey",
+            question: `<p>The charity's software needs to store each sample using enough bits to represent AT LEAST 200 different amplitude levels. Calculate the minimum bit depth, in bits, needed to achieve this. Show your working.</p>`,
+            hint: "Try increasing bit depths and calculate 2 to the power of n for each one until the result is at least 200.",
+            starter: "2 to the power of 7 = …, 2 to the power of 8 = … Minimum bit depth = … bits",
+            markPoints: {
+                note: "One mark for valid working testing powers of 2 to find the first that reaches at least 200, one mark for the correct final answer.",
+                groups: [
+                    {
+                        label: "Your working", max: 1, points: [
+                            { text: "Shows valid working calculating powers of 2 to find the smallest that reaches at least 200 (e.g. 2 to the power of 7 = 128 too few, 2 to the power of 8 = 256 enough)", marks: 1 }
+                        ]
+                    },
+                    {
+                        label: "Your answer", max: 1, points: [
+                            { text: "States the minimum bit depth as 8 bits (accept a value that correctly follows through from their own working)", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks</h5>
+<ul>
+<li>1 mark for valid working, e.g. 2 to the power of 7 = 128 (too few), 2 to the power of 8 = 256 (enough)</li>
+<li>1 mark for the answer: 8 bits</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Award the working mark for any method that correctly tests powers of 2 against the 200-level target, even if the final answer is wrong.</li>
+</ul>
+</div>`,
+            modelAnswer: "2 to the power of 7 = 128, which is fewer than 200. 2 to the power of 8 = 256, which is at least 200. Minimum bit depth = 8 bits."
+        },
+        {
+            num: "S11",
+            marks: 4,
+            type: "written",
+            format: "tableFill",
+            caseStudy: "",
+            question: `<p>Complete the table by calculating the number of different amplitude levels that each bit depth can represent.</p>`,
+            table: {
+                headers: ["Bit depth (bits per sample)", "Number of possible levels (2 to the power of n)"],
+                rows: [
+                    ["2-bit", null],
+                    ["4-bit", null],
+                    ["6-bit", null],
+                    ["9-bit", null]
+                ]
+            },
+            answers: {
+                "0,1": ["4"],
+                "1,1": ["16"],
+                "2,1": ["64"],
+                "3,1": ["512"]
+            },
+            hint: "Work out 2 to the power of each bit depth given in the left-hand column.",
+            starter: "Row 1: … | Row 2: … | Row 3: … | Row 4: …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (1 mark for each row)</h5>
+<ul>
+<li>2-bit = 4 levels</li>
+<li>4-bit = 16 levels</li>
+<li>6-bit = 64 levels</li>
+<li>9-bit = 512 levels</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Accept the numeric value with or without a comma.</li>
+<li>Each row is marked independently.</li>
+</ul>
+</div>`,
+            modelAnswer: "Row 1 (2-bit): 4. Row 2 (4-bit): 16. Row 3 (6-bit): 64. Row 4 (9-bit): 512."
+        },
+        {
+            num: "S12",
+            marks: 4,
+            type: "written",
+            format: "tickGrid",
+            caseStudy: "",
+            question: `<p>Tick (✓) <strong>one</strong> box in each row to identify the file size, in bytes, of the recording described.</p>`,
+            grid: {
+                cols: ["500 bytes", "1,000 bytes", "2,000 bytes", "4,000 bytes", "8,000 bytes"],
+                rows: [
+                    { label: "Sample rate 1,000 Hz, duration 4 seconds, bit depth 8 bits", correct: [3] },
+                    { label: "Sample rate 500 Hz, duration 4 seconds, bit depth 8 bits", correct: [2] },
+                    { label: "Sample rate 1,000 Hz, duration 2 seconds, bit depth 8 bits", correct: [2] },
+                    { label: "Sample rate 1,000 Hz, duration 4 seconds, bit depth 2 bits", correct: [1] }
+                ]
+            },
+            hint: "Work out sample rate × duration × bit depth in bits for each row, then divide by 8 to reach bytes, before matching to a column. Two different rows can share the same correct column.",
+            starter: "Row 1: … | Row 2: … | Row 3: … | Row 4: …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (1 mark for each row)</h5>
+<ul>
+<li>Row 1 (1,000 Hz, 4s, 8-bit): 1,000 × 4 × 8 = 32,000 bits = <strong>4,000 bytes</strong></li>
+<li>Row 2 (500 Hz, 4s, 8-bit): 500 × 4 × 8 = 16,000 bits = <strong>2,000 bytes</strong></li>
+<li>Row 3 (1,000 Hz, 2s, 8-bit): 1,000 × 2 × 8 = 16,000 bits = <strong>2,000 bytes</strong></li>
+<li>Row 4 (1,000 Hz, 4s, 2-bit): 1,000 × 4 × 2 = 8,000 bits = <strong>1,000 bytes</strong></li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Two different rows can share the same correct column (rows 2 and 3 are both 2,000 bytes).</li>
+<li>Extra ticks in a row score 0 for that row.</li>
+</ul>
+</div>`,
+            modelAnswer: "Row 1: 4,000 bytes. Row 2: 2,000 bytes. Row 3: 2,000 bytes. Row 4: 1,000 bytes."
+        },
+        {
+            num: "S13",
+            marks: 3,
+            type: "written",
+            caseId: "birdsong-survey",
+            question: `<p>The charity recorded two 2-second birdsong clips: Clip 1 was sampled at 4,000 Hz with an 8-bit depth; Clip 2 was sampled at 16,000 Hz with a 4-bit depth.</p><p>State which clip has the larger file size, and explain your reasoning by comparing the two calculations.</p>`,
+            hint: "Calculate (or compare) both file sizes fully — a higher bit depth alone does not automatically mean a bigger file if the sample rate is much lower.",
+            starter: "Clip 1: 4,000 × 2 × 8 = … Clip 2: 16,000 × 2 × 4 = …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 3 marks (1 mark per point to max 3)</h5>
+<ul>
+<li>Clip 1's file size is correctly found: 4,000 × 2 × 8 = 64,000 bits (8,000 bytes)</li>
+<li>Clip 2's file size is correctly found: 16,000 × 2 × 4 = 128,000 bits (16,000 bytes)</li>
+<li>Correct conclusion that Clip 2 has the larger file size, because its higher sample rate outweighs its lower bit depth (16,000 bytes is greater than 8,000 bytes)</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Award 1 mark per point to a maximum of 3. The conclusion mark requires a correct comparison of the two calculated sizes, not just a guess.</li>
+</ul>
+</div>`,
+            modelAnswer: "Clip 1: 4,000 × 2 × 8 = 64,000 bits = 8,000 bytes. Clip 2: 16,000 × 2 × 4 = 128,000 bits = 16,000 bytes. Clip 2 has the larger file size, because its much higher sample rate outweighs its lower bit depth — both factors multiply together, so it is the overall product that decides file size, not bit depth alone."
+        },
+        {
+            num: "S14",
+            marks: 8,
+            type: "written",
+            format: "banded",
+            caseId: "radio-drama",
+            question: `<p>The radio station is deciding on recording settings for the drama series. Setting A uses a high sample rate and high bit depth, producing the best-quality audio but larger files. Setting B uses a lower sample rate and lower bit depth, producing smaller files but lower-quality audio.</p><p>Discuss the impact that choosing between Setting A and Setting B could have on the station's fixed server storage, across a full series of episodes.</p><p>In your answer you might consider:</p><ul><li>how sample rate and bit depth affect file size</li><li>the effect on how many episodes can be stored within the server's fixed storage</li><li>the effect on the listening experience for the station's audience</li><li>which setting you would recommend, and why</li></ul>`,
+            hint: "Use all four bullets as your plan. Explain the mechanism (bigger files → fewer episodes fit), follow it through to a REAL consequence for the station, and weigh audio quality against storage space for a top-band answer.",
+            starter: "With Setting A, each episode file will be…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 8 marks (levelled) — indicative content</h5>
+<p>The following is indicative of possible factors/evidence that candidates may refer to but is not prescriptive or exhaustive:</p>
+<ul>
+<li><strong>How sample rate/bit depth affect file size</strong> — Setting A's higher sample rate takes more samples every second, and its higher bit depth stores more bits per sample; both increase file size (bits = sample rate × duration × bit depth). Setting B's lower values mean a smaller file size per episode.</li>
+<li><strong>Effect on how many episodes fit</strong> — the server's storage is fixed, so larger Setting A episodes mean fewer episodes (or a shorter series) can be stored; Setting B's smaller episodes mean many more can be stored before the server fills up.</li>
+<li><strong>Effect on the listening experience</strong> — Setting A's higher quality audio may matter for a drama relying on subtle sound effects and music, but running out of server space could mean the station cannot upload later episodes; Setting B allows the whole series to be hosted but with audio that sounds noticeably less crisp or detailed.</li>
+<li><strong>Recommendation</strong> — the better choice depends on the station's actual priorities: Setting A suits a shorter, high-production-value series where audio quality is central, Setting B suits a longer series where hosting every episode within the fixed storage matters more than the finest audio detail.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given — levels of response</h5>
+<ul>
+<li><strong>Mark Band 3 — High Level (6–8 marks):</strong> Thorough knowledge and understanding of sample rate, bit depth and file-size capacity, applied directly and consistently to the radio station context. The response weighs up both settings (quality against storage/quantity) and covers all four areas from the bullet list with clear, logically structured reasoning, ending in a justified recommendation.</li>
+<li><strong>Mark Band 2 — Mid Level (3–5 marks):</strong> Reasonable knowledge, generally accurate but at times underdeveloped or only partly applied to the radio station context. Most of the four areas are addressed, with some structure, though the discussion may not fully weigh both settings or the recommendation may be unjustified.</li>
+<li><strong>Mark Band 1 — Low Level (1–2 marks):</strong> Basic knowledge with limited understanding shown; the material may contain inaccuracies or barely refer to the radio station context. Little more than an unsupported assertion, e.g. "Setting A is better" with no working explanation of why.</li>
+<li><strong>0 marks:</strong> No attempt to answer the question or response is not worthy of credit.</li>
+</ul>
+</div>`,
+            modelAnswer: "With Setting A, each episode file will be larger, because both a higher sample rate (more samples every second) and a higher bit depth (more bits per sample) increase the number of bits that have to be stored per episode. With Setting B, each episode file will be much smaller, since fewer samples are taken and fewer bits are used per sample.\n\nBecause the server's storage is fixed, this directly affects how many episodes of the drama can be hosted: Setting A will use up the storage after relatively few episodes, while Setting B allows far more (or a full series of) episodes to be stored before the server is full.\n\nThis has a real effect on the audience's listening experience: Setting A's episodes will sound noticeably clearer and more detailed, which matters for a drama relying on subtle sound effects and music, but the station risks running out of storage before the whole series can be uploaded. Setting B's episodes will sound less crisp but allow the entire series to be made available without running out of space.\n\nOn balance, Setting A is the better choice for a short, high-production-value series where audio quality is central to the experience, while Setting B is better for a longer series where making every episode available within the fixed storage matters more than the finest audio detail."
+        }
+    ];
 </script>
     <script src="/script.js"></script>
 <script src="section-totals.js"></script>

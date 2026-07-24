@@ -2,7 +2,7 @@
 // SUBJECTS REGISTRY — GENERATED FILE, DO NOT EDIT BY HAND
 // Built by tools/build_question_bank.py from every
 // subjects/*/subject.json manifest header.
-// Generated: 2026-07-18T16:24:22Z
+// Generated: 2026-07-24T18:45:57Z
 // ══════════════════════════════════════════════════════════════
 window.SUBJECTS = [
  {
@@ -59,5 +59,16 @@ window.SUBJECTS = [
   "examBoard": "AQA",
   "specCode": "8692",
   "examDate": "2026-06-08"
+ },
+ {
+  "slug": "sport-studies",
+  "name": "Sport Studies",
+  "colour": "#16a34a",
+  "icon": "🏅",
+  "keyStage": "ks4",
+  "level": "Level 1/Level 2",
+  "examBoard": "OCR",
+  "specCode": "J829",
+  "examDate": "2027-05-11"
  }
 ];

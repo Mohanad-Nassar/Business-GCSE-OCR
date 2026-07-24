@@ -4,297 +4,392 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>X.4 Writing and Translation into Spanish – Interactive Study Guide</title>
+    <title>X.4 Writing and Translation into Spanish – GCSE Spanish</title>
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
         rel="stylesheet" />
     <link rel="stylesheet" href="/style.css" />
+    <style>
+      /* 🔊 audio-button + Audio-panel styling is injected by /speech.js (shared).
+         Only page-specific styles live here. */
+      .vocab-tbl{width:100%;border-collapse:collapse;margin:8px 0}
+      .vocab-tbl td{border-bottom:1px solid var(--line,#e4e8f0);padding:6px 8px;vertical-align:top}
+      .vocab-tbl td:first-child{font-weight:600;white-space:nowrap}
+      @container (max-width:640px){.vocab-tbl,.vocab-tbl tbody,.vocab-tbl tr,.vocab-tbl td{display:block;width:100%}.vocab-tbl td{border-bottom:none;padding:4px 0;white-space:normal}.vocab-tbl td:nth-child(2n){padding-bottom:10px;border-bottom:1px solid var(--line,#e4e8f0);margin-bottom:6px}}
+      .tier-h{display:inline-block;font-size:.72em;font-weight:700;color:#8a5a00;
+        background:#fff3d6;border-radius:5px;padding:1px 5px;margin-left:5px;vertical-align:middle}
+    </style>
 </head>
 
 <body>
     <header>
         <div>
-            <div class="badge">AQA GCSE Spanish — Exam Skills · X. Exam Skills</div>
+            <div class="badge">AQA GCSE Spanish (8692) — Exam Skills · Paper 4 Writing</div>
             <h1>X.4 Writing and Translation into Spanish</h1>
-            <p>Interactive revision guide · Content coming soon</p>
+            <p>El examen de expresión escrita y la traducción al español · Interactive study guide</p>
         </div>
         <a href="/index.html" class="home-link">← 🏡 Home</a>
     </header>
 
     <nav class="tab-bar" id="tabBar">
-        <button class="tab-btn active" onclick="switchTab('learn', this)">
-            📚 Key Learning
-        </button>
-        <button class="tab-btn" onclick="switchTab('mcq', this)">
-            ❓ MCQ Quiz
-        </button>
-        <button class="tab-btn" onclick="switchTab('matching', this)">
-            🔗 Matching
-        </button>
-        <button class="tab-btn" onclick="switchTab('fib', this)">
-            ✏️ Fill the Blanks
-        </button>
-        <button class="tab-btn" onclick="switchTab('misconceptions', this)">
-            ⚠️ Misconceptions
-        </button>
-        <button class="tab-btn" onclick="switchTab('examtips', this)">
-            🎯 Exam Tips
-        </button>
-        <button class="tab-btn" onclick="switchTab('flashcards', this)">
-            🃏 Flashcards
-        </button>
-        <button class="tab-btn" onclick="switchTab('truefalse', this)">
-            ✅ True / False
-        </button>
-        <button class="tab-btn" onclick="switchTab('exampractice', this)">
-            📝 Exam Practice
-        </button>
+        <button class="tab-btn active" onclick="switchTab('learn', this)">📚 Key Learning</button>
+        <button class="tab-btn" onclick="switchTab('mcq', this)">❓ MCQ Quiz</button>
+        <button class="tab-btn" onclick="switchTab('matching', this)">🔗 Matching</button>
+        <button class="tab-btn" onclick="switchTab('fib', this)">✏️ Fill the Blanks</button>
+        <button class="tab-btn" onclick="switchTab('misconceptions', this)">⚠️ Misconceptions</button>
+        <button class="tab-btn" onclick="switchTab('examtips', this)">🎯 Exam Tips</button>
+        <button class="tab-btn" onclick="switchTab('flashcards', this)">🃏 Flashcards</button>
+        <button class="tab-btn" onclick="switchTab('truefalse', this)">✅ True / False</button>
+        <button class="tab-btn" onclick="switchTab('exampractice', this)">📝 Exam Practice</button>
     </nav>
 
     <main>
         <div class="tab-panel active" id="tab-learn">
             <h2 class="section-title">Key Learning Topics</h2>
-            <p class="section-sub">Click any card to expand detailed notes.</p>
+            <p class="section-sub">Click any card to expand. Tap 🔊 to hear the Spanish.</p>
             <div class="topic-grid" id="topicGrid"></div>
         </div>
-
         <div class="tab-panel" id="tab-mcq">
             <h2 class="section-title">Multiple Choice Questions</h2>
-            <p class="section-sub">Select an answer to reveal instant feedback.</p>
+            <p class="section-sub">Some questions play audio — tap 🔊 and choose the meaning.</p>
             <div class="score-bar">
-                <div>
-                    <div class="score-num" id="mcqScore">0</div>
-                    <div style="font-size: 12px; color: var(--mid)">
-                        correct answers
-                    </div>
-                </div>
-                <div style="font-size: 13px; color: var(--mid)">
-                    out of <strong id="mcqTotal">0</strong> attempted
-                </div>
+                <div><div class="score-num" id="mcqScore">0</div><div style="font-size:12px;color:var(--mid)">correct answers</div></div>
+                <div style="font-size:13px;color:var(--mid)">out of <strong id="mcqTotal">0</strong> attempted</div>
                 <button class="reset-btn" onclick="resetMCQ()">RESET</button>
             </div>
             <div class="quiz-wrap" id="mcqWrap"></div>
         </div>
-
         <div class="tab-panel" id="tab-matching">
             <h2 class="section-title">Matching Activity</h2>
-            <p class="section-sub">
-                Click a term on the left, then click the matching definition on the
-                right.
-            </p>
-            <div style="margin-bottom: 16px">
-                <div class="score-bar">
-                    <div>
-                        <div class="score-num" id="matchScore">0</div>
-                        <div style="font-size: 12px; color: var(--mid)">matched</div>
-                    </div>
-                    <div style="font-size: 13px; color: var(--mid)">
-                        out of <strong id="matchTotal">0</strong>
-                    </div>
-                    <button class="reset-btn" onclick="resetMatch()">RESET</button>
-                </div>
-            </div>
+            <p class="section-sub">Click a term on the left, then its match on the right.</p>
+            <div style="margin-bottom:16px"><div class="score-bar">
+                <div><div class="score-num" id="matchScore">0</div><div style="font-size:12px;color:var(--mid)">matched</div></div>
+                <div style="font-size:13px;color:var(--mid)">out of <strong id="matchTotal">0</strong></div>
+                <button class="reset-btn" onclick="resetMatch()">RESET</button>
+            </div></div>
             <div class="match-grid">
-                <div>
-                    <div class="match-label">TERMS</div>
-                    <div class="match-col" id="matchLeft"></div>
-                </div>
-                <div>
-                    <div class="match-label">DEFINITIONS</div>
-                    <div class="match-col" id="matchRight"></div>
-                </div>
+                <div><div class="match-label">TERMS</div><div class="match-col" id="matchLeft"></div></div>
+                <div><div class="match-label">DEFINITIONS</div><div class="match-col" id="matchRight"></div></div>
             </div>
         </div>
-
         <div class="tab-panel" id="tab-fib">
             <h2 class="section-title">Fill in the Blanks</h2>
-            <p class="section-sub">
-                Click each dropdown and choose the correct word. Wrong answers reset —
-                try again!
-            </p>
+            <p class="section-sub">Choose the correct word. Dictation rows play audio — tap 🔊, then fill the gap.</p>
             <div class="score-bar">
-                <div>
-                    <div class="score-num" id="fibScore">0</div>
-                    <div style="font-size: 12px; color: var(--mid)">correct</div>
-                </div>
-                <div style="font-size: 13px; color: var(--mid)">
-                    of <strong id="fibTotal">0</strong> blanks
-                </div>
+                <div><div class="score-num" id="fibScore">0</div><div style="font-size:12px;color:var(--mid)">correct</div></div>
+                <div style="font-size:13px;color:var(--mid)">of <strong id="fibTotal">0</strong> blanks</div>
                 <button class="reset-btn" onclick="resetFIB()">RESET</button>
             </div>
             <div class="fib-wrap" id="fibWrap"></div>
         </div>
-
         <div class="tab-panel" id="tab-misconceptions">
             <h2 class="section-title">Common Misconceptions</h2>
-            <p class="section-sub">
-                What students often think — and what examiners actually want.
-            </p>
+            <p class="section-sub">The mistakes GCSE Spanish students make most.</p>
             <div class="misc-list" id="miscList"></div>
         </div>
-
         <div class="tab-panel" id="tab-examtips">
             <h2 class="section-title">Exam Questions &amp; Tips</h2>
-            <p class="section-sub">
-                Most repeated question types and mark-scheme structures from real OCR
-                papers.
-            </p>
+            <p class="section-sub">How each part of Paper 4 rewards this topic.</p>
             <div class="tips-grid" id="tipsGrid"></div>
         </div>
-
         <div class="tab-panel" id="tab-flashcards">
             <h2 class="section-title">Flashcards</h2>
-            <p class="section-sub">
-                Test yourself! Flip the card and rate your knowledge. Review your weak
-                areas at the end.
-            </p>
-
+            <p class="section-sub">Test yourself! Flip the card and rate your knowledge.</p>
             <div class="fc-container">
-                <div class="score-bar" id="fcScoreBar" style="display: none; margin-bottom: 20px">
-                    <div>
-                        <div class="score-num" id="fcKnown" style="color: #2d7a4f">0</div>
-                        <div style="font-size: 12px; color: var(--mid)">known</div>
-                    </div>
-                    <div>
-                        <div class="score-num" id="fcUnknown" style="color: #c84b31">
-                            0
-                        </div>
-                        <div style="font-size: 12px; color: var(--mid)">learning</div>
-                    </div>
-                    <div style="font-size: 13px; color: var(--mid)">
-                        out of <strong id="fcTotalTrack">0</strong>
-                    </div>
+                <div class="score-bar" id="fcScoreBar" style="display:none;margin-bottom:20px">
+                    <div><div class="score-num" id="fcKnown" style="color:#2d7a4f">0</div><div style="font-size:12px;color:var(--mid)">known</div></div>
+                    <div><div class="score-num" id="fcUnknown" style="color:#c84b31">0</div><div style="font-size:12px;color:var(--mid)">learning</div></div>
+                    <div style="font-size:13px;color:var(--mid)">out of <strong id="fcTotalTrack">0</strong></div>
                     <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
                 </div>
-
                 <div id="fcActiveArea">
                     <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
                     <div class="flashcard" id="flashcard" onclick="flipCard()">
                         <div class="fc-inner">
-                            <div class="fc-front">
-                                <div class="fc-label">KEY TERM</div>
-                                <div class="fc-term" id="fcTerm"></div>
-                            </div>
-                            <div class="fc-back">
-                                <div class="fc-def" id="fcDef"></div>
-                            </div>
+                            <div class="fc-front"><div class="fc-label">SPANISH</div><div class="fc-term" id="fcTerm"></div></div>
+                            <div class="fc-back"><div class="fc-def" id="fcDef"></div></div>
                         </div>
                     </div>
                     <p class="fc-hint">👆 Click card to flip</p>
-
                     <div class="fc-nav" id="fcNavDefault">
-                        <button class="fc-btn outline" onclick="prevCard()">
-                            ← Prev
-                        </button>
+                        <button class="fc-btn outline" onclick="prevCard()">← Prev</button>
                         <button class="fc-btn outline" onclick="flipCard()">Flip</button>
                         <button class="fc-btn" onclick="nextCard()">Next →</button>
                     </div>
-
-                    <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px">
-                        <button class="fc-btn outline" style="border-color: #c84b31; color: #c84b31; flex: 1"
-                            onclick="markCard(false)">
-                            ❌ Still Learning
-                        </button>
-                        <button class="fc-btn" style="background: #2d7a4f; border-color: #2d7a4f; flex: 1"
-                            onclick="markCard(true)">
-                            ✅ Got It
-                        </button>
+                    <div class="fc-nav" id="fcNavAssess" style="display:none;gap:15px">
+                        <button class="fc-btn outline" style="border-color:#c84b31;color:#c84b31;flex:1" onclick="markCard(false)">❌ Still Learning</button>
+                        <button class="fc-btn" style="background:#2d7a4f;border-color:#2d7a4f;flex:1" onclick="markCard(true)">✅ Got It</button>
                     </div>
                 </div>
-
-                <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px">
+                <div id="fcSummaryArea" style="display:none;text-align:center;padding:40px 20px">
                     <h3>Session Complete! 🎉</h3>
-                    <p style="margin: 15px 0">
-                        You knew <strong id="fcSummaryKnown">0</strong> out of
-                        <strong id="fcSummaryTotal">0</strong> cards.
-                    </p>
-                    <div style="
-                margin-top: 25px;
-                display: flex;
-                gap: 15px;
-                justify-content: center;
-                flex-wrap: wrap;
-              ">
-                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
-                            style="background: #c84b31; border-color: #c84b31">
-                            Review Incorrect
-                        </button>
-                        <button class="fc-btn outline" onclick="resetFlashcards()">
-                            Practice All Again
-                        </button>
+                    <p style="margin:15px 0">You knew <strong id="fcSummaryKnown">0</strong> out of <strong id="fcSummaryTotal">0</strong> cards.</p>
+                    <div style="margin-top:25px;display:flex;gap:15px;justify-content:center;flex-wrap:wrap">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()" style="background:#c84b31;border-color:#c84b31">Review Incorrect</button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">Practice All Again</button>
                     </div>
                 </div>
             </div>
         </div>
-
         <div class="tab-panel" id="tab-truefalse">
             <h2 class="section-title">True or False?</h2>
-            <p class="section-sub">Test your knowledge with these statements.</p>
+            <p class="section-sub">¿Verdadero o falso?</p>
             <div class="score-bar">
-                <div>
-                    <div class="score-num" id="tfScore">0</div>
-                    <div style="font-size: 12px; color: var(--mid)">correct</div>
-                </div>
-                <div style="font-size: 13px; color: var(--mid)">
-                    of <strong id="tfTotal">0</strong> answered
-                </div>
+                <div><div class="score-num" id="tfScore">0</div><div style="font-size:12px;color:var(--mid)">correct</div></div>
+                <div style="font-size:13px;color:var(--mid)">of <strong id="tfTotal">0</strong> answered</div>
                 <button class="reset-btn" onclick="resetTF()">RESET</button>
             </div>
             <div class="tf-wrap" id="tfWrap"></div>
         </div>
-
         <div class="tab-panel" id="tab-exampractice">
             <h2 class="section-title">Exam Practice Questions</h2>
-            <p class="section-sub">
-                Full exam questions with case studies. Use <strong>Hint</strong>,
-                <strong>Sentence Starter</strong> and
-                <strong>Submit &amp; See Mark Scheme</strong> for each question.
-            </p>
+            <p class="section-sub">Use <strong>Hint</strong>, <strong>Sentence Starter</strong> and <strong>Submit &amp; See Mark Scheme</strong>.</p>
             <div class="ep-list" id="epList"></div>
         </div>
     </main>
 
 <script>
-    // ══════════════════════════════════════
-    //  DATA: X.4 Writing and Translation into Spanish — placeholder, content not yet written
-    // ══════════════════════════════════════
-    const pageMeta = {
-            id: 'x-4-writing-and-translation-into-spanish',
-            badge: 'AQA GCSE Spanish — Exam Skills · X. Exam Skills',
-            title: 'X.4 Writing and Translation into Spanish',
-            subtitle: 'Interactive revision guide',
-            subject: 'spanish',
-        };
+    // ══════════════════════════════════════════════════════════════════
+    //  DATA: X.4 Writing and translation into Spanish  (AQA 8692, Exam Skills — Paper 4)
+    //  All taught Spanish is on the prescribed wordlist. Audible Spanish carries
+    //  data-say="…"; data-listen makes a prompt audio-only (no transcript shown).
+    //  Higher-tier items marked <span class="tier-h">H</span>. Option-writing follows
+    //  docs/QUESTION-AUTHORING.md (no length tell; distractors = real errors).
+    // ══════════════════════════════════════════════════════════════════
+    const pageMeta = { id: 'x-4-writing-and-translation-into-spanish', badge: 'AQA GCSE Spanish (8692) — Exam Skills · Paper 4 Writing', title: 'X.4 Writing and Translation into Spanish', subtitle: 'Interactive study guide', subject: 'spanish' };
 
     const topics = [
         {
-            title: "This topic is being written",
-            tag: "Coming soon",
-            content: `<p>🚧 <strong>Content for this topic is on its way.</strong> Key Learning notes, practice questions and exam-style questions for <strong>X.4 Writing and Translation into Spanish</strong> will appear here soon.</p>`
+            title: "What does Paper 4 (Writing) look like?",
+            tag: "Key concept",
+            content: `<p>Paper 4 is a <strong>written</strong> exam — no listening or speaking here. It lasts <span data-say="una hora y diez minutos en el nivel Foundation">1h10</span> at Foundation and <span data-say="una hora y quince minutos en el nivel Higher">1h15</span> at Higher, and is worth <strong>50 marks</strong> — <strong>25%</strong> of the whole GCSE.</p>
+            <table class="vocab-tbl">
+              <tr><td>Foundation Q1</td><td>5 short sentences about a photo (10)</td></tr>
+              <tr><td>Foundation Q2</td><td>~50 words to 5 bullet points (10)</td></tr>
+              <tr><td>Foundation Q3</td><td>5 short grammar tasks (5)</td></tr>
+              <tr><td>Foundation Q4</td><td>translation English→Spanish, min. 35 words (10)</td></tr>
+              <tr><td>Overlap question</td><td>~90 words to 3 bullets, choice of two (15)</td></tr>
+              <tr><td>Higher Q1</td><td>translation English→Spanish, min. 50 words (10)</td></tr>
+              <tr><td>Higher Q3</td><td>~150 words, respond to 2 bullets, choice of two (25)</td></tr>
+            </table>
+            <p>Every mark comes from the Spanish you write on the page, so accuracy and range matter more than raw length.</p>`,
+            readCheck: { q: "How many marks is Paper 4 worth, and what percentage of the GCSE is that?", opts: ["50 marks — 25% of the GCSE", "60 marks — 30% of the GCSE, the biggest of the four papers", "50 marks — 20% of the GCSE, the same weight as every other paper", "40 marks — 25% of the GCSE, and it is marked entirely by a computer"], ans: 0, explain: "Paper 4 (Writing) is 50 marks and 25% of the GCSE — the same weighting as the other three papers, not more or less." }
+        },
+        {
+            title: "Foundation Q1 — describing the photo",
+            tag: "Exam skill",
+            content: `<p>Q1 asks for <strong>five short sentences</strong> about a photo, 2 marks each. Use these openers, then add a detail:</p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="Hay">Hay…</span></td><td>there is / there are…</td><td><span data-say="En la foto">En la foto…</span></td><td>in the photo…</td></tr>
+              <tr><td><span data-say="Se ve">Se ve…</span></td><td>you can see…</td><td><span data-say="Al fondo">Al fondo…</span></td><td>in the background…</td></tr>
+              <tr><td><span data-say="A la izquierda">a la izquierda</span></td><td>on the left</td><td><span data-say="a la derecha">a la derecha</span></td><td>on the right</td></tr>
+            </table>
+            <p>Model sentences: <span data-say="Hay dos personas en la foto y hace mucho sol.">Hay dos personas en la foto y hace mucho sol.</span> <em>(There are two people in the photo and it is very sunny.)</em> — <span data-say="Al fondo, se ve un parque con muchos árboles.">Al fondo, se ve un parque con muchos árboles.</span> <em>(In the background, you can see a park with lots of trees.)</em></p>`,
+            readCheck: { q: "Which sentence best suits Q1 (describing a photo)?", opts: ["Hay dos personas en el parque.", "Ayer hice mis deberes en casa.", "Si tuviera más tiempo, viajaría mucho más.", "Aunque me gusta, prefiero hacer otra cosa."], ans: 0, explain: "‘Hay…’ + a simple present-tense observation is the openers examiners want for the photo task — not a past story or a conditional opinion." }
+        },
+        {
+            title: "Answering every bullet point (Q2 and the overlap question)",
+            tag: "Exam skill",
+            content: `<p>Q2 (~50 words) and the overlap question (~90 words) always give you <strong>bullet points</strong> — miss one and you cap your own mark, however good the Spanish is. Link your ideas with connectors instead of short, disconnected sentences:</p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="y">y</span></td><td>and</td><td><span data-say="pero">pero</span></td><td>but</td></tr>
+              <tr><td><span data-say="porque">porque</span></td><td>because</td><td><span data-say="también">también</span></td><td>also</td></tr>
+              <tr><td><span data-say="además">además</span></td><td>furthermore</td><td><span data-say="sin embargo">sin embargo</span></td><td>however</td></tr>
+            </table>
+            <p>Model sentences: <span data-say="Me gusta el colegio porque tengo muchos amigos, pero a veces hay demasiados deberes.">Me gusta el colegio porque tengo muchos amigos, pero a veces hay demasiados deberes.</span> — <span data-say="Además, mis profesores son simpáticos y me ayudan mucho.">Además, mis profesores son simpáticos y me ayudan mucho.</span></p>`,
+            readCheck: { q: "A student answers only 3 of the 5 bullet points in Q2. What happens?", opts: ["Their mark is capped, even if the Spanish for those 3 points is excellent", "Nothing — only the quality of the Spanish is ever marked", "They automatically get half marks for the whole question no matter what they wrote", "The examiner chooses two extra bullet points for them"], ans: 0, explain: "Content marks require every bullet to be addressed; skipping bullets caps the mark regardless of language quality." }
+        },
+        {
+            title: "Reaching the top band: opinions and tense variety",
+            tag: "Exam skill",
+            content: `<p>Examiners reward <strong>range</strong>, not length. Aim for at least three tenses and always give an opinion with a reason, not just a fact:</p>
+            <table class="vocab-tbl">
+              <tr><td>present</td><td><span data-say="Juego al fútbol todos los días.">Juego al fútbol todos los días.</span></td></tr>
+              <tr><td>past (preterite)</td><td><span data-say="El año pasado gané un torneo local.">El año pasado gané un torneo local.</span></td></tr>
+              <tr><td>future / conditional</td><td><span data-say="El año que viene voy a entrenar más y me gustaría ganar otra vez.">El año que viene voy a entrenar más y me gustaría ganar otra vez.</span></td></tr>
+            </table>
+            <p>Opinion + reason: <span data-say="En mi opinión, el deporte es importante porque nos mantiene sanos y nos ayuda a hacer amigos.">En mi opinión, el deporte es importante porque nos mantiene sanos y nos ayuda a hacer amigos.</span></p>`,
+            readCheck: { q: "Which feature of an answer earns credit for range?", opts: ["Using present, past and future tenses across the answer", "Repeating the same present-tense sentence in different words", "Writing as many words as possible without any connectors", "Copying the bullet points exactly as they are printed"], ans: 0, explain: "Range comes from varied tenses, connectors and opinions — not from word count or repetition." }
+        },
+        {
+            title: "Translating into Spanish — technique",
+            tag: "Exam skill",
+            content: `<p>Translation tests accuracy, not creativity. Four things examiners check line by line:</p>
+            <table class="vocab-tbl">
+              <tr><td>word order</td><td><span data-say="mi profesora de inglés">mi profesora de inglés</span> — not “mi de inglés profesora”</td></tr>
+              <tr><td>agreement</td><td><span data-say="dos hermanas altas">dos hermanas altas</span> — every adjective must agree</td></tr>
+              <tr><td>the right tense</td><td><span data-say="ayer hice mis deberes">ayer hice mis deberes</span> — past, not present</td></tr>
+              <tr><td>accents</td><td><span data-say="fácil, según, jóvenes">fácil / según / jóvenes</span> — a missing accent can lose the mark</td></tr>
+            </table>
+            <p>Work sentence by sentence, then read your Spanish back and check it sounds natural, not like a word-for-word crib.</p>`,
+            readCheck: { q: "Why is “mi de inglés profesora” wrong for ‘my English teacher’?", opts: ["Spanish word order is different from English — the noun and its details must be reordered", "‘de inglés’ should always come before ‘mi’", "the sentence is missing the personal ‘a’, which every sentence about a person must include", "‘profesora’ needs a written accent on the final letter"], ans: 0, explain: "Spanish word order for ‘mi profesora de inglés’ places the noun before ‘de inglés’ — translating word-for-word gives the wrong order. The personal ‘a’ rule (option C) doesn't apply here at all." }
+        },
+        {
+            title: "Higher: planning the 150-word open response (Q3)",
+            tag: "Higher tier",
+            content: `<p><span class="tier-h">H</span> Q3 gives <strong>two questions</strong> — you choose <strong>one</strong> — and asks you to respond to <strong>two bullet points</strong> in about 150 words. Plan before you write:</p>
+            <ul>
+              <li>one idea + opinion + reason for EACH bullet point</li>
+              <li>at least one complex connector: <span data-say="aunque">aunque</span>, <span data-say="sin embargo">sin embargo</span>, <span data-say="a pesar de">a pesar de</span> <span class="tier-h">H</span></li>
+              <li>a genuine spread of tenses across the whole answer, not just one paragraph</li>
+            </ul>
+            <p>Model opener: <span data-say="Aunque me gusta mucho mi colegio, a veces hay demasiada presión con los exámenes.">Aunque me gusta mucho mi colegio, a veces hay demasiada presión con los exámenes.</span> <span class="tier-h">H</span></p>`,
+            readCheck: { q: "At Higher tier, what must you do before starting Q3?", opts: ["Choose ONE of the two questions and plan an idea for each bullet point", "Answer both questions fully, one after the other, to maximise the marks available", "Write only in the present tense to avoid mistakes", "Copy the two bullet points as your first two sentences"], ans: 0, explain: "Q3 offers a choice of two questions — pick ONE, and plan an opinion + reason for each of its two bullet points. Attempting both wastes time and earns nothing extra." }
         }
     ];
 
-    const mcqData = [];
-    const matchData = [];
-    const fibData = [];
-    const fibWords = [];
-    const tfData = [];
-    const miscData = [];
-    const examTips = [];
-    const flashcards = [];
-    const examQuestions = [];
+    const mcqData = [
+        { q: "How many marks is the Foundation translation task (Q4, English→Spanish) worth?", opts: ["10 marks, for a minimum of 35 words", "15 marks, for a minimum of 50 words", "5 marks, for exactly ten words", "25 marks, for the longest answer on the paper"], ans: 0, explain: "Foundation Q4 (translation into Spanish) is 10 marks, minimum 35 words. Higher Q1 raises this to 50 words for the same 10 marks." },
+        { q: `<span data-say="Voy a describir la foto: hay una familia en el parque." data-listen></span><br>Listen. What is the speaker about to do?`, opts: ["Describe the photo", "Ask a question about the photo", "Translate the photo caption into English", "Give an opinion about something from yesterday"], ans: 0, explain: "‘voy a describir la foto’ = I’m going to describe the photo. The traps swap the task for a question, a translation or a past opinion." },
+        { q: `<span data-say="En mi opinión, es importante hacer ejercicio porque es bueno para la salud." data-listen></span><br>Listen. What is being expressed?`, opts: ["An opinion together with a reason", "A simple fact with no opinion given", "A question about staying healthy", "An instruction telling someone to stop exercising"], ans: 0, explain: "‘en mi opinión… porque…’ signals an opinion with a reason — exactly the top-band feature examiners are listening for." },
+        { q: "Which sentence shows correct adjective agreement?", opts: [`<span data-say="Tengo dos hermanas altas.">Tengo dos hermanas altas.</span>`, "Tengo dos hermanas altas y bajo.", "Tengo dos hermano alta.", "Tengo dos hermana altos."], ans: 0, explain: "‘hermanas’ is feminine plural, so every adjective must also be feminine plural: altas. Option B adds a second adjective (bajo) that disagrees; the others mismatch gender or number somewhere." },
+        { q: "Grammar task: ‘Ayer, mi hermano _____ al cine con sus amigos.’ Which verb form is correct?", opts: [`<span data-say="Ayer, mi hermano fue al cine con sus amigos.">fue</span>`, "va", "iba", "irá"], ans: 0, explain: "‘Ayer’ (yesterday) needs the preterite for a single completed action: fue (went). va=present, iba=imperfect, irá=future — all wrong tense for ‘ayer’." },
+        { q: "Which sentence uses a connector to show contrast?", opts: [`<span data-say="Me gusta el fútbol, pero prefiero el baloncesto.">Me gusta el fútbol, pero prefiero el baloncesto.</span>`, "Me gusta el fútbol y también el baloncesto los fines de semana.", "Me gusta el fútbol porque es muy divertido.", "Me gusta mucho el fútbol todos los fines de semana."], ans: 0, explain: "‘pero’ = but, showing contrast. Option B is longer but only adds (‘y también’), it does not contrast; the others use a reason or no connector at all." },
+        { q: "Translate: ‘my English teacher’ (a woman) into Spanish.", opts: [`<span data-say="mi profesora de inglés">mi profesora de inglés</span>`, "mi de inglés profesora", "mi profesora inglés de", "profesora mi de inglés"], ans: 0, explain: "Correct Spanish word order is article + noun + ‘de’ + language: mi profesora de inglés. The others jumble the same words into the wrong order." },
+        { q: "In the Higher tier, how many marks is Q3 (the ~150-word open response) worth?", opts: [`<span data-say="Q3 vale veinticinco puntos, la pregunta más importante del examen Higher.">25 marks — the single biggest question on the whole paper</span>`, "15 marks — the same value as the overlap question students also answer", "10 marks, matching the translation question earlier in the paper", "50 marks — it is the entire Higher paper marked as one question"], ans: 0, explain: "Higher Q3 is worth 25 marks, more than any other single question on Paper 4 — it rewards range and accuracy over 150 words." },
+        { q: "Which answer is most likely to reach the top band?", opts: ["One that uses three tenses, gives an opinion with a reason, and links ideas with connectors", "One that repeats similar present-tense sentences several times in slightly different words to reach the word count", "One that copies the bullet points word-for-word with no extra detail added", "One long sentence with no full stops, connectors or punctuation at all"], ans: 0, explain: "Top-band answers show range (tenses, connectors, opinions) and accuracy — not sheer length or repetition to hit a word count." },
+        { q: "Grammar task: which sentence correctly uses the conditional ‘me gustaría’?", opts: [`<span data-say="Me gustaría viajar a España el año que viene.">Me gustaría viajar a España el año que viene.</span>`, "Me gusta viajaría a España el año que viene.", "Me gustaría viajo a España el año que viene.", "Gustaría me viajar a España el año que viene."], ans: 0, explain: "‘me gustaría’ + infinitive = I would like to. The others mix tenses incorrectly or put the pronoun in the wrong place." }
+    ];
+
+    const matchData = [
+        { term: "Hay…", def: "there is / there are…" },
+        { term: "En la foto…", def: "in the photo…" },
+        { term: "se debe", def: "one should" },
+        { term: "pero", def: "but" },
+        { term: "porque", def: "because" },
+        { term: "también", def: "also" },
+        { term: "además", def: "furthermore" },
+        { term: "sin embargo", def: "however" },
+        { term: "aunque", def: "although" },
+        { term: "un mínimo de 35 palabras", def: "a minimum of 35 words" },
+        { term: "la traducción", def: "the translation" },
+        { term: "el borrador", def: "the draft / rough plan" }
+    ];
+
+    const fibData = [
+        { display: `Hay dos personas en la _____. <span data-say="Hay dos personas en la foto." data-listen>Hay dos personas en la foto.</span>`, blanks: { B1: "foto" } },
+        { display: `Me gusta el fútbol, _____ prefiero el baloncesto. (contrast)`, blanks: { B1: "pero" } },
+        { display: `Es importante hacer ejercicio _____ es bueno para la salud. (reason)`, blanks: { B1: "porque" } },
+        { display: `Ayer _____ al cine con mis amigos. <span data-say="Ayer fui al cine con mis amigos." data-listen>Ayer fui al cine con mis amigos.</span>`, blanks: { B1: "fui" } },
+        { display: `La traducción debe tener un mínimo de treinta y cinco _____. (words)`, blanks: { B1: "palabras" } },
+        { display: `_____ embargo, prefiero estudiar en casa por la tarde. (however)`, blanks: { B1: "Sin" } },
+        { display: `El año que viene, _____ a la universidad. (will go — future tense)`, blanks: { B1: "iré" } }
+    ];
+    const fibWords = ["foto", "pero", "porque", "fui", "palabras", "Sin", "iré"];
+
+    const tfData = [
+        { statement: "Paper 4 (Writing) is worth 50 marks and 25% of the GCSE.", answer: true, explanation: "50 marks, 25% of the total GCSE — the same weighting as the other three papers." },
+        { statement: "At Foundation tier, Q4 is a translation into Spanish of a minimum of 35 words.", answer: true, explanation: "Foundation Q4: translate English into Spanish, minimum 35 words, 10 marks." },
+        { statement: "At Higher tier, the ~150-word open response (Q3) is the lowest-mark question on the paper.", answer: false, explanation: "It is the highest — 25 marks, more than any other single question on Paper 4." },
+        { statement: "Connectors like ‘sin embargo’ and ‘aunque’ help you reach the top band by linking ideas.", answer: true, explanation: "Range marks reward connectors that link and contrast ideas, not just short separate sentences." },
+        { statement: "For the top band, it is enough to use one tense correctly throughout your whole answer.", answer: false, explanation: "Examiners reward tense VARIETY — present, past and future/conditional across the answer." },
+        { statement: "In the photo-description task, ‘Hay…’ and ‘En la foto…’ are useful sentence starters.", answer: true, explanation: "Both openers are natural, mark-scoring ways to begin a Q1 photo sentence." },
+        { statement: "When translating into Spanish, adjectives do not need to agree with the noun they describe.", answer: false, explanation: "Adjective agreement (gender and number) is one of the four things examiners check in every translation." },
+        { statement: "You should answer every bullet point in the structured writing tasks, or your mark is capped.", answer: true, explanation: "Missing a bullet point caps the content mark, however good the Spanish for the other bullets is." }
+    ];
+
+    const miscData = [
+        { wrong: "Escribí muchas frases sobre la foto, pero solo usé el presente.", correct: `<span data-say="Escribí sobre la foto usando el presente, el pasado y el futuro para mostrar variedad de tiempos verbales.">Escribí sobre la foto usando el presente, el pasado y el futuro para mostrar variedad de tiempos verbales.</span>`, readCheck: { q: "Why does only using the present tense lose marks?", opts: ["Examiners reward tense variety across the whole answer, not just accuracy", "The present tense is always marked wrong on Paper 4, so it must be avoided completely", "Photo sentences must never use the present tense", "Using one tense makes the Spanish ungrammatical"], ans: 0, explain: "The present tense itself is fine, but sticking to ONE tense throughout misses the range marks that reward variety." } },
+        { wrong: "Tengo dos hermanas alto.", correct: `<span data-say="Tengo dos hermanas altas.">Tengo dos hermanas altas.</span>`, readCheck: { q: "Why is ‘Tengo dos hermanas alto’ wrong?", opts: ["‘hermanas’ is feminine plural, so the adjective must also be feminine plural: altas", "‘tengo’ needs to change to ‘tiene’, because the subject has changed from ‘yo’ to ‘él’", "‘alto’ should always come before the noun it describes", "‘dos’ needs a written accent before a feminine noun"], ans: 0, explain: "Adjectives agree in gender AND number with the noun: hermanas (fem. pl.) needs altas, not the masculine singular alto. The subject is still ‘yo’ (tengo), so option B is a distraction." } },
+        { wrong: "En la traducción, traduje palabra por palabra sin cambiar el orden.", correct: `<span data-say="En la traducción, cambié el orden de las palabras para que sonara natural en español.">En la traducción, cambié el orden de las palabras para que sonara natural en español, por ejemplo ‘mi profesora de inglés’.</span>`, readCheck: { q: "What is wrong with translating word-for-word?", opts: ["Spanish word order is often different from English, so a literal translation sounds unnatural or is marked wrong", "Word-for-word translation is always the safest, highest-scoring method because it keeps every English word in place", "Examiners only check spelling, never word order", "Word order does not matter in Spanish sentences"], ans: 0, explain: "A literal, word-for-word translation frequently produces the wrong Spanish word order and loses accuracy marks." } },
+        { wrong: "En mi respuesta de noventa palabras solo contesté dos de los tres puntos.", correct: `<span data-say="En mi respuesta de noventa palabras contesté los tres puntos con el mismo nivel de detalle.">En mi respuesta de noventa palabras contesté los tres puntos con el mismo nivel de detalle.</span>`, readCheck: { q: "What happens if a student only answers two of three bullet points?", opts: ["Their content mark is capped, even if the Spanish they did write is excellent", "Nothing changes, because only grammar accuracy is ever marked on this whole paper", "The examiner gives full marks for the two points they did answer and ignores the rest", "They are automatically awarded half marks for the whole task"], ans: 0, explain: "Content marks require every bullet point to be addressed — skipping one caps the mark regardless of language quality." } },
+        { wrong: "Escribí ‘me gusta el fútbol y me gusta el fútbol y me gusta el fútbol’ para llegar a las palabras.", correct: `<span data-say="Escribí opiniones distintas con razones y conectores para llegar a las palabras con contenido de calidad.">Escribí opiniones distintas con razones y conectores para llegar a las palabras con contenido de calidad.</span>`, readCheck: { q: "Why does repeating the same sentence to hit the word count fail?", opts: ["Marks reward the QUALITY and range of content, not simply reaching a word count", "The word count is only a suggestion and does not really need to be reached at all", "Repetition is grammatically incorrect in Spanish", "Examiners cannot read repeated sentences at all"], ans: 0, explain: "Reaching the word count with repeated, low-content sentences earns no extra marks — quality, range and addressing the bullets is what counts." } }
+    ];
+
+    const examTips = [
+        { type: "tip", title: "Foundation Q1 &amp; Q2 — photo and bullet points", pills: ["Writing", "Foundation"], content: "Q1: five short sentences using ‘Hay…’ / ‘En la foto…’ plus a detail, 2 marks each. Q2: ~50 words hitting all five bullet points, linked with ‘y’, ‘pero’, ‘porque’, ‘también’ so it reads as connected Spanish, not a list.", readCheck: { q: "What is the biggest way to lose marks on Q2?", opts: ["Leaving one of the bullet points unanswered", "Using the connector ‘porque’ more than once", "Writing slightly more than 50 words", "Starting a sentence with ‘Hay’"], ans: 0, explain: "Every bullet point must be addressed — missing even one caps the content mark." } },
+        { type: "tip", title: "Translation into Spanish — Q4 / Higher Q1", pills: ["Writing", "Translation"], content: "Translate sentence by sentence: get the tense right first (present/past/future), then check word order (mi profesora de inglés) and that every adjective agrees. Read the Spanish back — if it doesn’t sound natural, the word order is probably wrong.", readCheck: { q: "What is the first thing to check when translating a sentence into Spanish?", opts: ["That you have used the correct tense for that sentence", "That every word has exactly the same number of letters as English", "That you have written the longest possible sentence", "That you have used the present tense throughout"], ans: 0, explain: "Tense comes first — a perfectly-spelled sentence in the wrong tense still loses the mark." } },
+        { type: "evaluate", title: "Higher Q3 — the 150-word open response", pills: ["Writing", "Higher"], content: `Choose ONE of the two questions, then plan an opinion + reason for each of the two bullet points before you write. Combine a problem, an opinion and a future plan: <span data-say="Aunque me gusta mi colegio, a veces hay demasiada presión, así que voy a organizar mejor mi tiempo.">‘Aunque me gusta mi colegio, a veces hay demasiada presión, así que voy a organizar mejor mi tiempo.’</span> Add ‘sin embargo’ or ‘a pesar de’ for extra range.`, readCheck: { q: "Which answer is closest to reaching the top band for Higher Q3?", opts: ["Aunque me gusta mi colegio, a veces hay demasiada presión, así que voy a organizar mejor mi tiempo", "Me gusta mi colegio y me gusta mi colegio y me gusta mucho mi colegio todos los días sin parar nunca", "Mi colegio", "Fui al colegio"], ans: 0, explain: "It links a contrast connector, an opinion, a reason and a future plan — range and accuracy, not just length." } }
+    ];
+
+    const flashcards = [
+        { term: "Hay…", def: "there is / there are…", say: "Hay…" },
+        { term: "En la foto…", def: "in the photo…", say: "En la foto…" },
+        { term: "pero", def: "but", say: "pero" },
+        { term: "porque", def: "because", say: "porque" },
+        { term: "también", def: "also", say: "también" },
+        { term: "además", def: "furthermore", say: "además" },
+        { term: "sin embargo", def: "however", say: "sin embargo" },
+        { term: "aunque", def: "although", say: "aunque" },
+        { term: "un mínimo de 35 palabras", def: "minimum 35 words (Foundation translation)", say: "un mínimo de treinta y cinco palabras" },
+        { term: "un mínimo de 50 palabras (H)", def: "minimum 50 words (Higher translation)", say: "un mínimo de cincuenta palabras" },
+        { term: "el borrador", def: "the draft / rough plan", say: "el borrador" },
+        { term: "la traducción", def: "the translation", say: "la traducción" },
+        { term: "contestar todos los puntos", def: "to answer every bullet point", say: "contestar todos los puntos" },
+        { term: "la variedad de tiempos verbales", def: "tense variety", say: "la variedad de tiempos verbales" },
+        { term: "dar una opinión con una razón", def: "to give an opinion with a reason", say: "dar una opinión con una razón" },
+        { term: "el orden de las palabras", def: "word order", say: "el orden de las palabras" },
+        { term: "la concordancia de los adjetivos (H)", def: "adjective agreement", say: "la concordancia de los adjetivos" },
+        { term: "elegir entre dos preguntas (H)", def: "to choose between two questions", say: "elegir entre dos preguntas" }
+    ];
+
+    const EXAM_CASE_STUDIES = {};
+
+    const examQuestions = [
+        {
+            num: 1, marks: 10, type: "written",
+            question: "Translate these sentences <strong>into Spanish</strong>.<br>(a) I have two brothers.<br>(b) My father is very tall.<br>(c) We usually have dinner at eight o'clock.<br>(d) Yesterday I did my homework at home.<br>(e) In the future, I would like to travel to Spain.",
+            hint: "Check the verb AND the tense in every sentence: (a)–(c) are present, (d) is a completed past action (preterite), (e) needs ‘me gustaría’ + infinitive.",
+            starter: "(a) Tengo… (b) Mi padre… (c) Normalmente… (d) Ayer… (e) En el futuro, me gustaría…",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 10 marks (AO4 Writing: translation)</h5><ul>
+                <li><strong>(a)</strong> Tengo dos hermanos. <em>(2 — 1 for verb/tense, 1 for word order &amp; agreement)</em></li>
+                <li><strong>(b)</strong> Mi padre es muy alto. <em>(2)</em></li>
+                <li><strong>(c)</strong> Normalmente cenamos a las ocho. <em>(2)</em></li>
+                <li><strong>(d)</strong> Ayer hice mis deberes en casa. <em>(2)</em></li>
+                <li><strong>(e)</strong> En el futuro, me gustaría viajar a España. <em>(2)</em></li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+                <li>Accept minor accent errors if the word is still recognisable. Each sentence must use the correct tense to earn the verb mark.</li>
+            </ul></div>`,
+            modelAnswer: "(a) Tengo dos hermanos. (b) Mi padre es muy alto. (c) Normalmente cenamos a las ocho. (d) Ayer hice mis deberes en casa. (e) En el futuro, me gustaría viajar a España.",
+            markPoints: { note: "Each sentence is worth 2: one tick for the correct verb/tense, one for word order and agreement. Cap at 10.", groups: [
+                { label: "(a) I have two brothers", max: 2, points: [{ text: "Correct verb and present tense (Tengo)", marks: 1 }, { text: "Correct word order and number agreement (dos hermanos)", marks: 1 }] },
+                { label: "(b) My father is very tall", max: 2, points: [{ text: "Correct verb ser, present tense (es)", marks: 1 }, { text: "Adjective agrees with ‘padre’ (alto, masculine)", marks: 1 }] },
+                { label: "(c) We usually have dinner at eight", max: 2, points: [{ text: "Correct verb cenar, ‘we’ form, present tense (cenamos)", marks: 1 }, { text: "Correct time phrase (a las ocho) and word order", marks: 1 }] },
+                { label: "(d) Yesterday I did my homework at home", max: 2, points: [{ text: "Correct preterite (past) verb form (hice), not present", marks: 1 }, { text: "Correct word order (mis deberes en casa)", marks: 1 }] },
+                { label: "(e) In the future, I would like to travel to Spain", max: 2, points: [{ text: "Correct conditional + infinitive (me gustaría viajar)", marks: 1 }, { text: "Correct preposition and word order (a España)", marks: 1 }] }
+            ] }
+        },
+        {
+            num: 2, marks: 15, type: "written",
+            question: "Escribe unas <strong>90 palabras</strong> sobre tu vida en el colegio. Menciona:<br>• tus asignaturas favoritas y por qué<br>• un problema que tuviste en el colegio y cómo lo resolviste<br>• tus planes para el año que viene",
+            hint: "Address all three bullets. Use at least three tenses (present, past and future), one opinion with a reason, and connectors like porque, pero, sin embargo.",
+            starter: "Mi asignatura favorita es… porque… El año pasado tuve un problema:… Por eso… El año que viene, voy a…",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 15 marks (Content / Range / Accuracy)</h5><ul>
+                <li><strong>Content (6):</strong> all three bullet points addressed with real detail, 2 marks each.</li>
+                <li><strong>Range (5):</strong> three or more tenses used (2); two or more connectors used (2); an opinion with a reason given (1).</li>
+                <li><strong>Accuracy (4):</strong> verbs correctly conjugated for tense/subject (2); adjective agreement and spelling/accents mostly correct (2).</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+                <li>A student who addresses all bullets but stays in one tense cannot access full Range marks. Minor spelling slips that don't obscure meaning are not heavily penalised.</li>
+            </ul></div>`,
+            modelAnswer: "Mi asignatura favorita es la historia porque el profesor explica muy bien y aprendo mucho sobre el pasado. También me gusta el arte, aunque prefiero la historia. El año pasado tuve un problema: saqué una mala nota en un examen de matemáticas. Por eso, hablé con mi profesor y estudié más cada noche, así que ahora saco mejores notas. El año que viene voy a elegir ciencias porque quiero ser médico, y creo que será un año interesante pero bastante difícil.",
+            markPoints: { note: "Content groups reward each bullet; Range and Accuracy reward the language used across the whole answer. Groups cap at their max; total caps at 15.", groups: [
+                { label: "Content — bullet 1: favourite subjects and why", max: 2, points: [{ text: "Named a favourite subject", marks: 1 }, { text: "Gave a reason for liking it", marks: 1 }] },
+                { label: "Content — bullet 2: a problem and how you solved it", max: 2, points: [{ text: "Described a real problem at school", marks: 1 }, { text: "Explained how it was resolved", marks: 1 }] },
+                { label: "Content — bullet 3: plans for next year", max: 2, points: [{ text: "Named a specific plan for next year", marks: 1 }, { text: "Gave a reason or extra detail for that plan", marks: 1 }] },
+                { label: "Range — language across the whole answer", max: 5, points: [{ text: "Used THREE or more different tenses (present, past, future/conditional)", marks: 2 }, { text: "Used TWO or more connectors (porque, pero, también, sin embargo, aunque…)", marks: 2 }, { text: "Gave at least one opinion with a reason, not just a fact", marks: 1 }] },
+                { label: "Accuracy — grammar and spelling", max: 4, points: [{ text: "Verbs are conjugated correctly for their tense and subject", marks: 2 }, { text: "Adjectives agree and spelling/accents are mostly correct", marks: 2 }] }
+            ] }
+        }
+    ];
 </script>
+
+    <!-- Spanish voice capability (SPANISH-CONTENT-PLAN.md §8.1). Self-installs the 🔊
+         buttons + speed/voice panel + tab observer. Loads before /script.js. -->
     <script src="/speech.js"></script>
+    <!-- Exam self-marking: tick-the-mark-scheme panel (shared with CS / Additional Maths;
+         docs/SELF-MARK-POINTS-AUTHORING.md). -->
     <script src="/cs-lab/exam-widgets.js"></script>
     <script src="/script.js"></script>
-<script src="section-totals.js"></script>
-<script src="page-groups.js"></script>
-<script src="/progress-shared.js"></script>
-<script src="/gamification.js"></script>
-<script src="/topic-guard.js"></script>
-<script src="/notifications-shared.js"></script>
-<script src="/onboarding-tour.js"></script>
-<script src="/footer-legal.js"></script>
+    <script src="section-totals.js"></script>
+    <script src="page-groups.js"></script>
+    <script src="/progress-shared.js"></script>
+    <script src="/gamification.js"></script>
+    <script src="/topic-guard.js"></script>
+    <script src="/notifications-shared.js"></script>
+    <script src="/onboarding-tour.js"></script>
+    <script src="/footer-legal.js"></script>
 </body>
 
 </html>
